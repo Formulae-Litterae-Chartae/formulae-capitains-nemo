@@ -52,11 +52,11 @@
                     </ul>
                 </div>
                 <div class="col-xl-2 col-4">
-                    <div class="text-center search-section-label"><strong><label for="word-search-box">{{ _('Wortsuche') }}</label></strong><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.wordSearchMessage }}" aria-label="{{ _('Hilfe für Wortsuche') }}"><i class="fas fa-question-circle"></i></button></div>
+                    <div class="text-center search-section-label"><strong>{{ _('Wortsuche') }}</strong><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.wordSearchMessage }}" aria-label="{{ _('Hilfe für Wortsuche') }}"><i class="fas fa-question-circle"></i></button></div>
                     <div id="searchQ-1">
                         <div class="form-row">
                             <div class="col">
-                                {{ form.q_1(class="form-control my-0", placeholder=form.q_1.label.text, id="word-search-box", list="word-search-datalist", default=form.q_1.label.text, autocomplete="off") }}
+                                {{ form.q_1(class="form-control my-0 word-search-box", placeholder=form.q_1.label.text, list="word-search-datalist_1", default=form.q_1.label.text, autocomplete="off") }}
                                 <datalist id="word-search-datalist_1">
                                 </datalist>
                             </div>
@@ -74,7 +74,7 @@
                                         checked{% endif %}>
                                     <label class="form-check-label" for="{{ subfield[0] }}">
                                     {{ subfield[1] }}
-                                    </label>{% if subfield[0] == 'lemmas' %}<span class="position-relative ml-1 smallfont" id="lemmalist-tooltip" data-toggle="tooltip" data-container="#lemmalist-tooltip" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none"><i class="fas fa-list"></i></a></span>{% endif %}
+                                    </label>{% if subfield[0] == 'lemmas' %}<span class="position-relative ml-1 smallfont" id="lemmalist-tooltip_1" data-toggle="tooltip" data-container="#lemmalist-tooltip_1" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none"><i class="fas fa-list"></i></a></span>{% endif %}
                                 </div>
                             {% endfor %}
                             </div>
@@ -122,9 +122,243 @@
                                         </div>
                                         <div class="col-5">
                                             <div class="form-group">{{ form.slop_1.label() }}<br>
-                                            <span class="smallfont">{{ form.slop_1(min="0", size="5") }} {{ _('Wörter') }}</span></div>
+                                            <span class="smallfont">{{ form.slop_1(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
                                             <div class="form-group">{{ form.fuzziness_1.label() }}<br>
                                             <span class="smallfont">{{ form.fuzziness_1() }}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="searchQ-2">
+                        <div class="form-row">
+                            <div class="col">
+                                {{ form.q_2(class="form-control my-0 word-search-box", placeholder=form.q_2.label.text, list="word-search-datalist_1", default=form.q_2.label.text, autocomplete="off") }}
+                                <datalist id="word-search-datalist_1">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-auto">
+                                <strong>{{ form.search_field_2.label() }}:</strong>
+                            </div>
+                            <div class="col">
+                            {% for subfield in form.search_field_2.choices %}
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="search_field_2"
+                                        id="{{ subfield[0] }}"
+                                        value="{{ subfield[0] }}"{% if form.data.search_field_2 == subfield[0] %}
+                                        checked{% endif %}>
+                                    <label class="form-check-label" for="{{ subfield[0] }}">
+                                    {{ subfield[1] }}
+                                    </label>{% if subfield[0] == 'lemmas' %}<span class="position-relative ml-1 smallfont" id="lemmalist-tooltip_2" data-toggle="tooltip" data-container="#lemmalist-tooltip_2" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none"><i class="fas fa-list"></i></a></span>{% endif %}
+                                </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="form-row mb-2">
+                            <div class="col text-center"><strong>{{ _('Suchoptionen') }}</strong> <button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchOptions_2" type="button" aria-expanded="false" aria-controls="searchOptions_2"><span
+                                    class="position-relative" id="searchOptions_2-tooltip" data-toggle="tooltip" data-container="#searchOptions_2-tooltip" title="{{ _('Die Suchoptionen für diese Suchmaske ändern.') }}"><i class="fas fa-caret-down"></i></span></button>
+                                <div class="collapse text-left bg-light border border-dark pl-1 rounded" id="searchOptions_2">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <p class="mb-0 smallfont"><span id="word-order_2-tooltip" data-toggle="tooltip" data-container="#word-order_2-tooltip" title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order_2() }} <span class="align-top">{{ form.in_order_2.label(class="mb-0") }}</span></span></p>
+                                            <p class="mb-0 smallfont"><span id="regex-search_2-tooltip" data-toggle="tooltip"
+                                                                            data-container="#regex-search_2-tooltip"
+                                                                            title="{{ _('Reguläre Ausdrücke (regular expressions) benutzen') }}">{{
+                                                form.regex_search_2() }} <span
+                                                    class="align-top">{{ form.regex_search_2.label(class="mb-0") }}</span></span><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.regexSearchMessage }}" aria-label="{{ _('Hilfe für regulärer Ausdruck-Suche') }}"><i class="fas fa-question-circle align-top"></i></button></p>
+                                        </div>
+                                        <div class="col-5 pl-4">
+                                        {% for subfield in form.proper_name_2.choices %}
+                                            <p class="mb-0 smallfont">
+                                                <input class="form-check-input" type="checkbox" name="proper_name_2"
+                                                    id="{{ subfield[0] }}"
+                                                    value="{{ subfield[0] }}"{% if subfield[0] in form.data.proper_name_2  %}
+                                                    checked{% endif %}>
+                                                <label class="form-check-label" for="{{ subfield[0] }}">
+                                                {{ subfield[1] }}
+                                                </label>
+                                            </p>
+                                        {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-center">{{ form.exclude_q_2.label(for="exclude_q_2-search-box",
+                                            id="exclude_q_2_label", title=_('Ein Wort oder Wortmuster aus der Suche ausschließen')) }} 
+                                                {{ form.exclude_q_2(class="form-control my-0", placeholder=form.exclude_q_2.label.text,
+                                                id="exclude_q_2-search-box", default=form.exclude_q_2.label.text) }}
+                                        </div>
+                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="row">
+                                        <div class="col-7 text-center">
+                                            {{ form.formulaic_parts_2.label }} 
+                                            <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Teile zu wählen.') }}</p>
+                                            {{ form.formulaic_parts_2(class="w-100 mb-2 smallfont", size="4") }}
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="form-group">{{ form.slop_2.label() }}<br>
+                                            <span class="smallfont">{{ form.slop_2(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
+                                            <div class="form-group">{{ form.fuzziness_2.label() }}<br>
+                                            <span class="smallfont">{{ form.fuzziness_2() }}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="searchQ-3">
+                        <div class="form-row">
+                            <div class="col">
+                                {{ form.q_3(class="form-control my-0 word-search-box", placeholder=form.q_3.label.text, list="word-search-datalist_3", default=form.q_3.label.text, autocomplete="off") }}
+                                <datalist id="word-search-datalist_3">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-auto">
+                                <strong>{{ form.search_field_3.label() }}:</strong>
+                            </div>
+                            <div class="col">
+                            {% for subfield in form.search_field_3.choices %}
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="search_field_3"
+                                        id="{{ subfield[0] }}"
+                                        value="{{ subfield[0] }}"{% if form.data.search_field_3 == subfield[0] %}
+                                        checked{% endif %}>
+                                    <label class="form-check-label" for="{{ subfield[0] }}">
+                                    {{ subfield[1] }}
+                                    </label>{% if subfield[0] == 'lemmas' %}<span class="position-relative ml-1 smallfont" id="lemmalist-tooltip_3" data-toggle="tooltip" data-container="#lemmalist-tooltip_3" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none"><i class="fas fa-list"></i></a></span>{% endif %}
+                                </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="form-row mb-2">
+                            <div class="col text-center"><strong>{{ _('Suchoptionen') }}</strong> <button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchOptions_3" type="button" aria-expanded="false" aria-controls="searchOptions_3"><span
+                                    class="position-relative" id="searchOptions_3-tooltip" data-toggle="tooltip" data-container="#searchOptions_3-tooltip" title="{{ _('Die Suchoptionen für diese Suchmaske ändern.') }}"><i class="fas fa-caret-down"></i></span></button>
+                                <div class="collapse text-left bg-light border border-dark pl-1 rounded" id="searchOptions_3">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <p class="mb-0 smallfont"><span id="word-order_3-tooltip" data-toggle="tooltip" data-container="#word-order_3-tooltip" title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order_3() }} <span class="align-top">{{ form.in_order_3.label(class="mb-0") }}</span></span></p>
+                                            <p class="mb-0 smallfont"><span id="regex-search_3-tooltip" data-toggle="tooltip"
+                                                                            data-container="#regex-search_3-tooltip"
+                                                                            title="{{ _('Reguläre Ausdrücke (regular expressions) benutzen') }}">{{
+                                                form.regex_search_3() }} <span
+                                                    class="align-top">{{ form.regex_search_3.label(class="mb-0") }}</span></span><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.regexSearchMessage }}" aria-label="{{ _('Hilfe für regulärer Ausdruck-Suche') }}"><i class="fas fa-question-circle align-top"></i></button></p>
+                                        </div>
+                                        <div class="col-5 pl-4">
+                                        {% for subfield in form.proper_name_3.choices %}
+                                            <p class="mb-0 smallfont">
+                                                <input class="form-check-input" type="checkbox" name="proper_name_3"
+                                                    id="{{ subfield[0] }}"
+                                                    value="{{ subfield[0] }}"{% if subfield[0] in form.data.proper_name_3  %}
+                                                    checked{% endif %}>
+                                                <label class="form-check-label" for="{{ subfield[0] }}">
+                                                {{ subfield[1] }}
+                                                </label>
+                                            </p>
+                                        {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-center">{{ form.exclude_q_3.label(for="exclude_q_3-search-box",
+                                            id="exclude_q_3_label", title=_('Ein Wort oder Wortmuster aus der Suche ausschließen')) }} 
+                                                {{ form.exclude_q_3(class="form-control my-0", placeholder=form.exclude_q_3.label.text,
+                                                id="exclude_q_3-search-box", default=form.exclude_q_3.label.text) }}
+                                        </div>
+                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="row">
+                                        <div class="col-7 text-center">
+                                            {{ form.formulaic_parts_3.label }} 
+                                            <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Teile zu wählen.') }}</p>
+                                            {{ form.formulaic_parts_3(class="w-100 mb-2 smallfont", size="4") }}
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="form-group">{{ form.slop_3.label() }}<br>
+                                            <span class="smallfont">{{ form.slop_3(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
+                                            <div class="form-group">{{ form.fuzziness_3.label() }}<br>
+                                            <span class="smallfont">{{ form.fuzziness_3() }}</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="searchQ-4">
+                        <div class="form-row">
+                            <div class="col">
+                                {{ form.q_4(class="form-control my-0 word-search-box", placeholder=form.q_4.label.text, list="word-search-datalist_1", default=form.q_4.label.text, autocomplete="off") }}
+                                <datalist id="word-search-datalist_4">
+                                </datalist>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-auto">
+                                <strong>{{ form.search_field_4.label() }}:</strong>
+                            </div>
+                            <div class="col">
+                            {% for subfield in form.search_field_4.choices %}
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="search_field_4"
+                                        id="{{ subfield[0] }}"
+                                        value="{{ subfield[0] }}"{% if form.data.search_field_4 == subfield[0] %}
+                                        checked{% endif %}>
+                                    <label class="form-check-label" for="{{ subfield[0] }}">
+                                    {{ subfield[1] }}
+                                    </label>{% if subfield[0] == 'lemmas' %}<span class="position-relative ml-1 smallfont" id="lemmalist-tooltip_4" data-toggle="tooltip" data-container="#lemmalist-tooltip_4" title="{{ _('Liste der suchbaren Lemmata') }}"><a href="{{ url_for('search.lemma_list') }}" class="internal-link align-top text-decoration-none"><i class="fas fa-list"></i></a></span>{% endif %}
+                                </div>
+                            {% endfor %}
+                            </div>
+                        </div>
+                        <div class="form-row mb-2">
+                            <div class="col text-center"><strong>{{ _('Suchoptionen') }}</strong> <button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchOptions_4" type="button" aria-expanded="false" aria-controls="searchOptions_4"><span
+                                    class="position-relative" id="searchOptions_4-tooltip" data-toggle="tooltip" data-container="#searchOptions_4-tooltip" title="{{ _('Die Suchoptionen für diese Suchmaske ändern.') }}"><i class="fas fa-caret-down"></i></span></button>
+                                <div class="collapse text-left bg-light border border-dark pl-1 rounded" id="searchOptions_4">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <p class="mb-0 smallfont"><span id="word-order_4-tooltip" data-toggle="tooltip" data-container="#word-order_4-tooltip" title="{{ _('Die Reihenfolge der Wörter beibehalten') }}">{{ form.in_order_4() }} <span class="align-top">{{ form.in_order_4.label(class="mb-0") }}</span></span></p>
+                                            <p class="mb-0 smallfont"><span id="regex-search_4-tooltip" data-toggle="tooltip"
+                                                                            data-container="#regex-search_4-tooltip"
+                                                                            title="{{ _('Reguläre Ausdrücke (regular expressions) benutzen') }}">{{
+                                                form.regex_search_4() }} <span
+                                                    class="align-top">{{ form.regex_search_4.label(class="mb-0") }}</span></span><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.regexSearchMessage }}" aria-label="{{ _('Hilfe für regulärer Ausdruck-Suche') }}"><i class="fas fa-question-circle align-top"></i></button></p>
+                                        </div>
+                                        <div class="col-5 pl-4">
+                                        {% for subfield in form.proper_name_4.choices %}
+                                            <p class="mb-0 smallfont">
+                                                <input class="form-check-input" type="checkbox" name="proper_name_4"
+                                                    id="{{ subfield[0] }}"
+                                                    value="{{ subfield[0] }}"{% if subfield[0] in form.data.proper_name_4  %}
+                                                    checked{% endif %}>
+                                                <label class="form-check-label" for="{{ subfield[0] }}">
+                                                {{ subfield[1] }}
+                                                </label>
+                                            </p>
+                                        {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col text-center">{{ form.exclude_q_4.label(for="exclude_q_4-search-box",
+                                            id="exclude_q_4_label", title=_('Ein Wort oder Wortmuster aus der Suche ausschließen')) }} 
+                                                {{ form.exclude_q_4(class="form-control my-0", placeholder=form.exclude_q_4.label.text,
+                                                id="exclude_q_4-search-box", default=form.exclude_q_4.label.text) }}
+                                        </div>
+                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <div class="row">
+                                        <div class="col-7 text-center">
+                                            {{ form.formulaic_parts_4.label }} 
+                                            <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Teile zu wählen.') }}</p>
+                                            {{ form.formulaic_parts_4(class="w-100 mb-2 smallfont", size="4") }}
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="form-group">{{ form.slop_4.label() }}<br>
+                                            <span class="smallfont">{{ form.slop_4(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
+                                            <div class="form-group">{{ form.fuzziness_4.label() }}<br>
+                                            <span class="smallfont">{{ form.fuzziness_4() }}</span></div>
                                         </div>
                                     </div>
                                 </div>

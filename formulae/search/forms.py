@@ -78,6 +78,60 @@ class AdvancedSearchForm(SearchForm):
                                                                        ('ortsname', _l('Ortsname'))])
 
     exclude_q_1 = StringField(_l('Ausschlusskriterium'))
+    q_2 = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
+    regex_search_2 = BooleanField(_l('RegEx'))
+    fuzziness_2 = SelectField(_l("Unschärfegrad"),
+                            choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
+                            default="0")
+    slop_2 = IntegerField(_l("Suchradius"), default=0)
+    in_order_2 = BooleanField(_l('Wortreihenfolge?'))
+    search_field_2 = SelectField(_l("Suchfeld"), choices=[("text", _('Text')),
+                                                        ("lemmas", _('Lemmata')),
+                                                        ("regest", _('Regest'))],
+                               default='text')
+
+    formulaic_parts_2 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
+                                          choices=[(k, v) for k, v in FORM_PARTS.items()])
+    proper_name_2 = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
+                                                                       ('ortsname', _l('Ortsname'))])
+
+    exclude_q_2 = StringField(_l('Ausschlusskriterium'))
+    q_3 = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
+    regex_search_3 = BooleanField(_l('RegEx'))
+    fuzziness_3 = SelectField(_l("Unschärfegrad"),
+                            choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
+                            default="0")
+    slop_3 = IntegerField(_l("Suchradius"), default=0)
+    in_order_3 = BooleanField(_l('Wortreihenfolge?'))
+    search_field_3 = SelectField(_l("Suchfeld"), choices=[("text", _('Text')),
+                                                        ("lemmas", _('Lemmata')),
+                                                        ("regest", _('Regest'))],
+                               default='text')
+
+    formulaic_parts_3 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
+                                          choices=[(k, v) for k, v in FORM_PARTS.items()])
+    proper_name_3 = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
+                                                                       ('ortsname', _l('Ortsname'))])
+
+    exclude_q_3 = StringField(_l('Ausschlusskriterium'))
+    q_4 = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
+    regex_search_4 = BooleanField(_l('RegEx'))
+    fuzziness_4 = SelectField(_l("Unschärfegrad"),
+                            choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
+                            default="0")
+    slop_4 = IntegerField(_l("Suchradius"), default=0)
+    in_order_4 = BooleanField(_l('Wortreihenfolge?'))
+    search_field_4 = SelectField(_l("Suchfeld"), choices=[("text", _('Text')),
+                                                        ("lemmas", _('Lemmata')),
+                                                        ("regest", _('Regest'))],
+                               default='text')
+
+    formulaic_parts_4 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
+                                          choices=[(k, v) for k, v in FORM_PARTS.items()])
+    proper_name_4 = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
+                                                                       ('ortsname', _l('Ortsname'))])
+
+    exclude_q_4 = StringField(_l('Ausschlusskriterium'))
     corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
                                                                          ('formulae', _l('Formeln')),
                                                          ('elexicon', _l('Lexikon'))])

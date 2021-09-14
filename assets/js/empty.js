@@ -98,10 +98,12 @@ function searchProgressBar(searchId) {
     })
 }
 
-function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
+function sendAutocompleteRequest(sourceElement) {
     // using the timeout so that it waits until the user stops typing for .5 seconds before making the request to the server
     // idea from https://schier.co/blog/2014/12/08/wait-for-user-to-stop-typing-using-javascript.html
     clearTimeout(textSearchTimeout);
+    var targetElement = $('#' + sourceElement.attr('list'));
+    var qSource = sourceElement.attr('id');
     var subdomain = '';
     if (window.location.host == 'tools.formulae.uni-hamburg.de') {
         subdomain = '/dev'
@@ -113,10 +115,10 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
         if(word !== '' && !(word.match(/[\*\?]/))){
             previous = word;
             var requestUrl;
-            if (qSource == "simple") {
+            if (qSource == "simple-search-q") {
                 requestUrl = subdomain + '/search/suggest/q_1?' + buildSimpleUrl("text");
             } else {
-                requestUrl = subdomain + '/search/suggest/' + word + buildUrl(qSource);
+                requestUrl = subdomain + '/search/suggest/' + qSource + '?' + buildUrl(qSource);
             }
             var request = $.ajax( requestUrl )
                 .done(function (response, status) {
@@ -147,7 +149,6 @@ function sendAutocompleteRequest(sourceElement, targetElement, qSource) {
 
 // build the tail end of the url to submit via AJAX
 function buildSimpleUrl(qSource) {
-    console.log($("#simple-search-form").serialize());
     var brandNewUrl = "";
     var corpus = [];
     var fields = $("#simple-search-form").serializeArray();
@@ -189,87 +190,61 @@ function buildSimpleUrl(qSource) {
 function buildUrl(qSource) {
 //     I should be able to do $('form').serialize() here to get all of the form data. That should simplify this significantly. See https://api.jquery.com/serialize/
 //     qSource should be the text field that is being filled out. Otherwise, everything should hopefully work just as it does with a normal search.
-    console.log($("#advanced-form").serialize())
     var corpus = [];
+    var fields = $("#advanced-form").serializeArray();
     var special_days = [];
-    var params = {
-        corpus:'',
-        lemma_search:'autocomplete',
-        fuzziness:'0',
-        in_order:'False',
-        year:'0',
-        slop:'0',
-        month:'0',
-        day:'0',
-        year_start:'0',
-        month_start:'0',
-        day_start:'0',
-        year_end:'0',
-        month_end:'0',
-        day_end:'0',
-        date_plus_minus:'0',
-        exclusive_date_range:'False',
-        composition_place:'',
-        special_days:'',
-        regest_field:'regest'
-    };
-    if (qSource == "text") {
-        params.extra_q = document.getElementById('regest-word-search-box').value;
-        var extraField = 'regest_q';
-        if (searchLemmas.checked) {
-            params.lemma_search = 'autocomplete_lemmas';
+    var brandNewUrl = "";
+    jQuery.each( fields, function(i, field) {
+        if (field.name == 'corpus') {
+            corpus.push(field.value);
+        } else if (field.name == 'special_days') {
+            special_days.push(field.value);
         } else {
-            params.lemma_search = 'autocomplete';
+            brandNewUrl += field.name + '=' + field.value + '&';
         }
-    } else if (qSource == "regest") {
-        params.extra_q = document.getElementById('word-search-box').value;
-        params.regest_field = 'autocomplete_regest';
-        var extraField = 'q';
-        if (searchLemmas.checked) {
-            params.lemma_search = 'True';
-        } else {
-            params.lemma_search = 'False';
-        }
-    }
-    if ($('#elexiconSearchCorpus').prop('checked')) {
-        corpus = ['elexicon'];
-    } else {
-        $('input.under-formulae').each(function(i, formula) {
-            if (formula.checked) {
-                corpus.push(formula.value);
-            }
-        })
-        $('input.under-chartae').each(function(i, charter) {
-            if (charter.checked) {
-                corpus.push(charter.value);
-            }
-        })
-    }
-    $('input[name="special_days"]').each(function(i, day) {
-        if (day.checked) {
-            special_days.push(day.value);
-        }
-    })
-    if (document.getElementById('in_order').checked) {
-        params.in_order = document.getElementById('in_order').value;
-    }
-    params.corpus = corpus.join('+');
-    params.special_days = special_days.join('+');
-    // Transfer the other values from the form to params
-    var advancedForm = document.getElementById('advanced-form');
-    for (f of advancedForm) {
-        if (f.name && !(['corpus', 'special_days', 'in_order', 'regest_field', 'lemma_search'].includes(f.name)) && params[f.name]) {
-            params[f.name] = f.value;
-        }
-    }
+    });
+//     var params = {
+//         corpus:'',
+//         lemma_search:'autocomplete',
+//         fuzziness:'0',
+//         in_order:'False',
+//         year:'0',
+//         slop:'0',
+//         month:'0',
+//         day:'0',
+//         year_start:'0',
+//         month_start:'0',
+//         day_start:'0',
+//         year_end:'0',
+//         month_end:'0',
+//         day_end:'0',
+//         date_plus_minus:'0',
+//         exclusive_date_range:'False',
+//         composition_place:'',
+//         special_days:'',
+//         regest_field:'regest'
+//     };
+//     if ($('#elexiconSearchCorpus').prop('checked')) {
+//         corpus = ['elexicon'];
+//     } else {
+//         $('input.under-formulae').each(function(i, formula) {
+//             if (formula.checked) {
+//                 corpus.push(formula.value);
+//             }
+//         })
+//         $('input.under-chartae').each(function(i, charter) {
+//             if (charter.checked) {
+//                 corpus.push(charter.value);
+//             }
+//         })
+//     }
+    brandNewUrl += corpus.join('+') + '&' + special_days.join('+');
     // Build the URL extension
-    var brandNewUrl = "?";
-    for (f in params) {
-        if (f != 'extra_field' && f != 'extra_q') {
-            brandNewUrl += f + '=' + params[f] + '&';
-        }
-    }
-    brandNewUrl += extraField + "=" + params.extra_q + '&qSource=' + qSource;
+//     for (f in params) {
+//         if (f != 'extra_field' && f != 'extra_q') {
+//             brandNewUrl += f + '=' + params[f] + '&';
+//         }
+//     }
     return brandNewUrl;
 }
 
@@ -473,7 +448,7 @@ $(document).ready(function () {
     
     
     $('#simple-search-q').keyup(function(e) {
-        sendAutocompleteRequest($( this ), $('#simple-search-datalist'), "simple");
+        sendAutocompleteRequest($( this ));
     });
     
     $('#manuscript-table dt').hover(function() {
@@ -561,7 +536,7 @@ $(document).ready(function () {
     })
     
     $('#simple-search-q').keyup(function(e) {
-        if (e.key === 'Enter' || e.key === 13) {
+        if ((e.key === 'Enter' || e.key === 13) && $(this).val() != '') {
             setTimeout(function() {
                 $('#searchProgressModal').modal('show');
                 searchProgressBar('search_progress_' + $('#simple_search_id').attr('value'));

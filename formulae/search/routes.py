@@ -13,6 +13,7 @@ from datetime import date
 from math import floor
 from json import load
 import roman
+from copy import deepcopy
 
 
 CORP_MAP = {y['match']['collection']: x for x, y in AGGREGATIONS['corpus']['filters']['filters'].items()}
@@ -42,11 +43,6 @@ def build_search_args(search_args: dict) -> dict:
         search_args['search_field_2'] = 'regest'
     if search_args.get('exclude_q', ''):
         search_args['exclude_q_1'] = search_args['exclude_q'].lower()
-
-    for arg, value in search_args.items():
-        if ('formulaic_parts' in arg or 'proper_name' in arg) and value:
-            if isinstance(value, list):
-                search_args[arg] = '+'.join(value)
     if 'formulaic_parts' in search_args:
         search_args['formulaic_parts_1'] = search_args.get('formulaic_parts', '')
     if 'regex_search' in search_args:
@@ -59,30 +55,71 @@ def build_search_args(search_args: dict) -> dict:
             search_args['proper_name_1'] = '+'.join(search_args.get('proper_name')) or ''
         else:
             search_args['proper_name_1'] = search_args.get('proper_name', '')
+
+    for arg, value in search_args.items():
+        if ('formulaic_parts' in arg or 'proper_name' in arg) and value:
+            if isinstance(value, list):
+                search_args[arg] = '+'.join(value)
+        elif 'regex_search' in arg:
+            if value in ['y', 'True', True]:
+                search_args[arg] = 'True'
+            else:
+                search_args[arg] = 'False'
+        elif 'in_order' in arg:
+            if value in ['y', 'True', True]:
+                search_args[arg] = 'True'
+            else:
+                search_args[arg] = 'False'
     if isinstance(search_args['corpus'], list):
         search_args['corpus'] = '+'.join(search_args.get("corpus")) or 'all'
     if isinstance(search_args.get('special_days', ''), list):
         search_args['special_days'] = '+'.join(search_args.get('special_days')) or ''
     return search_args
 
+
+def make_query_dict(search_args: dict = None) -> dict:
+    query_keys = [x for x in search_args.keys() if x.startswith('q_')]
+    query_val_keys = [("in_order", False),
+                      ("regex_search", False),
+                      ("proper_name", ''),
+                      ("formulaic_parts", ''),
+                      ("slop", 0),
+                      ("fuzziness", 0),
+                      ("search_field", 'text'),
+                      ("exclude_q", '')]
+    query_dict = dict()
+    for k in query_keys:
+        k_num = k.split('_')[-1]
+        query_val_dict = {'q': search_args.pop(k, '').lower()}
+        for v, val_default in query_val_keys:
+            arg_val = search_args.pop(v + '_' + k_num, None)
+            query_val_dict[v] = arg_val if arg_val else val_default
+        query_dict[k] = query_val_dict
+    return query_dict
+
+
 @bp.route("/simple", methods=["GET"])
 def r_simple_search() -> redirect:
-    if not g.search_form.validate():
-        for k, m in g.search_form.errors.items():
-            if k == 'corpus':
-                flash(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
-            elif k == 'q':
-                flash(m[0] + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
-        return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', q=g.search_form.data['q']))
-    data = {x: y for x, y in g.search_form.data.items()}
+    data = deepcopy(g.search_form.data)
+    print(data)
     if 'q' in data:
         data['q_1'] = data.pop('q', '').lower()
+    data['q_1'] = data['q_1'].lower()
     lemma_search = data.pop('lemma_search')
     data['search_id'] = data.pop('simple_search_id')
     data['search_field_1'] = data.pop('search_field', 'text')
     if lemma_search in ['y', 'True', True]:
         data['search_field_1'] = 'lemmas'
     corpus = '+'.join(data.pop("corpus"))
+    if not g.search_form.validate():
+        print(g.search_form.errors)
+        for k, m in g.search_form.errors.items():
+            if k == 'corpus':
+                flash(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+                return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', **data))
+            if k == 'q_1':
+                flash(m[0] + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
+                return ('', 204)
     return redirect(url_for('.r_results', source='simple', corpus=corpus, sort="urn", **data))
 
 
@@ -134,7 +171,7 @@ def r_results():
     query_dict = dict()
     for k in query_keys:
         k_num = k.split('_')[-1]
-        query_val_dict = {'q': search_args[k]}
+        query_val_dict = {'q': search_args[k].lower()}
         for v, val_default in query_val_keys:
             query_val_dict[v] = search_args.get(v + '_' + k_num) if search_args.get(v + '_' + k_num) else val_default
         query_dict[k] = query_val_dict
@@ -162,7 +199,6 @@ def r_results():
                              query_dict=query_dict,
                              bool_operator=search_args.get('bool_operator', 'must')
                              )
-    print(final_search_args)
     posts, total, aggs, g.previous_search = advanced_query_index(**final_search_args)
     old_search_args = {k: v for k, v in final_search_args.items() if v}
     old_search_args.pop('page', None)
@@ -222,13 +258,46 @@ def r_advanced_search():
                 else:
                     coll_cats[k].append((x['short_title'].strip(), x['id'].split(':')[-1], x['lemmatized']))
             coll_cats[k] = sorted(coll_cats[k], key=sort_collections)
-    ignored_fields = ('exclusive_date_range', 'fuzziness', 'search_field', 'slop', 'in_order', 'date_plus_minus',
-                      'search_id', 'simple_search_id', 'regex_search', 'bool_operator')
+    ignored_fields = ('exclusive_date_range',
+                      'fuzziness',
+                      'fuzziness_1',
+                      'fuzziness_2',
+                      'fuzziness_3',
+                      'fuzziness_4',
+                      'search_field',
+                      'search_field_1',
+                      'search_field_2',
+                      'search_field_3',
+                      'search_field_4',
+                      'slop',
+                      'slop_1',
+                      'slop_2',
+                      'slop_3',
+                      'slop_4',
+                      'in_order',
+                      'in_order_1',
+                      'in_order_2',
+                      'in_order_3',
+                      'in_order_4',
+                      'regex_search',
+                      'regex_search_1',
+                      'regex_search_2',
+                      'regex_search_3',
+                      'regex_search_4',
+                      'date_plus_minus',
+                      'search_id',
+                      'simple_search_id',
+                      'bool_operator')
     if form.corpus.data and len(form.corpus.data) == 1:
         form.corpus.data = form.corpus.data[0].split(' ')
     if form.special_days.data and len(form.special_days.data) == 1:
         form.special_days.data = form.special_days.data[0].split(' ')
-    form_data = {x: y for x, y in form.data.items()}
+    form_data = deepcopy(form.data)
+    if 'q' in request.args:
+        form_data['q_1'] = request.args.get('q', '').lower()
+        for form_arg in ['regex_search', 'fuzziness', 'slop', 'in_order', 'formulaic_parts', 'proper_name', 'exclude_q']:
+            form_data[form_arg + '_1'] = request.args.get(form_arg, '')
+        form_data['lemma_search'] = request.args.get('lemma_search', 'False')
     data_present = [x for x in form_data if form_data[x] and form_data[x] != 'none' and x not in ignored_fields]
     if 'forgeries' in data_present and form_data['forgeries'] in ['include', 'exclude']:
         data_present.remove('forgeries')
@@ -254,6 +323,9 @@ def word_search_suggester(qSource: str):
     # This needs to be brought into line with the new args for search.Search
     search_args = build_search_args({x: y for x, y in request.args.items()})
     search_args['qSource'] = qSource
+    for month_arg in ['month', 'month_start', 'month_end']:
+        if month_arg in search_args:
+            search_args[month_arg] = int(search_args[month_arg])
     query_keys = [x for x in search_args.keys() if x.startswith('q_')]
     query_val_keys = [("in_order", False),
                       ("regex_search", False),
@@ -266,9 +338,10 @@ def word_search_suggester(qSource: str):
     query_dict = dict()
     for k in query_keys:
         k_num = k.split('_')[-1]
-        query_val_dict = {'q': search_args.pop(k, '')}
+        query_val_dict = {'q': search_args.pop(k, '').lower()}
         for v, val_default in query_val_keys:
-            query_val_dict[v] = search_args.pop(v + '_' + k_num, val_default)
+            arg_val = search_args.pop(v + '_' + k_num, None)
+            query_val_dict[v] = arg_val if arg_val else val_default
         query_dict[k] = query_val_dict
     if query_dict[qSource]['search_field'] == 'text':
         query_dict[qSource]['search_field'] = 'autocomplete'
@@ -299,15 +372,37 @@ def download_search_results(download_id: str) -> Response:
                                  ('Thursday', _('Donnerstag')),
                                  ('Friday', _('Freitag')),
                                  ('Saturday', _('Samstag'))])
-        search_arg_mapping = [('q', _('Suchbegriff')), ('lemma_search', _('Lemma?')),
-                              ('regest_q', _('Regesten Suchbegriff')), ('fuzziness', _('Unschärfegrad')),
-                              ('slop', _('Suchradius')), ('in_order', _('Wortreihenfolge beachten?')), ('year', _('Jahr')),
-                              ('month', _('Monat')), ('day', _('Tag')), ('year_start', _('Anfangsjahr')),
-                              ('month_start', _('Anfangsmonat')), ('day_start', _('Anfangstag')), ('year_end', _('Endjahr')),
-                              ('month_end', _('Endmonat')), ('day_end', _('Endtag')), ('date_plus_minus', _('Datum Plus-Minus')),
-                              ('exclusive_date_range', _('Exklusiv')), ('composition_place', _('Ausstellungsort')),
-                              ('special_days', _('Besondere Tage')), ('corpus', _('Corpora')), ('formulaic_parts', _('Urkundenteile'))]
+        search_arg_mapping = [('year', _('Jahr')),
+                              ('month', _('Monat')),
+                              ('day', _('Tag')),
+                              ('year_start', _('Anfangsjahr')),
+                              ('month_start', _('Anfangsmonat')),
+                              ('day_start', _('Anfangstag')),
+                              ('year_end', _('Endjahr')),
+                              ('month_end', _('Endmonat')),
+                              ('day_end', _('Endtag')),
+                              ('date_plus_minus', _('Datum Plus-Minus')),
+                              ('exclusive_date_range', _('Exklusiv')),
+                              ('composition_place', _('Ausstellungsort')),
+                              ('special_days', _('Besondere Tage')),
+                              ('corpus', _('Corpora'))]
+        query_dict_mapping = [('q', _('Suchbegriff')),
+                              ('search_field', _('Suchfeld')),
+                              ('fuzziness', _('Unschärfegrad')),
+                              ('slop', _('Suchradius')),
+                              ('in_order', _('Wortreihenfolge beachten?')),
+                              ('formulaic_parts', _('Urkundenteile'))]
         search_value_dict = {'False': _('Nein'), 'True': _('Ja'), False: _('Nein'), True: _('Ja')}
+        for k, v in session['previous_search_args']['query_dict'].items():
+            if v['q'] or v['formulaic_parts']:
+                arg_list.append('<b>{}</b>:'.format(k.replace('q_', _('Suchterminus '))))
+                for query_arg, s in query_dict_mapping:
+                    value = v[query_arg]
+                    if query_arg == 'formulaic_parts':
+                        value = ' - '.join([x for x in value.split('+')])
+                    elif isinstance(value, list):
+                        value = ' - '.join(value)
+                    arg_list.append('- <b>{}</b>: {}'.format(s, value if value != '0' else ''))
         for arg, s in search_arg_mapping:
             if arg in session['previous_search_args']:
                 value = search_value_dict.get(session['previous_search_args'][arg], session['previous_search_args'][arg])
@@ -317,8 +412,6 @@ def download_search_results(download_id: str) -> Response:
                 value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
             if arg == 'special_days':
                 value = ' - '.join([special_day_dict[x] for x in value.split('+')])
-            if arg == 'formulaic_parts':
-                value = ' - '.join([x for x in value.split('+')])
             arg_list.append('<b>{}</b>: {}'.format(s, value if value != '0' else ''))
         prev_args = session['previous_search_args']
         if prev_args.get('formulaic_parts', None):

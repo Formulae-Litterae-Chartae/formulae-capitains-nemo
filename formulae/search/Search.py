@@ -3,7 +3,7 @@ from flask_babel import _
 from tests.fake_es import FakeElasticsearch
 from string import punctuation
 import re
-from copy import copy
+from copy import deepcopy
 from typing import Dict, List, Union, Tuple, Set
 from itertools import product
 from jellyfish import levenshtein_distance
@@ -100,6 +100,11 @@ HITS_TO_READER = 10000
 LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 
+def check_open_texts(hit_id):
+    """ Used for mock tests to return True for highlighting purposes"""
+    return hit_id in current_app.config['nemo_app'].open_texts, hit_id in current_app.config['nemo_app'].half_open_texts
+
+
 def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, str]], str]]]:
     if sort_str == 'urn':
         return ['sort_prefix', 'urn']
@@ -120,17 +125,23 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
 
     :return: sorted set of results
     """
+    if 'qSource' not in kwargs or not kwargs['qSource'].startswith('q_'):
+        return None
     results = set()
-    kwargs['fragment_size'] = 1000
+    kwargs['fragment_size'] = 0
     kwargs['corpus'] = kwargs['corpus'].split(' ')
     posts, total, aggs, prev_search = advanced_query_index(per_page=1000, **kwargs)
     highlight_field = kwargs['query_dict'][kwargs['qSource']]['search_field']
     s = kwargs['query_dict'][kwargs['qSource']]['q']
+    if '*' in s or '?' in s:
+        return None
     regex_search_string = PRE_TAGS + '.{,' + str(len(PRE_TAGS + POST_TAGS) * len(re.findall(r'\w+', s)) + 40) + '}(?=\s|$)'
+    print(regex_search_string)
     for post in posts:
         sents = post['highlight'][highlight_field]
+        print(sents)
         for sent in sents:
-            results.update([re.sub(r'{}|{}'.format(PRE_TAGS, POST_TAGS), '', x) for x in re.findall(r'{}'.format(regex_search_string), sent)])
+            results.update([re.sub(r'{}|{}|[{}]'.format(PRE_TAGS, POST_TAGS, punctuation), '', x) for x in re.findall(r'{}'.format(regex_search_string), sent)])
     return sorted(results, key=str.lower)[:10]
 
 
@@ -171,7 +182,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
         return [], set()
     if download_id:
         current_app.redis.set(download_id, '20%')
-    ids = []
+    id_dict = dict()
     all_highlighted_terms = set()
     mvectors_body = {'docs': [{'_index': h[1], '_id': h[0], 'term_statistics': False, 'field_statistics': False} for h in result_ids]}
     corp_vectors = dict()
@@ -182,8 +193,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
     for query_terms, query_results in args_plus_results:
         for list_index, hit in enumerate(query_results['hits']['hits']):
             hit_highlight_positions = list()
-            open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
-            half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
+            open_text, half_open_text = check_open_texts(hit['_id'])
             show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
             text = hit['_source']['text']
             sentences = []
@@ -342,7 +352,10 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                             sentences.append(Markup(sentence))
                             sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets[highlight_field]), pos + 11)))
                 elif s_field in FORM_PARTS.keys():
-                    part_sentences += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)) for x in hit['highlight'][s_field]]
+                    if query_terms['q']:
+                        part_sentences += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)) for x in hit['highlight'][s_field]]
+                    else:
+                        part_sentences += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + hit['_source'][s_field])]
                 elif 'regest' in s_field:
                     if show_regest is False:
                         regest_sents = [_('Regest nicht zugänglich.')]
@@ -364,13 +377,21 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                 if current_app.config['nemo_app'].check_project_team() is False and not open_text:
                     ordered_sentences = [_('Text nicht zugänglich.')]
                     ordered_sentence_spans = [range(0, 1)]
-            ids.append({'id': hit['_id'],
-                        'info': hit['_source'],
-                        'sents': ordered_sentences,
-                        'sentence_spans': ordered_sentence_spans,
-                        'title': hit['_source']['title'],
-                        'regest_sents': regest_sents,
-                        'highlight': ordered_sentences})
+            if hit['_id'] in id_dict:
+                id_dict[hit['_id']]['sents'] += ordered_sentences
+                id_dict[hit['_id']]['sentence_spans'] += ordered_sentence_spans
+                id_dict[hit['_id']]['regest_sents'] += regest_sents
+            else:
+                id_dict[hit['_id']] = {'id': hit['_id'],
+                                       'info': hit['_source'],
+                                       'sents': ordered_sentences,
+                                       'sentence_spans': ordered_sentence_spans,
+                                       'title': hit['_source']['title'],
+                                       'regest_sents': regest_sents,
+                                       'highlight': ordered_sentences
+                                       }
+
+    ids = [v for v in id_dict.values()]
     if download_id:
         current_app.redis.setex(download_id, 60, '100%')
     return ids, all_highlighted_terms
@@ -526,16 +547,18 @@ def advanced_query_index(corpus: list = None,
         third = '|[' + m.group(2) + m.group(3) + ']'
         return '(' + ''.join([first, second, third]) + ')'
     if 'elexicon' in corpus:
-        elex_search = {k: v for k, v in base_body_template.items()}
-        elex_search['highlight'] = {'fragment_size': 0,
-                                      'fields': {'text': {}},
-                                      'pre_tags': [PRE_TAGS],
-                                      'post_tags': [POST_TAGS],
-                                      'encoder': 'html'}
+        elex_search = deepcopy(base_body_template)
+        elex_search['highlight'] = {'fields': {'text': {}},
+                                    'pre_tags': [PRE_TAGS],
+                                    'post_tags': [POST_TAGS],
+                                    'encoder': 'html'}
         corpus = ['elexicon']
         clauses = []
         for query_key, query_vals in query_dict.items():
             query_clauses = []
+            elex_search['highlight']['fields'][query_vals['search_field']] = {}
+            if 'autocomplete' in query_vals['search_field']:
+                elex_search['highlight']['number_of_fragments'] = 0
             for term in query_vals['q'].split():
                 if '*' in term or '?' in term:
                     query_clauses.append({'wildcard': {query_vals['search_field']: {'value': term}}})
@@ -546,8 +569,8 @@ def advanced_query_index(corpus: list = None,
 
         searched_templates.append(elex_search)
         search = [current_app.elasticsearch.search(index=corpus,
-                                                  doc_type="",
-                                                  body=elex_search)]
+                                                   doc_type="",
+                                                   body=elex_search)]
     else:
         if year or month or day:
             date_template = {"bool": {"must": []}}
@@ -611,7 +634,7 @@ def advanced_query_index(corpus: list = None,
         for query_key, query_vals in query_dict.items():
             if not any([query_vals['q'], query_vals['proper_name'], query_vals['formulaic_parts']]):
                 continue
-            search_part_template = {k: v for k, v in base_body_template.items()}
+            search_part_template = deepcopy(base_body_template)
             if query_vals['formulaic_parts'] != '':
                 query_vals['search_field'] = query_vals['formulaic_parts'].split('+')
 
@@ -625,8 +648,8 @@ def advanced_query_index(corpus: list = None,
             if query_vals['in_order'] == 'False':
                 query_vals['ordered_terms'] = False
             if query_vals['search_field'] == 'lemmas':
-                query_vals['fuzziness'] = 0
-                if '*' in query_vals['q'] or '?' in query_vals['q'] and query_vals['regex_search'] == 'False':
+                query_vals['fuzziness'] = '0'
+                if ('*' in query_vals['q'] or '?' in query_vals['q']) and query_vals['regex_search'] == 'False':
                     flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
                     return [], 0, {}, []
             if composition_place:
@@ -738,7 +761,7 @@ def advanced_query_index(corpus: list = None,
                     clauses = []
                     for term in query_vals['q'].split():
                         u_term = term
-                        if query_vals['search_field'] not in ['lemmas', 'autocomplete', 'autocomplete_lemmas', 'autocomplete_regest']:
+                        if query_vals['search_field'] not in ['lemmas', 'regest', 'autocomplete', 'autocomplete_lemmas', 'autocomplete_regest']:
                             if query_vals['regex_search'] == 'True':
                                 # Replace these characters if they are within brackets
                                 temp_term = re.sub(r'[ij](?=[^\[]*\])',
@@ -827,6 +850,7 @@ def advanced_query_index(corpus: list = None,
                 search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
 
             searched_templates.append(search_part_template)
+
             args_plus_results.append([query_vals, current_app.elasticsearch.search(index=corpus, doc_type="", body=search_part_template)])
 
         if args_plus_results:
@@ -911,10 +935,33 @@ def advanced_query_index(corpus: list = None,
                                                         doc_type="",
                                                         body=agg_search_body)['aggregations']
     if current_app.config["SAVE_REQUESTS"]:
-        q = ''
-        for k, v in query_dict.items():
-            d_vals = '&'.join([str(x) for x in v.values()])
-            q += k + '&' + d_vals
+        q = []
+        for k in ('q_1', 'q_2', 'q_3', 'q_4'):
+            d_vals = []
+            if k in query_dict:
+                for s_arg in ("search_field",
+                              "q",
+                              "fuzziness",
+                              "in_order",
+                              "slop",
+                              "regex_search",
+                              "exclude_q",
+                              "formulaic_parts",
+                              "proper_name"):
+                    d_vals.append(str('+'.join(query_dict[k][s_arg]) if isinstance(query_dict[k][s_arg], list) else query_dict[k][s_arg]).replace(' ', '+'))
+            else:
+                for k, v in (("search_field", "text"),
+                             ("q", ''),
+                             ("fuzziness", "0"),
+                             ("in_order", "False"),
+                             ("slop", "0"),
+                             ("regex_search", 'False'),
+                             ("exclude_q", ""),
+                             ("formulaic_parts", ""),
+                             ("proper_name", "")):
+                    d_vals.append(v)
+            q.append('&'.join(d_vals))
+
         req_name = "{corpus}&{q}&{y}&" \
                    "{m}&{d}&{y_s}&{m_s}&{d_s}&{y_e}&" \
                    "{m_e}&{d_e}&{d_p_m}&" \
@@ -922,7 +969,8 @@ def advanced_query_index(corpus: list = None,
                    "{sort}&{spec_days}&" \
                    "{forgeries}&{source}".format(
             corpus='+'.join(corpus) if isinstance(corpus, list) else corpus,
-            q=q, y=year, m=month, d=day, y_s=year_start, m_s=month_start, d_s=day_start, y_e=year_end,
+            q='&'.join(q), y=year, m=month, d=day, y_s=year_start,
+            m_s=month_start, d_s=day_start, y_e=year_end,
             m_e=month_end, d_e=day_end, d_p_m=date_plus_minus, e_d_r=exclusive_date_range, c_p=composition_place,
             sort=old_sort, spec_days='+'.join(special_days), forgeries=forgeries, source=source)
         fake = FakeElasticsearch(req_name, "advanced_search")

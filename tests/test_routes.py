@@ -6,6 +6,7 @@ from formulae.models import User
 from formulae.search.Search import advanced_query_index, build_sort_list, \
     suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
+from formulae.search.routes import make_query_dict
 from flask_nemo.filters import slugify
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -23,7 +24,7 @@ from flask import Markup, session, g, url_for, abort, template_rendered, message
 from json import dumps, load
 import re
 from datetime import date
-from copy import copy
+from copy import copy, deepcopy
 from lxml import etree
 from itertools import cycle
 from werkzeug import exceptions
@@ -720,81 +721,136 @@ class TestIndividualRoutes(Formulae_Testing):
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=Search')
             mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
-                                           day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10000, q='',
-                                           in_order='False', year=600, year_end=700, year_start=600,
+                                           day_start=12, month=1, month_end=1,
+                                           month_start=12, page=1, per_page=10000,
+                                           year=600, year_end=700, year_start=600,
                                            exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=None, regest_q='', old_search=False, source='advanced',
-                                           regest_field='regest', formulaic_parts='', proper_name='',
-                                           forgeries='include', regex_search='False', exclude_q='',
-                                           search_id="1234")
+                                           special_days=None, old_search=False, source='advanced',
+                                           forgeries='include', query_dict={'q_1':
+                                                                                {'q': '',
+                                                                                 'in_order': False,
+                                                                                 'regex_search': False,
+                                                                                 'proper_name': '',
+                                                                                 'formulaic_parts': '',
+                                                                                 'slop': 0,
+                                                                                 'fuzziness': '0',
+                                                                                 'search_field':
+                                                                                     'text', 'exclude_q': ''}},
+                                           bool_operator='must', search_id="1234")
             self.assertEqual(self.get_context_variable('searched_lems'), [], 'When "q" is empty, there should be no searched lemmas.')
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&special_days=Easter%20Tuesday'
-                  '&search_id=1234&exclude_q=&submit=Search')
-            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
-                                           day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10000, q='',
-                                           in_order='False', year=600, year_end=700, year_start=600,
-                                           exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest', formulaic_parts='', proper_name='',
-                                           forgeries='include', regex_search='False', exclude_q='',
-                                           search_id="1234")
+                  '&search_id=1234&exclude_q=&submit=Search', follow_redirects=True)
+            mock_search.assert_called_with(per_page=10000, page=1, year=600, month=1, day=31, year_start=600,
+                                           month_start=12, day_start=12, year_end=700, month_end=1, day_end=12,
+                                           date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
+                                           composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
+                                           old_search=False, source='advanced', search_id='1234', forgeries='include',
+                                           query_dict={'q_1': {'q': '', 'in_order': False, 'regex_search': False,
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': 0,
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''}},
+                                           bool_operator='must')
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&exclude_q=&search_id=1234'
                   '&submit=True', follow_redirects=True)
-            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
-                                           day_start=12, lemma_search='False', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10000, q='',
-                                           in_order='False', year=600, year_end=700, year_start=600,
-                                           exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest', formulaic_parts='', proper_name='',
-                                           forgeries='include', regex_search='False', exclude_q='',
-                                           search_id="1234")
+            mock_search.assert_called_with(per_page=10000, page=1, year=600, month=1, day=31, year_start=600,
+                                           month_start=12, day_start=12, year_end=700, month_end=1, day_end=12,
+                                           date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
+                                           composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
+                                           old_search=False, source='advanced', search_id='1234', forgeries='include',
+                                           query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''},
+                                                       'q_2': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''},
+                                                       'q_3': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''},
+                                                       'q_4': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''}},
+                                           bool_operator='must')
+
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&exclude_q=&search_id=1234'
                   '&submit=True', follow_redirects=True)
-            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
-                                           day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10000, q='',
-                                           in_order='False', year=600, year_end=700, year_start=600,
-                                           exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest', formulaic_parts='', proper_name='',
-                                           forgeries='include', regex_search='False', exclude_q='',
-                                           search_id="1234")
+            mock_search.assert_called_with(per_page=10000, page=1, year=600, month=1, day=31, year_start=600,
+                                           month_start=12, day_start=12, year_end=700, month_end=1, day_end=12,
+                                           date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
+                                           composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
+                                           old_search=False, source='advanced', search_id='1234', forgeries='include',
+                                           query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'lemmas',
+                                                               'exclude_q': ''},
+                                                       'q_2': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''},
+                                                       'q_3': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''},
+                                                       'q_4': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''}},
+                                           bool_operator='must')
+
             c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&exclude_q=&search_id=1234&'
                   'formulaic_parts=Poenformel%20Stipulationsformel&submit=True', follow_redirects=True)
-            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
-                                           day_start=12, lemma_search='True', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10000, q='',
-                                           in_order='False', year=600, year_end=700, year_start=600,
-                                           exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest', proper_name='',
-                                           search_id="1234", regex_search='False', exclude_q='',
-                                           forgeries='include',
-                                           formulaic_parts="Poenformel+Stipulationsformel")
+            mock_search.assert_called_with(per_page=10000, page=1, year=600, month=1, day=31, year_start=600,
+                                           month_start=12, day_start=12, year_end=700, month_end=1, day_end=12,
+                                           date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
+                                           composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
+                                           old_search=False, source='advanced', search_id='1234', forgeries='include',
+                                           query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '',
+                                                               'formulaic_parts': 'Poenformel Stipulationsformel',
+                                                               'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'lemmas',
+                                                               'exclude_q': ''},
+                                                       'q_2': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''},
+                                                       'q_3': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''},
+                                                       'q_4': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'fuzziness': '0', 'search_field': 'text',
+                                                               'exclude_q': ''}},
+                                           bool_operator='must')
+
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&exclude_q=&search_id=1234&'
                   'formulaic_parts=Poenformel%2BStipulationsformel&page=2&submit=True&per_page=10000', follow_redirects=True)
-            mock_search.assert_called_with(corpus=['formulae'], date_plus_minus=0, day=31, day_end=12,
-                                           day_start=12, lemma_search='y', fuzziness='0', slop='0', month=1, month_end=1,
-                                           month_start=12, page=1, per_page=10000, q='',
-                                           in_order='False', year=600, year_end=700, year_start=600,
-                                           exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=['Easter', 'Tuesday'], regest_q='', old_search=False,
-                                           source='advanced', regest_field='regest', proper_name='', search_id="1234",
-                                           forgeries='include', regex_search='False', exclude_q='',
-                                           formulaic_parts="Poenformel+Stipulationsformel")
+            mock_search.assert_called_with(per_page=10000, page=1, year=600, month=1, day=31, year_start=600,
+                                           month_start=12, day_start=12, year_end=700, month_end=1, day_end=12,
+                                           date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
+                                           composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
+                                           old_search=False, source='advanced', search_id='1234', forgeries='include',
+                                           query_dict={'q_1': {'q': '', 'in_order': False, 'regex_search': False,
+                                                               'proper_name': '',
+                                                               'formulaic_parts': 'Poenformel+Stipulationsformel',
+                                                               'slop': 0, 'fuzziness': '0', 'search_field': 'lemmas',
+                                                               'exclude_q': ''}},
+                                           bool_operator='must')
+
             self.assertIn('search::search.html', [x[0].name for x in self.templates])
             # Check searched_lems return values
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
@@ -828,11 +884,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn(('<b>Angers</b>: Angers', 'andecavensis'), g.corpora,
                           'g.corpora should be set when session["previous_search_args"] is set.')
             # Test to make sure that a capitalized search term is converted to lowercase in advanced search
-            params['q'] = 'regnum'
+            params['q_1'] = 'regnum'
             params['corpus'] = 'chartae'
             params['special_days'] = 'Easter%2BTuesday'
-            params['proper_name'] = 'personenname%2Bortsname'
-            params['regex_search'] = 'True'
+            params['proper_name_1'] = 'personenname\+ortsname'
+            params['regex_search_1'] = 'True'
             response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                              'date_plus_minus=0&special_days=Easter+Tuesday&proper_name=personenname%20ortsname&'
@@ -849,36 +905,40 @@ class TestIndividualRoutes(Formulae_Testing):
     @patch("formulae.search.routes.advanced_query_index")
     def test_simple_search_results(self, mock_search):
         """ Make sure that the correct search results are passed to the search results form"""
-        params = dict(corpus='formulae%2Bchartae', q='regnum', sort='urn', source='simple')
+        params = dict(corpus='formulae%2Bchartae', q_1='regnum', sort='urn', source='simple')
         mock_search.return_value = [[], 0, {}, []]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
-            response = c.get('/search/simple?corpus=formulae&corpus=chartae&q=Regnum&search_id=4321&simple_search_id=1234')
+            response = c.get('/search/simple?corpus=formulae&corpus=chartae&q_1=Regnum&search_id=4321&simple_search_id=1234')
             for p, v in params.items():
                 self.assertRegex(str(response.location), r'{}={}'.format(p, v))
-            c.get('/search/simple?corpus=formulae&corpus=chartae&q=Regnum&search_id=4321&simple_search_id=1234',
+            c.get('/search/simple?corpus=formulae&corpus=chartae&q_1=Regnum&search_id=4321&simple_search_id=1234',
                   follow_redirects=True)
-            mock_search.assert_called_with(corpus=['formulae', 'chartae'], date_plus_minus=0, day=0, day_end=0,
-                                           day_start=0, lemma_search='False', fuzziness='0', slop='0', month=0, month_end=0,
-                                           month_start=0, page=1, per_page=10000, q='regnum',
-                                           in_order='False', year=0, year_end=0, year_start=0,
-                                           exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=None, regest_q='', old_search=False,
-                                           source='simple', regest_field='regest', proper_name='', search_id="1234",
-                                           forgeries='include', formulaic_parts="", regex_search='False',
-                                           exclude_q='')
-            c.get('/search/simple?corpus=elexicon&q=Regnum&search_id=4321&simple_search_id=1234',
+            mock_search.assert_called_with(per_page=10000, page=1, year=0, month=0, day=0, year_start=0, month_start=0,
+                                           day_start=0, year_end=0, month_end=0, day_end=0, date_plus_minus=0,
+                                           corpus=['formulae', 'chartae'], exclusive_date_range='False',
+                                           composition_place='', sort='urn', special_days=None, old_search=False,
+                                           source='simple', search_id='1234', forgeries='include',
+                                           query_dict={'q_1':
+                                                           {'q': 'regnum', 'in_order': False, 'regex_search': False,
+                                                            'proper_name': '', 'formulaic_parts': '', 'slop': 0,
+                                                            'fuzziness': 0, 'search_field': 'text', 'exclude_q': ''}},
+                                           bool_operator='must')
+
+            c.get('/search/simple?corpus=elexicon&q_1=Regnum&search_id=4321&simple_search_id=1234',
                   follow_redirects=True)
-            mock_search.assert_called_with(corpus=['elexicon'], date_plus_minus=0, day=0, day_end=0,
-                                           day_start=0, lemma_search='False', fuzziness='0', slop='0', month=0, month_end=0,
-                                           month_start=0, page=1, per_page=10000, q='regnum',
-                                           in_order='False', year=0, year_end=0, year_start=0,
-                                           exclusive_date_range='False', composition_place='', sort="urn",
-                                           special_days=None, regest_q='', old_search=False,
-                                           source='simple', regest_field='regest', proper_name='', search_id="1234",
-                                           forgeries='include', formulaic_parts="", regex_search='False',
-                                           exclude_q='')
+            mock_search.assert_called_with(per_page=10000, page=1, year=0, month=0, day=0, year_start=0, month_start=0,
+                                           day_start=0, year_end=0, month_end=0, day_end=0, date_plus_minus=0,
+                                           corpus=['elexicon'], exclusive_date_range='False', composition_place='',
+                                           sort='urn', special_days=None, old_search=False, source='simple',
+                                           search_id='1234', forgeries='include',
+                                           query_dict={'q_1':
+                                                           {'q': 'regnum', 'in_order': False, 'regex_search': False,
+                                                            'proper_name': '', 'formulaic_parts': '', 'slop': 0,
+                                                            'fuzziness': 0, 'search_field': 'text', 'exclude_q': ''}},
+                                           bool_operator='must')
+
 
     @patch("formulae.nemo.lem_highlight_to_text")
     def test_search_result_highlighting(self, mock_highlight):
@@ -946,51 +1006,49 @@ class TestIndividualRoutes(Formulae_Testing):
     @patch.object(Search, 'lem_highlight_to_text')
     def test_session_previous_results_set(self, mock_highlight, mock_search):
         """ Make sure that session['previous_results'] is set correctly"""
-        test_args = OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ('regest_q', ''), ('regest_field', 'regest'),
-                                 ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"),
-                                 ('regex_search', 'False'), ('exclude_q', ''), ('source', 'advanced')])
+        test_args = copy(TestES.TEST_ARGS['test_lemma_advanced_search'])
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for hit in resp['hits']['hits']:
-            hit['highlight']['lemmas'][0] = PRE_TAGS + hit['highlight']['lemmas'][0] + POST_TAGS
-        mock_search.side_effect = cycle([resp, aggs])
+        TestES.search_response = cycle(resp)
+        TestES.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for hit in single_response['hits']['hits']:
+                hit['highlight']['lemmas'][0] = PRE_TAGS + hit['highlight']['lemmas'][0] + POST_TAGS
+        mock_search.side_effect = TestES().search_side_effect
         mock_highlight.side_effect = TestES().highlight_side_effect
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
+            test_args['query_dict'] = make_query_dict(test_args)
             _, _, _, results = advanced_query_index(**test_args)
             session['previous_search'] = results
-            self.assertEqual([x['id'] for x in results],
-                             [hit['_id'] for hit in resp['hits']['hits']])
-            updated_args = copy(test_args)
-            updated_args['q'] = 'tex?'
+            for single_response in resp:
+                self.assertEqual([x['id'] for x in results],
+                                 [hit['_id'] for hit in single_response['hits']['hits']])
+            updated_args = copy(TestES.TEST_ARGS['test_lemma_advanced_search'])
+            updated_args['q_1'] = 'tex?'
             url = '/search/results?source=advanced&' + '&'.join(['{}={}'.format(x, y) for x, y in updated_args.items()])
             c.get(url)
             self.assertEqual(g.previous_search, [], 'Latest search results should be empty.')
             self.assertEqual(session['previous_search'], [], 'session["previous_search"] should also be reset.')
-            c.get(url.replace('q=tex?', 'q=text') + '&old_search=True')
+            c.get(url.replace('q_1=tex?', 'q_1=text') + '&old_search=True')
             self.assertEqual([], session['previous_search'],
                              "With old_search set to True, session['previous_search'] should not be changed.")
-            c.get(url.replace('q=tex?', 'q=text') + '&old_search=False')
+            c.get(url.replace('q_1=tex?', 'q_1=text') + '&old_search=False')
             self.assertEqual(results, session['previous_search'],
                              "With old_search set to FAlse, session['previous_search'] should be reset.")
-            c.get(url.replace('q=tex?', 'q=soem') + '&old_search=True')
+            c.get(url.replace('q_1=tex?', 'q_1=soem') + '&old_search=True')
             self.assertEqual(results, session['previous_search'],
                              "With old_search set to True, session['previous_search'] should not be changed.")
             c.get('/auth/logout', follow_redirects=True)
-            c.get(url.replace('q=tex?', 'q=soem') + '&old_search=False')
+            c.get(url.replace('q_1=tex?', 'q_1=soem') + '&old_search=False')
             self.assertEqual(g.previous_search, session['previous_search'],
                              'Value of g.previous_search should be transferred to session')
-            self.assertEqual([x['id'] for x in session['previous_search']],
-                             [hit['_id'] for hit in resp['hits']['hits']],
-                             'Session should reflect whether a text can be shown or not.')
+            for single_response in resp:
+                self.assertEqual([x['id'] for x in session['previous_search']],
+                                 [hit['_id'] for hit in single_response['hits']['hits']],
+                                 'Session should reflect whether a text can be shown or not.')
 
     def test_session_previous_result_unset(self):
         """ Make sure that session['previous_result'] is unset in the right circumstances"""
@@ -1023,18 +1081,12 @@ class TestIndividualRoutes(Formulae_Testing):
                          'day_start': '', 'year_end': '', 'month_end': '0', 'day_end': '', 'date_plus_minus': '0',
                          'exclusive_date_range': 'False', 'composition_place': '', 'submit': 'True', 'sort': 'urn',
                          'special_days': '', 'regest_q': '', 'regest_field': 'regest'}
-        test_args = OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ('regest_q', ''), ('regest_field', 'regest'),
-                                 ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"),
-                                 ('regex_search', 'False'), ('exclude_q', ''), ('source', 'advanced')])
+        test_args = copy(TestES.TEST_ARGS['test_lemma_advanced_search'])
         fake = FakeElasticsearch(TestES().build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        mock_search.side_effect = cycle([resp, aggs])
+        TestES.search_response = cycle(resp)
+        TestES.search_aggs = fake.load_aggs()
+        mock_search.side_effect = TestES().search_side_effect
         mock_highlight.side_effect = TestES().highlight_side_effect
         with self.client as c:
             session['previous_search_args'] = previous_args
@@ -1082,7 +1134,7 @@ class TestIndividualRoutes(Formulae_Testing):
                    'ille sicut illi semetipsum hiato terrae ', 'illi et mihi econtra donaretur et ']
         mock_suggest.return_value = results
         expected = dumps(results)
-        r = self.client.get('/search/suggest/ill')
+        r = self.client.get('/search/suggest/q_1?q_1=ill')
         self.assertEqual(expected, r.get_data(as_text=True))
 
     def test_bibliography_links(self):
@@ -1523,17 +1575,17 @@ class TestForms(Formulae_Testing):
 
     def test_valid_data_simple_search_form(self):
         """ Ensure that the simple search form validates with valid data"""
-        form = SearchForm(corpus=[], q='regnum')
+        form = SearchForm(corpus=[], q_1='regnum')
         form.data['corpus'].append('formulae')
         form.validate()
         self.assertTrue(form.validate(), 'Simple search with "regnum" should validate')
-        form.data['q'] = 're?num'
+        form.data['q_1'] = 're?num'
         form.validate()
         self.assertTrue(form.validate(), 'Simple search with "re?num" should validate')
 
     def test_invalid_corpus_simple_search_form(self):
         """ Ensure that the simple search form returns a ValidationError with no corpus"""
-        form = SearchForm(corpus=[], q='regnum')
+        form = SearchForm(corpus=[], q_1='regnum')
         form.data['corpus'].append('')
         self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
@@ -1543,10 +1595,10 @@ class TestForms(Formulae_Testing):
 
     def test_invalid_query_simple_search_form(self):
         """ Ensure that the simple search form returns a ValidationError with no corpus"""
-        form = SearchForm(corpus=['formulae'], q=None)
+        form = SearchForm(corpus=['formulae'], q_1=None)
         self.assertFalse(form.validate(), 'Search with no query term specified should not validate')
         # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
-        self.assertIn(str(form.q.errors[0]),
+        self.assertIn(str(form.q_1.errors[0]),
                       [_('Dieses Feld wird benötigt.'),
                        _("'' ist kein gültige Auswahl für dieses Feld.")])
 
@@ -1793,328 +1845,5562 @@ class TestAuth(Formulae_Testing):
 
 class TestES(Formulae_Testing):
 
-    TEST_ARGS = {'test_date_range_search_same_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''),
-                                                                  ("fuzziness", "0"), ('in_order', 'False'),
-                                                                  ("year", 0), ('slop', '0'), ("month", 0),
-                                                                  ("day", 0), ("year_start", 814),
-                                                                  ("month_start", 10), ("day_start", 29),
-                                                                  ("year_end", 814), ("month_end", 11),
-                                                                  ("day_end", 20), ('date_plus_minus', 0),
+    # Change these to match the new arg format and then have a few examples of old args to make sure they still work
+    TEST_ARGS = {'test_date_range_search_same_year': OrderedDict([("corpus", "all"),
+                                                                  ("search_field_1", "text"),
+                                                                  ("q_1", ''),
+                                                                  ("fuzziness_1", "0"),
+                                                                  ("in_order_1", "False"),
+                                                                  ("slop_1", "0"),
+                                                                  ("regex_search_1", 'False'),
+                                                                  ("exclude_q_1", ""),
+                                                                  ("formulaic_parts_1", ""),
+                                                                  ("proper_name_1", ""),
+                                                                  ("search_field_2", "text"),
+                                                                  ("q_2", ''),
+                                                                  ("fuzziness_2", "0"),
+                                                                  ("in_order_2", "False"),
+                                                                  ("slop_2", "0"),
+                                                                  ("regex_search_2", 'False'),
+                                                                  ("exclude_q_2", ""),
+                                                                  ("formulaic_parts_2", ""),
+                                                                  ("proper_name_2", ""),
+                                                                  ("search_field_3", "text"),
+                                                                  ("q_3", ''),
+                                                                  ("fuzziness_3", "0"),
+                                                                  ("in_order_3", "False"),
+                                                                  ("slop_3", "0"),
+                                                                  ("regex_search_3", 'False'),
+                                                                  ("exclude_q_3", ""),
+                                                                  ("formulaic_parts_3", ""),
+                                                                  ("proper_name_3", ""),
+                                                                  ("search_field_4", "text"),
+                                                                  ("q_4", ''),
+                                                                  ("fuzziness_4", "0"),
+                                                                  ("in_order_4", "False"),
+                                                                  ("slop_4", "0"),
+                                                                  ("regex_search_4", 'False'),
+                                                                  ("exclude_q_4", ""),
+                                                                  ("formulaic_parts_4", ""),
+                                                                  ("proper_name_4", ""),
+                                                                  ("year", 0),
+                                                                  ("month", 0),
+                                                                  ("day", 0),
+                                                                  ("year_start", 814),
+                                                                  ("month_start", 10),
+                                                                  ("day_start", 29),
+                                                                  ("year_end", 814),
+                                                                  ("month_end", 11),
+                                                                  ("day_end", 20),
+                                                                  ('date_plus_minus', 0),
                                                                   ('exclusive_date_range', 'False'),
-                                                                  ("composition_place", ''), ('sort', 'urn'),
-                                                                  ('special_days', ''), ("regest_q", ''),
-                                                                  ("regest_field", "regest"), ("formulaic_parts", ""),
-                                                                  ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_range_search_same_month': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 10), ("year_end", 800), ("month_end", 10),
-                                 ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_range_search_different_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 10), ("year_end", 801), ("month_end", 10),
-                                 ("day_end", 29), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_range_search_only_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 810), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_range_search_only_year_and_month_same_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 0), ("year_end", 800), ("month_end", 11),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_range_search_only_year_and_month_different_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 0), ("year_end", 801), ("month_end", 11),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_range_search_only_start_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_range_search_only_end_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_range_search_only_start_year_and_month': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 800),
-                                 ("month_start", 10), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_range_search_only_end_year_and_month': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 10),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_normal_date_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_normal_date_only_year_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 800), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_date_plus_minus_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 800), ('slop', '0'), ("month", 10), ("day", 9), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 0), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 10), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_exclusive_date_range_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
-                                 ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_exclusive_date_range_search_only_year': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 700), ("month_start", 0), ("day_start", 0), ("year_end", 800),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_exclusive_date_range_search_same_month_and_day': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 800), ("month_start", 12), ("day_start", 25), ("year_end", 820),
-                                 ("month_end", 12), ("day_end", 25), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_multi_corpus_search': OrderedDict([("corpus", "andecavensis%2Bmondsee"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 814), ("month_start", 10), ("day_start", 29), ("year_end", 814),
-                                 ("month_end", 11), ("day_end", 20), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_multiword_wildcard_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'regnum+dom*'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_lemma_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_regest_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'tausch'),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_regest_and_word_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'schenk*'),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_regest_advanced_search_with_wildcard': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'tau*'),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'vir+venerabilis'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_v_to_u_multiword': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'wolfhart+cvm'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_v_to_u_single_word': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'novalium'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_single_word_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'pettonis'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_multi_word_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'scripsi+et+suscripsi'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_single_lemma_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_multi_lemma_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnum+domni'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_lemma_advanced_search_with_wildcard': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'venerabili?'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_composition_place_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", 'Basel-Augst'),
-                                 ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_suggest_composition_places': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 700), ("month_start", 10), ("day_start", 0), ("year_end", 800),
-                                 ("month_end", 10), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'True'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'schenkt'),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_suggest_word_search_completion_no_qSource': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'illam'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'tau'),
-                                 ("regest_field", "autocomplete_regest"), ("formulaic_parts", ""), ("proper_name", ""), ('qSource', ''), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_save_requests': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", 'Basel-Augst'),
-                                 ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_specific_day_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', 'Easter'), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_multiple_specific_day_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', 'Easter+Saturday'), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_download_search_results': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", 'regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_download_search_results_regest': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", 'schenk*'),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_no_corpus_given': OrderedDict([("lemma_search", "False"), ("q", ''), ("fuzziness", "0"), ('in_order', 'False'),
-                                 ("year", 0), ('slop', '0'), ("month", 0), ("day", 0), ("year_start", 0),
-                                 ("month_start", 0), ("day_start", 0), ("year_end", 801), ("month_end", 0),
-                                 ("day_end", 0), ('date_plus_minus', 0), ('exclusive_date_range', 'False'),
-                                 ("composition_place", ''), ('sort', 'urn'), ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_mapped_lemma_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'gero'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_mapped_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'facio+gero'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_proper_name_search': OrderedDict([("corpus", "all"), ("lemma_search", "False"), ("q", ''), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", "personenname"), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'pettone'), ("fuzziness", "AUTO"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'regnante+pettone'), ("fuzziness", "AUTO"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_multi_word_fuzzy_highlighting_with_wildcard': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"), ("q", 'scripsi+et+suscr*'), ("fuzziness", "AUTO"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
-                 'test_multi_word_highlighting_repeated_words': OrderedDict([("corpus", "buenden"), ("lemma_search", "False"),
-                                 ("q", 'signum+uuiliarentis+testes+signum+crespionis+testes'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest"), ("formulaic_parts", ""), ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                                  ("composition_place", ''),
+                                                                  ('sort', 'urn'),
+                                                                  ('special_days', ''),
+                                                                  ("forgeries", "include"),
+                                                                  ('source', 'advanced')]),
+                 'test_date_range_search_same_month': OrderedDict([("corpus", "all"),
+                                                                   ("search_field_1", "text"),
+                                                                   ("q_1", ''),
+                                                                   ("fuzziness_1", "0"),
+                                                                   ("in_order_1", "False"),
+                                                                   ("slop_1", "0"),
+                                                                   ("regex_search_1", 'False'),
+                                                                   ("exclude_q_1", ""),
+                                                                   ("formulaic_parts_1", ""),
+                                                                   ("proper_name_1", ""),
+                                                                   ("search_field_2", "text"),
+                                                                   ("q_2", ''),
+                                                                   ("fuzziness_2", "0"),
+                                                                   ("in_order_2", "False"),
+                                                                   ("slop_2", "0"),
+                                                                   ("regex_search_2", 'False'),
+                                                                   ("exclude_q_2", ""),
+                                                                   ("formulaic_parts_2", ""),
+                                                                   ("proper_name_2", ""),
+                                                                   ("search_field_3", "text"),
+                                                                   ("q_3", ''),
+                                                                   ("fuzziness_3", "0"),
+                                                                   ("in_order_3", "False"),
+                                                                   ("slop_3", "0"),
+                                                                   ("regex_search_3", 'False'),
+                                                                   ("exclude_q_3", ""),
+                                                                   ("formulaic_parts_3", ""),
+                                                                   ("proper_name_3", ""),
+                                                                   ("search_field_4", "text"),
+                                                                   ("q_4", ''),
+                                                                   ("fuzziness_4", "0"),
+                                                                   ("in_order_4", "False"),
+                                                                   ("slop_4", "0"),
+                                                                   ("regex_search_4", 'False'),
+                                                                   ("exclude_q_4", ""),
+                                                                   ("formulaic_parts_4", ""),
+                                                                   ("proper_name_4", ""),
+                                                                   ("year", 0),
+                                                                   ("month", 0),
+                                                                   ("day", 0),
+                                                                   ("year_start", 800),
+                                                                   ("month_start", 10),
+                                                                   ("day_start", 10),
+                                                                   ("year_end", 800),
+                                                                   ("month_end", 10),
+                                                                   ("day_end", 29),
+                                                                   ('date_plus_minus', 0),
+                                                                   ('exclusive_date_range', 'False'),
+                                                                   ("composition_place", ''),
+                                                                   ('sort', 'urn'),
+                                                                   ('special_days', ''),
+                                                                   ("forgeries", "include"),
+                                                                   ('source', 'advanced')]),
+                 'test_date_range_search_different_year': OrderedDict([("corpus", "all"),
+                                                                       ("search_field_1", "text"),
+                                                                       ("q_1", ''),
+                                                                       ("fuzziness_1", "0"),
+                                                                       ("in_order_1", "False"),
+                                                                       ("slop_1", "0"),
+                                                                       ("regex_search_1", 'False'),
+                                                                       ("exclude_q_1", ""),
+                                                                       ("formulaic_parts_1", ""),
+                                                                       ("proper_name_1", ""),
+                                                                       ("search_field_2", "text"),
+                                                                       ("q_2", ''),
+                                                                       ("fuzziness_2", "0"),
+                                                                       ("in_order_2", "False"),
+                                                                       ("slop_2", "0"),
+                                                                       ("regex_search_2", 'False'),
+                                                                       ("exclude_q_2", ""),
+                                                                       ("formulaic_parts_2", ""),
+                                                                       ("proper_name_2", ""),
+                                                                       ("search_field_3", "text"),
+                                                                       ("q_3", ''),
+                                                                       ("fuzziness_3", "0"),
+                                                                       ("in_order_3", "False"),
+                                                                       ("slop_3", "0"),
+                                                                       ("regex_search_3", 'False'),
+                                                                       ("exclude_q_3", ""),
+                                                                       ("formulaic_parts_3", ""),
+                                                                       ("proper_name_3", ""),
+                                                                       ("search_field_4", "text"),
+                                                                       ("q_4", ''),
+                                                                       ("fuzziness_4", "0"),
+                                                                       ("in_order_4", "False"),
+                                                                       ("slop_4", "0"),
+                                                                       ("regex_search_4", 'False'),
+                                                                       ("exclude_q_4", ""),
+                                                                       ("formulaic_parts_4", ""),
+                                                                       ("proper_name_4", ""),
+                                                                       ("year", 0),
+                                                                       ("month", 0),
+                                                                       ("day", 0),
+                                                                       ("year_start", 800),
+                                                                       ("month_start", 10),
+                                                                       ("day_start", 10),
+                                                                       ("year_end", 801),
+                                                                       ("month_end", 10),
+                                                                       ("day_end", 29),
+                                                                       ('date_plus_minus', 0),
+                                                                       ('exclusive_date_range', 'False'),
+                                                                       ("composition_place", ''),
+                                                                       ('sort', 'urn'),
+                                                                       ('special_days', ''),
+                                                                       ("forgeries", "include"),
+                                                                       ('source', 'advanced')]),
+                 'test_date_range_search_only_year': OrderedDict([("corpus", "all"),
+                                                                  ("search_field_1", "text"),
+                                                                  ("q_1", ''),
+                                                                  ("fuzziness_1", "0"),
+                                                                  ("in_order_1", "False"),
+                                                                  ("slop_1", "0"),
+                                                                  ("regex_search_1", 'False'),
+                                                                  ("exclude_q_1", ""),
+                                                                  ("formulaic_parts_1", ""),
+                                                                  ("proper_name_1", ""),
+                                                                  ("search_field_2", "text"),
+                                                                  ("q_2", ''),
+                                                                  ("fuzziness_2", "0"),
+                                                                  ("in_order_2", "False"),
+                                                                  ("slop_2", "0"),
+                                                                  ("regex_search_2", 'False'),
+                                                                  ("exclude_q_2", ""),
+                                                                  ("formulaic_parts_2", ""),
+                                                                  ("proper_name_2", ""),
+                                                                  ("search_field_3", "text"),
+                                                                  ("q_3", ''),
+                                                                  ("fuzziness_3", "0"),
+                                                                  ("in_order_3", "False"),
+                                                                  ("slop_3", "0"),
+                                                                  ("regex_search_3", 'False'),
+                                                                  ("exclude_q_3", ""),
+                                                                  ("formulaic_parts_3", ""),
+                                                                  ("proper_name_3", ""),
+                                                                  ("search_field_4", "text"),
+                                                                  ("q_4", ''),
+                                                                  ("fuzziness_4", "0"),
+                                                                  ("in_order_4", "False"),
+                                                                  ("slop_4", "0"),
+                                                                  ("regex_search_4", 'False'),
+                                                                  ("exclude_q_4", ""),
+                                                                  ("formulaic_parts_4", ""),
+                                                                  ("proper_name_4", ""),
+                                                                  ("year", 0),
+                                                                  ("month", 0),
+                                                                  ("day", 0),
+                                                                  ("year_start", 800),
+                                                                  ("month_start", 0),
+                                                                  ("day_start", 0),
+                                                                  ("year_end", 810),
+                                                                  ("month_end", 0),
+                                                                  ("day_end", 0),
+                                                                  ('date_plus_minus', 0),
+                                                                  ('exclusive_date_range', 'False'),
+                                                                  ("composition_place", ''),
+                                                                  ('sort', 'urn'),
+                                                                  ('special_days', ''),
+                                                                  ("forgeries", "include"),
+                                                                  ('source', 'advanced')]),
+                 'test_date_range_search_only_year_and_month_same_year': OrderedDict([("corpus", "all"),
+                                                                                      ("search_field_1", "text"),
+                                                                                      ("q_1", ''),
+                                                                                      ("fuzziness_1", "0"),
+                                                                                      ("in_order_1", "False"),
+                                                                                      ("slop_1", "0"),
+                                                                                      ("regex_search_1", 'False'),
+                                                                                      ("exclude_q_1", ""),
+                                                                                      ("formulaic_parts_1", ""),
+                                                                                      ("proper_name_1", ""),
+                                                                                      ("search_field_2", "text"),
+                                                                                      ("q_2", ''),
+                                                                                      ("fuzziness_2", "0"),
+                                                                                      ("in_order_2", "False"),
+                                                                                      ("slop_2", "0"),
+                                                                                      ("regex_search_2", 'False'),
+                                                                                      ("exclude_q_2", ""),
+                                                                                      ("formulaic_parts_2", ""),
+                                                                                      ("proper_name_2", ""),
+                                                                                      ("search_field_3", "text"),
+                                                                                      ("q_3", ''),
+                                                                                      ("fuzziness_3", "0"),
+                                                                                      ("in_order_3", "False"),
+                                                                                      ("slop_3", "0"),
+                                                                                      ("regex_search_3", 'False'),
+                                                                                      ("exclude_q_3", ""),
+                                                                                      ("formulaic_parts_3", ""),
+                                                                                      ("proper_name_3", ""),
+                                                                                      ("search_field_4", "text"),
+                                                                                      ("q_4", ''),
+                                                                                      ("fuzziness_4", "0"),
+                                                                                      ("in_order_4", "False"),
+                                                                                      ("slop_4", "0"),
+                                                                                      ("regex_search_4", 'False'),
+                                                                                      ("exclude_q_4", ""),
+                                                                                      ("formulaic_parts_4", ""),
+                                                                                      ("proper_name_4", ""),
+                                                                                      ("year", 0),
+                                                                                      ("month", 0),
+                                                                                      ("day", 0),
+                                                                                      ("year_start", 800),
+                                                                                      ("month_start", 10),
+                                                                                      ("day_start", 0),
+                                                                                      ("year_end", 800),
+                                                                                      ("month_end", 11),
+                                                                                      ("day_end", 0),
+                                                                                      ('date_plus_minus', 0),
+                                                                                      ('exclusive_date_range', 'False'),
+                                                                                      ("composition_place", ''),
+                                                                                      ('sort', 'urn'),
+                                                                                      ('special_days', ''),
+                                                                                      ("forgeries", "include"),
+                                                                                      ('source', 'advanced')]),
+                 'test_date_range_search_only_year_and_month_different_year': OrderedDict([("corpus", "all"),
+                                                                                           ("search_field_1", "text"),
+                                                                                           ("q_1", ''),
+                                                                                           ("fuzziness_1", "0"),
+                                                                                           ("in_order_1", "False"),
+                                                                                           ("slop_1", "0"),
+                                                                                           ("regex_search_1", 'False'),
+                                                                                           ("exclude_q_1", ""),
+                                                                                           ("formulaic_parts_1", ""),
+                                                                                           ("proper_name_1", ""),
+                                                                                           ("search_field_2", "text"),
+                                                                                           ("q_2", ''),
+                                                                                           ("fuzziness_2", "0"),
+                                                                                           ("in_order_2", "False"),
+                                                                                           ("slop_2", "0"),
+                                                                                           ("regex_search_2", 'False'),
+                                                                                           ("exclude_q_2", ""),
+                                                                                           ("formulaic_parts_2", ""),
+                                                                                           ("proper_name_2", ""),
+                                                                                           ("search_field_3", "text"),
+                                                                                           ("q_3", ''),
+                                                                                           ("fuzziness_3", "0"),
+                                                                                           ("in_order_3", "False"),
+                                                                                           ("slop_3", "0"),
+                                                                                           ("regex_search_3", 'False'),
+                                                                                           ("exclude_q_3", ""),
+                                                                                           ("formulaic_parts_3", ""),
+                                                                                           ("proper_name_3", ""),
+                                                                                           ("search_field_4", "text"),
+                                                                                           ("q_4", ''),
+                                                                                           ("fuzziness_4", "0"),
+                                                                                           ("in_order_4", "False"),
+                                                                                           ("slop_4", "0"),
+                                                                                           ("regex_search_4", 'False'),
+                                                                                           ("exclude_q_4", ""),
+                                                                                           ("formulaic_parts_4", ""),
+                                                                                           ("proper_name_4", ""),
+                                                                                           ("year", 0),
+                                                                                           ("month", 0),
+                                                                                           ("day", 0),
+                                                                                           ("year_start", 800),
+                                                                                           ("month_start", 10),
+                                                                                           ("day_start", 0),
+                                                                                           ("year_end", 801),
+                                                                                           ("month_end", 11),
+                                                                                           ("day_end", 0),
+                                                                                           ('date_plus_minus', 0),
+                                                                                           ('exclusive_date_range', 'False'),
+                                                                                           ("composition_place", ''),
+                                                                                           ('sort', 'urn'),
+                                                                                           ('special_days', ''),
+                                                                                           ("forgeries", "include"),
+                                                                                           ('source', 'advanced')]),
+                 'test_date_range_search_only_start_year': OrderedDict([("corpus", "all"),
+                                                                        ("search_field_1", "text"),
+                                                                        ("q_1", ''),
+                                                                        ("fuzziness_1", "0"),
+                                                                        ("in_order_1", "False"),
+                                                                        ("slop_1", "0"),
+                                                                        ("regex_search_1", 'False'),
+                                                                        ("exclude_q_1", ""),
+                                                                        ("formulaic_parts_1", ""),
+                                                                        ("proper_name_1", ""),
+                                                                        ("search_field_2", "text"),
+                                                                        ("q_2", ''),
+                                                                        ("fuzziness_2", "0"),
+                                                                        ("in_order_2", "False"),
+                                                                        ("slop_2", "0"),
+                                                                        ("regex_search_2", 'False'),
+                                                                        ("exclude_q_2", ""),
+                                                                        ("formulaic_parts_2", ""),
+                                                                        ("proper_name_2", ""),
+                                                                        ("search_field_3", "text"),
+                                                                        ("q_3", ''),
+                                                                        ("fuzziness_3", "0"),
+                                                                        ("in_order_3", "False"),
+                                                                        ("slop_3", "0"),
+                                                                        ("regex_search_3", 'False'),
+                                                                        ("exclude_q_3", ""),
+                                                                        ("formulaic_parts_3", ""),
+                                                                        ("proper_name_3", ""),
+                                                                        ("search_field_4", "text"),
+                                                                        ("q_4", ''),
+                                                                        ("fuzziness_4", "0"),
+                                                                        ("in_order_4", "False"),
+                                                                        ("slop_4", "0"),
+                                                                        ("regex_search_4", 'False'),
+                                                                        ("exclude_q_4", ""),
+                                                                        ("formulaic_parts_4", ""),
+                                                                        ("proper_name_4", ""),
+                                                                        ("year", 0),
+                                                                        ("month", 0),
+                                                                        ("day", 0),
+                                                                        ("year_start", 800),
+                                                                        ("month_start", 0),
+                                                                        ("day_start", 0),
+                                                                        ("year_end", 0),
+                                                                        ("month_end", 0),
+                                                                        ("day_end", 0),
+                                                                        ('date_plus_minus', 0),
+                                                                        ('exclusive_date_range', 'False'),
+                                                                        ("composition_place", ''),
+                                                                        ('sort', 'urn'),
+                                                                        ('special_days', ''),
+                                                                        ("forgeries", "include"),
+                                                                        ('source', 'advanced')]),
+                 'test_date_range_search_only_end_year': OrderedDict([("corpus", "all"),
+                                                                      ("search_field_1", "text"),
+                                                                      ("q_1", ''),
+                                                                      ("fuzziness_1", "0"),
+                                                                      ("in_order_1", "False"),
+                                                                      ("slop_1", "0"),
+                                                                      ("regex_search_1", 'False'),
+                                                                      ("exclude_q_1", ""),
+                                                                      ("formulaic_parts_1", ""),
+                                                                      ("proper_name_1", ""),
+                                                                      ("search_field_2", "text"),
+                                                                      ("q_2", ''),
+                                                                      ("fuzziness_2", "0"),
+                                                                      ("in_order_2", "False"),
+                                                                      ("slop_2", "0"),
+                                                                      ("regex_search_2", 'False'),
+                                                                      ("exclude_q_2", ""),
+                                                                      ("formulaic_parts_2", ""),
+                                                                      ("proper_name_2", ""),
+                                                                      ("search_field_3", "text"),
+                                                                      ("q_3", ''),
+                                                                      ("fuzziness_3", "0"),
+                                                                      ("in_order_3", "False"),
+                                                                      ("slop_3", "0"),
+                                                                      ("regex_search_3", 'False'),
+                                                                      ("exclude_q_3", ""),
+                                                                      ("formulaic_parts_3", ""),
+                                                                      ("proper_name_3", ""),
+                                                                      ("search_field_4", "text"),
+                                                                      ("q_4", ''),
+                                                                      ("fuzziness_4", "0"),
+                                                                      ("in_order_4", "False"),
+                                                                      ("slop_4", "0"),
+                                                                      ("regex_search_4", 'False'),
+                                                                      ("exclude_q_4", ""),
+                                                                      ("formulaic_parts_4", ""),
+                                                                      ("proper_name_4", ""),
+                                                                      ("year", 0),
+                                                                      ("month", 0),
+                                                                      ("day", 0),
+                                                                      ("year_start", 0),
+                                                                      ("month_start", 0),
+                                                                      ("day_start", 0),
+                                                                      ("year_end", 801),
+                                                                      ("month_end", 0),
+                                                                      ("day_end", 0),
+                                                                      ('date_plus_minus', 0),
+                                                                      ('exclusive_date_range', 'False'),
+                                                                      ("composition_place", ''),
+                                                                      ('sort', 'urn'),
+                                                                      ('special_days', ''),
+                                                                      ("forgeries", "include"),
+                                                                      ('source', 'advanced')]),
+                 'test_date_range_search_only_start_year_and_month': OrderedDict([("corpus", "all"),
+                                                                                  ("search_field_1", "text"),
+                                                                                  ("q_1", ''),
+                                                                                  ("fuzziness_1", "0"),
+                                                                                  ("in_order_1", "False"),
+                                                                                  ("slop_1", "0"),
+                                                                                  ("regex_search_1", 'False'),
+                                                                                  ("exclude_q_1", ""),
+                                                                                  ("formulaic_parts_1", ""),
+                                                                                  ("proper_name_1", ""),
+                                                                                  ("search_field_2", "text"),
+                                                                                  ("q_2", ''),
+                                                                                  ("fuzziness_2", "0"),
+                                                                                  ("in_order_2", "False"),
+                                                                                  ("slop_2", "0"),
+                                                                                  ("regex_search_2", 'False'),
+                                                                                  ("exclude_q_2", ""),
+                                                                                  ("formulaic_parts_2", ""),
+                                                                                  ("proper_name_2", ""),
+                                                                                  ("search_field_3", "text"),
+                                                                                  ("q_3", ''),
+                                                                                  ("fuzziness_3", "0"),
+                                                                                  ("in_order_3", "False"),
+                                                                                  ("slop_3", "0"),
+                                                                                  ("regex_search_3", 'False'),
+                                                                                  ("exclude_q_3", ""),
+                                                                                  ("formulaic_parts_3", ""),
+                                                                                  ("proper_name_3", ""),
+                                                                                  ("search_field_4", "text"),
+                                                                                  ("q_4", ''),
+                                                                                  ("fuzziness_4", "0"),
+                                                                                  ("in_order_4", "False"),
+                                                                                  ("slop_4", "0"),
+                                                                                  ("regex_search_4", 'False'),
+                                                                                  ("exclude_q_4", ""),
+                                                                                  ("formulaic_parts_4", ""),
+                                                                                  ("proper_name_4", ""),
+                                                                                  ("year", 0),
+                                                                                  ("month", 0),
+                                                                                  ("day", 0),
+                                                                                  ("year_start", 800),
+                                                                                  ("month_start", 10),
+                                                                                  ("day_start", 0),
+                                                                                  ("year_end", 0),
+                                                                                  ("month_end", 0),
+                                                                                  ("day_end", 0),
+                                                                                  ('date_plus_minus', 0),
+                                                                                  ('exclusive_date_range', 'False'),
+                                                                                  ("composition_place", ''),
+                                                                                  ('sort', 'urn'),
+                                                                                  ('special_days', ''),
+                                                                                  ("forgeries", "include"),
+                                                                                  ('source', 'advanced')]),
+                 'test_date_range_search_only_end_year_and_month': OrderedDict([("corpus", "all"),
+                                                                                ("search_field_1", "text"),
+                                                                                ("q_1", ''),
+                                                                                ("fuzziness_1", "0"),
+                                                                                ("in_order_1", "False"),
+                                                                                ("slop_1", "0"),
+                                                                                ("regex_search_1", 'False'),
+                                                                                ("exclude_q_1", ""),
+                                                                                ("formulaic_parts_1", ""),
+                                                                                ("proper_name_1", ""),
+                                                                                ("search_field_2", "text"),
+                                                                                ("q_2", ''),
+                                                                                ("fuzziness_2", "0"),
+                                                                                ("in_order_2", "False"),
+                                                                                ("slop_2", "0"),
+                                                                                ("regex_search_2", 'False'),
+                                                                                ("exclude_q_2", ""),
+                                                                                ("formulaic_parts_2", ""),
+                                                                                ("proper_name_2", ""),
+                                                                                ("search_field_3", "text"),
+                                                                                ("q_3", ''),
+                                                                                ("fuzziness_3", "0"),
+                                                                                ("in_order_3", "False"),
+                                                                                ("slop_3", "0"),
+                                                                                ("regex_search_3", 'False'),
+                                                                                ("exclude_q_3", ""),
+                                                                                ("formulaic_parts_3", ""),
+                                                                                ("proper_name_3", ""),
+                                                                                ("search_field_4", "text"),
+                                                                                ("q_4", ''),
+                                                                                ("fuzziness_4", "0"),
+                                                                                ("in_order_4", "False"),
+                                                                                ("slop_4", "0"),
+                                                                                ("regex_search_4", 'False'),
+                                                                                ("exclude_q_4", ""),
+                                                                                ("formulaic_parts_4", ""),
+                                                                                ("proper_name_4", ""),
+                                                                                ("year", 0),
+                                                                                ("month", 0),
+                                                                                ("day", 0),
+                                                                                ("year_start", 0),
+                                                                                ("month_start", 0),
+                                                                                ("day_start", 0),
+                                                                                ("year_end", 801),
+                                                                                ("month_end", 10),
+                                                                                ("day_end", 0),
+                                                                                ('date_plus_minus', 0),
+                                                                                ('exclusive_date_range', 'False'),
+                                                                                ("composition_place", ''),
+                                                                                ('sort', 'urn'),
+                                                                                ('special_days', ''),
+                                                                                ("forgeries", "include"),
+                                                                                ('source', 'advanced')]),
+                 'test_normal_date_search': OrderedDict([("corpus", "all"),
+                                                         ("search_field_1", "text"),
+                                                         ("q_1", ''),
+                                                         ("fuzziness_1", "0"),
+                                                         ("in_order_1", "False"),
+                                                         ("slop_1", "0"),
+                                                         ("regex_search_1", 'False'),
+                                                         ("exclude_q_1", ""),
+                                                         ("formulaic_parts_1", ""),
+                                                         ("proper_name_1", ""),
+                                                         ("search_field_2", "text"),
+                                                         ("q_2", ''),
+                                                         ("fuzziness_2", "0"),
+                                                         ("in_order_2", "False"),
+                                                         ("slop_2", "0"),
+                                                         ("regex_search_2", 'False'),
+                                                         ("exclude_q_2", ""),
+                                                         ("formulaic_parts_2", ""),
+                                                         ("proper_name_2", ""),
+                                                         ("search_field_3", "text"),
+                                                         ("q_3", ''),
+                                                         ("fuzziness_3", "0"),
+                                                         ("in_order_3", "False"),
+                                                         ("slop_3", "0"),
+                                                         ("regex_search_3", 'False'),
+                                                         ("exclude_q_3", ""),
+                                                         ("formulaic_parts_3", ""),
+                                                         ("proper_name_3", ""),
+                                                         ("search_field_4", "text"),
+                                                         ("q_4", ''),
+                                                         ("fuzziness_4", "0"),
+                                                         ("in_order_4", "False"),
+                                                         ("slop_4", "0"),
+                                                         ("regex_search_4", 'False'),
+                                                         ("exclude_q_4", ""),
+                                                         ("formulaic_parts_4", ""),
+                                                         ("proper_name_4", ""),
+                                                         ("year", 800),
+                                                         ("month", 10),
+                                                         ("day", 9),
+                                                         ("year_start", 0),
+                                                         ("month_start", 0),
+                                                         ("day_start", 0),
+                                                         ("year_end", 0),
+                                                         ("month_end", 0),
+                                                         ("day_end", 0),
+                                                         ('date_plus_minus', 0),
+                                                         ('exclusive_date_range', 'False'),
+                                                         ("composition_place", ''),
+                                                         ('sort', 'urn'),
+                                                         ('special_days', ''),
+                                                         ("forgeries", "include"),
+                                                         ('source', 'advanced')]),
+                 'test_normal_date_only_year_search': OrderedDict([("corpus", "all"),
+                                                                   ("search_field_1", "text"),
+                                                                   ("q_1", ''),
+                                                                   ("fuzziness_1", "0"),
+                                                                   ("in_order_1", "False"),
+                                                                   ("slop_1", "0"),
+                                                                   ("regex_search_1", 'False'),
+                                                                   ("exclude_q_1", ""),
+                                                                   ("formulaic_parts_1", ""),
+                                                                   ("proper_name_1", ""),
+                                                                   ("search_field_2", "text"),
+                                                                   ("q_2", ''),
+                                                                   ("fuzziness_2", "0"),
+                                                                   ("in_order_2", "False"),
+                                                                   ("slop_2", "0"),
+                                                                   ("regex_search_2", 'False'),
+                                                                   ("exclude_q_2", ""),
+                                                                   ("formulaic_parts_2", ""),
+                                                                   ("proper_name_2", ""),
+                                                                   ("search_field_3", "text"),
+                                                                   ("q_3", ''),
+                                                                   ("fuzziness_3", "0"),
+                                                                   ("in_order_3", "False"),
+                                                                   ("slop_3", "0"),
+                                                                   ("regex_search_3", 'False'),
+                                                                   ("exclude_q_3", ""),
+                                                                   ("formulaic_parts_3", ""),
+                                                                   ("proper_name_3", ""),
+                                                                   ("search_field_4", "text"),
+                                                                   ("q_4", ''),
+                                                                   ("fuzziness_4", "0"),
+                                                                   ("in_order_4", "False"),
+                                                                   ("slop_4", "0"),
+                                                                   ("regex_search_4", 'False'),
+                                                                   ("exclude_q_4", ""),
+                                                                   ("formulaic_parts_4", ""),
+                                                                   ("proper_name_4", ""),
+                                                                   ("year", 800),
+                                                                   ("month", 0),
+                                                                   ("day", 0),
+                                                                   ("year_start", 0),
+                                                                   ("month_start", 0),
+                                                                   ("day_start", 0),
+                                                                   ("year_end", 0),
+                                                                   ("month_end", 0),
+                                                                   ("day_end", 0),
+                                                                   ('date_plus_minus', 0),
+                                                                   ('exclusive_date_range', 'False'),
+                                                                   ("composition_place", ''),
+                                                                   ('sort', 'urn'),
+                                                                   ('special_days', ''),
+                                                                   ("forgeries", "include"),
+                                                                   ('source', 'advanced')]),
+                 'test_date_plus_minus_search': OrderedDict([("corpus", "all"),
+                                                             ("search_field_1", "text"),
+                                                             ("q_1", ''),
+                                                             ("fuzziness_1", "0"),
+                                                             ("in_order_1", "False"),
+                                                             ("slop_1", "0"),
+                                                             ("regex_search_1", 'False'),
+                                                             ("exclude_q_1", ""),
+                                                             ("formulaic_parts_1", ""),
+                                                             ("proper_name_1", ""),
+                                                             ("search_field_2", "text"),
+                                                             ("q_2", ''),
+                                                             ("fuzziness_2", "0"),
+                                                             ("in_order_2", "False"),
+                                                             ("slop_2", "0"),
+                                                             ("regex_search_2", 'False'),
+                                                             ("exclude_q_2", ""),
+                                                             ("formulaic_parts_2", ""),
+                                                             ("proper_name_2", ""),
+                                                             ("search_field_3", "text"),
+                                                             ("q_3", ''),
+                                                             ("fuzziness_3", "0"),
+                                                             ("in_order_3", "False"),
+                                                             ("slop_3", "0"),
+                                                             ("regex_search_3", 'False'),
+                                                             ("exclude_q_3", ""),
+                                                             ("formulaic_parts_3", ""),
+                                                             ("proper_name_3", ""),
+                                                             ("search_field_4", "text"),
+                                                             ("q_4", ''),
+                                                             ("fuzziness_4", "0"),
+                                                             ("in_order_4", "False"),
+                                                             ("slop_4", "0"),
+                                                             ("regex_search_4", 'False'),
+                                                             ("exclude_q_4", ""),
+                                                             ("formulaic_parts_4", ""),
+                                                             ("proper_name_4", ""),
+                                                             ("year", 800),
+                                                             ("month", 10),
+                                                             ("day", 9),
+                                                             ("year_start", 0),
+                                                             ("month_start", 0),
+                                                             ("day_start", 0),
+                                                             ("year_end", 0),
+                                                             ("month_end", 0),
+                                                             ("day_end", 0),
+                                                             ('date_plus_minus', 10),
+                                                             ('exclusive_date_range', 'False'),
+                                                             ("composition_place", ''),
+                                                             ('sort', 'urn'),
+                                                             ('special_days', ''),
+                                                             ("forgeries", "include"),
+                                                             ('source', 'advanced')]),
+                 'test_exclusive_date_range_search': OrderedDict([("corpus", "all"),
+                                                                  ("search_field_1", "text"),
+                                                                  ("q_1", ''),
+                                                                  ("fuzziness_1", "0"),
+                                                                  ("in_order_1", "False"),
+                                                                  ("slop_1", "0"),
+                                                                  ("regex_search_1", 'False'),
+                                                                  ("exclude_q_1", ""),
+                                                                  ("formulaic_parts_1", ""),
+                                                                  ("proper_name_1", ""),
+                                                                  ("search_field_2", "text"),
+                                                                  ("q_2", ''),
+                                                                  ("fuzziness_2", "0"),
+                                                                  ("in_order_2", "False"),
+                                                                  ("slop_2", "0"),
+                                                                  ("regex_search_2", 'False'),
+                                                                  ("exclude_q_2", ""),
+                                                                  ("formulaic_parts_2", ""),
+                                                                  ("proper_name_2", ""),
+                                                                  ("search_field_3", "text"),
+                                                                  ("q_3", ''),
+                                                                  ("fuzziness_3", "0"),
+                                                                  ("in_order_3", "False"),
+                                                                  ("slop_3", "0"),
+                                                                  ("regex_search_3", 'False'),
+                                                                  ("exclude_q_3", ""),
+                                                                  ("formulaic_parts_3", ""),
+                                                                  ("proper_name_3", ""),
+                                                                  ("search_field_4", "text"),
+                                                                  ("q_4", ''),
+                                                                  ("fuzziness_4", "0"),
+                                                                  ("in_order_4", "False"),
+                                                                  ("slop_4", "0"),
+                                                                  ("regex_search_4", 'False'),
+                                                                  ("exclude_q_4", ""),
+                                                                  ("formulaic_parts_4", ""),
+                                                                  ("proper_name_4", ""),
+                                                                  ("year", 0),
+                                                                  ("month", 0),
+                                                                  ("day", 0),
+                                                                  ("year_start", 700),
+                                                                  ("month_start", 10),
+                                                                  ("day_start", 0),
+                                                                  ("year_end", 800),
+                                                                  ("month_end", 10),
+                                                                  ("day_end", 0),
+                                                                  ('date_plus_minus', 0),
+                                                                  ('exclusive_date_range', 'True'),
+                                                                  ("composition_place", ''),
+                                                                  ('sort', 'urn'),
+                                                                  ('special_days', ''),
+                                                                  ("forgeries", "include"),
+                                                                  ('source', 'advanced')]),
+                 'test_exclusive_date_range_search_only_year': OrderedDict([("corpus", "all"),
+                                                                            ("search_field_1", "text"),
+                                                                            ("q_1", ''),
+                                                                            ("fuzziness_1", "0"),
+                                                                            ("in_order_1", "False"),
+                                                                            ("slop_1", "0"),
+                                                                            ("regex_search_1", 'False'),
+                                                                            ("exclude_q_1", ""),
+                                                                            ("formulaic_parts_1", ""),
+                                                                            ("proper_name_1", ""),
+                                                                            ("search_field_2", "text"),
+                                                                            ("q_2", ''),
+                                                                            ("fuzziness_2", "0"),
+                                                                            ("in_order_2", "False"),
+                                                                            ("slop_2", "0"),
+                                                                            ("regex_search_2", 'False'),
+                                                                            ("exclude_q_2", ""),
+                                                                            ("formulaic_parts_2", ""),
+                                                                            ("proper_name_2", ""),
+                                                                            ("search_field_3", "text"),
+                                                                            ("q_3", ''),
+                                                                            ("fuzziness_3", "0"),
+                                                                            ("in_order_3", "False"),
+                                                                            ("slop_3", "0"),
+                                                                            ("regex_search_3", 'False'),
+                                                                            ("exclude_q_3", ""),
+                                                                            ("formulaic_parts_3", ""),
+                                                                            ("proper_name_3", ""),
+                                                                            ("search_field_4", "text"),
+                                                                            ("q_4", ''),
+                                                                            ("fuzziness_4", "0"),
+                                                                            ("in_order_4", "False"),
+                                                                            ("slop_4", "0"),
+                                                                            ("regex_search_4", 'False'),
+                                                                            ("exclude_q_4", ""),
+                                                                            ("formulaic_parts_4", ""),
+                                                                            ("proper_name_4", ""),
+                                                                            ("year", 0),
+                                                                            ("month", 0),
+                                                                            ("day", 0),
+                                                                            ("year_start", 700),
+                                                                            ("month_start", 0),
+                                                                            ("day_start", 0),
+                                                                            ("year_end", 800),
+                                                                            ("month_end", 0),
+                                                                            ("day_end", 0),
+                                                                            ('date_plus_minus', 0),
+                                                                            ('exclusive_date_range', 'True'),
+                                                                            ("composition_place", ''),
+                                                                            ('sort', 'urn'),
+                                                                            ('special_days', ''),
+                                                                            ("forgeries", "include"),
+                                                                            ('source', 'advanced')]),
+                 'test_exclusive_date_range_search_same_month_and_day': OrderedDict([("corpus", "all"),
+                                                                                     ("search_field_1", "text"),
+                                                                                     ("q_1", ''),
+                                                                                     ("fuzziness_1", "0"),
+                                                                                     ("in_order_1", "False"),
+                                                                                     ("slop_1", "0"),
+                                                                                     ("regex_search_1", 'False'),
+                                                                                     ("exclude_q_1", ""),
+                                                                                     ("formulaic_parts_1", ""),
+                                                                                     ("proper_name_1", ""),
+                                                                                     ("search_field_2", "text"),
+                                                                                     ("q_2", ''),
+                                                                                     ("fuzziness_2", "0"),
+                                                                                     ("in_order_2", "False"),
+                                                                                     ("slop_2", "0"),
+                                                                                     ("regex_search_2", 'False'),
+                                                                                     ("exclude_q_2", ""),
+                                                                                     ("formulaic_parts_2", ""),
+                                                                                     ("proper_name_2", ""),
+                                                                                     ("search_field_3", "text"),
+                                                                                     ("q_3", ''),
+                                                                                     ("fuzziness_3", "0"),
+                                                                                     ("in_order_3", "False"),
+                                                                                     ("slop_3", "0"),
+                                                                                     ("regex_search_3", 'False'),
+                                                                                     ("exclude_q_3", ""),
+                                                                                     ("formulaic_parts_3", ""),
+                                                                                     ("proper_name_3", ""),
+                                                                                     ("search_field_4", "text"),
+                                                                                     ("q_4", ''),
+                                                                                     ("fuzziness_4", "0"),
+                                                                                     ("in_order_4", "False"),
+                                                                                     ("slop_4", "0"),
+                                                                                     ("regex_search_4", 'False'),
+                                                                                     ("exclude_q_4", ""),
+                                                                                     ("formulaic_parts_4", ""),
+                                                                                     ("proper_name_4", ""),
+                                                                                     ("year", 0),
+                                                                                     ("month", 0),
+                                                                                     ("day", 0),
+                                                                                     ("year_start", 800),
+                                                                                     ("month_start", 12),
+                                                                                     ("day_start", 25),
+                                                                                     ("year_end", 820),
+                                                                                     ("month_end", 12),
+                                                                                     ("day_end", 25),
+                                                                                     ('date_plus_minus', 0),
+                                                                                     ('exclusive_date_range', 'True'),
+                                                                                     ("composition_place", ''),
+                                                                                     ('sort', 'urn'),
+                                                                                     ('special_days', ''),
+                                                                                     ("forgeries", "include"),
+                                                                                     ('source', 'advanced')]),
+                 'test_multi_corpus_search': OrderedDict([("corpus", "andecavensis%2Bmondsee"),
+                                                          ("search_field_1", "text"),
+                                                          ("q_1", ''),
+                                                          ("fuzziness_1", "0"),
+                                                          ("in_order_1", "False"),
+                                                          ("slop_1", "0"),
+                                                          ("regex_search_1", 'False'),
+                                                          ("exclude_q_1", ""),
+                                                          ("formulaic_parts_1", ""),
+                                                          ("proper_name_1", ""),
+                                                          ("search_field_2", "text"),
+                                                          ("q_2", ''),
+                                                          ("fuzziness_2", "0"),
+                                                          ("in_order_2", "False"),
+                                                          ("slop_2", "0"),
+                                                          ("regex_search_2", 'False'),
+                                                          ("exclude_q_2", ""),
+                                                          ("formulaic_parts_2", ""),
+                                                          ("proper_name_2", ""),
+                                                          ("search_field_3", "text"),
+                                                          ("q_3", ''),
+                                                          ("fuzziness_3", "0"),
+                                                          ("in_order_3", "False"),
+                                                          ("slop_3", "0"),
+                                                          ("regex_search_3", 'False'),
+                                                          ("exclude_q_3", ""),
+                                                          ("formulaic_parts_3", ""),
+                                                          ("proper_name_3", ""),
+                                                          ("search_field_4", "text"),
+                                                          ("q_4", ''),
+                                                          ("fuzziness_4", "0"),
+                                                          ("in_order_4", "False"),
+                                                          ("slop_4", "0"),
+                                                          ("regex_search_4", 'False'),
+                                                          ("exclude_q_4", ""),
+                                                          ("formulaic_parts_4", ""),
+                                                          ("proper_name_4", ""),
+                                                          ("year", 0),
+                                                          ("month", 0),
+                                                          ("day", 0),
+                                                          ("year_start", 814),
+                                                          ("month_start", 10),
+                                                          ("day_start", 29),
+                                                          ("year_end", 814),
+                                                          ("month_end", 11),
+                                                          ("day_end", 20),
+                                                          ('date_plus_minus', 0),
+                                                          ('exclusive_date_range', 'False'),
+                                                          ("composition_place", ''),
+                                                          ('sort', 'urn'),
+                                                          ('special_days', ''),
+                                                          ("forgeries", "include"),
+                                                          ('source', 'advanced')]),
+                 'test_multiword_wildcard_search': OrderedDict([("corpus", "all"),
+                                                                ("search_field_1", "text"),
+                                                                ("q_1", 'regnum+dom*'),
+                                                                ("fuzziness_1", "0"),
+                                                                ("in_order_1", "False"),
+                                                                ("slop_1", "0"),
+                                                                ("regex_search_1", 'False'),
+                                                                ("exclude_q_1", ""),
+                                                                ("formulaic_parts_1", ""),
+                                                                ("proper_name_1", ""),
+                                                                ("search_field_2", "text"),
+                                                                ("q_2", ''),
+                                                                ("fuzziness_2", "0"),
+                                                                ("in_order_2", "False"),
+                                                                ("slop_2", "0"),
+                                                                ("regex_search_2", 'False'),
+                                                                ("exclude_q_2", ""),
+                                                                ("formulaic_parts_2", ""),
+                                                                ("proper_name_2", ""),
+                                                                ("search_field_3", "text"),
+                                                                ("q_3", ''),
+                                                                ("fuzziness_3", "0"),
+                                                                ("in_order_3", "False"),
+                                                                ("slop_3", "0"),
+                                                                ("regex_search_3", 'False'),
+                                                                ("exclude_q_3", ""),
+                                                                ("formulaic_parts_3", ""),
+                                                                ("proper_name_3", ""),
+                                                                ("search_field_4", "text"),
+                                                                ("q_4", ''),
+                                                                ("fuzziness_4", "0"),
+                                                                ("in_order_4", "False"),
+                                                                ("slop_4", "0"),
+                                                                ("regex_search_4", 'False'),
+                                                                ("exclude_q_4", ""),
+                                                                ("formulaic_parts_4", ""),
+                                                                ("proper_name_4", ""),
+                                                                ("year", 0),
+                                                                ("month", 0),
+                                                                ("day", 0),
+                                                                ("year_start", 0),
+                                                                ("month_start", 0),
+                                                                ("day_start", 0),
+                                                                ("year_end", 0),
+                                                                ("month_end", 0),
+                                                                ("day_end", 0),
+                                                                ('date_plus_minus', 0),
+                                                                ('exclusive_date_range', 'False'),
+                                                                ("composition_place", ''),
+                                                                ('sort', 'urn'),
+                                                                ('special_days', ''),
+                                                                ("forgeries", "include"),
+                                                                ('source', 'advanced')]),
+                 'test_lemma_advanced_search': OrderedDict([("corpus", "all"),
+                                                            ("search_field_1", "lemmas"),
+                                                            ("q_1", 'regnum'),
+                                                            ("fuzziness_1", "0"),
+                                                            ("in_order_1", "False"),
+                                                            ("slop_1", "0"),
+                                                            ("regex_search_1", 'False'),
+                                                            ("exclude_q_1", ""),
+                                                            ("formulaic_parts_1", ""),
+                                                            ("proper_name_1", ""),
+                                                            ("search_field_2", "text"),
+                                                            ("q_2", ''),
+                                                            ("fuzziness_2", "0"),
+                                                            ("in_order_2", "False"),
+                                                            ("slop_2", "0"),
+                                                            ("regex_search_2", 'False'),
+                                                            ("exclude_q_2", ""),
+                                                            ("formulaic_parts_2", ""),
+                                                            ("proper_name_2", ""),
+                                                            ("search_field_3", "text"),
+                                                            ("q_3", ''),
+                                                            ("fuzziness_3", "0"),
+                                                            ("in_order_3", "False"),
+                                                            ("slop_3", "0"),
+                                                            ("regex_search_3", 'False'),
+                                                            ("exclude_q_3", ""),
+                                                            ("formulaic_parts_3", ""),
+                                                            ("proper_name_3", ""),
+                                                            ("search_field_4", "text"),
+                                                            ("q_4", ''),
+                                                            ("fuzziness_4", "0"),
+                                                            ("in_order_4", "False"),
+                                                            ("slop_4", "0"),
+                                                            ("regex_search_4", 'False'),
+                                                            ("exclude_q_4", ""),
+                                                            ("formulaic_parts_4", ""),
+                                                            ("proper_name_4", ""),
+                                                            ("year", 0),
+                                                            ("month", 0),
+                                                            ("day", 0),
+                                                            ("year_start", 0),
+                                                            ("month_start", 0),
+                                                            ("day_start", 0),
+                                                            ("year_end", 0),
+                                                            ("month_end", 0),
+                                                            ("day_end", 0),
+                                                            ('date_plus_minus', 0),
+                                                            ('exclusive_date_range', 'False'),
+                                                            ("composition_place", ''),
+                                                            ('sort', 'urn'),
+                                                            ('special_days', ''),
+                                                            ("forgeries", "include"),
+                                                            ('source', 'advanced')]),
+                 'test_lemma_simple_search': OrderedDict([("corpus", "all"),
+                                                          ("search_field_1", "lemmas"),
+                                                          ("q_1", 'regnum'),
+                                                          ("fuzziness_1", "0"),
+                                                          ("in_order_1", "False"),
+                                                          ("slop_1", "0"),
+                                                          ("regex_search_1", 'False'),
+                                                          ("exclude_q_1", ""),
+                                                          ("formulaic_parts_1", ""),
+                                                          ("proper_name_1", ""),
+                                                          ("search_field_2", "text"),
+                                                          ("q_2", ''),
+                                                          ("fuzziness_2", "0"),
+                                                          ("in_order_2", "False"),
+                                                          ("slop_2", "0"),
+                                                          ("regex_search_2", 'False'),
+                                                          ("exclude_q_2", ""),
+                                                          ("formulaic_parts_2", ""),
+                                                          ("proper_name_2", ""),
+                                                          ("search_field_3", "text"),
+                                                          ("q_3", ''),
+                                                          ("fuzziness_3", "0"),
+                                                          ("in_order_3", "False"),
+                                                          ("slop_3", "0"),
+                                                          ("regex_search_3", 'False'),
+                                                          ("exclude_q_3", ""),
+                                                          ("formulaic_parts_3", ""),
+                                                          ("proper_name_3", ""),
+                                                          ("search_field_4", "text"),
+                                                          ("q_4", ''),
+                                                          ("fuzziness_4", "0"),
+                                                          ("in_order_4", "False"),
+                                                          ("slop_4", "0"),
+                                                          ("regex_search_4", 'False'),
+                                                          ("exclude_q_4", ""),
+                                                          ("formulaic_parts_4", ""),
+                                                          ("proper_name_4", ""),
+                                                          ("year", 0),
+                                                          ("month", 0),
+                                                          ("day", 0),
+                                                          ("year_start", 0),
+                                                          ("month_start", 0),
+                                                          ("day_start", 0),
+                                                          ("year_end", 0),
+                                                          ("month_end", 0),
+                                                          ("day_end", 0),
+                                                          ('date_plus_minus', 0),
+                                                          ('exclusive_date_range', 'False'),
+                                                          ("composition_place", ''),
+                                                          ('sort', 'urn'),
+                                                          ('special_days', ''),
+                                                          ("forgeries", "include"),
+                                                          ('source', 'simple')]),
+                 'test_regest_advanced_search': OrderedDict([("corpus", "all"),
+                                                             ("search_field_1", "regest"),
+                                                             ("q_1", 'tausch'),
+                                                             ("fuzziness_1", "0"),
+                                                             ("in_order_1", "False"),
+                                                             ("slop_1", "0"),
+                                                             ("regex_search_1", 'False'),
+                                                             ("exclude_q_1", ""),
+                                                             ("formulaic_parts_1", ""),
+                                                             ("proper_name_1", ""),
+                                                             ("search_field_2", "text"),
+                                                             ("q_2", ''),
+                                                             ("fuzziness_2", "0"),
+                                                             ("in_order_2", "False"),
+                                                             ("slop_2", "0"),
+                                                             ("regex_search_2", 'False'),
+                                                             ("exclude_q_2", ""),
+                                                             ("formulaic_parts_2", ""),
+                                                             ("proper_name_2", ""),
+                                                             ("search_field_3", "text"),
+                                                             ("q_3", ''),
+                                                             ("fuzziness_3", "0"),
+                                                             ("in_order_3", "False"),
+                                                             ("slop_3", "0"),
+                                                             ("regex_search_3", 'False'),
+                                                             ("exclude_q_3", ""),
+                                                             ("formulaic_parts_3", ""),
+                                                             ("proper_name_3", ""),
+                                                             ("search_field_4", "text"),
+                                                             ("q_4", ''),
+                                                             ("fuzziness_4", "0"),
+                                                             ("in_order_4", "False"),
+                                                             ("slop_4", "0"),
+                                                             ("regex_search_4", 'False'),
+                                                             ("exclude_q_4", ""),
+                                                             ("formulaic_parts_4", ""),
+                                                             ("proper_name_4", ""),
+                                                             ("year", 0),
+                                                             ("month", 0),
+                                                             ("day", 0),
+                                                             ("year_start", 0),
+                                                             ("month_start", 0),
+                                                             ("day_start", 0),
+                                                             ("year_end", 0),
+                                                             ("month_end", 0),
+                                                             ("day_end", 0),
+                                                             ('date_plus_minus', 0),
+                                                             ('exclusive_date_range', 'False'),
+                                                             ("composition_place", ''),
+                                                             ('sort', 'urn'),
+                                                             ('special_days', ''),
+                                                             ("forgeries", "include"),
+                                                             ('source', 'advanced')]),
+                 'test_regest_and_word_advanced_search': OrderedDict([("corpus", "all"),
+                                                                      ("search_field_1", "text"),
+                                                                      ("q_1", 'regnum'),
+                                                                      ("fuzziness_1", "0"),
+                                                                      ("in_order_1", "False"),
+                                                                      ("slop_1", "0"),
+                                                                      ("regex_search_1", 'False'),
+                                                                      ("exclude_q_1", ""),
+                                                                      ("formulaic_parts_1", ""),
+                                                                      ("proper_name_1", ""),
+                                                                      ("search_field_2", "regest"),
+                                                                      ("q_2", 'schenk*'),
+                                                                      ("fuzziness_2", "0"),
+                                                                      ("in_order_2", "False"),
+                                                                      ("slop_2", "0"),
+                                                                      ("regex_search_2", 'False'),
+                                                                      ("exclude_q_2", ""),
+                                                                      ("formulaic_parts_2", ""),
+                                                                      ("proper_name_2", ""),
+                                                                      ("search_field_3", "text"),
+                                                                      ("q_3", ''),
+                                                                      ("fuzziness_3", "0"),
+                                                                      ("in_order_3", "False"),
+                                                                      ("slop_3", "0"),
+                                                                      ("regex_search_3", 'False'),
+                                                                      ("exclude_q_3", ""),
+                                                                      ("formulaic_parts_3", ""),
+                                                                      ("proper_name_3", ""),
+                                                                      ("search_field_4", "text"),
+                                                                      ("q_4", ''),
+                                                                      ("fuzziness_4", "0"),
+                                                                      ("in_order_4", "False"),
+                                                                      ("slop_4", "0"),
+                                                                      ("regex_search_4", 'False'),
+                                                                      ("exclude_q_4", ""),
+                                                                      ("formulaic_parts_4", ""),
+                                                                      ("proper_name_4", ""),
+                                                                      ("year", 0),
+                                                                      ("month", 0),
+                                                                      ("day", 0),
+                                                                      ("year_start", 0),
+                                                                      ("month_start", 0),
+                                                                      ("day_start", 0),
+                                                                      ("year_end", 0),
+                                                                      ("month_end", 0),
+                                                                      ("day_end", 0),
+                                                                      ('date_plus_minus', 0),
+                                                                      ('exclusive_date_range', 'False'),
+                                                                      ("composition_place", ''),
+                                                                      ('sort', 'urn'),
+                                                                      ('special_days', ''),
+                                                                      ("forgeries", "include"),
+                                                                      ('source', 'advanced')]),
+                 'test_regest_advanced_search_with_wildcard': OrderedDict([("corpus", "all"),
+                                                                           ("search_field_1", "regest"),
+                                                                           ("q_1", 'tau*'),
+                                                                           ("fuzziness_1", "0"),
+                                                                           ("in_order_1", "False"),
+                                                                           ("slop_1", "0"),
+                                                                           ("regex_search_1", 'False'),
+                                                                           ("exclude_q_1", ""),
+                                                                           ("formulaic_parts_1", ""),
+                                                                           ("proper_name_1", ""),
+                                                                           ("search_field_2", "text"),
+                                                                           ("q_2", ''),
+                                                                           ("fuzziness_2", "0"),
+                                                                           ("in_order_2", "False"),
+                                                                           ("slop_2", "0"),
+                                                                           ("regex_search_2", 'False'),
+                                                                           ("exclude_q_2", ""),
+                                                                           ("formulaic_parts_2", ""),
+                                                                           ("proper_name_2", ""),
+                                                                           ("search_field_3", "text"),
+                                                                           ("q_3", ''),
+                                                                           ("fuzziness_3", "0"),
+                                                                           ("in_order_3", "False"),
+                                                                           ("slop_3", "0"),
+                                                                           ("regex_search_3", 'False'),
+                                                                           ("exclude_q_3", ""),
+                                                                           ("formulaic_parts_3", ""),
+                                                                           ("proper_name_3", ""),
+                                                                           ("search_field_4", "text"),
+                                                                           ("q_4", ''),
+                                                                           ("fuzziness_4", "0"),
+                                                                           ("in_order_4", "False"),
+                                                                           ("slop_4", "0"),
+                                                                           ("regex_search_4", 'False'),
+                                                                           ("exclude_q_4", ""),
+                                                                           ("formulaic_parts_4", ""),
+                                                                           ("proper_name_4", ""),
+                                                                           ("year", 0),
+                                                                           ("month", 0),
+                                                                           ("day", 0),
+                                                                           ("year_start", 0),
+                                                                           ("month_start", 0),
+                                                                           ("day_start", 0),
+                                                                           ("year_end", 0),
+                                                                           ("month_end", 0),
+                                                                           ("day_end", 0),
+                                                                           ('date_plus_minus', 0),
+                                                                           ('exclusive_date_range', 'False'),
+                                                                           ("composition_place", ''),
+                                                                           ('sort', 'urn'),
+                                                                           ('special_days', ''),
+                                                                           ("forgeries", "include"),
+                                                                           ('source', 'advanced')]),
+                 'test_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"),
+                                                                      ("search_field_1", "lemmas"),
+                                                                      ("q_1", 'vir+venerabilis'),
+                                                                      ("fuzziness_1", "0"),
+                                                                      ("in_order_1", "False"),
+                                                                      ("slop_1", "0"),
+                                                                      ("regex_search_1", 'False'),
+                                                                      ("exclude_q_1", ""),
+                                                                      ("formulaic_parts_1", ""),
+                                                                      ("proper_name_1", ""),
+                                                                      ("search_field_2", "text"),
+                                                                      ("q_2", ''),
+                                                                      ("fuzziness_2", "0"),
+                                                                      ("in_order_2", "False"),
+                                                                      ("slop_2", "0"),
+                                                                      ("regex_search_2", 'False'),
+                                                                      ("exclude_q_2", ""),
+                                                                      ("formulaic_parts_2", ""),
+                                                                      ("proper_name_2", ""),
+                                                                      ("search_field_3", "text"),
+                                                                      ("q_3", ''),
+                                                                      ("fuzziness_3", "0"),
+                                                                      ("in_order_3", "False"),
+                                                                      ("slop_3", "0"),
+                                                                      ("regex_search_3", 'False'),
+                                                                      ("exclude_q_3", ""),
+                                                                      ("formulaic_parts_3", ""),
+                                                                      ("proper_name_3", ""),
+                                                                      ("search_field_4", "text"),
+                                                                      ("q_4", ''),
+                                                                      ("fuzziness_4", "0"),
+                                                                      ("in_order_4", "False"),
+                                                                      ("slop_4", "0"),
+                                                                      ("regex_search_4", 'False'),
+                                                                      ("exclude_q_4", ""),
+                                                                      ("formulaic_parts_4", ""),
+                                                                      ("proper_name_4", ""),
+                                                                      ("year", 0),
+                                                                      ("month", 0),
+                                                                      ("day", 0),
+                                                                      ("year_start", 0),
+                                                                      ("month_start", 0),
+                                                                      ("day_start", 0),
+                                                                      ("year_end", 0),
+                                                                      ("month_end", 0),
+                                                                      ("day_end", 0),
+                                                                      ('date_plus_minus', 0),
+                                                                      ('exclusive_date_range', 'False'),
+                                                                      ("composition_place", ''),
+                                                                      ('sort', 'urn'),
+                                                                      ('special_days', ''),
+                                                                      ("forgeries", "include"),
+                                                                      ('source', 'advanced')]),
+                 'test_v_to_u_multiword': OrderedDict([("corpus", "all"),
+                                                       ("search_field_1", "text"),
+                                                       ("q_1", 'wolfhart+cvm'),
+                                                       ("fuzziness_1", "0"),
+                                                       ("in_order_1", "False"),
+                                                       ("slop_1", "0"),
+                                                       ("regex_search_1", 'False'),
+                                                       ("exclude_q_1", ""),
+                                                       ("formulaic_parts_1", ""),
+                                                       ("proper_name_1", ""),
+                                                       ("search_field_2", "text"),
+                                                       ("q_2", ''),
+                                                       ("fuzziness_2", "0"),
+                                                       ("in_order_2", "False"),
+                                                       ("slop_2", "0"),
+                                                       ("regex_search_2", 'False'),
+                                                       ("exclude_q_2", ""),
+                                                       ("formulaic_parts_2", ""),
+                                                       ("proper_name_2", ""),
+                                                       ("search_field_3", "text"),
+                                                       ("q_3", ''),
+                                                       ("fuzziness_3", "0"),
+                                                       ("in_order_3", "False"),
+                                                       ("slop_3", "0"),
+                                                       ("regex_search_3", 'False'),
+                                                       ("exclude_q_3", ""),
+                                                       ("formulaic_parts_3", ""),
+                                                       ("proper_name_3", ""),
+                                                       ("search_field_4", "text"),
+                                                       ("q_4", ''),
+                                                       ("fuzziness_4", "0"),
+                                                       ("in_order_4", "False"),
+                                                       ("slop_4", "0"),
+                                                       ("regex_search_4", 'False'),
+                                                       ("exclude_q_4", ""),
+                                                       ("formulaic_parts_4", ""),
+                                                       ("proper_name_4", ""),
+                                                       ("year", 0),
+                                                       ("month", 0),
+                                                       ("day", 0),
+                                                       ("year_start", 0),
+                                                       ("month_start", 0),
+                                                       ("day_start", 0),
+                                                       ("year_end", 0),
+                                                       ("month_end", 0),
+                                                       ("day_end", 0),
+                                                       ('date_plus_minus', 0),
+                                                       ('exclusive_date_range', 'False'),
+                                                       ("composition_place", ''),
+                                                       ('sort', 'urn'),
+                                                       ('special_days', ''),
+                                                       ("forgeries", "include"),
+                                                       ('source', 'advanced')]),
+                 'test_v_to_u_single_word': OrderedDict([("corpus", "all"),
+                                                         ("search_field_1", "text"),
+                                                         ("q_1", 'novalium'),
+                                                         ("fuzziness_1", "0"),
+                                                         ("in_order_1", "False"),
+                                                         ("slop_1", "0"),
+                                                         ("regex_search_1", 'False'),
+                                                         ("exclude_q_1", ""),
+                                                         ("formulaic_parts_1", ""),
+                                                         ("proper_name_1", ""),
+                                                         ("search_field_2", "text"),
+                                                         ("q_2", ''),
+                                                         ("fuzziness_2", "0"),
+                                                         ("in_order_2", "False"),
+                                                         ("slop_2", "0"),
+                                                         ("regex_search_2", 'False'),
+                                                         ("exclude_q_2", ""),
+                                                         ("formulaic_parts_2", ""),
+                                                         ("proper_name_2", ""),
+                                                         ("search_field_3", "text"),
+                                                         ("q_3", ''),
+                                                         ("fuzziness_3", "0"),
+                                                         ("in_order_3", "False"),
+                                                         ("slop_3", "0"),
+                                                         ("regex_search_3", 'False'),
+                                                         ("exclude_q_3", ""),
+                                                         ("formulaic_parts_3", ""),
+                                                         ("proper_name_3", ""),
+                                                         ("search_field_4", "text"),
+                                                         ("q_4", ''),
+                                                         ("fuzziness_4", "0"),
+                                                         ("in_order_4", "False"),
+                                                         ("slop_4", "0"),
+                                                         ("regex_search_4", 'False'),
+                                                         ("exclude_q_4", ""),
+                                                         ("formulaic_parts_4", ""),
+                                                         ("proper_name_4", ""),
+                                                         ("year", 0),
+                                                         ("month", 0),
+                                                         ("day", 0),
+                                                         ("year_start", 0),
+                                                         ("month_start", 0),
+                                                         ("day_start", 0),
+                                                         ("year_end", 0),
+                                                         ("month_end", 0),
+                                                         ("day_end", 0),
+                                                         ('date_plus_minus', 0),
+                                                         ('exclusive_date_range', 'False'),
+                                                         ("composition_place", ''),
+                                                         ('sort', 'urn'),
+                                                         ('special_days', ''),
+                                                         ("forgeries", "include"),
+                                                         ('source', 'advanced')]),
+                 'test_single_word_highlighting': OrderedDict([("corpus", "buenden"),
+                                                               ("search_field_1", "text"),
+                                                               ("q_1", 'pettonis'),
+                                                               ("fuzziness_1", "0"),
+                                                               ("in_order_1", "False"),
+                                                               ("slop_1", "0"),
+                                                               ("regex_search_1", 'False'),
+                                                               ("exclude_q_1", ""),
+                                                               ("formulaic_parts_1", ""),
+                                                               ("proper_name_1", ""),
+                                                               ("search_field_2", "text"),
+                                                               ("q_2", ''),
+                                                               ("fuzziness_2", "0"),
+                                                               ("in_order_2", "False"),
+                                                               ("slop_2", "0"),
+                                                               ("regex_search_2", 'False'),
+                                                               ("exclude_q_2", ""),
+                                                               ("formulaic_parts_2", ""),
+                                                               ("proper_name_2", ""),
+                                                               ("search_field_3", "text"),
+                                                               ("q_3", ''),
+                                                               ("fuzziness_3", "0"),
+                                                               ("in_order_3", "False"),
+                                                               ("slop_3", "0"),
+                                                               ("regex_search_3", 'False'),
+                                                               ("exclude_q_3", ""),
+                                                               ("formulaic_parts_3", ""),
+                                                               ("proper_name_3", ""),
+                                                               ("search_field_4", "text"),
+                                                               ("q_4", ''),
+                                                               ("fuzziness_4", "0"),
+                                                               ("in_order_4", "False"),
+                                                               ("slop_4", "0"),
+                                                               ("regex_search_4", 'False'),
+                                                               ("exclude_q_4", ""),
+                                                               ("formulaic_parts_4", ""),
+                                                               ("proper_name_4", ""),
+                                                               ("year", 0),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("forgeries", "include"),
+                                                               ('source', 'advanced')]),
+                 'test_multi_word_highlighting': OrderedDict([("corpus", "buenden"),
+                                                              ("search_field_1", "text"),
+                                                              ("q_1", 'scripsi+et+suscripsi'),
+                                                              ("fuzziness_1", "0"),
+                                                              ("in_order", "False"),
+                                                              ("slop_1", "0"),
+                                                              ("regex_search_1", 'False'),
+                                                              ("exclude_q_1", ""),
+                                                              ("formulaic_parts_1", ""),
+                                                              ("proper_name_1", ""),
+                                                              ("search_field_2", "text"),
+                                                              ("q_2", ''),
+                                                              ("fuzziness_2", "0"),
+                                                              ("in_order_2", "False"),
+                                                              ("slop_2", "0"),
+                                                              ("regex_search_2", 'False'),
+                                                              ("exclude_q_2", ""),
+                                                              ("formulaic_parts_2", ""),
+                                                              ("proper_name_2", ""),
+                                                              ("search_field_3", "text"),
+                                                              ("q_3", ''),
+                                                              ("fuzziness_3", "0"),
+                                                              ("in_order_3", "False"),
+                                                              ("slop_3", "0"),
+                                                              ("regex_search_3", 'False'),
+                                                              ("exclude_q_3", ""),
+                                                              ("formulaic_parts_3", ""),
+                                                              ("proper_name_3", ""),
+                                                              ("search_field_4", "text"),
+                                                              ("q_4", ''),
+                                                              ("fuzziness_4", "0"),
+                                                              ("in_order_4", "False"),
+                                                              ("slop_4", "0"),
+                                                              ("regex_search_4", 'False'),
+                                                              ("exclude_q_4", ""),
+                                                              ("formulaic_parts_4", ""),
+                                                              ("proper_name_4", ""),
+                                                              ("year", 0),
+                                                              ("month", 0),
+                                                              ("day", 0),
+                                                              ("year_start", 0),
+                                                              ("month_start", 0),
+                                                              ("day_start", 0),
+                                                              ("year_end", 0),
+                                                              ("month_end", 0),
+                                                              ("day_end", 0),
+                                                              ('date_plus_minus', 0),
+                                                              ('exclusive_date_range', 'False'),
+                                                              ("composition_place", ''),
+                                                              ('sort', 'urn'),
+                                                              ('special_days', ''),
+                                                              ("forgeries", "include"),
+                                                              ('source', 'advanced')]),
+                 'test_single_lemma_highlighting': OrderedDict([("corpus", "buenden"),
+                                                                ("search_field_1", "text"),
+                                                                ("q_1", 'regnum'),
+                                                                ("fuzziness_1", "0"),
+                                                                ("in_order_1", "False"),
+                                                                ("slop_1", "0"),
+                                                                ("regex_search_1", 'False'),
+                                                                ("exclude_q_1", ""),
+                                                                ("formulaic_parts_1", ""),
+                                                                ("proper_name_1", ""),
+                                                                ("search_field_2", "text"),
+                                                                ("q_2", ''),
+                                                                ("fuzziness_2", "0"),
+                                                                ("in_order_2", "False"),
+                                                                ("slop_2", "0"),
+                                                                ("regex_search_2", 'False'),
+                                                                ("exclude_q_2", ""),
+                                                                ("formulaic_parts_2", ""),
+                                                                ("proper_name_2", ""),
+                                                                ("search_field_3", "text"),
+                                                                ("q_3", ''),
+                                                                ("fuzziness_3", "0"),
+                                                                ("in_order_3", "False"),
+                                                                ("slop_3", "0"),
+                                                                ("regex_search_3", 'False'),
+                                                                ("exclude_q_3", ""),
+                                                                ("formulaic_parts_3", ""),
+                                                                ("proper_name_3", ""),
+                                                                ("search_field_4", "text"),
+                                                                ("q_4", ''),
+                                                                ("fuzziness_4", "0"),
+                                                                ("in_order_4", "False"),
+                                                                ("slop_4", "0"),
+                                                                ("regex_search_4", 'False'),
+                                                                ("exclude_q_4", ""),
+                                                                ("formulaic_parts_4", ""),
+                                                                ("proper_name_4", ""),
+                                                                ("year", 0),
+                                                                ("month", 0),
+                                                                ("day", 0),
+                                                                ("year_start", 0),
+                                                                ("month_start", 0),
+                                                                ("day_start", 0),
+                                                                ("year_end", 0),
+                                                                ("month_end", 0),
+                                                                ("day_end", 0),
+                                                                ('date_plus_minus', 0),
+                                                                ('exclusive_date_range', 'False'),
+                                                                ("composition_place", ''),
+                                                                ('sort', 'urn'),
+                                                                ('special_days', ''),
+                                                                ("forgeries", "include"),
+                                                                ('source', 'advanced')]),
+                 'test_multi_lemma_highlighting': OrderedDict([("corpus", "buenden"),
+                                                               ("search_field_1", "text"),
+                                                               ("q_1", 'regnum+domni'),
+                                                               ("fuzziness_1", "0"),
+                                                               ("in_order_1", "False"),
+                                                               ("slop_1", "0"),
+                                                               ("regex_search_1", 'False'),
+                                                               ("exclude_q_1", ""),
+                                                               ("formulaic_parts_1", ""),
+                                                               ("proper_name_1", ""),
+                                                               ("search_field_2", "text"),
+                                                               ("q_2", ''),
+                                                               ("fuzziness_2", "0"),
+                                                               ("in_order_2", "False"),
+                                                               ("slop_2", "0"),
+                                                               ("regex_search_2", 'False'),
+                                                               ("exclude_q_2", ""),
+                                                               ("formulaic_parts_2", ""),
+                                                               ("proper_name_2", ""),
+                                                               ("search_field_3", "text"),
+                                                               ("q_3", ''),
+                                                               ("fuzziness_3", "0"),
+                                                               ("in_order_3", "False"),
+                                                               ("slop_3", "0"),
+                                                               ("regex_search_3", 'False'),
+                                                               ("exclude_q_3", ""),
+                                                               ("formulaic_parts_3", ""),
+                                                               ("proper_name_3", ""),
+                                                               ("search_field_4", "text"),
+                                                               ("q_4", ''),
+                                                               ("fuzziness_4", "0"),
+                                                               ("in_order_4", "False"),
+                                                               ("slop_4", "0"),
+                                                               ("regex_search_4", 'False'),
+                                                               ("exclude_q_4", ""),
+                                                               ("formulaic_parts_4", ""),
+                                                               ("proper_name_4", ""),
+                                                               ("year", 0),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("forgeries", "include"),
+                                                               ('source', 'advanced')]),
+                 'test_lemma_advanced_search_with_wildcard': OrderedDict([("corpus", "all"),
+                                                                          ("search_field_1", "lemmas"),
+                                                                          ("q_1", 'venerabili?'),
+                                                                          ("fuzziness_1", "0"),
+                                                                          ("in_order_1", "False"),
+                                                                          ("slop_1", "0"),
+                                                                          ("regex_search_1", 'False'),
+                                                                          ("exclude_q_1", ""),
+                                                                          ("formulaic_parts_1", ""),
+                                                                          ("proper_name_1", ""),
+                                                                          ("search_field_2", "text"),
+                                                                          ("q_2", ''),
+                                                                          ("fuzziness_2", "0"),
+                                                                          ("in_order_2", "False"),
+                                                                          ("slop_2", "0"),
+                                                                          ("regex_search_2", 'False'),
+                                                                          ("exclude_q_2", ""),
+                                                                          ("formulaic_parts_2", ""),
+                                                                          ("proper_name_2", ""),
+                                                                          ("search_field_3", "text"),
+                                                                          ("q_3", ''),
+                                                                          ("fuzziness_3", "0"),
+                                                                          ("in_order_3", "False"),
+                                                                          ("slop_3", "0"),
+                                                                          ("regex_search_3", 'False'),
+                                                                          ("exclude_q_3", ""),
+                                                                          ("formulaic_parts_3", ""),
+                                                                          ("proper_name_3", ""),
+                                                                          ("search_field_4", "text"),
+                                                                          ("q_4", ''),
+                                                                          ("fuzziness_4", "0"),
+                                                                          ("in_order_4", "False"),
+                                                                          ("slop_4", "0"),
+                                                                          ("regex_search_4", 'False'),
+                                                                          ("exclude_q_4", ""),
+                                                                          ("formulaic_parts_4", ""),
+                                                                          ("proper_name_4", ""),
+                                                                          ("year", 0),
+                                                                          ("month", 0),
+                                                                          ("day", 0),
+                                                                          ("year_start", 0),
+                                                                          ("month_start", 0),
+                                                                          ("day_start", 0),
+                                                                          ("year_end", 0),
+                                                                          ("month_end", 0),
+                                                                          ("day_end", 0),
+                                                                          ('date_plus_minus', 0),
+                                                                          ('exclusive_date_range', 'False'),
+                                                                          ("composition_place", ''),
+                                                                          ('sort', 'urn'),
+                                                                          ('special_days', ''),
+                                                                          ("forgeries", "include"),
+                                                                          ('source', 'advanced')]),
+                 'test_composition_place_advanced_search': OrderedDict([("corpus", "all"),
+                                                                        ("search_field_1", "text"),
+                                                                        ("q_1", ''),
+                                                                        ("fuzziness_1", "0"),
+                                                                        ("in_order_1", "False"),
+                                                                        ("slop_1", "0"),
+                                                                        ("regex_search_1", 'False'),
+                                                                        ("exclude_q_1", ""),
+                                                                        ("formulaic_parts_1", ""),
+                                                                        ("proper_name_1", ""),
+                                                                        ("search_field_2", "text"),
+                                                                        ("q_2", ''),
+                                                                        ("fuzziness_2", "0"),
+                                                                        ("in_order_2", "False"),
+                                                                        ("slop_2", "0"),
+                                                                        ("regex_search_2", 'False'),
+                                                                        ("exclude_q_2", ""),
+                                                                        ("formulaic_parts_2", ""),
+                                                                        ("proper_name_2", ""),
+                                                                        ("search_field_3", "text"),
+                                                                        ("q_3", ''),
+                                                                        ("fuzziness_3", "0"),
+                                                                        ("in_order_3", "False"),
+                                                                        ("slop_3", "0"),
+                                                                        ("regex_search_3", 'False'),
+                                                                        ("exclude_q_3", ""),
+                                                                        ("formulaic_parts_3", ""),
+                                                                        ("proper_name_3", ""),
+                                                                        ("search_field_4", "text"),
+                                                                        ("q_4", ''),
+                                                                        ("fuzziness_4", "0"),
+                                                                        ("in_order_4", "False"),
+                                                                        ("slop_4", "0"),
+                                                                        ("regex_search_4", 'False'),
+                                                                        ("exclude_q_4", ""),
+                                                                        ("formulaic_parts_4", ""),
+                                                                        ("proper_name_4", ""),
+                                                                        ("year", 0),
+                                                                        ("month", 0),
+                                                                        ("day", 0),
+                                                                        ("year_start", 0),
+                                                                        ("month_start", 0),
+                                                                        ("day_start", 0),
+                                                                        ("year_end", 0),
+                                                                        ("month_end", 0),
+                                                                        ("day_end", 0),
+                                                                        ('date_plus_minus', 0),
+                                                                        ('exclusive_date_range', 'False'),
+                                                                        ("composition_place", 'Basel-Augst'),
+                                                                        ('sort', 'urn'),
+                                                                        ('special_days', ''),
+                                                                        ("forgeries", "include"),
+                                                                        ('source', 'advanced')]),
+                 'test_suggest_composition_places': OrderedDict([("corpus", "all"),
+                                                                 ("search_field_1", "text"),
+                                                                 ("q_1", ''),
+                                                                 ("fuzziness_1", "0"),
+                                                                 ("in_order_1", "False"),
+                                                                 ("slop_1", "0"),
+                                                                 ("regex_search_1", 'False'),
+                                                                 ("exclude_q_1", ""),
+                                                                 ("formulaic_parts_1", ""),
+                                                                 ("proper_name_1", ""),
+                                                                 ("search_field_2", "text"),
+                                                                 ("q_2", ''),
+                                                                 ("fuzziness_2", "0"),
+                                                                 ("in_order_2", "False"),
+                                                                 ("slop_2", "0"),
+                                                                 ("regex_search_2", 'False'),
+                                                                 ("exclude_q_2", ""),
+                                                                 ("formulaic_parts_2", ""),
+                                                                 ("proper_name_2", ""),
+                                                                 ("search_field_3", "text"),
+                                                                 ("q_3", ''),
+                                                                 ("fuzziness_3", "0"),
+                                                                 ("in_order_3", "False"),
+                                                                 ("slop_3", "0"),
+                                                                 ("regex_search_3", 'False'),
+                                                                 ("exclude_q_3", ""),
+                                                                 ("formulaic_parts_3", ""),
+                                                                 ("proper_name_3", ""),
+                                                                 ("search_field_4", "text"),
+                                                                 ("q_4", ''),
+                                                                 ("fuzziness_4", "0"),
+                                                                 ("in_order_4", "False"),
+                                                                 ("slop_4", "0"),
+                                                                 ("regex_search_4", 'False'),
+                                                                 ("exclude_q_4", ""),
+                                                                 ("formulaic_parts_4", ""),
+                                                                 ("proper_name_4", ""),
+                                                                 ("year", 0),
+                                                                 ("month", 0),
+                                                                 ("day", 0),
+                                                                 ("year_start", 700),
+                                                                 ("month_start", 10),
+                                                                 ("day_start", 0),
+                                                                 ("year_end", 800),
+                                                                 ("month_end", 10),
+                                                                 ("day_end", 0),
+                                                                 ('date_plus_minus', 0),
+                                                                 ('exclusive_date_range', 'True'),
+                                                                 ("composition_place", ''),
+                                                                 ('sort', 'urn'),
+                                                                 ('special_days', ''),
+                                                                 ("forgeries", "include"),
+                                                                 ('source', 'advanced')]),
+                 'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"),
+                                                                      ("search_field_1", "regest"),
+                                                                      ("q_1", 'schenkt'),
+                                                                      ("fuzziness_1", "0"),
+                                                                      ("in_order_1", "False"),
+                                                                      ("slop_1", "0"),
+                                                                      ("regex_search_1", 'False'),
+                                                                      ("exclude_q_1", ""),
+                                                                      ("formulaic_parts_1", ""),
+                                                                      ("proper_name_1", ""),
+                                                                      ("search_field_2", "text"),
+                                                                      ("q_2", ''),
+                                                                      ("fuzziness_2", "0"),
+                                                                      ("in_order_2", "False"),
+                                                                      ("slop_2", "0"),
+                                                                      ("regex_search_2", 'False'),
+                                                                      ("exclude_q_2", ""),
+                                                                      ("formulaic_parts_2", ""),
+                                                                      ("proper_name_2", ""),
+                                                                      ("search_field_3", "text"),
+                                                                      ("q_3", ''),
+                                                                      ("fuzziness_3", "0"),
+                                                                      ("in_order_3", "False"),
+                                                                      ("slop_3", "0"),
+                                                                      ("regex_search_3", 'False'),
+                                                                      ("exclude_q_3", ""),
+                                                                      ("formulaic_parts_3", ""),
+                                                                      ("proper_name_3", ""),
+                                                                      ("search_field_4", "text"),
+                                                                      ("q_4", ''),
+                                                                      ("fuzziness_4", "0"),
+                                                                      ("in_order_4", "False"),
+                                                                      ("slop_4", "0"),
+                                                                      ("regex_search_4", 'False'),
+                                                                      ("exclude_q_4", ""),
+                                                                      ("formulaic_parts_4", ""),
+                                                                      ("proper_name_4", ""),
+                                                                      ("year", 0),
+                                                                      ("month", 0),
+                                                                      ("day", 0),
+                                                                      ("year_start", 0),
+                                                                      ("month_start", 0),
+                                                                      ("day_start", 0),
+                                                                      ("year_end", 0),
+                                                                      ("month_end", 0),
+                                                                      ("day_end", 0),
+                                                                      ('date_plus_minus', 0),
+                                                                      ('exclusive_date_range', 'y'),
+                                                                      ("composition_place", ''),
+                                                                      ('sort', 'urn'),
+                                                                      ('special_days', ''),
+                                                                      ("forgeries", "include"),
+                                                                      ('source', 'advanced')]),
+                 'test_suggest_word_search_completion_no_qSource': OrderedDict([("corpus", "all"),
+                                                                                ("search_field_1", "text"),
+                                                                                ("q_1", 'illam'),
+                                                                                ("fuzziness_1", "0"),
+                                                                                ("in_order_1", "False"),
+                                                                                ("slop_1", "0"),
+                                                                                ("regex_search_1", 'False'),
+                                                                                ("exclude_q_1", ""),
+                                                                                ("formulaic_parts_1", ""),
+                                                                                ("proper_name_1", ""),
+                                                                                ("search_field_2", "autocomplete_regest"),
+                                                                                ("q_2", 'tau'),
+                                                                                ("fuzziness_2", "0"),
+                                                                                ("in_order_2", "False"),
+                                                                                ('slop_2', '0'),
+                                                                                ("regex_search_2", 'False'),
+                                                                                ("exclude_q_2", ""),
+                                                                                ("formulaic_parts_2", ""),
+                                                                                ("proper_name_2", ""),
+                                                                                ("search_field_3", "text"),
+                                                                                ("q_3", ''),
+                                                                                ("fuzziness_3", "0"),
+                                                                                ("in_order_3", "False"),
+                                                                                ("slop_3", "0"),
+                                                                                ("regex_search_3", 'False'),
+                                                                                ("exclude_q_3", ""),
+                                                                                ("formulaic_parts_3", ""),
+                                                                                ("proper_name_3", ""),
+                                                                                ("search_field_4", "text"),
+                                                                                ("q_4", ''),
+                                                                                ("fuzziness_4", "0"),
+                                                                                ("in_order_4", "False"),
+                                                                                ("slop_4", "0"),
+                                                                                ("regex_search_4", 'False'),
+                                                                                ("exclude_q_4", ""),
+                                                                                ("formulaic_parts_4", ""),
+                                                                                ("proper_name_4", ""),
+                                                                                ("year", 0),
+                                                                                ("month", 0),
+                                                                                ("day", 0),
+                                                                                ("year_start", 0),
+                                                                                ("month_start", 0),
+                                                                                ("day_start", 0),
+                                                                                ("year_end", 0),
+                                                                                ("month_end", 0),
+                                                                                ("day_end", 0),
+                                                                                ('date_plus_minus', 0),
+                                                                                ('exclusive_date_range', 'y'),
+                                                                                ("composition_place", ''),
+                                                                                ('sort', 'urn'),
+                                                                                ('special_days', ''),
+                                                                                ('qSource', ''),
+                                                                                ('source', 'advanced')]),
+                 'test_save_requests': OrderedDict([("corpus", "all"),
+                                                    ("search_field_1", "text"),
+                                                    ("q_1", ''),
+                                                    ("fuzziness_1", "0"),
+                                                    ("in_order_1", "False"),
+                                                    ("slop_1", "0"),
+                                                    ("regex_search_1", 'False'),
+                                                    ("exclude_q_1", ""),
+                                                    ("formulaic_parts_1", ""),
+                                                    ("proper_name_1", ""),
+                                                    ("search_field_2", "text"),
+                                                    ("q_2", ''),
+                                                    ("fuzziness_2", "0"),
+                                                    ("in_order_2", "False"),
+                                                    ("slop_2", "0"),
+                                                    ("regex_search_2", 'False'),
+                                                    ("exclude_q_2", ""),
+                                                    ("formulaic_parts_2", ""),
+                                                    ("proper_name_2", ""),
+                                                    ("search_field_3", "text"),
+                                                    ("q_3", ''),
+                                                    ("fuzziness_3", "0"),
+                                                    ("in_order_3", "False"),
+                                                    ("slop_3", "0"),
+                                                    ("regex_search_3", 'False'),
+                                                    ("exclude_q_3", ""),
+                                                    ("formulaic_parts_3", ""),
+                                                    ("proper_name_3", ""),
+                                                    ("search_field_4", "text"),
+                                                    ("q_4", ''),
+                                                    ("fuzziness_4", "0"),
+                                                    ("in_order_4", "False"),
+                                                    ("slop_4", "0"),
+                                                    ("regex_search_4", 'False'),
+                                                    ("exclude_q_4", ""),
+                                                    ("formulaic_parts_4", ""),
+                                                    ("proper_name_4", ""),
+                                                    ("year", 0),
+                                                    ("month", 0),
+                                                    ("day", 0),
+                                                    ("year_start", 0),
+                                                    ("month_start", 0),
+                                                    ("day_start", 0),
+                                                    ("year_end", 0),
+                                                    ("month_end", 0),
+                                                    ("day_end", 0),
+                                                    ('date_plus_minus', 0),
+                                                    ('exclusive_date_range', 'False'),
+                                                    ("composition_place", 'Basel-Augst'),
+                                                    ('sort', 'urn'),
+                                                    ('special_days', ''),
+                                                    ("forgeries", "include"),
+                                                    ('source', 'advanced')]),
+                 'test_specific_day_advanced_search': OrderedDict([("corpus", "all"),
+                                                                   ("search_field_1", "text"),
+                                                                   ("q_1", ''),
+                                                                   ("fuzziness_1", "0"),
+                                                                   ("in_order_1", "False"),
+                                                                   ("slop_1", "0"),
+                                                                   ("regex_search_1", 'False'),
+                                                                   ("exclude_q_1", ""),
+                                                                   ("formulaic_parts_1", ""),
+                                                                   ("proper_name_1", ""),
+                                                                   ("search_field_2", "text"),
+                                                                   ("q_2", ''),
+                                                                   ("fuzziness_2", "0"),
+                                                                   ("in_order_2", "False"),
+                                                                   ("slop_2", "0"),
+                                                                   ("regex_search_2", 'False'),
+                                                                   ("exclude_q_2", ""),
+                                                                   ("formulaic_parts_2", ""),
+                                                                   ("proper_name_2", ""),
+                                                                   ("search_field_3", "text"),
+                                                                   ("q_3", ''),
+                                                                   ("fuzziness_3", "0"),
+                                                                   ("in_order_3", "False"),
+                                                                   ("slop_3", "0"),
+                                                                   ("regex_search_3", 'False'),
+                                                                   ("exclude_q_3", ""),
+                                                                   ("formulaic_parts_3", ""),
+                                                                   ("proper_name_3", ""),
+                                                                   ("search_field_4", "text"),
+                                                                   ("q_4", ''),
+                                                                   ("fuzziness_4", "0"),
+                                                                   ("in_order_4", "False"),
+                                                                   ("slop_4", "0"),
+                                                                   ("regex_search_4", 'False'),
+                                                                   ("exclude_q_4", ""),
+                                                                   ("formulaic_parts_4", ""),
+                                                                   ("proper_name_4", ""),
+                                                                   ("year", 0),
+                                                                   ("month", 0),
+                                                                   ("day", 0),
+                                                                   ("year_start", 0),
+                                                                   ("month_start", 0),
+                                                                   ("day_start", 0),
+                                                                   ("year_end", 0),
+                                                                   ("month_end", 0),
+                                                                   ("day_end", 0),
+                                                                   ('date_plus_minus', 0),
+                                                                   ('exclusive_date_range', 'False'),
+                                                                   ("composition_place", ''),
+                                                                   ('sort', 'urn'),
+                                                                   ('special_days', 'Easter'),
+                                                                   ("forgeries", "include"),
+                                                                   ('source', 'advanced')]),
+                 'test_multiple_specific_day_advanced_search': OrderedDict([("corpus", "all"),
+                                                                            ("search_field_1", "text"),
+                                                                            ("q_1", ''),
+                                                                            ("fuzziness_1", "0"),
+                                                                            ("in_order_1", "False"),
+                                                                            ("slop_1", "0"),
+                                                                            ("regex_search_1", 'False'),
+                                                                            ("exclude_q_1", ""),
+                                                                            ("formulaic_parts_1", ""),
+                                                                            ("proper_name_1", ""),
+                                                                            ("search_field_2", "text"),
+                                                                            ("q_2", ''),
+                                                                            ("fuzziness_2", "0"),
+                                                                            ("in_order_2", "False"),
+                                                                            ("slop_2", "0"),
+                                                                            ("regex_search_2", 'False'),
+                                                                            ("exclude_q_2", ""),
+                                                                            ("formulaic_parts_2", ""),
+                                                                            ("proper_name_2", ""),
+                                                                            ("search_field_3", "text"),
+                                                                            ("q_3", ''),
+                                                                            ("fuzziness_3", "0"),
+                                                                            ("in_order_3", "False"),
+                                                                            ("slop_3", "0"),
+                                                                            ("regex_search_3", 'False'),
+                                                                            ("exclude_q_3", ""),
+                                                                            ("formulaic_parts_3", ""),
+                                                                            ("proper_name_3", ""),
+                                                                            ("search_field_4", "text"),
+                                                                            ("q_4", ''),
+                                                                            ("fuzziness_4", "0"),
+                                                                            ("in_order_4", "False"),
+                                                                            ("slop_4", "0"),
+                                                                            ("regex_search_4", 'False'),
+                                                                            ("exclude_q_4", ""),
+                                                                            ("formulaic_parts_4", ""),
+                                                                            ("proper_name_4", ""),
+                                                                            ("year", 0),
+                                                                            ("month", 0),
+                                                                            ("day", 0),
+                                                                            ("year_start", 0),
+                                                                            ("month_start", 0),
+                                                                            ("day_start", 0),
+                                                                            ("year_end", 0),
+                                                                            ("month_end", 0),
+                                                                            ("day_end", 0),
+                                                                            ('date_plus_minus', 0),
+                                                                            ('exclusive_date_range', 'False'),
+                                                                            ("composition_place", ''),
+                                                                            ('sort', 'urn'),
+                                                                            ('special_days', 'Easter+Saturday'),
+                                                                            ("forgeries", "include"),
+                                                                            ('source', 'advanced')]),
+                 'test_download_search_results': OrderedDict([("corpus", "all"),
+                                                              ("search_field_1", "text"),
+                                                              ("q_1", 'regnum'),
+                                                              ("fuzziness", "0"),
+                                                              ("in_order_1", "False"),
+                                                              ("slop_1", "0"),
+                                                              ("regex_search_1", 'False'),
+                                                              ("exclude_q_1", ""),
+                                                              ("formulaic_parts_1", ""),
+                                                              ("proper_name_1", ""),
+                                                              ("search_field_2", "text"),
+                                                              ("q_2", ''),
+                                                              ("fuzziness_2", "0"),
+                                                              ("in_order_2", "False"),
+                                                              ("slop_2", "0"),
+                                                              ("regex_search_2", 'False'),
+                                                              ("exclude_q_2", ""),
+                                                              ("formulaic_parts_2", ""),
+                                                              ("proper_name_2", ""),
+                                                              ("search_field_3", "text"),
+                                                              ("q_3", ''),
+                                                              ("fuzziness_3", "0"),
+                                                              ("in_order_3", "False"),
+                                                              ("slop_3", "0"),
+                                                              ("regex_search_3", 'False'),
+                                                              ("exclude_q_3", ""),
+                                                              ("formulaic_parts_3", ""),
+                                                              ("proper_name_3", ""),
+                                                              ("search_field_4", "text"),
+                                                              ("q_4", ''),
+                                                              ("fuzziness_4", "0"),
+                                                              ("in_order_4", "False"),
+                                                              ("slop_4", "0"),
+                                                              ("regex_search_4", 'False'),
+                                                              ("exclude_q_4", ""),
+                                                              ("formulaic_parts_4", ""),
+                                                              ("proper_name_4", ""),
+                                                              ("year", 0),
+                                                              ("month", 0),
+                                                              ("day", 0),
+                                                              ("year_start", 0),
+                                                              ("month_start", 0),
+                                                              ("day_start", 0),
+                                                              ("year_end", 0),
+                                                              ("month_end", 0),
+                                                              ("day_end", 0),
+                                                              ('date_plus_minus', 0),
+                                                              ('exclusive_date_range', 'False'),
+                                                              ("composition_place", ''),
+                                                              ('sort', 'urn'),
+                                                              ('special_days', ''),
+                                                              ("forgeries", "include"),
+                                                              ('source', 'advanced')]),
+                 'test_download_search_results_regest': OrderedDict([("corpus", "buenden"),
+                                                                     ("search_field_1", "regest"),
+                                                                     ("q_1", 'schenk*'),
+                                                                     ("fuzziness_1", "0"),
+                                                                     ("in_order_1", "False"),
+                                                                     ("slop_1", "0"),
+                                                                     ("regex_search_1", 'False'),
+                                                                     ("exclude_q_1", ""),
+                                                                     ("formulaic_parts_1", ""),
+                                                                     ("proper_name_1", ""),
+                                                                     ("search_field_2", "text"),
+                                                                     ("q_2", ''),
+                                                                     ("fuzziness_2", "0"),
+                                                                     ("in_order_2", "False"),
+                                                                     ("slop_2", "0"),
+                                                                     ("regex_search_2", 'False'),
+                                                                     ("exclude_q_2", ""),
+                                                                     ("formulaic_parts_2", ""),
+                                                                     ("proper_name_2", ""),
+                                                                     ("search_field_3", "text"),
+                                                                     ("q_3", ''),
+                                                                     ("fuzziness_3", "0"),
+                                                                     ("in_order_3", "False"),
+                                                                     ("slop_3", "0"),
+                                                                     ("regex_search_3", 'False'),
+                                                                     ("exclude_q_3", ""),
+                                                                     ("formulaic_parts_3", ""),
+                                                                     ("proper_name_3", ""),
+                                                                     ("search_field_4", "text"),
+                                                                     ("q_4", ''),
+                                                                     ("fuzziness_4", "0"),
+                                                                     ("in_order_4", "False"),
+                                                                     ("slop_4", "0"),
+                                                                     ("regex_search_4", 'False'),
+                                                                     ("exclude_q_4", ""),
+                                                                     ("formulaic_parts_4", ""),
+                                                                     ("proper_name_4", ""),
+                                                                     ("year", 0),
+                                                                     ("month", 0),
+                                                                     ("day", 0),
+                                                                     ("year_start", 0),
+                                                                     ("month_start", 0),
+                                                                     ("day_start", 0),
+                                                                     ("year_end", 0),
+                                                                     ("month_end", 0),
+                                                                     ("day_end", 0),
+                                                                     ('date_plus_minus', 0),
+                                                                     ('exclusive_date_range', 'False'),
+                                                                     ("composition_place", ''),
+                                                                     ('sort', 'urn'),
+                                                                     ('special_days', ''),
+                                                                     ("forgeries", "include"),
+                                                                     ('source', 'advanced')]),
+                 'test_no_corpus_given': OrderedDict([("search_field_1", "text"),
+                                                      ("q_1", ''),
+                                                      ("fuzziness_1", "0"),
+                                                      ('in_order_1', 'False'),
+                                                      ("slop_1", "0"),
+                                                      ("regex_search_1", 'False'),
+                                                      ("exclude_q_1", ""),
+                                                      ("formulaic_parts_1", ""),
+                                                      ("proper_name_1", ""),
+                                                      ("search_field_2", "text"),
+                                                      ("q_2", ''),
+                                                      ("fuzziness_2", "0"),
+                                                      ("in_order_2", "False"),
+                                                      ("slop_2", "0"),
+                                                      ("regex_search_2", 'False'),
+                                                      ("exclude_q_2", ""),
+                                                      ("formulaic_parts_2", ""),
+                                                      ("proper_name_2", ""),
+                                                      ("search_field_3", "text"),
+                                                      ("q_3", ''),
+                                                      ("fuzziness_3", "0"),
+                                                      ("in_order_3", "False"),
+                                                      ("slop_3", "0"),
+                                                      ("regex_search_3", 'False'),
+                                                      ("exclude_q_3", ""),
+                                                      ("formulaic_parts_3", ""),
+                                                      ("proper_name_3", ""),
+                                                      ("search_field_4", "text"),
+                                                      ("q_4", ''),
+                                                      ("fuzziness_4", "0"),
+                                                      ("in_order_4", "False"),
+                                                      ("slop_4", "0"),
+                                                      ("regex_search_4", 'False'),
+                                                      ("exclude_q_4", ""),
+                                                      ("formulaic_parts_4", ""),
+                                                      ("proper_name_4", ""),
+                                                      ("year", 0),
+                                                      ("month", 0),
+                                                      ("day", 0),
+                                                      ("year_start", 0),
+                                                      ("month_start", 0),
+                                                      ("day_start", 0),
+                                                      ("year_end", 801),
+                                                      ("month_end", 0),
+                                                      ("day_end", 0),
+                                                      ('date_plus_minus', 0),
+                                                      ('exclusive_date_range', 'False'),
+                                                      ("composition_place", ''),
+                                                      ('sort', 'urn'),
+                                                      ('special_days', ''),
+                                                      ("forgeries", "include"),
+                                                      ('source', 'advanced')]),
+                 'test_mapped_lemma_advanced_search': OrderedDict([("corpus", "all"),
+                                                                   ("search_field_1", "lemmas"),
+                                                                   ("q_1", 'gero'),
+                                                                   ("fuzziness_1", "0"),
+                                                                   ("in_order_1", "False"),
+                                                                   ("slop_1", "0"),
+                                                                   ("regex_search_1", 'False'),
+                                                                   ("exclude_q_1", ""),
+                                                                   ("formulaic_parts_1", ""),
+                                                                   ("proper_name_1", ""),
+                                                                   ("search_field_2", "text"),
+                                                                   ("q_2", ''),
+                                                                   ("fuzziness_2", "0"),
+                                                                   ("in_order_2", "False"),
+                                                                   ("slop_2", "0"),
+                                                                   ("regex_search_2", 'False'),
+                                                                   ("exclude_q_2", ""),
+                                                                   ("formulaic_parts_2", ""),
+                                                                   ("proper_name_2", ""),
+                                                                   ("search_field_3", "text"),
+                                                                   ("q_3", ''),
+                                                                   ("fuzziness_3", "0"),
+                                                                   ("in_order_3", "False"),
+                                                                   ("slop_3", "0"),
+                                                                   ("regex_search_3", 'False'),
+                                                                   ("exclude_q_3", ""),
+                                                                   ("formulaic_parts_3", ""),
+                                                                   ("proper_name_3", ""),
+                                                                   ("search_field_4", "text"),
+                                                                   ("q_4", ''),
+                                                                   ("fuzziness_4", "0"),
+                                                                   ("in_order_4", "False"),
+                                                                   ("slop_4", "0"),
+                                                                   ("regex_search_4", 'False'),
+                                                                   ("exclude_q_4", ""),
+                                                                   ("formulaic_parts_4", ""),
+                                                                   ("proper_name_4", ""),
+                                                                   ("year", 0),
+                                                                   ("month", 0),
+                                                                   ("day", 0),
+                                                                   ("year_start", 0),
+                                                                   ("month_start", 0),
+                                                                   ("day_start", 0),
+                                                                   ("year_end", 0),
+                                                                   ("month_end", 0),
+                                                                   ("day_end", 0),
+                                                                   ('date_plus_minus', 0),
+                                                                   ('exclusive_date_range', 'False'),
+                                                                   ("composition_place", ''),
+                                                                   ('sort', 'urn'),
+                                                                   ('special_days', ''),
+                                                                   ("forgeries", "include"),
+                                                                   ('source', 'advanced')]),
+                 'test_mapped_lemma_simple_search': OrderedDict([("corpus", "all"),
+                                                                 ("search_field_1", "lemmas"),
+                                                                 ("q_1", 'gero'),
+                                                                 ("fuzziness_1", "0"),
+                                                                 ("in_order_1", "False"),
+                                                                 ("slop_1", "0"),
+                                                                 ("regex_search_1", 'False'),
+                                                                 ("exclude_q_1", ""),
+                                                                 ("formulaic_parts_1", ""),
+                                                                 ("proper_name_1", ""),
+                                                                 ("search_field_2", "text"),
+                                                                 ("q_2", ''),
+                                                                 ("fuzziness_2", "0"),
+                                                                 ("in_order_2", "False"),
+                                                                 ("slop_2", "0"),
+                                                                 ("regex_search_2", 'False'),
+                                                                 ("exclude_q_2", ""),
+                                                                 ("formulaic_parts_2", ""),
+                                                                 ("proper_name_2", ""),
+                                                                 ("search_field_3", "text"),
+                                                                 ("q_3", ''),
+                                                                 ("fuzziness_3", "0"),
+                                                                 ("in_order_3", "False"),
+                                                                 ("slop_3", "0"),
+                                                                 ("regex_search_3", 'False'),
+                                                                 ("exclude_q_3", ""),
+                                                                 ("formulaic_parts_3", ""),
+                                                                 ("proper_name_3", ""),
+                                                                 ("search_field_4", "text"),
+                                                                 ("q_4", ''),
+                                                                 ("fuzziness_4", "0"),
+                                                                 ("in_order_4", "False"),
+                                                                 ("slop_4", "0"),
+                                                                 ("regex_search_4", 'False'),
+                                                                 ("exclude_q_4", ""),
+                                                                 ("formulaic_parts_4", ""),
+                                                                 ("proper_name_4", ""),
+                                                                 ("year", 0),
+                                                                 ("month", 0),
+                                                                 ("day", 0),
+                                                                 ("year_start", 0),
+                                                                 ("month_start", 0),
+                                                                 ("day_start", 0),
+                                                                 ("year_end", 0),
+                                                                 ("month_end", 0),
+                                                                 ("day_end", 0),
+                                                                 ('date_plus_minus', 0),
+                                                                 ('exclusive_date_range', 'False'),
+                                                                 ("composition_place", ''),
+                                                                 ('sort', 'urn'),
+                                                                 ('special_days', ''),
+                                                                 ("forgeries", "include"),
+                                                                 ('source', 'advanced')]),
+                 'test_mapped_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"),
+                                                                             ("search_field_1", "lemmas"),
+                                                                             ("q_1", 'facio+gero'),
+                                                                             ("fuzziness_1", "0"),
+                                                                             ("in_order_1", "False"),
+                                                                             ("slop_1", "0"),
+                                                                             ("regex_search_1", 'False'),
+                                                                             ("exclude_q_1", ""),
+                                                                             ("formulaic_parts_1", ""),
+                                                                             ("proper_name_1", ""),
+                                                                             ("search_field_2", "text"),
+                                                                             ("q_2", ''),
+                                                                             ("fuzziness_2", "0"),
+                                                                             ("in_order_2", "False"),
+                                                                             ("slop_2", "0"),
+                                                                             ("regex_search_2", 'False'),
+                                                                             ("exclude_q_2", ""),
+                                                                             ("formulaic_parts_2", ""),
+                                                                             ("proper_name_2", ""),
+                                                                             ("search_field_3", "text"),
+                                                                             ("q_3", ''),
+                                                                             ("fuzziness_3", "0"),
+                                                                             ("in_order_3", "False"),
+                                                                             ("slop_3", "0"),
+                                                                             ("regex_search_3", 'False'),
+                                                                             ("exclude_q_3", ""),
+                                                                             ("formulaic_parts_3", ""),
+                                                                             ("proper_name_3", ""),
+                                                                             ("search_field_4", "text"),
+                                                                             ("q_4", ''),
+                                                                             ("fuzziness_4", "0"),
+                                                                             ("in_order_4", "False"),
+                                                                             ("slop_4", "0"),
+                                                                             ("regex_search_4", 'False'),
+                                                                             ("exclude_q_4", ""),
+                                                                             ("formulaic_parts_4", ""),
+                                                                             ("proper_name_4", ""),
+                                                                             ("year", 0),
+                                                                             ("month", 0),
+                                                                             ("day", 0),
+                                                                             ("year_start", 0),
+                                                                             ("month_start", 0),
+                                                                             ("day_start", 0),
+                                                                             ("year_end", 0),
+                                                                             ("month_end", 0),
+                                                                             ("day_end", 0),
+                                                                             ('date_plus_minus', 0),
+                                                                             ('exclusive_date_range', 'False'),
+                                                                             ("composition_place", ''),
+                                                                             ('sort', 'urn'),
+                                                                             ('special_days', ''),
+                                                                             ("forgeries", "include"),
+                                                                             ('source', 'advanced')]),
+                 'test_proper_name_search': OrderedDict([("corpus", "all"),
+                                                         ("search_field_1", "text"),
+                                                         ("q_1", ''),
+                                                         ("fuzziness_1", "0"),
+                                                         ("in_order_1", "False"),
+                                                         ("slop_1", "0"),
+                                                         ("regex_search_1", 'False'),
+                                                         ("exclude_q_1", ""),
+                                                         ("formulaic_parts_1", ""),
+                                                         ("proper_name_1", "personenname"),
+                                                         ("search_field_2", "text"),
+                                                         ("q_2", ''),
+                                                         ("fuzziness_2", "0"),
+                                                         ("in_order_2", "False"),
+                                                         ("slop_2", "0"),
+                                                         ("regex_search_2", 'False'),
+                                                         ("exclude_q_2", ""),
+                                                         ("formulaic_parts_2", ""),
+                                                         ("proper_name_2", ""),
+                                                         ("search_field_3", "text"),
+                                                         ("q_3", ''),
+                                                         ("fuzziness_3", "0"),
+                                                         ("in_order_3", "False"),
+                                                         ("slop_3", "0"),
+                                                         ("regex_search_3", 'False'),
+                                                         ("exclude_q_3", ""),
+                                                         ("formulaic_parts_3", ""),
+                                                         ("proper_name_3", ""),
+                                                         ("search_field_4", "text"),
+                                                         ("q_4", ''),
+                                                         ("fuzziness_4", "0"),
+                                                         ("in_order_4", "False"),
+                                                         ("slop_4", "0"),
+                                                         ("regex_search_4", 'False'),
+                                                         ("exclude_q_4", ""),
+                                                         ("formulaic_parts_4", ""),
+                                                         ("proper_name_4", ""),
+                                                         ("year", 0),
+                                                         ("month", 0),
+                                                         ("day", 0),
+                                                         ("year_start", 0),
+                                                         ("month_start", 0),
+                                                         ("day_start", 0),
+                                                         ("year_end", 0),
+                                                         ("month_end", 0),
+                                                         ("day_end", 0),
+                                                         ('date_plus_minus', 0),
+                                                         ('exclusive_date_range', 'False'),
+                                                         ("composition_place", ''),
+                                                         ('sort', 'urn'),
+                                                         ('special_days', ''),
+                                                         ("forgeries", "include"),
+                                                         ('source', 'advanced')]),
+                 'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"),
+                                                                     ("search_field_1", "text"),
+                                                                     ("q_1", 'pettone'),
+                                                                     ("fuzziness_1", "AUTO"),
+                                                                     ("in_order_1", "False"),
+                                                                     ("slop_1", "0"),
+                                                                     ("regex_search_1", 'False'),
+                                                                     ("exclude_q_1", ""),
+                                                                     ("formulaic_parts_1", ""),
+                                                                     ("proper_name_1", ""),
+                                                                     ("search_field_2", "text"),
+                                                                     ("q_2", ''),
+                                                                     ("fuzziness_2", "0"),
+                                                                     ("in_order_2", "False"),
+                                                                     ("slop_2", "0"),
+                                                                     ("regex_search_2", 'False'),
+                                                                     ("exclude_q_2", ""),
+                                                                     ("formulaic_parts_2", ""),
+                                                                     ("proper_name_2", ""),
+                                                                     ("search_field_3", "text"),
+                                                                     ("q_3", ''),
+                                                                     ("fuzziness_3", "0"),
+                                                                     ("in_order_3", "False"),
+                                                                     ("slop_3", "0"),
+                                                                     ("regex_search_3", 'False'),
+                                                                     ("exclude_q_3", ""),
+                                                                     ("formulaic_parts_3", ""),
+                                                                     ("proper_name_3", ""),
+                                                                     ("search_field_4", "text"),
+                                                                     ("q_4", ''),
+                                                                     ("fuzziness_4", "0"),
+                                                                     ("in_order_4", "False"),
+                                                                     ("slop_4", "0"),
+                                                                     ("regex_search_4", 'False'),
+                                                                     ("exclude_q_4", ""),
+                                                                     ("formulaic_parts_4", ""),
+                                                                     ("proper_name_4", ""),
+                                                                     ("year", 0),
+                                                                     ("month", 0),
+                                                                     ("day", 0),
+                                                                     ("year_start", 0),
+                                                                     ("month_start", 0),
+                                                                     ("day_start", 0),
+                                                                     ("year_end", 0),
+                                                                     ("month_end", 0),
+                                                                     ("day_end", 0),
+                                                                     ('date_plus_minus', 0),
+                                                                     ('exclusive_date_range', 'False'),
+                                                                     ("composition_place", ''),
+                                                                     ('sort', 'urn'),
+                                                                     ('special_days', ''),
+                                                                     ("forgeries", "include"),
+                                                                     ('source', 'advanced')]),
+                 'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"),
+                                                                    ("search_field_1", "text"),
+                                                                    ("q_1", 'regnante+pettone'),
+                                                                    ("fuzziness_1", "AUTO"),
+                                                                    ("in_order_1", "False"),
+                                                                    ("slop_1", "0"),
+                                                                    ("regex_search_1", 'False'),
+                                                                    ("exclude_q_1", ""),
+                                                                    ("formulaic_parts_1", ""),
+                                                                    ("proper_name_1", ""),
+                                                                    ("search_field_2", "text"),
+                                                                    ("q_2", ''),
+                                                                    ("fuzziness_2", "0"),
+                                                                    ("in_order_2", "False"),
+                                                                    ("slop_2", "0"),
+                                                                    ("regex_search_2", 'False'),
+                                                                    ("exclude_q_2", ""),
+                                                                    ("formulaic_parts_2", ""),
+                                                                    ("proper_name_2", ""),
+                                                                    ("search_field_3", "text"),
+                                                                    ("q_3", ''),
+                                                                    ("fuzziness_3", "0"),
+                                                                    ("in_order_3", "False"),
+                                                                    ("slop_3", "0"),
+                                                                    ("regex_search_3", 'False'),
+                                                                    ("exclude_q_3", ""),
+                                                                    ("formulaic_parts_3", ""),
+                                                                    ("proper_name_3", ""),
+                                                                    ("search_field_4", "text"),
+                                                                    ("q_4", ''),
+                                                                    ("fuzziness_4", "0"),
+                                                                    ("in_order_4", "False"),
+                                                                    ("slop_4", "0"),
+                                                                    ("regex_search_4", 'False'),
+                                                                    ("exclude_q_4", ""),
+                                                                    ("formulaic_parts_4", ""),
+                                                                    ("proper_name_4", ""),
+                                                                    ("year", 0),
+                                                                    ("month", 0),
+                                                                    ("day", 0),
+                                                                    ("year_start", 0),
+                                                                    ("month_start", 0),
+                                                                    ("day_start", 0),
+                                                                    ("year_end", 0),
+                                                                    ("month_end", 0),
+                                                                    ("day_end", 0),
+                                                                    ('date_plus_minus', 0),
+                                                                    ('exclusive_date_range', 'False'),
+                                                                    ("composition_place", ''),
+                                                                    ('sort', 'urn'),
+                                                                    ('special_days', ''),
+                                                                    ("forgeries", "include"),
+                                                                    ('source', 'advanced')]),
+                 'test_multi_word_fuzzy_highlighting_with_wildcard': OrderedDict([("corpus", "buenden"),
+                                                                                  ("search_field_1", "text"),
+                                                                                  ("q_1", 'scripsi+et+suscr*'),
+                                                                                  ("fuzziness_1", "AUTO"),
+                                                                                  ("in_order_1", "False"),
+                                                                                  ("slop_1", "0"),
+                                                                                  ("regex_search_1", 'False'),
+                                                                                  ("exclude_q_1", ""),
+                                                                                  ("formulaic_parts_1", ""),
+                                                                                  ("proper_name_1", ""),
+                                                                                  ("search_field_2", "text"),
+                                                                                  ("q_2", ''),
+                                                                                  ("fuzziness_2", "0"),
+                                                                                  ("in_order_2", "False"),
+                                                                                  ("slop_2", "0"),
+                                                                                  ("regex_search_2", 'False'),
+                                                                                  ("exclude_q_2", ""),
+                                                                                  ("formulaic_parts_2", ""),
+                                                                                  ("proper_name_2", ""),
+                                                                                  ("search_field_3", "text"),
+                                                                                  ("q_3", ''),
+                                                                                  ("fuzziness_3", "0"),
+                                                                                  ("in_order_3", "False"),
+                                                                                  ("slop_3", "0"),
+                                                                                  ("regex_search_3", 'False'),
+                                                                                  ("exclude_q_3", ""),
+                                                                                  ("formulaic_parts_3", ""),
+                                                                                  ("proper_name_3", ""),
+                                                                                  ("search_field_4", "text"),
+                                                                                  ("q_4", ''),
+                                                                                  ("fuzziness_4", "0"),
+                                                                                  ("in_order_4", "False"),
+                                                                                  ("slop_4", "0"),
+                                                                                  ("regex_search_4", 'False'),
+                                                                                  ("exclude_q_4", ""),
+                                                                                  ("formulaic_parts_4", ""),
+                                                                                  ("proper_name_4", ""),
+                                                                                  ("year", 0),
+                                                                                  ("month", 0),
+                                                                                  ("day", 0),
+                                                                                  ("year_start", 0),
+                                                                                  ("month_start", 0),
+                                                                                  ("day_start", 0),
+                                                                                  ("year_end", 0),
+                                                                                  ("month_end", 0),
+                                                                                  ("day_end", 0),
+                                                                                  ('date_plus_minus', 0),
+                                                                                  ('exclusive_date_range', 'False'),
+                                                                                  ("composition_place", ''),
+                                                                                  ('sort', 'urn'),
+                                                                                  ('special_days', ''),
+                                                                                  ("forgeries", "include"),
+                                                                                  ('source', 'advanced')]),
+                 'test_multi_word_highlighting_repeated_words': OrderedDict([("corpus", "buenden"),
+                                                                             ("search_field_1", "text"),
+                                                                             ("q_1", 'signum+uuiliarentis+testes+signum+crespionis+testes'),
+                                                                             ("fuzziness_1", "0"),
+                                                                             ("in_order_1", "False"),
+                                                                             ("slop_1", "0"),
+                                                                             ("regex_search_1", 'False'),
+                                                                             ("exclude_q_1", ""),
+                                                                             ("formulaic_parts_1", ""),
+                                                                             ("proper_name_1", ""),
+                                                                             ("search_field_2", "text"),
+                                                                             ("q_2", ''),
+                                                                             ("fuzziness_2", "0"),
+                                                                             ("in_order_2", "False"),
+                                                                             ("slop_2", "0"),
+                                                                             ("regex_search_2", 'False'),
+                                                                             ("exclude_q_2", ""),
+                                                                             ("formulaic_parts_2", ""),
+                                                                             ("proper_name_2", ""),
+                                                                             ("search_field_3", "text"),
+                                                                             ("q_3", ''),
+                                                                             ("fuzziness_3", "0"),
+                                                                             ("in_order_3", "False"),
+                                                                             ("slop_3", "0"),
+                                                                             ("regex_search_3", 'False'),
+                                                                             ("exclude_q_3", ""),
+                                                                             ("formulaic_parts_3", ""),
+                                                                             ("proper_name_3", ""),
+                                                                             ("search_field_4", "text"),
+                                                                             ("q_4", ''),
+                                                                             ("fuzziness_4", "0"),
+                                                                             ("in_order_4", "False"),
+                                                                             ("slop_4", "0"),
+                                                                             ("regex_search_4", 'False'),
+                                                                             ("exclude_q_4", ""),
+                                                                             ("formulaic_parts_4", ""),
+                                                                             ("proper_name_4", ""),
+                                                                             ("year", 0),
+                                                                             ("month", 0),
+                                                                             ("day", 0),
+                                                                             ("year_start", 0),
+                                                                             ("month_start", 0),
+                                                                             ("day_start", 0),
+                                                                             ("year_end", 0),
+                                                                             ("month_end", 0),
+                                                                             ("day_end", 0),
+                                                                             ('date_plus_minus', 0),
+                                                                             ('exclusive_date_range', 'False'),
+                                                                             ("composition_place", ''),
+                                                                             ('sort', 'urn'),
+                                                                             ('special_days', ''),
+                                                                             ("forgeries", "include"),
+                                                                             ('source', 'advanced')]),
+                 'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
+                                                                 ("search_field_1", "text"),
+                                                                 ("q_1", 'tempore'),
+                                                                 ("fuzziness_1", "0"),
+                                                                 ("in_order_1", "False"),
+                                                                 ("slop_1", "0"),
+                                                                 ("regex_search_1", 'False'),
+                                                                 ("exclude_q_1", ""),
+                                                                 ("formulaic_parts_1", "Stipulationsformel"),
+                                                                 ("proper_name_1", ""),
+                                                                 ("search_field_2", "text"),
+                                                                 ("q_2", ''),
+                                                                 ("fuzziness_2", "0"),
+                                                                 ("in_order_2", "False"),
+                                                                 ("slop_2", "0"),
+                                                                 ("regex_search_2", 'False'),
+                                                                 ("exclude_q_2", ""),
+                                                                 ("formulaic_parts_2", ""),
+                                                                 ("proper_name_2", ""),
+                                                                 ("search_field_3", "text"),
+                                                                 ("q_3", ''),
+                                                                 ("fuzziness_3", "0"),
+                                                                 ("in_order_3", "False"),
+                                                                 ("slop_3", "0"),
+                                                                 ("regex_search_3", 'False'),
+                                                                 ("exclude_q_3", ""),
+                                                                 ("formulaic_parts_3", ""),
+                                                                 ("proper_name_3", ""),
+                                                                 ("search_field_4", "text"),
+                                                                 ("q_4", ''),
+                                                                 ("fuzziness_4", "0"),
+                                                                 ("in_order_4", "False"),
+                                                                 ("slop_4", "0"),
+                                                                 ("regex_search_4", 'False'),
+                                                                 ("exclude_q_4", ""),
+                                                                 ("formulaic_parts_4", ""),
+                                                                 ("proper_name_4", ""),
+                                                                 ("year", 0),
+                                                                 ("month", 0),
+                                                                 ("day", 0),
+                                                                 ("year_start", 0),
+                                                                 ("month_start", 0),
+                                                                 ("day_start", 0),
+                                                                 ("year_end", 0),
+                                                                 ("month_end", 0),
+                                                                 ("day_end", 0),
+                                                                 ('date_plus_minus', 0),
+                                                                 ('exclusive_date_range', 'False'),
+                                                                 ("composition_place", ''),
+                                                                 ('sort', 'urn'),
+                                                                 ('special_days', ''),
+                                                                 ("forgeries", "include"),
+                                                                 ('source', 'advanced')]),
+                 'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
+                                                                               ("search_field_1", "text"),
+                                                                               ("q_1", 'temp?re'),
+                                                                               ("fuzziness_1", "0"),
+                                                                               ("in_order_1", "False"),
+                                                                               ("slop_1", "0"),
+                                                                               ("regex_search_1", 'False'),
+                                                                               ("exclude_q_1", ""),
+                                                                               ("formulaic_parts_1", "Stipulationsformel"),
+                                                                               ("proper_name_1", ""),
+                                                                               ("search_field_2", "text"),
+                                                                               ("q_2", ''),
+                                                                               ("fuzziness_2", "0"),
+                                                                               ("in_order_2", "False"),
+                                                                               ("slop_2", "0"),
+                                                                               ("regex_search_2", 'False'),
+                                                                               ("exclude_q_2", ""),
+                                                                               ("formulaic_parts_2", ""),
+                                                                               ("proper_name_2", ""),
+                                                                               ("search_field_3", "text"),
+                                                                               ("q_3", ''),
+                                                                               ("fuzziness_3", "0"),
+                                                                               ("in_order_3", "False"),
+                                                                               ("slop_3", "0"),
+                                                                               ("regex_search_3", 'False'),
+                                                                               ("exclude_q_3", ""),
+                                                                               ("formulaic_parts_3", ""),
+                                                                               ("proper_name_3", ""),
+                                                                               ("search_field_4", "text"),
+                                                                               ("q_4", ''),
+                                                                               ("fuzziness_4", "0"),
+                                                                               ("in_order_4", "False"),
+                                                                               ("slop_4", "0"),
+                                                                               ("regex_search_4", 'False'),
+                                                                               ("exclude_q_4", ""),
+                                                                               ("formulaic_parts_4", ""),
+                                                                               ("proper_name_4", ""),
+                                                                               ("year", 0),
+                                                                               ("month", 0),
+                                                                               ("day", 0),
+                                                                               ("year_start", 0),
+                                                                               ("month_start", 0),
+                                                                               ("day_start", 0),
+                                                                               ("year_end", 0),
+                                                                               ("month_end", 0),
+                                                                               ("day_end", 0),
+                                                                               ('date_plus_minus', 0),
+                                                                               ('exclusive_date_range', 'False'),
+                                                                               ("composition_place", ''),
+                                                                               ('sort', 'urn'),
+                                                                               ('special_days', ''),
+                                                                               ("forgeries", "include"),
+                                                                               ('source', 'advanced')]),
+                 'test_single_charter_part_search_with_wildcard_v_u': OrderedDict([("corpus", "mondsee"),
+                                                                                   ("search_field_1", "text"),
+                                                                                   ("q_1", 'christ*+vener?bili'),
+                                                                                   ("fuzziness_1", "0"),
+                                                                                   ("in_order_1", "False"),
+                                                                                   ("slop_1", "0"),
+                                                                                   ("regex_search_1", 'False'),
+                                                                                   ("exclude_q_1", ""),
+                                                                                   ("formulaic_parts_1", "Narratio"),
+                                                                                   ("proper_name_1", ""),
+                                                                                   ("search_field_2", "text"),
+                                                                                   ("q_2", ''),
+                                                                                   ("fuzziness_2", "0"),
+                                                                                   ("in_order_2", "False"),
+                                                                                   ("slop_2", "0"),
+                                                                                   ("regex_search_2", 'False'),
+                                                                                   ("exclude_q_2", ""),
+                                                                                   ("formulaic_parts_2", ""),
+                                                                                   ("proper_name_2", ""),
+                                                                                   ("search_field_3", "text"),
+                                                                                   ("q_3", ''),
+                                                                                   ("fuzziness_3", "0"),
+                                                                                   ("in_order_3", "False"),
+                                                                                   ("slop_3", "0"),
+                                                                                   ("regex_search_3", 'False'),
+                                                                                   ("exclude_q_3", ""),
+                                                                                   ("formulaic_parts_3", ""),
+                                                                                   ("proper_name_3", ""),
+                                                                                   ("search_field_4", "text"),
+                                                                                   ("q_4", ''),
+                                                                                   ("fuzziness_4", "0"),
+                                                                                   ("in_order_4", "False"),
+                                                                                   ("slop_4", "0"),
+                                                                                   ("regex_search_4", 'False'),
+                                                                                   ("exclude_q_4", ""),
+                                                                                   ("formulaic_parts_4", ""),
+                                                                                   ("proper_name_4", ""),
+                                                                                   ("year", 0),
+                                                                                   ("month", 0),
+                                                                                   ("day", 0),
+                                                                                   ("year_start", 0),
+                                                                                   ("month_start", 0),
+                                                                                   ("day_start", 0),
+                                                                                   ("year_end", 0),
+                                                                                   ("month_end", 0),
+                                                                                   ("day_end", 0),
+                                                                                   ('date_plus_minus', 0),
+                                                                                   ('exclusive_date_range', 'False'),
+                                                                                   ("composition_place", ''),
+                                                                                   ('sort', 'urn'),
+                                                                                   ('special_days', ''),
+                                                                                   ("forgeries", "include"),
+                                                                                   ('source', 'advanced')]),
+                 'test_multi_charter_part_search': OrderedDict([("corpus", "mondsee"),
+                                                                ("search_field_1", "text"),
+                                                                ("q_1", 'christi'),
+                                                                ("fuzziness_1", "0"),
+                                                                ("in_order_1", "False"),
+                                                                ("slop_1", "0"),
+                                                                ("regex_search_1", 'False'),
+                                                                ("exclude_q_1", ""),
+                                                                ("formulaic_parts_1", "Poenformel%2BStipulationsformel"),
+                                                                ("proper_name_1", ""),
+                                                                ("search_field_2", "text"),
+                                                                ("q_2", ''),
+                                                                ("fuzziness_2", "0"),
+                                                                ("in_order_2", "False"),
+                                                                ("slop_2", "0"),
+                                                                ("regex_search_2", 'False'),
+                                                                ("exclude_q_2", ""),
+                                                                ("formulaic_parts_2", ""),
+                                                                ("proper_name_2", ""),
+                                                                ("search_field_3", "text"),
+                                                                ("q_3", ''),
+                                                                ("fuzziness_3", "0"),
+                                                                ("in_order_3", "False"),
+                                                                ("slop_3", "0"),
+                                                                ("regex_search_3", 'False'),
+                                                                ("exclude_q_3", ""),
+                                                                ("formulaic_parts_3", ""),
+                                                                ("proper_name_3", ""),
+                                                                ("search_field_4", "text"),
+                                                                ("q_4", ''),
+                                                                ("fuzziness_4", "0"),
+                                                                ("in_order_4", "False"),
+                                                                ("slop_4", "0"),
+                                                                ("regex_search_4", 'False'),
+                                                                ("exclude_q_4", ""),
+                                                                ("formulaic_parts_4", ""),
+                                                                ("proper_name_4", ""),
+                                                                ("year", 0),
+                                                                ("month", 0),
+                                                                ("day", 0),
+                                                                ("year_start", 0),
+                                                                ("month_start", 0),
+                                                                ("day_start", 0),
+                                                                ("year_end", 0),
+                                                                ("month_end", 0),
+                                                                ("day_end", 0),
+                                                                ('date_plus_minus', 0),
+                                                                ('exclusive_date_range', 'False'),
+                                                                ("composition_place", ''),
+                                                                ('sort', 'urn'),
+                                                                ('special_days', ''),
+                                                                ("forgeries", "include"),
+                                                                ('source', 'advanced')]),
+                 'test_charter_part_search_no_q': OrderedDict([("corpus", "mondsee"),
+                                                               ("search_field_1", "text"),
+                                                               ("q_1", ''),
+                                                               ("fuzziness_1", "0"),
+                                                               ("in_order_1", "False"),
+                                                               ("slop_1", "0"),
+                                                               ("regex_search_1", 'False'),
+                                                               ("exclude_q_1", ""),
+                                                               ("formulaic_parts_1", "Poenformel%2BStipulationsformel"),
+                                                               ("proper_name_1", ""),
+                                                               ("search_field_2", "text"),
+                                                               ("q_2", ''),
+                                                               ("fuzziness_2", "0"),
+                                                               ("in_order_2", "False"),
+                                                               ("slop_2", "0"),
+                                                               ("regex_search_2", 'False'),
+                                                               ("exclude_q_2", ""),
+                                                               ("formulaic_parts_2", ""),
+                                                               ("proper_name_2", ""),
+                                                               ("search_field_3", "text"),
+                                                               ("q_3", ''),
+                                                               ("fuzziness_3", "0"),
+                                                               ("in_order_3", "False"),
+                                                               ("slop_3", "0"),
+                                                               ("regex_search_3", 'False'),
+                                                               ("exclude_q_3", ""),
+                                                               ("formulaic_parts_3", ""),
+                                                               ("proper_name_3", ""),
+                                                               ("search_field_4", "text"),
+                                                               ("q_4", ''),
+                                                               ("fuzziness_4", "0"),
+                                                               ("in_order_4", "False"),
+                                                               ("slop_4", "0"),
+                                                               ("regex_search_4", 'False'),
+                                                               ("exclude_q_4", ""),
+                                                               ("formulaic_parts_4", ""),
+                                                               ("proper_name_4", ""),
+                                                               ("year", 0),
+                                                               ("month", 0),
+                                                               ("day", 0),
+                                                               ("year_start", 0),
+                                                               ("month_start", 0),
+                                                               ("day_start", 0),
+                                                               ("year_end", 0),
+                                                               ("month_end", 0),
+                                                               ("day_end", 0),
+                                                               ('date_plus_minus', 0),
+                                                               ('exclusive_date_range', 'False'),
+                                                               ("composition_place", ''),
+                                                               ('sort', 'urn'),
+                                                               ('special_days', ''),
+                                                               ("forgeries", "include"),
+                                                               ('source', 'advanced')]),
+                 'test_fuzzy_charter_part_search': OrderedDict([("corpus", "mondsee"),
+                                                                ("search_field_1", "text"),
+                                                                ("q_1", 'in+loco+qui+nuncupatur'),
+                                                                ("fuzziness_1", "AUTO"),
+                                                                ("in_order_1", "False"),
+                                                                ("slop_1", "0"),
+                                                                ("regex_search_1", 'False'),
+                                                                ("exclude_q_1", ""),
+                                                                ("formulaic_parts_1", "Narratio"),
+                                                                ("proper_name_1", ""),
+                                                                ("search_field_2", "text"),
+                                                                ("q_2", ''),
+                                                                ("fuzziness_2", "0"),
+                                                                ("in_order_2", "False"),
+                                                                ("slop_2", "0"),
+                                                                ("regex_search_2", 'False'),
+                                                                ("exclude_q_2", ""),
+                                                                ("formulaic_parts_2", ""),
+                                                                ("proper_name_2", ""),
+                                                                ("search_field_3", "text"),
+                                                                ("q_3", ''),
+                                                                ("fuzziness_3", "0"),
+                                                                ("in_order_3", "False"),
+                                                                ("slop_3", "0"),
+                                                                ("regex_search_3", 'False'),
+                                                                ("exclude_q_3", ""),
+                                                                ("formulaic_parts_3", ""),
+                                                                ("proper_name_3", ""),
+                                                                ("search_field_4", "text"),
+                                                                ("q_4", ''),
+                                                                ("fuzziness_4", "0"),
+                                                                ("in_order_4", "False"),
+                                                                ("slop_4", "0"),
+                                                                ("regex_search_4", 'False'),
+                                                                ("exclude_q_4", ""),
+                                                                ("formulaic_parts_4", ""),
+                                                                ("proper_name_4", ""),
+                                                                ("year", 0),
+                                                                ("month", 0),
+                                                                ("day", 0),
+                                                                ("year_start", 0),
+                                                                ("month_start", 0),
+                                                                ("day_start", 0),
+                                                                ("year_end", 0),
+                                                                ("month_end", 0),
+                                                                ("day_end", 0),
+                                                                ('date_plus_minus', 0),
+                                                                ('exclusive_date_range', 'False'),
+                                                                ("composition_place", ''),
+                                                                ('sort', 'urn'),
+                                                                ('special_days', ''),
+                                                                ("forgeries", "include"),
+                                                                ('source', 'advanced')]),
+                 'test_fuzzy_v_to_u_search': OrderedDict([("corpus", "mondsee"),
+                                                          ("search_field_1", "text"),
+                                                          ("q_1", 'in+loco+qui+nuncupatur'),
+                                                          ("fuzziness_1", "AUTO"),
+                                                          ("in_order_1", "False"),
+                                                          ("slop_1", "0"),
+                                                          ("regex_search_1", 'False'),
+                                                          ("exclude_q_1", ""),
+                                                          ("formulaic_parts_1", ""),
+                                                          ("proper_name_1", ""),
+                                                          ("search_field_2", "text"),
+                                                          ("q_2", ''),
+                                                          ("fuzziness_2", "0"),
+                                                          ("in_order_2", "False"),
+                                                          ("slop_2", "0"),
+                                                          ("regex_search_2", 'False'),
+                                                          ("exclude_q_2", ""),
+                                                          ("formulaic_parts_2", ""),
+                                                          ("proper_name_2", ""),
+                                                          ("search_field_3", "text"),
+                                                          ("q_3", ''),
+                                                          ("fuzziness_3", "0"),
+                                                          ("in_order_3", "False"),
+                                                          ("slop_3", "0"),
+                                                          ("regex_search_3", 'False'),
+                                                          ("exclude_q_3", ""),
+                                                          ("formulaic_parts_3", ""),
+                                                          ("proper_name_3", ""),
+                                                          ("search_field_4", "text"),
+                                                          ("q_4", ''),
+                                                          ("fuzziness_4", "0"),
+                                                          ("in_order_4", "False"),
+                                                          ("slop_4", "0"),
+                                                          ("regex_search_4", 'False'),
+                                                          ("exclude_q_4", ""),
+                                                          ("formulaic_parts_4", ""),
+                                                          ("proper_name_4", ""),
+                                                          ("year", 0),
+                                                          ("month", 0),
+                                                          ("day", 0),
+                                                          ("year_start", 0),
+                                                          ("month_start", 0),
+                                                          ("day_start", 0),
+                                                          ("year_end", 0),
+                                                          ("month_end", 0),
+                                                          ("day_end", 0),
+                                                          ('date_plus_minus', 0),
+                                                          ('exclusive_date_range', 'False'),
+                                                          ("composition_place", ''),
+                                                          ('sort', 'urn'),
+                                                          ('special_days', ''),
+                                                          ("forgeries", "include"),
+                                                          ('source', 'advanced')]),
+                 'test_single_letter_highlighting_one_word': OrderedDict([("corpus", "buenden"),
+                                                                          ("search_field_1", "text"),
+                                                                          ("q_1", 'a'),
+                                                                          ("fuzziness_1", "0"),
+                                                                          ("in_order_1", "False"),
+                                                                          ("slop_1", "0"),
+                                                                          ("regex_search_1", 'False'),
+                                                                          ("exclude_q_1", ""),
+                                                                          ("formulaic_parts_1", ""),
+                                                                          ("proper_name_1", ""),
+                                                                          ("search_field_2", "text"),
+                                                                          ("q_2", ''),
+                                                                          ("fuzziness_2", "0"),
+                                                                          ("in_order_2", "False"),
+                                                                          ("slop_2", "0"),
+                                                                          ("regex_search_2", 'False'),
+                                                                          ("exclude_q_2", ""),
+                                                                          ("formulaic_parts_2", ""),
+                                                                          ("proper_name_2", ""),
+                                                                          ("search_field_3", "text"),
+                                                                          ("q_3", ''),
+                                                                          ("fuzziness_3", "0"),
+                                                                          ("in_order_3", "False"),
+                                                                          ("slop_3", "0"),
+                                                                          ("regex_search_3", 'False'),
+                                                                          ("exclude_q_3", ""),
+                                                                          ("formulaic_parts_3", ""),
+                                                                          ("proper_name_3", ""),
+                                                                          ("search_field_4", "text"),
+                                                                          ("q_4", ''),
+                                                                          ("fuzziness_4", "0"),
+                                                                          ("in_order_4", "False"),
+                                                                          ("slop_4", "0"),
+                                                                          ("regex_search_4", 'False'),
+                                                                          ("exclude_q_4", ""),
+                                                                          ("formulaic_parts_4", ""),
+                                                                          ("proper_name_4", ""),
+                                                                          ("year", 0),
+                                                                          ("month", 0),
+                                                                          ("day", 0),
+                                                                          ("year_start", 0),
+                                                                          ("month_start", 0),
+                                                                          ("day_start", 0),
+                                                                          ("year_end", 0),
+                                                                          ("month_end", 0),
+                                                                          ("day_end", 0),
+                                                                          ('date_plus_minus', 0),
+                                                                          ('exclusive_date_range', 'False'),
+                                                                          ("composition_place", ''),
+                                                                          ('sort', 'urn'),
+                                                                          ('special_days', ''),
+                                                                          ("forgeries", "include"),
+                                                                          ('source', 'advanced')]),
+                 'test_single_letter_highlighting_multiword': OrderedDict([("corpus", "buenden"),
+                                                                           ("search_field_1", "text"),
+                                                                           ("q_1", 'daumerii+a'),
+                                                                           ("fuzziness_1", "0"),
+                                                                           ("in_order_1", "False"),
+                                                                           ("slop_1", "0"),
+                                                                           ("regex_search_1", 'False'),
+                                                                           ("exclude_q_1", ""),
+                                                                           ("formulaic_parts_1", ""),
+                                                                           ("proper_name_1", ""),
+                                                                           ("search_field_2", "text"),
+                                                                           ("q_2", ''),
+                                                                           ("fuzziness_2", "0"),
+                                                                           ("in_order_2", "False"),
+                                                                           ("slop_2", "0"),
+                                                                           ("regex_search_2", 'False'),
+                                                                           ("exclude_q_2", ""),
+                                                                           ("formulaic_parts_2", ""),
+                                                                           ("proper_name_2", ""),
+                                                                           ("search_field_3", "text"),
+                                                                           ("q_3", ''),
+                                                                           ("fuzziness_3", "0"),
+                                                                           ("in_order_3", "False"),
+                                                                           ("slop_3", "0"),
+                                                                           ("regex_search_3", 'False'),
+                                                                           ("exclude_q_3", ""),
+                                                                           ("formulaic_parts_3", ""),
+                                                                           ("proper_name_3", ""),
+                                                                           ("search_field_4", "text"),
+                                                                           ("q_4", ''),
+                                                                           ("fuzziness_4", "0"),
+                                                                           ("in_order_4", "False"),
+                                                                           ("slop_4", "0"),
+                                                                           ("regex_search_4", 'False'),
+                                                                           ("exclude_q_4", ""),
+                                                                           ("formulaic_parts_4", ""),
+                                                                           ("proper_name_4", ""),
+                                                                           ("year", 0),
+                                                                           ("month", 0),
+                                                                           ("day", 0),
+                                                                           ("year_start", 0),
+                                                                           ("month_start", 0),
+                                                                           ("day_start", 0),
+                                                                           ("year_end", 0),
+                                                                           ("month_end", 0),
+                                                                           ("day_end", 0),
+                                                                           ('date_plus_minus', 0),
+                                                                           ('exclusive_date_range', 'False'),
+                                                                           ("composition_place", ''),
+                                                                           ('sort', 'urn'),
+                                                                           ('special_days', ''),
+                                                                           ("forgeries", "include"),
+                                                                           ('source', 'advanced')]),
+                 'test_forgery_exclude': OrderedDict([("corpus", "merowinger1"),
+                                                      ("search_field_1", "text"),
+                                                      ("q_1", ''),
+                                                      ("fuzziness_1", "0"),
+                                                      ("in_order_1", "False"),
+                                                      ("slop_1", "0"),
+                                                      ("regex_search_1", 'False'),
+                                                      ("exclude_q_1", ""),
+                                                      ("formulaic_parts_1", ""),
+                                                      ("proper_name_1", ""),
+                                                      ("search_field_2", "text"),
+                                                      ("q_2", ''),
+                                                      ("fuzziness_2", "0"),
+                                                      ("in_order_2", "False"),
+                                                      ("slop_2", "0"),
+                                                      ("regex_search_2", 'False'),
+                                                      ("exclude_q_2", ""),
+                                                      ("formulaic_parts_2", ""),
+                                                      ("proper_name_2", ""),
+                                                      ("search_field_3", "text"),
+                                                      ("q_3", ''),
+                                                      ("fuzziness_3", "0"),
+                                                      ("in_order_3", "False"),
+                                                      ("slop_3", "0"),
+                                                      ("regex_search_3", 'False'),
+                                                      ("exclude_q_3", ""),
+                                                      ("formulaic_parts_3", ""),
+                                                      ("proper_name_3", ""),
+                                                      ("search_field_4", "text"),
+                                                      ("q_4", ''),
+                                                      ("fuzziness_4", "0"),
+                                                      ("in_order_4", "False"),
+                                                      ("slop_4", "0"),
+                                                      ("regex_search_4", 'False'),
+                                                      ("exclude_q_4", ""),
+                                                      ("formulaic_parts_4", ""),
+                                                      ("proper_name_4", ""),
+                                                      ("year", 0),
+                                                      ("month", 0),
+                                                      ("day", 0),
+                                                      ("year_start", 0),
+                                                      ("month_start", 0),
+                                                      ("day_start", 0),
+                                                      ("year_end", 0),
+                                                      ("month_end", 0),
+                                                      ("day_end", 0),
+                                                      ('date_plus_minus', 0),
+                                                      ('exclusive_date_range', 'False'),
+                                                      ("composition_place", ''),
+                                                      ('sort', 'urn'),
+                                                      ('special_days', ''),
+                                                      ("forgeries", "exclude"),
+                                                      ('source', 'advanced')]),
+                 'test_forgery_only': OrderedDict([("corpus", "merowinger1"),
+                                                   ("search_field_1", "text"),
+                                                   ("q_1", ''),
+                                                   ("fuzziness_1", "0"),
+                                                   ("in_order_1", "False"),
+                                                   ("slop_1", "0"),
+                                                   ("regex_search_1", 'False'),
+                                                   ("exclude_q_1", ""),
+                                                   ("formulaic_parts_1", ""),
+                                                   ("proper_name_1", ""),
+                                                   ("search_field_2", "text"),
+                                                   ("q_2", ''),
+                                                   ("fuzziness_2", "0"),
+                                                   ("in_order_2", "False"),
+                                                   ("slop_2", "0"),
+                                                   ("regex_search_2", 'False'),
+                                                   ("exclude_q_2", ""),
+                                                   ("formulaic_parts_2", ""),
+                                                   ("proper_name_2", ""),
+                                                   ("search_field_3", "text"),
+                                                   ("q_3", ''),
+                                                   ("fuzziness_3", "0"),
+                                                   ("in_order_3", "False"),
+                                                   ("slop_3", "0"),
+                                                   ("regex_search_3", 'False'),
+                                                   ("exclude_q_3", ""),
+                                                   ("formulaic_parts_3", ""),
+                                                   ("proper_name_3", ""),
+                                                   ("search_field_4", "text"),
+                                                   ("q_4", ''),
+                                                   ("fuzziness_4", "0"),
+                                                   ("in_order_4", "False"),
+                                                   ("slop_4", "0"),
+                                                   ("regex_search_4", 'False'),
+                                                   ("exclude_q_4", ""),
+                                                   ("formulaic_parts_4", ""),
+                                                   ("proper_name_4", ""),
+                                                   ("year", 0),
+                                                   ("month", 0),
+                                                   ("day", 0),
+                                                   ("year_start", 0),
+                                                   ("month_start", 0),
+                                                   ("day_start", 0),
+                                                   ("year_end", 0),
+                                                   ("month_end", 0),
+                                                   ("day_end", 0),
+                                                   ('date_plus_minus', 0),
+                                                   ('exclusive_date_range', 'False'),
+                                                   ("composition_place", ''),
+                                                   ('sort', 'urn'),
+                                                   ('special_days', ''),
+                                                   ("forgeries", "only"),
+                                                   ('source', 'advanced')]),
+                 'test_multiword_proper_name_partial_match': OrderedDict([("corpus", "all"),
+                                                                          ("search_field_1", "text"),
+                                                                          ("q_1", 'habraam+usque'),
+                                                                          ("fuzziness_1", "0"),
+                                                                          ("in_order_1", "False"),
+                                                                          ("slop_1", "0"),
+                                                                          ("regex_search_1", 'False'),
+                                                                          ("exclude_q_1", ""),
+                                                                          ("formulaic_parts_1", ""),
+                                                                          ("proper_name_1", "personenname"),
+                                                                          ("search_field_2", "text"),
+                                                                          ("q_2", ''),
+                                                                          ("fuzziness_2", "0"),
+                                                                          ("in_order_2", "False"),
+                                                                          ("slop_2", "0"),
+                                                                          ("regex_search_2", 'False'),
+                                                                          ("exclude_q_2", ""),
+                                                                          ("formulaic_parts_2", ""),
+                                                                          ("proper_name_2", ""),
+                                                                          ("search_field_3", "text"),
+                                                                          ("q_3", ''),
+                                                                          ("fuzziness_3", "0"),
+                                                                          ("in_order_3", "False"),
+                                                                          ("slop_3", "0"),
+                                                                          ("regex_search_3", 'False'),
+                                                                          ("exclude_q_3", ""),
+                                                                          ("formulaic_parts_3", ""),
+                                                                          ("proper_name_3", ""),
+                                                                          ("search_field_4", "text"),
+                                                                          ("q_4", ''),
+                                                                          ("fuzziness_4", "0"),
+                                                                          ("in_order_4", "False"),
+                                                                          ("slop_4", "0"),
+                                                                          ("regex_search_4", 'False'),
+                                                                          ("exclude_q_4", ""),
+                                                                          ("formulaic_parts_4", ""),
+                                                                          ("proper_name_4", ""),
+                                                                          ("year", 0),
+                                                                          ("month", 0),
+                                                                          ("day", 0),
+                                                                          ("year_start", 0),
+                                                                          ("month_start", 0),
+                                                                          ("day_start", 0),
+                                                                          ("year_end", 0),
+                                                                          ("month_end", 0),
+                                                                          ("day_end", 0),
+                                                                          ('date_plus_minus', 0),
+                                                                          ('exclusive_date_range', 'False'),
+                                                                          ("composition_place", ''),
+                                                                          ('sort', 'urn'),
+                                                                          ('special_days', ''),
+                                                                          ("forgeries", "include"),
+                                                                          ('source', 'advanced')]),
+                 'test_multiword_proper_name_no_match': OrderedDict([("corpus", "all"),
+                                                                     ("search_field_1", "text"),
+                                                                     ("q_1", 'regnum+domni'),
+                                                                     ("fuzziness_1", "0"),
+                                                                     ("in_order_1", "False"),
+                                                                     ("slop_1", "0"),
+                                                                     ("regex_search_1", 'False'),
+                                                                     ("exclude_q_1", ""),
+                                                                     ("formulaic_parts_1", ""),
+                                                                     ("proper_name_1", "personenname"),
+                                                                     ("search_field_2", "text"),
+                                                                     ("q_2", ''),
+                                                                     ("fuzziness_2", "0"),
+                                                                     ("in_order_2", "False"),
+                                                                     ("slop_2", "0"),
+                                                                     ("regex_search_2", 'False'),
+                                                                     ("exclude_q_2", ""),
+                                                                     ("formulaic_parts_2", ""),
+                                                                     ("proper_name_2", ""),
+                                                                     ("search_field_3", "text"),
+                                                                     ("q_3", ''),
+                                                                     ("fuzziness_3", "0"),
+                                                                     ("in_order_3", "False"),
+                                                                     ("slop_3", "0"),
+                                                                     ("regex_search_3", 'False'),
+                                                                     ("exclude_q_3", ""),
+                                                                     ("formulaic_parts_3", ""),
+                                                                     ("proper_name_3", ""),
+                                                                     ("search_field_4", "text"),
+                                                                     ("q_4", ''),
+                                                                     ("fuzziness_4", "0"),
+                                                                     ("in_order_4", "False"),
+                                                                     ("slop_4", "0"),
+                                                                     ("regex_search_4", 'False'),
+                                                                     ("exclude_q_4", ""),
+                                                                     ("formulaic_parts_4", ""),
+                                                                     ("proper_name_4", ""),
+                                                                     ("year", 0),
+                                                                     ("month", 0),
+                                                                     ("day", 0),
+                                                                     ("year_start", 0),
+                                                                     ("month_start", 0),
+                                                                     ("day_start", 0),
+                                                                     ("year_end", 0),
+                                                                     ("month_end", 0),
+                                                                     ("day_end", 0),
+                                                                     ('date_plus_minus', 0),
+                                                                     ('exclusive_date_range', 'False'),
+                                                                     ("composition_place", ''),
+                                                                     ('sort', 'urn'),
+                                                                     ('special_days', ''),
+                                                                     ("forgeries", "include"),
+                                                                     ('source', 'advanced')]),
+                 'test_single_word_proper_name_no_match': OrderedDict([("corpus", "all"),
+                                                                       ("search_field_1", "text"),
+                                                                       ("q_1", 'regnum'),
+                                                                       ("fuzziness_1", "0"),
+                                                                       ("in_order_1", "False"),
+                                                                       ("slop_1", "0"),
+                                                                       ("regex_search_1", 'False'),
+                                                                       ("exclude_q_1", ""),
+                                                                       ("formulaic_parts_1", ""),
+                                                                       ("proper_name_1", "personenname"),
+                                                                       ("search_field_2", "text"),
+                                                                       ("q_2", ''),
+                                                                       ("fuzziness_2", "0"),
+                                                                       ("in_order_2", "False"),
+                                                                       ("slop_2", "0"),
+                                                                       ("regex_search_2", 'False'),
+                                                                       ("exclude_q_2", ""),
+                                                                       ("formulaic_parts_2", ""),
+                                                                       ("proper_name_2", ""),
+                                                                       ("search_field_3", "text"),
+                                                                       ("q_3", ''),
+                                                                       ("fuzziness_3", "0"),
+                                                                       ("in_order_3", "False"),
+                                                                       ("slop_3", "0"),
+                                                                       ("regex_search_3", 'False'),
+                                                                       ("exclude_q_3", ""),
+                                                                       ("formulaic_parts_3", ""),
+                                                                       ("proper_name_3", ""),
+                                                                       ("search_field_4", "text"),
+                                                                       ("q_4", ''),
+                                                                       ("fuzziness_4", "0"),
+                                                                       ("in_order_4", "False"),
+                                                                       ("slop_4", "0"),
+                                                                       ("regex_search_4", 'False'),
+                                                                       ("exclude_q_4", ""),
+                                                                       ("formulaic_parts_4", ""),
+                                                                       ("proper_name_4", ""),
+                                                                       ("year", 0),
+                                                                       ("month", 0),
+                                                                       ("day", 0),
+                                                                       ("year_start", 0),
+                                                                       ("month_start", 0),
+                                                                       ("day_start", 0),
+                                                                       ("year_end", 0),
+                                                                       ("month_end", 0),
+                                                                       ("day_end", 0),
+                                                                       ('date_plus_minus', 0),
+                                                                       ('exclusive_date_range', 'False'),
+                                                                       ("composition_place", ''),
+                                                                       ('sort', 'urn'),
+                                                                       ('special_days', ''),
+                                                                       ("forgeries", "include"),
+                                                                       ('source', 'advanced')]),
+                 'test_single_word_proper_name_match_text': OrderedDict([("corpus", "all"),
+                                                                         ("search_field_1", "text"),
+                                                                         ("q_1", 'adam'),
+                                                                         ("fuzziness_1", "0"),
+                                                                         ("in_order_1", "False"),
+                                                                         ("slop_1", "0"),
+                                                                         ("regex_search_1", 'False'),
+                                                                         ("exclude_q_1", ""),
+                                                                         ("formulaic_parts_1", ""),
+                                                                         ("proper_name_1", "personenname"),
+                                                                         ("search_field_2", "text"),
+                                                                         ("q_2", ''),
+                                                                         ("fuzziness_2", "0"),
+                                                                         ("in_order_2", "False"),
+                                                                         ("slop_2", "0"),
+                                                                         ("regex_search_2", 'False'),
+                                                                         ("exclude_q_2", ""),
+                                                                         ("formulaic_parts_2", ""),
+                                                                         ("proper_name_2", ""),
+                                                                         ("search_field_3", "text"),
+                                                                         ("q_3", ''),
+                                                                         ("fuzziness_3", "0"),
+                                                                         ("in_order_3", "False"),
+                                                                         ("slop_3", "0"),
+                                                                         ("regex_search_3", 'False'),
+                                                                         ("exclude_q_3", ""),
+                                                                         ("formulaic_parts_3", ""),
+                                                                         ("proper_name_3", ""),
+                                                                         ("search_field_4", "text"),
+                                                                         ("q_4", ''),
+                                                                         ("fuzziness_4", "0"),
+                                                                         ("in_order_4", "False"),
+                                                                         ("slop_4", "0"),
+                                                                         ("regex_search_4", 'False'),
+                                                                         ("exclude_q_4", ""),
+                                                                         ("formulaic_parts_4", ""),
+                                                                         ("proper_name_4", ""),
+                                                                         ("year", 0),
+                                                                         ("month", 0),
+                                                                         ("day", 0),
+                                                                         ("year_start", 0),
+                                                                         ("month_start", 0),
+                                                                         ("day_start", 0),
+                                                                         ("year_end", 0),
+                                                                         ("month_end", 0),
+                                                                         ("day_end", 0),
+                                                                         ('date_plus_minus', 0),
+                                                                         ('exclusive_date_range', 'False'),
+                                                                         ("composition_place", ''),
+                                                                         ('sort', 'urn'),
+                                                                         ('special_days', ''),
+                                                                         ("forgeries", "include"),
+                                                                         ('source', 'advanced')]),
+                 'test_multiword_proper_name_match_text': OrderedDict([("corpus", "all"),
+                                                                       ("search_field_1", "text"),
+                                                                       ("q_1", 'chlodoveo+chlothoario'),
+                                                                       ("fuzziness_1", "0"),
+                                                                       ("in_order_1", "False"),
+                                                                       ("slop_1", "0"),
+                                                                       ("regex_search_1", 'False'),
+                                                                       ("exclude_q_1", ""),
+                                                                       ("formulaic_parts_1", ""),
+                                                                       ("proper_name_1", "personenname"),
+                                                                       ("search_field_2", "text"),
+                                                                       ("q_2", ''),
+                                                                       ("fuzziness_2", "0"),
+                                                                       ("in_order_2", "False"),
+                                                                       ("slop_2", "0"),
+                                                                       ("regex_search_2", 'False'),
+                                                                       ("exclude_q_2", ""),
+                                                                       ("formulaic_parts_2", ""),
+                                                                       ("proper_name_2", ""),
+                                                                       ("search_field_3", "text"),
+                                                                       ("q_3", ''),
+                                                                       ("fuzziness_3", "0"),
+                                                                       ("in_order_3", "False"),
+                                                                       ("slop_3", "0"),
+                                                                       ("regex_search_3", 'False'),
+                                                                       ("exclude_q_3", ""),
+                                                                       ("formulaic_parts_3", ""),
+                                                                       ("proper_name_3", ""),
+                                                                       ("search_field_4", "text"),
+                                                                       ("q_4", ''),
+                                                                       ("fuzziness_4", "0"),
+                                                                       ("in_order_4", "False"),
+                                                                       ("slop_4", "0"),
+                                                                       ("regex_search_4", 'False'),
+                                                                       ("exclude_q_4", ""),
+                                                                       ("formulaic_parts_4", ""),
+                                                                       ("proper_name_4", ""),
+                                                                       ("year", 0),
+                                                                       ("month", 0),
+                                                                       ("day", 0),
+                                                                       ("year_start", 0),
+                                                                       ("month_start", 0),
+                                                                       ("day_start", 0),
+                                                                       ("year_end", 0),
+                                                                       ("month_end", 0),
+                                                                       ("day_end", 0),
+                                                                       ('date_plus_minus', 0),
+                                                                       ('exclusive_date_range', 'False'),
+                                                                       ("composition_place", ''),
+                                                                       ('sort', 'urn'),
+                                                                       ('special_days', ''),
+                                                                       ("forgeries", "include"),
+                                                                       ('source', 'advanced')]),
+                 'test_regex_text': OrderedDict([("corpus", "all"),
+                                                 ("search_field_1", "text"),
+                                                 ("q_1", 'ru[ieu]gin[wuv]wm'),
+                                                 ("fuzziness_1", "0"),
+                                                 ("in_order_1", "False"),
+                                                 ("slop_1", "0"),
+                                                 ("regex_search_1", 'True'),
+                                                 ("exclude_q_1", ""),
+                                                 ("formulaic_parts_1", ""),
+                                                 ("proper_name_1", "personenname"),
+                                                 ("search_field_2", "text"),
+                                                 ("q_2", ''),
+                                                 ("fuzziness_2", "0"),
+                                                 ("in_order_2", "False"),
+                                                 ("slop_2", "0"),
+                                                 ("regex_search_2", 'False'),
+                                                 ("exclude_q_2", ""),
+                                                 ("formulaic_parts_2", ""),
+                                                 ("proper_name_2", ""),
+                                                 ("search_field_3", "text"),
+                                                 ("q_3", ''),
+                                                 ("fuzziness_3", "0"),
+                                                 ("in_order_3", "False"),
+                                                 ("slop_3", "0"),
+                                                 ("regex_search_3", 'False'),
+                                                 ("exclude_q_3", ""),
+                                                 ("formulaic_parts_3", ""),
+                                                 ("proper_name_3", ""),
+                                                 ("search_field_4", "text"),
+                                                 ("q_4", ''),
+                                                 ("fuzziness_4", "0"),
+                                                 ("in_order_4", "False"),
+                                                 ("slop_4", "0"),
+                                                 ("regex_search_4", 'False'),
+                                                 ("exclude_q_4", ""),
+                                                 ("formulaic_parts_4", ""),
+                                                 ("proper_name_4", ""),
+                                                 ("year", 0),
+                                                 ("month", 0),
+                                                 ("day", 0),
+                                                 ("year_start", 0),
+                                                 ("month_start", 0),
+                                                 ("day_start", 0),
+                                                 ("year_end", 0),
+                                                 ("month_end", 0),
+                                                 ("day_end", 0),
+                                                 ('date_plus_minus', 0),
+                                                 ('exclusive_date_range', 'False'),
+                                                 ("composition_place", ''),
+                                                 ('sort', 'urn'),
+                                                 ('special_days', ''),
+                                                 ("forgeries", "include"),
+                                                 ('source', 'advanced')]),
+                 'test_regex_parts': OrderedDict([("corpus", "mondsee"),
+                                                  ("search_field_1", "text"),
+                                                  ("q_1", 'cwhr[ij]sjt[uvw]iu'),
+                                                  ("fuzziness_1", "0"),
+                                                  ("in_order_1", "False"),
+                                                  ("slop_1", "0"),
+                                                  ("regex_search_1", 'False'),
+                                                  ("exclude_q_1", ""),
+                                                  ("formulaic_parts_1", "Narratio"),
+                                                  ("proper_name_1", "personenname"),
+                                                  ("search_field_2", "text"),
+                                                  ("q_2", ''),
+                                                  ("fuzziness_2", "0"),
+                                                  ("in_order_2", "False"),
+                                                  ("slop_2", "0"),
+                                                  ("regex_search_2", 'False'),
+                                                  ("exclude_q_2", ""),
+                                                  ("formulaic_parts_2", ""),
+                                                  ("proper_name_2", ""),
+                                                  ("search_field_3", "text"),
+                                                  ("q_3", ''),
+                                                  ("fuzziness_3", "0"),
+                                                  ("in_order_3", "False"),
+                                                  ("slop_3", "0"),
+                                                  ("regex_search_3", 'False'),
+                                                  ("exclude_q_3", ""),
+                                                  ("formulaic_parts_3", ""),
+                                                  ("proper_name_3", ""),
+                                                  ("search_field_4", "text"),
+                                                  ("q_4", ''),
+                                                  ("fuzziness_4", "0"),
+                                                  ("in_order_4", "False"),
+                                                  ("slop_4", "0"),
+                                                  ("regex_search_4", 'False'),
+                                                  ("exclude_q_4", ""),
+                                                  ("formulaic_parts_4", ""),
+                                                  ("proper_name_4", ""),
+                                                  ("year", 0),
+                                                  ("month", 0),
+                                                  ("day", 0),
+                                                  ("year_start", 0),
+                                                  ("month_start", 0),
+                                                  ("day_start", 0),
+                                                  ("year_end", 0),
+                                                  ("month_end", 0),
+                                                  ("day_end", 0),
+                                                  ('date_plus_minus', 0),
+                                                  ('exclusive_date_range', 'False'),
+                                                  ("composition_place", ''),
+                                                  ('sort', 'urn'),
+                                                  ('special_days', ''),
+                                                  ("forgeries", "include"),
+                                                  ('source', 'advanced')]),
+                 'test_regex_parts_no_uv_replacement': OrderedDict([("corpus", "mondsee"),
+                                                                    ("search_field_1", "text"),
+                                                                    ("q_1", 'dos'),
+                                                                    ("fuzziness_1", "0"),
+                                                                    ("in_order_1", "False"),
+                                                                    ("slop_1", "0"),
+                                                                    ("regex_search_1", 'False'),
+                                                                    ("exclude_q_1", ""),
+                                                                    ("formulaic_parts_1", "Narratio"),
+                                                                    ("proper_name_1", "personenname"),
+                                                                    ("search_field_2", "text"),
+                                                                    ("q_2", ''),
+                                                                    ("fuzziness_2", "0"),
+                                                                    ("in_order_2", "False"),
+                                                                    ("slop_2", "0"),
+                                                                    ("regex_search_2", 'False'),
+                                                                    ("exclude_q_2", ""),
+                                                                    ("formulaic_parts_2", ""),
+                                                                    ("proper_name_2", ""),
+                                                                    ("search_field_3", "text"),
+                                                                    ("q_3", ''),
+                                                                    ("fuzziness_3", "0"),
+                                                                    ("in_order_3", "False"),
+                                                                    ("slop_3", "0"),
+                                                                    ("regex_search_3", 'False'),
+                                                                    ("exclude_q_3", ""),
+                                                                    ("formulaic_parts_3", ""),
+                                                                    ("proper_name_3", ""),
+                                                                    ("search_field_4", "text"),
+                                                                    ("q_4", ''),
+                                                                    ("fuzziness_4", "0"),
+                                                                    ("in_order_4", "False"),
+                                                                    ("slop_4", "0"),
+                                                                    ("regex_search_4", 'False'),
+                                                                    ("exclude_q_4", ""),
+                                                                    ("formulaic_parts_4", ""),
+                                                                    ("proper_name_4", ""),
+                                                                    ("year", 0),
+                                                                    ("month", 0),
+                                                                    ("day", 0),
+                                                                    ("year_start", 0),
+                                                                    ("month_start", 0),
+                                                                    ("day_start", 0),
+                                                                    ("year_end", 0),
+                                                                    ("month_end", 0),
+                                                                    ("day_end", 0),
+                                                                    ('date_plus_minus', 0),
+                                                                    ('exclusive_date_range', 'False'),
+                                                                    ("composition_place", ''),
+                                                                    ('sort', 'urn'),
+                                                                    ('special_days', ''),
+                                                                    ("forgeries", "include"),
+                                                                    ('source', 'advanced')]),
+                 'test_exclude_q': OrderedDict([("corpus", "all"),
+                                                ("search_field_1", "text"),
+                                                ("q_1", 'regn?'),
+                                                ("fuzziness_1", "0"),
+                                                ("in_order_1", "False"),
+                                                ("slop_1", "0"),
+                                                ("regex_search_1", 'False'),
+                                                ("exclude_q_1", "regni"),
+                                                ("formulaic_parts_1", ""),
+                                                ("proper_name_1", ""),
+                                                ("search_field_2", "text"),
+                                                ("q_2", ''),
+                                                ("fuzziness_2", "0"),
+                                                ("in_order_2", "False"),
+                                                ("slop_2", "0"),
+                                                ("regex_search_2", 'False'),
+                                                ("exclude_q_2", ""),
+                                                ("formulaic_parts_2", ""),
+                                                ("proper_name_2", ""),
+                                                ("search_field_3", "text"),
+                                                ("q_3", ''),
+                                                ("fuzziness_3", "0"),
+                                                ("in_order_3", "False"),
+                                                ("slop_3", "0"),
+                                                ("regex_search_3", 'False'),
+                                                ("exclude_q_3", ""),
+                                                ("formulaic_parts_3", ""),
+                                                ("proper_name_3", ""),
+                                                ("search_field_4", "text"),
+                                                ("q_4", ''),
+                                                ("fuzziness_4", "0"),
+                                                ("in_order_4", "False"),
+                                                ("slop_4", "0"),
+                                                ("regex_search_4", 'False'),
+                                                ("exclude_q_4", ""),
+                                                ("formulaic_parts_4", ""),
+                                                ("proper_name_4", ""),
+                                                ("year", 0),
+                                                ("month", 0),
+                                                ("day", 0),
+                                                ("year_start", 0),
+                                                ("month_start", 0),
+                                                ("day_start", 0),
+                                                ("year_end", 0),
+                                                ("month_end", 0),
+                                                ("day_end", 0),
+                                                ('date_plus_minus', 0),
+                                                ('exclusive_date_range', 'False'),
+                                                ("composition_place", ''),
+                                                ('sort', 'urn'),
+                                                ('special_days', ''),
+                                                ("forgeries", "include"),
+                                                ('source', 'advanced')]),
+                 'test_exclude_q_parts': OrderedDict([("corpus", "all"),
+                                                      ("search_field_1", "text"),
+                                                      ("q_1", 'christ?'),
+                                                      ("fuzziness_1", "0"),
+                                                      ("in_order_1", "False"),
+                                                      ("slop_1", "0"),
+                                                      ("regex_search_1", 'False'),
+                                                      ("exclude_q_1", "christi"),
+                                                      ("formulaic_parts_1", "Narratio"),
+                                                      ("proper_name_1", ""),
+                                                      ("search_field_2", "text"),
+                                                      ("q_2", ''),
+                                                      ("fuzziness_2", "0"),
+                                                      ("in_order_2", "False"),
+                                                      ("slop_2", "0"),
+                                                      ("regex_search_2", 'False'),
+                                                      ("exclude_q_2", ""),
+                                                      ("formulaic_parts_2", ""),
+                                                      ("proper_name_2", ""),
+                                                      ("search_field_3", "text"),
+                                                      ("q_3", ''),
+                                                      ("fuzziness_3", "0"),
+                                                      ("in_order_3", "False"),
+                                                      ("slop_3", "0"),
+                                                      ("regex_search_3", 'False'),
+                                                      ("exclude_q_3", ""),
+                                                      ("formulaic_parts_3", ""),
+                                                      ("proper_name_3", ""),
+                                                      ("search_field_4", "text"),
+                                                      ("q_4", ''),
+                                                      ("fuzziness_4", "0"),
+                                                      ("in_order_4", "False"),
+                                                      ("slop_4", "0"),
+                                                      ("regex_search_4", 'False'),
+                                                      ("exclude_q_4", ""),
+                                                      ("formulaic_parts_4", ""),
+                                                      ("proper_name_4", ""),
+                                                      ("year", 0),
+                                                      ("month", 0),
+                                                      ("day", 0),
+                                                      ("year_start", 0),
+                                                      ("month_start", 0),
+                                                      ("day_start", 0),
+                                                      ("year_end", 0),
+                                                      ("month_end", 0),
+                                                      ("day_end", 0),
+                                                      ('date_plus_minus', 0),
+                                                      ('exclusive_date_range', 'False'),
+                                                      ("composition_place", ''),
+                                                      ('sort', 'urn'),
+                                                      ('special_days', ''),
+                                                      ("forgeries", "include"),
+                                                      ('source', 'advanced')]),
+                 'test_elex_search': OrderedDict([("corpus", "elexicon"),
+                                                  ("search_field_1", "text"),
+                                                  ("q_1", 'diakone'),
+                                                  ("fuzziness_1", "0"),
+                                                  ("in_order_1", "False"),
+                                                  ("slop_1", "0"),
+                                                  ("regex_search_1", 'False'),
+                                                  ("exclude_q_1", ""),
+                                                  ("formulaic_parts_1", ""),
+                                                  ("proper_name_1", ""),
+                                                  ("search_field_2", "text"),
+                                                  ("q_2", ''),
+                                                  ("fuzziness_2", "0"),
+                                                  ("in_order_2", "False"),
+                                                  ("slop_2", "0"),
+                                                  ("regex_search_2", 'False'),
+                                                  ("exclude_q_2", ""),
+                                                  ("formulaic_parts_2", ""),
+                                                  ("proper_name_2", ""),
+                                                  ("search_field_3", "text"),
+                                                  ("q_3", ''),
+                                                  ("fuzziness_3", "0"),
+                                                  ("in_order_3", "False"),
+                                                  ("slop_3", "0"),
+                                                  ("regex_search_3", 'False'),
+                                                  ("exclude_q_3", ""),
+                                                  ("formulaic_parts_3", ""),
+                                                  ("proper_name_3", ""),
+                                                  ("search_field_4", "text"),
+                                                  ("q_4", ''),
+                                                  ("fuzziness_4", "0"),
+                                                  ("in_order_4", "False"),
+                                                  ("slop_4", "0"),
+                                                  ("regex_search_4", 'False'),
+                                                  ("exclude_q_4", ""),
+                                                  ("formulaic_parts_4", ""),
+                                                  ("proper_name_4", ""),
+                                                  ("year", 0),
+                                                  ("month", 0),
+                                                  ("day", 0),
+                                                  ("year_start", 0),
+                                                  ("month_start", 0),
+                                                  ("day_start", 0),
+                                                  ("year_end", 0),
+                                                  ("month_end", 0),
+                                                  ("day_end", 0),
+                                                  ('date_plus_minus', 0),
+                                                  ('exclusive_date_range', 'False'),
+                                                  ("composition_place", ''),
+                                                  ('sort', 'urn'),
+                                                  ('special_days', ''),
+                                                  ("forgeries", "include"),
+                                                  ('source', 'advanced')]),
+                 'test_elex_search_multi': OrderedDict([("corpus", "elexicon"),
+                                                        ("search_field_1", "text"),
+                                                        ("q_1", 'diakone+märtyrergrab'),
+                                                        ("fuzziness_1", "0"),
+                                                        ("in_order_1", "False"),
+                                                        ("slop_1", "0"),
+                                                        ("regex_search_1", 'False'),
+                                                        ("exclude_q_1", ""),
+                                                        ("formulaic_parts_1", ""),
+                                                        ("proper_name_1", ""),
+                                                        ("search_field_2", "text"),
+                                                        ("q_2", ''),
+                                                        ("fuzziness_2", "0"),
+                                                        ("in_order_2", "False"),
+                                                        ("slop_2", "0"),
+                                                        ("regex_search_2", 'False'),
+                                                        ("exclude_q_2", ""),
+                                                        ("formulaic_parts_2", ""),
+                                                        ("proper_name_2", ""),
+                                                        ("search_field_3", "text"),
+                                                        ("q_3", ''),
+                                                        ("fuzziness_3", "0"),
+                                                        ("in_order_3", "False"),
+                                                        ("slop_3", "0"),
+                                                        ("regex_search_3", 'False'),
+                                                        ("exclude_q_3", ""),
+                                                        ("formulaic_parts_3", ""),
+                                                        ("proper_name_3", ""),
+                                                        ("search_field_4", "text"),
+                                                        ("q_4", ''),
+                                                        ("fuzziness_4", "0"),
+                                                        ("in_order_4", "False"),
+                                                        ("slop_4", "0"),
+                                                        ("regex_search_4", 'False'),
+                                                        ("exclude_q_4", ""),
+                                                        ("formulaic_parts_4", ""),
+                                                        ("proper_name_4", ""),
+                                                        ("year", 0),
+                                                        ("month", 0),
+                                                        ("day", 0),
+                                                        ("year_start", 0),
+                                                        ("month_start", 0),
+                                                        ("day_start", 0),
+                                                        ("year_end", 0),
+                                                        ("month_end", 0),
+                                                        ("day_end", 0),
+                                                        ('date_plus_minus', 0),
+                                                        ('exclusive_date_range', 'False'),
+                                                        ("composition_place", ''),
+                                                        ('sort', 'urn'),
+                                                        ('special_days', ''),
+                                                        ("forgeries", "include"),
+                                                        ('source', 'advanced')]),
+                 'test_elex_search_wildcard': OrderedDict([("corpus", "elexicon"),
+                                                           ("search_field_1", "text"),
+                                                           ("q_1", 'm?rtyr*'),
+                                                           ("fuzziness_1", "0"),
+                                                           ("in_order_1", "False"),
+                                                           ("slop_1", "0"),
+                                                           ("regex_search_1", 'False'),
+                                                           ("exclude_q_1", ""),
+                                                           ("formulaic_parts_1", ""),
+                                                           ("proper_name_1", ""),
+                                                           ("search_field_2", "text"),
+                                                           ("q_2", ''),
+                                                           ("fuzziness_2", "0"),
+                                                           ("in_order_2", "False"),
+                                                           ("slop_2", "0"),
+                                                           ("regex_search_2", 'False'),
+                                                           ("exclude_q_2", ""),
+                                                           ("formulaic_parts_2", ""),
+                                                           ("proper_name_2", ""),
+                                                           ("search_field_3", "text"),
+                                                           ("q_3", ''),
+                                                           ("fuzziness_3", "0"),
+                                                           ("in_order_3", "False"),
+                                                           ("slop_3", "0"),
+                                                           ("regex_search_3", 'False'),
+                                                           ("exclude_q_3", ""),
+                                                           ("formulaic_parts_3", ""),
+                                                           ("proper_name_3", ""),
+                                                           ("search_field_4", "text"),
+                                                           ("q_4", ''),
+                                                           ("fuzziness_4", "0"),
+                                                           ("in_order_4", "False"),
+                                                           ("slop_4", "0"),
+                                                           ("regex_search_4", 'False'),
+                                                           ("exclude_q_4", ""),
+                                                           ("formulaic_parts_4", ""),
+                                                           ("proper_name_4", ""),
+                                                           ("year", 0),
+                                                           ("month", 0),
+                                                           ("day", 0),
+                                                           ("year_start", 0),
+                                                           ("month_start", 0),
+                                                           ("day_start", 0),
+                                                           ("year_end", 0),
+                                                           ("month_end", 0),
+                                                           ("day_end", 0),
+                                                           ('date_plus_minus', 0),
+                                                           ('exclusive_date_range', 'False'),
+                                                           ("composition_place", ''),
+                                                           ('sort', 'urn'),
+                                                           ('special_days', ''),
+                                                           ("forgeries", "include"),
+                                                           ('source', 'advanced')]),
+                 'test_elex_search_multi_wildcard': OrderedDict([("corpus", "elexicon"),
+                                                                 ("search_field_1", "text"),
+                                                                 ("q_1", 'diakon?+m?rtyr*'),
+                                                                 ("fuzziness_1", "0"),
+                                                                 ("in_order_1", "False"),
+                                                                 ("slop_1", "0"),
+                                                                 ("regex_search_1", 'False'),
+                                                                 ("exclude_q_1", ""),
+                                                                 ("formulaic_parts_1", ""),
+                                                                 ("proper_name_1", ""),
+                                                                 ("search_field_2", "text"),
+                                                                 ("q_2", ''),
+                                                                 ("fuzziness_2", "0"),
+                                                                 ("in_order_2", "False"),
+                                                                 ("slop_2", "0"),
+                                                                 ("regex_search_2", 'False'),
+                                                                 ("exclude_q_2", ""),
+                                                                 ("formulaic_parts_2", ""),
+                                                                 ("proper_name_2", ""),
+                                                                 ("search_field_3", "text"),
+                                                                 ("q_3", ''),
+                                                                 ("fuzziness_3", "0"),
+                                                                 ("in_order_3", "False"),
+                                                                 ("slop_3", "0"),
+                                                                 ("regex_search_3", 'False'),
+                                                                 ("exclude_q_3", ""),
+                                                                 ("formulaic_parts_3", ""),
+                                                                 ("proper_name_3", ""),
+                                                                 ("search_field_4", "text"),
+                                                                 ("q_4", ''),
+                                                                 ("fuzziness_4", "0"),
+                                                                 ("in_order_4", "False"),
+                                                                 ("slop_4", "0"),
+                                                                 ("regex_search_4", 'False'),
+                                                                 ("exclude_q_4", ""),
+                                                                 ("formulaic_parts_4", ""),
+                                                                 ("proper_name_4", ""),
+                                                                 ("year", 0),
+                                                                 ("month", 0),
+                                                                 ("day", 0),
+                                                                 ("year_start", 0),
+                                                                 ("month_start", 0),
+                                                                 ("day_start", 0),
+                                                                 ("year_end", 0),
+                                                                 ("month_end", 0),
+                                                                 ("day_end", 0),
+                                                                 ('date_plus_minus', 0),
+                                                                 ('exclusive_date_range', 'False'),
+                                                                 ("composition_place", ''),
+                                                                 ('sort', 'urn'),
+                                                                 ('special_days', ''),
+                                                                 ("forgeries", "include"),
+                                                                 ('source', 'advanced')]),
+                 'test_elex_search_simple': OrderedDict([("corpus", "elexicon"),
+                                                         ("search_field_1", "text"),
+                                                         ("q_1", 'diakone'),
+                                                         ("fuzziness_1", "0"),
+                                                         ("in_order_1", "False"),
+                                                         ("slop_1", "0"),
+                                                         ("regex_search_1", 'False'),
+                                                         ("exclude_q_1", ""),
+                                                         ("formulaic_parts_1", ""),
+                                                         ("proper_name_1", ""),
+                                                         ("search_field_2", "text"),
+                                                         ("q_2", ''),
+                                                         ("fuzziness_2", "0"),
+                                                         ("in_order_2", "False"),
+                                                         ("slop_2", "0"),
+                                                         ("regex_search_2", 'False'),
+                                                         ("exclude_q_2", ""),
+                                                         ("formulaic_parts_2", ""),
+                                                         ("proper_name_2", ""),
+                                                         ("search_field_3", "text"),
+                                                         ("q_3", ''),
+                                                         ("fuzziness_3", "0"),
+                                                         ("in_order_3", "False"),
+                                                         ("slop_3", "0"),
+                                                         ("regex_search_3", 'False'),
+                                                         ("exclude_q_3", ""),
+                                                         ("formulaic_parts_3", ""),
+                                                         ("proper_name_3", ""),
+                                                         ("search_field_4", "text"),
+                                                         ("q_4", ''),
+                                                         ("fuzziness_4", "0"),
+                                                         ("in_order_4", "False"),
+                                                         ("slop_4", "0"),
+                                                         ("regex_search_4", 'False'),
+                                                         ("exclude_q_4", ""),
+                                                         ("formulaic_parts_4", ""),
+                                                         ("proper_name_4", ""),
+                                                         ("year", 0),
+                                                         ("month", 0),
+                                                         ("day", 0),
+                                                         ("year_start", 0),
+                                                         ("month_start", 0),
+                                                         ("day_start", 0),
+                                                         ("year_end", 0),
+                                                         ("month_end", 0),
+                                                         ("day_end", 0),
+                                                         ('date_plus_minus', 0),
+                                                         ('exclusive_date_range', 'False'),
+                                                         ("composition_place", ''),
+                                                         ("sort", "urn"),
+                                                         ('special_days', ''),
+                                                         ("forgeries", "include"),
+                                                         ("source", "simple")]),
+                 'test_elex_search_simple_wildcard': OrderedDict([("corpus", "elexicon"),
+                                                                  ("search_field_1", "text"),
+                                                                  ("q_1", 'm?rtyr*'),
+                                                                  ("fuzziness_1", "0"),
+                                                                  ("in_order_1", "False"),
+                                                                  ("slop_1", "0"),
+                                                                  ("regex_search_1", 'False'),
+                                                                  ("exclude_q_1", ""),
+                                                                  ("formulaic_parts_1", ""),
+                                                                  ("proper_name_1", ""),
+                                                                  ("search_field_2", "text"),
+                                                                  ("q_2", ''),
+                                                                  ("fuzziness_2", "0"),
+                                                                  ("in_order_2", "False"),
+                                                                  ("slop_2", "0"),
+                                                                  ("regex_search_2", 'False'),
+                                                                  ("exclude_q_2", ""),
+                                                                  ("formulaic_parts_2", ""),
+                                                                  ("proper_name_2", ""),
+                                                                  ("search_field_3", "text"),
+                                                                  ("q_3", ''),
+                                                                  ("fuzziness_3", "0"),
+                                                                  ("in_order_3", "False"),
+                                                                  ("slop_3", "0"),
+                                                                  ("regex_search_3", 'False'),
+                                                                  ("exclude_q_3", ""),
+                                                                  ("formulaic_parts_3", ""),
+                                                                  ("proper_name_3", ""),
+                                                                  ("search_field_4", "text"),
+                                                                  ("q_4", ''),
+                                                                  ("fuzziness_4", "0"),
+                                                                  ("in_order_4", "False"),
+                                                                  ("slop_4", "0"),
+                                                                  ("regex_search_4", 'False'),
+                                                                  ("exclude_q_4", ""),
+                                                                  ("formulaic_parts_4", ""),
+                                                                  ("proper_name_4", ""),
+                                                                  ("year", 0),
+                                                                  ("month", 0),
+                                                                  ("day", 0),
+                                                                  ("year_start", 0),
+                                                                  ("month_start", 0),
+                                                                  ("day_start", 0),
+                                                                  ("year_end", 0),
+                                                                  ("month_end", 0),
+                                                                  ("day_end", 0),
+                                                                  ('date_plus_minus', 0),
+                                                                  ('exclusive_date_range', 'False'),
+                                                                  ("composition_place", ''),
+                                                                  ("sort", "urn"),
+                                                                  ('special_days', ''),
+                                                                  ("forgeries", "include"),
+                                                                  ("source", "simple")]),
+                 'test_simple_search_text_and_regest': OrderedDict([("corpus", "formulae+chartae"),
+                                                                    ("search_field_1", "text"),
+                                                                    ("q_1", 'pippin*+dux'),
+                                                                    ("fuzziness_1", "0"),
+                                                                    ("in_order_1", "False"),
+                                                                    ("slop_1", "0"),
+                                                                    ("regex_search_1", 'False'),
+                                                                    ("exclude_q_1", ""),
+                                                                    ("formulaic_parts_1", ""),
+                                                                    ("proper_name_1", ""),
+                                                                    ("search_field_2", "text"),
+                                                                    ("q_2", ''),
+                                                                    ("fuzziness_2", "0"),
+                                                                    ("in_order_2", "False"),
+                                                                    ("slop_2", "0"),
+                                                                    ("regex_search_2", 'False'),
+                                                                    ("exclude_q_2", ""),
+                                                                    ("formulaic_parts_2", ""),
+                                                                    ("proper_name_2", ""),
+                                                                    ("search_field_3", "text"),
+                                                                    ("q_3", ''),
+                                                                    ("fuzziness_3", "0"),
+                                                                    ("in_order_3", "False"),
+                                                                    ("slop_3", "0"),
+                                                                    ("regex_search_3", 'False'),
+                                                                    ("exclude_q_3", ""),
+                                                                    ("formulaic_parts_3", ""),
+                                                                    ("proper_name_3", ""),
+                                                                    ("search_field_4", "text"),
+                                                                    ("q_4", ''),
+                                                                    ("fuzziness_4", "0"),
+                                                                    ("in_order_4", "False"),
+                                                                    ("slop_4", "0"),
+                                                                    ("regex_search_4", 'False'),
+                                                                    ("exclude_q_4", ""),
+                                                                    ("formulaic_parts_4", ""),
+                                                                    ("proper_name_4", ""),
+                                                                    ("year", 0),
+                                                                    ("month", 0),
+                                                                    ("day", 0),
+                                                                    ("year_start", 0),
+                                                                    ("month_start", 0),
+                                                                    ("day_start", 0),
+                                                                    ("year_end", 0),
+                                                                    ("month_end", 0),
+                                                                    ("day_end", 0),
+                                                                    ('date_plus_minus', 0),
+                                                                    ('exclusive_date_range', 'False'),
+                                                                    ("composition_place", ''),
+                                                                    ("sort", "urn"),
+                                                                    ('special_days', ''),
+                                                                    ("forgeries", "include"),
+                                                                    ("source", "simple")]),
+                 'test_suggest_word_search_completion': OrderedDict([("corpus", "buenden"),
+                                                                     ("search_field_1", "autocomplete"),
+                                                                     ("q_1", 'scrips'),
+                                                                     ("fuzziness_1", "0"),
+                                                                     ("in_order_1", "False"),
+                                                                     ("slop_1", "0"),
+                                                                     ("regex_search_1", 'False'),
+                                                                     ("exclude_q_1", ""),
+                                                                     ("formulaic_parts_1", ""),
+                                                                     ("proper_name_1", ""),
+                                                                     ("search_field_2", "text"),
+                                                                     ("q_2", ''),
+                                                                     ("fuzziness_2", "0"),
+                                                                     ("in_order_2", "False"),
+                                                                     ("slop_2", "0"),
+                                                                     ("regex_search_2", 'False'),
+                                                                     ("exclude_q_2", ""),
+                                                                     ("formulaic_parts_2", ""),
+                                                                     ("proper_name_2", ""),
+                                                                     ("search_field_3", "text"),
+                                                                     ("q_3", ''),
+                                                                     ("fuzziness_3", "0"),
+                                                                     ("in_order_3", "False"),
+                                                                     ("slop_3", "0"),
+                                                                     ("regex_search_3", 'False'),
+                                                                     ("exclude_q_3", ""),
+                                                                     ("formulaic_parts_3", ""),
+                                                                     ("proper_name_3", ""),
+                                                                     ("search_field_4", "text"),
+                                                                     ("q_4", ''),
+                                                                     ("fuzziness_4", "0"),
+                                                                     ("in_order_4", "False"),
+                                                                     ("slop_4", "0"),
+                                                                     ("regex_search_4", 'False'),
+                                                                     ("exclude_q_4", ""),
+                                                                     ("formulaic_parts_4", ""),
+                                                                     ("proper_name_4", ""),
+                                                                     ("year", 0),
+                                                                     ("month", 0),
+                                                                     ("day", 0),
+                                                                     ("year_start", 0),
+                                                                     ("month_start", 0),
+                                                                     ("day_start", 0),
+                                                                     ("year_end", 0),
+                                                                     ("month_end", 0),
+                                                                     ("day_end", 0),
+                                                                     ('date_plus_minus', 0),
+                                                                     ('exclusive_date_range', 'y'),
+                                                                     ("composition_place", ''),
+                                                                     ('sort', 'urn'),
+                                                                     ('special_days', ''),
+                                                                     ("forgeries", "include"),
+                                                                     ('source', 'advanced')]),
+                 'test_suggest_elexicon_word_search_completion': OrderedDict([("corpus", "elexicon"),
+                                                                              ("search_field_1", "autocomplete"),
+                                                                              ("q_1", 'abba'),
+                                                                              ("fuzziness_1", "0"),
+                                                                              ("in_order_1", "False"),
+                                                                              ("slop_1", "0"),
+                                                                              ("regex_search_1", 'False'),
+                                                                              ("exclude_q_1", ""),
+                                                                              ("formulaic_parts_1", ""),
+                                                                              ("proper_name_1", ""),
+                                                                              ("search_field_2", "text"),
+                                                                              ("q_2", ''),
+                                                                              ("fuzziness_2", "0"),
+                                                                              ("in_order_2", "False"),
+                                                                              ("slop_2", "0"),
+                                                                              ("regex_search_2", 'False'),
+                                                                              ("exclude_q_2", ""),
+                                                                              ("formulaic_parts_2", ""),
+                                                                              ("proper_name_2", ""),
+                                                                              ("search_field_3", "text"),
+                                                                              ("q_3", ''),
+                                                                              ("fuzziness_3", "0"),
+                                                                              ("in_order_3", "False"),
+                                                                              ("slop_3", "0"),
+                                                                              ("regex_search_3", 'False'),
+                                                                              ("exclude_q_3", ""),
+                                                                              ("formulaic_parts_3", ""),
+                                                                              ("proper_name_3", ""),
+                                                                              ("search_field_4", "text"),
+                                                                              ("q_4", ''),
+                                                                              ("fuzziness_4", "0"),
+                                                                              ("in_order_4", "False"),
+                                                                              ("slop_4", "0"),
+                                                                              ("regex_search_4", 'False'),
+                                                                              ("exclude_q_4", ""),
+                                                                              ("formulaic_parts_4", ""),
+                                                                              ("proper_name_4", ""),
+                                                                              ("year", 0),
+                                                                              ("month", 0),
+                                                                              ("day", 0),
+                                                                              ("year_start", 0),
+                                                                              ("month_start", 0),
+                                                                              ("day_start", 0),
+                                                                              ("year_end", 0),
+                                                                              ("month_end", 0),
+                                                                              ("day_end", 0),
+                                                                              ('date_plus_minus', 0),
+                                                                              ('exclusive_date_range', 'y'),
+                                                                              ("composition_place", ''),
+                                                                              ('sort', 'urn'),
+                                                                              ('special_days', ''),
+                                                                              ("forgeries", "include"),
+                                                                              ('source', 'advanced')]),
+                 'test_suggest_regest_word_search_completion': OrderedDict([("corpus", "buenden"),
+                                                                            ("search_field_1", "autocomplete_regest"),
+                                                                            ("q_1", 'sche'),
+                                                                            ("fuzziness_1", "0"),
+                                                                            ("in_order_1", "False"),
+                                                                            ("slop_1", "0"),
+                                                                            ("regex_search_1", 'False'),
+                                                                            ("exclude_q_1", ""),
+                                                                            ("formulaic_parts_1", ""),
+                                                                            ("proper_name_1", ""),
+                                                                            ("search_field_2", "text"),
+                                                                            ("q_2", ''),
+                                                                            ("fuzziness_2", "0"),
+                                                                            ("in_order_2", "False"),
+                                                                            ("slop_2", "0"),
+                                                                            ("regex_search_2", 'False'),
+                                                                            ("exclude_q_2", ""),
+                                                                            ("formulaic_parts_2", ""),
+                                                                            ("proper_name_2", ""),
+                                                                            ("search_field_3", "text"),
+                                                                            ("q_3", ''),
+                                                                            ("fuzziness_3", "0"),
+                                                                            ("in_order_3", "False"),
+                                                                            ("slop_3", "0"),
+                                                                            ("regex_search_3", 'False'),
+                                                                            ("exclude_q_3", ""),
+                                                                            ("formulaic_parts_3", ""),
+                                                                            ("proper_name_3", ""),
+                                                                            ("search_field_4", "text"),
+                                                                            ("q_4", ''),
+                                                                            ("fuzziness_4", "0"),
+                                                                            ("in_order_4", "False"),
+                                                                            ("slop_4", "0"),
+                                                                            ("regex_search_4", 'False'),
+                                                                            ("exclude_q_4", ""),
+                                                                            ("formulaic_parts_4", ""),
+                                                                            ("proper_name_4", ""),
+                                                                            ("year", 0),
+                                                                            ("month", 0),
+                                                                            ("day", 0),
+                                                                            ("year_start", 0),
+                                                                            ("month_start", 0),
+                                                                            ("day_start", 0),
+                                                                            ("year_end", 0),
+                                                                            ("month_end", 0),
+                                                                            ("day_end", 0),
+                                                                            ('date_plus_minus', 0),
+                                                                            ('exclusive_date_range', 'y'),
+                                                                            ("composition_place", ''),
+                                                                            ('sort', 'urn'),
+                                                                            ('special_days', ''),
+                                                                            ("forgeries", "include"),
+                                                                            ('source', 'advanced')])
+                 }
+
+    OLD_ARGS = {'test_date_range_search_same_year': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+                                                                  ("fuzziness", "0"),
+('in_order', 'False'),
+                                                                  ("year", 0),
+('slop', '0'),
+("month", 0),
+                                                                  ("day", 0),
+("year_start", 814),
+                                                                  ("month_start", 10),
+("day_start", 29),
+                                                                  ("year_end", 814),
+("month_end", 11),
+                                                                  ("day_end", 20),
+('date_plus_minus', 0),
+                                                                  ('exclusive_date_range', 'False'),
+                                                                  ("composition_place", ''),
+('sort', 'urn'),
+                                                                  ('special_days', ''),
+("regest_q", ''),
+                                                                  ("regest_field", "regest"),
+("formulaic_parts", ""),
+                                                                  ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_range_search_same_month': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 800),
+                                 ("month_start", 10),
+("day_start", 10),
+("year_end", 800),
+("month_end", 10),
+                                 ("day_end", 29),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_range_search_different_year': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 800),
+                                 ("month_start", 10),
+("day_start", 10),
+("year_end", 801),
+("month_end", 10),
+                                 ("day_end", 29),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_range_search_only_year': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 800),
+                                 ("month_start", 0),
+("day_start", 0),
+("year_end", 810),
+("month_end", 0),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_range_search_only_year_and_month_same_year': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 800),
+                                 ("month_start", 10),
+("day_start", 0),
+("year_end", 800),
+("month_end", 11),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_range_search_only_year_and_month_different_year': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 800),
+                                 ("month_start", 10),
+("day_start", 0),
+("year_end", 801),
+("month_end", 11),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_range_search_only_start_year': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 800),
+                                 ("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+("month_end", 0),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_range_search_only_end_year': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 0),
+                                 ("month_start", 0),
+("day_start", 0),
+("year_end", 801),
+("month_end", 0),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_range_search_only_start_year_and_month': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 800),
+                                 ("month_start", 10),
+("day_start", 0),
+("year_end", 0),
+("month_end", 0),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_range_search_only_end_year_and_month': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 0),
+                                 ("month_start", 0),
+("day_start", 0),
+("year_end", 801),
+("month_end", 10),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_normal_date_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 800),
+('slop', '0'),
+("month", 10),
+("day", 9),
+("year_start", 0),
+                                 ("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+("month_end", 0),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_normal_date_only_year_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 800),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 0),
+                                 ("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+("month_end", 0),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_date_plus_minus_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"), ('in_order', 'False'),
+                                 ("year", 800),
+('slop', '0'),
+("month", 10),
+("day", 9),
+("year_start", 0),
+                                 ("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+("month_end", 0),
+                                 ("day_end", 0),
+('date_plus_minus', 10),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_exclusive_date_range_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 700),
+("month_start", 10),
+("day_start", 0),
+("year_end", 800),
+                                 ("month_end", 10),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_exclusive_date_range_search_only_year': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 700),
+("month_start", 0),
+("day_start", 0),
+("year_end", 800),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_exclusive_date_range_search_same_month_and_day': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 800),
+("month_start", 12),
+("day_start", 25),
+("year_end", 820),
+                                 ("month_end", 12),
+("day_end", 25),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_multi_corpus_search': OrderedDict([("corpus", "andecavensis%2Bmondsee"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+('slop', "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 814),
+("month_start", 10),
+("day_start", 29),
+("year_end", 814),
+                                 ("month_end", 11),
+("day_end", 20),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_multiword_wildcard_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", 'regnum+dom*'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_lemma_advanced_search': OrderedDict([("corpus", "all"),
+("lemma_search", "True"),
+("q", 'regnum'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_regest_advanced_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", 'tausch'),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_regest_and_word_advanced_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", 'regnum'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", 'schenk*'),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_regest_advanced_search_with_wildcard': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", 'tau*'),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"),
+("lemma_search", "True"),
+("q", 'vir+venerabilis'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_v_to_u_multiword': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", 'wolfhart+cvm'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_v_to_u_single_word': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", 'novalium'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_single_word_highlighting': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+("q", 'pettonis'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_multi_word_highlighting': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+("q", 'scripsi+et+suscripsi'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_single_lemma_highlighting': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+("q", 'regnum'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_multi_lemma_highlighting': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+("q", 'regnum+domni'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_lemma_advanced_search_with_wildcard': OrderedDict([("corpus", "all"),
+("lemma_search", "True"),
+("q", 'venerabili?'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_composition_place_advanced_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", 'Basel-Augst'),
+                                 ('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_suggest_composition_places': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 700),
+("month_start", 10),
+("day_start", 0),
+("year_end", 800),
+                                 ("month_end", 10),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'True'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", 'schenkt'),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_suggest_word_search_completion_no_qSource': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", 'illam'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", 'tau'),
+                                 ("regest_field", "autocomplete_regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+('qSource', ''),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_save_requests': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", 'Basel-Augst'),
+                                 ('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_specific_day_advanced_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', 'Easter'),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_multiple_specific_day_advanced_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', 'Easter+Saturday'),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_download_search_results': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", 'regnum'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_download_search_results_regest': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", 'schenk*'),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_no_corpus_given': OrderedDict([("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+('in_order', 'False'),
+                                 ("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+("year_start", 0),
+                                 ("month_start", 0),
+("day_start", 0),
+("year_end", 801),
+("month_end", 0),
+                                 ("day_end", 0),
+('date_plus_minus', 0),
+('exclusive_date_range', 'False'),
+                                 ("composition_place", ''),
+('sort', 'urn'),
+('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_mapped_lemma_advanced_search': OrderedDict([("corpus", "all"),
+("lemma_search", "True"),
+("q", 'gero'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_mapped_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"),
+("lemma_search", "True"),
+("q", 'facio+gero'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_proper_name_search': OrderedDict([("corpus", "all"),
+("lemma_search", "False"),
+("q", ''),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", "personenname"),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+("q", 'pettone'),
+("fuzziness", "AUTO"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+("q", 'regnante+pettone'),
+("fuzziness", "AUTO"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_multi_word_fuzzy_highlighting_with_wildcard': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+("q", 'scripsi+et+suscr*'),
+("fuzziness", "AUTO"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
+                 'test_multi_word_highlighting_repeated_words': OrderedDict([("corpus", "buenden"),
+("lemma_search", "False"),
+                                 ("q", 'signum+uuiliarentis+testes+signum+crespionis+testes'),
+("fuzziness", "0"),
+                                 ("in_order", "False"),
+("year", 0),
+("slop", "0"),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'False'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("regest_q", ''),
+                                 ("regest_field", "regest"),
+("formulaic_parts", ""),
+("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
                                                                  ("q", 'tempore'),
@@ -2138,7 +7424,11 @@ class TestES(Formulae_Testing):
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
                                                                  ("formulaic_parts", "Stipulationsformel"),
-                                                                 ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                                 ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
                                                                  ("q", 'temp?re'),
@@ -2162,7 +7452,11 @@ class TestES(Formulae_Testing):
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
                                                                                ("formulaic_parts", "Stipulationsformel"),
-                                                                               ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                                               ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_single_charter_part_search_with_wildcard_v_u': OrderedDict([("corpus", "mondsee"),
                                                                  ("lemma_search", "False"),
                                                                  ("q", 'christ*+vener?bili'),
@@ -2186,7 +7480,11 @@ class TestES(Formulae_Testing):
                                                                  ("regest_q", ''),
                                                                  ("regest_field", "regest"),
                                                                                    ("formulaic_parts", "Narratio"),
-                                                                                   ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                                                   ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_multi_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                 ("lemma_search", "False"),
                                                                 ("q", 'christi'),
@@ -2210,7 +7508,11 @@ class TestES(Formulae_Testing):
                                                                 ("regest_q", ''),
                                                                 ("regest_field", "regest"),
                                                                 ("formulaic_parts", "Poenformel%2BStipulationsformel"),
-                                                                ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                                ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_charter_part_search_no_q': OrderedDict([("corpus", "mondsee"),
                                                                ("lemma_search", "False"),
                                                                ("q", ''),
@@ -2234,7 +7536,11 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                                ("formulaic_parts", "Poenformel%2BStipulationsformel"),
-                                                               ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                               ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_fuzzy_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'in+loco+qui+nuncupatur'),
@@ -2258,7 +7564,11 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                                 ("formulaic_parts", "Narratio"),
-                                                                ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                                ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_fuzzy_v_to_u_search': OrderedDict([("corpus", "mondsee"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'in+loco+qui+nuncupatur'),
@@ -2282,7 +7592,11 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                           ("formulaic_parts", ""),
-                                                          ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                          ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_single_letter_highlighting_one_word': OrderedDict([("corpus", "buenden"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'a'),
@@ -2306,7 +7620,11 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                                           ("formulaic_parts", ""),
-                                                                          ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                                          ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_single_letter_highlighting_multiword': OrderedDict([("corpus", "buenden"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'daumerii+a'),
@@ -2330,7 +7648,11 @@ class TestES(Formulae_Testing):
                                                                ("regest_q", ''),
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
-                                                                           ("proper_name", ""), ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                                           ("proper_name", ""),
+("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_forgery_exclude': OrderedDict([("corpus", "merowinger1"),
                                                                ("lemma_search", "False"),
                                                                ("q", ''),
@@ -2355,7 +7677,10 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", ""),
-                                                      ("forgeries", "exclude"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                      ("forgeries", "exclude"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_forgery_only': OrderedDict([("corpus", "merowinger1"),
                                                                ("lemma_search", "False"),
                                                                ("q", ''),
@@ -2380,7 +7705,10 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", ""),
-                                                      ("forgeries", "only"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                      ("forgeries", "only"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_multiword_proper_name_partial_match': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'habraam+usque'),
@@ -2405,7 +7733,10 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                      ("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_multiword_proper_name_no_match': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'regnum+domni'),
@@ -2430,7 +7761,10 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                      ("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_single_word_proper_name_no_match': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'regnum'),
@@ -2455,7 +7789,10 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                      ("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_single_word_proper_name_match_text': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'adam'),
@@ -2480,7 +7817,10 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                      ("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_multiword_proper_name_match_text': OrderedDict([("corpus", "all"),
                                                                ("lemma_search", "False"),
                                                                ("q", 'chlodoveo+chlothoario'),
@@ -2505,7 +7845,10 @@ class TestES(Formulae_Testing):
                                                                ("regest_field", "regest"),
                                                                            ("formulaic_parts", ""),
                                                                            ("proper_name", "personenname"),
-                                                      ("forgeries", "include"), ("regex_search", 'False'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                      ("forgeries", "include"),
+("regex_search", 'False'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_regex_text': OrderedDict([("corpus", "all"),
                                                  ("lemma_search", "False"),
                                                  ("q", 'ru[ieu]gin[wuv]wm'),
@@ -2530,7 +7873,10 @@ class TestES(Formulae_Testing):
                                                  ("regest_field", "regest"),
                                                  ("formulaic_parts", ""),
                                                  ("proper_name", "personenname"),
-                                                 ("forgeries", "include"), ("regex_search", 'True'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                 ("forgeries", "include"),
+("regex_search", 'True'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_regex_parts': OrderedDict([("corpus", "mondsee"),
                                                   ("lemma_search", "False"),
                                                   ("q", 'cwhr[ij]sjt[uvw]iu'),
@@ -2556,7 +7902,9 @@ class TestES(Formulae_Testing):
                                                   ("formulaic_parts", "Narratio"),
                                                   ("proper_name", "personenname"),
                                                   ("forgeries", "include"),
-                                                  ("regex_search", 'True'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                  ("regex_search", 'True'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_regex_parts_no_uv_replacement': OrderedDict([("corpus", "mondsee"),
                                                                     ("lemma_search", "False"),
                                                                     ("q", 'dos'),
@@ -2582,7 +7930,9 @@ class TestES(Formulae_Testing):
                                                                     ("formulaic_parts", "Narratio"),
                                                                     ("proper_name", "personenname"),
                                                                     ("forgeries", "include"),
-                                                                    ("regex_search", 'True'), ("exclude_q", ""), ('source', 'advanced')]),
+                                                                    ("regex_search", 'True'),
+("exclude_q", ""),
+('source', 'advanced')]),
                  'test_exclude_q': OrderedDict([("corpus", "all"),
                                                 ("lemma_search", "False"),
                                                 ("q", 'regn?'),
@@ -2609,7 +7959,8 @@ class TestES(Formulae_Testing):
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", "regni"), ('source', 'advanced')]),
+                                                ("exclude_q", "regni"),
+('source', 'advanced')]),
                  'test_exclude_q_parts': OrderedDict([("corpus", "all"),
                                                 ("lemma_search", "False"),
                                                 ("q", 'christ?'),
@@ -2636,7 +7987,8 @@ class TestES(Formulae_Testing):
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", "christi"), ('source', 'advanced')]),
+                                                ("exclude_q", "christi"),
+('source', 'advanced')]),
                  'test_elex_search': OrderedDict([("corpus", "elexicon"),
                                                 ("lemma_search", "False"),
                                                 ("q", 'diakone'),
@@ -2663,7 +8015,8 @@ class TestES(Formulae_Testing):
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", ""), ('source', 'advanced')]),
+                                                ("exclude_q", ""),
+('source', 'advanced')]),
                  'test_elex_search_multi': OrderedDict([("corpus", "elexicon"),
                                                 ("lemma_search", "False"),
                                                 ("q", 'diakone+märtyrergrab'),
@@ -2690,7 +8043,8 @@ class TestES(Formulae_Testing):
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", ""), ('source', 'advanced')]),
+                                                ("exclude_q", ""),
+('source', 'advanced')]),
                  'test_elex_search_wildcard': OrderedDict([("corpus", "elexicon"),
                                                 ("lemma_search", "False"),
                                                 ("q", 'm?rtyr*'),
@@ -2717,7 +8071,8 @@ class TestES(Formulae_Testing):
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", ""), ('source', 'advanced')]),
+                                                ("exclude_q", ""),
+('source', 'advanced')]),
                  'test_elex_search_multi_wildcard': OrderedDict([("corpus", "elexicon"),
                                                 ("lemma_search", "False"),
                                                 ("q", 'diakon?+m?rtyr*'),
@@ -2744,7 +8099,8 @@ class TestES(Formulae_Testing):
                                                 ("proper_name", ""),
                                                 ("forgeries", "include"),
                                                 ("regex_search", 'False'),
-                                                ("exclude_q", ""), ('source', 'advanced')]),
+                                                ("exclude_q", ""),
+('source', 'advanced')]),
                  'test_elex_search_simple': OrderedDict([("corpus", "elexicon"),
                                                 ("lemma_search", "False"),
                                                 ("q", 'diakone'),
@@ -2829,24 +8185,84 @@ class TestES(Formulae_Testing):
                                                 ("regex_search", 'False'),
                                                 ("exclude_q", ""),
                                                 ("source", "simple")]),
-                 'test_suggest_word_search_completion': OrderedDict([("corpus", "buenden"), ("search_field_1", "autocomplete"), ("q_1", 'scrips'), ("fuzziness_1", "0"),
-                                 ("in_order_1", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("formulaic_parts_1", ""), ("proper_name_1", ""), ("forgeries", "include"), ("regex_search_1", 'False'), ("exclude_q_1", ""), ('source', 'advanced')]),
-                 'test_suggest_elexicon_word_search_completion': OrderedDict([("corpus", "elexicon"), ("search_field_1", "autocomplete"), ("q_1", 'abba'), ("fuzziness_1", "0"),
-                                 ("in_order_1", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("formulaic_parts_1", ""), ("proper_name_1", ""), ("forgeries", "include"), ("regex_search_1", 'False'), ("exclude_q_1", ""), ('source', 'advanced')]),
-                 'test_suggest_regest_word_search_completion': OrderedDict([("corpus", "buenden"), ("search_field_1", "autocomplete_regest"), ("q_1", 'sche'), ("fuzziness_1", "0"),
-                                 ("in_order_1", "False"), ("year", 0), ('slop', '0'), ("month", 0), ("day", 0),
-                                 ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
-                                 ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'y'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("formulaic_parts_1", ""), ("proper_name_1", ""), ("forgeries", "include"), ("regex_search_1", 'False'), ("exclude_q_1", ""), ('source', 'advanced')])
+                 'test_suggest_word_search_completion': OrderedDict([("corpus", "buenden"),
+("search_field_1", "autocomplete"),
+("q_1", 'scrips'),
+("fuzziness_1", "0"),
+                                 ("in_order_1", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("formulaic_parts_1", ""),
+("proper_name_1", ""),
+("forgeries", "include"),
+("regex_search_1", 'False'),
+("exclude_q_1", ""),
+('source', 'advanced')]),
+                 'test_suggest_elexicon_word_search_completion': OrderedDict([("corpus", "elexicon"),
+("search_field_1", "autocomplete"),
+("q_1", 'abba'),
+("fuzziness_1", "0"),
+                                 ("in_order_1", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("formulaic_parts_1", ""),
+("proper_name_1", ""),
+("forgeries", "include"),
+("regex_search_1", 'False'),
+("exclude_q_1", ""),
+('source', 'advanced')]),
+                 'test_suggest_regest_word_search_completion': OrderedDict([("corpus", "buenden"),
+("search_field_1", "autocomplete_regest"),
+("q_1", 'sche'),
+("fuzziness_1", "0"),
+                                 ("in_order_1", "False"),
+("year", 0),
+('slop', '0'),
+("month", 0),
+("day", 0),
+                                 ("year_start", 0),
+("month_start", 0),
+("day_start", 0),
+("year_end", 0),
+                                 ("month_end", 0),
+("day_end", 0),
+('date_plus_minus', 0),
+                                 ('exclusive_date_range', 'y'),
+("composition_place", ''),
+('sort', 'urn'),
+                                 ('special_days', ''),
+("formulaic_parts_1", ""),
+("proper_name_1", ""),
+("forgeries", "include"),
+("regex_search_1", 'False'),
+("exclude_q_1", ""),
+('source', 'advanced')])
                  }
 
     MOCK_VECTOR_RETURN_VALUE = {'_index': 'andecavensis_v1',
@@ -3249,7 +8665,7 @@ class TestES(Formulae_Testing):
                  'sentence_spans': [],
                  'title': hit['_source']['title'],
                  'regest_sents': [],
-                 'highlight': []} for hit in kwargs['search']['hits']['hits']], set()
+                 'highlight': []} for results in kwargs['args_plus_results'] for hit in results[1]['hits']['hits']], set()
 
     def vector_side_effect(self, **kwargs):
         ids = [x['_id'] for x in self.term_vectors['docs']]
@@ -3266,7 +8682,7 @@ class TestES(Formulae_Testing):
             return self.suggest_side_effect(**kwargs)
         if 'query' in kwargs['body'] and 'ids' in kwargs['body']['query'].keys():
             return self.search_aggs
-        return self.search_response
+        return next(self.search_response)
 
     def suggest_side_effect(self, **kwargs):
         if 'body' in kwargs.keys() and 'suggest' in kwargs['body'].keys():
@@ -3354,6 +8770,11 @@ class TestES(Formulae_Testing):
         return fake.load_response()
 
     def build_file_name(self, fake_args):
+        for arg in fake_args:
+            if 'formulaic_parts' in arg and fake_args[arg] != '':
+                fake_args['search_field_{}'.format(arg.split('_')[-1])] = fake_args[arg]
+            if 'proper_name' in arg and fake_args[arg] != '' and fake_args['q_{}'.format(arg.split('_')[-1])] == '':
+                fake_args['search_field_{}'.format(arg.split('_')[-1])] = 'lemmas'
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()])
 
     def test_return_when_no_es(self):
@@ -3382,13 +8803,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_range_search_same_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3396,13 +8819,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_range_search_same_month'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3410,13 +8835,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_range_search_different_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3424,13 +8851,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_range_search_only_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3438,13 +8867,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_range_search_only_year_and_month_same_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3452,13 +8883,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_range_search_only_year_and_month_different_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3466,13 +8899,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_range_search_only_start_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, total, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         with self.client as c:
             test_args['source'] = 'advanced'
@@ -3485,13 +8920,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_range_search_only_end_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3499,26 +8936,30 @@ class TestES(Formulae_Testing):
         fake_args = copy(self.TEST_ARGS['test_date_range_search_only_end_year'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args = self.TEST_ARGS['test_no_corpus_given']
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=['all'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=['all'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_start_year_and_month(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_date_range_search_only_start_year_and_month'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3526,13 +8967,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_range_search_only_end_year_and_month'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3540,13 +8983,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_normal_date_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3554,13 +8999,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_normal_date_only_year_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3568,13 +9015,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_date_plus_minus_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3582,13 +9031,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_exclusive_date_range_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3596,13 +9047,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_exclusive_date_range_search_only_year'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3610,13 +9063,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_exclusive_date_range_search_same_month_and_day'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3624,13 +9079,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_corpus_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3639,15 +9096,17 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multiword_wildcard_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3656,14 +9115,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3672,15 +9133,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_mapped_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['search_id'] = '1234'
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
+        self.assertCountEqual(body[0]['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args_list[0][1]['body']['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         self.assertEqual(self.app.redis.get('search_progress_1234').decode('utf-8'), '100%',
@@ -3692,259 +9154,58 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_mapped_multiword_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
+        self.assertCountEqual(body[0]['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args_list[0][1]['body']['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, "lem_highlight_to_text")
     def test_lemma_simple_search(self, mock_highlight, mock_search):
-        test_args = copy(self.TEST_ARGS['test_lemma_advanced_search'])
+        test_args = copy(self.TEST_ARGS['test_lemma_simple_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = {'query':
-                    {'bool':
-                        {'must':
-                            [{'bool':
-                                {'should':
-                                    [{'span_near':
-                                        {'clauses':
-                                             [{'span_multi':
-                                                   {'match':
-                                                        {'fuzzy':
-                                                             {'lemmas':
-                                                                  {'value': 'regnum', 'fuzziness': '0'}
-                                                              }
-                                                         }
-                                                    }
-                                               }
-                                              ],
-                                         'slop': 4,
-                                         'in_order': False
-                                         }
-                                      },
-                                     {'span_near':
-                                          {'clauses':
-                                               [{'span_multi':
-                                                     {'match':
-                                                          {'fuzzy':
-                                                               {'lemmas':
-                                                                    {'value': 'regnumque', 'fuzziness': '0'}
-                                                                }
-                                                           }
-                                                      }
-                                                 }
-                                                ],
-                                           'slop': 4,
-                                           'in_order': False}}
-                                     ],
-                                 'minimum_should_match': 1
-                                 }
-                              }
-                             ]
-                         }
-                     },
-                'sort': ['sort_prefix', 'urn'],
-                'from': 0,
-                'size': 10,
-                'highlight':
-                    {'fields':
-                         {'lemmas': {'fragment_size': 1000},
-                          'regest': {'fragment_size': 1000}},
-                     'pre_tags': ['</small><strong>'],
-                     'post_tags': ['</strong><small>'],
-                     'encoder': 'html'}
-                }
-
+        body = fake.load_request()
         resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        for hit in resp['hits']['hits']:
-            if 'lemmas' not in hit['highlight']:
-                hit['highlight']['lemmas'] = hit['highlight']['text']
-        mock_search.side_effect = cycle([resp, aggs])
+        for single_response in resp:
+            for hit in single_response['hits']['hits']:
+                if 'lemmas' not in hit['highlight']:
+                    hit['highlight']['lemmas'] = hit['highlight']['text']
+        mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _, _ = advanced_query_index(corpus=test_args['corpus'], lemma_search='True', q=test_args['q'], page=1,
-                                               per_page=10)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        test_args['query_dict'] = make_query_dict(test_args)
+        test_args['source'] = 'simple'
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, "lem_highlight_to_text")
     def test_mapped_lemma_simple_search(self, mock_highlight, mock_search):
-        test_args = copy(self.TEST_ARGS['test_mapped_lemma_advanced_search'])
+        test_args = copy(self.TEST_ARGS['test_mapped_lemma_simple_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = {'query':
-                    {'bool':
-                         {'must':
-                              [{'bool':
-                                    {'should':
-                                         [{'span_near':
-                                               {'clauses':
-                                                    [{'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {'lemmas':
-                                                                         {'value': 'gero', 'fuzziness': '0'}
-                                                                     }
-                                                                }
-                                                           }
-                                                      },
-                                                     ],
-                                                'slop': 4,
-                                                'in_order': False
-                                                }
-                                           },
-                                          {'span_near':
-                                               {'clauses':
-                                                    [{'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {'lemmas':
-                                                                         {'value': 'gerere', 'fuzziness': '0'}
-                                                                     }
-                                                                }
-                                                           }
-                                                      }
-                                                     ],
-                                                'slop': 4,
-                                                'in_order': False
-                                                }
-                                           },
-                                          {'span_near':
-                                               {'clauses':
-                                                    [{'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {'lemmas':
-                                                                         {'value': 'gesta', 'fuzziness': '0'}
-                                                                     }
-                                                                }
-                                                           }
-                                                      }
-                                                     ],
-                                                'slop': 4,
-                                                'in_order': False
-                                                }
-                                           },
-                                          {'span_near':
-                                               {'clauses':
-                                                    [{'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {'lemmas':
-                                                                         {'value': 'gestus', 'fuzziness': '0'}
-                                                                     }
-                                                                }
-                                                           }
-                                                      }
-                                                     ],
-                                                'slop': 4,
-                                                'in_order': False
-                                                }
-                                           },
-                                          {'span_near':
-                                               {'clauses':
-                                                    [{'span_multi':
-                                                          {'match':
-                                                               {'fuzzy':
-                                                                    {'lemmas':
-                                                                         {'value': 'gerereve', 'fuzziness': '0'}
-                                                                     }
-                                                                }
-                                                           }
-                                                      }
-                                                     ],
-                                                'slop': 4,
-                                                'in_order': False
-                                                }
-                                           }
-                                          ],
-                                     'minimum_should_match': 1
-                                     }
-                                }
-                               ]
-                          }
-                     },
-                'sort': ['sort_prefix', 'urn'],
-                'from': 0,
-                'size': 10,
-                'aggs':
-                    {'range':
-                         {'date_range':
-                              {'field': 'min_date',
-                               'format': 'yyyy',
-                               'ranges':
-                                   [{'key': '<499', 'from': '0002', 'to': '0499'},
-                                    {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                    {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                    {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                    {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                    {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                    {'key': '>1000', 'from': '1000'}
-                                    ]
-                               }
-                          },
-                     'corpus':
-                         {'filters':
-                              {'filters': self.SEARCH_FILTERS_CORPORA}
-                          },
-                     'no_date':
-                         {'missing': {'field': 'min_date'}},
-                     'all_docs':
-                         {'global': {},
-                          'aggs':
-                              {'range':
-                                   {'date_range':
-                                        {'field': 'min_date',
-                                         'format': 'yyyy',
-                                         'ranges':
-                                             [{'key': '<499', 'from': '0002', 'to': '0499'},
-                                              {'key': '500-599', 'from': '0500', 'to': '0599'},
-                                              {'key': '600-699', 'from': '0600', 'to': '0699'},
-                                              {'key': '700-799', 'from': '0700', 'to': '0799'},
-                                              {'key': '800-899', 'from': '0800', 'to': '0899'},
-                                              {'key': '900-999', 'from': '0900', 'to': '0999'},
-                                              {'key': '>1000', 'from': '1000'}
-                                              ]
-                                         }
-                                    },
-                               'corpus':
-                                   {'filters':
-                                        {'filters': self.SEARCH_FILTERS_CORPORA}
-                                    },
-                               'no_date':
-                                   {'missing': {'field': 'min_date'}}
-                               }
-                          }
-                     },
-                'highlight':
-                    {'fields':
-                         {'lemmas': {'fragment_size': 1000},
-                          'regest': {'fragment_size': 1000}
-                          },
-                     'pre_tags': ['</small><strong>'],
-                     'post_tags': ['</strong><small>'],
-                     'encoder': 'html'}
-                }
-
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        body = fake.load_request()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _, _ = advanced_query_index(corpus=test_args['corpus'], lemma_search='True', q=test_args['q'], page=1,
-                                               per_page=10)
-        self.assertCountEqual(body['query']['bool']['must'][0]['bool']['should'],
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertCountEqual(body[0]['query']['bool']['must'][0]['bool']['should'],
                               mock_search.call_args_list[0][1]['body']['query']['bool']['must'][0]['bool']['should'])
         # mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
@@ -3955,15 +9216,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_proper_name_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
-            self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
+            self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -3972,16 +9234,17 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multiword_proper_name_partial_match'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
-            self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
+            self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Proper name matching of only a single term in a multi-term q should produce no results.")
 
@@ -3992,18 +9255,21 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        for h in resp['hits']['hits']:
-            if 'regest' in h['highlight']:
-                del h['highlight']['regest']
-        mock_search.side_effect = cycle([resp, aggs])
+        for single_response in resp:
+            for h in single_response['hits']['hits']:
+                if 'regest' in h['highlight']:
+                    del h['highlight']['regest']
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
-            self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
+            self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Proper name matching where neither term is a proper name should produce no results.")
 
@@ -4014,17 +9280,20 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        for h in resp['hits']['hits']:
-            if 'regest' in h['highlight']:
-                del h['highlight']['regest']
-        mock_search.side_effect = cycle([resp, aggs])
+        for single_response in resp:
+            for h in single_response['hits']['hits']:
+                if 'regest' in h['highlight']:
+                    del h['highlight']['regest']
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
-            self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
+            self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Proper name matching where neither term is a proper name should produce no results.")
 
@@ -4035,9 +9304,10 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         vector_return_value = {'docs': []}
         non_lemma_vector = dict()
         for k, v in self.MOCK_VECTOR_RETURN_VALUE.items():
@@ -4046,17 +9316,19 @@ class TestES(Formulae_Testing):
             else:
                 non_lemma_vector[k] = {'text': v['text']}
         lemma_vector = copy(self.MOCK_VECTOR_RETURN_VALUE)
-        for h in resp['hits']['hits']:
-            new_vector = {k: v for k, v in lemma_vector.items()}
-            if h['_id'] not in [x['id'] for x in ids]:
-                new_vector = {k: v for k, v in non_lemma_vector.items()}
-            new_vector['_id'] = h['_id']
-            vector_return_value['docs'].append(new_vector)
+        for single_response in resp:
+            for h in single_response['hits']['hits']:
+                new_vector = {k: v for k, v in lemma_vector.items()}
+                if h['_id'] not in [x['id'] for x in ids]:
+                    new_vector = {k: v for k, v in non_lemma_vector.items()}
+                new_vector['_id'] = h['_id']
+                vector_return_value['docs'].append(new_vector)
         mock_vectors.return_value = vector_return_value
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
-            self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
+            self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Single word proper name matching with text search should work.")
 
@@ -4066,31 +9338,37 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multiword_proper_name_match_text'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        self.search_response = fake.load_response()
+        self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
-            self.assertIn(lem, body['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
+            self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Multi-word proper name matching with text search should work.")
 
     @patch.object(Elasticsearch, "search")
-    def test_regest_advanced_search(self, mock_search):
+    @patch.object(Search, "lem_highlight_to_text")
+    def test_regest_advanced_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_regest_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        print(mock_search.call_args_list)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -4099,28 +9377,34 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_regest_and_word_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_regest_advanced_search_with_wildcard(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_regest_advanced_search_with_wildcard(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_regest_advanced_search_with_wildcard'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -4132,12 +9416,16 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        responses = [x for x in resp]
+        responses.append(aggs)
+        mock_search.side_effect = cycle(responses)
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -4149,14 +9437,18 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        responses = [x for x in resp]
+        responses.append(aggs)
+        mock_search.side_effect = cycle(responses)
         mock_vectors.return_value = self.term_vectors
         sents = [{'sents':
                       [Markup('seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et </small><strong>Uuolfhart</strong><small> </small><strong>cum</strong><small> sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis ')]}]
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4169,13 +9461,17 @@ class TestES(Formulae_Testing):
         resp = fake.load_response()
         aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        responses = [x for x in resp]
+        responses.append(aggs)
+        mock_search.side_effect = cycle(responses)
         mock_vectors.side_effect = self.vector_side_effect
         sents = [Markup('fuerit, pro episcopalis officii debito absque molestia uobis prebeant. Sane </small><strong>noualium</strong><small> etc. Quemadmodum autem uos ab omni exactione liberas esse statuimus,')]
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertIn(sents, [x['sents'] for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -4191,10 +9487,13 @@ class TestES(Formulae_Testing):
         aggs = fake.load_aggs()
         sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        responses = [x for x in resp]
+        responses.append(aggs)
+        mock_search.side_effect = cycle(responses)
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4208,10 +9507,12 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_single_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for i1, hit in enumerate(resp['hits']['hits']):
-            for i2, t in enumerate(hit['highlight']['text']):
-                resp['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for i1, hit in enumerate(single_response['hits']['hits']):
+                for i2, t in enumerate(hit['highlight']['text']):
+                    single_response['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
         sents = [{'sents':
                       [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> domni nostri Charoli gloriosissimi regis, sub die, quod est XV '),
                        Markup('cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi </small><strong>regis</strong><small>, sub die, quod est XV kl. madii, sub presenciarum bonorum '),
@@ -4220,10 +9521,11 @@ class TestES(Formulae_Testing):
                       [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> domni nostri Caroli regis, Sub die, quod est pridie kl.'),
                        Markup('Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est pridie kl. aprilis. Notavi diem et '),
                        Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri ')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q'] = 'reg*'
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4233,16 +9535,17 @@ class TestES(Formulae_Testing):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4252,13 +9555,14 @@ class TestES(Formulae_Testing):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting_repeated_words'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         sents = [{'sents': [Markup('Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Uuiliarentis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Crespionis</strong><small> testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro ')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4271,16 +9575,17 @@ class TestES(Formulae_Testing):
         """
         test_args = copy(self.TEST_ARGS['test_single_word_fuzzy_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
                  {'sents': [Markup('aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum </small><strong>Hattone</strong><small> venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius ')]},
                  {'sents': [Markup('libras III. Facta in Lopiene, mense februarium, anno II regnante </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4290,7 +9595,7 @@ class TestES(Formulae_Testing):
         """ Make sure that the correct sentence fragments are returned when doing fuzzy searches with wildcards"""
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting_with_wildcard'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        self.search_response = fake.load_response()
+        self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
         sents = [{'sents': [Markup('Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
                  {'sents': [Markup('testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]},
@@ -4299,7 +9604,8 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4309,13 +9615,14 @@ class TestES(Formulae_Testing):
         """ Make sure that the correct sentence fragments are returned when doing fuzzy searches"""
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         sents = [{'sents': [Markup('aurum libras III. Facta in Lopiene, mense februarium, anno II </small><strong>regnante</strong><small> </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4329,21 +9636,24 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for i1, hit in enumerate(resp['hits']['hits']):
-            for i2, t in enumerate(hit['highlight']['text']):
-                resp['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for i1, hit in enumerate(single_response['hits']['hits']):
+                for i2, t in enumerate(hit['highlight']['text']):
+                    single_response['hits']['hits'][i1]['highlight']['text'][i2] = re.sub(r'regis', '</small><strong>regis</strong><small>', t)
         sents = [{'sents':
                       [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, quod est XV kl.'),
                        Markup('cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum </small><strong>domni</strong><small> nostri Charoli gloriosissimi </small><strong>regis</strong><small>, sub die, quod est XV kl. madii, sub presenciarum bonorum ')]},
                  {'sents':
                       [Markup('Facta donacio in loco Fortunes, sub presencia virorum testium sub </small><strong>regnum</strong><small> </small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est pridie kl. aprilis.'),
                        Markup('donacio in loco Fortunes, sub presencia virorum testium sub regnum </small><strong>domni</strong><small> nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est pridie kl. aprilis. Notavi diem et ')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = 'reg* domni'
-        test_args['slop'] = '3'
+        test_args['q_1'] = 'reg* domni'
+        test_args['slop_1'] = '3'
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4354,8 +9664,8 @@ class TestES(Formulae_Testing):
         """
         test_args = copy(self.TEST_ARGS['test_single_letter_highlighting_one_word'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         sents = [{'sents': [Markup('</small><strong>a</strong><small> quem dimisit filio suo Rofino et agrum in Pulueraria modios ')]},
                  {'sents': [Markup('de supra in Theudoranes, dabtus in sancti Petri; alium pratum </small><strong>a</strong><small> Sanguinetum honus I, confinat da una parte in Canilias, da '),
                             Markup('da una parte in Canilias, da alia in via; agrum </small><strong>a</strong><small> Tonbeclo modios II, confinat in Scolchengus, da alia in sancti '),
@@ -4364,8 +9674,9 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('alia in Uictoriani coloni, da supra in Massanesco. Signum Daumerii </small><strong>a</strong><small> iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit.'),
                             Markup('Signum Ingenni testes. Ego Orsacius per misericordiam dei vocatus presbiter </small><strong>a</strong><small> vice Lubucionis diaconi scripsi et suscripsi.')]},
                  {'sents': [Markup('In Christi nomine. Ego itaque bresbiter Valencio sanus </small><strong>a</strong><small> sana mente per comiatu senioris Iltebaldi et cum manu – – dono ')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for s in sents:
             self.assertIn(s, [{"sents": x['sents']} for x in actual])
@@ -4377,12 +9688,13 @@ class TestES(Formulae_Testing):
         """
         test_args = copy(self.TEST_ARGS['test_single_letter_highlighting_multiword'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         sents = [{'sents': [Markup('da alia in Uictoriani coloni, da supra in Massanesco. Signum </small><strong>Daumerii</strong><small> </small><strong>a</strong><small> iudicis, qui hanc cartam ob mercedis sue augmentum fieri petiit.')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4390,21 +9702,22 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "mtermvectors")
     def test_single_lemma_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
-        test_args = OrderedDict([("corpus", "all"), ("lemma_search", "True"), ("q", 'regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+        test_args = OrderedDict([("corpus", "all"), ("search_field_1", "lemmas"), ("q_1", 'regnum'), ("fuzziness_1", "0"),
+                                 ("in_order_1", "False"), ("year", 0), ("slop_1", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest")])
+                                 ('special_days', '')])
         fake_args = copy(self.TEST_ARGS['test_single_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for hit in resp['hits']['hits']:
-            hit['highlight']['lemmas'] = hit['highlight']['text']
-        for i, h in enumerate(resp['hits']['hits']):
-            resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for hit in single_response['hits']['hits']:
+                hit['highlight']['lemmas'] = hit['highlight'].pop('text')
+            for i, h in enumerate(single_response['hits']['hits']):
+                single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub '
                                    '</small><strong>regnum</strong><small> domni nostri Charoli gloriosissimi regis, '
                                    'sub die, quod est XV '),
@@ -4417,10 +9730,11 @@ class TestES(Formulae_Testing):
                             Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et '
                                    '</small><strong>regnum</strong><small> superscripsi. Signum Uictorini et '
                                    'Felicianes uxoris ipsius, qui haec fieri ')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4428,21 +9742,22 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "mtermvectors")
     def test_multi_lemma_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
-        test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'regnum+domni'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+        test_args = OrderedDict([("corpus", "buenden"), ("search_field_1", "lemmas"), ("q_1", 'regnum+domni'), ("fuzziness_1", "0"),
+                                 ("in_order_1", "False"), ("year", 0), ("slop_1", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest")])
+                                 ('special_days', '')])
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for hit in resp['hits']['hits']:
-            hit['highlight']['lemmas'] = hit['highlight']['text']
-        for i, h in enumerate(resp['hits']['hits']):
-            resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for hit in single_response['hits']['hits']:
+                hit['highlight']['lemmas'] = hit['highlight']['text']
+            for i, h in enumerate(single_response['hits']['hits']):
+                single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. '
                                    'Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> '
                                    '</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, '
@@ -4451,10 +9766,11 @@ class TestES(Formulae_Testing):
                                    'presencia virorum testium sub </small><strong>regnum</strong><small> '
                                    '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4462,21 +9778,22 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "mtermvectors")
     def test_multi_lemma_highlighting_terms_out_of_order(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
-        test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'domni+regnum'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+        test_args = OrderedDict([("corpus", "buenden"), ("search_field_1", "lemmas"), ("q_1", 'domni+regnum'), ("fuzziness_1", "0"),
+                                 ("in_order_1", "False"), ("year", 0), ("slop_1", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest")])
+                                 ('special_days', '')])
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for hit in resp['hits']['hits']:
-            hit['highlight']['lemmas'] = hit['highlight']['text']
-        for i, h in enumerate(resp['hits']['hits']):
-            resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for hit in single_response['hits']['hits']:
+                hit['highlight']['lemmas'] = hit['highlight']['text']
+            for i, h in enumerate(single_response['hits']['hits']):
+                single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
         sents = [{'sents': [Markup('omnium cartarum adcommodat firmitatem. '
                                    'Facta cartula in civitate Curia, sub </small><strong>regnum</strong><small> '
                                    '</small><strong>domni</strong><small> nostri Charoli gloriosissimi regis, sub die, '
@@ -4485,10 +9802,11 @@ class TestES(Formulae_Testing):
                                    'presencia virorum testium sub </small><strong>regnum</strong><small> '
                                    '</small><strong>domni</strong><small> nostri Caroli regis, Sub die, quod est '
                                    'pridie kl. aprilis.')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4496,26 +9814,28 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "mtermvectors")
     def test_multi_lemma_highlighting_terms_out_of_order_ordered_terms_True(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
-        test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'domni+regnum'), ("fuzziness", "0"),
-                                 ("in_order", "True"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
+        test_args = OrderedDict([("corpus", "buenden"), ("search_field_1", "lemmas"), ("q_1", 'domni+regnum'), ("fuzziness_1", "0"),
+                                 ("in_order_1", "True"), ("year", 0), ("slop", "0"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest")])
+                                 ('special_days', '')])
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for hit in resp['hits']['hits']:
-            hit['highlight']['lemmas'] = hit['highlight']['text']
-        for i, h in enumerate(resp['hits']['hits']):
-            resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = []
-        mock_search.side_effect = cycle([resp, aggs])
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for hit in single_response['hits']['hits']:
+                hit['highlight']['lemmas'] = hit['highlight']['text']
+            for i, h in enumerate(single_response['hits']['hits']):
+                single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
+        sents = [{'sents': []}, {'sents': []}]
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4523,30 +9843,33 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "mtermvectors")
     def test_multi_lemma_highlighting_terms_with_slop(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
-        test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'domni+regnum+regis'), ("fuzziness", "0"),
-                                 ("in_order", "False"), ("year", 0), ("slop", "2"), ("month", 0), ("day", 0),
+        test_args = OrderedDict([("corpus", "buenden"), ("search_field_1", "lemmas"), ("q_1", 'domni+regnum+regis'), ("fuzziness_1", "0"),
+                                 ("in_order_1", "False"), ("year", 0), ("slop_1", "2"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest")])
+                                 ('special_days', '')])
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for hit in resp['hits']['hits']:
-            hit['highlight']['lemmas'] = hit['highlight']['text']
-        for i, h in enumerate(resp['hits']['hits']):
-            resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': [Markup('Facta donacio in loco Fortunes, sub '
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for hit in single_response['hits']['hits']:
+                hit['highlight']['lemmas'] = hit['highlight']['text']
+            for i, h in enumerate(single_response['hits']['hits']):
+                single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
+        sents = [{'sents': []},
+                 {'sents': [Markup('Facta donacio in loco Fortunes, sub '
                                    'presencia virorum testium sub </small><strong>regnum</strong><small> '
                                    '</small><strong>domni</strong><small> nostri Caroli '
                                    '</small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4554,29 +9877,32 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "mtermvectors")
     def test_multi_lemma_highlighting_terms_with_slop_in_order(self, mock_vectors, mock_search):
         """ Make sure that highlighting is correctly transferred when ordered_terms is False"""
-        test_args = OrderedDict([("corpus", "buenden"), ("lemma_search", "True"), ("q", 'sub+regis'), ("fuzziness", "0"),
-                                 ("in_order", "True"), ("year", 0), ("slop", "4"), ("month", 0), ("day", 0),
+        test_args = OrderedDict([("corpus", "buenden"), ("search_field_1", "lemmas"), ("q_1", 'sub+regis'), ("fuzziness_1", "0"),
+                                 ("in_order_1", "True"), ("year", 0), ("slop_1", "4"), ("month", 0), ("day", 0),
                                  ("year_start", 0), ("month_start", 0), ("day_start", 0), ("year_end", 0),
                                  ("month_end", 0), ("day_end", 0), ('date_plus_minus', 0),
                                  ('exclusive_date_range', 'False'), ("composition_place", ''), ('sort', 'urn'),
-                                 ('special_days', ''), ("regest_q", ''),
-                                 ("regest_field", "regest")])
+                                 ('special_days', '')])
         fake_args = copy(self.TEST_ARGS['test_multi_lemma_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(fake_args), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for hit in resp['hits']['hits']:
-            hit['highlight']['lemmas'] = hit['highlight']['text']
-        for i, h in enumerate(resp['hits']['hits']):
-            resp['hits']['hits'][i]['_source']['lemmas'] = resp['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': [Markup('firmitate. Facta donacio in loco Fortunes, sub '
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for hit in single_response['hits']['hits']:
+                hit['highlight']['lemmas'] = hit['highlight']['text']
+            for i, h in enumerate(single_response['hits']['hits']):
+                single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
+        sents = [{'sents': []},
+                 {'sents': [Markup('firmitate. Facta donacio in loco Fortunes, sub '
                                    'presencia virorum testium </small><strong>sub</strong><small> regnum '
                                    'domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -4585,6 +9911,7 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search_with_wildcard'])
         mock_search.return_value = [], 0, {}
         with self.client:
+            test_args['query_dict'] = make_query_dict(test_args)
             ids, hits, agg, prev = advanced_query_index(**test_args)
             self.assertEqual(ids, [])
             self.assertEqual(hits, 0)
@@ -4594,10 +9921,11 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     def test_lemma_simple_search_with_wildcard(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_lemma_advanced_search_with_wildcard'])
+        test_args['query_dict'] = make_query_dict(test_args)
+        test_args['source'] = 'simple'
         mock_search.return_value = [], 0, {}
         with self.client:
-            ids, hits, agg, prev = advanced_query_index(corpus=test_args['corpus'], lemma_search='True',
-                                                        q=test_args['q'], page=1, per_page=10, source='simple')
+            ids, hits, agg, prev = advanced_query_index(**test_args)
             self.assertEqual(ids, [])
             self.assertEqual(hits, 0)
             self.assertEqual(prev, [])
@@ -4608,244 +9936,59 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_composition_place_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
     def test_simple_multi_corpus_search(self, mock_vectors, mock_search):
-        test_args = OrderedDict([("corpus", ['formulae', 'chartae']), ("q", 'regnum'), ("lemma_search", "False"),
-                                 ("page", 1), ("per_page", self.app.config["POSTS_PER_PAGE"]), ('sort', 'urn'),
-                                 ('source', 'simple')])
+        test_args = copy(self.TEST_ARGS['test_lemma_simple_search'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        test_args['corpus'] = ['formulae', 'chartae']
         mock_vectors.side_effect = self.vector_side_effect
-        mock_search.return_value = {"hits": {"hits": [{'_id': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
-                                    '_source': {'urn': 'urn:cts:formulae:stgallen.wartmann0259.lat001',
-                                                'title': 'St. Gallen 259'},
-                                    'highlight': {
-                                        'text': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.'],
-                                        'lemmas': ['Notavi die et <strong>regnum</strong>. Signum Mauri et uxores suas Audoaras, qui hanc cartam fieri rogaverunt.']
-                                    }}],
-                                             'total': {'value': 0,
-                                                       "relation": "eq"}},
-                                    'aggregations': {'all_docs': self.AGGS_ALL_DOCS,
-                                                     "no_date": {
-                                                         "doc_count": 14
-                                                     },
-                                                        "range": {
-                                                          "buckets": [
-                                                            {
-                                                              "key": "<499",
-                                                              "from": -62104060800000.0,
-                                                              "from_as_string": "0002",
-                                                              "to": -46420214400000.0,
-                                                              "to_as_string": "0499",
-                                                              "doc_count": 0
-                                                            },
-                                                            {
-                                                              "key": "500-599",
-                                                              "from": -46388678400000.0,
-                                                              "from_as_string": "0500",
-                                                              "to": -43264540800000.0,
-                                                              "to_as_string": "0599",
-                                                              "doc_count": 0
-                                                            },
-                                                            {
-                                                              "key": "600-699",
-                                                              "from": -43233004800000.0,
-                                                              "from_as_string": "0600",
-                                                              "to": -40108867200000.0,
-                                                              "to_as_string": "0699",
-                                                              "doc_count": 0
-                                                            },
-                                                            {
-                                                              "key": "700-799",
-                                                              "from": -40077331200000.0,
-                                                              "from_as_string": "0700",
-                                                              "to": -36953193600000.0,
-                                                              "to_as_string": "0799",
-                                                              "doc_count": 0
-                                                            },
-                                                            {
-                                                              "key": "800-899",
-                                                              "from": -36921657600000.0,
-                                                              "from_as_string": "0800",
-                                                              "to": -33797433600000.0,
-                                                              "to_as_string": "0899",
-                                                              "doc_count": 0
-                                                            },
-                                                            {
-                                                              "key": "900-999",
-                                                              "from": -33765897600000.0,
-                                                              "from_as_string": "0900",
-                                                              "to": -30641760000000.0,
-                                                              "to_as_string": "0999",
-                                                              "doc_count": 6
-                                                            },
-                                                            {
-                                                              "key": ">1000",
-                                                              "from": -30610224000000.0,
-                                                              "from_as_string": "1000",
-                                                              "doc_count": 177
-                                                            }
-                                                          ]
-                                                        },
-                                                     "corpus": {
-                                                      "buckets": {k: {'doc_count': 0} if k != '<b>Angers</b>: Angers' else
-                                                      {k: {'doc_count': 2}}
-                                                                  for k in self.AGGS_ALL_DOCS['corpus']['buckets']
-                                                                  }
-                                                    }}}
-        body = {'query':
-                    {'bool':
-                         {'must':
-                              [{'bool':
-                                    {'should':
-                                         [{'span_near':
-                                               {'clauses':
-                                                    [{'span_or':
-                                                          {'clauses':
-                                                               [{'span_multi':
-                                                                     {'match':
-                                                                          {'regexp':
-                                                                               {'text':
-                                                                                    {'value': 'regn[uv]m',
-                                                                                     'flags': 'ALL',
-                                                                                     'case_insensitive': True}
-                                                                                }
-                                                                           }
-                                                                      }
-                                                                 }
-                                                                ]
-                                                           }
-                                                      }
-                                                     ],
-                                                'slop': 4,
-                                                'in_order': False
-                                                }
-                                           },
-                                          {'bool':
-                                               {'must':
-                                                    [
-                                                        {'match':
-                                                             {'regest':
-                                                                  {'query': 'regnum',
-                                                                   'fuzziness': '0'
-                                                                   }
-                                                              }
-                                                         }
-                                                    ]
-                                               }
-                                          }
-                                          ],
-                                     'minimum_should_match': 1
-                                     }
-                                }
-                               ]
-                          }
-                     },
-                'sort': ['sort_prefix', 'urn'],
-                'from': 0,
-                'size': 10,
-                'highlight':
-                    {'fields':
-                         {'text': {'fragment_size': 1000},
-                          'regest': {'fragment_size': 1000}
-                          },
-                     'pre_tags': ['</small><strong>'],
-                     'post_tags': ['</strong><small>'],
-                     'encoder': 'html'
-                     }
-                }
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        mock_search.side_effect = self.search_side_effect
+        body = fake.load_request()
+        test_args['query_dict'] = make_query_dict(test_args)
         advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
-        test_args['q'] = 'regnum domni'
-        body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_or':
-                                                                                              {'clauses':
-                                                                                                   [
-                                                                                                       {'span_multi':
-                                                                                                            {'match':
-                                                                                                                 {'regexp':
-                                                                                                                      {'text': {'value': 'regn[uv]m',
-                                                                                                                                'flags': 'ALL',
-                                                                                                                                'case_insensitive': True}}
-                                                                                                                  }
-                                                                                                             }
-                                                                                                        }
-                                                                                                   ]
-                                                                                              }},
-            {'span_or':
-                 {'clauses':
-                      [{'span_multi':
-                            {'match':
-                                 {'regexp':
-                                      {'text': {'value': 'domn[ij]',
-                                                'flags': 'ALL',
-                                                'case_insensitive': True}}
-                                  }
-                             }
-                        }
-                       ]
-                  }
-             }
-        ]
-        body['query']['bool']['must'][0]['bool']['should'][1] = {'bool': {'must': [
-            {'match':
-                 {'regest':
-                      {'query': 'regnum',
-                       'fuzziness': '0'
-                       }
-                  }
-             },
-            {'match':
-                 {'regest':
-                      {'query': 'domni',
-                       'fuzziness': '0'
-                       }
-                  }
-             }
-        ]}}
-        advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
-        test_args['q'] = 're?num'
-        body['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'] = [{'span_multi':
-                                                                                              {'match':
-                                                                                                   {'regexp':
-                                                                                                        {'text': {'value': 're.n[uv]m',
-                                                                                                                  'flags': 'ALL',
-                                                                                                                  'case_insensitive': True}}
-                                                                                                    }
-                                                                                               }
-                                                                                          }]
-        body['query']['bool']['must'][0]['bool']['should'][1] = {'bool': {'must': [
-            {'wildcard':
-                 {'regest':
-                      {'value': 're?num'}
-                  }
-             }
-        ]}}
-        advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=body)
-        self.assertCountEqual({'index': ['formulae', 'chartae'], 'doc_type': "", 'body': body},
-                              mock_search.call_args[1])
+        for b in body:
+            mock_search.assert_any_call(index=['formulae', 'chartae'], doc_type="", body=b)
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_simple_search_missing_args(self, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_lemma_simple_search'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        test_args['corpus'] = 'formulae+chartae'
+        mock_vectors.side_effect = self.vector_side_effect
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        mock_search.side_effect = self.search_side_effect
+        body = fake.load_request()
         test_args['corpus'] = ['']
+        test_args['query_dict'] = make_query_dict(test_args)
         hits, total, aggs, prev = advanced_query_index(**test_args)
         self.assertEqual(mock_search.call_args[1]['index'], ['all'],
                          'Empty string for corpus input should default to ["all"]')
         test_args['corpus'] = ['formulae', 'chartae']
         test_args['q'] = ''
+        test_args['query_dict'] = make_query_dict(test_args)
         hits, total, aggs, prev = advanced_query_index(**test_args)
         self.assertEqual(hits, [], 'Hits should be an empty list.')
         self.assertEqual(total, 0, 'Total should be 0')
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
         with self.client:
-            self.client.get('/search/simple?corpus=&q=regnum', follow_redirects=True)
+            self.client.get('/search/simple?corpus=&q_1=regnum', follow_redirects=True)
             self.assertIn(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') +
                           _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'), [x[0] for x in self.flashed_messages])
             old_search_args = session['previous_search_args']
@@ -4856,13 +9999,14 @@ class TestES(Formulae_Testing):
             self.client.get('/search/results?source=simple&corpus=formulae&q=regnum&old_search=True', follow_redirects=True)
             self.assertEqual(old_search_args['corpus'], session['previous_search_args']['corpus'],
                              'Searches made with the old_search=True argument should not change the previous_search_args.')
-            self.client.get('/search/simple?corpus=formulae&q=', follow_redirects=True)
+            self.client.get('/search/simple?corpus=formulae&q_1=', follow_redirects=True)
+            print(self.flashed_messages)
             self.assertIn(_('Dieses Feld wird benötigt.') + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'),
                           [x[0] for x in self.flashed_messages])
-            self.client.get('/search/simple?corpus=formulae&q=regnum&lemma_search=True', follow_redirects=True)
-            self.assertEqual(session['previous_search_args']['lemma_search'], 'True', '"True" should remain "True"')
-            self.client.get('/search/simple?corpus=formulae&q=regnum&lemma_search=y', follow_redirects=True)
-            self.assertEqual(session['previous_search_args']['lemma_search'], 'True', '"y" should be converted to "True"')
+            self.client.get('/search/simple?corpus=formulae&q_1=regnum&lemma_search=True', follow_redirects=True)
+            self.assertEqual(session['previous_search_args']['query_dict']['q_1']['search_field'], 'lemmas', '"True" should prompt lemma search')
+            self.client.get('/search/simple?corpus=formulae&q_1=regnum&lemma_search=y', follow_redirects=True)
+            self.assertEqual(session['previous_search_args']['query_dict']['q_1']['search_field'], 'lemmas', '"y" should prompt lemma search')
 
     # @patch.object(Elasticsearch, "search")
     # def test_suggest_composition_places(self, mock_search):
@@ -4878,33 +10022,45 @@ class TestES(Formulae_Testing):
     def test_suggest_word_search_completion(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         expected = ['scripsi',
                     'scripsi diemque et tempus designavi',
                     'scripsi et manu mea propria subscripsi',
-                    'scripsi et subscri st psi notavi diem',
+                    'scripsi et subscri ST psi Notavi diem mercurii',
                     'scripsi et subscripsi',
-                    'scripsi et subscripsi notavi diem v fer',
-                    'scripsi et supscripsi notavi diem et',
+                    'scripsi et subscripsi Notavi diem V fer V kaI ian',
+                    'scripsi et supscripsi Notavi diem et annum Die octava',
                     'scripsi et suscripsi',
-                    'scripsi et teste me suscripsi',
-                    'scripsi signum baselii et filii sui rofini']
-        mock_search.side_effect = cycle([resp, aggs])
-        test_args['qSource'] = 'text'
+                    'scripsi et teste me suscripsi']
+        mock_search.side_effect = self.search_side_effect
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
         # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
-        test_args['q'] = '*'
+        test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
+        test_args['q_1'] = '*'
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
-        test_args['q'] = '?'
+        test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
+        test_args['q_1'] = '?'
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
-        test_args['q'] = 'ill*'
+        test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
+        test_args['q_1'] = 'ill*'
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
-        test_args['q'] = 'ill?'
+        test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion'])
+        test_args['q_1'] = 'ill?'
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
 
@@ -4912,73 +10068,102 @@ class TestES(Formulae_Testing):
     def test_suggest_elexicon_word_search_completion(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_suggest_elexicon_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        expected = ['abba für vater mönch vermutlich bereits',
-                    'abbas abbatissa abt äbtissin aus dem',
-                    'abbas im ägyptischen mönchtum im 4',
-                    'abbas seit dem 5 jahrhundert im lateinischen',
-                    'abbas zurück wurde dessen stellvertreter',
-                    'abbates finden sich dabei nicht nur',
-                    'abbatiat die wahrnehmung des materiellen',
-                    'abbatiat oder bischofsamt in der folgezeit',
-                    'abbatiaten durch laien kleriker kanoniker',
-                    'abbatissa abt äbtissin aus dem aramäischen']
-        mock_search.side_effect = cycle([resp, aggs])
-        test_args['qSource'] = 'text'
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        expected = ['abba für Vater Mönch Vermutlich bereits in apostolischer',
+                    'Abbas abbatissa Abt',
+                    'abbas im ägyptischen Mönchtum im 4 Jahrhundert zur',
+                    'abbas seit dem 5 Jahrhundert im lateinischen Westen im',
+                    'abbas zurück wurde dessen Stellvertreter und fand in',
+                    'Abbates finden sich dabei nicht nur als',
+                    'Abbatiat Die Wahrnehmung des materiellen Wertes der',
+                    'Abbatiat oder Bischofsamt In der Folgezeit scheint sich',
+                    'Abbatiaten durch Laien Kleriker Kanoniker und Bischöfe']
+        mock_search.side_effect = self.search_side_effect
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
         # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
-        test_args['q'] = '*'
+        test_args = copy(self.TEST_ARGS['test_suggest_elexicon_word_search_completion'])
+        test_args['q_1'] = '*'
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
-        test_args['q'] = '?'
+        test_args = copy(self.TEST_ARGS['test_suggest_elexicon_word_search_completion'])
+        test_args['q_1'] = '?'
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
-        test_args['q'] = 'ill*'
+        test_args = copy(self.TEST_ARGS['test_suggest_elexicon_word_search_completion'])
+        test_args['q_1'] = 'ill*'
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
-        test_args['q'] = 'ill?'
+        test_args = copy(self.TEST_ARGS['test_suggest_elexicon_word_search_completion'])
+        test_args['q_1'] = 'ill?'
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')
+        test_args = copy(self.TEST_ARGS['test_suggest_elexicon_word_search_completion'])
 
     @patch.object(Elasticsearch, "search")
     def test_suggest_regest_word_search_completion(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        expected = ['schenkt dem kloster disentis auf ableben',
-                    'schenkt dem kloster disentis güter',
-                    'schenkt der kirche st hilarius zu seinem',
-                    'schenkt seinem neffen priectus seinen',
-                    'schenkt zu seinem und seiner eltern',
-                    'schenkt zu seinem und seiner gattin',
-                    'schenkt zum seelenheil seines bruders']
-        mock_search.side_effect = cycle([resp, aggs])
-        test_args['qSource'] = 'regest'
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        expected = ['schenkt dem Kloster Disentis auf Ableben seine Güter in',
+                    'schenkt dem Kloster Disentis Güter und Rechte',
+                    'schenkt der Kirche St Hilarius zu seinem Seelenheil und',
+                    'schenkt seinem Neffen Priectus seinen ganzen Besitz zu',
+                    'schenkt zu seinem und seiner Eltern Seelenheil der',
+                    'schenkt zu seinem und seiner Gattin Theoderia Seelenheil',
+                    'schenkt zum Seelenheil seines Bruders Viktor einen']
+        mock_search.side_effect = self.search_side_effect
+        test_args['qSource'] = 'q_1'
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertEqual(results, expected, 'The true results should match the expected results.')
         # Make sure that a wildcard in the search term will not call ElasticSearch but, instead, return None
-        test_args['regest_q'] = '*'
+        test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
+        test_args['q_1'] = '*'
+        test_args['query_dict'] = make_query_dict(test_args)
+        test_args['qSource'] = 'q_1'
+        print(test_args['query_dict'])
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
-        test_args['regest_q'] = '?'
+        test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
+        test_args['q_1'] = '?'
+        test_args['query_dict'] = make_query_dict(test_args)
+        test_args['qSource'] = 'q_1'
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "?" is in the search string.')
-        test_args['regest_q'] = 'tau*'
+        test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
+        test_args['q_1'] = 'tau*'
+        test_args['query_dict'] = make_query_dict(test_args)
+        test_args['qSource'] = 'q_1'
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "*" is anywhere in the search string.')
-        test_args['regest_q'] = 'tau?'
+        test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
+        test_args['q_1'] = 'tau?'
+        test_args['query_dict'] = make_query_dict(test_args)
+        test_args['qSource'] = 'q_1'
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when "?" is anywhere in the search string.')    \
 
     @patch.object(Elasticsearch, "search")
-    def test_regest_word_search_highlighting(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    @patch("formulae.search.Search.check_open_texts")
+    def test_regest_word_search_highlighting(self, mock_open_texts, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_regest_word_search_highlighting'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         expected = [{'regest_sents': [Markup('Graf Wido von Lomello </small><strong>schenkt</strong><small> dem Kloster Disentis Güter und Rechte.')]},
                     {'regest_sents': [Markup('Bischof Tello von Chur </small><strong>schenkt</strong><small> dem Kloster Disentis auf Ableben seine Güter in der')]},
                     {'regest_sents': [Markup('Ovilio von Trimmis </small><strong>schenkt</strong><small> zu seinem und seiner Gattin Theoderia Seelenheil der')]},
@@ -4986,8 +10171,11 @@ class TestES(Formulae_Testing):
                     {'regest_sents': [Markup('Der Richter Daumerius </small><strong>schenkt</strong><small> der Kirche St. Hilarius zu seinem Seelenheil und zum')]},
                     {'regest_sents': [Markup('Vigilius von Trimmis </small><strong>schenkt</strong><small> zum Seelenheil seines Bruders Viktor einen kleinen')]},
                     {'regest_sents': [Markup('Der Priester Valencio </small><strong>schenkt</strong><small> seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.')]}]
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
+        mock_open_texts.return_value = True, False
         Search.HIGHLIGHT_CHARS_AFTER = 50
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(expected, [{"regest_sents": x['regest_sents']} for x in actual])
         Search.HIGHLIGHT_CHARS_AFTER = 30
@@ -4996,6 +10184,7 @@ class TestES(Formulae_Testing):
     def test_suggest_word_search_completion_no_qSource(self, mock_search):
         """ Make sure that None is returned if qSource is not an accepted value"""
         test_args = copy(self.TEST_ARGS['test_suggest_word_search_completion_no_qSource'])
+        test_args['query_dict'] = make_query_dict(test_args)
         results = suggest_word_search(**test_args)
         self.assertIsNone(results)
 
@@ -5015,13 +10204,15 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(file_name_base, 'advanced_search')
         body = fake.load_request()
         resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         with patch('builtins.open', new_callable=mock_open()) as m:
             with patch('json.dump') as mock_dump:
+                test_args['query_dict'] = make_query_dict(test_args)
                 actual, _, _, _ = advanced_query_index(**test_args)
                 mock_dump.assert_any_call(resp, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
                 mock_dump.assert_any_call(body, m.return_value.__enter__.return_value, indent=2, ensure_ascii=False)
@@ -5032,14 +10223,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_specific_day_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = test_args['special_days'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -5047,14 +10240,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_multiple_specific_day_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = test_args['special_days'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -5067,11 +10262,13 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_download_search_results'])
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         resp = fake.load_response()
-        aggs = fake.load_aggs()
-        for h in resp['hits']['hits']:
-            if 'regest' in h['highlight']:
-                del h['highlight']['regest']
-        mock_search.side_effect = cycle([resp, aggs])
+        self.search_response = cycle(resp)
+        self.search_aggs = fake.load_aggs()
+        for single_response in resp:
+            for h in single_response['hits']['hits']:
+                if 'regest' in h['highlight']:
+                    del h['highlight']['regest']
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = [test_args['special_days']]
@@ -5091,14 +10288,15 @@ class TestES(Formulae_Testing):
             r = c.get('/search/download/1')
             recreate = False
             # Uncomment this when the mock search download files need to be recreated
-            # recreate = True
+            recreate = True
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='wb') as f:
                     f.write(r.get_data())
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
-            for hit in resp['hits']['hits']:
-                hit['highlight']['lemmas'] = hit['highlight'].pop('text')
+            for single_response in resp:
+                for hit in single_response['hits']['hits']:
+                    hit['highlight']['lemmas'] = hit['highlight'].pop('text')
             c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&lemma_search=True')
             r = c.get('/search/download/1')
             if recreate:
@@ -5109,9 +10307,9 @@ class TestES(Formulae_Testing):
 
             test_args = copy(self.TEST_ARGS['test_download_search_results_regest'])
             fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
-            resp = fake.load_response()
-            aggs = fake.load_aggs()
-            mock_search.side_effect = cycle([resp, aggs])
+            self.search_response = cycle(fake.load_response())
+            self.search_aggs = fake.load_aggs()
+            mock_search.side_effect = self.search_side_effect
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
             c.get('/search/results?source=advanced&sort=urn&simple_search_id=8372&q=&fuzziness=0&slop=0&in_order=False&elex_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&forgeries=include&exclude_q=&search_id=5745&submit=True&regest_q=schenk*&corpus=buenden&formulaic_parts=&lemma_search=False&regex_search=False&special_days=&proper_name=')
@@ -5123,13 +10321,12 @@ class TestES(Formulae_Testing):
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
             test_args = copy(self.TEST_ARGS['test_multi_charter_part_search'])
-            test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+            test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
             fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
             resp = fake.load_response()
-            aggs = fake.load_aggs()
-            for h in resp['hits']['hits']:
-                h['highlight']['regest'] = ['Some <strong>regest</strong> text']
-            mock_search.side_effect = cycle([resp, aggs])
+            self.search_response = cycle(resp)
+            self.search_aggs = fake.load_aggs()
+            mock_search.side_effect = self.search_side_effect
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
             c.get('/search/results?source=advanced&sort=urn&q=christi&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
@@ -5141,14 +10338,16 @@ class TestES(Formulae_Testing):
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
             test_args = copy(self.TEST_ARGS['test_charter_part_search_no_q'])
-            test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
+            test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
             fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
             resp = fake.load_response()
-            aggs = fake.load_aggs()
-            for h in resp['hits']['hits']:
-                if 'highlight' in h and 'regest' in h['highlight']:
-                    del h['highlight']['regest']
-            mock_search.side_effect = cycle([resp, aggs])
+            self.search_response = cycle(resp)
+            self.search_aggs = fake.load_aggs()
+            for single_response in resp:
+                for h in single_response['hits']['hits']:
+                    if 'highlight' in h and 'regest' in h['highlight']:
+                        del h['highlight']['regest']
+            mock_search.side_effect = self.search_side_effect
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
             c.get('/search/results?source=advanced&sort=urn&q=&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
@@ -5160,93 +10359,127 @@ class TestES(Formulae_Testing):
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
     @patch.object(Elasticsearch, "search")
-    def test_single_charter_part_search(self, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_single_charter_part_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_single_charter_part_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
-        test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
-
-    @patch.object(Elasticsearch, "search")
-    def test_single_charter_part_search_with_wildcard(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
-        test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
-
-    @patch.object(Elasticsearch, "search")
-    def test_multi_charter_part_search(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_multi_charter_part_search'])
-        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
-        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
-        body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
-        test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
-
-    @patch.object(Elasticsearch, "search")
-    def test_single_charter_part_search_with_wildcard(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
-        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
-        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
-        body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
-        test_args['corpus'] = test_args['corpus'].split('+')
-        actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
-
-    @patch.object(Elasticsearch, "search")
-    def test_single_charter_part_search_with_wildcard_v_u(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard_v_u'])
-        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
-        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
-        body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
-        test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
-        actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
-
-    @patch.object(Elasticsearch, "search")
-    def test_fuzzy_charter_part_search(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_fuzzy_charter_part_search'])
-        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
-        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = fake.load_response()
+        self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_single_charter_part_search_with_wildcard(self, mock_highlight, mock_search):
+        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        body = fake.load_request()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.search_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_multi_charter_part_search(self, mock_highlight, mock_search):
+        test_args = copy(self.TEST_ARGS['test_multi_charter_part_search'])
+        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+        name_args = copy(test_args)
+        name_args['search_field_1'] = name_args['formulaic_parts_1']
+        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.search_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_single_charter_part_search_with_wildcard(self, mock_highlight, mock_search):
+        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
+        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+        name_args = copy(test_args)
+        name_args['search_field_1'] = name_args['formulaic_parts_1']
+        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.search_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_single_charter_part_search_with_wildcard_v_u(self, mock_highlight, mock_search):
+        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard_v_u'])
+        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+        name_args = copy(test_args)
+        name_args['search_field_1'] = name_args['formulaic_parts_1']
+        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.search_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    @patch("formulae.search.Search.check_open_texts")
+    def test_fuzzy_charter_part_search(self, mock_open_texts, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_fuzzy_charter_part_search'])
+        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+        name_args = copy(test_args)
+        name_args['search_field_1'] = name_args['formulaic_parts_1']
+        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.search_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
+        mock_open_texts.return_value = True, True
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, 'lem_highlight_to_text')
@@ -5254,31 +10487,43 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_fuzzy_v_to_u_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
-        self.search_response = fake.load_response()
+        self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    def test_charter_part_search_no_q(self, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    @patch("formulae.search.Search.check_open_texts")
+    def test_charter_part_search_no_q(self, mock_open_texts, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_charter_part_search_no_q'])
-        test_args['formulaic_parts'] = test_args['formulaic_parts'].replace('%2B', '+')
-        fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+        name_args = copy(test_args)
+        name_args['search_field_1'] = name_args['formulaic_parts_1']
+        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
+        mock_open_texts.return_value = True, True
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        self.nemo.open_texts += [x['id'] for x in ids]
+        print(self.nemo.open_texts)
         sents = [{'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum esse non credo, aut ego ipse aut ulla opposita persona, quod fieri non credo, contra hanc donationem venire aut eam infringere temptaverit, inprimis in iram dei incurrat, et a liminibus aecclesiae extraneus efficiatur, et sit culpabilis in fisco auri uncias duo et argenti pondera quinque, et effectum, quod inchoavit, obtinere non valeat')]},
                  {'sents': [Markup('<strong>Stipulationsformel:</strong> Et haec traditio a nobis facta omni tempore firma et stabilis permaneat')]},
                  {'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod fieri non credo, aut ego ipse aut ullus de hereditaribus meis contra hanc donationem facere volverit, inprimis iram dei et sancti Michahelis et omnium sanctorum eius incurrere pertimescat'),
@@ -5302,13 +10547,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_forgery_only'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -5316,13 +10563,15 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_forgery_exclude'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -5330,36 +10579,42 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_regex_text'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        mock_search.side_effect = cycle([resp, aggs])
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     def test_regex_parts(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_regex_parts'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        mock_search.side_effect = cycle([resp, aggs])
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     def test_regex_parts_no_uv_replacement(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_regex_parts_no_uv_replacement'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        mock_search.side_effect = cycle([resp, aggs])
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, 'lem_highlight_to_text')
@@ -5367,55 +10622,74 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_exclude_q'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        mock_search.side_effect = cycle([resp, aggs])
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, 'lem_highlight_to_text')
     def test_exclude_q_parts(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_exclude_q_parts'])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        name_args = copy(test_args)
+        name_args['search_field_1'] = name_args['formulaic_parts_1']
+        fake = FakeElasticsearch(self.build_file_name(name_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
-        mock_search.side_effect = cycle([resp, aggs])
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     def test_elex_search(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_elex_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        expected_sents = [[Markup('</small><strong>Diakone</strong><small> sind bereits bei Paulus bezeugt (Phil. 1, 1) und erscheinen im Neuen Testament als Diener und'),
+                           Markup('In der Frühzeit der Kirche wurden </small><strong>Diakone</strong><small> gemeinsam mit den Bischöfen von der Gemeinde gewählt, waren'),
+                           Markup('Mit dem Konzil von Nicäa 325 wurden die </small><strong>Diakone</strong><small> innerhalb des Klerus hinter den Presbytern eingestuft'),
+                           Markup('In der Merowingerzeit traten </small><strong>Diakone</strong><small> auch in der Funktion des aedituus (Pförtner, Küstner, Sakristan'),
+                           Markup('Im hohen und späten Mittelalter war die Machtfülle einiger </small><strong>Diakone</strong><small> offenbar so angewachsen, dass sie')],
+                          [Markup('Im christlichen Umfeld agierten episcopi zunächst wohl, wie Presbyter und </small><strong>Diakone</strong><small>, als Ratgeber und Vorsteher')],
+                          [Markup('scheint martyrarius bald eine besondere Funktion zu bezeichnen, die verschiedene Amtsträger wie etwa </small><strong>Diakone</strong><small>')],
+                          [Markup('In wenigen Ausnahmefällen werden auch </small><strong>Diakone</strong><small> oder Kleriker als viri venerabiles bezeichnet, jedoch stehen')]]
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        self.assertEqual(expected_sents, [x['sents'] for x in actual])
 
     @patch.object(Elasticsearch, "search")
     def test_elex_search_multi(self, mock_search):
         test_args = copy(self.TEST_ARGS['test_elex_search_multi'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -5423,14 +10697,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_elex_search_wildcard'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -5438,14 +10714,16 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_elex_search_multi_wildcard'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -5454,16 +10732,21 @@ class TestES(Formulae_Testing):
         test_args = copy(self.TEST_ARGS['test_simple_search_text_and_regest'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
-        resp = fake.load_response()
-        aggs = fake.load_aggs()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
-        mock_search.side_effect = cycle([resp, aggs])
+        mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
-        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['q_2'] = test_args['q_2'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=body)
+        print(mock_search.call_args_list)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
 
 class TestErrors(Formulae_Testing):
     def test_404(self):

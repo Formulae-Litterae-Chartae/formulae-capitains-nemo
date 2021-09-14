@@ -57,16 +57,12 @@ $(document).ready(function () {
     // for autocomplete as you type I need the following things:
     // - a listener for when the field changes
     // see https://blog.manifold.co/leveraging-the-power-of-elasticsearch-autocomplete-and-fuzzy-search-1d491d3e0b38 for some ideas
-    $('#word-search-box').keyup(function(e) {
-        sendAutocompleteRequest($( this ), $('#word-search-datalist'), "text");
-    });
-
-    $('#regest-word-search-box').keyup(function(e) {
-        sendAutocompleteRequest($( this ), $('#regest-word-search-datalist'), "regest");
+    $('.word-search-box').keyup(function(e) {
+        sendAutocompleteRequest($( this ));
     });
      
     var datePlusMinusInput = document.getElementById('date_plus_minus');
-    var slopInput = document.getElementById('slop');
+    var slopInput = document.getElementsByClassName('slop_input');
 
     datePlusMinusInput.addEventListener('input', function () {
         datePlusMinusInput.setCustomValidity("");
@@ -77,18 +73,16 @@ $(document).ready(function () {
         datePlusMinusInput.setCustomValidity(datePlusMinusInvalidMessage);
     })
 
-    slopInput.addEventListener('input', function () {
-        slopInput.setCustomValidity("");
-        slopInput.checkValidity();
-    })
-
-    slopInput.addEventListener('invalid', function () {
-        slopInput.setCustomValidity(slopInvalidMessage);
-    })
-
-    $('#advancedResetButton').click(function () {
-        document.getElementById('advanced-form').reset();
-    })
+    for (let item of slopInput) {
+        item.addEventListener('input', function () {
+            item.setCustomValidity("");
+            item.checkValidity();
+        })
+        item.addEventListener('invalid', function () {
+            item.setCustomValidity(slopInvalidMessage);
+            
+        })
+    }
     
     $('.collapse input').each(function(i, el) {
         if ($( this ).attr('type') == "checkbox") {
