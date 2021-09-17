@@ -1247,7 +1247,7 @@ class NemoFormulae(Nemo):
 
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]
-                        if result_ids and session['previous_search_args'].get('q'):
+                        if result_ids and any([x.get('highlight') for x in result_ids]):
                             d['text_passage'] = self.highlight_found_sents(d['text_passage'], result_ids)
                     if d['collections']['current']['sigla'] != '':
                         d['collections']['current']['label'] = d['collections']['current']['label'].split(' [')
@@ -1267,43 +1267,33 @@ class NemoFormulae(Nemo):
         :return: transformed html
         """
         root = etree.fromstring(html)
-        prev_args = session['previous_search_args']
-        if prev_args.get('formulaic_parts', None):
-            parts = prev_args.get('formulaic_parts', '').split('+')
-            for part in parts:
-                if part in results[0]['highlight']:
-                    root.xpath('//span[@function="{}"]'.format(part))[0].set('class', 'searched')
-                    for highlight in results[0]['highlight'][part]:
-                        for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
-                            for w_tag in root.xpath('//span[@function="{}"]//span[@class="w"]'.format(part)):
-                                if w_tag.text == m.group(1):
-                                    w_tag.set('class', w_tag.get('class') + ' font-weight-bold')
-            xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None,
-                                        pretty_print=False, with_tail=True, standalone=None)
-        else:
-            spans = root.xpath('//span[contains(@class, "w")]')
-            search_field = 'text'
-            if prev_args.get('lemma_search', None) == "True":
-                search_field = 'lemmas'
-            ids = results
-            if not any(ids):
-                return html
-            if 'sentence_spans' in ids[0]:
-                for sent_index, sent in enumerate(ids[0]['sents']):
-                    for span_index, i in enumerate(ids[0]['sentence_spans'][sent_index]):
-                        if span_index == 0 and 'searched-start' not in spans[i].get('class'):
-                            spans[i].set('class', spans[i].get('class') + ' searched-start')
-                        elif spans[i - 1].getparent() != spans[i].getparent() and 'searched-start' not in spans[i].get('class'):
-                            spans[i].set('class', spans[i].get('class') + ' searched-start')
-                        if len(spans) > i + 1 and spans[i + 1].getparent() != spans[i].getparent():
-                            if 'searched-end' not in spans[i].get('class'):
-                                spans[i].set('class', spans[i].get('class') + ' searched-end')
-                    if 'searched-end' not in spans[i].get('class'):
-                        spans[i].set('class', spans[i].get('class') + ' searched-end')
-            xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
-                                        with_tail=True, standalone=None)
-            span_pattern = re.compile(r'(<span id="\w+" class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
-            xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
+        spans = root.xpath('//span[contains(@class, "w")]')
+        ids = results
+        if not any(ids):
+            return html
+        for sent, span in zip(ids[0]['sents'], ids[0]['sentence_spans']):
+            if isinstance(span, str):
+                for s in root.xpath('//span[@function="{}"]'.format(span)):
+                    s.set('class', 'searched')
+                for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), sent):
+                    for w_tag in root.xpath('//span[@function="{}"]//span[@class="w"]'.format(span)):
+                        if w_tag.text == m.group(1):
+                            w_tag.set('class', w_tag.get('class') + ' font-weight-bold')
+            elif isinstance(span, range):
+                for span_index, i in enumerate(span):
+                    if span_index == 0 and 'searched-start' not in spans[i].get('class'):
+                        spans[i].set('class', spans[i].get('class') + ' searched-start')
+                    elif spans[i - 1].getparent() != spans[i].getparent() and 'searched-start' not in spans[i].get('class'):
+                        spans[i].set('class', spans[i].get('class') + ' searched-start')
+                    if len(spans) > i + 1 and spans[i + 1].getparent() != spans[i].getparent():
+                        if 'searched-end' not in spans[i].get('class'):
+                            spans[i].set('class', spans[i].get('class') + ' searched-end')
+                if 'searched-end' not in spans[i].get('class'):
+                    spans[i].set('class', spans[i].get('class') + ' searched-end')
+        xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
+                                    with_tail=True, standalone=None)
+        span_pattern = re.compile(r'(<span id="\w+" class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
+        xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
         return Markup(xml_string)
 
     def r_lexicon(self, objectId: str, lang: str = None) -> Dict[str, Any]:

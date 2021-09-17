@@ -353,9 +353,9 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                             sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets[highlight_field]), pos + 11)))
                 elif s_field in FORM_PARTS.keys():
                     if query_terms['q']:
-                        part_sentences += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)) for x in hit['highlight'][s_field]]
+                        part_sentences += [(Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)), s_field) for x in hit['highlight'][s_field]]
                     else:
-                        part_sentences += [Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + hit['_source'][s_field])]
+                        part_sentences += [(Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + hit['_source'][s_field]), s_field)]
                 elif 'regest' in s_field:
                     if show_regest is False:
                         regest_sents = [_('Regest nicht zugänglich.')]
@@ -371,8 +371,12 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
             for x, y in sorted(zip(sentences, sentence_spans), key=lambda z: (z[1].start, z[1].stop)):
                 ordered_sentences.append(x)
                 ordered_sentence_spans.append(y)
-            ordered_sentences += other_sentences
-            ordered_sentences += [x for x in sorted(part_sentences)]
+            for other_sent in other_sentences:
+                ordered_sentences.append(other_sent)
+                ordered_sentence_spans.append(None)
+            for part_sent, sent_part in sorted(part_sentences):
+                ordered_sentences.append(part_sent)
+                ordered_sentence_spans.append(sent_part)
             if ordered_sentences or regest_sents:
                 if current_app.config['nemo_app'].check_project_team() is False and not open_text:
                     ordered_sentences = [_('Text nicht zugänglich.')]
@@ -879,14 +883,16 @@ def advanced_query_index(corpus: list = None,
                         args_plus_results[0][1]['hits']['hits'] = pruned_hits
                         args_plus_results = [args_plus_results[0]]
                     # If bool_operator is should, all results from all searches should be used
+                    else:
+                        shared_ids.update(*combined_results[1:])
+            first = []
+            second = []
             for q_v, q_r in args_plus_results:
-                first = []
-                second = []
                 if 'autocomplete' in q_v['search_field']:
                     first.append(q_r)
                 else:
                     second.append(q_r)
-                search = first + second
+            search = first + second
         else:
             searched_templates.append(base_body_template)
             search = [current_app.elasticsearch.search(index=corpus, doc_type="", body=base_body_template)]
@@ -967,12 +973,13 @@ def advanced_query_index(corpus: list = None,
                    "{m_e}&{d_e}&{d_p_m}&" \
                    "{e_d_r}&{c_p}&" \
                    "{sort}&{spec_days}&" \
-                   "{forgeries}&{source}".format(
+                   "{forgeries}&{source}&{bool_op}".format(
             corpus='+'.join(corpus) if isinstance(corpus, list) else corpus,
             q='&'.join(q), y=year, m=month, d=day, y_s=year_start,
             m_s=month_start, d_s=day_start, y_e=year_end,
             m_e=month_end, d_e=day_end, d_p_m=date_plus_minus, e_d_r=exclusive_date_range, c_p=composition_place,
-            sort=old_sort, spec_days='+'.join(special_days), forgeries=forgeries, source=source)
+            sort=old_sort, spec_days='+'.join(special_days), forgeries=forgeries, source=source, bool_op=bool_operator)
+        req_name = req_name.replace('/', '-')
         fake = FakeElasticsearch(req_name, "advanced_search")
         fake.save_request(searched_templates)
         # Remove the textual parts from the results

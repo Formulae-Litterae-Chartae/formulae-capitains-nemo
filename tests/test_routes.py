@@ -6,7 +6,7 @@ from formulae.models import User
 from formulae.search.Search import advanced_query_index, build_sort_list, \
     suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
-from formulae.search.routes import make_query_dict
+from formulae.search.routes import make_query_dict, build_search_args
 from flask_nemo.filters import slugify
 from formulae.search.forms import AdvancedSearchForm, SearchForm
 from formulae.auth.forms import LoginForm, PasswordChangeForm, LanguageChangeForm, ResetPasswordForm, \
@@ -728,11 +728,11 @@ class TestIndividualRoutes(Formulae_Testing):
                                            special_days=None, old_search=False, source='advanced',
                                            forgeries='include', query_dict={'q_1':
                                                                                 {'q': '',
-                                                                                 'in_order': False,
+                                                                                 'in_order': 'False',
                                                                                  'regex_search': False,
                                                                                  'proper_name': '',
                                                                                  'formulaic_parts': '',
-                                                                                 'slop': 0,
+                                                                                 'slop': '0',
                                                                                  'fuzziness': '0',
                                                                                  'search_field':
                                                                                      'text', 'exclude_q': ''}},
@@ -747,8 +747,8 @@ class TestIndividualRoutes(Formulae_Testing):
                                            date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
                                            composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
                                            old_search=False, source='advanced', search_id='1234', forgeries='include',
-                                           query_dict={'q_1': {'q': '', 'in_order': False, 'regex_search': False,
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': 0,
+                                           query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': False,
+                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'text',
                                                                'exclude_q': ''}},
                                            bool_operator='must')
@@ -844,10 +844,10 @@ class TestIndividualRoutes(Formulae_Testing):
                                            date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
                                            composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
                                            old_search=False, source='advanced', search_id='1234', forgeries='include',
-                                           query_dict={'q_1': {'q': '', 'in_order': False, 'regex_search': False,
+                                           query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': False,
                                                                'proper_name': '',
                                                                'formulaic_parts': 'Poenformel+Stipulationsformel',
-                                                               'slop': 0, 'fuzziness': '0', 'search_field': 'lemmas',
+                                                               'slop': '0', 'fuzziness': '0', 'search_field': 'lemmas',
                                                                'exclude_q': ''}},
                                            bool_operator='must')
 
@@ -921,7 +921,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            composition_place='', sort='urn', special_days=None, old_search=False,
                                            source='simple', search_id='1234', forgeries='include',
                                            query_dict={'q_1':
-                                                           {'q': 'regnum', 'in_order': False, 'regex_search': False,
+                                                           {'q': 'regnum', 'in_order': 'False', 'regex_search': False,
                                                             'proper_name': '', 'formulaic_parts': '', 'slop': 0,
                                                             'fuzziness': 0, 'search_field': 'text', 'exclude_q': ''}},
                                            bool_operator='must')
@@ -934,7 +934,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            sort='urn', special_days=None, old_search=False, source='simple',
                                            search_id='1234', forgeries='include',
                                            query_dict={'q_1':
-                                                           {'q': 'regnum', 'in_order': False, 'regex_search': False,
+                                                           {'q': 'regnum', 'in_order': 'False', 'regex_search': False,
                                                             'proper_name': '', 'formulaic_parts': '', 'slop': 0,
                                                             'fuzziness': 0, 'search_field': 'text', 'exclude_q': ''}},
                                            bool_operator='must')
@@ -944,7 +944,6 @@ class TestIndividualRoutes(Formulae_Testing):
     def test_search_result_highlighting(self, mock_highlight):
         """ Make sure that highlighting of search results works correctly"""
         # Highlighting should cross boundary of parent nodes
-        session['previous_search_args'] = {'q': 'Text that I want to search'}
         search_string = ['Text that I want to search']
         expected = search_string[0].split()
         obj_id = 'urn:cts:formulae:salzburg.hauthaler-a0001.lat001'
@@ -962,26 +961,12 @@ class TestIndividualRoutes(Formulae_Testing):
         mock_highlight.return_value = ([{'sents': search_string, 'sentence_spans': [range(6, 13)]}], [])
         result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
         self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')])
-        # Make sure that results are also returned whether lemma or text, simple or advanced
-        session['previous_search_args']['lemma_search'] = 'False'
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
-        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Advanced with text should work.')
-        session['previous_search_args']['lemma_search'] = 'True'
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
-        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Advanced with lemmas should work.')
-        session['previous_search_args'].pop('lemma_search', None)
-        session['previous_search_args']['lemma_search'] = 'True'
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
-        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Simple with lemmas should work.')
-        session['previous_search_args'].pop('lemma_search', None)
-        session['previous_search_args']['lemma_search'] = 'False'
-        result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(6, 13)]}]))
-        self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')], 'Simple with text should work.')
         # Should return the same result when passed in the session variable to r_multipassage
         session['previous_search'] = [{'id': obj_id,
                                        'title': 'Salzburg A1',
                                        'sents': search_string,
-                                       'sentence_spans': [range(6, 13)]}]
+                                       'sentence_spans': [range(6, 13)],
+                                       'highlight': search_string}]
         passage_data = self.nemo.r_multipassage(obj_id, '1')
         result = etree.fromstring(passage_data['objects'][0]['text_passage'])
         self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')])
@@ -992,8 +977,13 @@ class TestIndividualRoutes(Formulae_Testing):
 
     def test_highlight_charter_parts(self):
         """ Make sure that the parts of a charter are highlighted correctly when there is a hit in that part"""
-        session['previous_search_args'] = {'formulaic_parts': 'Arenga+Invocatio'}
-        results = [{'highlight': {'Invocatio': ["</small><strong>trinitatis</strong><small>"]}}]
+        results = [{'id': "urn:cts:formulae:stgallen.wartmann0615.lat001",
+                    'info': "",
+                    'sents': ["<strong>Invocatio</strong>: </small><strong>trinitatis</strong><small>"],
+                    'sentence_spans': ["Invocatio"],
+                    'title': "St. Gallen Nr. 215",
+                    'regest_sents': [],
+                    'highlight': []}]
         obj_id = "urn:cts:formulae:stgallen.wartmann0615.lat001"
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
@@ -1898,7 +1888,8 @@ class TestES(Formulae_Testing):
                                                                   ('sort', 'urn'),
                                                                   ('special_days', ''),
                                                                   ("forgeries", "include"),
-                                                                  ('source', 'advanced')]),
+                                                                  ('source', 'advanced'),
+                                                                  ('bool_operator', 'must')]),
                  'test_date_range_search_same_month': OrderedDict([("corpus", "all"),
                                                                    ("search_field_1", "text"),
                                                                    ("q_1", ''),
@@ -1951,7 +1942,8 @@ class TestES(Formulae_Testing):
                                                                    ('sort', 'urn'),
                                                                    ('special_days', ''),
                                                                    ("forgeries", "include"),
-                                                                   ('source', 'advanced')]),
+                                                                   ('source', 'advanced'),
+                                                                   ('bool_operator', 'must')]),
                  'test_date_range_search_different_year': OrderedDict([("corpus", "all"),
                                                                        ("search_field_1", "text"),
                                                                        ("q_1", ''),
@@ -2004,7 +1996,8 @@ class TestES(Formulae_Testing):
                                                                        ('sort', 'urn'),
                                                                        ('special_days', ''),
                                                                        ("forgeries", "include"),
-                                                                       ('source', 'advanced')]),
+                                                                       ('source', 'advanced'),
+                                                                       ('bool_operator', 'must')]),
                  'test_date_range_search_only_year': OrderedDict([("corpus", "all"),
                                                                   ("search_field_1", "text"),
                                                                   ("q_1", ''),
@@ -2057,7 +2050,8 @@ class TestES(Formulae_Testing):
                                                                   ('sort', 'urn'),
                                                                   ('special_days', ''),
                                                                   ("forgeries", "include"),
-                                                                  ('source', 'advanced')]),
+                                                                  ('source', 'advanced'),
+                                                                  ('bool_operator', 'must')]),
                  'test_date_range_search_only_year_and_month_same_year': OrderedDict([("corpus", "all"),
                                                                                       ("search_field_1", "text"),
                                                                                       ("q_1", ''),
@@ -2110,7 +2104,8 @@ class TestES(Formulae_Testing):
                                                                                       ('sort', 'urn'),
                                                                                       ('special_days', ''),
                                                                                       ("forgeries", "include"),
-                                                                                      ('source', 'advanced')]),
+                                                                                      ('source', 'advanced'),
+                                                                                      ('bool_operator', 'must')]),
                  'test_date_range_search_only_year_and_month_different_year': OrderedDict([("corpus", "all"),
                                                                                            ("search_field_1", "text"),
                                                                                            ("q_1", ''),
@@ -2163,7 +2158,8 @@ class TestES(Formulae_Testing):
                                                                                            ('sort', 'urn'),
                                                                                            ('special_days', ''),
                                                                                            ("forgeries", "include"),
-                                                                                           ('source', 'advanced')]),
+                                                                                           ('source', 'advanced'),
+                                                                                           ('bool_operator', 'must')]),
                  'test_date_range_search_only_start_year': OrderedDict([("corpus", "all"),
                                                                         ("search_field_1", "text"),
                                                                         ("q_1", ''),
@@ -2216,7 +2212,8 @@ class TestES(Formulae_Testing):
                                                                         ('sort', 'urn'),
                                                                         ('special_days', ''),
                                                                         ("forgeries", "include"),
-                                                                        ('source', 'advanced')]),
+                                                                        ('source', 'advanced'),
+                                                                        ('bool_operator', 'must')]),
                  'test_date_range_search_only_end_year': OrderedDict([("corpus", "all"),
                                                                       ("search_field_1", "text"),
                                                                       ("q_1", ''),
@@ -2269,7 +2266,8 @@ class TestES(Formulae_Testing):
                                                                       ('sort', 'urn'),
                                                                       ('special_days', ''),
                                                                       ("forgeries", "include"),
-                                                                      ('source', 'advanced')]),
+                                                                      ('source', 'advanced'),
+                                                                      ('bool_operator', 'must')]),
                  'test_date_range_search_only_start_year_and_month': OrderedDict([("corpus", "all"),
                                                                                   ("search_field_1", "text"),
                                                                                   ("q_1", ''),
@@ -2322,7 +2320,8 @@ class TestES(Formulae_Testing):
                                                                                   ('sort', 'urn'),
                                                                                   ('special_days', ''),
                                                                                   ("forgeries", "include"),
-                                                                                  ('source', 'advanced')]),
+                                                                                  ('source', 'advanced'),
+                                                                                  ('bool_operator', 'must')]),
                  'test_date_range_search_only_end_year_and_month': OrderedDict([("corpus", "all"),
                                                                                 ("search_field_1", "text"),
                                                                                 ("q_1", ''),
@@ -2375,7 +2374,8 @@ class TestES(Formulae_Testing):
                                                                                 ('sort', 'urn'),
                                                                                 ('special_days', ''),
                                                                                 ("forgeries", "include"),
-                                                                                ('source', 'advanced')]),
+                                                                                ('source', 'advanced'),
+                                                                                ('bool_operator', 'must')]),
                  'test_normal_date_search': OrderedDict([("corpus", "all"),
                                                          ("search_field_1", "text"),
                                                          ("q_1", ''),
@@ -2428,7 +2428,8 @@ class TestES(Formulae_Testing):
                                                          ('sort', 'urn'),
                                                          ('special_days', ''),
                                                          ("forgeries", "include"),
-                                                         ('source', 'advanced')]),
+                                                         ('source', 'advanced'),
+                                                         ('bool_operator', 'must')]),
                  'test_normal_date_only_year_search': OrderedDict([("corpus", "all"),
                                                                    ("search_field_1", "text"),
                                                                    ("q_1", ''),
@@ -2481,7 +2482,8 @@ class TestES(Formulae_Testing):
                                                                    ('sort', 'urn'),
                                                                    ('special_days', ''),
                                                                    ("forgeries", "include"),
-                                                                   ('source', 'advanced')]),
+                                                                   ('source', 'advanced'),
+                                                                   ('bool_operator', 'must')]),
                  'test_date_plus_minus_search': OrderedDict([("corpus", "all"),
                                                              ("search_field_1", "text"),
                                                              ("q_1", ''),
@@ -2534,7 +2536,8 @@ class TestES(Formulae_Testing):
                                                              ('sort', 'urn'),
                                                              ('special_days', ''),
                                                              ("forgeries", "include"),
-                                                             ('source', 'advanced')]),
+                                                             ('source', 'advanced'),
+                                                             ('bool_operator', 'must')]),
                  'test_exclusive_date_range_search': OrderedDict([("corpus", "all"),
                                                                   ("search_field_1", "text"),
                                                                   ("q_1", ''),
@@ -2587,7 +2590,8 @@ class TestES(Formulae_Testing):
                                                                   ('sort', 'urn'),
                                                                   ('special_days', ''),
                                                                   ("forgeries", "include"),
-                                                                  ('source', 'advanced')]),
+                                                                  ('source', 'advanced'),
+                                                                  ('bool_operator', 'must')]),
                  'test_exclusive_date_range_search_only_year': OrderedDict([("corpus", "all"),
                                                                             ("search_field_1", "text"),
                                                                             ("q_1", ''),
@@ -2640,7 +2644,8 @@ class TestES(Formulae_Testing):
                                                                             ('sort', 'urn'),
                                                                             ('special_days', ''),
                                                                             ("forgeries", "include"),
-                                                                            ('source', 'advanced')]),
+                                                                            ('source', 'advanced'),
+                                                                            ('bool_operator', 'must')]),
                  'test_exclusive_date_range_search_same_month_and_day': OrderedDict([("corpus", "all"),
                                                                                      ("search_field_1", "text"),
                                                                                      ("q_1", ''),
@@ -2693,7 +2698,8 @@ class TestES(Formulae_Testing):
                                                                                      ('sort', 'urn'),
                                                                                      ('special_days', ''),
                                                                                      ("forgeries", "include"),
-                                                                                     ('source', 'advanced')]),
+                                                                                     ('source', 'advanced'),
+                                                                                     ('bool_operator', 'must')]),
                  'test_multi_corpus_search': OrderedDict([("corpus", "andecavensis%2Bmondsee"),
                                                           ("search_field_1", "text"),
                                                           ("q_1", ''),
@@ -2746,7 +2752,8 @@ class TestES(Formulae_Testing):
                                                           ('sort', 'urn'),
                                                           ('special_days', ''),
                                                           ("forgeries", "include"),
-                                                          ('source', 'advanced')]),
+                                                          ('source', 'advanced'),
+                                                          ('bool_operator', 'must')]),
                  'test_multiword_wildcard_search': OrderedDict([("corpus", "all"),
                                                                 ("search_field_1", "text"),
                                                                 ("q_1", 'regnum+dom*'),
@@ -2799,7 +2806,8 @@ class TestES(Formulae_Testing):
                                                                 ('sort', 'urn'),
                                                                 ('special_days', ''),
                                                                 ("forgeries", "include"),
-                                                                ('source', 'advanced')]),
+                                                                ('source', 'advanced'),
+                                                                ('bool_operator', 'must')]),
                  'test_lemma_advanced_search': OrderedDict([("corpus", "all"),
                                                             ("search_field_1", "lemmas"),
                                                             ("q_1", 'regnum'),
@@ -2852,7 +2860,8 @@ class TestES(Formulae_Testing):
                                                             ('sort', 'urn'),
                                                             ('special_days', ''),
                                                             ("forgeries", "include"),
-                                                            ('source', 'advanced')]),
+                                                            ('source', 'advanced'),
+                                                            ('bool_operator', 'must')]),
                  'test_lemma_simple_search': OrderedDict([("corpus", "all"),
                                                           ("search_field_1", "lemmas"),
                                                           ("q_1", 'regnum'),
@@ -2905,7 +2914,8 @@ class TestES(Formulae_Testing):
                                                           ('sort', 'urn'),
                                                           ('special_days', ''),
                                                           ("forgeries", "include"),
-                                                          ('source', 'simple')]),
+                                                          ('source', 'simple'),
+                                                          ('bool_operator', 'must')]),
                  'test_regest_advanced_search': OrderedDict([("corpus", "all"),
                                                              ("search_field_1", "regest"),
                                                              ("q_1", 'tausch'),
@@ -2958,7 +2968,8 @@ class TestES(Formulae_Testing):
                                                              ('sort', 'urn'),
                                                              ('special_days', ''),
                                                              ("forgeries", "include"),
-                                                             ('source', 'advanced')]),
+                                                             ('source', 'advanced'),
+                                                             ('bool_operator', 'must')]),
                  'test_regest_and_word_advanced_search': OrderedDict([("corpus", "all"),
                                                                       ("search_field_1", "text"),
                                                                       ("q_1", 'regnum'),
@@ -3011,7 +3022,8 @@ class TestES(Formulae_Testing):
                                                                       ('sort', 'urn'),
                                                                       ('special_days', ''),
                                                                       ("forgeries", "include"),
-                                                                      ('source', 'advanced')]),
+                                                                      ('source', 'advanced'),
+                                                                      ('bool_operator', 'must')]),
                  'test_regest_advanced_search_with_wildcard': OrderedDict([("corpus", "all"),
                                                                            ("search_field_1", "regest"),
                                                                            ("q_1", 'tau*'),
@@ -3064,7 +3076,8 @@ class TestES(Formulae_Testing):
                                                                            ('sort', 'urn'),
                                                                            ('special_days', ''),
                                                                            ("forgeries", "include"),
-                                                                           ('source', 'advanced')]),
+                                                                           ('source', 'advanced'),
+                                                                           ('bool_operator', 'must')]),
                  'test_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"),
                                                                       ("search_field_1", "lemmas"),
                                                                       ("q_1", 'vir+venerabilis'),
@@ -3117,7 +3130,8 @@ class TestES(Formulae_Testing):
                                                                       ('sort', 'urn'),
                                                                       ('special_days', ''),
                                                                       ("forgeries", "include"),
-                                                                      ('source', 'advanced')]),
+                                                                      ('source', 'advanced'),
+                                                                      ('bool_operator', 'must')]),
                  'test_v_to_u_multiword': OrderedDict([("corpus", "all"),
                                                        ("search_field_1", "text"),
                                                        ("q_1", 'wolfhart+cvm'),
@@ -3170,7 +3184,8 @@ class TestES(Formulae_Testing):
                                                        ('sort', 'urn'),
                                                        ('special_days', ''),
                                                        ("forgeries", "include"),
-                                                       ('source', 'advanced')]),
+                                                       ('source', 'advanced'),
+                                                       ('bool_operator', 'must')]),
                  'test_v_to_u_single_word': OrderedDict([("corpus", "all"),
                                                          ("search_field_1", "text"),
                                                          ("q_1", 'novalium'),
@@ -3223,7 +3238,8 @@ class TestES(Formulae_Testing):
                                                          ('sort', 'urn'),
                                                          ('special_days', ''),
                                                          ("forgeries", "include"),
-                                                         ('source', 'advanced')]),
+                                                         ('source', 'advanced'),
+                                                         ('bool_operator', 'must')]),
                  'test_single_word_highlighting': OrderedDict([("corpus", "buenden"),
                                                                ("search_field_1", "text"),
                                                                ("q_1", 'pettonis'),
@@ -3276,7 +3292,8 @@ class TestES(Formulae_Testing):
                                                                ('sort', 'urn'),
                                                                ('special_days', ''),
                                                                ("forgeries", "include"),
-                                                               ('source', 'advanced')]),
+                                                               ('source', 'advanced'),
+                                                               ('bool_operator', 'must')]),
                  'test_multi_word_highlighting': OrderedDict([("corpus", "buenden"),
                                                               ("search_field_1", "text"),
                                                               ("q_1", 'scripsi+et+suscripsi'),
@@ -3329,7 +3346,8 @@ class TestES(Formulae_Testing):
                                                               ('sort', 'urn'),
                                                               ('special_days', ''),
                                                               ("forgeries", "include"),
-                                                              ('source', 'advanced')]),
+                                                              ('source', 'advanced'),
+                                                              ('bool_operator', 'must')]),
                  'test_single_lemma_highlighting': OrderedDict([("corpus", "buenden"),
                                                                 ("search_field_1", "text"),
                                                                 ("q_1", 'regnum'),
@@ -3382,7 +3400,8 @@ class TestES(Formulae_Testing):
                                                                 ('sort', 'urn'),
                                                                 ('special_days', ''),
                                                                 ("forgeries", "include"),
-                                                                ('source', 'advanced')]),
+                                                                ('source', 'advanced'),
+                                                                ('bool_operator', 'must')]),
                  'test_multi_lemma_highlighting': OrderedDict([("corpus", "buenden"),
                                                                ("search_field_1", "text"),
                                                                ("q_1", 'regnum+domni'),
@@ -3435,7 +3454,8 @@ class TestES(Formulae_Testing):
                                                                ('sort', 'urn'),
                                                                ('special_days', ''),
                                                                ("forgeries", "include"),
-                                                               ('source', 'advanced')]),
+                                                               ('source', 'advanced'),
+                                                               ('bool_operator', 'must')]),
                  'test_lemma_advanced_search_with_wildcard': OrderedDict([("corpus", "all"),
                                                                           ("search_field_1", "lemmas"),
                                                                           ("q_1", 'venerabili?'),
@@ -3488,7 +3508,8 @@ class TestES(Formulae_Testing):
                                                                           ('sort', 'urn'),
                                                                           ('special_days', ''),
                                                                           ("forgeries", "include"),
-                                                                          ('source', 'advanced')]),
+                                                                          ('source', 'advanced'),
+                                                                          ('bool_operator', 'must')]),
                  'test_composition_place_advanced_search': OrderedDict([("corpus", "all"),
                                                                         ("search_field_1", "text"),
                                                                         ("q_1", ''),
@@ -3541,7 +3562,8 @@ class TestES(Formulae_Testing):
                                                                         ('sort', 'urn'),
                                                                         ('special_days', ''),
                                                                         ("forgeries", "include"),
-                                                                        ('source', 'advanced')]),
+                                                                        ('source', 'advanced'),
+                                                                        ('bool_operator', 'must')]),
                  'test_suggest_composition_places': OrderedDict([("corpus", "all"),
                                                                  ("search_field_1", "text"),
                                                                  ("q_1", ''),
@@ -3594,7 +3616,8 @@ class TestES(Formulae_Testing):
                                                                  ('sort', 'urn'),
                                                                  ('special_days', ''),
                                                                  ("forgeries", "include"),
-                                                                 ('source', 'advanced')]),
+                                                                 ('source', 'advanced'),
+                                                                 ('bool_operator', 'must')]),
                  'test_regest_word_search_highlighting': OrderedDict([("corpus", "buenden"),
                                                                       ("search_field_1", "regest"),
                                                                       ("q_1", 'schenkt'),
@@ -3647,7 +3670,8 @@ class TestES(Formulae_Testing):
                                                                       ('sort', 'urn'),
                                                                       ('special_days', ''),
                                                                       ("forgeries", "include"),
-                                                                      ('source', 'advanced')]),
+                                                                      ('source', 'advanced'),
+                                                                      ('bool_operator', 'must')]),
                  'test_suggest_word_search_completion_no_qSource': OrderedDict([("corpus", "all"),
                                                                                 ("search_field_1", "text"),
                                                                                 ("q_1", 'illam'),
@@ -3700,7 +3724,8 @@ class TestES(Formulae_Testing):
                                                                                 ('sort', 'urn'),
                                                                                 ('special_days', ''),
                                                                                 ('qSource', ''),
-                                                                                ('source', 'advanced')]),
+                                                                                ('source', 'advanced'),
+                                                                                ('bool_operator', 'must')]),
                  'test_save_requests': OrderedDict([("corpus", "all"),
                                                     ("search_field_1", "text"),
                                                     ("q_1", ''),
@@ -3753,7 +3778,8 @@ class TestES(Formulae_Testing):
                                                     ('sort', 'urn'),
                                                     ('special_days', ''),
                                                     ("forgeries", "include"),
-                                                    ('source', 'advanced')]),
+                                                    ('source', 'advanced'),
+                                                    ('bool_operator', 'must')]),
                  'test_specific_day_advanced_search': OrderedDict([("corpus", "all"),
                                                                    ("search_field_1", "text"),
                                                                    ("q_1", ''),
@@ -3806,7 +3832,8 @@ class TestES(Formulae_Testing):
                                                                    ('sort', 'urn'),
                                                                    ('special_days', 'Easter'),
                                                                    ("forgeries", "include"),
-                                                                   ('source', 'advanced')]),
+                                                                   ('source', 'advanced'),
+                                                                   ('bool_operator', 'must')]),
                  'test_multiple_specific_day_advanced_search': OrderedDict([("corpus", "all"),
                                                                             ("search_field_1", "text"),
                                                                             ("q_1", ''),
@@ -3859,7 +3886,8 @@ class TestES(Formulae_Testing):
                                                                             ('sort', 'urn'),
                                                                             ('special_days', 'Easter+Saturday'),
                                                                             ("forgeries", "include"),
-                                                                            ('source', 'advanced')]),
+                                                                            ('source', 'advanced'),
+                                                                            ('bool_operator', 'must')]),
                  'test_download_search_results': OrderedDict([("corpus", "all"),
                                                               ("search_field_1", "text"),
                                                               ("q_1", 'regnum'),
@@ -3912,7 +3940,8 @@ class TestES(Formulae_Testing):
                                                               ('sort', 'urn'),
                                                               ('special_days', ''),
                                                               ("forgeries", "include"),
-                                                              ('source', 'advanced')]),
+                                                              ('source', 'advanced'),
+                                                              ('bool_operator', 'must')]),
                  'test_download_search_results_regest': OrderedDict([("corpus", "buenden"),
                                                                      ("search_field_1", "regest"),
                                                                      ("q_1", 'schenk*'),
@@ -3965,7 +3994,8 @@ class TestES(Formulae_Testing):
                                                                      ('sort', 'urn'),
                                                                      ('special_days', ''),
                                                                      ("forgeries", "include"),
-                                                                     ('source', 'advanced')]),
+                                                                     ('source', 'advanced'),
+                                                                     ('bool_operator', 'must')]),
                  'test_no_corpus_given': OrderedDict([("search_field_1", "text"),
                                                       ("q_1", ''),
                                                       ("fuzziness_1", "0"),
@@ -4017,7 +4047,8 @@ class TestES(Formulae_Testing):
                                                       ('sort', 'urn'),
                                                       ('special_days', ''),
                                                       ("forgeries", "include"),
-                                                      ('source', 'advanced')]),
+                                                      ('source', 'advanced'),
+                                                      ('bool_operator', 'must')]),
                  'test_mapped_lemma_advanced_search': OrderedDict([("corpus", "all"),
                                                                    ("search_field_1", "lemmas"),
                                                                    ("q_1", 'gero'),
@@ -4070,7 +4101,8 @@ class TestES(Formulae_Testing):
                                                                    ('sort', 'urn'),
                                                                    ('special_days', ''),
                                                                    ("forgeries", "include"),
-                                                                   ('source', 'advanced')]),
+                                                                   ('source', 'advanced'),
+                                                                   ('bool_operator', 'must')]),
                  'test_mapped_lemma_simple_search': OrderedDict([("corpus", "all"),
                                                                  ("search_field_1", "lemmas"),
                                                                  ("q_1", 'gero'),
@@ -4123,7 +4155,8 @@ class TestES(Formulae_Testing):
                                                                  ('sort', 'urn'),
                                                                  ('special_days', ''),
                                                                  ("forgeries", "include"),
-                                                                 ('source', 'advanced')]),
+                                                                 ('source', 'advanced'),
+                                                                 ('bool_operator', 'must')]),
                  'test_mapped_multiword_lemma_advanced_search': OrderedDict([("corpus", "all"),
                                                                              ("search_field_1", "lemmas"),
                                                                              ("q_1", 'facio+gero'),
@@ -4176,7 +4209,8 @@ class TestES(Formulae_Testing):
                                                                              ('sort', 'urn'),
                                                                              ('special_days', ''),
                                                                              ("forgeries", "include"),
-                                                                             ('source', 'advanced')]),
+                                                                             ('source', 'advanced'),
+                                                                             ('bool_operator', 'must')]),
                  'test_proper_name_search': OrderedDict([("corpus", "all"),
                                                          ("search_field_1", "text"),
                                                          ("q_1", ''),
@@ -4229,7 +4263,8 @@ class TestES(Formulae_Testing):
                                                          ('sort', 'urn'),
                                                          ('special_days', ''),
                                                          ("forgeries", "include"),
-                                                         ('source', 'advanced')]),
+                                                         ('source', 'advanced'),
+                                                         ('bool_operator', 'must')]),
                  'test_single_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"),
                                                                      ("search_field_1", "text"),
                                                                      ("q_1", 'pettone'),
@@ -4282,7 +4317,8 @@ class TestES(Formulae_Testing):
                                                                      ('sort', 'urn'),
                                                                      ('special_days', ''),
                                                                      ("forgeries", "include"),
-                                                                     ('source', 'advanced')]),
+                                                                     ('source', 'advanced'),
+                                                                     ('bool_operator', 'must')]),
                  'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"),
                                                                     ("search_field_1", "text"),
                                                                     ("q_1", 'regnante+pettone'),
@@ -4335,7 +4371,8 @@ class TestES(Formulae_Testing):
                                                                     ('sort', 'urn'),
                                                                     ('special_days', ''),
                                                                     ("forgeries", "include"),
-                                                                    ('source', 'advanced')]),
+                                                                    ('source', 'advanced'),
+                                                                    ('bool_operator', 'must')]),
                  'test_multi_word_fuzzy_highlighting_with_wildcard': OrderedDict([("corpus", "buenden"),
                                                                                   ("search_field_1", "text"),
                                                                                   ("q_1", 'scripsi+et+suscr*'),
@@ -4388,7 +4425,8 @@ class TestES(Formulae_Testing):
                                                                                   ('sort', 'urn'),
                                                                                   ('special_days', ''),
                                                                                   ("forgeries", "include"),
-                                                                                  ('source', 'advanced')]),
+                                                                                  ('source', 'advanced'),
+                                                                                  ('bool_operator', 'must')]),
                  'test_multi_word_highlighting_repeated_words': OrderedDict([("corpus", "buenden"),
                                                                              ("search_field_1", "text"),
                                                                              ("q_1", 'signum+uuiliarentis+testes+signum+crespionis+testes'),
@@ -4441,7 +4479,8 @@ class TestES(Formulae_Testing):
                                                                              ('sort', 'urn'),
                                                                              ('special_days', ''),
                                                                              ("forgeries", "include"),
-                                                                             ('source', 'advanced')]),
+                                                                             ('source', 'advanced'),
+                                                                             ('bool_operator', 'must')]),
                  'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                  ("search_field_1", "text"),
                                                                  ("q_1", 'tempore'),
@@ -4494,7 +4533,8 @@ class TestES(Formulae_Testing):
                                                                  ('sort', 'urn'),
                                                                  ('special_days', ''),
                                                                  ("forgeries", "include"),
-                                                                 ('source', 'advanced')]),
+                                                                 ('source', 'advanced'),
+                                                                 ('bool_operator', 'must')]),
                  'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
                                                                                ("search_field_1", "text"),
                                                                                ("q_1", 'temp?re'),
@@ -4547,7 +4587,8 @@ class TestES(Formulae_Testing):
                                                                                ('sort', 'urn'),
                                                                                ('special_days', ''),
                                                                                ("forgeries", "include"),
-                                                                               ('source', 'advanced')]),
+                                                                               ('source', 'advanced'),
+                                                                               ('bool_operator', 'must')]),
                  'test_single_charter_part_search_with_wildcard_v_u': OrderedDict([("corpus", "mondsee"),
                                                                                    ("search_field_1", "text"),
                                                                                    ("q_1", 'christ*+vener?bili'),
@@ -4600,7 +4641,8 @@ class TestES(Formulae_Testing):
                                                                                    ('sort', 'urn'),
                                                                                    ('special_days', ''),
                                                                                    ("forgeries", "include"),
-                                                                                   ('source', 'advanced')]),
+                                                                                   ('source', 'advanced'),
+                                                                                   ('bool_operator', 'must')]),
                  'test_multi_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                 ("search_field_1", "text"),
                                                                 ("q_1", 'christi'),
@@ -4653,7 +4695,8 @@ class TestES(Formulae_Testing):
                                                                 ('sort', 'urn'),
                                                                 ('special_days', ''),
                                                                 ("forgeries", "include"),
-                                                                ('source', 'advanced')]),
+                                                                ('source', 'advanced'),
+                                                                ('bool_operator', 'must')]),
                  'test_charter_part_search_no_q': OrderedDict([("corpus", "mondsee"),
                                                                ("search_field_1", "text"),
                                                                ("q_1", ''),
@@ -4706,7 +4749,8 @@ class TestES(Formulae_Testing):
                                                                ('sort', 'urn'),
                                                                ('special_days', ''),
                                                                ("forgeries", "include"),
-                                                               ('source', 'advanced')]),
+                                                               ('source', 'advanced'),
+                                                               ('bool_operator', 'must')]),
                  'test_fuzzy_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                 ("search_field_1", "text"),
                                                                 ("q_1", 'in+loco+qui+nuncupatur'),
@@ -4759,7 +4803,8 @@ class TestES(Formulae_Testing):
                                                                 ('sort', 'urn'),
                                                                 ('special_days', ''),
                                                                 ("forgeries", "include"),
-                                                                ('source', 'advanced')]),
+                                                                ('source', 'advanced'),
+                                                                ('bool_operator', 'must')]),
                  'test_fuzzy_v_to_u_search': OrderedDict([("corpus", "mondsee"),
                                                           ("search_field_1", "text"),
                                                           ("q_1", 'in+loco+qui+nuncupatur'),
@@ -4812,7 +4857,8 @@ class TestES(Formulae_Testing):
                                                           ('sort', 'urn'),
                                                           ('special_days', ''),
                                                           ("forgeries", "include"),
-                                                          ('source', 'advanced')]),
+                                                          ('source', 'advanced'),
+                                                          ('bool_operator', 'must')]),
                  'test_single_letter_highlighting_one_word': OrderedDict([("corpus", "buenden"),
                                                                           ("search_field_1", "text"),
                                                                           ("q_1", 'a'),
@@ -4865,7 +4911,8 @@ class TestES(Formulae_Testing):
                                                                           ('sort', 'urn'),
                                                                           ('special_days', ''),
                                                                           ("forgeries", "include"),
-                                                                          ('source', 'advanced')]),
+                                                                          ('source', 'advanced'),
+                                                                          ('bool_operator', 'must')]),
                  'test_single_letter_highlighting_multiword': OrderedDict([("corpus", "buenden"),
                                                                            ("search_field_1", "text"),
                                                                            ("q_1", 'daumerii+a'),
@@ -4918,7 +4965,8 @@ class TestES(Formulae_Testing):
                                                                            ('sort', 'urn'),
                                                                            ('special_days', ''),
                                                                            ("forgeries", "include"),
-                                                                           ('source', 'advanced')]),
+                                                                           ('source', 'advanced'),
+                                                                           ('bool_operator', 'must')]),
                  'test_forgery_exclude': OrderedDict([("corpus", "merowinger1"),
                                                       ("search_field_1", "text"),
                                                       ("q_1", ''),
@@ -4971,7 +5019,8 @@ class TestES(Formulae_Testing):
                                                       ('sort', 'urn'),
                                                       ('special_days', ''),
                                                       ("forgeries", "exclude"),
-                                                      ('source', 'advanced')]),
+                                                      ('source', 'advanced'),
+                                                      ('bool_operator', 'must')]),
                  'test_forgery_only': OrderedDict([("corpus", "merowinger1"),
                                                    ("search_field_1", "text"),
                                                    ("q_1", ''),
@@ -5024,7 +5073,8 @@ class TestES(Formulae_Testing):
                                                    ('sort', 'urn'),
                                                    ('special_days', ''),
                                                    ("forgeries", "only"),
-                                                   ('source', 'advanced')]),
+                                                   ('source', 'advanced'),
+                                                   ('bool_operator', 'must')]),
                  'test_multiword_proper_name_partial_match': OrderedDict([("corpus", "all"),
                                                                           ("search_field_1", "text"),
                                                                           ("q_1", 'habraam+usque'),
@@ -5077,7 +5127,8 @@ class TestES(Formulae_Testing):
                                                                           ('sort', 'urn'),
                                                                           ('special_days', ''),
                                                                           ("forgeries", "include"),
-                                                                          ('source', 'advanced')]),
+                                                                          ('source', 'advanced'),
+                                                                          ('bool_operator', 'must')]),
                  'test_multiword_proper_name_no_match': OrderedDict([("corpus", "all"),
                                                                      ("search_field_1", "text"),
                                                                      ("q_1", 'regnum+domni'),
@@ -5130,7 +5181,8 @@ class TestES(Formulae_Testing):
                                                                      ('sort', 'urn'),
                                                                      ('special_days', ''),
                                                                      ("forgeries", "include"),
-                                                                     ('source', 'advanced')]),
+                                                                     ('source', 'advanced'),
+                                                                     ('bool_operator', 'must')]),
                  'test_single_word_proper_name_no_match': OrderedDict([("corpus", "all"),
                                                                        ("search_field_1", "text"),
                                                                        ("q_1", 'regnum'),
@@ -5183,7 +5235,8 @@ class TestES(Formulae_Testing):
                                                                        ('sort', 'urn'),
                                                                        ('special_days', ''),
                                                                        ("forgeries", "include"),
-                                                                       ('source', 'advanced')]),
+                                                                       ('source', 'advanced'),
+                                                                       ('bool_operator', 'must')]),
                  'test_single_word_proper_name_match_text': OrderedDict([("corpus", "all"),
                                                                          ("search_field_1", "text"),
                                                                          ("q_1", 'adam'),
@@ -5236,7 +5289,8 @@ class TestES(Formulae_Testing):
                                                                          ('sort', 'urn'),
                                                                          ('special_days', ''),
                                                                          ("forgeries", "include"),
-                                                                         ('source', 'advanced')]),
+                                                                         ('source', 'advanced'),
+                                                                         ('bool_operator', 'must')]),
                  'test_multiword_proper_name_match_text': OrderedDict([("corpus", "all"),
                                                                        ("search_field_1", "text"),
                                                                        ("q_1", 'chlodoveo+chlothoario'),
@@ -5289,7 +5343,8 @@ class TestES(Formulae_Testing):
                                                                        ('sort', 'urn'),
                                                                        ('special_days', ''),
                                                                        ("forgeries", "include"),
-                                                                       ('source', 'advanced')]),
+                                                                       ('source', 'advanced'),
+                                                                       ('bool_operator', 'must')]),
                  'test_regex_text': OrderedDict([("corpus", "all"),
                                                  ("search_field_1", "text"),
                                                  ("q_1", 'ru[ieu]gin[wuv]wm'),
@@ -5342,7 +5397,8 @@ class TestES(Formulae_Testing):
                                                  ('sort', 'urn'),
                                                  ('special_days', ''),
                                                  ("forgeries", "include"),
-                                                 ('source', 'advanced')]),
+                                                 ('source', 'advanced'),
+                                                 ('bool_operator', 'must')]),
                  'test_regex_parts': OrderedDict([("corpus", "mondsee"),
                                                   ("search_field_1", "text"),
                                                   ("q_1", 'cwhr[ij]sjt[uvw]iu'),
@@ -5395,7 +5451,8 @@ class TestES(Formulae_Testing):
                                                   ('sort', 'urn'),
                                                   ('special_days', ''),
                                                   ("forgeries", "include"),
-                                                  ('source', 'advanced')]),
+                                                  ('source', 'advanced'),
+                                                  ('bool_operator', 'must')]),
                  'test_regex_parts_no_uv_replacement': OrderedDict([("corpus", "mondsee"),
                                                                     ("search_field_1", "text"),
                                                                     ("q_1", 'dos'),
@@ -5448,7 +5505,8 @@ class TestES(Formulae_Testing):
                                                                     ('sort', 'urn'),
                                                                     ('special_days', ''),
                                                                     ("forgeries", "include"),
-                                                                    ('source', 'advanced')]),
+                                                                    ('source', 'advanced'),
+                                                                    ('bool_operator', 'must')]),
                  'test_exclude_q': OrderedDict([("corpus", "all"),
                                                 ("search_field_1", "text"),
                                                 ("q_1", 'regn?'),
@@ -5501,7 +5559,8 @@ class TestES(Formulae_Testing):
                                                 ('sort', 'urn'),
                                                 ('special_days', ''),
                                                 ("forgeries", "include"),
-                                                ('source', 'advanced')]),
+                                                ('source', 'advanced'),
+                                                ('bool_operator', 'must')]),
                  'test_exclude_q_parts': OrderedDict([("corpus", "all"),
                                                       ("search_field_1", "text"),
                                                       ("q_1", 'christ?'),
@@ -5554,7 +5613,8 @@ class TestES(Formulae_Testing):
                                                       ('sort', 'urn'),
                                                       ('special_days', ''),
                                                       ("forgeries", "include"),
-                                                      ('source', 'advanced')]),
+                                                      ('source', 'advanced'),
+                                                      ('bool_operator', 'must')]),
                  'test_elex_search': OrderedDict([("corpus", "elexicon"),
                                                   ("search_field_1", "text"),
                                                   ("q_1", 'diakone'),
@@ -5607,7 +5667,8 @@ class TestES(Formulae_Testing):
                                                   ('sort', 'urn'),
                                                   ('special_days', ''),
                                                   ("forgeries", "include"),
-                                                  ('source', 'advanced')]),
+                                                  ('source', 'advanced'),
+                                                  ('bool_operator', 'must')]),
                  'test_elex_search_multi': OrderedDict([("corpus", "elexicon"),
                                                         ("search_field_1", "text"),
                                                         ("q_1", 'diakone+märtyrergrab'),
@@ -5660,7 +5721,8 @@ class TestES(Formulae_Testing):
                                                         ('sort', 'urn'),
                                                         ('special_days', ''),
                                                         ("forgeries", "include"),
-                                                        ('source', 'advanced')]),
+                                                        ('source', 'advanced'),
+                                                        ('bool_operator', 'must')]),
                  'test_elex_search_wildcard': OrderedDict([("corpus", "elexicon"),
                                                            ("search_field_1", "text"),
                                                            ("q_1", 'm?rtyr*'),
@@ -5713,7 +5775,8 @@ class TestES(Formulae_Testing):
                                                            ('sort', 'urn'),
                                                            ('special_days', ''),
                                                            ("forgeries", "include"),
-                                                           ('source', 'advanced')]),
+                                                           ('source', 'advanced'),
+                                                           ('bool_operator', 'must')]),
                  'test_elex_search_multi_wildcard': OrderedDict([("corpus", "elexicon"),
                                                                  ("search_field_1", "text"),
                                                                  ("q_1", 'diakon?+m?rtyr*'),
@@ -5766,7 +5829,8 @@ class TestES(Formulae_Testing):
                                                                  ('sort', 'urn'),
                                                                  ('special_days', ''),
                                                                  ("forgeries", "include"),
-                                                                 ('source', 'advanced')]),
+                                                                 ('source', 'advanced'),
+                                                                 ('bool_operator', 'must')]),
                  'test_elex_search_simple': OrderedDict([("corpus", "elexicon"),
                                                          ("search_field_1", "text"),
                                                          ("q_1", 'diakone'),
@@ -5819,7 +5883,8 @@ class TestES(Formulae_Testing):
                                                          ("sort", "urn"),
                                                          ('special_days', ''),
                                                          ("forgeries", "include"),
-                                                         ("source", "simple")]),
+                                                         ("source", "simple"),
+                                                         ('bool_operator', 'must')]),
                  'test_elex_search_simple_wildcard': OrderedDict([("corpus", "elexicon"),
                                                                   ("search_field_1", "text"),
                                                                   ("q_1", 'm?rtyr*'),
@@ -5872,7 +5937,8 @@ class TestES(Formulae_Testing):
                                                                   ("sort", "urn"),
                                                                   ('special_days', ''),
                                                                   ("forgeries", "include"),
-                                                                  ("source", "simple")]),
+                                                                  ("source", "simple"),
+                                                                  ('bool_operator', 'must')]),
                  'test_simple_search_text_and_regest': OrderedDict([("corpus", "formulae+chartae"),
                                                                     ("search_field_1", "text"),
                                                                     ("q_1", 'pippin*+dux'),
@@ -5925,7 +5991,8 @@ class TestES(Formulae_Testing):
                                                                     ("sort", "urn"),
                                                                     ('special_days', ''),
                                                                     ("forgeries", "include"),
-                                                                    ("source", "simple")]),
+                                                                    ("source", "simple"),
+                                                                    ('bool_operator', 'must')]),
                  'test_suggest_word_search_completion': OrderedDict([("corpus", "buenden"),
                                                                      ("search_field_1", "autocomplete"),
                                                                      ("q_1", 'scrips'),
@@ -5978,7 +6045,8 @@ class TestES(Formulae_Testing):
                                                                      ('sort', 'urn'),
                                                                      ('special_days', ''),
                                                                      ("forgeries", "include"),
-                                                                     ('source', 'advanced')]),
+                                                                     ('source', 'advanced'),
+                                                                     ('bool_operator', 'must')]),
                  'test_suggest_elexicon_word_search_completion': OrderedDict([("corpus", "elexicon"),
                                                                               ("search_field_1", "autocomplete"),
                                                                               ("q_1", 'abba'),
@@ -6031,7 +6099,8 @@ class TestES(Formulae_Testing):
                                                                               ('sort', 'urn'),
                                                                               ('special_days', ''),
                                                                               ("forgeries", "include"),
-                                                                              ('source', 'advanced')]),
+                                                                              ('source', 'advanced'),
+                                                                              ('bool_operator', 'must')]),
                  'test_suggest_regest_word_search_completion': OrderedDict([("corpus", "buenden"),
                                                                             ("search_field_1", "autocomplete_regest"),
                                                                             ("q_1", 'sche'),
@@ -6084,7 +6153,170 @@ class TestES(Formulae_Testing):
                                                                             ('sort', 'urn'),
                                                                             ('special_days', ''),
                                                                             ("forgeries", "include"),
-                                                                            ('source', 'advanced')])
+                                                                            ('source', 'advanced'),
+                                                                            ('bool_operator', 'must')]),
+                 'test_four_query_params': OrderedDict([("corpus", "freising"),
+                                                        ("search_field_1", "text"),
+                                                        ("q_1", 'nullus+contradicere'),
+                                                        ("fuzziness_1", "0"),
+                                                        ("in_order_1", "True"),
+                                                        ("slop_1", "0"),
+                                                        ("regex_search_1", 'False'),
+                                                        ("exclude_q_1", ""),
+                                                        ("formulaic_parts_1", "Poenformel"),
+                                                        ("proper_name_1", ""),
+                                                        ("search_field_2", "text"),
+                                                        ("q_2", ''),
+                                                        ("fuzziness_2", "0"),
+                                                        ("in_order_2", "False"),
+                                                        ("slop_2", "0"),
+                                                        ("regex_search_2", 'True'),
+                                                        ("exclude_q_2", ""),
+                                                        ("formulaic_parts_2", "Corroboratio"),
+                                                        ("proper_name_2", ""),
+                                                        ("search_field_3", "text"),
+                                                        ("q_3", 'regni+ducis'),
+                                                        ("fuzziness_3", "0"),
+                                                        ("in_order_3", "False"),
+                                                        ("slop_3", "3"),
+                                                        ("regex_search_3", 'False'),
+                                                        ("exclude_q_3", ""),
+                                                        ("formulaic_parts_3", ""),
+                                                        ("proper_name_3", ""),
+                                                        ("search_field_4", "regest"),
+                                                        ("q_4", 'übergeben'),
+                                                        ("fuzziness_4", "0"),
+                                                        ("in_order_4", "False"),
+                                                        ("slop_4", "0"),
+                                                        ("regex_search_4", 'False'),
+                                                        ("exclude_q_4", ""),
+                                                        ("formulaic_parts_4", ""),
+                                                        ("proper_name_4", ""),
+                                                        ("year", 778),
+                                                        ("month", 8),
+                                                        ("day", 7),
+                                                        ("year_start", 0),
+                                                        ("month_start", 0),
+                                                        ("day_start", 0),
+                                                        ("year_end", 0),
+                                                        ("month_end", 0),
+                                                        ("day_end", 0),
+                                                        ('date_plus_minus', 0),
+                                                        ('exclusive_date_range', 'y'),
+                                                        ("composition_place", ''),
+                                                        ('sort', 'urn'),
+                                                        ('special_days', ''),
+                                                        ("forgeries", "include"),
+                                                        ('source', 'advanced'),
+                                                        ('bool_operator', 'must')]),
+                 'test_bool_must_not': OrderedDict([("corpus", "all"),
+                                                    ("search_field_1", "lemmas"),
+                                                    ("q_1", 'regnum'),
+                                                    ("fuzziness_1", "0"),
+                                                    ("in_order_1", "True"),
+                                                    ("slop_1", "0"),
+                                                    ("regex_search_1", 'False'),
+                                                    ("exclude_q_1", ""),
+                                                    ("formulaic_parts_1", ""),
+                                                    ("proper_name_1", ""),
+                                                    ("search_field_2", "lemmas"),
+                                                    ("q_2", 'dominus'),
+                                                    ("fuzziness_2", "0"),
+                                                    ("in_order_2", "False"),
+                                                    ("slop_2", "0"),
+                                                    ("regex_search_2", 'False'),
+                                                    ("exclude_q_2", ""),
+                                                    ("formulaic_parts_2", ""),
+                                                    ("proper_name_2", ""),
+                                                    ("search_field_3", "text"),
+                                                    ("q_3", ''),
+                                                    ("fuzziness_3", "0"),
+                                                    ("in_order_3", "False"),
+                                                    ("slop_3", "0"),
+                                                    ("regex_search_3", 'False'),
+                                                    ("exclude_q_3", ""),
+                                                    ("formulaic_parts_3", ""),
+                                                    ("proper_name_3", ""),
+                                                    ("search_field_4", "text"),
+                                                    ("q_4", ''),
+                                                    ("fuzziness_4", "0"),
+                                                    ("in_order_4", "False"),
+                                                    ("slop_4", "0"),
+                                                    ("regex_search_4", 'False'),
+                                                    ("exclude_q_4", ""),
+                                                    ("formulaic_parts_4", ""),
+                                                    ("proper_name_4", ""),
+                                                    ("year", 0),
+                                                    ("month", 0),
+                                                    ("day", 0),
+                                                    ("year_start", 0),
+                                                    ("month_start", 0),
+                                                    ("day_start", 0),
+                                                    ("year_end", 0),
+                                                    ("month_end", 0),
+                                                    ("day_end", 0),
+                                                    ('date_plus_minus', 0),
+                                                    ('exclusive_date_range', 'y'),
+                                                    ("composition_place", ''),
+                                                    ('sort', 'urn'),
+                                                    ('special_days', ''),
+                                                    ("forgeries", "include"),
+                                                    ('source', 'advanced'),
+                                                    ('bool_operator', 'must_not')]),
+                 'test_bool_should': OrderedDict([("corpus", "all"),
+                                                  ("search_field_1", "lemmas"),
+                                                  ("q_1", 'regnum'),
+                                                  ("fuzziness_1", "0"),
+                                                  ("in_order_1", "True"),
+                                                  ("slop_1", "0"),
+                                                  ("regex_search_1", 'False'),
+                                                  ("exclude_q_1", ""),
+                                                  ("formulaic_parts_1", ""),
+                                                  ("proper_name_1", ""),
+                                                  ("search_field_2", "lemmas"),
+                                                  ("q_2", 'dominus'),
+                                                  ("fuzziness_2", "0"),
+                                                  ("in_order_2", "False"),
+                                                  ("slop_2", "0"),
+                                                  ("regex_search_2", 'False'),
+                                                  ("exclude_q_2", ""),
+                                                  ("formulaic_parts_2", ""),
+                                                  ("proper_name_2", ""),
+                                                  ("search_field_3", "text"),
+                                                  ("q_3", ''),
+                                                  ("fuzziness_3", "0"),
+                                                  ("in_order_3", "False"),
+                                                  ("slop_3", "0"),
+                                                  ("regex_search_3", 'False'),
+                                                  ("exclude_q_3", ""),
+                                                  ("formulaic_parts_3", ""),
+                                                  ("proper_name_3", ""),
+                                                  ("search_field_4", "text"),
+                                                  ("q_4", ''),
+                                                  ("fuzziness_4", "0"),
+                                                  ("in_order_4", "False"),
+                                                  ("slop_4", "0"),
+                                                  ("regex_search_4", 'False'),
+                                                  ("exclude_q_4", ""),
+                                                  ("formulaic_parts_4", ""),
+                                                  ("proper_name_4", ""),
+                                                  ("year", 0),
+                                                  ("month", 0),
+                                                  ("day", 0),
+                                                  ("year_start", 0),
+                                                  ("month_start", 0),
+                                                  ("day_start", 0),
+                                                  ("year_end", 0),
+                                                  ("month_end", 0),
+                                                  ("day_end", 0),
+                                                  ('date_plus_minus', 0),
+                                                  ('exclusive_date_range', 'y'),
+                                                  ("composition_place", ''),
+                                                  ('sort', 'urn'),
+                                                  ('special_days', ''),
+                                                  ("forgeries", "include"),
+                                                  ('source', 'advanced'),
+                                                  ('bool_operator', 'should')]),
                  }
 
     OLD_ARGS = {'test_date_range_search_same_year': OrderedDict([("corpus", "all"),
@@ -6563,33 +6795,33 @@ class TestES(Formulae_Testing):
 ("exclude_q", ""),
 ('source', 'advanced')]),
                  'test_multiword_wildcard_search': OrderedDict([("corpus", "all"),
-("lemma_search", "False"),
-("q", 'regnum+dom*'),
-("fuzziness", "0"),
-                                 ("in_order", "False"),
-("year", 0),
-("slop", "0"),
-("month", 0),
-("day", 0),
-                                 ("year_start", 0),
-("month_start", 0),
-("day_start", 0),
-("year_end", 0),
-                                 ("month_end", 0),
-("day_end", 0),
-('date_plus_minus', 0),
-                                 ('exclusive_date_range', 'False'),
-("composition_place", ''),
-('sort', 'urn'),
-                                 ('special_days', ''),
-("regest_q", ''),
-                                 ("regest_field", "regest"),
-("formulaic_parts", ""),
-("proper_name", ""),
-("forgeries", "include"),
-("regex_search", 'False'),
-("exclude_q", ""),
-('source', 'advanced')]),
+                                                                ("lemma_search", "False"),
+                                                                ("q", 'regnum+dom*'),
+                                                                ("fuzziness", "0"),
+                                                                ("in_order", "False"),
+                                                                ("year", 0),
+                                                                ("slop", "0"),
+                                                                ("month", 0),
+                                                                ("day", 0),
+                                                                ("year_start", 0),
+                                                                ("month_start", 0),
+                                                                ("day_start", 0),
+                                                                ("year_end", 0),
+                                                                ("month_end", 0),
+                                                                ("day_end", 0),
+                                                                ('date_plus_minus', 0),
+                                                                ('exclusive_date_range', 'False'),
+                                                                ("composition_place", ''),
+                                                                ('sort', 'urn'),
+                                                                ('special_days', ''),
+                                                                ("regest_q", ''),
+                                                                ("regest_field", "regest"),
+                                                                ("formulaic_parts", ""),
+                                                                ("proper_name", ""),
+                                                                ("forgeries", "include"),
+                                                                ("regex_search", 'False'),
+                                                                ("exclude_q", ""),
+                                                                ('source', 'advanced')]),
                  'test_lemma_advanced_search': OrderedDict([("corpus", "all"),
 ("lemma_search", "True"),
 ("q", 'regnum'),
@@ -8775,7 +9007,7 @@ class TestES(Formulae_Testing):
                 fake_args['search_field_{}'.format(arg.split('_')[-1])] = fake_args[arg]
             if 'proper_name' in arg and fake_args[arg] != '' and fake_args['q_{}'.format(arg.split('_')[-1])] == '':
                 fake_args['search_field_{}'.format(arg.split('_')[-1])] = 'lemmas'
-        return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()])
+        return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()]).replace('/', '-')
 
     def test_return_when_no_es(self):
         """ Make sure that when ElasticSearch is not active, calls to the search functions return empty results instead of errors"""
@@ -8813,6 +9045,15 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        # Test with old args
+        mock_search.reset_mock()
+        test_args = copy(self.OLD_ARGS['test_date_range_search_same_year'])
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_same_month(self, mock_search):
@@ -8829,6 +9070,15 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        # Test with old args
+        mock_search.reset_mock()
+        test_args = copy(self.OLD_ARGS['test_date_range_search_same_month'])
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_different_year(self, mock_search):
@@ -8839,6 +9089,15 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        # Test with old args
+        mock_search.reset_mock()
+        test_args = copy(self.OLD_ARGS['test_date_range_search_different_year'])
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -9089,6 +9348,15 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        # Test with old args
+        mock_search.reset_mock()
+        test_args = copy(self.OLD_ARGS['test_multi_corpus_search'])
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, 'lem_highlight_to_text')
@@ -9108,6 +9376,17 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        # Test with old args
+        mock_search.reset_mock()
+        test_args = copy(self.OLD_ARGS['test_multiword_wildcard_search'])
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args = build_search_args(test_args)
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, "lem_highlight_to_text")
@@ -9121,6 +9400,17 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        # Test with old args
+        mock_search.reset_mock()
+        test_args = copy(self.OLD_ARGS['test_lemma_advanced_search'])
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q'] = test_args['q'].replace('+', ' ')
+        test_args = build_search_args(test_args)
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9366,7 +9656,6 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        print(mock_search.call_args_list)
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
@@ -10000,13 +10289,14 @@ class TestES(Formulae_Testing):
             self.assertEqual(old_search_args['corpus'], session['previous_search_args']['corpus'],
                              'Searches made with the old_search=True argument should not change the previous_search_args.')
             self.client.get('/search/simple?corpus=formulae&q_1=', follow_redirects=True)
-            print(self.flashed_messages)
             self.assertIn(_('Dieses Feld wird benötigt.') + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'),
                           [x[0] for x in self.flashed_messages])
             self.client.get('/search/simple?corpus=formulae&q_1=regnum&lemma_search=True', follow_redirects=True)
-            self.assertEqual(session['previous_search_args']['query_dict']['q_1']['search_field'], 'lemmas', '"True" should prompt lemma search')
+            query_dict = make_query_dict(session['previous_search_args'])
+            self.assertEqual(query_dict['q_1']['search_field'], 'lemmas', '"True" should prompt lemma search')
             self.client.get('/search/simple?corpus=formulae&q_1=regnum&lemma_search=y', follow_redirects=True)
-            self.assertEqual(session['previous_search_args']['query_dict']['q_1']['search_field'], 'lemmas', '"y" should prompt lemma search')
+            query_dict = make_query_dict(session['previous_search_args'])
+            self.assertEqual(query_dict['q_1']['search_field'], 'lemmas', '"y" should prompt lemma search')
 
     # @patch.object(Elasticsearch, "search")
     # def test_suggest_composition_places(self, mock_search):
@@ -10134,7 +10424,6 @@ class TestES(Formulae_Testing):
         test_args['q_1'] = '*'
         test_args['query_dict'] = make_query_dict(test_args)
         test_args['qSource'] = 'q_1'
-        print(test_args['query_dict'])
         results = suggest_word_search(**test_args)
         self.assertIsNone(results, 'Autocomplete should return None when only "*" is in the search string.')
         test_args = copy(self.TEST_ARGS['test_suggest_regest_word_search_completion'])
@@ -10254,7 +10543,8 @@ class TestES(Formulae_Testing):
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
-    def test_download_search_results(self, mock_vectors, mock_search):
+    @patch("formulae.search.Search.check_open_texts")
+    def test_download_search_results(self, mock_open_texts, mock_vectors, mock_search):
         with self.client as c:
             c.get('/search/download/1', follow_redirects=True)
             self.assertIn(_('Keine Suchergebnisse zum Herunterladen.'), [x[0] for x in self.flashed_messages])
@@ -10270,6 +10560,7 @@ class TestES(Formulae_Testing):
                     del h['highlight']['regest']
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
+        mock_open_texts.return_value = True, False
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['special_days'] = [test_args['special_days']]
         self.nemo.open_texts += ['urn:cts:formulae:buenden.meyer-marthaler0027.lat001', 'urn:cts:formulae:mondsee.rath0128.lat001']
@@ -10283,12 +10574,15 @@ class TestES(Formulae_Testing):
             expected_parts = f.read()
         with open('tests/test_data/advanced_search/downloaded_search_with_parts_no_q.pdf', mode='rb') as f:
             expected_parts_no_q = f.read()
+        with open('tests/test_data/advanced_search/downloaded_search_with_with_four_query_params.pdf', mode='rb') as f:
+            expected_four_params = f.read()
         with self.client as c:
-            c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=')
+            url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_download_search_results'].items()])
+            c.get('/search/results?source=advanced&' + url_params)
             r = c.get('/search/download/1')
             recreate = False
             # Uncomment this when the mock search download files need to be recreated
-            recreate = True
+            # recreate = True
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='wb') as f:
                     f.write(r.get_data())
@@ -10297,6 +10591,7 @@ class TestES(Formulae_Testing):
             for single_response in resp:
                 for hit in single_response['hits']['hits']:
                     hit['highlight']['lemmas'] = hit['highlight'].pop('text')
+            # This makes sure that a search with an older URL still works and produces a PDF
             c.get('/search/results?source=advanced&sort=urn&q=regnum&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&lemma_search=True')
             r = c.get('/search/download/1')
             if recreate:
@@ -10312,7 +10607,8 @@ class TestES(Formulae_Testing):
             mock_search.side_effect = self.search_side_effect
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
-            c.get('/search/results?source=advanced&sort=urn&simple_search_id=8372&q=&fuzziness=0&slop=0&in_order=False&elex_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&forgeries=include&exclude_q=&search_id=5745&submit=True&regest_q=schenk*&corpus=buenden&formulaic_parts=&lemma_search=False&regex_search=False&special_days=&proper_name=')
+            url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_download_search_results_regest'].items()])
+            c.get('/search/results?source=advanced&' + url_params)
             r = c.get('/search/download/1')
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search_regest.pdf', mode='wb') as f:
@@ -10329,7 +10625,8 @@ class TestES(Formulae_Testing):
             mock_search.side_effect = self.search_side_effect
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
-            c.get('/search/results?source=advanced&sort=urn&q=christi&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
+            url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_multi_charter_part_search'].items()])
+            c.get('/search/results?source=advanced&' + url_params)
             r = c.get('/search/download/1')
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search_with_parts.pdf', mode='wb') as f:
@@ -10350,12 +10647,32 @@ class TestES(Formulae_Testing):
             mock_search.side_effect = self.search_side_effect
             test_args['corpus'] = test_args['corpus'].split('+')
             test_args['special_days'] = [test_args['special_days']]
-            c.get('/search/results?source=advanced&sort=urn&q=&fuzziness=0&slop=0&in_order=False&regest_q=&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&submit=True&corpus=all&special_days=&formulaic_parts=Poenformel%2BStipulationsformel')
+            url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_charter_part_search_no_q'].items()])
+            c.get('/search/results?source=advanced&' + url_params)
             r = c.get('/search/download/1')
             if recreate:
                 with open('tests/test_data/advanced_search/downloaded_search_with_parts_no_q.pdf', mode='wb') as f:
                     f.write(r.get_data())
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_parts_no_q).group(0),
+                             re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
+
+            test_args = copy(self.TEST_ARGS['test_four_query_params'])
+            name_args = copy(test_args)
+            name_args['search_field_1'] = name_args['formulaic_parts_1']
+            name_args['search_field_2'] = name_args['formulaic_parts_2']
+            fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+            body = fake.load_request()
+            self.search_response = cycle(fake.load_response())
+            self.search_aggs = fake.load_aggs()
+            mock_search.side_effect = self.search_side_effect
+            mock_vectors.side_effect = self.vector_side_effect
+            url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_four_query_params'].items()])
+            c.get('/search/results?source=advanced&' + url_params)
+            r = c.get('/search/download/1')
+            if recreate:
+                with open('tests/test_data/advanced_search/downloaded_search_with_with_four_query_params.pdf', mode='wb') as f:
+                    f.write(r.get_data())
+            self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_four_params).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
     @patch.object(Elasticsearch, "search")
@@ -10522,8 +10839,6 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
-        self.nemo.open_texts += [x['id'] for x in ids]
-        print(self.nemo.open_texts)
         sents = [{'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum esse non credo, aut ego ipse aut ulla opposita persona, quod fieri non credo, contra hanc donationem venire aut eam infringere temptaverit, inprimis in iram dei incurrat, et a liminibus aecclesiae extraneus efficiatur, et sit culpabilis in fisco auri uncias duo et argenti pondera quinque, et effectum, quod inchoavit, obtinere non valeat')]},
                  {'sents': [Markup('<strong>Stipulationsformel:</strong> Et haec traditio a nobis facta omni tempore firma et stabilis permaneat')]},
                  {'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod fieri non credo, aut ego ipse aut ullus de hereditaribus meis contra hanc donationem facere volverit, inprimis iram dei et sancti Michahelis et omnium sanctorum eius incurrere pertimescat'),
@@ -10742,9 +11057,88 @@ class TestES(Formulae_Testing):
         test_args['q_2'] = test_args['q_2'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        print(mock_search.call_args_list)
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    @patch("formulae.search.Search.check_open_texts")
+    def test_four_query_params(self, mock_open_texts, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_four_query_params'])
+        name_args = copy(test_args)
+        name_args['search_field_1'] = name_args['formulaic_parts_1']
+        name_args['search_field_2'] = name_args['formulaic_parts_2']
+        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.search_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
+        mock_open_texts.return_value = True, False
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['q_3'] = test_args['q_3'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        for b in body:
+            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        sents = [{'sents': [Markup('<strong>Poenformel:</strong> </small><strong>Nullus</strong><small> </small><strong>contradicere</strong><small> valeat aut\n                  '),
+            Markup('<strong>Corroboratio:</strong> Haec testes et eorum nomina ... et ceteri multi quorum non\n                            est facile dinumerare vel scribere nomina'),
+            Markup('quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. </small><strong>regni</strong><small> domni Tassilonis inlustrissimi </small><strong>ducis</strong><small> sub die consule quod erat VII. id. aug firmiter tradiderunt c')]}]
+        regest_sents = [{'regest_sents': [Markup('Husina und Irminpald </small><strong>übergeben</strong><small> ein Gotteshaus zu Kreuzpullach,')]}]
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.assertEqual(regest_sents, [{"regest_sents": x['regest_sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_bool_must_not(self, mock_highlight, mock_search):
+        test_args = copy(self.TEST_ARGS['test_bool_must_not'])
+        name_args = copy(test_args)
+        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        # This is needed here because there are two saved queries but only one saved response.
+        # So the response to the second query would be the same as the first if we used cycle.
+        # And that would eliminate all of the hits since must_not removes all shared hits.
+        self.search_response = iter(fake.load_response() + [{'hits': {'hits': []}}])
+        self.search_aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.search_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        exp_should_clauses = list()
+        for call in mock_search.call_args_list:
+            if 'bool' in call.kwargs['body']['query']:
+                exp_should_clauses.append(call.kwargs['body']['query']['bool']['must'][0]['bool']['should'])
+        for i, b in enumerate(body):
+            self.assertCountEqual(exp_should_clauses[i], b['query']['bool']['must'][0]['bool']['should'])
+        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_bool_should(self, mock_vectors, mock_search):
+        test_args = copy(self.TEST_ARGS['test_bool_should'])
+        name_args = copy(test_args)
+        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+        body = fake.load_request()
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        ids = fake.load_ids()
+        mock_search.side_effect = self.search_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        exp_should_clauses = list()
+        for call in mock_search.call_args_list:
+            if 'bool' in call.kwargs['body']['query']:
+                exp_should_clauses.append(call.kwargs['body']['query']['bool']['must'][0]['bool']['should'])
+        for i, b in enumerate(body):
+            self.assertCountEqual(exp_should_clauses[i], b['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
 

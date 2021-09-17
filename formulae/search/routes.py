@@ -35,6 +35,10 @@ def build_search_args(search_args: dict) -> dict:
         search_args['search_field_1'] = search_args.get('search_field', 'text')
     if 'fuzziness' in search_args:
         search_args['fuzziness_1'] = search_args.get('fuzziness', '')
+    if 'in_order' in search_args:
+        search_args['in_order_1'] = search_args.get('in_order', '')
+    if 'slop' in search_args:
+        search_args['slop_1'] = search_args.get('slop', '')
     lemma_search = search_args.get('lemma_search', '')
     if lemma_search in ['y', 'True', True]:
         search_args['search_field_1'] = 'lemmas'
@@ -79,7 +83,7 @@ def build_search_args(search_args: dict) -> dict:
 
 def make_query_dict(search_args: dict = None) -> dict:
     query_keys = [x for x in search_args.keys() if x.startswith('q_')]
-    query_val_keys = [("in_order", False),
+    query_val_keys = [("in_order", 'False'),
                       ("regex_search", False),
                       ("proper_name", ''),
                       ("formulaic_parts", ''),
@@ -101,7 +105,6 @@ def make_query_dict(search_args: dict = None) -> dict:
 @bp.route("/simple", methods=["GET"])
 def r_simple_search() -> redirect:
     data = deepcopy(g.search_form.data)
-    print(data)
     if 'q' in data:
         data['q_1'] = data.pop('q', '').lower()
     data['q_1'] = data['q_1'].lower()
@@ -112,7 +115,6 @@ def r_simple_search() -> redirect:
         data['search_field_1'] = 'lemmas'
     corpus = '+'.join(data.pop("corpus"))
     if not g.search_form.validate():
-        print(g.search_form.errors)
         for k, m in g.search_form.errors.items():
             if k == 'corpus':
                 flash(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
@@ -160,7 +162,7 @@ def r_results():
         old_search = True
     search_args = build_search_args({x: y for x, y in request.args.items()})
     query_keys = [x for x in search_args.keys() if x.startswith('q_')]
-    query_val_keys = [("in_order", False),
+    query_val_keys = [("in_order", 'False'),
                       ("regex_search", False),
                       ("proper_name", ''),
                       ("formulaic_parts", ''),
@@ -200,7 +202,7 @@ def r_results():
                              bool_operator=search_args.get('bool_operator', 'must')
                              )
     posts, total, aggs, g.previous_search = advanced_query_index(**final_search_args)
-    old_search_args = {k: v for k, v in final_search_args.items() if v}
+    old_search_args = {k: v for k, v in request.args.items()}
     old_search_args.pop('page', None)
     old_search_args['corpus'] = '+'.join(corpus)
     if 'special_days' in search_args:
@@ -327,7 +329,7 @@ def word_search_suggester(qSource: str):
         if month_arg in search_args:
             search_args[month_arg] = int(search_args[month_arg])
     query_keys = [x for x in search_args.keys() if x.startswith('q_')]
-    query_val_keys = [("in_order", False),
+    query_val_keys = [("in_order", 'False'),
                       ("regex_search", False),
                       ("proper_name", ''),
                       ("formulaic_parts", ''),
@@ -393,7 +395,8 @@ def download_search_results(download_id: str) -> Response:
                               ('in_order', _('Wortreihenfolge beachten?')),
                               ('formulaic_parts', _('Urkundenteile'))]
         search_value_dict = {'False': _('Nein'), 'True': _('Ja'), False: _('Nein'), True: _('Ja')}
-        for k, v in session['previous_search_args']['query_dict'].items():
+        query_dict = make_query_dict(build_search_args(session['previous_search_args']))
+        for k, v in query_dict.items():
             if v['q'] or v['formulaic_parts']:
                 arg_list.append('<b>{}</b>:'.format(k.replace('q_', _('Suchterminus '))))
                 for query_arg, s in query_dict_mapping:
