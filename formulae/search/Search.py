@@ -661,7 +661,7 @@ def advanced_query_index(corpus: list = None,
             elif forgeries == 'only':
                 search_part_template['query']['bool']['must'].append({'term': {'forgery': True}})
             if query_vals['proper_name'] != '':
-                query_vals['proper_name'] = query_vals['proper_name'].split('+')
+                query_vals['proper_name'] = re.split(r'\+|\s+', query_vals['proper_name'])
             else:
                 query_vals['proper_name'] = []
             if query_vals['proper_name'] and query_vals['q'] == '':

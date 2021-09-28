@@ -1128,6 +1128,23 @@ class TestIndividualRoutes(Formulae_Testing):
         expected = dumps(results)
         r = self.client.get('/search/suggest/q_1?q_1=ill')
         self.assertEqual(expected, r.get_data(as_text=True))
+        self.client.get('/search/suggest/q_1?q_1=ill&month=08&search_field_1=lemmas')
+        print(mock_suggest.call_args_list)
+        mock_suggest.assert_called_with(month=8,
+                                        corpus='all',
+                                        bool_operator='must',
+                                        qSource='q_1',
+                                        query_dict={'q_1':
+                                                        {'q': 'ill',
+                                                         'in_order': 'False',
+                                                         'regex_search': False,
+                                                         'proper_name': '',
+                                                         'formulaic_parts': '',
+                                                         'slop': 0, 'fuzziness': 0,
+                                                         'search_field': 'autocomplete_lemmas',
+                                                         'exclude_q': ''}
+                                                    }
+                                        )
 
     def test_bibliography_links(self):
         """ Make sure the bibliographical links in the notes work correctly"""
@@ -10607,6 +10624,8 @@ class TestES(Formulae_Testing):
             expected_parts_no_q = f.read()
         with open('tests/test_data/advanced_search/downloaded_search_with_with_four_query_params.pdf', mode='rb') as f:
             expected_four_params = f.read()
+        with open('tests/test_data/advanced_search/downloaded_search_with_four_query_proper_name.pdf', mode='rb') as f:
+            expected_four_params_proper_names = f.read()
         with self.client as c:
             url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_download_search_results'].items()])
             c.get('/search/results?source=advanced&' + url_params)
@@ -10704,6 +10723,15 @@ class TestES(Formulae_Testing):
                 with open('tests/test_data/advanced_search/downloaded_search_with_with_four_query_params.pdf', mode='wb') as f:
                     f.write(r.get_data())
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_four_params).group(0),
+                             re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
+            url_params = url_params.replace('proper_name_1=&', 'proper_name_1=personenname&')
+            url_params = url_params.replace('proper_name_2=&', 'proper_name_2=personenname+ortsname&')
+            c.get('/search/results?source=advanced&' + url_params)
+            r = c.get('/search/download/1')
+            if recreate:
+                with open('tests/test_data/advanced_search/downloaded_search_with_four_query_proper_name.pdf', mode='wb') as f:
+                    f.write(r.get_data())
+            self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_four_params_proper_names).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
     @patch.object(Elasticsearch, "search")

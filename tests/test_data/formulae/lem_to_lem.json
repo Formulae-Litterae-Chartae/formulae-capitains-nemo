@@ -44,5 +44,8 @@
 	],
 	"regnum": [
 		"regnumque"
+	],
+	"ortsname": [
+		"dominus_ortsname"
 	]
 }

@@ -391,7 +391,8 @@ def download_search_results(download_id: str) -> Response:
                               ('fuzziness', _('Unschärfegrad')),
                               ('slop', _('Suchradius')),
                               ('in_order', _('Wortreihenfolge beachten?')),
-                              ('formulaic_parts', _('Urkundenteile'))]
+                              ('formulaic_parts', _('Urkundenteile')),
+                              ('proper_name', _('Eigenname'))]
         search_value_dict = {'False': _('Nein'), 'True': _('Ja'), False: _('Nein'), True: _('Ja')}
         query_dict = make_query_dict(build_search_args(session['previous_search_args']))
         for k, v in query_dict.items():
@@ -399,10 +400,8 @@ def download_search_results(download_id: str) -> Response:
                 arg_list.append('<b>{}</b>:'.format(k.replace('q_', _('Suchterminus '))))
                 for query_arg, s in query_dict_mapping:
                     value = v[query_arg]
-                    if query_arg == 'formulaic_parts':
-                        value = ' - '.join([x for x in value.split('+')])
-                    elif isinstance(value, list):
-                        value = ' - '.join(value)
+                    if query_arg in ['formulaic_parts', 'proper_name']:
+                        value = ' - '.join([x.title() for x in re.split(r'\+|\s+', value)])
                     arg_list.append('- <b>{}</b>: {}'.format(s, value if value != '0' else ''))
         for arg, s in search_arg_mapping:
             if arg in session['previous_search_args']:
