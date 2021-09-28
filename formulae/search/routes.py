@@ -105,8 +105,6 @@ def make_query_dict(search_args: dict = None) -> dict:
 @bp.route("/simple", methods=["GET"])
 def r_simple_search() -> redirect:
     data = deepcopy(g.search_form.data)
-    if 'q' in data:
-        data['q_1'] = data.pop('q', '').lower()
     data['q_1'] = data['q_1'].lower()
     lemma_search = data.pop('lemma_search')
     data['search_id'] = data.pop('simple_search_id')

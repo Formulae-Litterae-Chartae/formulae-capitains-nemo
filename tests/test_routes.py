@@ -1460,6 +1460,35 @@ class TestFunctions(Formulae_Testing):
         with self.assertRaises(exceptions.NotFound):
             self.nemo.r_assets('js', 'some_weird.js')
 
+    def test_build_search_args(self):
+        """ Make sure the search arg dictionary is correctly returned"""
+        old_args = deepcopy(TestES().OLD_ARGS['test_regest_and_word_advanced_search'])
+        old_args['search_field'] = 'text'
+        new_args = build_search_args(old_args)
+        self.assertEqual(old_args['search_field'], new_args['search_field_1'])
+        self.assertEqual(old_args['regest_q'], new_args['q_2'])
+        self.assertEqual(old_args['search_field_2'], 'regest')
+        old_args['exclude_q'] = "exclusion"
+        old_args['regex_search'] = 'y'
+        new_args = build_search_args(old_args)
+        self.assertEqual(old_args['exclude_q'], new_args['exclude_q_1'])
+        self.assertEqual(new_args['regex_search_1'], 'True')
+        old_args['regex_search'] = 'True'
+        new_args = build_search_args(old_args)
+        self.assertEqual(new_args['regex_search_1'], 'True')
+        old_args['regex_search'] = True
+        new_args = build_search_args(old_args)
+        self.assertEqual(new_args['regex_search_1'], 'True')
+        old_args['proper_name'] = 'this+that'
+        new_args = build_search_args(old_args)
+        self.assertEqual(new_args['proper_name_1'], 'this+that')
+        old_args['proper_name'] = ['this', 'that']
+        new_args = build_search_args(old_args)
+        self.assertEqual(new_args['proper_name_1'], 'this+that')
+        old_args['proper_name_1'] = ['this', 'that']
+        new_args = build_search_args(old_args)
+        self.assertEqual(new_args['proper_name_1'], 'this+that')
+
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""
     #     self.assertEqual(self.nemo.term_vectors["urn:cts:formulae:buenden.meyer-marthaler0027.lat001"]["term_vectors"]["text"]["terms"]["a"]["term_freq"],
