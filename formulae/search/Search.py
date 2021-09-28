@@ -136,10 +136,8 @@ def suggest_word_search(**kwargs) -> Union[List[str], None]:
     if '*' in s or '?' in s:
         return None
     regex_search_string = PRE_TAGS + '.{,' + str(len(PRE_TAGS + POST_TAGS) * len(re.findall(r'\w+', s)) + 40) + '}(?=\s|$)'
-    print(regex_search_string)
     for post in posts:
         sents = post['highlight'][highlight_field]
-        print(sents)
         for sent in sents:
             results.update([re.sub(r'{}|{}|[{}]'.format(PRE_TAGS, POST_TAGS, punctuation), '', x) for x in re.findall(r'{}'.format(regex_search_string), sent)])
     return sorted(results, key=str.lower)[:10]
@@ -400,7 +398,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
         current_app.redis.setex(download_id, 60, '100%')
     return ids, all_highlighted_terms
 
-    for list_index, hit in enumerate(search['hits']['hits']):
+    """for list_index, hit in enumerate(search['hits']['hits']):
         open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
         half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
         show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
@@ -482,7 +480,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                     'highlight': ordered_sentences})
     if download_id:
         current_app.redis.setex(download_id, 60, '100%')
-    return ids, all_highlighted_terms
+    return ids, all_highlighted_terms"""
 
 
 def advanced_query_index(corpus: list = None,
