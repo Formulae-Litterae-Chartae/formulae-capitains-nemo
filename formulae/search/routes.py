@@ -404,39 +404,19 @@ def download_search_results(download_id: str) -> Response:
                         value = ' - '.join([x.title() for x in re.split(r'\+|\s+', value)])
                     arg_list.append('- <b>{}</b>: {}'.format(s, value if value != '0' else ''))
         for arg, s in search_arg_mapping:
+            value = ''
             if arg in session['previous_search_args']:
                 value = search_value_dict.get(session['previous_search_args'][arg], session['previous_search_args'][arg])
-            else:
-                value = ''
             if arg == 'corpus':
                 value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
             if arg == 'special_days':
                 value = ' - '.join([special_day_dict[x] for x in value.split('+')])
             arg_list.append('<b>{}</b>: {}'.format(s, value if value != '0' else ''))
-        prev_args = session['previous_search_args']
-        if prev_args.get('formulaic_parts', None):
-            ids = []
-            for list_index, hit in enumerate(session['previous_search']):
-                sents = []
-                if 'highlight' in hit:
-                    for highlight in hit['highlight']:
-                        sents.append(re.sub(r'(</?)strong(>)', r'\1b\2', str(highlight)))
-                regest_sents = []
-                if 'regest_sents' in hit:
-                    for s in hit['regest_sents']:
-                        regest_sents.append(re.sub(r'(</?)strong(>)', r'\1b\2', str(s)))
-                ids.append({'id': hit['id'],
-                            'info': hit['info'],
-                            'sents': sents,
-                            'regest_sents': regest_sents})
-                current_app.redis.set(download_id, str(floor((list_index / len(session['previous_search'])) * 100)) + '%')
+        try:
+            ids = session['previous_search']
+        # This finally statement makes sure that the JS function to get the progress halts on an error.
+        finally:
             current_app.redis.setex(download_id, 60, '99%')
-        else:
-            try:
-                ids = session['previous_search']
-            # This finally statement makes sure that the JS function to get the progress halts on an error.
-            finally:
-                current_app.redis.setex(download_id, 60, '99%')
         for d in ids:
             r = {'title': d['info']['title'], 'sents': [], 'regest_sents': []}
             if 'sents' in d and d['sents'] != []:
