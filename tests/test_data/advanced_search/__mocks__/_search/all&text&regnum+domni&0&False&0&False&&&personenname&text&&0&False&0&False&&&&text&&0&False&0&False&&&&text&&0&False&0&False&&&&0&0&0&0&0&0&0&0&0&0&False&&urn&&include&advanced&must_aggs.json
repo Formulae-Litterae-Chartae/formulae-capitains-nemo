@@ -254,7 +254,7 @@
     "corpus": {
       "buckets": {
         "<b>Angers</b>: Angers": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Anjou</b>: Archives d’Anjou": {
           "doc_count": 0
@@ -311,7 +311,7 @@
           "doc_count": 0
         },
         "<b>Graubünden</b>: Bünden": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Hersfeld</b>: Hersfeld": {
           "doc_count": 0
@@ -320,7 +320,7 @@
           "doc_count": 0
         },
         "<b>Lorsch</b>: Lorsch": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Luzern</b>: Luzern": {
           "doc_count": 0
@@ -353,7 +353,7 @@
           "doc_count": 0
         },
         "<b>Rätien</b>: Rätien": {
-          "doc_count": 3
+          "doc_count": 0
         },
         "<b>Salzburg</b>: Salzburg": {
           "doc_count": 0
@@ -362,7 +362,7 @@
           "doc_count": 0
         },
         "<b>St. Gallen</b>: St. Gallen": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
           "doc_count": 0
@@ -464,7 +464,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 7
+          "doc_count": 0
         },
         {
           "key": "800-899",
@@ -472,7 +472,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 2
+          "doc_count": 0
         },
         {
           "key": "900-999",
@@ -491,7 +491,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 2
+      "doc_count": 0
     }
   }
 }

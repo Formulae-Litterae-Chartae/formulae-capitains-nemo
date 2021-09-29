@@ -199,14 +199,14 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
             regest_sents = []
             part_sentences = []
             other_sentences = []
+            vectors = corp_vectors[hit['_id']]['term_vectors']
+            if query_terms.get('compare_field', None) and query_terms['compare_field'] not in vectors:
+                continue
             for s_field in hit['highlight']:
                 if s_field in ('text', 'lemmas'):
                     highlight_field = s_field
                     if s_field == 'lemmas':
                         highlight_field = 'text'
-                    vectors = corp_vectors[hit['_id']]['term_vectors']
-                    if query_terms['compare_field'] and query_terms['compare_field'] not in vectors:
-                        continue
                     highlight_offsets = {x: dict() for x in (highlight_field, s_field, query_terms['compare_field']) if x}
                     if s_field in [highlight_field, query_terms['compare_field']]:
                         for k, v in vectors[s_field]['terms'].items():
@@ -379,19 +379,19 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                 if current_app.config['nemo_app'].check_project_team() is False and not open_text:
                     ordered_sentences = [_('Text nicht zugänglich.')]
                     ordered_sentence_spans = [range(0, 1)]
-            if hit['_id'] in id_dict:
-                id_dict[hit['_id']]['sents'] += ordered_sentences
-                id_dict[hit['_id']]['sentence_spans'] += ordered_sentence_spans
-                id_dict[hit['_id']]['regest_sents'] += regest_sents
-            else:
-                id_dict[hit['_id']] = {'id': hit['_id'],
-                                       'info': hit['_source'],
-                                       'sents': ordered_sentences,
-                                       'sentence_spans': ordered_sentence_spans,
-                                       'title': hit['_source']['title'],
-                                       'regest_sents': regest_sents,
-                                       'highlight': ordered_sentences
-                                       }
+                if hit['_id'] in id_dict:
+                    id_dict[hit['_id']]['sents'] += ordered_sentences
+                    id_dict[hit['_id']]['sentence_spans'] += ordered_sentence_spans
+                    id_dict[hit['_id']]['regest_sents'] += regest_sents
+                else:
+                    id_dict[hit['_id']] = {'id': hit['_id'],
+                                           'info': hit['_source'],
+                                           'sents': ordered_sentences,
+                                           'sentence_spans': ordered_sentence_spans,
+                                           'title': hit['_source']['title'],
+                                           'regest_sents': regest_sents,
+                                           'highlight': ordered_sentences
+                                           }
 
     ids = [v for v in id_dict.values()]
     if download_id:

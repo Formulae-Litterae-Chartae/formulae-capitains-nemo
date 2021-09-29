@@ -249,12 +249,12 @@
       }
     },
     "forgeries": {
-      "doc_count": 9
+      "doc_count": 0
     },
     "corpus": {
       "buckets": {
         "<b>Angers</b>: Angers": {
-          "doc_count": 3
+          "doc_count": 0
         },
         "<b>Anjou</b>: Archives d’Anjou": {
           "doc_count": 0
@@ -269,10 +269,10 @@
           "doc_count": 0
         },
         "<b>Catalunya</b>: Katalonien": {
-          "doc_count": 9
+          "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae CXV": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae X": {
           "doc_count": 0
@@ -281,7 +281,7 @@
           "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae XII": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
           "doc_count": 0
@@ -290,79 +290,79 @@
           "doc_count": 0
         },
         "<b>Dijon</b>: Saint-Bénigne de Dijon": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>E-Lexikon</b>": {
           "doc_count": 0
         },
         "<b>Echternach</b>: Echternach": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Freising</b>: Freising": {
-          "doc_count": 25
+          "doc_count": 0
         },
         "<b>Fulda</b>: Fulda (Dronke)": {
           "doc_count": 0
         },
         "<b>Fulda</b>: Fulda (Stengel)": {
-          "doc_count": 3
+          "doc_count": 0
         },
         "<b>Gorze</b>: Gorze": {
-          "doc_count": 5
+          "doc_count": 0
         },
         "<b>Graubünden</b>: Bünden": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Hersfeld</b>: Hersfeld": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
-          "doc_count": 3
+          "doc_count": 0
         },
         "<b>Lorsch</b>: Lorsch": {
-          "doc_count": 15
+          "doc_count": 0
         },
         "<b>Luzern</b>: Luzern": {
           "doc_count": 0
         },
         "<b>Marculf</b>: Marculf": {
-          "doc_count": 3
+          "doc_count": 0
         },
         "<b>Merowinger</b>: Merowinger": {
-          "doc_count": 9
+          "doc_count": 0
         },
         "<b>Mondsee</b>: Mondsee": {
           "doc_count": 0
         },
         "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Passau</b>: Passau": {
           "doc_count": 0
         },
         "<b>Redon</b>: Cartulaire de Redon": {
-          "doc_count": 15
+          "doc_count": 0
         },
         "<b>Regensburg</b>: Regensburg": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Rheinland</b>: Mittelrheinisch": {
-          "doc_count": 7
+          "doc_count": 0
         },
         "<b>Rheinland</b>: Rheinisch": {
           "doc_count": 0
         },
         "<b>Rätien</b>: Rätien": {
-          "doc_count": 39
+          "doc_count": 0
         },
         "<b>Salzburg</b>: Salzburg": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Schäftlarn</b>: Schäftlarn": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>St. Gallen</b>: St. Gallen": {
-          "doc_count": 43
+          "doc_count": 0
         },
         "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
           "doc_count": 0
@@ -374,22 +374,22 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Eudes": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier (TELMA)": {
-          "doc_count": 5
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Dunois": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Fougères": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Manceau": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Pour le perche": {
           "doc_count": 0
@@ -401,16 +401,16 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Vendômois": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
-          "doc_count": 3
+          "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Julien de Tours": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
@@ -425,10 +425,10 @@
           "doc_count": 0
         },
         "<b>Wissembourg</b>: Weißenburg": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Zürich</b>: Zürich": {
-          "doc_count": 1
+          "doc_count": 0
         }
       }
     },
@@ -440,7 +440,7 @@
           "from_as_string": "0002",
           "to": -46420214400000.0,
           "to_as_string": "0499",
-          "doc_count": 1
+          "doc_count": 0
         },
         {
           "key": "500-599",
@@ -448,7 +448,7 @@
           "from_as_string": "0500",
           "to": -43264540800000.0,
           "to_as_string": "0599",
-          "doc_count": 2
+          "doc_count": 0
         },
         {
           "key": "600-699",
@@ -456,7 +456,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 4
+          "doc_count": 0
         },
         {
           "key": "700-799",
@@ -464,7 +464,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 28
+          "doc_count": 0
         },
         {
           "key": "800-899",
@@ -472,7 +472,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 109
+          "doc_count": 0
         },
         {
           "key": "900-999",
@@ -480,18 +480,18 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 22
+          "doc_count": 0
         },
         {
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 27
+          "doc_count": 0
         }
       ]
     },
     "no_date": {
-      "doc_count": 18
+      "doc_count": 0
     }
   }
 }

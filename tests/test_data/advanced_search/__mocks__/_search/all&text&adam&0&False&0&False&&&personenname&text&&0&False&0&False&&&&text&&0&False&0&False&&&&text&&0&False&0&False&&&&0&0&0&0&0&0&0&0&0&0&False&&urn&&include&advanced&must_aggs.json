@@ -269,7 +269,7 @@
           "doc_count": 0
         },
         "<b>Catalunya</b>: Katalonien": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae CXV": {
           "doc_count": 0
@@ -290,7 +290,7 @@
           "doc_count": 0
         },
         "<b>Dijon</b>: Saint-Bénigne de Dijon": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>E-Lexikon</b>": {
           "doc_count": 0
@@ -299,7 +299,7 @@
           "doc_count": 0
         },
         "<b>Freising</b>: Freising": {
-          "doc_count": 4
+          "doc_count": 0
         },
         "<b>Fulda</b>: Fulda (Dronke)": {
           "doc_count": 0
@@ -308,7 +308,7 @@
           "doc_count": 0
         },
         "<b>Gorze</b>: Gorze": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Graubünden</b>: Bünden": {
           "doc_count": 0
@@ -320,7 +320,7 @@
           "doc_count": 0
         },
         "<b>Lorsch</b>: Lorsch": {
-          "doc_count": 3
+          "doc_count": 0
         },
         "<b>Luzern</b>: Luzern": {
           "doc_count": 0
@@ -335,13 +335,13 @@
           "doc_count": 0
         },
         "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
-          "doc_count": 3
+          "doc_count": 0
         },
         "<b>Passau</b>: Passau": {
           "doc_count": 0
         },
         "<b>Redon</b>: Cartulaire de Redon": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Regensburg</b>: Regensburg": {
           "doc_count": 0
@@ -356,13 +356,13 @@
           "doc_count": 0
         },
         "<b>Salzburg</b>: Salzburg": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Schäftlarn</b>: Schäftlarn": {
           "doc_count": 0
         },
         "<b>St. Gallen</b>: St. Gallen": {
-          "doc_count": 5
+          "doc_count": 0
         },
         "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
           "doc_count": 0
@@ -377,22 +377,22 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier (TELMA)": {
-          "doc_count": 6
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Dunois": {
-          "doc_count": 15
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Fougères": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Manceau": {
-          "doc_count": 10
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Pour le perche": {
-          "doc_count": 4
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Serfs": {
           "doc_count": 2
@@ -401,16 +401,16 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Vendômois": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
-          "doc_count": 7
+          "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Julien de Tours": {
-          "doc_count": 4
+          "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
@@ -464,7 +464,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 5
+          "doc_count": 0
         },
         {
           "key": "800-899",
@@ -472,7 +472,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 5
+          "doc_count": 0
         },
         {
           "key": "900-999",
@@ -480,18 +480,18 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 6
+          "doc_count": 0
         },
         {
           "key": ">1000",
           "from": -30610224000000.0,
           "from_as_string": "1000",
-          "doc_count": 52
+          "doc_count": 2
         }
       ]
     },
     "no_date": {
-      "doc_count": 4
+      "doc_count": 1
     }
   }
 }

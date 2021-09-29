@@ -8590,6 +8590,9 @@ class TestES(Formulae_Testing):
                                                                                                      'end_offset': 13}]},
                                                                'geribus': {'term_freq': 1, 'tokens': [{'position': 12,
                                                                                                      'start_offset': 10,
+                                                                                                     'end_offset': 13}]},
+                                                               'domni': {'term_freq': 1, 'tokens': [{'position': 13,
+                                                                                                     'start_offset': 10,
                                                                                                      'end_offset': 13}]}
                                                                }
                                                           },
@@ -8632,7 +8635,10 @@ class TestES(Formulae_Testing):
                                                                                                        'end_offset': 13}]},
                                                                  'facere': {'term_freq': 1, 'tokens': [{'position': 11,
                                                                                                        'start_offset': 10,
-                                                                                                       'end_offset': 13}]}
+                                                                                                       'end_offset': 13}]},
+                                                               'dominus': {'term_freq': 1, 'tokens': [{'position': 13,
+                                                                                                     'start_offset': 10,
+                                                                                                     'end_offset': 13}]}
                                                                  }
                                                             }
                                                  }}
@@ -9487,8 +9493,8 @@ class TestES(Formulae_Testing):
                          "Redis should keep track of download progress")
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Elasticsearch, "mtermvectors")
-    def test_mapped_multiword_lemma_advanced_search(self, mock_vectors, mock_search):
+    @patch.object(Search, "lem_highlight_to_text")
+    def test_mapped_multiword_lemma_advanced_search(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_mapped_multiword_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
@@ -9496,7 +9502,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        mock_vectors.side_effect = self.vector_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
@@ -9608,7 +9614,7 @@ class TestES(Formulae_Testing):
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
-        self.assertEqual(ids, [{"id": x['id']} for x in actual],
+        self.assertEqual([], [{"id": x['id']} for x in actual],
                          "Proper name matching where neither term is a proper name should produce no results.")
 
     @patch.object(Elasticsearch, "search")
@@ -9632,7 +9638,7 @@ class TestES(Formulae_Testing):
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
-        self.assertEqual(ids, [{"id": x['id']} for x in actual],
+        self.assertEqual([], [{"id": x['id']} for x in actual],
                          "Proper name matching where neither term is a proper name should produce no results.")
 
     @patch.object(Elasticsearch, "search")
@@ -10167,14 +10173,13 @@ class TestES(Formulae_Testing):
                 hit['highlight']['lemmas'] = hit['highlight']['text']
             for i, h in enumerate(single_response['hits']['hits']):
                 single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': []}, {'sents': []}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.assertEqual([], [{"sents": x['sents']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -10196,8 +10201,7 @@ class TestES(Formulae_Testing):
                 hit['highlight']['lemmas'] = hit['highlight']['text']
             for i, h in enumerate(single_response['hits']['hits']):
                 single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': []},
-                 {'sents': [Markup('Facta donacio in loco Fortunes, sub '
+        sents = [{'sents': [Markup('Facta donacio in loco Fortunes, sub '
                                    'presencia virorum testium sub </small><strong>regnum</strong><small> '
                                    '</small><strong>domni</strong><small> nostri Caroli '
                                    '</small><strong>regis</strong><small>, Sub die, quod est '
@@ -10230,8 +10234,7 @@ class TestES(Formulae_Testing):
                 hit['highlight']['lemmas'] = hit['highlight']['text']
             for i, h in enumerate(single_response['hits']['hits']):
                 single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
-        sents = [{'sents': []},
-                 {'sents': [Markup('firmitate. Facta donacio in loco Fortunes, sub '
+        sents = [{'sents': [Markup('firmitate. Facta donacio in loco Fortunes, sub '
                                    'presencia virorum testium </small><strong>sub</strong><small> regnum '
                                    'domni nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est '
                                    'pridie kl. aprilis. Notavi diem et ')]}]
@@ -11101,8 +11104,8 @@ class TestES(Formulae_Testing):
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Elasticsearch, "mtermvectors")
-    def test_simple_search_text_and_regest(self, mock_vectors, mock_search):
+    @patch.object(Search, 'lem_highlight_to_text')
+    def test_simple_search_text_and_regest(self, mock_highlight, mock_search):
         test_args = copy(self.TEST_ARGS['test_simple_search_text_and_regest'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
@@ -11110,10 +11113,9 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        mock_vectors.side_effect = self.vector_side_effect
+        mock_highlight.side_effect = self.highlight_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
-        test_args['q_2'] = test_args['q_2'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
