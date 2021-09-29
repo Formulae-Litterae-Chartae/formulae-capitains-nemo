@@ -10434,6 +10434,8 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        for h in actual:
+            self.assertEqual(h['info']['comp_ort'], 'Basel-Augst', "{} was not composed in Basel-Augst".format(h['id']))
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -11081,6 +11083,8 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        for h in actual:
+            self.assertEqual(h['info']['forgery'], True, "{} is a forgery and should be excluded".format(h['id']))
 
     @patch.object(Elasticsearch, "search")
     def test_forgery_exclude(self, mock_search):
@@ -11097,6 +11101,8 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
+        for h in actual:
+            self.assertEqual(h['info']['forgery'], False, "{} is a forgery and should be excluded".format(h['id']))
 
     @patch.object(Elasticsearch, "search")
     def test_regex_text(self, mock_search):
