@@ -329,7 +329,7 @@
           "doc_count": 0
         },
         "<b>Merowinger</b>: Merowinger": {
-          "doc_count": 196
+          "doc_count": 118
         },
         "<b>Mondsee</b>: Mondsee": {
           "doc_count": 0
@@ -448,7 +448,7 @@
           "from_as_string": "0500",
           "to": -43264540800000.0,
           "to_as_string": "0599",
-          "doc_count": 22
+          "doc_count": 20
         },
         {
           "key": "600-699",
@@ -456,7 +456,7 @@
           "from_as_string": "0600",
           "to": -40108867200000.0,
           "to_as_string": "0699",
-          "doc_count": 125
+          "doc_count": 74
         },
         {
           "key": "700-799",
@@ -464,7 +464,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 45
+          "doc_count": 21
         },
         {
           "key": "800-899",
@@ -491,7 +491,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 1
+      "doc_count": 0
     }
   }
 }

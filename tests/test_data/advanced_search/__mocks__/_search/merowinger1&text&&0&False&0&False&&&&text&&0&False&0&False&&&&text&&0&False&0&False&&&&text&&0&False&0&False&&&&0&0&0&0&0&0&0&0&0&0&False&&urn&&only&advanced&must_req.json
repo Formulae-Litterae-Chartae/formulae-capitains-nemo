@@ -2,7 +2,13 @@
   {
     "query": {
       "bool": {
-        "must": []
+        "must": [
+          {
+            "term": {
+              "forgery": true
+            }
+          }
+        ]
       }
     },
     "sort": [

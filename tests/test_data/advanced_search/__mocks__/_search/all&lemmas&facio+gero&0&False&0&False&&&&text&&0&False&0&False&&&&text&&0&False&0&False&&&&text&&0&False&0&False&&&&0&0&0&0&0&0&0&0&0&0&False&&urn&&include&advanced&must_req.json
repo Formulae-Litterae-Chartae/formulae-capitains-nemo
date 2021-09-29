@@ -174,7 +174,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "factus",
+                                "value": "facere",
                                 "fuzziness": "0"
                               }
                             }
@@ -206,7 +206,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "factus",
+                                "value": "facere",
                                 "fuzziness": "0"
                               }
                             }
@@ -238,7 +238,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "factus",
+                                "value": "facere",
                                 "fuzziness": "0"
                               }
                             }
@@ -270,7 +270,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "factus",
+                                "value": "facere",
                                 "fuzziness": "0"
                               }
                             }
@@ -302,7 +302,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "factus",
+                                "value": "facere",
                                 "fuzziness": "0"
                               }
                             }
@@ -334,7 +334,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "facere",
+                                "value": "factus",
                                 "fuzziness": "0"
                               }
                             }
@@ -366,7 +366,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "facere",
+                                "value": "factus",
                                 "fuzziness": "0"
                               }
                             }
@@ -398,7 +398,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "facere",
+                                "value": "factus",
                                 "fuzziness": "0"
                               }
                             }
@@ -430,7 +430,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "facere",
+                                "value": "factus",
                                 "fuzziness": "0"
                               }
                             }
@@ -462,7 +462,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "facere",
+                                "value": "factus",
                                 "fuzziness": "0"
                               }
                             }

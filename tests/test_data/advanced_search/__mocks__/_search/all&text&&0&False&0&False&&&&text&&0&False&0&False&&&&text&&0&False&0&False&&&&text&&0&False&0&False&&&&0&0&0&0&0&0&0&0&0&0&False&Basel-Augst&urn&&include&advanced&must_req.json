@@ -2,7 +2,13 @@
   {
     "query": {
       "bool": {
-        "must": []
+        "must": [
+          {
+            "match": {
+              "comp_ort": "Basel-Augst"
+            }
+          }
+        ]
       }
     },
     "sort": [

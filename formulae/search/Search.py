@@ -569,6 +569,12 @@ def advanced_query_index(corpus: list = None,
                                                    doc_type="",
                                                    body=elex_search)]
     else:
+        if composition_place:
+            base_body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
+        if forgeries == 'exclude':
+            base_body_template['query']['bool']['must'].append({'term': {'forgery': False}})
+        elif forgeries == 'only':
+            base_body_template['query']['bool']['must'].append({'term': {'forgery': True}})
         if year or month or day:
             date_template = {"bool": {"must": []}}
             if not date_plus_minus:
@@ -649,12 +655,6 @@ def advanced_query_index(corpus: list = None,
                 if ('*' in query_vals['q'] or '?' in query_vals['q']) and query_vals['regex_search'] == 'False':
                     flash(_("'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht möglich."))
                     return [], 0, {}, []
-            if composition_place:
-                search_part_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
-            if forgeries == 'exclude':
-                search_part_template['query']['bool']['must'].append({'term': {'forgery': False}})
-            elif forgeries == 'only':
-                search_part_template['query']['bool']['must'].append({'term': {'forgery': True}})
             if query_vals['proper_name'] != '':
                 query_vals['proper_name'] = re.split(r'\+|\s+', query_vals['proper_name'])
             else:

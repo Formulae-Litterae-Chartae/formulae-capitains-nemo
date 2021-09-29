@@ -4474,6 +4474,60 @@ class TestES(Formulae_Testing):
                                                                     ("forgeries", "include"),
                                                                     ('source', 'advanced'),
                                                                     ('bool_operator', 'must')]),
+                 'test_multi_word_fuzzy_highlighting_no_AUTO': OrderedDict([("corpus", "buenden"),
+                                                                            ("search_field_1", "text"),
+                                                                            ("q_1", 'regnante+pettone'),
+                                                                            ("fuzziness_1", "2"),
+                                                                            ("in_order_1", "False"),
+                                                                            ("slop_1", "0"),
+                                                                            ("regex_search_1", 'False'),
+                                                                            ("exclude_q_1", ""),
+                                                                            ("formulaic_parts_1", ""),
+                                                                            ("proper_name_1", ""),
+                                                                            ("search_field_2", "text"),
+                                                                            ("q_2", ''),
+                                                                            ("fuzziness_2", "0"),
+                                                                            ("in_order_2", "False"),
+                                                                            ("slop_2", "0"),
+                                                                            ("regex_search_2", 'False'),
+                                                                            ("exclude_q_2", ""),
+                                                                            ("formulaic_parts_2", ""),
+                                                                            ("proper_name_2", ""),
+                                                                            ("search_field_3", "text"),
+                                                                            ("q_3", ''),
+                                                                            ("fuzziness_3", "0"),
+                                                                            ("in_order_3", "False"),
+                                                                            ("slop_3", "0"),
+                                                                            ("regex_search_3", 'False'),
+                                                                            ("exclude_q_3", ""),
+                                                                            ("formulaic_parts_3", ""),
+                                                                            ("proper_name_3", ""),
+                                                                            ("search_field_4", "text"),
+                                                                            ("q_4", ''),
+                                                                            ("fuzziness_4", "0"),
+                                                                            ("in_order_4", "False"),
+                                                                            ("slop_4", "0"),
+                                                                            ("regex_search_4", 'False'),
+                                                                            ("exclude_q_4", ""),
+                                                                            ("formulaic_parts_4", ""),
+                                                                            ("proper_name_4", ""),
+                                                                            ("year", 0),
+                                                                            ("month", 0),
+                                                                            ("day", 0),
+                                                                            ("year_start", 0),
+                                                                            ("month_start", 0),
+                                                                            ("day_start", 0),
+                                                                            ("year_end", 0),
+                                                                            ("month_end", 0),
+                                                                            ("day_end", 0),
+                                                                            ('date_plus_minus', 0),
+                                                                            ('exclusive_date_range', 'False'),
+                                                                            ("composition_place", ''),
+                                                                            ('sort', 'urn'),
+                                                                            ('special_days', ''),
+                                                                            ("forgeries", "include"),
+                                                                            ('source', 'advanced'),
+                                                                            ('bool_operator', 'must')]),
                  'test_multi_word_fuzzy_highlighting_with_wildcard': OrderedDict([("corpus", "buenden"),
                                                                                   ("search_field_1", "text"),
                                                                                   ("q_1", 'scripsi+et+suscr*'),
@@ -10033,6 +10087,23 @@ class TestES(Formulae_Testing):
     def test_multi_word_fuzzy_highlighting(self, mock_vectors, mock_search):
         """ Make sure that the correct sentence fragments are returned when doing fuzzy searches"""
         test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        sents = [{'sents': [Markup('aurum libras III. Facta in Lopiene, mense februarium, anno II </small><strong>regnante</strong><small> </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
+        mock_search.side_effect = self.search_side_effect
+        mock_vectors.return_value = self.term_vectors
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_word_fuzzy_highlighting_no_AUTO(self, mock_vectors, mock_search):
+        """ Make sure that the correct sentence fragments are returned when doing fuzzy searches"""
+        test_args = copy(self.TEST_ARGS['test_multi_word_fuzzy_highlighting_no_AUTO'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
