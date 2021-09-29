@@ -359,8 +359,6 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                         regest_sents = [_('Regest nicht zugänglich.')]
                     else:
                         regest_sents = [Markup(highlight_segment(x)) for x in hit['highlight'][s_field]]
-                else:
-                    other_sentences += [Markup(highlight_segment(x)) for x in hit['highlight'][s_field]]
                 if download_id and list_index % 500 == 0:
                     current_app.redis.set(download_id, str(50 + floor((list_index / len(query_results['hits']['hits'])) * 50)) + '%')
 
@@ -369,9 +367,6 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
             for x, y in sorted(zip(sentences, sentence_spans), key=lambda z: (z[1].start, z[1].stop)):
                 ordered_sentences.append(x)
                 ordered_sentence_spans.append(y)
-            for other_sent in other_sentences:
-                ordered_sentences.append(other_sent)
-                ordered_sentence_spans.append(None)
             for part_sent, sent_part in sorted(part_sentences):
                 ordered_sentences.append(part_sent)
                 ordered_sentence_spans.append(sent_part)
@@ -682,6 +677,7 @@ def advanced_query_index(corpus: list = None,
                 if query_vals['proper_name']:
                     query_vals['compare_term'] = query_vals['proper_name']
                     query_vals['compare_field'] = 'lemmas'
+
                 if isinstance(query_vals['search_field'], list):
                     bool_clauses = []
                     for s_field in query_vals['search_field']:
@@ -942,28 +938,16 @@ def advanced_query_index(corpus: list = None,
         q = []
         for k in ('q_1', 'q_2', 'q_3', 'q_4'):
             d_vals = []
-            if k in query_dict:
-                for s_arg in ("search_field",
-                              "q",
-                              "fuzziness",
-                              "in_order",
-                              "slop",
-                              "regex_search",
-                              "exclude_q",
-                              "formulaic_parts",
-                              "proper_name"):
-                    d_vals.append(str('+'.join(query_dict[k][s_arg]) if isinstance(query_dict[k][s_arg], list) else query_dict[k][s_arg]).replace(' ', '+'))
-            else:
-                for k, v in (("search_field", "text"),
-                             ("q", ''),
-                             ("fuzziness", "0"),
-                             ("in_order", "False"),
-                             ("slop", "0"),
-                             ("regex_search", 'False'),
-                             ("exclude_q", ""),
-                             ("formulaic_parts", ""),
-                             ("proper_name", "")):
-                    d_vals.append(v)
+            for s_arg in ("search_field",
+                          "q",
+                          "fuzziness",
+                          "in_order",
+                          "slop",
+                          "regex_search",
+                          "exclude_q",
+                          "formulaic_parts",
+                          "proper_name"):
+                d_vals.append(str('+'.join(query_dict[k][s_arg]) if isinstance(query_dict[k][s_arg], list) else query_dict[k][s_arg]).replace(' ', '+'))
             q.append('&'.join(d_vals))
 
         req_name = "{corpus}&{q}&{y}&" \

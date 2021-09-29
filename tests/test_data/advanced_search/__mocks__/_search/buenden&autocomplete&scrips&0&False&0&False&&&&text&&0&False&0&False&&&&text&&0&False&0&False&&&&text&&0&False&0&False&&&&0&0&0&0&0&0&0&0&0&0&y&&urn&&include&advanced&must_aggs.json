@@ -311,7 +311,7 @@
           "doc_count": 0
         },
         "<b>Graubünden</b>: Bünden": {
-          "doc_count": 12
+          "doc_count": 0
         },
         "<b>Hersfeld</b>: Hersfeld": {
           "doc_count": 0
@@ -464,7 +464,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 6
+          "doc_count": 0
         },
         {
           "key": "800-899",
@@ -472,7 +472,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 2
+          "doc_count": 0
         },
         {
           "key": "900-999",
@@ -480,7 +480,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 4
+          "doc_count": 0
         },
         {
           "key": ">1000",

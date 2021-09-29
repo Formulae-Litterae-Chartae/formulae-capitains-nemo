@@ -1129,7 +1129,6 @@ class TestIndividualRoutes(Formulae_Testing):
         r = self.client.get('/search/suggest/q_1?q_1=ill')
         self.assertEqual(expected, r.get_data(as_text=True))
         self.client.get('/search/suggest/q_1?q_1=ill&month=08&search_field_1=lemmas')
-        print(mock_suggest.call_args_list)
         mock_suggest.assert_called_with(month=8,
                                         corpus='all',
                                         bool_operator='must',
@@ -4367,6 +4366,60 @@ class TestES(Formulae_Testing):
                                                                      ("forgeries", "include"),
                                                                      ('source', 'advanced'),
                                                                      ('bool_operator', 'must')]),
+                 'test_single_word_fuzzy_highlighting_not_AUTO': OrderedDict([("corpus", "buenden"),
+                                                                              ("search_field_1", "text"),
+                                                                              ("q_1", 'pettone'),
+                                                                              ("fuzziness_1", "2"),
+                                                                              ("in_order_1", "False"),
+                                                                              ("slop_1", "0"),
+                                                                              ("regex_search_1", 'False'),
+                                                                              ("exclude_q_1", ""),
+                                                                              ("formulaic_parts_1", ""),
+                                                                              ("proper_name_1", ""),
+                                                                              ("search_field_2", "text"),
+                                                                              ("q_2", ''),
+                                                                              ("fuzziness_2", "0"),
+                                                                              ("in_order_2", "False"),
+                                                                              ("slop_2", "0"),
+                                                                              ("regex_search_2", 'False'),
+                                                                              ("exclude_q_2", ""),
+                                                                              ("formulaic_parts_2", ""),
+                                                                              ("proper_name_2", ""),
+                                                                              ("search_field_3", "text"),
+                                                                              ("q_3", ''),
+                                                                              ("fuzziness_3", "0"),
+                                                                              ("in_order_3", "False"),
+                                                                              ("slop_3", "0"),
+                                                                              ("regex_search_3", 'False'),
+                                                                              ("exclude_q_3", ""),
+                                                                              ("formulaic_parts_3", ""),
+                                                                              ("proper_name_3", ""),
+                                                                              ("search_field_4", "text"),
+                                                                              ("q_4", ''),
+                                                                              ("fuzziness_4", "0"),
+                                                                              ("in_order_4", "False"),
+                                                                              ("slop_4", "0"),
+                                                                              ("regex_search_4", 'False'),
+                                                                              ("exclude_q_4", ""),
+                                                                              ("formulaic_parts_4", ""),
+                                                                              ("proper_name_4", ""),
+                                                                              ("year", 0),
+                                                                              ("month", 0),
+                                                                              ("day", 0),
+                                                                              ("year_start", 0),
+                                                                              ("month_start", 0),
+                                                                              ("day_start", 0),
+                                                                              ("year_end", 0),
+                                                                              ("month_end", 0),
+                                                                              ("day_end", 0),
+                                                                              ('date_plus_minus', 0),
+                                                                              ('exclusive_date_range', 'False'),
+                                                                              ("composition_place", ''),
+                                                                              ('sort', 'urn'),
+                                                                              ('special_days', ''),
+                                                                              ("forgeries", "include"),
+                                                                              ('source', 'advanced'),
+                                                                              ('bool_operator', 'must')]),
                  'test_multi_word_fuzzy_highlighting': OrderedDict([("corpus", "buenden"),
                                                                     ("search_field_1", "text"),
                                                                     ("q_1", 'regnante+pettone'),
@@ -5453,7 +5506,7 @@ class TestES(Formulae_Testing):
                                                   ("fuzziness_1", "0"),
                                                   ("in_order_1", "False"),
                                                   ("slop_1", "0"),
-                                                  ("regex_search_1", 'False'),
+                                                  ("regex_search_1", 'True'),
                                                   ("exclude_q_1", ""),
                                                   ("formulaic_parts_1", "Narratio"),
                                                   ("proper_name_1", "personenname"),
@@ -5507,7 +5560,7 @@ class TestES(Formulae_Testing):
                                                                     ("fuzziness_1", "0"),
                                                                     ("in_order_1", "False"),
                                                                     ("slop_1", "0"),
-                                                                    ("regex_search_1", 'False'),
+                                                                    ("regex_search_1", 'True'),
                                                                     ("exclude_q_1", ""),
                                                                     ("formulaic_parts_1", "Narratio"),
                                                                     ("proper_name_1", "personenname"),
@@ -8591,7 +8644,7 @@ class TestES(Formulae_Testing):
                                                                'geribus': {'term_freq': 1, 'tokens': [{'position': 12,
                                                                                                      'start_offset': 10,
                                                                                                      'end_offset': 13}]},
-                                                               'domni': {'term_freq': 1, 'tokens': [{'position': 13,
+                                                               'domnus': {'term_freq': 1, 'tokens': [{'position': 13,
                                                                                                      'start_offset': 10,
                                                                                                      'end_offset': 13}]}
                                                                }
@@ -8636,9 +8689,9 @@ class TestES(Formulae_Testing):
                                                                  'facere': {'term_freq': 1, 'tokens': [{'position': 11,
                                                                                                        'start_offset': 10,
                                                                                                        'end_offset': 13}]},
-                                                               'dominus': {'term_freq': 1, 'tokens': [{'position': 13,
-                                                                                                     'start_offset': 10,
-                                                                                                     'end_offset': 13}]}
+                                                                 'dominus': {'term_freq': 1, 'tokens': [{'position': 13,
+                                                                                                         'start_offset': 10,
+                                                                                                         'end_offset': 13}]}
                                                                  }
                                                             }
                                                  }}
@@ -9493,8 +9546,8 @@ class TestES(Formulae_Testing):
                          "Redis should keep track of download progress")
 
     @patch.object(Elasticsearch, "search")
-    @patch.object(Search, "lem_highlight_to_text")
-    def test_mapped_multiword_lemma_advanced_search(self, mock_highlight, mock_search):
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_mapped_multiword_lemma_advanced_search(self, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_mapped_multiword_lemma_advanced_search'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         body = fake.load_request()
@@ -9502,7 +9555,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        mock_highlight.side_effect = self.highlight_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
         test_args['corpus'] = test_args['corpus'].split('+')
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
@@ -9917,6 +9970,29 @@ class TestES(Formulae_Testing):
             will not cause an error.
         """
         test_args = copy(self.TEST_ARGS['test_single_word_fuzzy_highlighting'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        sents = [{'sents': [Markup('testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup('vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice </small><strong>Pettonis</strong><small> presbiteri scripsi et suscripsi.')]},
+                 {'sents': [Markup('aecclesiae fidelibus presentibus scilicet et futuris, qualiter me convenit cum </small><strong>Hattone</strong><small> venerabili episcopo et abbate cenobii Lauresham dicti, quasdam res ipsius ')]},
+                 {'sents': [Markup('libras III. Facta in Lopiene, mense februarium, anno II regnante </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
+        mock_search.side_effect = self.search_side_effect
+        mock_vectors.side_effect = self.vector_side_effect
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_single_word_fuzzy_highlighting_not_AUTO(self, mock_vectors, mock_search):
+        """ Make sure that the correct sentence fragments are returned when searching for lemmas
+            This also makes sure that a highlighted word that is just the wrong distance from the end of the string
+            will not cause an error.
+        """
+        test_args = copy(self.TEST_ARGS['test_single_word_fuzzy_highlighting_not_AUTO'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
@@ -10964,6 +11040,8 @@ class TestES(Formulae_Testing):
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['text']['value'],
+                         'r[uv][ijeuv]g[ij]n(w|w|uu|vu|uv|vv|[uv])(w|uu|vu|uv|vv)m')
 
     @patch.object(Elasticsearch, "search")
     def test_regex_parts(self, mock_search):
@@ -10978,6 +11056,8 @@ class TestES(Formulae_Testing):
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['Narratio']['value'],
+                         'c(w|uu|vu|uv|vv)hr[ijij]s[ij]t([uv]|w|uu|vu|uv|vv|[w])[ij][uv]')
 
     @patch.object(Elasticsearch, "search")
     def test_regex_parts_no_uv_replacement(self, mock_search):
@@ -10992,6 +11072,8 @@ class TestES(Formulae_Testing):
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+        self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['Narratio']['value'],
+                         'dos')
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, 'lem_highlight_to_text')

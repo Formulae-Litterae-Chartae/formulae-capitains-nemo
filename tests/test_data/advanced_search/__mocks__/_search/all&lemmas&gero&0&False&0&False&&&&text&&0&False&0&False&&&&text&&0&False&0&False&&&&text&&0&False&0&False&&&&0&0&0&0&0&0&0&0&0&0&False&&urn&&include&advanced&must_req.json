@@ -34,27 +34,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "gerereve",
-                                "fuzziness": "0"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "slop": "0",
-                    "in_order": false
-                  }
-                },
-                {
-                  "span_near": {
-                    "clauses": [
-                      {
-                        "span_multi": {
-                          "match": {
-                            "fuzzy": {
-                              "lemmas": {
-                                "value": "gestus",
+                                "value": "gesta",
                                 "fuzziness": "0"
                               }
                             }
@@ -94,7 +74,27 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "gesta",
+                                "value": "gestus",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "gerereve",
                                 "fuzziness": "0"
                               }
                             }
