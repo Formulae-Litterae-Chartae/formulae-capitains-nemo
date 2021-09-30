@@ -1124,6 +1124,10 @@ class NemoFormulae(Nemo):
         transcriptions = [(m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '')
                           for m in self.get_transcriptions(metadata)]
         current_parents = self.make_parents(metadata, lang=lang)
+        linked_resources = []
+        for resource in metadata.metadata.get(DCTERMS.relation):
+            linked_md = self.resolver.getMetadata(str(resource))
+            linked_resources.append((linked_md.id, str(linked_md.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang)))
         return {
             "template": "",
             "objectId": objectId,
@@ -1148,7 +1152,8 @@ class NemoFormulae(Nemo):
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
                     "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),
-                    "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or '')
+                    "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or ''),
+                    "linked_resources": linked_resources
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
