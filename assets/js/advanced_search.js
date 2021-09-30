@@ -84,7 +84,7 @@ $(document).ready(function () {
         })
     }
     
-    $('.collapse input').each(function(i, el) {
+    $('.corpus-ul .collapse input').each(function(i, el) {
         if ($( this ).attr('type') == "checkbox") {
             if ($( this ).prop('checked') && $( this ).attr('id') != "firstLetter") {
                 var collapseParent = $( this ).parents('#formulaeCorporaCollapse,#chartaeCorporaCollapse');
@@ -101,7 +101,7 @@ $(document).ready(function () {
         }
     });
     
-    $('.collapse option:checked').each(function(i, el) {
+    $('.corpus-ul .collapse option:checked').each(function(i, el) {
         if ($( this ).val() != "0") {
             $( this ).parents('.collapse').show();
         }

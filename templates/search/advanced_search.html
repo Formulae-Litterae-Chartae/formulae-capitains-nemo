@@ -131,12 +131,16 @@
                             </div>
                         </div>
                     </div>
-                    <div id="bool-controller" class="row mb-3 justify-content-center">
-                        <div class="col-4">
-                            {{ form.bool_operator(class="form-control-lg form-control") }}
+                    <div class="row">
+                        <div class="col"><button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchQ-2" type="button" aria-expanded="false" aria-controls="searchQ-2">{{ _('Eine weitere Suchmaske einblenden') }}</button>
                         </div>
                     </div>
-                    <div id="searchQ-2">
+                    <div class="collapse" id="searchQ-2">
+                        <div id="bool-controller" class="row mb-3 justify-content-center">
+                            <div class="col-auto">
+                                {{ form.bool_operator(class="form-control-lg form-control") }}
+                            </div>
+                        </div>
                         <div class="form-row">
                             <div class="col">
                                 {{ form.q_2(class="form-control my-0 word-search-box", placeholder=form.q_2.label.text, list="word-search-datalist_1", default=form.q_2.label.text, autocomplete="off") }}
@@ -213,8 +217,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchQ-3" type="button" aria-expanded="false" aria-controls="searchQ-3">{{ _('Eine weitere Suchmaske einblenden') }}</button>
+                        </div>
                     </div>
-                    <div id="searchQ-3">
+                    </div>
+                    <div id="searchQ-3" class="collapse">
                         <div class="form-row">
                             <div class="col">
                                 {{ form.q_3(class="form-control my-0 word-search-box", placeholder=form.q_3.label.text, list="word-search-datalist_3", default=form.q_3.label.text, autocomplete="off") }}
@@ -291,8 +299,12 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchQ-4" type="button" aria-expanded="false" aria-controls="searchQ-4">{{ _('Eine weitere Suchmaske einblenden') }}</button>
+                        </div>
                     </div>
-                    <div id="searchQ-4">
+                    </div>
+                    <div id="searchQ-4" class="collapse">
                         <div class="form-row">
                             <div class="col">
                                 {{ form.q_4(class="form-control my-0 word-search-box", placeholder=form.q_4.label.text, list="word-search-datalist_1", default=form.q_4.label.text, autocomplete="off") }}
