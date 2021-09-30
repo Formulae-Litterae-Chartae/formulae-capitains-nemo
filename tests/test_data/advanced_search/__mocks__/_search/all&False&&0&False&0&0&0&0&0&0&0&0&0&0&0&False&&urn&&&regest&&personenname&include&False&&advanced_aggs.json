@@ -1,9 +1,9 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 13631,
+      "doc_count": 13839,
       "forgeries": {
-        "doc_count": 151
+        "doc_count": 150
       },
       "corpus": {
         "buckets": {
@@ -29,7 +29,7 @@
             "doc_count": 39
           },
           "<b>Chartae Latinae</b>: Chartae Latinae X": {
-            "doc_count": 3
+            "doc_count": 0
           },
           "<b>Chartae Latinae</b>: Chartae Latinae XI": {
             "doc_count": 1
@@ -51,6 +51,9 @@
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 152
+          },
+          "<b>Flavigny</b>: Flavigny": {
+            "doc_count": 0
           },
           "<b>Freising</b>: Freising": {
             "doc_count": 1383
@@ -80,7 +83,7 @@
             "doc_count": 6
           },
           "<b>Marculf</b>: Marculf": {
-            "doc_count": 41
+            "doc_count": 95
           },
           "<b>Merowinger</b>: Merowinger": {
             "doc_count": 196
@@ -163,6 +166,9 @@
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
             "doc_count": 184
           },
+          "<b>Touraine</b>: Saint-Julien de Tours": {
+            "doc_count": 157
+          },
           "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
             "doc_count": 15
           },
@@ -191,7 +197,7 @@
             "from_as_string": "0002",
             "to": -46420214400000.0,
             "to_as_string": "0499",
-            "doc_count": 10
+            "doc_count": 7
           },
           {
             "key": "500-599",
@@ -223,7 +229,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3510
+            "doc_count": 3511
           },
           {
             "key": "900-999",
@@ -237,12 +243,12 @@
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1702
+            "doc_count": 1859
           }
         ]
       },
       "no_date": {
-        "doc_count": 649
+        "doc_count": 702
       }
     },
     "forgeries": {
@@ -295,6 +301,9 @@
         "<b>Echternach</b>: Echternach": {
           "doc_count": 0
         },
+        "<b>Flavigny</b>: Flavigny": {
+          "doc_count": 0
+        },
         "<b>Freising</b>: Freising": {
           "doc_count": 0
         },
@@ -323,7 +332,7 @@
           "doc_count": 0
         },
         "<b>Marculf</b>: Marculf": {
-          "doc_count": 2
+          "doc_count": 7
         },
         "<b>Merowinger</b>: Merowinger": {
           "doc_count": 0
@@ -406,6 +415,9 @@
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
           "doc_count": 0
         },
+        "<b>Touraine</b>: Saint-Julien de Tours": {
+          "doc_count": 0
+        },
         "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
           "doc_count": 0
         },
@@ -485,7 +497,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 9
+      "doc_count": 14
     }
   }
 }

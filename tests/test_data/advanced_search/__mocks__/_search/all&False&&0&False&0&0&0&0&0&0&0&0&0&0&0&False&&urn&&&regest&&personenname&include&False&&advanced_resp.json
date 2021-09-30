@@ -1,5 +1,5 @@
 {
-  "took": 94,
+  "took": 137,
   "timed_out": false,
   "_shards": {
     "total": 57,
@@ -9,14 +9,14 @@
   },
   "hits": {
     "total": {
-      "value": 192,
+      "value": 197,
       "relation": "eq"
     },
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v25",
-        "_type": "_doc",
+        "_index": "andecavensis_v5",
+        "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.computus.lat001",
         "_score": null,
         "_source": {
@@ -47,8 +47,8 @@
         ]
       },
       {
-        "_index": "andecavensis_v25",
-        "_type": "_doc",
+        "_index": "andecavensis_v5",
+        "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form001.lat001",
         "_score": null,
         "_source": {
@@ -79,8 +79,8 @@
         ]
       },
       {
-        "_index": "andecavensis_v25",
-        "_type": "_doc",
+        "_index": "andecavensis_v5",
+        "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form023.lat001",
         "_score": null,
         "_source": {
@@ -111,8 +111,8 @@
         ]
       },
       {
-        "_index": "andecavensis_v25",
-        "_type": "_doc",
+        "_index": "andecavensis_v5",
+        "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.form034.lat001",
         "_score": null,
         "_source": {
@@ -143,8 +143,8 @@
         ]
       },
       {
-        "_index": "marculf_v25",
-        "_type": "_doc",
+        "_index": "marculf_v5",
+        "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form000.lat001",
         "_score": null,
         "_source": {
@@ -175,8 +175,8 @@
         ]
       },
       {
-        "_index": "marculf_v25",
-        "_type": "_doc",
+        "_index": "marculf_v5",
+        "_type": "marculf",
         "_id": "urn:cts:formulae:marculf.form038.lat001",
         "_score": null,
         "_source": {
@@ -207,8 +207,168 @@
         ]
       },
       {
-        "_index": "auvergne_v11",
-        "_type": "_doc",
+        "_index": "marculf_v5",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_001.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,1",
+          "keywords": "",
+          "urn": "urn:cts:formulae:marculf.form2_001.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "marculf",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_001.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v5",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_003.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,3",
+          "keywords": "",
+          "urn": "urn:cts:formulae:marculf.form2_003.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "marculf",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_003.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v5",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_006.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,6",
+          "keywords": "",
+          "urn": "urn:cts:formulae:marculf.form2_006.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "marculf",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_006.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v5",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_017.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,17",
+          "keywords": "",
+          "urn": "urn:cts:formulae:marculf.form2_017.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "marculf",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_017.lat001"
+        ]
+      },
+      {
+        "_index": "marculf_v5",
+        "_type": "marculf",
+        "_id": "urn:cts:formulae:marculf.form2_049.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Marculf II,49",
+          "keywords": "",
+          "urn": "urn:cts:formulae:marculf.form2_049.lat001",
+          "date_string": " ",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "marculf",
+          "forgery": false,
+          "sort_prefix": 0
+        },
+        "highlight": {
+          "lemmas": [
+            "lemma text"
+          ]
+        },
+        "sort": [
+          0,
+          "urn:cts:formulae:marculf.form2_049.lat001"
+        ]
+      },
+      {
+        "_index": "auvergne_v1",
+        "_type": "auvergne",
         "_id": "urn:cts:formulae:auvergne.form001.lat001",
         "_score": null,
         "_source": {
@@ -216,6 +376,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Auvergne 1",
+          "keywords": "",
           "urn": "urn:cts:formulae:auvergne.form001.lat001",
           "date_string": " ",
           "comp_ort": " ",
@@ -238,8 +399,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001",
         "_score": null,
         "_source": {
@@ -282,8 +443,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0001app.lat001",
         "_score": null,
         "_source": {
@@ -326,8 +487,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0002.lat001",
         "_score": null,
         "_source": {
@@ -370,8 +531,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0002app.lat001",
         "_score": null,
         "_source": {
@@ -414,8 +575,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0003.lat001",
         "_score": null,
         "_source": {
@@ -458,8 +619,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0003app.lat001",
         "_score": null,
         "_source": {
@@ -502,8 +663,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0004.lat001",
         "_score": null,
         "_source": {
@@ -546,8 +707,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0004app.lat001",
         "_score": null,
         "_source": {
@@ -590,8 +751,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0005.lat001",
         "_score": null,
         "_source": {
@@ -634,8 +795,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0005app.lat001",
         "_score": null,
         "_source": {
@@ -678,8 +839,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0006.lat001",
         "_score": null,
         "_source": {
@@ -722,8 +883,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0006app.lat001",
         "_score": null,
         "_source": {
@@ -766,8 +927,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0007.lat001",
         "_score": null,
         "_source": {
@@ -810,8 +971,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0007app.lat001",
         "_score": null,
         "_source": {
@@ -854,8 +1015,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0008.lat001",
         "_score": null,
         "_source": {
@@ -898,8 +1059,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0008app.lat001",
         "_score": null,
         "_source": {
@@ -942,8 +1103,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0009.lat001",
         "_score": null,
         "_source": {
@@ -986,8 +1147,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0009app.lat001",
         "_score": null,
         "_source": {
@@ -1030,8 +1191,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0010.lat001",
         "_score": null,
         "_source": {
@@ -1074,8 +1235,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0010app.lat001",
         "_score": null,
         "_source": {
@@ -1118,8 +1279,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0011.lat001",
         "_score": null,
         "_source": {
@@ -1162,8 +1323,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0011app.lat001",
         "_score": null,
         "_source": {
@@ -1206,8 +1367,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0012.lat001",
         "_score": null,
         "_source": {
@@ -1250,8 +1411,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0012app.lat001",
         "_score": null,
         "_source": {
@@ -1294,8 +1455,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013.lat001",
         "_score": null,
         "_source": {
@@ -1338,8 +1499,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013app.lat001",
         "_score": null,
         "_source": {
@@ -1382,8 +1543,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0014.lat001",
         "_score": null,
         "_source": {
@@ -1426,8 +1587,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0014app.lat001",
         "_score": null,
         "_source": {
@@ -1470,8 +1631,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
         "_score": null,
         "_source": {
@@ -1514,8 +1675,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015app.lat001",
         "_score": null,
         "_source": {
@@ -1558,8 +1719,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0016.lat001",
         "_score": null,
         "_source": {
@@ -1602,8 +1763,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0016app.lat001",
         "_score": null,
         "_source": {
@@ -1646,8 +1807,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0017.lat001",
         "_score": null,
         "_source": {
@@ -1690,8 +1851,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001",
         "_score": null,
         "_source": {
@@ -1734,8 +1895,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018.lat001",
         "_score": null,
         "_source": {
@@ -1778,8 +1939,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
         "_score": null,
         "_source": {
@@ -1822,8 +1983,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0019.lat001",
         "_score": null,
         "_source": {
@@ -1866,8 +2027,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0019app.lat001",
         "_score": null,
         "_source": {
@@ -1910,8 +2071,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0020.lat001",
         "_score": null,
         "_source": {
@@ -1954,8 +2115,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0020app.lat001",
         "_score": null,
         "_source": {
@@ -1998,8 +2159,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0021.lat001",
         "_score": null,
         "_source": {
@@ -2042,8 +2203,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0021app.lat001",
         "_score": null,
         "_source": {
@@ -2086,8 +2247,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0022.lat001",
         "_score": null,
         "_source": {
@@ -2130,8 +2291,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0022app.lat001",
         "_score": null,
         "_source": {
@@ -2174,8 +2335,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0023.lat001",
         "_score": null,
         "_source": {
@@ -2218,8 +2379,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0023app.lat001",
         "_score": null,
         "_source": {
@@ -2262,8 +2423,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0024.lat001",
         "_score": null,
         "_source": {
@@ -2306,8 +2467,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0024app.lat001",
         "_score": null,
         "_source": {
@@ -2350,8 +2511,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0025.lat001",
         "_score": null,
         "_source": {
@@ -2394,8 +2555,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0025app.lat001",
         "_score": null,
         "_source": {
@@ -2438,8 +2599,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0026.lat001",
         "_score": null,
         "_source": {
@@ -2482,8 +2643,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0026app.lat001",
         "_score": null,
         "_source": {
@@ -2526,8 +2687,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0027.lat001",
         "_score": null,
         "_source": {
@@ -2570,8 +2731,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0027app.lat001",
         "_score": null,
         "_source": {
@@ -2614,8 +2775,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0028.lat001",
         "_score": null,
         "_source": {
@@ -2658,8 +2819,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0028app.lat001",
         "_score": null,
         "_source": {
@@ -2702,8 +2863,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0029.lat001",
         "_score": null,
         "_source": {
@@ -2746,8 +2907,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0029app.lat001",
         "_score": null,
         "_source": {
@@ -2790,8 +2951,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0030.lat001",
         "_score": null,
         "_source": {
@@ -2834,8 +2995,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0030app.lat001",
         "_score": null,
         "_source": {
@@ -2878,8 +3039,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0031.lat001",
         "_score": null,
         "_source": {
@@ -2922,8 +3083,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0031app.lat001",
         "_score": null,
         "_source": {
@@ -2966,8 +3127,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0032.lat001",
         "_score": null,
         "_source": {
@@ -3010,8 +3171,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0032app.lat001",
         "_score": null,
         "_source": {
@@ -3054,8 +3215,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0033.lat001",
         "_score": null,
         "_source": {
@@ -3098,8 +3259,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0033app.lat001",
         "_score": null,
         "_source": {
@@ -3142,8 +3303,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0034.lat001",
         "_score": null,
         "_source": {
@@ -3186,8 +3347,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0034app.lat001",
         "_score": null,
         "_source": {
@@ -3230,8 +3391,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0035.lat001",
         "_score": null,
         "_source": {
@@ -3274,8 +3435,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0035app.lat001",
         "_score": null,
         "_source": {
@@ -3318,8 +3479,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0036.lat001",
         "_score": null,
         "_source": {
@@ -3362,8 +3523,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0036app.lat001",
         "_score": null,
         "_source": {
@@ -3406,8 +3567,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0037.lat001",
         "_score": null,
         "_source": {
@@ -3450,8 +3611,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0037app.lat001",
         "_score": null,
         "_source": {
@@ -3494,8 +3655,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0038.lat001",
         "_score": null,
         "_source": {
@@ -3538,8 +3699,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0038app.lat001",
         "_score": null,
         "_source": {
@@ -3582,8 +3743,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0039.lat001",
         "_score": null,
         "_source": {
@@ -3626,8 +3787,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0039app.lat001",
         "_score": null,
         "_source": {
@@ -3670,8 +3831,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0040.lat001",
         "_score": null,
         "_source": {
@@ -3714,8 +3875,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0040app.lat001",
         "_score": null,
         "_source": {
@@ -3758,8 +3919,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0041.lat001",
         "_score": null,
         "_source": {
@@ -3802,8 +3963,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0041app.lat001",
         "_score": null,
         "_source": {
@@ -3846,8 +4007,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0042.lat001",
         "_score": null,
         "_source": {
@@ -3890,8 +4051,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0042app.lat001",
         "_score": null,
         "_source": {
@@ -3934,8 +4095,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0043.lat001",
         "_score": null,
         "_source": {
@@ -3978,8 +4139,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0043app.lat001",
         "_score": null,
         "_source": {
@@ -4022,8 +4183,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
         "_score": null,
         "_source": {
@@ -4066,8 +4227,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044app.lat001",
         "_score": null,
         "_source": {
@@ -4110,8 +4271,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0045.lat001",
         "_score": null,
         "_source": {
@@ -4154,8 +4315,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0045app.lat001",
         "_score": null,
         "_source": {
@@ -4198,8 +4359,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0046.lat001",
         "_score": null,
         "_source": {
@@ -4242,8 +4403,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0046app.lat001",
         "_score": null,
         "_source": {
@@ -4286,8 +4447,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0047.lat001",
         "_score": null,
         "_source": {
@@ -4330,8 +4491,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0047app.lat001",
         "_score": null,
         "_source": {
@@ -4374,8 +4535,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0048.lat001",
         "_score": null,
         "_source": {
@@ -4418,8 +4579,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0048app.lat001",
         "_score": null,
         "_source": {
@@ -4462,8 +4623,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0049.lat001",
         "_score": null,
         "_source": {
@@ -4506,8 +4667,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0049app.lat001",
         "_score": null,
         "_source": {
@@ -4550,8 +4711,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0050.lat001",
         "_score": null,
         "_source": {
@@ -4594,8 +4755,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0050app.lat001",
         "_score": null,
         "_source": {
@@ -4638,8 +4799,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0051.lat001",
         "_score": null,
         "_source": {
@@ -4682,8 +4843,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0051app.lat001",
         "_score": null,
         "_source": {
@@ -4726,8 +4887,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0052.lat001",
         "_score": null,
         "_source": {
@@ -4770,8 +4931,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0052app.lat001",
         "_score": null,
         "_source": {
@@ -4814,8 +4975,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0053.lat001",
         "_score": null,
         "_source": {
@@ -4858,8 +5019,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0053app.lat001",
         "_score": null,
         "_source": {
@@ -4902,8 +5063,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0054.lat001",
         "_score": null,
         "_source": {
@@ -4946,8 +5107,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0054app.lat001",
         "_score": null,
         "_source": {
@@ -4990,8 +5151,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055.lat001",
         "_score": null,
         "_source": {
@@ -5034,8 +5195,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
         "_score": null,
         "_source": {
@@ -5078,8 +5239,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0056.lat001",
         "_score": null,
         "_source": {
@@ -5122,8 +5283,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0056app.lat001",
         "_score": null,
         "_source": {
@@ -5166,8 +5327,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0057.lat001",
         "_score": null,
         "_source": {
@@ -5210,8 +5371,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0057app.lat001",
         "_score": null,
         "_source": {
@@ -5254,8 +5415,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0058.lat001",
         "_score": null,
         "_source": {
@@ -5298,8 +5459,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0058app.lat001",
         "_score": null,
         "_source": {
@@ -5342,8 +5503,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0059.lat001",
         "_score": null,
         "_source": {
@@ -5386,8 +5547,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0059app.lat001",
         "_score": null,
         "_source": {
@@ -5430,8 +5591,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0060.lat001",
         "_score": null,
         "_source": {
@@ -5474,8 +5635,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0060app.lat001",
         "_score": null,
         "_source": {
@@ -5518,8 +5679,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0061.lat001",
         "_score": null,
         "_source": {
@@ -5562,8 +5723,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0062.lat001",
         "_score": null,
         "_source": {
@@ -5606,8 +5767,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0063.lat001",
         "_score": null,
         "_source": {
@@ -5650,8 +5811,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0064.lat001",
         "_score": null,
         "_source": {
@@ -5694,8 +5855,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
         "_score": null,
         "_source": {
@@ -5738,8 +5899,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0066.lat001",
         "_score": null,
         "_source": {
@@ -5782,8 +5943,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0067.lat001",
         "_score": null,
         "_source": {
@@ -5826,8 +5987,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0068.lat001",
         "_score": null,
         "_source": {
@@ -5870,8 +6031,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0069.lat001",
         "_score": null,
         "_source": {
@@ -5914,8 +6075,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0070.lat001",
         "_score": null,
         "_source": {
@@ -5958,8 +6119,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0071.lat001",
         "_score": null,
         "_source": {
@@ -6002,8 +6163,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0072.lat001",
         "_score": null,
         "_source": {
@@ -6034,8 +6195,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0073.lat001",
         "_score": null,
         "_source": {
@@ -6078,8 +6239,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0074.lat001",
         "_score": null,
         "_source": {
@@ -6122,8 +6283,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0075.lat001",
         "_score": null,
         "_source": {
@@ -6166,8 +6327,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0076.lat001",
         "_score": null,
         "_source": {
@@ -6210,8 +6371,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0077.lat001",
         "_score": null,
         "_source": {
@@ -6254,8 +6415,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0078.lat001",
         "_score": null,
         "_source": {
@@ -6298,8 +6459,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0079.lat001",
         "_score": null,
         "_source": {
@@ -6342,8 +6503,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0080.lat001",
         "_score": null,
         "_source": {
@@ -6386,8 +6547,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0081.lat001",
         "_score": null,
         "_source": {
@@ -6430,8 +6591,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0082.lat001",
         "_score": null,
         "_source": {
@@ -6474,8 +6635,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0085.lat001",
         "_score": null,
         "_source": {
@@ -6518,8 +6679,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0086.lat001",
         "_score": null,
         "_source": {
@@ -6562,8 +6723,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0087.lat001",
         "_score": null,
         "_source": {
@@ -6606,8 +6767,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0088.lat001",
         "_score": null,
         "_source": {
@@ -6650,8 +6811,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0089.lat001",
         "_score": null,
         "_source": {
@@ -6694,8 +6855,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0090.lat001",
         "_score": null,
         "_source": {
@@ -6738,8 +6899,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0091.lat001",
         "_score": null,
         "_source": {
@@ -6782,8 +6943,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0092.lat001",
         "_score": null,
         "_source": {
@@ -6826,8 +6987,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0093.lat001",
         "_score": null,
         "_source": {
@@ -6870,8 +7031,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0094.lat001",
         "_score": null,
         "_source": {
@@ -6914,8 +7075,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0095.lat001",
         "_score": null,
         "_source": {
@@ -6958,8 +7119,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001",
         "_score": null,
         "_source": {
@@ -7002,8 +7163,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0097.lat001",
         "_score": null,
         "_source": {
@@ -7046,8 +7207,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0098.lat001",
         "_score": null,
         "_source": {
@@ -7090,8 +7251,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0099.lat001",
         "_score": null,
         "_source": {
@@ -7134,8 +7295,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0100.lat001",
         "_score": null,
         "_source": {
@@ -7166,8 +7327,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0101.lat001",
         "_score": null,
         "_source": {
@@ -7210,8 +7371,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0102.lat001",
         "_score": null,
         "_source": {
@@ -7254,8 +7415,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0103.lat001",
         "_score": null,
         "_source": {
@@ -7298,8 +7459,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0104.lat001",
         "_score": null,
         "_source": {
@@ -7342,8 +7503,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0105.lat001",
         "_score": null,
         "_source": {
@@ -7386,8 +7547,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0106.lat001",
         "_score": null,
         "_source": {
@@ -7430,8 +7591,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0107.lat001",
         "_score": null,
         "_source": {
@@ -7474,8 +7635,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0108.lat001",
         "_score": null,
         "_source": {
@@ -7518,8 +7679,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0109.lat001",
         "_score": null,
         "_source": {
@@ -7562,8 +7723,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0110.lat001",
         "_score": null,
         "_source": {
@@ -7606,8 +7767,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0111.lat001",
         "_score": null,
         "_source": {
@@ -7650,8 +7811,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0112.lat001",
         "_score": null,
         "_source": {
@@ -7694,8 +7855,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0113.lat001",
         "_score": null,
         "_source": {
@@ -7738,8 +7899,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0114.lat001",
         "_score": null,
         "_source": {
@@ -7782,8 +7943,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0115.lat001",
         "_score": null,
         "_source": {
@@ -7826,8 +7987,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0116.lat001",
         "_score": null,
         "_source": {
@@ -7870,8 +8031,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0117.lat001",
         "_score": null,
         "_source": {
@@ -7914,8 +8075,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0118.lat001",
         "_score": null,
         "_source": {
@@ -7958,8 +8119,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0119.lat001",
         "_score": null,
         "_source": {
@@ -8002,8 +8163,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0120.lat001",
         "_score": null,
         "_source": {
@@ -8046,8 +8207,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0121.lat001",
         "_score": null,
         "_source": {
@@ -8090,8 +8251,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0122.lat001",
         "_score": null,
         "_source": {
@@ -8134,8 +8295,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0123.lat001",
         "_score": null,
         "_source": {
@@ -8178,8 +8339,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0124.lat001",
         "_score": null,
         "_source": {
@@ -8222,8 +8383,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0125.lat001",
         "_score": null,
         "_source": {
@@ -8266,8 +8427,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0126.lat001",
         "_score": null,
         "_source": {
@@ -8310,8 +8471,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0127.lat001",
         "_score": null,
         "_source": {

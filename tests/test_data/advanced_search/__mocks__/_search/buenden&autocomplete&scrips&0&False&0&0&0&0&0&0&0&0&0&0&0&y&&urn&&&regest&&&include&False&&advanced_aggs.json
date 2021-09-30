@@ -52,6 +52,9 @@
           "<b>Echternach</b>: Echternach": {
             "doc_count": 0
           },
+          "<b>Flavigny</b>: Flavigny": {
+            "doc_count": 0
+          },
           "<b>Freising</b>: Freising": {
             "doc_count": 0
           },
@@ -161,6 +164,9 @@
             "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+            "doc_count": 0
+          },
+          "<b>Touraine</b>: Saint-Julien de Tours": {
             "doc_count": 0
           },
           "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
@@ -295,6 +301,9 @@
         "<b>Echternach</b>: Echternach": {
           "doc_count": 0
         },
+        "<b>Flavigny</b>: Flavigny": {
+          "doc_count": 0
+        },
         "<b>Freising</b>: Freising": {
           "doc_count": 0
         },
@@ -404,6 +413,9 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Saint-Julien de Tours": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {

@@ -1,5 +1,5 @@
 {
-  "took": 17,
+  "took": 6,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,8 +15,8 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0022.lat001",
         "_score": null,
         "_source": {
@@ -54,8 +54,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0025.lat001",
         "_score": null,
         "_source": {
@@ -96,8 +96,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0028.lat001",
         "_score": null,
         "_source": {
@@ -135,8 +135,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0032.lat001",
         "_score": null,
         "_source": {
@@ -174,8 +174,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0037.lat001",
         "_score": null,
         "_source": {
@@ -213,8 +213,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
         "_score": null,
         "_source": {
@@ -245,8 +245,8 @@
           "min_date": "0630-04-08",
           "max_date": "0630-04-08",
           "days": [
-            "Easter",
-            "Sunday"
+            "Sunday",
+            "Easter"
           ],
           "sort_prefix": 1
         },
@@ -256,8 +256,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0041.lat001",
         "_score": null,
         "_source": {
@@ -295,8 +295,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0072.lat001",
         "_score": null,
         "_source": {
@@ -334,8 +334,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0073.lat001",
         "_score": null,
         "_source": {
@@ -361,8 +361,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0074.lat001",
         "_score": null,
         "_source": {
@@ -400,8 +400,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0075.lat001",
         "_score": null,
         "_source": {
@@ -439,8 +439,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0077.lat001",
         "_score": null,
         "_source": {
@@ -478,8 +478,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0079.lat001",
         "_score": null,
         "_source": {
@@ -527,8 +527,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0080.lat001",
         "_score": null,
         "_source": {
@@ -566,8 +566,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0081.lat001",
         "_score": null,
         "_source": {
@@ -605,8 +605,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0085.lat001",
         "_score": null,
         "_source": {
@@ -647,8 +647,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0088.lat001",
         "_score": null,
         "_source": {
@@ -686,8 +686,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0089.lat001",
         "_score": null,
         "_source": {
@@ -725,8 +725,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0092.lat001",
         "_score": null,
         "_source": {
@@ -764,8 +764,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0093.lat001",
         "_score": null,
         "_source": {
@@ -803,8 +803,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0094.lat001",
         "_score": null,
         "_source": {
@@ -842,8 +842,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0095.lat001",
         "_score": null,
         "_source": {
@@ -881,8 +881,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0096.lat001",
         "_score": null,
         "_source": {
@@ -923,8 +923,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0099.lat001",
         "_score": null,
         "_source": {
@@ -962,8 +962,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0107.lat001",
         "_score": null,
         "_source": {
@@ -1000,9 +1000,9 @@
           "min_date": "0669-03-01",
           "max_date": "0670-03-01",
           "days": [
-            "Lent",
+            "Friday",
             "Thursday",
-            "Friday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -1012,8 +1012,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0108.lat001",
         "_score": null,
         "_source": {
@@ -1054,8 +1054,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0110.lat001",
         "_score": null,
         "_source": {
@@ -1096,8 +1096,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0111.lat001",
         "_score": null,
         "_source": {
@@ -1138,8 +1138,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0118.lat001",
         "_score": null,
         "_source": {
@@ -1180,8 +1180,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0121.lat001",
         "_score": null,
         "_source": {
@@ -1222,8 +1222,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0122.lat001",
         "_score": null,
         "_source": {
@@ -1264,8 +1264,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0123.lat001",
         "_score": null,
         "_source": {
@@ -1303,8 +1303,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0124.lat001",
         "_score": null,
         "_source": {
@@ -1342,8 +1342,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0126.lat001",
         "_score": null,
         "_source": {
@@ -1384,8 +1384,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0128.lat001",
         "_score": null,
         "_source": {
@@ -1426,8 +1426,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0131.lat001",
         "_score": null,
         "_source": {
@@ -1468,8 +1468,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0134.lat001",
         "_score": null,
         "_source": {
@@ -1507,8 +1507,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0135.lat001",
         "_score": null,
         "_source": {
@@ -1549,8 +1549,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0136.lat001",
         "_score": null,
         "_source": {
@@ -1587,8 +1587,8 @@
           "min_date": "0692-11-01",
           "max_date": "0693-11-01",
           "days": [
-            "Friday",
-            "Saturday"
+            "Saturday",
+            "Friday"
           ],
           "sort_prefix": 1
         },
@@ -1598,8 +1598,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0137.lat001",
         "_score": null,
         "_source": {
@@ -1640,8 +1640,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0138.lat001",
         "_score": null,
         "_source": {
@@ -1682,8 +1682,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0139.lat001",
         "_score": null,
         "_source": {
@@ -1724,8 +1724,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0140.lat001",
         "_score": null,
         "_source": {
@@ -1766,8 +1766,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0141.lat001",
         "_score": null,
         "_source": {
@@ -1808,8 +1808,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0142.lat001",
         "_score": null,
         "_source": {
@@ -1850,8 +1850,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0143.lat001",
         "_score": null,
         "_source": {
@@ -1892,8 +1892,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0144.lat001",
         "_score": null,
         "_source": {
@@ -1931,8 +1931,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0145.lat001",
         "_score": null,
         "_source": {
@@ -1970,8 +1970,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0146.lat001",
         "_score": null,
         "_source": {
@@ -2009,8 +2009,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0147.lat001",
         "_score": null,
         "_source": {
@@ -2051,8 +2051,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0149.lat001",
         "_score": null,
         "_source": {
@@ -2094,8 +2094,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0150.lat001",
         "_score": null,
         "_source": {
@@ -2126,8 +2126,8 @@
           "min_date": "0697-04-03",
           "max_date": "0697-04-03",
           "days": [
-            "Lent",
-            "Tuesday"
+            "Tuesday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2137,8 +2137,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0151.lat001",
         "_score": null,
         "_source": {
@@ -2169,8 +2169,8 @@
           "min_date": "0628-03-03",
           "max_date": "0628-03-03",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2180,8 +2180,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0152.lat001",
         "_score": null,
         "_source": {
@@ -2212,8 +2212,8 @@
           "min_date": "0698-03-03",
           "max_date": "0698-03-03",
           "days": [
-            "Lent",
-            "Sunday"
+            "Sunday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2223,8 +2223,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0153.lat001",
         "_score": null,
         "_source": {
@@ -2262,8 +2262,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0155.lat001",
         "_score": null,
         "_source": {
@@ -2304,8 +2304,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0156.lat001",
         "_score": null,
         "_source": {
@@ -2346,8 +2346,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0157.lat001",
         "_score": null,
         "_source": {
@@ -2388,8 +2388,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0158.lat001",
         "_score": null,
         "_source": {
@@ -2430,8 +2430,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0159.lat001",
         "_score": null,
         "_source": {
@@ -2473,8 +2473,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0160.lat001",
         "_score": null,
         "_source": {
@@ -2529,11 +2529,11 @@
           "min_date": "0711-01-18",
           "max_date": "0715-01-18",
           "days": [
-            "Friday",
             "Wednesday",
-            "Thursday",
+            "Monday",
+            "Friday",
             "Sunday",
-            "Monday"
+            "Thursday"
           ],
           "sort_prefix": 1
         },
@@ -2543,8 +2543,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0163.lat001",
         "_score": null,
         "_source": {
@@ -2581,9 +2581,9 @@
           "min_date": "0712-03-02",
           "max_date": "0713-03-02",
           "days": [
+            "Thursday",
             "Wednesday",
-            "Lent",
-            "Thursday"
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2593,8 +2593,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0164.lat001",
         "_score": null,
         "_source": {
@@ -2625,8 +2625,8 @@
           "min_date": "0712-03-10",
           "max_date": "0712-03-10",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2636,8 +2636,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0166.lat001",
         "_score": null,
         "_source": {
@@ -2678,8 +2678,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0167.lat001",
         "_score": null,
         "_source": {
@@ -2710,8 +2710,8 @@
           "min_date": "0716-03-07",
           "max_date": "0716-03-07",
           "days": [
-            "Lent",
-            "Saturday"
+            "Saturday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2721,8 +2721,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0168.lat001",
         "_score": null,
         "_source": {
@@ -2753,8 +2753,8 @@
           "min_date": "0716-03-16",
           "max_date": "0716-03-16",
           "days": [
-            "Lent",
-            "Monday"
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2764,8 +2764,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0169.lat001",
         "_score": null,
         "_source": {
@@ -2807,8 +2807,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0170.lat001",
         "_score": null,
         "_source": {
@@ -2846,8 +2846,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0171.lat001",
         "_score": null,
         "_source": {
@@ -2888,8 +2888,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0173.lat001",
         "_score": null,
         "_source": {
@@ -2920,8 +2920,8 @@
           "min_date": "0717-02-28",
           "max_date": "0717-02-28",
           "days": [
-            "Lent",
-            "Sunday"
+            "Sunday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -2931,8 +2931,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0175.lat001",
         "_score": null,
         "_source": {
@@ -2973,8 +2973,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0176.lat001",
         "_score": null,
         "_source": {
@@ -3012,8 +3012,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0178.lat001",
         "_score": null,
         "_source": {
@@ -3051,8 +3051,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0179.lat001",
         "_score": null,
         "_source": {
@@ -3093,8 +3093,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0182.lat001",
         "_score": null,
         "_source": {
@@ -3125,8 +3125,8 @@
           "min_date": "0722-03-02",
           "max_date": "0722-03-02",
           "days": [
-            "Lent",
-            "Monday"
+            "Monday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -3136,8 +3136,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0184.lat001",
         "_score": null,
         "_source": {
@@ -3168,8 +3168,8 @@
           "min_date": "0722-03-05",
           "max_date": "0722-03-05",
           "days": [
-            "Lent",
-            "Thursday"
+            "Thursday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -3179,8 +3179,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0187.lat001",
         "_score": null,
         "_source": {
@@ -3211,8 +3211,8 @@
           "min_date": "0726-03-03",
           "max_date": "0726-03-03",
           "days": [
-            "Lent",
-            "Sunday"
+            "Sunday",
+            "Lent"
           ],
           "sort_prefix": 1
         },
@@ -3222,8 +3222,8 @@
         ]
       },
       {
-        "_index": "merowinger1_v25",
-        "_type": "_doc",
+        "_index": "merowinger1_v5",
+        "_type": "merowinger1",
         "_id": "urn:cts:formulae:merowinger1.koelzer0190.lat001",
         "_score": null,
         "_source": {
@@ -3254,8 +3254,8 @@
           "min_date": "0743-03-02",
           "max_date": "0743-03-02",
           "days": [
-            "Lent",
-            "Saturday"
+            "Saturday",
+            "Lent"
           ],
           "sort_prefix": 1
         },

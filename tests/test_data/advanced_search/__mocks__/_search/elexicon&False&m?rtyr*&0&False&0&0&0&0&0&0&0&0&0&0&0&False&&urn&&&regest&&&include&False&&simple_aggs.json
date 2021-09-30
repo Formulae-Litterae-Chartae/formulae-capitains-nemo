@@ -1,7 +1,7 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 129,
+      "doc_count": 145,
       "forgeries": {
         "doc_count": 0
       },
@@ -47,9 +47,12 @@
             "doc_count": 0
           },
           "<b>E-Lexikon</b>": {
-            "doc_count": 129
+            "doc_count": 145
           },
           "<b>Echternach</b>: Echternach": {
+            "doc_count": 0
+          },
+          "<b>Flavigny</b>: Flavigny": {
             "doc_count": 0
           },
           "<b>Freising</b>: Freising": {
@@ -163,6 +166,9 @@
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
             "doc_count": 0
           },
+          "<b>Touraine</b>: Saint-Julien de Tours": {
+            "doc_count": 0
+          },
           "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
             "doc_count": 0
           },
@@ -242,7 +248,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 129
+        "doc_count": 145
       }
     },
     "forgeries": {
@@ -293,6 +299,9 @@
           "doc_count": 2
         },
         "<b>Echternach</b>: Echternach": {
+          "doc_count": 0
+        },
+        "<b>Flavigny</b>: Flavigny": {
           "doc_count": 0
         },
         "<b>Freising</b>: Freising": {
@@ -404,6 +413,9 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Saint-Julien de Tours": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {

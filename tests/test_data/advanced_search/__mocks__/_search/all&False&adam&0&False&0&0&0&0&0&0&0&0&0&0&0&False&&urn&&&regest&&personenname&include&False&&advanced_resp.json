@@ -1,5 +1,5 @@
 {
-  "took": 152,
+  "took": 112,
   "timed_out": false,
   "_shards": {
     "total": 57,
@@ -9,14 +9,14 @@
   },
   "hits": {
     "total": {
-      "value": 69,
+      "value": 73,
       "relation": "eq"
     },
     "max_score": null,
     "hits": [
       {
-        "_index": "andecavensis_v25",
-        "_type": "_doc",
+        "_index": "andecavensis_v5",
+        "_type": "andecavensis",
         "_id": "urn:cts:formulae:andecavensis.computus.lat001",
         "_score": null,
         "_source": {
@@ -47,12 +47,12 @@
         ]
       },
       {
-        "_index": "freising_v25",
-        "_type": "_doc",
+        "_index": "freising_v5",
+        "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0071.lat001",
         "_score": null,
         "_source": {
-          "text": "TRADITIO UUANINC DE MONTE VEL DE REHCPAHC. Regnante domino nostro Jesu Christo in anno XXVIIII. regni domni Tassiloni ducis ego Uuaninc languore depressus ad ultimum deductus cogitare coeperam de anima mea seu de futura vita, ut in quantitate apud pio domino veniam merear accipere. Haec meditans apud memet ipsum pertractans, ut alodem quem genitor meus Utto mihi in hereditatem reliquit vel a fratre meo sortitus sum in loco ad Monte nuncupante vel alio loco quae dicitur Rechpach vel quicquid ad ea. pertinent loca, id est servos mancipias colonias aedificia silvas frutecta ruras pascua pratas aquarum decursus cum omne utensilia ad nos iura pertinentia, ut traderem ad ecclesiam beate et intemeratae virginis Mariae et confessoris Christi Corbiniani sepulchro castro Frigisinga site. Ita et fecimus haec omnia quae stilo conprehensa sunt in praesentia genitoris vel germani necnon et propinqnorum agmine vel coniugis atque sacerdotum, id est Uuicpót, Erlapald, Hunolt, ut si quis contra hanc traditionem venire temptaverit, in iudicio cum his incurrat sanctis quorum ibidem venerantur nomina in conspectu tremende maiestatis divinae et traditio haec nihilominus firma permaneat stipulatione subnexa iure functionis peracta. Actum in loco praenotato per manus genitoris et germani seu praenotatum sacerdotum chrono superius couprehenso sub die consule quod erat IIII. kal. mar. Et haec testes et eorum nomina iure per aures tracti: Erlapald. Uuicpót. Hunolt presbiter. Adam. Altuperht. Erpho. Adalger. Épo. Perhtcoz. Fritilo. Paturich. Uuicrát et cunctus clerus sanctae Mariae domui deservientes. Ego Heripald clericus iussus ex ore Heredis episcopi conscripsi.",
+          "text": "TRADITIO UUANINC DE MONTE VEL DE REHCPAHC. Regnante domino nostro Jesu Christo in anno XXVIIII. regni domni Tassiloni ducis ego Uuaninc languore depressus ad ultimum deductus cogitare coeperam de anima mea seu de futura vita, ut in quantitate apud pio domino veniam merear accipere. Haec meditans apud memet ipsum pertractans, ut alodem quem genitor meus Utto mihi in hereditatem reliquit vel a fratre meo sortitus sum in loco ad Monte nuncupante vel alio loco quae dicitur Rechpach vel quicquid ad ea. pertinent loca, id est servos mancipias colonias aedificia silvas frutecta ruras pascua pratas aquarum decursus cum omne utensilia ad nos iura pertinentia ut traderem ad ecclesiam beate et intemeratae virginis Mariae et confessoris Christi Corbiniani sepulchro castro Frigisinga site. Ita et fecimus haec omnia quae stilo conprehensa sunt in praesentia genitoris vel germani necnon et propinqnorum agmine vel coniugis atque sacerdotum, id est Uuicpot, Erlapald, Hunolt, ut si quis contra hanc traditionem venire temptaverit, in iudicio cum his incurrat sanctis quorum ibidem venerantur nomina in conspectu tremende maiestatis divinae et traditio haec nihilominus firma permaneat stipulatione subnexa iure functionis peracta Actum in loco praenotato per manus genitoris et germani seu praenotatum sacerdotum chrono superius couprehenso sub die consule quod erat IIII. kal. mar. Et haec testes et eorum nomina iure per aures tracti Erlapald. Uuicpot. Hunolt presbiter. Adam. Altuperht. Erpho. Adalger. Epo. Perhtcoz. Fritilo. Paturich. Uuicrat et cunctus clerus sanctae Mariae domui deservientes Ego Heripald clericus iussus ex ore Heredis episcopi conscripsi",
           "lemmas": null,
           "regest": "Uuaninc schenkt seinen Besitz zu Germersberg und Rehbach.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 71",
@@ -60,7 +60,7 @@
           "urn": "urn:cts:formulae:freising.bitterauf0071.lat001",
           "date_string": "776 02 26",
           "comp_ort": "Germersberg",
-          "autocomplete": "TRADITIO UUANINC DE MONTE VEL DE REHCPAHC. Regnante domino nostro Jesu Christo in anno XXVIIII. regni domni Tassiloni ducis ego Uuaninc languore depressus ad ultimum deductus cogitare coeperam de anima mea seu de futura vita, ut in quantitate apud pio domino veniam merear accipere. Haec meditans apud memet ipsum pertractans, ut alodem quem genitor meus Utto mihi in hereditatem reliquit vel a fratre meo sortitus sum in loco ad Monte nuncupante vel alio loco quae dicitur Rechpach vel quicquid ad ea. pertinent loca, id est servos mancipias colonias aedificia silvas frutecta ruras pascua pratas aquarum decursus cum omne utensilia ad nos iura pertinentia, ut traderem ad ecclesiam beate et intemeratae virginis Mariae et confessoris Christi Corbiniani sepulchro castro Frigisinga site. Ita et fecimus haec omnia quae stilo conprehensa sunt in praesentia genitoris vel germani necnon et propinqnorum agmine vel coniugis atque sacerdotum, id est Uuicpót, Erlapald, Hunolt, ut si quis contra hanc traditionem venire temptaverit, in iudicio cum his incurrat sanctis quorum ibidem venerantur nomina in conspectu tremende maiestatis divinae et traditio haec nihilominus firma permaneat stipulatione subnexa iure functionis peracta. Actum in loco praenotato per manus genitoris et germani seu praenotatum sacerdotum chrono superius couprehenso sub die consule quod erat IIII. kal. mar. Et haec testes et eorum nomina iure per aures tracti: Erlapald. Uuicpót. Hunolt presbiter. Adam. Altuperht. Erpho. Adalger. Épo. Perhtcoz. Fritilo. Paturich. Uuicrát et cunctus clerus sanctae Mariae domui deservientes. Ego Heripald clericus iussus ex ore Heredis episcopi conscripsi.",
+          "autocomplete": "TRADITIO UUANINC DE MONTE VEL DE REHCPAHC. Regnante domino nostro Jesu Christo in anno XXVIIII. regni domni Tassiloni ducis ego Uuaninc languore depressus ad ultimum deductus cogitare coeperam de anima mea seu de futura vita, ut in quantitate apud pio domino veniam merear accipere. Haec meditans apud memet ipsum pertractans, ut alodem quem genitor meus Utto mihi in hereditatem reliquit vel a fratre meo sortitus sum in loco ad Monte nuncupante vel alio loco quae dicitur Rechpach vel quicquid ad ea. pertinent loca, id est servos mancipias colonias aedificia silvas frutecta ruras pascua pratas aquarum decursus cum omne utensilia ad nos iura pertinentia ut traderem ad ecclesiam beate et intemeratae virginis Mariae et confessoris Christi Corbiniani sepulchro castro Frigisinga site. Ita et fecimus haec omnia quae stilo conprehensa sunt in praesentia genitoris vel germani necnon et propinqnorum agmine vel coniugis atque sacerdotum, id est Uuicpot, Erlapald, Hunolt, ut si quis contra hanc traditionem venire temptaverit, in iudicio cum his incurrat sanctis quorum ibidem venerantur nomina in conspectu tremende maiestatis divinae et traditio haec nihilominus firma permaneat stipulatione subnexa iure functionis peracta Actum in loco praenotato per manus genitoris et germani seu praenotatum sacerdotum chrono superius couprehenso sub die consule quod erat IIII. kal. mar. Et haec testes et eorum nomina iure per aures tracti Erlapald. Uuicpot. Hunolt presbiter. Adam. Altuperht. Erpho. Adalger. Epo. Perhtcoz. Fritilo. Paturich. Uuicrat et cunctus clerus sanctae Mariae domui deservientes Ego Heripald clericus iussus ex ore Heredis episcopi conscripsi",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Uuaninc schenkt seinen Besitz zu Germersberg und Rehbach.",
           "orig_comp_ort": "Germersberg",
@@ -81,11 +81,27 @@
           "days": [
             "Monday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Eschatokoll": "Regnante domino nostro Jesu Christo in anno XXVIIII.\n                            regni domni Tassiloni ducis ... Ego\n                            Heripald clericus iussus ex ore Heredis episcopi conscripsi",
+          "Eschatokoll-lems": null,
+          "Intitulatio": "ego Uuaninc",
+          "Intitulatio-lems": null,
+          "Narratio": "languore depressus ad ultimum\n                            deductus cogitare coeperam de anima mea seu de futura vita, ut in\n                            quantitate apud pio domino veniam merear accipere. Haec meditans apud\n                            memet ipsum pertractans, ut",
+          "Narratio-lems": null,
+          "Pertinenzformel": "alodem quem genitor meus Utto mihi in\n                            hereditatem reliquit vel a fratre meo sortitus sum in loco ad Monte\n                            nuncupante vel alio loco quae dicitur Rechpach vel quicquid ad ea.\n                            pertinent loca, id est servos mancipias colonias aedificia silvas\n                            frutecta ruras pascua pratas aquarum decursus cum omne utensilia ad nos\n                            iura pertinentia",
+          "Pertinenzformel-lems": null,
+          "Dispositio": "ut traderem",
+          "Dispositio-lems": null,
+          "Poenformel": "si quis\n                            contra hanc traditionem venire temptaverit, in iudicio cum his incurrat\n                            sanctis quorum ibidem venerantur nomina in conspectu tremende maiestatis\n                            divinae",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et traditio haec nihilominus firma permaneat stipulatione\n                            subnexa iure functionis peracta",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Et haec testes et\n                            eorum nomina iure per aures tracti ... et cunctus clerus sanctae Mariae domui deservientes",
+          "Corroboratio-lems": null
         },
         "highlight": {
           "text": [
-            "</small><strong>Adam</strong><small>. Altuperht. Erpho. Adalger. Épo. Perhtcoz. Fritilo. Paturich. Uuicrát et cunctus clerus sanctae Mariae domui deservientes. Ego Heripald clericus iussus ex ore Heredis episcopi conscripsi."
+            "</small><strong>Adam</strong><small>. Altuperht. Erpho. Adalger. Epo. Perhtcoz. Fritilo. Paturich. Uuicrat et cunctus clerus sanctae Mariae domui deservientes Ego Heripald clericus iussus ex ore Heredis episcopi conscripsi"
           ]
         },
         "sort": [
@@ -94,12 +110,12 @@
         ]
       },
       {
-        "_index": "freising_v25",
-        "_type": "_doc",
+        "_index": "freising_v5",
+        "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0428.lat001",
         "_score": null,
         "_source": {
-          "text": "RADITIO ERCHANPALDI PRESBITERI ET ERLOLFI RINCOZESHUSIR. Dum et omnibus non habetur incognitum, sed multis in episcopio beatissime semper virginis Mariae bene est notum, qualiter Erchanpald presbiter et Herlolf tradiderunt propriam hereditatem illorum in loco Rihcozeshusir ad domum sanctae Mariae ad Frigisingas. Illi quidem statuerunt, ut post obitum illorum eadem res ad iam dictum domum sine ulla contradictione stabiliter in perpetuum pro redemptionem animarum illorum permanere et deservire ulla persona potestatem non habeat. Haec autem sunt testes in quorum praesentia hoc actum esse nullus dubitet: Hitto episcopus. Heriperht archi­presbiter. Adalpald presbiter. Meginolt presbiter. Emicho diaconus. Anno diaconus. Nidpert diaconus seu alii multi. Testes vero per aures tracti: Adam. Fridurat. Isancrim. Uualho. Marcho. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XVI. kal. dec. anno gloriosi imperatoris Hloduuuici VI. indictione XI. Ego quidem Tagibertus indignus presbiter conscripsi iussione Hittonis episcopi.",
+          "text": "RADITIO ERCHANPALDI PRESBITERI ET ERLOLFI RINCOZESHUSIR. Dum et omnibus non habetur incognitum, sed multis in episcopio beatissime semper virginis Mariae bene est notum qualiter Erchanpald presbiter et Herlolf tradiderunt propriam hereditatem illorum in loco Rihcozeshusir ad domum sanctae Mariae ad Frigisingas. Illi quidem statuerunt, ut post obitum illorum eadem res ad iam dictum domum sine ulla contradictione stabiliter in perpetuum pro redemptionem animarum illorum permanere et deservire ulla persona potestatem non habeat Haec autem sunt testes in quorum praesentia hoc actum esse nullus dubitet Hitto episcopus. Heriperht archi­presbiter. Adalpald presbiter. Meginolt presbiter. Emicho diaconus. Anno diaconus. Nidpert diaconus seu alii multi. Testes vero per aures tracti Adam. Fridurat. Isancrim. Uualho. Marcho. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XVI. kal. dec anno gloriosi imperatoris Hloduuuici VI. indictione XI Ego quidem Tagibertus indignus presbiter conscripsi iussione Hittonis episcopi.",
           "lemmas": null,
           "regest": "Der Priester Erchanpald und Herlolf übergeben ihren Besitz zu Reichertshausen.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 428",
@@ -107,7 +123,7 @@
           "urn": "urn:cts:formulae:freising.bitterauf0428.lat001",
           "date_string": "819 11 16",
           "comp_ort": " ",
-          "autocomplete": "RADITIO ERCHANPALDI PRESBITERI ET ERLOLFI RINCOZESHUSIR. Dum et omnibus non habetur incognitum, sed multis in episcopio beatissime semper virginis Mariae bene est notum, qualiter Erchanpald presbiter et Herlolf tradiderunt propriam hereditatem illorum in loco Rihcozeshusir ad domum sanctae Mariae ad Frigisingas. Illi quidem statuerunt, ut post obitum illorum eadem res ad iam dictum domum sine ulla contradictione stabiliter in perpetuum pro redemptionem animarum illorum permanere et deservire ulla persona potestatem non habeat. Haec autem sunt testes in quorum praesentia hoc actum esse nullus dubitet: Hitto episcopus. Heriperht archi­presbiter. Adalpald presbiter. Meginolt presbiter. Emicho diaconus. Anno diaconus. Nidpert diaconus seu alii multi. Testes vero per aures tracti: Adam. Fridurat. Isancrim. Uualho. Marcho. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XVI. kal. dec. anno gloriosi imperatoris Hloduuuici VI. indictione XI. Ego quidem Tagibertus indignus presbiter conscripsi iussione Hittonis episcopi.",
+          "autocomplete": "RADITIO ERCHANPALDI PRESBITERI ET ERLOLFI RINCOZESHUSIR. Dum et omnibus non habetur incognitum, sed multis in episcopio beatissime semper virginis Mariae bene est notum qualiter Erchanpald presbiter et Herlolf tradiderunt propriam hereditatem illorum in loco Rihcozeshusir ad domum sanctae Mariae ad Frigisingas. Illi quidem statuerunt, ut post obitum illorum eadem res ad iam dictum domum sine ulla contradictione stabiliter in perpetuum pro redemptionem animarum illorum permanere et deservire ulla persona potestatem non habeat Haec autem sunt testes in quorum praesentia hoc actum esse nullus dubitet Hitto episcopus. Heriperht archi­presbiter. Adalpald presbiter. Meginolt presbiter. Emicho diaconus. Anno diaconus. Nidpert diaconus seu alii multi. Testes vero per aures tracti Adam. Fridurat. Isancrim. Uualho. Marcho. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XVI. kal. dec anno gloriosi imperatoris Hloduuuici VI. indictione XI Ego quidem Tagibertus indignus presbiter conscripsi iussione Hittonis episcopi.",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Erchanpald und Herlolf übergeben ihren Besitz zu Reichertshausen.",
           "orig_comp_ort": " ",
@@ -128,11 +144,25 @@
           "days": [
             "Wednesday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Publicatio": "Dum et omnibus non habetur incognitum, sed\n                            multis in episcopio beatissime semper virginis Mariae bene est notum",
+          "Publicatio-lems": null,
+          "Intitulatio": "Erchanpald presbiter et Herlolf",
+          "Intitulatio-lems": null,
+          "Dispositio": "tradiderunt ... Illi quidem statuerunt, ut post obitum illorum eadem res ad\n                            iam dictum domum sine ulla contradictione stabiliter in perpetuum pro\n                            redemptionem animarum illorum permanere et deservire ulla persona\n                            potestatem non habeat ",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "propriam\n                            hereditatem illorum in loco Rihcozeshusir",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "et deservire ulla persona\n                            potestatem non habeat",
+          "Poenformel-lems": null,
+          "Corroboratio": "Haec autem sunt testes in quorum praesentia hoc\n                            actum esse nullus dubitet ... seu alii multi. Testes vero per aures tracti",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Actum est haec XVI. kal. dec ... anno gloriosi\n                            imperatoris Hloduuuici VI. indictione XI",
+          "Eschatokoll-lems": null
         },
         "highlight": {
           "text": [
-            "Testes vero per aures tracti: </small><strong>Adam</strong><small>. Fridurat. Isancrim. Uualho. Marcho. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XVI. kal. dec. anno gloriosi imperatoris Hloduuuici VI. indictione XI. Ego quidem Tagibertus indignus presbiter conscripsi iussione Hittonis episcopi."
+            "Testes vero per aures tracti </small><strong>Adam</strong><small>. Fridurat. Isancrim. Uualho. Marcho. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XVI. kal. dec anno gloriosi imperatoris Hloduuuici VI. indictione XI Ego quidem Tagibertus indignus presbiter conscripsi iussione Hittonis episcopi."
           ]
         },
         "sort": [
@@ -141,12 +171,12 @@
         ]
       },
       {
-        "_index": "freising_v25",
-        "_type": "_doc",
+        "_index": "freising_v5",
+        "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0429.lat001",
         "_score": null,
         "_source": {
-          "text": "TRADITIO ERLAPALDI PRESBITERI ET AMALFRIDI DIACONI ET ERCHANPALD PRESBITER ET ERLOLF LAICUS. Dum et omnibus non habetur incognitum, sed multis in episcopio beatissimae semper virginis Mariae bene est notum, qualiter iam olim Erlapald presbiter propriam hereditatem suam domui sanctae Mariae tradidit et firmiter in perpetuum posidendum confirmavit quicquid habere et possidere videbatur in loco Rihcozeshouum; similiterque et Amalfrid diaconus eodem tempore suam hereditatem domui sanctae Mariae condonavit in loco propinquo nominato Rehpach, quicquid in eodem loco possidere et proprium habere visum est, hoc est territorium et unum mancipium et alium dimidium quem communem habuit cum fratre suo nomine Erlolf. Iam defuncto Amalfrido diacono venerunt ad domum Hittonem episcopum Erlapald presbiter et Adolf laicus et nuntiaverunt ei, qualiter iam dicta rés temporibus Arbionis episcopi et Attonis episcopi iam acta fuerunt et in illius praesentia accesserunt ad altare sanctae Mariae et tradiderunt pro Erlolfum tertiam partem territorii ipsius Erlolfi in loco Rehpach et duos mancipios quorum nomina Cundalperht, Tota. Hoc fecit Erlapald presbiter et Adolf laicus, quia missi Erlolfi hanc traditionem perficere fuerunt et fecerunt ita. Hoc peractum accessit Erchanpald presbiter eadem hora et tradidit propriae hereditatis iurnales XXX et triginta carradas de pratis et mancipios llII Horscuni, Uuolfhram, Otfrit, Erchanfrit statuitque, ut post obitum eius haec omnia supradicta nullus domui sanctae Mariae contradicere potestatem habuisset. Actum est haec in praesentia domni Hittonis episcopi et Heriberti archipresbiteri. Odalpald presbiter et monachus. Meginolt presbiter et monachus. Emicho diaconus. Anno diaconus. Nidperht diaconus seu alii multi. Testes vero per aures tracti: Adam. Fridurat. Isancrim. Uualho. Marcheo. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XI. kal. dec. anno gloriosi imperatoris Hloduici VI. indictione XI. Ego Tagabertus indignus presbiter conscripsi iussione venerabilis Hittonis episcopi.",
+          "text": "TRADITIO ERLAPALDI PRESBITERI ET AMALFRIDI DIACONI ET ERCHANPALD PRESBITER ET ERLOLF LAICUS. Dum et omnibus non habetur incognitum, sed multis in episcopio beatissimae semper virginis Mariae bene est notum qualiter iam olim Erlapald presbiter propriam hereditatem suam domui sanctae Mariae tradidit et firmiter in perpetuum posidendum confirmavit quicquid habere et possidere videbatur in loco Rihcozeshouum; similiterque et Amalfrid diaconus eodem tempore suam hereditatem domui sanctae Mariae condonavit in loco propinquo nominato Rehpach, quicquid in eodem loco possidere et proprium habere visum est, hoc est territorium et unum mancipium et alium dimidium quem communem habuit cum fratre suo nomine Erlolf. Iam defuncto Amalfrido diacono venerunt ad domum Hittonem episcopum Erlapald presbiter et Adolf laicus et nuntiaverunt ei, qualiter iam dicta res temporibus Arbionis episcopi et Attonis episcopi iam acta fuerunt et in illius praesentia accesserunt ad altare sanctae Mariae et tradiderunt pro Erlolfum tertiam partem territorii ipsius Erlolfi in loco Rehpach et duos mancipios quorum nomina Cundalperht, Tota. Hoc fecit Erlapald presbiter et Adolf laicus, quia missi Erlolfi hanc traditionem perficere fuerunt et fecerunt ita. Hoc peractum accessit Erchanpald presbiter eadem hora et tradidit propriae hereditatis iurnales XXX et triginta carradas de pratis et mancipios llII Horscuni, Uuolfhram, Otfrit, Erchanfrit statuitque, ut post obitum eius haec omnia supradicta nullus domui sanctae Mariae contradicere potestatem habuisset Actum est haec in praesentia domni Hittonis episcopi et Heriberti archipresbiteri. Odalpald presbiter et monachus. Meginolt presbiter et monachus. Emicho diaconus. Anno diaconus. Nidperht diaconus seu alii multi. Testes vero per aures tracti Adam. Fridurat. Isancrim. Uualho. Marcheo. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XI. kal. dec anno gloriosi imperatoris Hloduici VI. indictione XI Ego Tagabertus indignus presbiter conscripsi iussione venerabilis Hittonis episcopi",
           "lemmas": null,
           "regest": "Der Priester Erlapald, Diakon Amalfrid, der Laie Erlolf und Priester Erchanpald schenken Land und Unfreie zu Reichertshausen und Rehbach.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 429",
@@ -154,7 +184,7 @@
           "urn": "urn:cts:formulae:freising.bitterauf0429.lat001",
           "date_string": "819 11 21",
           "comp_ort": " ",
-          "autocomplete": "TRADITIO ERLAPALDI PRESBITERI ET AMALFRIDI DIACONI ET ERCHANPALD PRESBITER ET ERLOLF LAICUS. Dum et omnibus non habetur incognitum, sed multis in episcopio beatissimae semper virginis Mariae bene est notum, qualiter iam olim Erlapald presbiter propriam hereditatem suam domui sanctae Mariae tradidit et firmiter in perpetuum posidendum confirmavit quicquid habere et possidere videbatur in loco Rihcozeshouum; similiterque et Amalfrid diaconus eodem tempore suam hereditatem domui sanctae Mariae condonavit in loco propinquo nominato Rehpach, quicquid in eodem loco possidere et proprium habere visum est, hoc est territorium et unum mancipium et alium dimidium quem communem habuit cum fratre suo nomine Erlolf. Iam defuncto Amalfrido diacono venerunt ad domum Hittonem episcopum Erlapald presbiter et Adolf laicus et nuntiaverunt ei, qualiter iam dicta rés temporibus Arbionis episcopi et Attonis episcopi iam acta fuerunt et in illius praesentia accesserunt ad altare sanctae Mariae et tradiderunt pro Erlolfum tertiam partem territorii ipsius Erlolfi in loco Rehpach et duos mancipios quorum nomina Cundalperht, Tota. Hoc fecit Erlapald presbiter et Adolf laicus, quia missi Erlolfi hanc traditionem perficere fuerunt et fecerunt ita. Hoc peractum accessit Erchanpald presbiter eadem hora et tradidit propriae hereditatis iurnales XXX et triginta carradas de pratis et mancipios llII Horscuni, Uuolfhram, Otfrit, Erchanfrit statuitque, ut post obitum eius haec omnia supradicta nullus domui sanctae Mariae contradicere potestatem habuisset. Actum est haec in praesentia domni Hittonis episcopi et Heriberti archipresbiteri. Odalpald presbiter et monachus. Meginolt presbiter et monachus. Emicho diaconus. Anno diaconus. Nidperht diaconus seu alii multi. Testes vero per aures tracti: Adam. Fridurat. Isancrim. Uualho. Marcheo. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XI. kal. dec. anno gloriosi imperatoris Hloduici VI. indictione XI. Ego Tagabertus indignus presbiter conscripsi iussione venerabilis Hittonis episcopi.",
+          "autocomplete": "TRADITIO ERLAPALDI PRESBITERI ET AMALFRIDI DIACONI ET ERCHANPALD PRESBITER ET ERLOLF LAICUS. Dum et omnibus non habetur incognitum, sed multis in episcopio beatissimae semper virginis Mariae bene est notum qualiter iam olim Erlapald presbiter propriam hereditatem suam domui sanctae Mariae tradidit et firmiter in perpetuum posidendum confirmavit quicquid habere et possidere videbatur in loco Rihcozeshouum; similiterque et Amalfrid diaconus eodem tempore suam hereditatem domui sanctae Mariae condonavit in loco propinquo nominato Rehpach, quicquid in eodem loco possidere et proprium habere visum est, hoc est territorium et unum mancipium et alium dimidium quem communem habuit cum fratre suo nomine Erlolf. Iam defuncto Amalfrido diacono venerunt ad domum Hittonem episcopum Erlapald presbiter et Adolf laicus et nuntiaverunt ei, qualiter iam dicta res temporibus Arbionis episcopi et Attonis episcopi iam acta fuerunt et in illius praesentia accesserunt ad altare sanctae Mariae et tradiderunt pro Erlolfum tertiam partem territorii ipsius Erlolfi in loco Rehpach et duos mancipios quorum nomina Cundalperht, Tota. Hoc fecit Erlapald presbiter et Adolf laicus, quia missi Erlolfi hanc traditionem perficere fuerunt et fecerunt ita. Hoc peractum accessit Erchanpald presbiter eadem hora et tradidit propriae hereditatis iurnales XXX et triginta carradas de pratis et mancipios llII Horscuni, Uuolfhram, Otfrit, Erchanfrit statuitque, ut post obitum eius haec omnia supradicta nullus domui sanctae Mariae contradicere potestatem habuisset Actum est haec in praesentia domni Hittonis episcopi et Heriberti archipresbiteri. Odalpald presbiter et monachus. Meginolt presbiter et monachus. Emicho diaconus. Anno diaconus. Nidperht diaconus seu alii multi. Testes vero per aures tracti Adam. Fridurat. Isancrim. Uualho. Marcheo. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XI. kal. dec anno gloriosi imperatoris Hloduici VI. indictione XI Ego Tagabertus indignus presbiter conscripsi iussione venerabilis Hittonis episcopi",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Der Priester Erlapald, Diakon Amalfrid, der Laie Erlolf und Priester Erchanpald schenken Land und Unfreie zu Reichertshausen und Rehbach.",
           "orig_comp_ort": " ",
@@ -175,11 +205,21 @@
           "days": [
             "Monday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Publicatio": "Dum et omnibus non\n                            habetur incognitum, sed multis in episcopio beatissimae semper virginis\n                            Mariae bene est notum ... Iam defuncto Amalfrido diacono\n                            venerunt ad domum Hittonem episcopum Erlapald presbiter et Adolf laicus\n                            et nuntiaverunt ei, qualiter iam dicta rés temporibus Arbionis episcopi\n                            et Attonis episcopi iam acta fuerunt et in illius praesentia accesserunt\n                            ad altare sanctae Mariae et tradiderunt pro Erlolfum tertiam partem\n                            territorii ipsius Erlolfi in loco Rehpach et duos mancipios quorum\n                            nomina Cundalperht, Tota. Hoc fecit Erlapald presbiter et Adolf laicus,\n                            quia missi Erlolfi hanc traditionem perficere fuerunt et fecerunt ita.\n                            Hoc peractum accessit Erchanpald presbiter eadem hora",
+          "Publicatio-lems": null,
+          "Intitulatio": "Erlapald presbiter",
+          "Intitulatio-lems": null,
+          "Poenformel": "statuitque, ut\n                            post obitum eius haec omnia supradicta nullus domui sanctae Mariae\n                            contradicere potestatem habuisset",
+          "Poenformel-lems": null,
+          "Corroboratio": "Actum est haec in praesentia ... seu alii multi. Testes vero per aures\n                            tracti",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Actum est haec XI. kal. dec ... anno gloriosi imperatoris Hloduici VI. indictione XI ... Ego Tagabertus\n                            indignus presbiter conscripsi iussione venerabilis Hittonis\n                            episcopi",
+          "Eschatokoll-lems": null
         },
         "highlight": {
           "text": [
-            "Testes vero per aures tracti: </small><strong>Adam</strong><small>. Fridurat. Isancrim. Uualho. Marcheo. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XI. kal. dec. anno gloriosi imperatoris Hloduici VI. indictione XI. Ego Tagabertus indignus presbiter conscripsi iussione venerabilis Hittonis episcopi."
+            "Testes vero per aures tracti </small><strong>Adam</strong><small>. Fridurat. Isancrim. Uualho. Marcheo. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XI. kal. dec anno gloriosi imperatoris Hloduici VI. indictione XI Ego Tagabertus indignus presbiter conscripsi iussione venerabilis Hittonis episcopi"
           ]
         },
         "sort": [
@@ -188,12 +228,12 @@
         ]
       },
       {
-        "_index": "freising_v25",
-        "_type": "_doc",
+        "_index": "freising_v5",
+        "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0514.lat001",
         "_score": null,
         "_source": {
-          "text": "QUOMODO HITTO EPISCOPUS SALOMONEN PRESBITERUM AD PROPRIO SERVO EVINDICAVIT. Convenientibus venerabilibus viris ad publico placito Lauppach, Hitto episcopus et Heimo comes et alii multi nobiles iudicia recta dirimanda, in eorum praesentia surrexit advocatus Hittoni episcopi Liutprant et quesivit unum presbiterum cui nomen Salomon de suis parentibus ad proprio servo et ad servitium sancti Zenonis confessoris Christi ad monasterio Isana. Ea vero ratione respondebat ipse presbiter coram omni­bus, ut se excusare non posset de servitio sancti Zenonis et statim voluit se reddere in manus Hittoni episcopi. Et ille rennuit eum accipere, antequam populi diiudicarent et illi qui melius hoc scirent de sua nativitate cum sacramento confirmarent. Atque tunc iuraverunt in reliquiis Uuago clericus, Hroadolt, Chuniperht, Hamminc, Samuhel, Adam, Oadalrih, Adolf, Perhtolf, Crimolf, Francho, Ermperht, ut illi eum de suo avo et matre servum scirent esse sancti Zenonis vel sui parentis. Post sacramento iuramenti diiudicaverunt populi et scabini constituti, ut se redderet in manus Hittoni episcopi et sui vocati Liutpranti ad proprio servo. Et ipse se ibidem reddidit in publico placito ac semet ipso crediderunt quod aliter fieri non potuit, quia sui parentes servi fuerunt. Isti praesentes aderunt et audierunt et viderunt legitime convictum: Inprimis Hitto episcopus. Heimo comes. Cundalperht. Onhart. Tato. Priso. Rihpald. Kerhart. Toto. Cotehelm. Drudolt. Petto. Snelhart. Freaso. Aaron. Oadalhart. Drudmunt. Uualdperht. Rantuuic. Âmo. Meginrat. Adalperht. Uuicco. Reginolt. Alauuih. Cundperht. Hroadperht. Mahtperht. Hitto. Isi. Emilo. Uuolfperht. Friduperht. Tuto. Sigur. Drudmunt. Rihheri. Aaso. Dauid. Irminfrid. Engilfrid. Aarhart. Adalhram. Adalhart. Scrot. Pepo. Frumolt. Alius Tato. Hiltiperht. Saluhho. Kauuo. Isanrih. Diudolf. Ottilgast. Kepahart. Rihpald. Kerhart. Egino. Erchanperht. Hiltiperht. Rihperht. Paldheri. Actum fuit hoc placitum ad Lauppach in X. kal. mar. anno Hludouuici imperatoris XII. indictione III.",
+          "text": "QUOMODO HITTO EPISCOPUS SALOMONEN PRESBITERUM AD PROPRIO SERVO EVINDICAVIT. Convenientibus venerabilibus viris ad publico placito Lauppach, Hitto episcopus et Heimo comes et alii multi nobiles iudicia recta dirimanda, in eorum praesentia surrexit advocatus Hittoni episcopi Liutprant et quesivit unum presbiterum cui nomen Salomon de suis parentibus ad proprio servo et ad servitium sancti Zenonis confessoris Christi ad monasterio Isana. Ea vero ratione respondebat ipse presbiter coram omni­bus, ut se excusare non posset de servitio sancti Zenonis et statim voluit se reddere in manus Hittoni episcopi. Et ille rennuit eum accipere, antequam populi diiudicarent et illi qui melius hoc scirent de sua nativitate cum sacramento confirmarent. Atque tunc iuraverunt in reliquiis Uuago clericus, Hroadolt, Chuniperht, Hamminc, Samuhel, Adam, Oadalrih, Adolf, Perhtolf, Crimolf, Francho, Ermperht, ut illi eum de suo avo et matre servum scirent esse sancti Zenonis vel sui parentis. Post sacramento iuramenti diiudicaverunt populi et scabini constituti, ut se redderet in manus Hittoni episcopi et sui vocati Liutpranti ad proprio servo. Et ipse se ibidem reddidit in publico placito ac semet ipso crediderunt quod aliter fieri non potuit, quia sui parentes servi fuerunt. Isti praesentes aderunt et audierunt et viderunt legitime convictum: Inprimis Hitto episcopus. Heimo comes. Cundalperht. Onhart. Tato. Priso. Rihpald. Kerhart. Toto. Cotehelm. Drudolt. Petto. Snelhart. Freaso. Aaron. Oadalhart. Drudmunt. Uualdperht. Rantuuic. Amo. Meginrat. Adalperht. Uuicco. Reginolt. Alauuih. Cundperht. Hroadperht. Mahtperht. Hitto. Isi. Emilo. Uuolfperht. Friduperht. Tuto. Sigur. Drudmunt. Rihheri. Aaso. Dauid. Irminfrid. Engilfrid. Aarhart. Adalhram. Adalhart. Scrot. Pepo. Frumolt. Alius Tato. Hiltiperht. Saluhho. Kauuo. Isanrih. Diudolf. Ottilgast. Kepahart. Rihpald. Kerhart. Egino. Erchanperht. Hiltiperht. Rihperht. Paldheri. Actum fuit hoc placitum ad Lauppach in X. kal. mar. anno Hludouuici imperatoris XII. indictione III.",
           "lemmas": null,
           "regest": "Bischof Hitto lässt sich den Priester Salomon als Sklaven von St. Zeno in Isen zusprechen.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 514",
@@ -201,7 +241,7 @@
           "urn": "urn:cts:formulae:freising.bitterauf0514.lat001",
           "date_string": "825 02 20",
           "comp_ort": "Lappach",
-          "autocomplete": "QUOMODO HITTO EPISCOPUS SALOMONEN PRESBITERUM AD PROPRIO SERVO EVINDICAVIT. Convenientibus venerabilibus viris ad publico placito Lauppach, Hitto episcopus et Heimo comes et alii multi nobiles iudicia recta dirimanda, in eorum praesentia surrexit advocatus Hittoni episcopi Liutprant et quesivit unum presbiterum cui nomen Salomon de suis parentibus ad proprio servo et ad servitium sancti Zenonis confessoris Christi ad monasterio Isana. Ea vero ratione respondebat ipse presbiter coram omni­bus, ut se excusare non posset de servitio sancti Zenonis et statim voluit se reddere in manus Hittoni episcopi. Et ille rennuit eum accipere, antequam populi diiudicarent et illi qui melius hoc scirent de sua nativitate cum sacramento confirmarent. Atque tunc iuraverunt in reliquiis Uuago clericus, Hroadolt, Chuniperht, Hamminc, Samuhel, Adam, Oadalrih, Adolf, Perhtolf, Crimolf, Francho, Ermperht, ut illi eum de suo avo et matre servum scirent esse sancti Zenonis vel sui parentis. Post sacramento iuramenti diiudicaverunt populi et scabini constituti, ut se redderet in manus Hittoni episcopi et sui vocati Liutpranti ad proprio servo. Et ipse se ibidem reddidit in publico placito ac semet ipso crediderunt quod aliter fieri non potuit, quia sui parentes servi fuerunt. Isti praesentes aderunt et audierunt et viderunt legitime convictum: Inprimis Hitto episcopus. Heimo comes. Cundalperht. Onhart. Tato. Priso. Rihpald. Kerhart. Toto. Cotehelm. Drudolt. Petto. Snelhart. Freaso. Aaron. Oadalhart. Drudmunt. Uualdperht. Rantuuic. Âmo. Meginrat. Adalperht. Uuicco. Reginolt. Alauuih. Cundperht. Hroadperht. Mahtperht. Hitto. Isi. Emilo. Uuolfperht. Friduperht. Tuto. Sigur. Drudmunt. Rihheri. Aaso. Dauid. Irminfrid. Engilfrid. Aarhart. Adalhram. Adalhart. Scrot. Pepo. Frumolt. Alius Tato. Hiltiperht. Saluhho. Kauuo. Isanrih. Diudolf. Ottilgast. Kepahart. Rihpald. Kerhart. Egino. Erchanperht. Hiltiperht. Rihperht. Paldheri. Actum fuit hoc placitum ad Lauppach in X. kal. mar. anno Hludouuici imperatoris XII. indictione III.",
+          "autocomplete": "QUOMODO HITTO EPISCOPUS SALOMONEN PRESBITERUM AD PROPRIO SERVO EVINDICAVIT. Convenientibus venerabilibus viris ad publico placito Lauppach, Hitto episcopus et Heimo comes et alii multi nobiles iudicia recta dirimanda, in eorum praesentia surrexit advocatus Hittoni episcopi Liutprant et quesivit unum presbiterum cui nomen Salomon de suis parentibus ad proprio servo et ad servitium sancti Zenonis confessoris Christi ad monasterio Isana. Ea vero ratione respondebat ipse presbiter coram omni­bus, ut se excusare non posset de servitio sancti Zenonis et statim voluit se reddere in manus Hittoni episcopi. Et ille rennuit eum accipere, antequam populi diiudicarent et illi qui melius hoc scirent de sua nativitate cum sacramento confirmarent. Atque tunc iuraverunt in reliquiis Uuago clericus, Hroadolt, Chuniperht, Hamminc, Samuhel, Adam, Oadalrih, Adolf, Perhtolf, Crimolf, Francho, Ermperht, ut illi eum de suo avo et matre servum scirent esse sancti Zenonis vel sui parentis. Post sacramento iuramenti diiudicaverunt populi et scabini constituti, ut se redderet in manus Hittoni episcopi et sui vocati Liutpranti ad proprio servo. Et ipse se ibidem reddidit in publico placito ac semet ipso crediderunt quod aliter fieri non potuit, quia sui parentes servi fuerunt. Isti praesentes aderunt et audierunt et viderunt legitime convictum: Inprimis Hitto episcopus. Heimo comes. Cundalperht. Onhart. Tato. Priso. Rihpald. Kerhart. Toto. Cotehelm. Drudolt. Petto. Snelhart. Freaso. Aaron. Oadalhart. Drudmunt. Uualdperht. Rantuuic. Amo. Meginrat. Adalperht. Uuicco. Reginolt. Alauuih. Cundperht. Hroadperht. Mahtperht. Hitto. Isi. Emilo. Uuolfperht. Friduperht. Tuto. Sigur. Drudmunt. Rihheri. Aaso. Dauid. Irminfrid. Engilfrid. Aarhart. Adalhram. Adalhart. Scrot. Pepo. Frumolt. Alius Tato. Hiltiperht. Saluhho. Kauuo. Isanrih. Diudolf. Ottilgast. Kepahart. Rihpald. Kerhart. Egino. Erchanperht. Hiltiperht. Rihperht. Paldheri. Actum fuit hoc placitum ad Lauppach in X. kal. mar. anno Hludouuici imperatoris XII. indictione III.",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Bischof Hitto lässt sich den Priester Salomon als Sklaven von St. Zeno in Isen zusprechen.",
           "orig_comp_ort": "Lappach",
@@ -226,7 +266,7 @@
         },
         "highlight": {
           "text": [
-            "Atque tunc iuraverunt in reliquiis Uuago clericus, Hroadolt, Chuniperht, Hamminc, Samuhel, </small><strong>Adam</strong><small>, Oadalrih, Adolf, Perhtolf, Crimolf, Francho, Ermperht, ut illi eum de suo avo et matre servum scirent esse sancti Zenonis vel sui parentis. Post sacramento iuramenti diiudicaverunt populi et scabini constituti, ut se redderet in manus Hittoni episcopi et sui vocati Liutpranti ad proprio servo. Et ipse se ibidem reddidit in publico placito ac semet ipso crediderunt quod aliter fieri non potuit, quia sui parentes servi fuerunt. Isti praesentes aderunt et audierunt et viderunt legitime convictum: Inprimis Hitto episcopus. Heimo comes. Cundalperht. Onhart. Tato. Priso. Rihpald. Kerhart. Toto. Cotehelm. Drudolt. Petto. Snelhart. Freaso. Aaron. Oadalhart. Drudmunt. Uualdperht. Rantuuic. Âmo. Meginrat. Adalperht. Uuicco. Reginolt. Alauuih. Cundperht. Hroadperht. Mahtperht. Hitto. Isi. Emilo. Uuolfperht. Friduperht. Tuto. Sigur. Drudmunt. Rihheri. Aaso. Dauid. Irminfrid. Engilfrid. Aarhart."
+            "Atque tunc iuraverunt in reliquiis Uuago clericus, Hroadolt, Chuniperht, Hamminc, Samuhel, </small><strong>Adam</strong><small>, Oadalrih, Adolf, Perhtolf, Crimolf, Francho, Ermperht, ut illi eum de suo avo et matre servum scirent esse sancti Zenonis vel sui parentis. Post sacramento iuramenti diiudicaverunt populi et scabini constituti, ut se redderet in manus Hittoni episcopi et sui vocati Liutpranti ad proprio servo. Et ipse se ibidem reddidit in publico placito ac semet ipso crediderunt quod aliter fieri non potuit, quia sui parentes servi fuerunt. Isti praesentes aderunt et audierunt et viderunt legitime convictum: Inprimis Hitto episcopus. Heimo comes. Cundalperht. Onhart. Tato. Priso. Rihpald. Kerhart. Toto. Cotehelm. Drudolt. Petto. Snelhart. Freaso. Aaron. Oadalhart. Drudmunt. Uualdperht. Rantuuic. Amo. Meginrat. Adalperht. Uuicco. Reginolt. Alauuih. Cundperht. Hroadperht. Mahtperht. Hitto. Isi. Emilo. Uuolfperht. Friduperht. Tuto. Sigur. Drudmunt. Rihheri. Aaso. Dauid. Irminfrid. Engilfrid. Aarhart."
           ]
         },
         "sort": [
@@ -235,8 +275,8 @@
         ]
       },
       {
-        "_index": "gorze_v25",
-        "_type": "_doc",
+        "_index": "gorze_v2",
+        "_type": "gorze",
         "_id": "urn:cts:formulae:gorze.dherbomez0018.lat001",
         "_score": null,
         "_source": {
@@ -282,8 +322,8 @@
         ]
       },
       {
-        "_index": "katalonien_v25",
-        "_type": "_doc",
+        "_index": "katalonien_v5",
+        "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0800.lat001",
         "_score": null,
         "_source": {
@@ -329,8 +369,8 @@
         ]
       },
       {
-        "_index": "katalonien_v25",
-        "_type": "_doc",
+        "_index": "katalonien_v5",
+        "_type": "katalonien",
         "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0926.lat001",
         "_score": null,
         "_source": {
@@ -376,8 +416,8 @@
         ]
       },
       {
-        "_index": "lorsch_v25",
-        "_type": "_doc",
+        "_index": "lorsch_v5",
+        "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0214.lat001",
         "_score": null,
         "_source": {
@@ -408,8 +448,8 @@
         ]
       },
       {
-        "_index": "lorsch_v25",
-        "_type": "_doc",
+        "_index": "lorsch_v5",
+        "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0226.lat001",
         "_score": null,
         "_source": {
@@ -452,8 +492,8 @@
         ]
       },
       {
-        "_index": "lorsch_v25",
-        "_type": "_doc",
+        "_index": "lorsch_v5",
+        "_type": "lorsch",
         "_id": "urn:cts:formulae:lorsch.gloeckner0227.lat001",
         "_score": null,
         "_source": {
@@ -484,8 +524,8 @@
         ]
       },
       {
-        "_index": "marmoutier_blésois_v12",
-        "_type": "_doc",
+        "_index": "marmoutier_blésois_v1",
+        "_type": "marmoutier_blésois",
         "_id": "urn:cts:formulae:marmoutier_blésois.métais0007.lat001",
         "_score": null,
         "_source": {
@@ -528,8 +568,8 @@
         ]
       },
       {
-        "_index": "marmoutier_blésois_v12",
-        "_type": "_doc",
+        "_index": "marmoutier_blésois_v1",
+        "_type": "marmoutier_blésois",
         "_id": "urn:cts:formulae:marmoutier_blésois.métais0070.lat001",
         "_score": null,
         "_source": {
@@ -572,8 +612,8 @@
         ]
       },
       {
-        "_index": "marmoutier_blésois_v12",
-        "_type": "_doc",
+        "_index": "marmoutier_blésois_v1",
+        "_type": "marmoutier_blésois",
         "_id": "urn:cts:formulae:marmoutier_blésois.métais0093.lat001",
         "_score": null,
         "_source": {
@@ -616,8 +656,8 @@
         ]
       },
       {
-        "_index": "marmoutier_blésois_v12",
-        "_type": "_doc",
+        "_index": "marmoutier_blésois_v1",
+        "_type": "marmoutier_blésois",
         "_id": "urn:cts:formulae:marmoutier_blésois.métais0173.lat001",
         "_score": null,
         "_source": {
@@ -660,8 +700,8 @@
         ]
       },
       {
-        "_index": "marmoutier_blésois_v12",
-        "_type": "_doc",
+        "_index": "marmoutier_blésois_v1",
+        "_type": "marmoutier_blésois",
         "_id": "urn:cts:formulae:marmoutier_blésois.métais0184.lat001",
         "_score": null,
         "_source": {
@@ -704,8 +744,8 @@
         ]
       },
       {
-        "_index": "marmoutier_blésois_v12",
-        "_type": "_doc",
+        "_index": "marmoutier_blésois_v1",
+        "_type": "marmoutier_blésois",
         "_id": "urn:cts:formulae:marmoutier_blésois.métais0189.lat001",
         "_score": null,
         "_source": {
@@ -748,8 +788,8 @@
         ]
       },
       {
-        "_index": "marmoutier_blésois_v12",
-        "_type": "_doc",
+        "_index": "marmoutier_blésois_v1",
+        "_type": "marmoutier_blésois",
         "_id": "urn:cts:formulae:marmoutier_blésois.métais0190.lat001",
         "_score": null,
         "_source": {
@@ -792,8 +832,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0134.lat001",
         "_score": null,
         "_source": {
@@ -836,8 +876,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0154.lat001",
         "_score": null,
         "_source": {
@@ -880,8 +920,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0184.lat001",
         "_score": null,
         "_source": {
@@ -924,8 +964,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0185.lat001",
         "_score": null,
         "_source": {
@@ -968,8 +1008,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0187.lat001",
         "_score": null,
         "_source": {
@@ -1012,8 +1052,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0192.lat001",
         "_score": null,
         "_source": {
@@ -1056,8 +1096,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0193.lat001",
         "_score": null,
         "_source": {
@@ -1100,8 +1140,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0198.lat001",
         "_score": null,
         "_source": {
@@ -1144,8 +1184,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0201.lat001",
         "_score": null,
         "_source": {
@@ -1188,8 +1228,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0268.lat001",
         "_score": null,
         "_source": {
@@ -1232,8 +1272,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0280.lat001",
         "_score": null,
         "_source": {
@@ -1276,8 +1316,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0041.lat001",
         "_score": null,
         "_source": {
@@ -1308,8 +1348,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0052.lat001",
         "_score": null,
         "_source": {
@@ -1352,8 +1392,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0078.lat001",
         "_score": null,
         "_source": {
@@ -1396,8 +1436,8 @@
         ]
       },
       {
-        "_index": "marmoutier_dunois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_dunois_v2",
+        "_type": "marmoutier_dunois",
         "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0095.lat001",
         "_score": null,
         "_source": {
@@ -1440,8 +1480,8 @@
         ]
       },
       {
-        "_index": "marmoutier_fougères_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_fougères_v2",
+        "_type": "marmoutier_fougères",
         "_id": "urn:cts:formulae:marmoutier_fougères.mazel0001.lat001",
         "_score": null,
         "_source": {
@@ -1484,8 +1524,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_arquenay_0005.lat001",
         "_score": null,
         "_source": {
@@ -1528,8 +1568,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_chateau-du-loir_0002.lat001",
         "_score": null,
         "_source": {
@@ -1580,8 +1620,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_chateau-du-loir_0009.lat001",
         "_score": null,
         "_source": {
@@ -1624,8 +1664,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_chateau-du-loir_0018.lat001",
         "_score": null,
         "_source": {
@@ -1668,8 +1708,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_laval_0017.lat001",
         "_score": null,
         "_source": {
@@ -1712,8 +1752,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_laval_0019.lat001",
         "_score": null,
         "_source": {
@@ -1756,8 +1796,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_mayenne_0013.lat001",
         "_score": null,
         "_source": {
@@ -1800,8 +1840,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_sablé_0010.lat001",
         "_score": null,
         "_source": {
@@ -1844,8 +1884,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_sablé_0013.lat001",
         "_score": null,
         "_source": {
@@ -1888,8 +1928,8 @@
         ]
       },
       {
-        "_index": "marmoutier_manceau_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_manceau_v2",
+        "_type": "marmoutier_manceau",
         "_id": "urn:cts:formulae:marmoutier_manceau.laurain_torcé_0002.lat001",
         "_score": null,
         "_source": {
@@ -1932,8 +1972,8 @@
         ]
       },
       {
-        "_index": "marmoutier_pour_le_perche_v24",
-        "_type": "_doc",
+        "_index": "marmoutier_pour_le_perche_v1",
+        "_type": "marmoutier_pour_le_perche",
         "_id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0034.lat001",
         "_score": null,
         "_source": {
@@ -1976,8 +2016,8 @@
         ]
       },
       {
-        "_index": "marmoutier_pour_le_perche_v24",
-        "_type": "_doc",
+        "_index": "marmoutier_pour_le_perche_v1",
+        "_type": "marmoutier_pour_le_perche",
         "_id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0062.lat001",
         "_score": null,
         "_source": {
@@ -2020,8 +2060,8 @@
         ]
       },
       {
-        "_index": "marmoutier_pour_le_perche_v24",
-        "_type": "_doc",
+        "_index": "marmoutier_pour_le_perche_v1",
+        "_type": "marmoutier_pour_le_perche",
         "_id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0150.lat001",
         "_score": null,
         "_source": {
@@ -2064,8 +2104,8 @@
         ]
       },
       {
-        "_index": "marmoutier_pour_le_perche_v24",
-        "_type": "_doc",
+        "_index": "marmoutier_pour_le_perche_v1",
+        "_type": "marmoutier_pour_le_perche",
         "_id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0151.lat001",
         "_score": null,
         "_source": {
@@ -2108,8 +2148,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0042app.lat001",
         "_score": null,
         "_source": {
@@ -2152,8 +2192,8 @@
         ]
       },
       {
-        "_index": "marmoutier_serfs_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_serfs_v2",
+        "_type": "marmoutier_serfs",
         "_id": "urn:cts:formulae:marmoutier_serfs.salmon0125.lat001",
         "_score": null,
         "_source": {
@@ -2196,8 +2236,8 @@
         ]
       },
       {
-        "_index": "marmoutier_vendomois_v25",
-        "_type": "_doc",
+        "_index": "marmoutier_vendomois_v2",
+        "_type": "marmoutier_vendomois",
         "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0087.lat001",
         "_score": null,
         "_source": {
@@ -2240,8 +2280,8 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v25",
-        "_type": "_doc",
+        "_index": "papsturkunden_frankreich_v2",
+        "_type": "papsturkunden_frankreich",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0046.lat001",
         "_score": null,
         "_source": {
@@ -2284,8 +2324,8 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v25",
-        "_type": "_doc",
+        "_index": "papsturkunden_frankreich_v2",
+        "_type": "papsturkunden_frankreich",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001",
         "_score": null,
         "_source": {
@@ -2328,8 +2368,8 @@
         ]
       },
       {
-        "_index": "papsturkunden_frankreich_v25",
-        "_type": "_doc",
+        "_index": "papsturkunden_frankreich_v2",
+        "_type": "papsturkunden_frankreich",
         "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0258.lat001",
         "_score": null,
         "_source": {
@@ -2372,8 +2412,8 @@
         ]
       },
       {
-        "_index": "redon_v25",
-        "_type": "_doc",
+        "_index": "redon_v2",
+        "_type": "redon",
         "_id": "urn:cts:formulae:redon.courson0059.lat001",
         "_score": null,
         "_source": {
@@ -2419,8 +2459,8 @@
         ]
       },
       {
-        "_index": "saint_bénigne_v16",
-        "_type": "_doc",
+        "_index": "saint_bénigne_v1",
+        "_type": "saint_bénigne",
         "_id": "urn:cts:formulae:saint_bénigne.maurice0030.lat001",
         "_score": null,
         "_source": {
@@ -2463,8 +2503,8 @@
         ]
       },
       {
-        "_index": "salzburg_v25",
-        "_type": "_doc",
+        "_index": "salzburg_v5",
+        "_type": "salzburg",
         "_id": "urn:cts:formulae:salzburg.hauthaler-a0048.lat001",
         "_score": null,
         "_source": {
@@ -2497,7 +2537,19 @@
           "days": [
             "Thursday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Publicatio": " In Christi nomine decrevimus notum fieri omnibus Christi fidelibus presentibus scilicet atque futuris, nobilibus personis et ignobilibus",
+          "Publicatio-lems": null,
+          "Invocatio": "In Christi nomine decrevimus",
+          "Invocatio-lems": null,
+          "Intitulatio": "Ôdalbertus Iuuauensis aecclesiae archiepiscopus ... cum cuidam nobili viro archidiacono Hartvuin nominato",
+          "Intitulatio-lems": null,
+          "Dispositio": "quandam conplacitationem cum consilio et consensu clericorum atque laicorum ad ipsam sedem pertinentium ... facere disposuit ... Tradidit igitur ... post obitum eius ac mulieris unius Kersuuind nominate aeternaliter in proprietatem possidendum",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "de proprietate sua loca II in locis Tiufstada nominatis, qualiter ibidem Roccholfus frater eius ac filii sui proprietatis vel de donatione regum proprietatis habere visi sunt, et in alio loco veluti Vualthalmus frater eius hereditatis habere visus est, atque mancipia VI quorum nomina sunt ... quicquid in illo die beneficii habere visus est, hoc est in locis nominatis: Engilhereshusa ac Puotinperch cum mancipiis, hoc est Engilperht cum uxore et filiis suis, Diotpurch cum filiis suis, Hêrman cum uxore et filiis suis, Erchanperht cum uxore et filiis suis, seu caeteris mancipiis ipso die in beneficium habenti, usque in finem vitae illius ac mulieris praedictae in proprietatem",
+          "Pertinenzformel-lems": null,
+          "Corroboratio": "Exinde sunt testes ex utraque parte attracti",
+          "Corroboratio-lems": null
         },
         "highlight": {
           "text": [
@@ -2510,8 +2562,8 @@
         ]
       },
       {
-        "_index": "stgallen_v25",
-        "_type": "_doc",
+        "_index": "stgallen_v5",
+        "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0118.lat001",
         "_score": null,
         "_source": {
@@ -2544,7 +2596,23 @@
           "days": [
             "Sunday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Inscriptio": "In Christo patre Werdone abbate et avocatus noster Rihcpertus",
+          "Inscriptio-lems": null,
+          "Intitulatio": "Ego in Dei nomine Werinbertus",
+          "Intitulatio-lems": null,
+          "Dispositio": "conplacuit inter nos, ut aliquas terra inter nos in concambio commutare deberimus, quod et ita fecimus ... et accepi ... Et sic inter nos convenit, ut unusquisque de quod accepit a die presente faciant quod voluerint, liberam ac firmissimam habeant in Dei nomine in omnibus potestatem, ut nec ego nec heredis mei nec nulla oposita persona de ipsa commutacione nihil dicere nec repedire non dibiamus sed commutacio istic omni tempore firma et stabilis permaneat stibulacione subnexa ",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "in pago Turgauia in loco, qui dicitur Zuckinrihat, terra illa, quod Waldo et germanus suus Heilo mihi tradiderunt, ad pertica mensurata saicadas XXIII ... in ipso pago in loco, qui dicitur Fridapertesvilare, mensurato alio tanto",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "ut nec ego nec heredis mei nec nulla oposita persona de ipsa commutacione nihil dicere nec repedire non dibiamus",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "sed commutacio istic omni tempore firma et stabilis permaneat stibulacione subnexa",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Actum in villa Elihcauia puplici, presentibus quorum ic signacula contenuntur",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Ego in Dei nomine Adam presbiter acta Werinkisi scripsi ... Notavi die dominico, III id. iul ... anno XIX regnante domno nostro Carlo rege Francorum, sub Odalrico comite",
+          "Eschatokoll-lems": null
         },
         "highlight": {
           "text": [
@@ -2557,8 +2625,8 @@
         ]
       },
       {
-        "_index": "stgallen_v25",
-        "_type": "_doc",
+        "_index": "stgallen_v5",
+        "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0142.lat001",
         "_score": null,
         "_source": {
@@ -2591,7 +2659,25 @@
           "days": [
             "Friday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Arenga": "Si aliquid locis sanctorum vel substantia pauperum conferimus, hoc nobis procul dubio ad eternam beatitudinem retribuere confidimus",
+          "Arenga-lems": null,
+          "Intitulatio": "Nos vero in Dei nomen Winitharius et Sleta mater mea",
+          "Intitulatio-lems": null,
+          "Narratio": "in amorem domini nostri iesu Christi et remissionem peccatorum nostrorum caedimus a presente die cessumque quod in perpetuum esse volemus ",
+          "Narratio-lems": null,
+          "Dispositio": "caedimus a presente die cessumque quod in perpetuum esse volemus ... tradimus atque transfundimus ... ita ut ab hac die ipsi vel successorisque eorum habeant, teneant atque possedeant",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "id est in pago Turgaunense in finis vel in marcas nuncupantes in villa, qui dicitur Wila, et in Pramolveshova, quidquid in ipsas fines vel marcas visi sumus habere de paternico vel quod legibus nos obtinet, tam terris, casis, casalis, mancipiis, pomariis, campis, pratis, silvis, pascuis, aquis aquarumve decursibus, movilibus et inmovilibus. Ista omnia supra dicta",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Si quis vero, quod futurum esse non credimus, nos ipsi, quod absit, aut aliquid de heredibus nostris vel proheredibus aut quislibet opposita persona, qui contra hanc tradicionem venire temptaverit aut eam infrangere voluerit ... tunc sit culpabilis ad ipsum monasterium dublum repetitionem in fisco auri uncias VI et argento pondera X",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et nihil evindicare non valeat, sed tradicio ista firma et stabilis permaneat cum stibulatione subnexa",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Actum in iohannisvilare puplici, presentibus quorum hic signacula contenuntur",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Ego in Dei nomine Adam presbiter rogitus scripsi et subscripsi ... Notavi die veneris, XIII kal. iun ... anno XXVIII regnante domno nostro Karlo rege Francorum, sub Odalrico comite",
+          "Eschatokoll-lems": null
         },
         "highlight": {
           "text": [
@@ -2604,8 +2690,8 @@
         ]
       },
       {
-        "_index": "stgallen_v25",
-        "_type": "_doc",
+        "_index": "stgallen_v5",
+        "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0578.lat001",
         "_score": null,
         "_source": {
@@ -2644,7 +2730,25 @@
           "days": [
             "Thursday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Invocatio": "In Dei nomine",
+          "Invocatio-lems": null,
+          "Intitulatio": "Ego Vurmheri recordatus",
+          "Intitulatio-lems": null,
+          "Dispositio": "trado",
+          "Dispositio-lems": null,
+          "Narratio": "pro remedium anime mee et Heriboldi filii mei et coniuge mea Rahhilta",
+          "Narratio-lems": null,
+          "Pertinenzformel": "hoc est una hoba in Petenouwa, cum casa et aedificiis atque omnibus adiacentibus utensiliis, absque illam veterem abitaculum vel unum agrum, quae ad nos pertinet, seu mancipiis, qui ibidem visi sunt, ad filiis meis pertineant cum suis causis",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Si quis vero, quod fieri non credo, si ego ipse aut ullus heredum vel proheredum meorum, qui contra hanc tradicionem a me factam venire praesumpserit ... sotiante fisco multa componat, id est auri untias II, argenti pondera V coactus exsolvat",
+          "Poenformel-lems": null,
+          "Stipulationsformel": "et quod reppetit evindicare non valeat",
+          "Stipulationsformel-lems": null,
+          "Corroboratio": "Actum in Pettenwison buplice, praesentibus quorum hic signacula continentur",
+          "Corroboratio-lems": null,
+          "Eschatokoll": "Ego itaque Adam indignus presbiter scripsi et subscripsi ... Notavi diem iovis, XIII kal. iun ... anno XXXVI regnante domno Ludowico imperatore, sub Geroldo comite, feliciter",
+          "Eschatokoll-lems": null
         },
         "highlight": {
           "text": [
@@ -2657,8 +2761,8 @@
         ]
       },
       {
-        "_index": "stgallen_v25",
-        "_type": "_doc",
+        "_index": "stgallen_v5",
+        "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0751.lat001",
         "_score": null,
         "_source": {
@@ -2691,7 +2795,17 @@
           "days": [
             "Friday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Intitulatio": "Ego Hengilhart et Milo",
+          "Intitulatio-lems": null,
+          "Narratio": "pro remedio animarum nostrarum parentumque nostrorum",
+          "Narratio-lems": null,
+          "Dispositio": "tradimus",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "quicquid hodierna die in Vlacwilare marcha in villa Wolfkereswilare visi sumus possidere, cum edificiis, campis, silvis, pascuis, viis, aquis aquarumque decursibus, cultis et incultis, mobilibus et inmobilibus omnibusque rebus ad eandem proprietatem pertinentibus",
+          "Pertinenzformel-lems": null,
+          "Eschatokoll": "Ego itaque Thieto indignus prespiter ad vicem Cozzolti sereni praepositi scripsi et subscripsi ... Notavi diem VI fer., IIX kal. mai ... anno XVII Hluduwici regis, Adalbertum comitem",
+          "Eschatokoll-lems": null
         },
         "highlight": {
           "text": [
@@ -2704,8 +2818,8 @@
         ]
       },
       {
-        "_index": "stgallen_v25",
-        "_type": "_doc",
+        "_index": "stgallen_v5",
+        "_type": "stgallen",
         "_id": "urn:cts:formulae:stgallen.wartmann0752.lat001",
         "_score": null,
         "_source": {
@@ -2738,7 +2852,17 @@
           "days": [
             "Friday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Intitulatio": "Ego Thieteram",
+          "Intitulatio-lems": null,
+          "Narratio": "cogitans pro remedio anime meae parentumque meorum",
+          "Narratio-lems": null,
+          "Dispositio": "trado",
+          "Dispositio-lems": null,
+          "Pertinenzformel": "quicquid hodierna die in Vlacwilare marcha visus sum possidere, cum aedificiis, campis, silvis, pascuis, viis, aquis aquarumque decursibus, cultis et incultis, mobilibus et inmobilibus omnibusque rebus ad eandem proprietatem pertinentibus",
+          "Pertinenzformel-lems": null,
+          "Eschatokoll": "Ego itaque Thieto indignus prespiter rogatus scripsi et subscripsi ... Notavi diem VI fer., II kal. mai ... anno XVII Hluduwici regis, Adalperto comite",
+          "Eschatokoll-lems": null
         },
         "highlight": {
           "text": [
@@ -2751,8 +2875,8 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v11",
-        "_type": "_doc",
+        "_index": "telma_marmoutier_v1",
+        "_type": "telma_marmoutier",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud1012.lat001",
         "_score": null,
         "_source": {
@@ -2760,6 +2884,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 1012",
+          "keywords": "",
           "urn": "urn:cts:formulae:telma_marmoutier.giraud1012.lat001",
           "date_string": "1040",
           "comp_ort": " ",
@@ -2794,8 +2919,8 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v11",
-        "_type": "_doc",
+        "_index": "telma_marmoutier_v1",
+        "_type": "telma_marmoutier",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud1573.lat001",
         "_score": null,
         "_source": {
@@ -2803,6 +2928,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 1573",
+          "keywords": "",
           "urn": "urn:cts:formulae:telma_marmoutier.giraud1573.lat001",
           "date_string": "1060",
           "comp_ort": " ",
@@ -2837,8 +2963,8 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v11",
-        "_type": "_doc",
+        "_index": "telma_marmoutier_v1",
+        "_type": "telma_marmoutier",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud2171.lat001",
         "_score": null,
         "_source": {
@@ -2846,6 +2972,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 2171",
+          "keywords": "",
           "urn": "urn:cts:formulae:telma_marmoutier.giraud2171.lat001",
           "date_string": "1032",
           "comp_ort": " ",
@@ -2880,8 +3007,8 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v11",
-        "_type": "_doc",
+        "_index": "telma_marmoutier_v1",
+        "_type": "telma_marmoutier",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud3150.lat001",
         "_score": null,
         "_source": {
@@ -2889,6 +3016,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 3150",
+          "keywords": "",
           "urn": "urn:cts:formulae:telma_marmoutier.giraud3150.lat001",
           "date_string": "1020-11",
           "comp_ort": " ",
@@ -2923,8 +3051,8 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v11",
-        "_type": "_doc",
+        "_index": "telma_marmoutier_v1",
+        "_type": "telma_marmoutier",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud3151.lat001",
         "_score": null,
         "_source": {
@@ -2932,6 +3060,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 3151",
+          "keywords": "",
           "urn": "urn:cts:formulae:telma_marmoutier.giraud3151.lat001",
           "date_string": "1020",
           "comp_ort": " ",
@@ -2966,8 +3095,8 @@
         ]
       },
       {
-        "_index": "telma_marmoutier_v11",
-        "_type": "_doc",
+        "_index": "telma_marmoutier_v1",
+        "_type": "telma_marmoutier",
         "_id": "urn:cts:formulae:telma_marmoutier.giraud4542.lat001",
         "_score": null,
         "_source": {
@@ -2975,6 +3104,7 @@
           "lemmas": "lemma text",
           "regest": "regest text",
           "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 4542",
+          "keywords": "",
           "urn": "urn:cts:formulae:telma_marmoutier.giraud4542.lat001",
           "date_string": "1060",
           "comp_ort": " ",
@@ -3009,8 +3139,202 @@
         ]
       },
       {
-        "_index": "tours_st_julien_fragments_v25",
-        "_type": "_doc",
+        "_index": "tours_st_julien_denis_v1",
+        "_type": "tours_st_julien_denis",
+        "_id": "urn:cts:formulae:tours_st_julien_denis.denis0019.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Chartes de Saint-Julien de Tours (1002-1227) (Ed. Denis) Nr. 19",
+          "keywords": "",
+          "urn": "urn:cts:formulae:tours_st_julien_denis.denis0019.lat001",
+          "date_string": "XIe siècle",
+          "comp_ort": "Magny-le-Désert",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Magny-le-Désert",
+          "collection": "tours_st_julien_denis",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "1000-01-01",
+              "lte": "1099-12-31"
+            }
+          ],
+          "all_dates": [
+            "1000-01-01",
+            "1099-12-31"
+          ],
+          "min_date": "1000-01-01",
+          "max_date": "1099-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:tours_st_julien_denis.denis0019.lat001"
+        ]
+      },
+      {
+        "_index": "tours_st_julien_denis_v1",
+        "_type": "tours_st_julien_denis",
+        "_id": "urn:cts:formulae:tours_st_julien_denis.denis0026.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Chartes de Saint-Julien de Tours (1002-1227) (Ed. Denis) Nr. 26",
+          "keywords": "",
+          "urn": "urn:cts:formulae:tours_st_julien_denis.denis0026.lat001",
+          "date_string": "1059",
+          "comp_ort": "Bonneville",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Bonneville",
+          "collection": "tours_st_julien_denis",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "1059-01-01",
+              "lte": "1059-12-31"
+            }
+          ],
+          "all_dates": [
+            "1059-01-01",
+            "1059-12-31"
+          ],
+          "min_date": "1059-01-01",
+          "max_date": "1059-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:tours_st_julien_denis.denis0026.lat001"
+        ]
+      },
+      {
+        "_index": "tours_st_julien_denis_v1",
+        "_type": "tours_st_julien_denis",
+        "_id": "urn:cts:formulae:tours_st_julien_denis.denis0029.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Chartes de Saint-Julien de Tours (1002-1227) (Ed. Denis) Nr. 29",
+          "keywords": "",
+          "urn": "urn:cts:formulae:tours_st_julien_denis.denis0029.lat001",
+          "date_string": "1063",
+          "comp_ort": "Bonneville",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": "Bonneville",
+          "collection": "tours_st_julien_denis",
+          "forgery": false,
+          "dating": [
+            {
+              "gte": "1063-01-01",
+              "lte": "1063-12-31"
+            }
+          ],
+          "all_dates": [
+            "1063-01-01",
+            "1063-12-31"
+          ],
+          "min_date": "1063-01-01",
+          "max_date": "1063-12-31",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:tours_st_julien_denis.denis0029.lat001"
+        ]
+      },
+      {
+        "_index": "tours_st_julien_denis_v1",
+        "_type": "tours_st_julien_denis",
+        "_id": "urn:cts:formulae:tours_st_julien_denis.denis0039.lat001",
+        "_score": null,
+        "_source": {
+          "text": "some real text",
+          "lemmas": "lemma text",
+          "regest": "regest text",
+          "title": "Chartes de Saint-Julien de Tours (1002-1227) (Ed. Denis) Nr. 39",
+          "keywords": "",
+          "urn": "urn:cts:formulae:tours_st_julien_denis.denis0039.lat001",
+          "date_string": "1084 ou 1090, 08 27 et 09 01",
+          "comp_ort": " ",
+          "autocomplete": "autocomplete text",
+          "autocomplete_lemmas": "autocomplete lemma text",
+          "autocomplete_regest": "autocomplete regest text",
+          "orig_comp_ort": " ",
+          "collection": "tours_st_julien_denis",
+          "forgery": false,
+          "specific_date": [
+            {
+              "year": 1084,
+              "month": 8,
+              "day": 27
+            },
+            {
+              "year": 1084,
+              "month": 9,
+              "day": 1
+            },
+            {
+              "year": 1090,
+              "month": 8,
+              "day": 27
+            },
+            {
+              "year": 1090,
+              "month": 9,
+              "day": 1
+            }
+          ],
+          "all_dates": [
+            "1084-08-27",
+            "1084-09-01",
+            "1090-08-27",
+            "1090-09-01"
+          ],
+          "min_date": "1084-08-27",
+          "max_date": "1090-09-01",
+          "sort_prefix": 1
+        },
+        "highlight": {
+          "text": [
+            "text"
+          ]
+        },
+        "sort": [
+          1,
+          "urn:cts:formulae:tours_st_julien_denis.denis0039.lat001"
+        ]
+      },
+      {
+        "_index": "tours_st_julien_fragments_v2",
+        "_type": "tours_st_julien_fragments",
         "_id": "urn:cts:formulae:tours_st_julien_fragments.grandmaison0008.lat001",
         "_score": null,
         "_source": {
