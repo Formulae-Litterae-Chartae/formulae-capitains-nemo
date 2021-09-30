@@ -1,0 +1,3271 @@
+[
+  {
+    "took": 12,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 78,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0022.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 22",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0022.lat001",
+            "date_string": "[584 09 28-628 09 30]",
+            "comp_ort": "Etrepagny",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Etrepagny",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0584-09-28",
+                "lte": "0628-09-30"
+              }
+            ],
+            "all_dates": [
+              "0584-09-28",
+              "0628-09-30"
+            ],
+            "min_date": "0584-09-28",
+            "max_date": "0628-09-30",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0022.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0025.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 25",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0025.lat001",
+            "date_string": "(596) 06 08",
+            "comp_ort": "Captiniaco",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Captiniaco",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 596,
+                "month": 6,
+                "day": 8
+              }
+            ],
+            "all_dates": [
+              "0596-06-08"
+            ],
+            "min_date": "0596-06-08",
+            "max_date": "0596-06-08",
+            "days": [
+              "Friday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0025.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0028.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 28",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0028.lat001",
+            "date_string": "(625 06 14-07 01)",
+            "comp_ort": "Etrepagny",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Etrepagny",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0625-06-14",
+                "lte": "0625-07-01"
+              }
+            ],
+            "all_dates": [
+              "0625-06-14",
+              "0625-07-01"
+            ],
+            "min_date": "0625-06-14",
+            "max_date": "0625-07-01",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0028.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0032.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 32",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0032.lat001",
+            "date_string": "[629 10 20-637]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0629-10-20",
+                "lte": "0637-12-31"
+              }
+            ],
+            "all_dates": [
+              "0629-10-20",
+              "0637-12-31"
+            ],
+            "min_date": "0629-10-20",
+            "max_date": "0637-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0032.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0037.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 37",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0037.lat001",
+            "date_string": "[630 vor 04 08]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0630-01-01",
+                "lte": "0630-04-08"
+              }
+            ],
+            "all_dates": [
+              "0630-01-01",
+              "0630-04-08"
+            ],
+            "min_date": "0630-01-01",
+            "max_date": "0630-04-08",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0037.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 38",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
+            "date_string": "(630) 04 08 (Ostern)",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 630,
+                "month": 4,
+                "day": 8
+              }
+            ],
+            "all_dates": [
+              "0630-04-08"
+            ],
+            "min_date": "0630-04-08",
+            "max_date": "0630-04-08",
+            "days": [
+              "Sunday",
+              "Easter"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0038.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0041.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 41",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0041.lat001",
+            "date_string": "[632 02 15-633 03 15, wohl 632 10 15]",
+            "comp_ort": "Clichy",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Clichy",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0632-02-15",
+                "lte": "0633-03-15"
+              }
+            ],
+            "all_dates": [
+              "0632-02-15",
+              "0633-03-15"
+            ],
+            "min_date": "0632-02-15",
+            "max_date": "0633-03-15",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0041.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0072.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 72",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0072.lat001",
+            "date_string": "[639 01 20-642]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0639-01-20",
+                "lte": "0642-12-31"
+              }
+            ],
+            "all_dates": [
+              "0639-01-20",
+              "0642-12-31"
+            ],
+            "min_date": "0639-01-20",
+            "max_date": "0642-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0072.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0073.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 73",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0073.lat001",
+            "date_string": "[639 01 20-642]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0073.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0074.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 74",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0074.lat001",
+            "date_string": "[639 01 20-649/50]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0639-01-20",
+                "lte": "0650-12-31"
+              }
+            ],
+            "all_dates": [
+              "0639-01-20",
+              "0650-12-31"
+            ],
+            "min_date": "0639-01-20",
+            "max_date": "0650-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0074.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0075.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 75",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0075.lat001",
+            "date_string": "[639 01 20-649/50]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0639-01-20",
+                "lte": "0650-12-31"
+              }
+            ],
+            "all_dates": [
+              "0639-01-20",
+              "0650-12-31"
+            ],
+            "min_date": "0639-01-20",
+            "max_date": "0650-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0075.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0077.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 77",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0077.lat001",
+            "date_string": "[640-647]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0640-01-01",
+                "lte": "0647-12-31"
+              }
+            ],
+            "all_dates": [
+              "0640-01-01",
+              "0647-12-31"
+            ],
+            "min_date": "0640-01-01",
+            "max_date": "0647-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0077.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0079.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 79",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0079.lat001",
+            "date_string": "(642/43) 09 03",
+            "comp_ort": "Bodouilla",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Bodouilla",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 642,
+                "month": 9,
+                "day": 3
+              },
+              {
+                "year": 643,
+                "month": 9,
+                "day": 3
+              }
+            ],
+            "all_dates": [
+              "0642-09-03",
+              "0643-09-03"
+            ],
+            "min_date": "0642-09-03",
+            "max_date": "0643-09-03",
+            "days": [
+              "Wednesday",
+              "Tuesday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0079.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0080.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 80",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0080.lat001",
+            "date_string": "[643-647/48]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0643-01-01",
+                "lte": "0648-12-31"
+              }
+            ],
+            "all_dates": [
+              "0643-01-01",
+              "0648-12-31"
+            ],
+            "min_date": "0643-01-01",
+            "max_date": "0648-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0080.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0081.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 81",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0081.lat001",
+            "date_string": "[643-647/48]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0643-01-01",
+                "lte": "0648-12-31"
+              }
+            ],
+            "all_dates": [
+              "0643-01-01",
+              "0648-12-31"
+            ],
+            "min_date": "0643-01-01",
+            "max_date": "0648-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0081.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0085.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 85",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0085.lat001",
+            "date_string": "(654) 06 22",
+            "comp_ort": "Clichy",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Clichy",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 654,
+                "month": 6,
+                "day": 22
+              }
+            ],
+            "all_dates": [
+              "0654-06-22"
+            ],
+            "min_date": "0654-06-22",
+            "max_date": "0654-06-22",
+            "days": [
+              "Sunday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0085.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0088.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 88",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0088.lat001",
+            "date_string": "[657-678/79-02-15]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0657-01-01",
+                "lte": "0679-02-15"
+              }
+            ],
+            "all_dates": [
+              "0657-01-01",
+              "0679-02-15"
+            ],
+            "min_date": "0657-01-01",
+            "max_date": "0679-02-15",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0088.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0089.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 89",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0089.lat001",
+            "date_string": "[657 10 12-690 10 30]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0657-10-12",
+                "lte": "0690-10-30"
+              }
+            ],
+            "all_dates": [
+              "0657-10-12",
+              "0690-10-30"
+            ],
+            "min_date": "0657-10-12",
+            "max_date": "0690-10-30",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0089.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0092.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 92",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0092.lat001",
+            "date_string": "[658 10 12-659 11 09]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0658-10-12",
+                "lte": "0659-11-09"
+              }
+            ],
+            "all_dates": [
+              "0658-10-12",
+              "0659-11-09"
+            ],
+            "min_date": "0658-10-12",
+            "max_date": "0659-11-09",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0092.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0093.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 93",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0093.lat001",
+            "date_string": "[659 11-660 11 09]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0659-11-01",
+                "lte": "0660-11-09"
+              }
+            ],
+            "all_dates": [
+              "0659-11-01",
+              "0660-11-09"
+            ],
+            "min_date": "0659-11-01",
+            "max_date": "0660-11-09",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0093.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0094.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 94",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0094.lat001",
+            "date_string": "[660-673 03 11]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0660-01-01",
+                "lte": "0673-03-11"
+              }
+            ],
+            "all_dates": [
+              "0660-01-01",
+              "0673-03-11"
+            ],
+            "min_date": "0660-01-01",
+            "max_date": "0673-03-11",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0094.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0095.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 95",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0095.lat001",
+            "date_string": "[660-673 03 11]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0660-01-01",
+                "lte": "0673-03-11"
+              }
+            ],
+            "all_dates": [
+              "0660-01-01",
+              "0673-03-11"
+            ],
+            "min_date": "0660-01-01",
+            "max_date": "0673-03-11",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0095.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0096.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 96",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0096.lat001",
+            "date_string": "(661) 12 23 (?)",
+            "comp_ort": "Etrepagny",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Etrepagny (?)",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 661,
+                "month": 12,
+                "day": 23
+              }
+            ],
+            "all_dates": [
+              "0661-12-23"
+            ],
+            "min_date": "0661-12-23",
+            "max_date": "0661-12-23",
+            "days": [
+              "Thursday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0096.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0099.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 99",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0099.lat001",
+            "date_string": "[662 10 18-675 03 04]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0662-10-18",
+                "lte": "0675-03-04"
+              }
+            ],
+            "all_dates": [
+              "0662-10-18",
+              "0675-03-04"
+            ],
+            "min_date": "0662-10-18",
+            "max_date": "0675-03-04",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0099.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0107.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 107",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0107.lat001",
+            "date_string": "(669/70) 03 01",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 669,
+                "month": 3,
+                "day": 1
+              },
+              {
+                "year": 670,
+                "month": 3,
+                "day": 1
+              }
+            ],
+            "all_dates": [
+              "0669-03-01",
+              "0670-03-01"
+            ],
+            "min_date": "0669-03-01",
+            "max_date": "0670-03-01",
+            "days": [
+              "Thursday",
+              "Friday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0107.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0108.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 108",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0108.lat001",
+            "date_string": "(670) 09 06",
+            "comp_ort": "Maastricht",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Maastricht",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 670,
+                "month": 9,
+                "day": 6
+              }
+            ],
+            "all_dates": [
+              "0670-09-06"
+            ],
+            "min_date": "0670-09-06",
+            "max_date": "0670-09-06",
+            "days": [
+              "Friday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0108.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0110.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 110",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0110.lat001",
+            "date_string": "(673) 08 27",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 673,
+                "month": 8,
+                "day": 27
+              }
+            ],
+            "all_dates": [
+              "0673-08-27"
+            ],
+            "min_date": "0673-08-27",
+            "max_date": "0673-08-27",
+            "days": [
+              "Saturday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0110.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0111.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 111",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0111.lat001",
+            "date_string": "(675) 03 04",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 675,
+                "month": 3,
+                "day": 4
+              }
+            ],
+            "all_dates": [
+              "0675-03-04"
+            ],
+            "min_date": "0675-03-04",
+            "max_date": "0675-03-04",
+            "days": [
+              "Sunday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0111.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0118.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 118",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0118.lat001",
+            "date_string": "(677)12 06",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 677,
+                "month": 12,
+                "day": 6
+              }
+            ],
+            "all_dates": [
+              "0677-12-06"
+            ],
+            "min_date": "0677-12-06",
+            "max_date": "0677-12-06",
+            "days": [
+              "Sunday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0118.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0121.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 121",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0121.lat001",
+            "date_string": "(679) 09 12",
+            "comp_ort": "Malay-le-Petit",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Malay-le-Petit",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 679,
+                "month": 9,
+                "day": 12
+              }
+            ],
+            "all_dates": [
+              "0679-09-12"
+            ],
+            "min_date": "0679-09-12",
+            "max_date": "0679-09-12",
+            "days": [
+              "Monday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0121.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0122.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 122",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0122.lat001",
+            "date_string": "(679) 09 (15)",
+            "comp_ort": "Malay-le-Petit",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Malay-le-Petit",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 679,
+                "month": 9,
+                "day": 15
+              }
+            ],
+            "all_dates": [
+              "0679-09-15"
+            ],
+            "min_date": "0679-09-15",
+            "max_date": "0679-09-15",
+            "days": [
+              "Thursday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0122.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0123.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 123",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0123.lat001",
+            "date_string": "[679 12 24-690 10 30]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0679-12-24",
+                "lte": "0690-10-30"
+              }
+            ],
+            "all_dates": [
+              "0679-12-24",
+              "0690-10-30"
+            ],
+            "min_date": "0679-12-24",
+            "max_date": "0690-10-30",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0123.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0124.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 124",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0124.lat001",
+            "date_string": "[679 12 24-691 12 12]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0679-12-24",
+                "lte": "0691-12-12"
+              }
+            ],
+            "all_dates": [
+              "0679-12-24",
+              "0691-12-12"
+            ],
+            "min_date": "0679-12-24",
+            "max_date": "0691-12-12",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0124.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0126.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 126",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0126.lat001",
+            "date_string": "(682) 06 30",
+            "comp_ort": "Luzarches",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Luzarches",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 682,
+                "month": 6,
+                "day": 30
+              }
+            ],
+            "all_dates": [
+              "0682-06-30"
+            ],
+            "min_date": "0682-06-30",
+            "max_date": "0682-06-30",
+            "days": [
+              "Monday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0126.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0128.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 128",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0128.lat001",
+            "date_string": "(685) 05 23",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 685,
+                "month": 5,
+                "day": 23
+              }
+            ],
+            "all_dates": [
+              "0685-05-23"
+            ],
+            "min_date": "0685-05-23",
+            "max_date": "0685-05-23",
+            "days": [
+              "Tuesday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0128.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0131.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 131",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0131.lat001",
+            "date_string": "(690) 10 30",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 690,
+                "month": 10,
+                "day": 30
+              }
+            ],
+            "all_dates": [
+              "0690-10-30"
+            ],
+            "min_date": "0690-10-30",
+            "max_date": "0690-10-30",
+            "days": [
+              "Sunday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0131.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0134.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 134",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0134.lat001",
+            "date_string": "(692 05 16-31)",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0692-05-16",
+                "lte": "0692-05-31"
+              }
+            ],
+            "all_dates": [
+              "0692-05-16",
+              "0692-05-31"
+            ],
+            "min_date": "0692-05-16",
+            "max_date": "0692-05-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0134.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0135.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 135",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0135.lat001",
+            "date_string": "(692) 08 12",
+            "comp_ort": "Chatou/ Chatenay",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Chatou/ Chatenay",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 692,
+                "month": 8,
+                "day": 12
+              }
+            ],
+            "all_dates": [
+              "0692-08-12"
+            ],
+            "min_date": "0692-08-12",
+            "max_date": "0692-08-12",
+            "days": [
+              "Monday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0135.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0136.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 136",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0136.lat001",
+            "date_string": "(692/93) 11 01",
+            "comp_ort": "Luzarches",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Luzarches",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 692,
+                "month": 11,
+                "day": 1
+              },
+              {
+                "year": 693,
+                "month": 11,
+                "day": 1
+              }
+            ],
+            "all_dates": [
+              "0692-11-01",
+              "0693-11-01"
+            ],
+            "min_date": "0692-11-01",
+            "max_date": "0693-11-01",
+            "days": [
+              "Saturday",
+              "Friday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0136.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0137.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 137",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0137.lat001",
+            "date_string": "(693) 05 05",
+            "comp_ort": "Nogent-sur-Marne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Nogent-sur-Marne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 693,
+                "month": 5,
+                "day": 5
+              }
+            ],
+            "all_dates": [
+              "0693-05-05"
+            ],
+            "min_date": "0693-05-05",
+            "max_date": "0693-05-05",
+            "days": [
+              "Monday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0137.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0138.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 138",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0138.lat001",
+            "date_string": "(693) 06 05",
+            "comp_ort": "Nogent-sur-Marne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Nogent-sur-Marne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 693,
+                "month": 6,
+                "day": 5
+              }
+            ],
+            "all_dates": [
+              "0693-06-05"
+            ],
+            "min_date": "0693-06-05",
+            "max_date": "0693-06-05",
+            "days": [
+              "Thursday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0138.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0139.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 139",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0139.lat001",
+            "date_string": "(693) 06 25",
+            "comp_ort": "Namur",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Namur",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 693,
+                "month": 6,
+                "day": 25
+              }
+            ],
+            "all_dates": [
+              "0693-06-25"
+            ],
+            "min_date": "0693-06-25",
+            "max_date": "0693-06-25",
+            "days": [
+              "Wednesday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0139.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0140.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 140",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0140.lat001",
+            "date_string": "(693) 09 01",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 693,
+                "month": 9,
+                "day": 1
+              }
+            ],
+            "all_dates": [
+              "0693-09-01"
+            ],
+            "min_date": "0693-09-01",
+            "max_date": "0693-09-01",
+            "days": [
+              "Monday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0140.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0141.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 141",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0141.lat001",
+            "date_string": "(694) 02 28",
+            "comp_ort": "Valenciennes",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Valenciennes",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 694,
+                "month": 2,
+                "day": 28
+              }
+            ],
+            "all_dates": [
+              "0694-02-28"
+            ],
+            "min_date": "0694-02-28",
+            "max_date": "0694-02-28",
+            "days": [
+              "Saturday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0141.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0142.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 142",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0142.lat001",
+            "date_string": "(694) 12 13",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 694,
+                "month": 12,
+                "day": 13
+              }
+            ],
+            "all_dates": [
+              "0694-12-13"
+            ],
+            "min_date": "0694-12-13",
+            "max_date": "0694-12-13",
+            "days": [
+              "Sunday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0142.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0143.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 143",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0143.lat001",
+            "date_string": "(694) 12 23",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 694,
+                "month": 12,
+                "day": 23
+              }
+            ],
+            "all_dates": [
+              "0694-12-23"
+            ],
+            "min_date": "0694-12-23",
+            "max_date": "0694-12-23",
+            "days": [
+              "Wednesday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0143.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0144.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 144",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0144.lat001",
+            "date_string": "[694-711]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0694-01-01",
+                "lte": "0711-12-31"
+              }
+            ],
+            "all_dates": [
+              "0694-01-01",
+              "0711-12-31"
+            ],
+            "min_date": "0694-01-01",
+            "max_date": "0711-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0144.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0145.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 145",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0145.lat001",
+            "date_string": "[694-711]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0694-01-01",
+                "lte": "0711-12-31"
+              }
+            ],
+            "all_dates": [
+              "0694-01-01",
+              "0711-12-31"
+            ],
+            "min_date": "0694-01-01",
+            "max_date": "0711-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0145.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0146.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 146",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0146.lat001",
+            "date_string": "[694-711]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0694-01-01",
+                "lte": "0711-12-31"
+              }
+            ],
+            "all_dates": [
+              "0694-01-01",
+              "0711-12-31"
+            ],
+            "min_date": "0694-01-01",
+            "max_date": "0711-12-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0146.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0147.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 147",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0147.lat001",
+            "date_string": "(696) 04 08",
+            "comp_ort": "Nogent-sur-Marne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Nogent-sur-Marne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 696,
+                "month": 4,
+                "day": 8
+              }
+            ],
+            "all_dates": [
+              "0696-04-08"
+            ],
+            "min_date": "0696-04-08",
+            "max_date": "0696-04-08",
+            "days": [
+              "Saturday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0147.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0149.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 149",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0149.lat001",
+            "date_string": "(697) 03 14",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 697,
+                "month": 3,
+                "day": 14
+              }
+            ],
+            "all_dates": [
+              "0697-03-14"
+            ],
+            "min_date": "0697-03-14",
+            "max_date": "0697-03-14",
+            "days": [
+              "Wednesday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0149.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0150.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 150",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0150.lat001",
+            "date_string": "(697) 04 03",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 697,
+                "month": 4,
+                "day": 3
+              }
+            ],
+            "all_dates": [
+              "0697-04-03"
+            ],
+            "min_date": "0697-04-03",
+            "max_date": "0697-04-03",
+            "days": [
+              "Lent",
+              "Tuesday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0150.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0151.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 151",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0151.lat001",
+            "date_string": "(698) 03 03",
+            "comp_ort": "Valenciennes",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Valenciennes",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 628,
+                "month": 3,
+                "day": 3
+              }
+            ],
+            "all_dates": [
+              "0628-03-03"
+            ],
+            "min_date": "0628-03-03",
+            "max_date": "0628-03-03",
+            "days": [
+              "Thursday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0151.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0152.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 152",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0152.lat001",
+            "date_string": "(698) 03 03",
+            "comp_ort": "Vakenciennes",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Vakenciennes",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 698,
+                "month": 3,
+                "day": 3
+              }
+            ],
+            "all_dates": [
+              "0698-03-03"
+            ],
+            "min_date": "0698-03-03",
+            "max_date": "0698-03-03",
+            "days": [
+              "Sunday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0152.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0153.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 153",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0153.lat001",
+            "date_string": "(702) 02 (nach 20)",
+            "comp_ort": "Quierzy",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Quierzy",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0702-02-20",
+                "lte": "0702-02-28"
+              }
+            ],
+            "all_dates": [
+              "0702-02-20",
+              "0702-02-28"
+            ],
+            "min_date": "0702-02-20",
+            "max_date": "0702-02-28",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0153.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0155.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 155",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0155.lat001",
+            "date_string": "(709) 04 08",
+            "comp_ort": "Crecy-en-Ponthieu",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Crecy-en-Ponthieu",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 709,
+                "month": 4,
+                "day": 8
+              }
+            ],
+            "all_dates": [
+              "0709-04-08"
+            ],
+            "min_date": "0709-04-08",
+            "max_date": "0709-04-08",
+            "days": [
+              "Monday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0155.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0156.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 156",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0156.lat001",
+            "date_string": "(709) 12 13",
+            "comp_ort": "Montmacq",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Montmacq",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 709,
+                "month": 12,
+                "day": 13
+              }
+            ],
+            "all_dates": [
+              "0709-12-13"
+            ],
+            "min_date": "0709-12-13",
+            "max_date": "0709-12-13",
+            "days": [
+              "Friday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0156.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0157.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 157",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0157.lat001",
+            "date_string": "(709) 12 14",
+            "comp_ort": "Montmacq",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Montmacq",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 709,
+                "month": 12,
+                "day": 14
+              }
+            ],
+            "all_dates": [
+              "0709-12-14"
+            ],
+            "min_date": "0709-12-14",
+            "max_date": "0709-12-14",
+            "days": [
+              "Saturday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0157.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0158.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 158",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0158.lat001",
+            "date_string": "(710) 02 10",
+            "comp_ort": "Montmacq",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Montmacq",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 710,
+                "month": 2,
+                "day": 10
+              }
+            ],
+            "all_dates": [
+              "0710-02-10"
+            ],
+            "min_date": "0710-02-10",
+            "max_date": "0710-02-10",
+            "days": [
+              "Monday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0158.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0159.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 159",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0159.lat001",
+            "date_string": "(710) 03 12",
+            "comp_ort": "Montmacq",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Montmacq",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 710,
+                "month": 3,
+                "day": 12
+              }
+            ],
+            "all_dates": [
+              "0710-03-12"
+            ],
+            "min_date": "0710-03-12",
+            "max_date": "0710-03-12",
+            "days": [
+              "Wednesday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0159.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0160.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 160",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0160.lat001",
+            "date_string": "[711-715] 01 18",
+            "comp_ort": "Montmacq",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Montmacq",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 711,
+                "month": 1,
+                "day": 18
+              },
+              {
+                "year": 712,
+                "month": 1,
+                "day": 18
+              },
+              {
+                "year": 713,
+                "month": 1,
+                "day": 18
+              },
+              {
+                "year": 714,
+                "month": 1,
+                "day": 18
+              },
+              {
+                "year": 715,
+                "month": 1,
+                "day": 18
+              }
+            ],
+            "all_dates": [
+              "0711-01-18",
+              "0712-01-18",
+              "0713-01-18",
+              "0714-01-18",
+              "0715-01-18"
+            ],
+            "min_date": "0711-01-18",
+            "max_date": "0715-01-18",
+            "days": [
+              "Thursday",
+              "Monday",
+              "Friday",
+              "Sunday",
+              "Wednesday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0160.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0163.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 163",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0163.lat001",
+            "date_string": "(712/13) 03 02",
+            "comp_ort": "Montmacq",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Montmacq",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 712,
+                "month": 3,
+                "day": 2
+              },
+              {
+                "year": 713,
+                "month": 3,
+                "day": 2
+              }
+            ],
+            "all_dates": [
+              "0712-03-02",
+              "0713-03-02"
+            ],
+            "min_date": "0712-03-02",
+            "max_date": "0713-03-02",
+            "days": [
+              "Thursday",
+              "Wednesday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0163.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0164.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 164",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0164.lat001",
+            "date_string": "(712) 03 10",
+            "comp_ort": "Montmacq",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Montmacq",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 712,
+                "month": 3,
+                "day": 10
+              }
+            ],
+            "all_dates": [
+              "0712-03-10"
+            ],
+            "min_date": "0712-03-10",
+            "max_date": "0712-03-10",
+            "days": [
+              "Thursday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0164.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0166.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 166",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0166.lat001",
+            "date_string": "(716) 02 29",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 716,
+                "month": 2,
+                "day": 29
+              }
+            ],
+            "all_dates": [
+              "0716-02-29"
+            ],
+            "min_date": "0716-02-29",
+            "max_date": "0716-02-29",
+            "days": [
+              "Saturday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0166.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0167.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 167",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0167.lat001",
+            "date_string": "(716) 03 07",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 716,
+                "month": 3,
+                "day": 7
+              }
+            ],
+            "all_dates": [
+              "0716-03-07"
+            ],
+            "min_date": "0716-03-07",
+            "max_date": "0716-03-07",
+            "days": [
+              "Saturday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0167.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0168.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 168",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0168.lat001",
+            "date_string": "(716) 03 16",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 716,
+                "month": 3,
+                "day": 16
+              }
+            ],
+            "all_dates": [
+              "0716-03-16"
+            ],
+            "min_date": "0716-03-16",
+            "max_date": "0716-03-16",
+            "days": [
+              "Monday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0168.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0169.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 169",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0169.lat001",
+            "date_string": "(716) 03 25",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 716,
+                "month": 3,
+                "day": 25
+              }
+            ],
+            "all_dates": [
+              "0716-03-25"
+            ],
+            "min_date": "0716-03-25",
+            "max_date": "0716-03-25",
+            "days": [
+              "Wednesday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0169.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0170.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 170",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0170.lat001",
+            "date_string": "(716) 03",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0716-03-01",
+                "lte": "0716-03-31"
+              }
+            ],
+            "all_dates": [
+              "0716-03-01",
+              "0716-03-31"
+            ],
+            "min_date": "0716-03-01",
+            "max_date": "0716-03-31",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0170.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0171.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 171",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0171.lat001",
+            "date_string": "(716) 04 29",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 716,
+                "month": 4,
+                "day": 29
+              }
+            ],
+            "all_dates": [
+              "0716-04-29"
+            ],
+            "min_date": "0716-04-29",
+            "max_date": "0716-04-29",
+            "days": [
+              "Wednesday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0171.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0173.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 173",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0173.lat001",
+            "date_string": "(717) 02 28",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 717,
+                "month": 2,
+                "day": 28
+              }
+            ],
+            "all_dates": [
+              "0717-02-28"
+            ],
+            "min_date": "0717-02-28",
+            "max_date": "0717-02-28",
+            "days": [
+              "Sunday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0173.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0175.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 175",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0175.lat001",
+            "date_string": "(717) 06 08",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 717,
+                "month": 6,
+                "day": 8
+              }
+            ],
+            "all_dates": [
+              "0717-06-08"
+            ],
+            "min_date": "0717-06-08",
+            "max_date": "0717-06-08",
+            "days": [
+              "Tuesday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0175.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0176.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 176",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0176.lat001",
+            "date_string": "[717 06 28-718 05 17]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0717-06-28",
+                "lte": "0718-05-17"
+              }
+            ],
+            "all_dates": [
+              "0717-06-28",
+              "0718-05-17"
+            ],
+            "min_date": "0717-06-28",
+            "max_date": "0718-05-17",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0176.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0178.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 178",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0178.lat001",
+            "date_string": "[717 09 05-718 09 26]",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "merowinger1",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0717-09-05",
+                "lte": "0718-09-26"
+              }
+            ],
+            "all_dates": [
+              "0717-09-05",
+              "0718-09-26"
+            ],
+            "min_date": "0717-09-05",
+            "max_date": "0718-09-26",
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0178.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0179.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 179",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0179.lat001",
+            "date_string": "(721) 03 03",
+            "comp_ort": "Soissons",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Soissons",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 721,
+                "month": 3,
+                "day": 3
+              }
+            ],
+            "all_dates": [
+              "0721-03-03"
+            ],
+            "min_date": "0721-03-03",
+            "max_date": "0721-03-03",
+            "days": [
+              "Monday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0179.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0182.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 182",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0182.lat001",
+            "date_string": "(722) 03 02",
+            "comp_ort": "Quierzy",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Quierzy",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 722,
+                "month": 3,
+                "day": 2
+              }
+            ],
+            "all_dates": [
+              "0722-03-02"
+            ],
+            "min_date": "0722-03-02",
+            "max_date": "0722-03-02",
+            "days": [
+              "Monday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0182.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0184.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 184",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0184.lat001",
+            "date_string": "(722) 03 05",
+            "comp_ort": "Quierzy",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Quierzy",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 722,
+                "month": 3,
+                "day": 5
+              }
+            ],
+            "all_dates": [
+              "0722-03-05"
+            ],
+            "min_date": "0722-03-05",
+            "max_date": "0722-03-05",
+            "days": [
+              "Thursday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0184.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0187.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 187",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0187.lat001",
+            "date_string": "(726) 03 03",
+            "comp_ort": "Ponthion",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Ponthion",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 726,
+                "month": 3,
+                "day": 3
+              }
+            ],
+            "all_dates": [
+              "0726-03-03"
+            ],
+            "min_date": "0726-03-03",
+            "max_date": "0726-03-03",
+            "days": [
+              "Sunday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0187.lat001"
+          ]
+        },
+        {
+          "_index": "merowinger1_v3",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:merowinger1.koelzer0190.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden der Merowinger (Eds. Kölzer/Brühl) Nr. 190",
+            "keywords": "",
+            "urn": "urn:cts:formulae:merowinger1.koelzer0190.lat001",
+            "date_string": "(743) 03 02",
+            "comp_ort": "Compiegne",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Compiegne",
+            "collection": "merowinger1",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 743,
+                "month": 3,
+                "day": 2
+              }
+            ],
+            "all_dates": [
+              "0743-03-02"
+            ],
+            "min_date": "0743-03-02",
+            "max_date": "0743-03-02",
+            "days": [
+              "Saturday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:merowinger1.koelzer0190.lat001"
+          ]
+        }
+      ]
+    }
+  }
+]

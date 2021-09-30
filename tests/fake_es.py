@@ -34,12 +34,12 @@ class FakeElasticsearch(object):
         with open(file_name, 'r') as f:
             return json.load(f)
 
-    def save_request(self, body: dict):
+    def save_request(self, body: list):
         file_name = self.build_path('_req.json')
         with open(file_name, 'w') as f:
             json.dump(body, f, indent=2, ensure_ascii=False)
 
-    def save_response(self, resp: dict):
+    def save_response(self, resp: list):
         file_name = self.build_path('_resp.json')
         field_text_mapping = {'text': ['text'],
                               'lemmas': ['lemma text'],
@@ -47,26 +47,27 @@ class FakeElasticsearch(object):
                               'autocomplete_lemmas': ['autocomplete lemma text'],
                               'regest': ['regest text'],
                               'autocomplete_regest': ['autocomplete regest text']}
-        for i, h in enumerate(resp['hits']['hits']):
-            if 'buenden' not in h['_id'] and 'freising' not in h['_id'] and 'papsturkunden_frankreich' not in h['_id']\
-                    and 'elexicon' not in h['_id']:
-                resp['hits']['hits'][i]['_source']['text'] = 'some real text'
-                resp['hits']['hits'][i]['_source']['lemmas'] = 'lemma text'
-                resp['hits']['hits'][i]['_source']['autocomplete'] = 'autocomplete text'
-                resp['hits']['hits'][i]['_source']['autocomplete_lemmas'] = 'autocomplete lemma text'
-                resp['hits']['hits'][i]['_source']['regest'] = 'regest text'
-                resp['hits']['hits'][i]['_source']['autocomplete_regest'] = 'autocomplete regest text'
-                if 'highlight' in resp['hits']['hits'][i]:
-                    for f, v in resp['hits']['hits'][i]['highlight'].items():
-                        resp['hits']['hits'][i]['highlight'][f] = field_text_mapping.get(f, v)
-            if 'papsturkunden_frankreich' in h['_id']:
-                resp['hits']['hits'][i]['_source']['regest'] = 'regest text'
-                resp['hits']['hits'][i]['_source']['autocomplete_regest'] = 'autocomplete regest text'
-                if 'highlight' in resp['hits']['hits'][i]:
-                    if 'regest' in resp['hits']['hits'][i]['highlight']:
-                        resp['hits']['hits'][i]['highlight']['regest'] = ['regest text']
-                    if 'autocomplete_regest' in resp['hits']['hits'][i]['highlight']:
-                        resp['hits']['hits'][i]['highlight']['autocomplete_regest'] = ['autocomplete regest text']
+        for i1, sub_resp in enumerate(resp):
+            for i, h in enumerate(sub_resp['hits']['hits']):
+                if 'buenden' not in h['_id'] and 'freising' not in h['_id'] and 'papsturkunden_frankreich' not in h['_id']\
+                        and 'elexicon' not in h['_id']:
+                    resp[i1]['hits']['hits'][i]['_source']['text'] = 'some real text'
+                    resp[i1]['hits']['hits'][i]['_source']['lemmas'] = 'lemma text'
+                    resp[i1]['hits']['hits'][i]['_source']['autocomplete'] = 'autocomplete text'
+                    resp[i1]['hits']['hits'][i]['_source']['autocomplete_lemmas'] = 'autocomplete lemma text'
+                    resp[i1]['hits']['hits'][i]['_source']['regest'] = 'regest text'
+                    resp[i1]['hits']['hits'][i]['_source']['autocomplete_regest'] = 'autocomplete regest text'
+                    if 'highlight' in resp[i1]['hits']['hits'][i]:
+                        for f, v in resp[i1]['hits']['hits'][i]['highlight'].items():
+                            resp[i1]['hits']['hits'][i]['highlight'][f] = field_text_mapping.get(f, v)
+                if 'papsturkunden_frankreich' in h['_id']:
+                    resp[i1]['hits']['hits'][i]['_source']['regest'] = 'regest text'
+                    resp[i1]['hits']['hits'][i]['_source']['autocomplete_regest'] = 'autocomplete regest text'
+                    if 'highlight' in resp[i1]['hits']['hits'][i]:
+                        if 'regest' in resp[i1]['hits']['hits'][i]['highlight']:
+                            resp[i1]['hits']['hits'][i]['highlight']['regest'] = ['regest text']
+                        if 'autocomplete_regest' in resp[i1]['hits']['hits'][i]['highlight']:
+                            resp[i1]['hits']['hits'][i]['highlight']['autocomplete_regest'] = ['autocomplete regest text']
         with open(file_name, 'w') as f:
             json.dump(resp, f, indent=2, ensure_ascii=False)
 

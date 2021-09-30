@@ -1,0 +1,65 @@
+[
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "must": [
+                {
+                  "match": {
+                    "text": {
+                      "query": "diakone",
+                      "fuzziness": "0"
+                    }
+                  }
+                },
+                {
+                  "match": {
+                    "text": {
+                      "query": "märtyrergrab",
+                      "fuzziness": "0"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "bool": {
+              "must": []
+            }
+          },
+          {
+            "bool": {
+              "must": []
+            }
+          },
+          {
+            "bool": {
+              "must": []
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "fields": {
+        "text": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  }
+]
