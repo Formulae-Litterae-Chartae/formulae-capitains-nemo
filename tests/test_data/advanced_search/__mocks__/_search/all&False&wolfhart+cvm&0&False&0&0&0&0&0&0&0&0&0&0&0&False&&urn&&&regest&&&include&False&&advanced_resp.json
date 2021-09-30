@@ -1,5 +1,5 @@
 {
-  "took": 68,
+  "took": 100,
   "timed_out": false,
   "_shards": {
     "total": 57,
@@ -15,12 +15,12 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "freising_v25",
-        "_type": "_doc",
+        "_index": "freising_v5",
+        "_type": "freising",
         "_id": "urn:cts:formulae:freising.bitterauf0090.lat001",
         "_score": null,
         "_source": {
-          "text": "TRADITIO HUSINA ET IRMINPALDI DE POHLOHE ET PIPURGE. De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug. firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis. Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros. Haec testes et eorum nomina: Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodríh. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina.",
+          "text": "TRADITIO HUSINA ET IRMINPALDI DE POHLOHE ET PIPURGE. De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros Haec testes et eorum nomina Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodrih. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina",
           "lemmas": null,
           "regest": "Husina und Irminpald übergeben ein Gotteshaus zu Kreuzpullach, Rihheri und Uuolfhart zu Ober(Unter)hiberg.",
           "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 90",
@@ -28,7 +28,7 @@
           "urn": "urn:cts:formulae:freising.bitterauf0090.lat001",
           "date_string": "778 08 07",
           "comp_ort": " ",
-          "autocomplete": "TRADITIO HUSINA ET IRMINPALDI DE POHLOHE ET PIPURGE. De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug. firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis. Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros. Haec testes et eorum nomina: Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodríh. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina.",
+          "autocomplete": "TRADITIO HUSINA ET IRMINPALDI DE POHLOHE ET PIPURGE. De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros Haec testes et eorum nomina Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodrih. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina",
           "autocomplete_lemmas": null,
           "autocomplete_regest": "Husina und Irminpald übergeben ein Gotteshaus zu Kreuzpullach, Rihheri und Uuolfhart zu Ober(Unter)hiberg.",
           "orig_comp_ort": " ",
@@ -49,11 +49,21 @@
           "days": [
             "Friday"
           ],
-          "sort_prefix": 1
+          "sort_prefix": 1,
+          "Intitulatio": "quam\n                            Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et\n                            Uuolfhart cum sociis construxerunt",
+          "Intitulatio-lems": null,
+          "Eschatokoll": "anno XXXI. regni domni Tassilonis\n                            inlustrissimi ducis ... sub die consule quod erat VII. id. aug",
+          "Eschatokoll-lems": null,
+          "Pertinenzformel": "supradictas domos dei ad praefatum domum\n                            episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis\n                            pratis pascuis silvis cultis non cultis",
+          "Pertinenzformel-lems": null,
+          "Poenformel": "Nullus contradicere valeat aut\n                            audeat, sed firma et inviolata permaneant tam pro nobis quam parentes\n                            nostri seu et posteros",
+          "Poenformel-lems": null,
+          "Corroboratio": "Haec testes et eorum nomina ... et ceteri multi quorum non\n                            est facile dinumerare vel scribere nomina",
+          "Corroboratio-lems": null
         },
         "highlight": {
           "text": [
-            "De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et </small><strong>Uuolfhart</strong><small> </small><strong>cum</strong><small> sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug. firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis. Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros. Haec testes et eorum nomina: Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodríh. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina."
+            "De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et </small><strong>Uuolfhart</strong><small> </small><strong>cum</strong><small> sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros Haec testes et eorum nomina Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodrih. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina"
           ]
         },
         "sort": [

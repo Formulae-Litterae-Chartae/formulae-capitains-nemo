@@ -1,5 +1,5 @@
 {
-  "took": 5,
+  "took": 8,
   "timed_out": false,
   "_shards": {
     "total": 1,
@@ -15,8 +15,8 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "elexicon_v4",
-        "_type": "_doc",
+        "_index": "elexicon_v1",
+        "_type": "elexicon",
         "_id": "urn:cts:formulae:elexicon.abbas.deu001",
         "_score": null,
         "_source": {
@@ -51,12 +51,12 @@
         ]
       },
       {
-        "_index": "elexicon_v4",
-        "_type": "_doc",
+        "_index": "elexicon_v1",
+        "_type": "elexicon",
         "_id": "urn:cts:formulae:elexicon.praepositus.deu001",
         "_score": null,
         "_source": {
-          "text": "Praepositus Vorsteher Oberer Erster einer Gruppe oder Vorgesetzter; im 4. -5. Jahrhundert auch synonym zu decanus gebraucht. In der Antike Bezeichnung für verschiedene öffentliche Amtsträger mit leitenden Funktionen. Im frühen Mönchtum hatte der praepositus zunächst, gemeinsam mit dem für geistlichen Belange verantwortlichen presbyter eine leitende Funktion, übte die Aufsicht aus und übernahm verschiedene Verantwortungen. Seit dem 6. Jahrhundert trat der praepositus hinter den abbas zurück, wurde dessen Stellvertreter und fand in der Verwaltung der Klostergüter eine seiner Hauptaufgaben. Im weltlichen Bereich findet sich praepositus im frühen Mittelalter als Bezeichnung für Vertreter von Herrschaftsträgern. Als solche konnten sie Funktionen in Rechtsprechung und Administration übernehmen oder auch Grundbesitz verwalten. Damit verbunden konnten die praepositi in zunehmendem Maße auch Herrschaftsrechte wie Abgabenerhebung, Rechtsfindung und Rechtsverfolgung ausüben. HL",
+          "text": "Praepositus Vorsteher Oberer Erster einer Gruppe oder Vorgesetzter; im 4. -5. Jahrhundert auch synonym zu decanus gebraucht. In der Antike Bezeichnung für verschiedene öffentliche Amtsträger mit leitenden Funktionen. Im frühen Mönchtum hatte der praepositus zunächst, gemeinsam mit dem für geistlichen Belange verantwortlichen presbyter, eine leitende Funktion, übte die Aufsicht aus und übernahm verschiedene Verantwortungen. Seit dem 6. Jahrhundert trat der praepositus hinter den abbas zurück, wurde dessen Stellvertreter und fand in der Verwaltung der Klostergüter eine seiner Hauptaufgaben. Im weltlichen Bereich findet sich praepositus im frühen Mittelalter als Bezeichnung für Vertreter von Herrschaftsträgern. Als solche konnten sie Funktionen in Rechtsprechung und Administration übernehmen oder auch Grundbesitz verwalten. Damit verbunden konnten die praepositi in zunehmendem Maße auch Herrschaftsrechte wie Abgabenerhebung, Rechtsfindung und Rechtsverfolgung ausüben. HL",
           "lemmas": null,
           "regest": null,
           "title": "Praepositus",
@@ -64,7 +64,7 @@
           "urn": "urn:cts:formulae:elexicon.praepositus.deu001",
           "date_string": " ",
           "comp_ort": " ",
-          "autocomplete": "Praepositus Vorsteher Oberer Erster einer Gruppe oder Vorgesetzter; im 4. -5. Jahrhundert auch synonym zu decanus gebraucht. In der Antike Bezeichnung für verschiedene öffentliche Amtsträger mit leitenden Funktionen. Im frühen Mönchtum hatte der praepositus zunächst, gemeinsam mit dem für geistlichen Belange verantwortlichen presbyter eine leitende Funktion, übte die Aufsicht aus und übernahm verschiedene Verantwortungen. Seit dem 6. Jahrhundert trat der praepositus hinter den abbas zurück, wurde dessen Stellvertreter und fand in der Verwaltung der Klostergüter eine seiner Hauptaufgaben. Im weltlichen Bereich findet sich praepositus im frühen Mittelalter als Bezeichnung für Vertreter von Herrschaftsträgern. Als solche konnten sie Funktionen in Rechtsprechung und Administration übernehmen oder auch Grundbesitz verwalten. Damit verbunden konnten die praepositi in zunehmendem Maße auch Herrschaftsrechte wie Abgabenerhebung, Rechtsfindung und Rechtsverfolgung ausüben. HL",
+          "autocomplete": "Praepositus Vorsteher Oberer Erster einer Gruppe oder Vorgesetzter; im 4. -5. Jahrhundert auch synonym zu decanus gebraucht. In der Antike Bezeichnung für verschiedene öffentliche Amtsträger mit leitenden Funktionen. Im frühen Mönchtum hatte der praepositus zunächst, gemeinsam mit dem für geistlichen Belange verantwortlichen presbyter, eine leitende Funktion, übte die Aufsicht aus und übernahm verschiedene Verantwortungen. Seit dem 6. Jahrhundert trat der praepositus hinter den abbas zurück, wurde dessen Stellvertreter und fand in der Verwaltung der Klostergüter eine seiner Hauptaufgaben. Im weltlichen Bereich findet sich praepositus im frühen Mittelalter als Bezeichnung für Vertreter von Herrschaftsträgern. Als solche konnten sie Funktionen in Rechtsprechung und Administration übernehmen oder auch Grundbesitz verwalten. Damit verbunden konnten die praepositi in zunehmendem Maße auch Herrschaftsrechte wie Abgabenerhebung, Rechtsfindung und Rechtsverfolgung ausüben. HL",
           "autocomplete_lemmas": null,
           "autocomplete_regest": null,
           "orig_comp_ort": " ",
@@ -83,12 +83,12 @@
         ]
       },
       {
-        "_index": "elexicon_v4",
-        "_type": "_doc",
+        "_index": "elexicon_v1",
+        "_type": "elexicon",
         "_id": "urn:cts:formulae:elexicon.vir_venerabilis.deu001",
         "_score": null,
         "_source": {
-          "text": "Vir venerabilis wörtlich „ehrwürdiger Mann Seit der Spätantike war der Ehrentitel des vir venerabilis in erster Linie Bischöfen vorbehalten Spätestens seit dem Ende des 6. Jahrhunderts erhielten auch Äbte diese Titulatur In den merowingischen Königsurkunden zeigt sich die Tendenz nur den Abt auf diese Weise zu bezeichnen, während der Bischof in der Regel mit dem Ehrentitel vir apostolicus versehen wird. In wenigen Ausnahmefällen werden auch Diakone oder Kleriker als viri venerabiles bezeichnet jedoch stehen die jeweiligen Personen, sofern dies nachzuvollziehen ist, stets in Verbindung zu Abbatiat oder Bischofsamt In der Folgezeit scheint sich die Verwendung der Titulatur für Äbte und Bischöfe durchgesetzt zu haben Die Verwendung des adjektivischen Epithetons venerabilis das seit der Spätantike ähnlich wie sanctus „heilig“) als Ausdruck der Ehrerweisung für Geistliche jeden Ranges und auch für Weltliche (z. B. für den Kaiser) gebraucht wurde, ist von dieser Titulatur abzugrenzen In der zweiten Hälfte des 9. Jahrhunderts wird der Gebrauch des Zusatzes vir aufgegeben AM",
+          "text": "Vir venerabilis wörtlich „ ehrwürdiger Mann Seit der Spätantike war der Ehrentitel des vir venerabilis in erster Linie Bischöfen vorbehalten. Spätestens seit dem Ende des 6. Jahrhunderts erhielten auch Äbte diese Titulatur. In den merowingischen Königsurkunden zeigt sich die Tendenz nur den Abt auf diese Weise zu bezeichnen, während der Bischof in der Regel mit dem Ehrentitel vir apostolicus versehen wird. In wenigen Ausnahmefällen werden auch Diakone oder Kleriker als viri venerabiles bezeichnet, jedoch stehen die jeweiligen Personen, sofern dies nachzuvollziehen ist, stets in Verbindung zu Abbatiat oder Bischofsamt. In der Folgezeit scheint sich die Verwendung der Titulatur für Äbte und Bischöfe durchgesetzt zu haben. Die Verwendung des adjektivischen Epithetons venerabilis, das seit der Spätantike ähnlich wie sanctus („heilig“) als Ausdruck der Ehrerweisung für Geistliche jeden Ranges und auch für Weltliche (z. B. für den Kaiser) gebraucht wurde, ist von dieser Titulatur abzugrenzen. In der zweiten Hälfte des 9. Jahrhunderts wird der Gebrauch des Zusatzes vir aufgegeben. AM",
           "lemmas": null,
           "regest": null,
           "title": "Vir venerabilis",
@@ -96,7 +96,7 @@
           "urn": "urn:cts:formulae:elexicon.vir_venerabilis.deu001",
           "date_string": " ",
           "comp_ort": " ",
-          "autocomplete": "Vir venerabilis wörtlich „ehrwürdiger Mann Seit der Spätantike war der Ehrentitel des vir venerabilis in erster Linie Bischöfen vorbehalten Spätestens seit dem Ende des 6. Jahrhunderts erhielten auch Äbte diese Titulatur In den merowingischen Königsurkunden zeigt sich die Tendenz nur den Abt auf diese Weise zu bezeichnen, während der Bischof in der Regel mit dem Ehrentitel vir apostolicus versehen wird. In wenigen Ausnahmefällen werden auch Diakone oder Kleriker als viri venerabiles bezeichnet jedoch stehen die jeweiligen Personen, sofern dies nachzuvollziehen ist, stets in Verbindung zu Abbatiat oder Bischofsamt In der Folgezeit scheint sich die Verwendung der Titulatur für Äbte und Bischöfe durchgesetzt zu haben Die Verwendung des adjektivischen Epithetons venerabilis das seit der Spätantike ähnlich wie sanctus „heilig“) als Ausdruck der Ehrerweisung für Geistliche jeden Ranges und auch für Weltliche (z. B. für den Kaiser) gebraucht wurde, ist von dieser Titulatur abzugrenzen In der zweiten Hälfte des 9. Jahrhunderts wird der Gebrauch des Zusatzes vir aufgegeben AM",
+          "autocomplete": "Vir venerabilis wörtlich „ ehrwürdiger Mann Seit der Spätantike war der Ehrentitel des vir venerabilis in erster Linie Bischöfen vorbehalten. Spätestens seit dem Ende des 6. Jahrhunderts erhielten auch Äbte diese Titulatur. In den merowingischen Königsurkunden zeigt sich die Tendenz nur den Abt auf diese Weise zu bezeichnen, während der Bischof in der Regel mit dem Ehrentitel vir apostolicus versehen wird. In wenigen Ausnahmefällen werden auch Diakone oder Kleriker als viri venerabiles bezeichnet, jedoch stehen die jeweiligen Personen, sofern dies nachzuvollziehen ist, stets in Verbindung zu Abbatiat oder Bischofsamt. In der Folgezeit scheint sich die Verwendung der Titulatur für Äbte und Bischöfe durchgesetzt zu haben. Die Verwendung des adjektivischen Epithetons venerabilis, das seit der Spätantike ähnlich wie sanctus („heilig“) als Ausdruck der Ehrerweisung für Geistliche jeden Ranges und auch für Weltliche (z. B. für den Kaiser) gebraucht wurde, ist von dieser Titulatur abzugrenzen. In der zweiten Hälfte des 9. Jahrhunderts wird der Gebrauch des Zusatzes vir aufgegeben. AM",
           "autocomplete_lemmas": null,
           "autocomplete_regest": null,
           "orig_comp_ort": " ",
@@ -106,7 +106,7 @@
         },
         "highlight": {
           "autocomplete": [
-            "bezeichnet jedoch stehen die jeweiligen Personen, sofern dies nachzuvollziehen ist, stets in Verbindung zu </small><strong>Abbatiat</strong><small>"
+            "bezeichnet, jedoch stehen die jeweiligen Personen, sofern dies nachzuvollziehen ist, stets in Verbindung zu </small><strong>Abbatiat</strong><small>"
           ]
         },
         "sort": [

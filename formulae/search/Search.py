@@ -38,6 +38,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Dijon</b>: Saint-Bénigne de Dijon': {'match': {'collection': 'saint_bénigne'}},
                                       '<b>Echternach</b>: Echternach': {'match': {'collection': 'echternach'}},
                                       '<b>E-Lexikon</b>': {'match': {'collection': 'elexicon'}},
+                                      '<b>Flavigny</b>: Flavigny': {'match': {'collection': 'flavigny'}},
                                       '<b>Freising</b>: Freising': {'match': {'collection': 'freising'}},
                                       '<b>Fulda</b>: Fulda (Dronke)': {'match': {'collection': 'fulda_dronke'}},
                                       '<b>Fulda</b>: Fulda (Stengel)': {'match': {'collection': 'fulda_stengel'}},

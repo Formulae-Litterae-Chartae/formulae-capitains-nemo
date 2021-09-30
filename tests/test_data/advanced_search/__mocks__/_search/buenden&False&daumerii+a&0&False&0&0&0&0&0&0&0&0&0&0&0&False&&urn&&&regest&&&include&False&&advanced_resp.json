@@ -15,8 +15,8 @@
     "max_score": null,
     "hits": [
       {
-        "_index": "buenden_v25",
-        "_type": "_doc",
+        "_index": "buenden_v5",
+        "_type": "buenden",
         "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
         "_score": null,
         "_source": {

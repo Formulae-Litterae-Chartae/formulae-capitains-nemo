@@ -12501,6 +12501,9 @@
     "id": "urn:cts:formulae:lorsch.gloeckner0206.lat001"
   },
   {
+    "id": "urn:cts:formulae:lorsch.gloeckner0207.lat001"
+  },
+  {
     "id": "urn:cts:formulae:lorsch.gloeckner0224.lat001"
   },
   {
@@ -18415,6 +18418,9 @@
   },
   {
     "id": "urn:cts:formulae:mittelrheinisch.beyer0134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0135.lat001"
   },
   {
     "id": "urn:cts:formulae:mittelrheinisch.beyer0137.lat001"
@@ -25513,6 +25519,474 @@
   },
   {
     "id": "urn:cts:formulae:telma_martin_tours.giraud5020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0014.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0018.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0037.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0040.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0041.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0042.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0043.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0045.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0046.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0049.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0051.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0051bis.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0053.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0054.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0055.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0056.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0057.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0058.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0059.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0060.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0062.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0067.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0068.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0069.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0073.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0075.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0076.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0077.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0079.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0080.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0081.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0082.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0084.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0085.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0086.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0087.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0088.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0090.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0091.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0092.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0093.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0094.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0095.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0097.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0098.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0099.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0100.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0101.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0102.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0103.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0104.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0105.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0106.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0107.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0108.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0109.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0110.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0111.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0112.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0113.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0114.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0115.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0116.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0117.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0118.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0119.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0120.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0121.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0122.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0123.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0124.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0125.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0126.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0127.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0128.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0129.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0130.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0131.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0132.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0133.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0139.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0140.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0141.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0142.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0143.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0145.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0146.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0148.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0149.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0150.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0153.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0156.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0157.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0158.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0159.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0160.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0162.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0163.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0164.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0165.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0166.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0167.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0168.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0169.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0170.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0172.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0173.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0174.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0175.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0179.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0180.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0182.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0183.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0184.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0185.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0188.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0189.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_st_julien_denis.denis0190.lat001"
   },
   {
     "id": "urn:cts:formulae:tours_st_julien_fragments.grandmaison0001.lat001"
