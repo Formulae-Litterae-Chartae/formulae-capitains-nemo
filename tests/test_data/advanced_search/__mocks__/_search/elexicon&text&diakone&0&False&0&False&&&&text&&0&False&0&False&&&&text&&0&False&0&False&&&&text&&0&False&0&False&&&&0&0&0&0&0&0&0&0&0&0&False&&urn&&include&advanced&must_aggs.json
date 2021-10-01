@@ -52,6 +52,9 @@
           "<b>Echternach</b>: Echternach": {
             "doc_count": 0
           },
+          "<b>Flavigny</b>: Flavigny": {
+            "doc_count": 0
+          },
           "<b>Freising</b>: Freising": {
             "doc_count": 0
           },
@@ -296,6 +299,9 @@
           "doc_count": 4
         },
         "<b>Echternach</b>: Echternach": {
+          "doc_count": 0
+        },
+        "<b>Flavigny</b>: Flavigny": {
           "doc_count": 0
         },
         "<b>Freising</b>: Freising": {
