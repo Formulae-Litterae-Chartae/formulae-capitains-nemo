@@ -109,26 +109,6 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "dominus_ortsname",
-                                "fuzziness": "0"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "slop": "0",
-                    "in_order": false
-                  }
-                },
-                {
-                  "span_near": {
-                    "clauses": [
-                      {
-                        "span_multi": {
-                          "match": {
-                            "fuzzy": {
-                              "lemmas": {
                                 "value": "domnus",
                                 "fuzziness": "0"
                               }
@@ -150,6 +130,26 @@
                             "fuzzy": {
                               "lemmas": {
                                 "value": "dominicillus",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "dominus_ortsname",
                                 "fuzziness": "0"
                               }
                             }

@@ -560,6 +560,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             c.get('/texts/manifest:urn:cts:formulae:le1.109v110v.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            c.get('/texts/urn:cts:formulae:flavigny.form041.lat001/passage/all', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['linked_resources'],
+                             [('urn:cts:formulae:marculf.form000.lat001', 'Marculf Prolog (lat)')],
+                             'Linked editions should be correctly passed to the template.')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             c.get('/viewer/urn:cts:formulae:andecavensis.form001?view=0&embedded=True', follow_redirects=True)
@@ -8862,6 +8867,9 @@ class TestES(Formulae_Testing):
           },
           "<b>Graubünden</b>: Bünden": {
             "doc_count": 24
+          },
+            "<b>Flavigny</b>: Flavigny": {
+            "doc_count": 1
           },
           "<b>Hersfeld</b>: Hersfeld": {
             "doc_count": 121
