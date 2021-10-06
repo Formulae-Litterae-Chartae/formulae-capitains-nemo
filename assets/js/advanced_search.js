@@ -106,4 +106,28 @@ $(document).ready(function () {
             $( this ).parents('.collapse').show();
         }
     });
+    
+    $('.search-mask').click(function() {
+        var button = $( this ).find('button');
+        if ( button.text() == button.attr('data-new') ) {
+            button.text(button.attr('data-original'));
+        } else {
+            button.text(button.attr('data-new'));
+        };
+        var new_target = $( $( this ).attr('next') );
+        var new_button = new_target.find('button');
+        if ( new_target.hasClass('d-none') ) {
+            new_target.removeClass('d-none');
+        } else {
+            new_target.addClass('d-none');
+            $( new_button.attr('data-target') ).collapse('hide');
+            new_button.text(new_button.attr('data-original'));
+            if ( new_target.attr('next') ) {
+                $( new_target.attr('next') ).addClass('d-none');
+                var newer_button = $( $( new_target.attr('next') ).find('button') );
+                $( newer_button.attr('data-target') ).collapse('hide');
+                newer_button.text(newer_button.attr('data-original'));
+            };
+        };
+    });
 })

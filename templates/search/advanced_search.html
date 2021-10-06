@@ -12,7 +12,7 @@
             <br>
         <!-- 2d row = search entries. -->
             <div class="row justify-content-center">
-                <div class="col-xl-3 col-4">
+                <div class="col-4">
                     <div class="text-center search-section-label"><strong>{{ form.corpus.label(class='mb-0')
                         }}</strong><br>(<b>*</b>={{
                         _('lemmatisiert') }})</div>
@@ -51,7 +51,7 @@
                         <li><input id="elexiconSearchCorpus" name="corpus" type="checkbox" value="elexicon" onclick="uncheckAllCorpora()"> <label for="elexiconSearchCorpus">{{ _('Lexikon') }}</label></li>
                     </ul>
                 </div>
-                <div class="col-xl-2 col-4">
+                <div class="col-4">
                     <div class="text-center search-section-label"><strong>{{ _('Wortsuche') }}</strong><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.wordSearchMessage }}" aria-label="{{ _('Hilfe für Wortsuche') }}"><i class="fas fa-question-circle"></i></button></div>
                     <div id="searchQ-1">
                         <div class="form-row">
@@ -112,27 +112,29 @@
                                                 {{ form.exclude_q_1(class="form-control my-0", placeholder=form.exclude_q_1.label.text,
                                                 id="exclude_q_1-search-box", default=form.exclude_q_1.label.text) }}
                                         </div>
-                    </div>
+                                    </div>
                                     <div class="dropdown-divider"></div>
-                                    <div class="row">
-                                        <div class="col-7 text-center">
+                                    <div class="row pb-3">
+                                        <div class="col text-center">{{ form.slop_1.label() }}<br>
+                                            <span class="smallfont">{{ form.slop_1(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span>
+                                        </div>
+                                        <div class="col text-center">{{ form.fuzziness_1.label() }}<br>
+                                            <span class="smallfont">{{ form.fuzziness_1() }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto">
                                             {{ form.formulaic_parts_1.label }} 
                                             <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Teile zu wählen.') }}</p>
                                             {{ form.formulaic_parts_1(class="w-100 mb-2 smallfont", size="4") }}
-                                        </div>
-                                        <div class="col-5">
-                                            <div class="form-group">{{ form.slop_1.label() }}<br>
-                                            <span class="smallfont">{{ form.slop_1(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
-                                            <div class="form-group">{{ form.fuzziness_1.label() }}<br>
-                                            <span class="smallfont">{{ form.fuzziness_1() }}</span></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col"><button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchQ-2" type="button" aria-expanded="false" aria-controls="searchQ-2">{{ _('Eine weitere Suchmaske einblenden') }}</button>
+                    <div class="row search-mask" id="search-mask-1" next="#search-mask-2">
+                        <div class="col"><button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchQ-2" type="button" aria-expanded="false" aria-controls="searchQ-2" data-original="{{ _('Eine weitere Suchmaske einblenden') }}" data-new="{{ _('Diese Suchmaske ausblenden') }}">{{ _('Eine weitere Suchmaske einblenden') }}</button>
                         </div>
                     </div>
                     <div class="collapse" id="searchQ-2">
@@ -201,26 +203,27 @@
                                         </div>
                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <div class="row">
-                                        <div class="col-7 text-center">
+                                    <div class="row pb-3">
+                                        <div class="col text-center">{{ form.slop_2.label() }}<br>
+                                            <span class="smallfont">{{ form.slop_2(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
+                                        <div class="col text-center">{{ form.fuzziness_2.label() }}<br>
+                                            <span class="smallfont">{{ form.fuzziness_2() }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto">
                                             {{ form.formulaic_parts_2.label }} 
                                             <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Teile zu wählen.') }}</p>
                                             {{ form.formulaic_parts_2(class="w-100 mb-2 smallfont", size="4") }}
-                                        </div>
-                                        <div class="col-5">
-                                            <div class="form-group">{{ form.slop_2.label() }}<br>
-                                            <span class="smallfont">{{ form.slop_2(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
-                                            <div class="form-group">{{ form.fuzziness_2.label() }}<br>
-                                            <span class="smallfont">{{ form.fuzziness_2() }}</span></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <div class="row">
-                        <div class="col"><button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchQ-3" type="button" aria-expanded="false" aria-controls="searchQ-3">{{ _('Eine weitere Suchmaske einblenden') }}</button>
-                        </div>
                     </div>
+                    <div class="row search-mask d-none" id="search-mask-2" next="#search-mask-3">
+                        <div class="col"><button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchQ-3" type="button" aria-expanded="false" aria-controls="searchQ-3" data-original="{{ _('Eine weitere Suchmaske einblenden') }}" data-new="{{ _('Diese Suchmaske ausblenden') }}">{{ _('Eine weitere Suchmaske einblenden') }}</button>
+                        </div>
                     </div>
                     <div id="searchQ-3" class="collapse">
                         <div class="form-row">
@@ -283,26 +286,27 @@
                                         </div>
                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <div class="row">
-                                        <div class="col-7 text-center">
+                                    <div class="row pb-3">
+                                        <div class="col text-center">{{ form.slop_3.label() }}<br>
+                                            <span class="smallfont">{{ form.slop_3(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
+                                        <div class="col text-center">{{ form.fuzziness_3.label() }}<br>
+                                            <span class="smallfont">{{ form.fuzziness_3() }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto">
                                             {{ form.formulaic_parts_3.label }} 
                                             <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Teile zu wählen.') }}</p>
                                             {{ form.formulaic_parts_3(class="w-100 mb-2 smallfont", size="4") }}
-                                        </div>
-                                        <div class="col-5">
-                                            <div class="form-group">{{ form.slop_3.label() }}<br>
-                                            <span class="smallfont">{{ form.slop_3(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
-                                            <div class="form-group">{{ form.fuzziness_3.label() }}<br>
-                                            <span class="smallfont">{{ form.fuzziness_3() }}</span></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <div class="row">
-                        <div class="col"><button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchQ-4" type="button" aria-expanded="false" aria-controls="searchQ-4">{{ _('Eine weitere Suchmaske einblenden') }}</button>
-                        </div>
                     </div>
+                    <div class="row search-mask d-none" id="search-mask-3">
+                        <div class="col"><button class="btn btn-link p-0 mb-2" data-toggle="collapse" data-target="#searchQ-4" type="button" aria-expanded="false" aria-controls="searchQ-4" data-original="{{ _('Eine weitere Suchmaske einblenden') }}" data-new="{{ _('Diese Suchmaske ausblenden') }}">{{ _('Eine weitere Suchmaske einblenden') }}</button>
+                        </div>
                     </div>
                     <div id="searchQ-4" class="collapse">
                         <div class="form-row">
@@ -365,17 +369,18 @@
                                         </div>
                     </div>
                                     <div class="dropdown-divider"></div>
-                                    <div class="row">
-                                        <div class="col-7 text-center">
+                                    <div class="row pb-3">
+                                        <div class="col text-center">{{ form.slop_4.label() }}<br>
+                                            <span class="smallfont">{{ form.slop_4(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
+                                        <div class="col text-center">{{ form.fuzziness_4.label() }}<br>
+                                            <span class="smallfont">{{ form.fuzziness_4() }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="col-auto">
                                             {{ form.formulaic_parts_4.label }} 
                                             <p class="small mb-0">{{ _('&lt;Strg&gt; halten, um mehrere Teile zu wählen.') }}</p>
                                             {{ form.formulaic_parts_4(class="w-100 mb-2 smallfont", size="4") }}
-                                        </div>
-                                        <div class="col-5">
-                                            <div class="form-group">{{ form.slop_4.label() }}<br>
-                                            <span class="smallfont">{{ form.slop_4(min="0", size="5", class="slop_input") }} {{ _('Wörter') }}</span></div>
-                                            <div class="form-group">{{ form.fuzziness_4.label() }}<br>
-                                            <span class="smallfont">{{ form.fuzziness_4() }}</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -412,7 +417,7 @@
                                                                     type="reset">{{ _(' Formular Zurücksetzen')
                         }}</a></div>
                 </div>
-                <div class="col-xl-3 col-4 date-search">
+                <div class="col-4 date-search">
                     <div class="text-center search-section-label"><strong>{{ _('Datumssuche') }}</strong><button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ messages.dateSearchMessage }}" aria-label="{{ _('Hilfe für Datumssuche') }}"><i class="fas fa-question-circle"></i></button></div>
                     <div class="title text-center"><strong><label for="simpleDateButton">{{ _('Nach einem bestimmten Datum suchen') }}</label></strong> <button id="simpleDateButton" class="btn btn-link p-0" data-toggle="collapse" data-target="#simpleDateSearchCollapse" type="button" aria-expanded="false" aria-controls="simpleDateSearchCollapse"><span class="position-relative" id="simpleDateSearchCollapse-tooltip" data-toggle="tooltip" data-container="#simpleDateSearchCollapse-tooltip" title="{{ _('Eingabe für die bestimmte Datumssuchen zeigen') }}"><i class="fas fa-caret-down"></i></span></button></div>
                     <div class="collapse" id="simpleDateSearchCollapse">
