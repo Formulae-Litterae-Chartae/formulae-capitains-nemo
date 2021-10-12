@@ -16,6 +16,7 @@
     <members>
         <collection identifier="urn:cts:formulae:andecavensis" path="../andecavensis/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:marculf" path="../marculf/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:flavigny" path="../flavigny/__capitains__.xml"/>
     </members>
 </collection>
 

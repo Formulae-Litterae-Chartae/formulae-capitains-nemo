@@ -57,16 +57,12 @@ $(document).ready(function () {
     // for autocomplete as you type I need the following things:
     // - a listener for when the field changes
     // see https://blog.manifold.co/leveraging-the-power-of-elasticsearch-autocomplete-and-fuzzy-search-1d491d3e0b38 for some ideas
-    $('#word-search-box').keyup(function(e) {
-        sendAutocompleteRequest($( this ), $('#word-search-datalist'), "text");
-    });
-
-    $('#regest-word-search-box').keyup(function(e) {
-        sendAutocompleteRequest($( this ), $('#regest-word-search-datalist'), "regest");
+    $('.word-search-box').keyup(function(e) {
+        sendAutocompleteRequest($( this ));
     });
      
     var datePlusMinusInput = document.getElementById('date_plus_minus');
-    var slopInput = document.getElementById('slop');
+    var slopInput = document.getElementsByClassName('slop_input');
 
     datePlusMinusInput.addEventListener('input', function () {
         datePlusMinusInput.setCustomValidity("");
@@ -77,20 +73,18 @@ $(document).ready(function () {
         datePlusMinusInput.setCustomValidity(datePlusMinusInvalidMessage);
     })
 
-    slopInput.addEventListener('input', function () {
-        slopInput.setCustomValidity("");
-        slopInput.checkValidity();
-    })
-
-    slopInput.addEventListener('invalid', function () {
-        slopInput.setCustomValidity(slopInvalidMessage);
-    })
-
-    $('#advancedResetButton').click(function () {
-        document.getElementById('advanced-form').reset();
-    })
+    for (let item of slopInput) {
+        item.addEventListener('input', function () {
+            item.setCustomValidity("");
+            item.checkValidity();
+        })
+        item.addEventListener('invalid', function () {
+            item.setCustomValidity(slopInvalidMessage);
+            
+        })
+    }
     
-    $('.collapse input').each(function(i, el) {
+    $('.corpus-ul .collapse input').each(function(i, el) {
         if ($( this ).attr('type') == "checkbox") {
             if ($( this ).prop('checked') && $( this ).attr('id') != "firstLetter") {
                 var collapseParent = $( this ).parents('#formulaeCorporaCollapse,#chartaeCorporaCollapse');
@@ -107,9 +101,33 @@ $(document).ready(function () {
         }
     });
     
-    $('.collapse option:checked').each(function(i, el) {
+    $('.corpus-ul .collapse option:checked').each(function(i, el) {
         if ($( this ).val() != "0") {
             $( this ).parents('.collapse').show();
         }
+    });
+    
+    $('.search-mask').click(function() {
+        var button = $( this ).find('button');
+        if ( button.text() == button.attr('data-new') ) {
+            button.text(button.attr('data-original'));
+        } else {
+            button.text(button.attr('data-new'));
+        };
+        var new_target = $( $( this ).attr('next') );
+        var new_button = new_target.find('button');
+        if ( new_target.hasClass('d-none') ) {
+            new_target.removeClass('d-none');
+        } else {
+            new_target.addClass('d-none');
+            $( new_button.attr('data-target') ).collapse('hide');
+            new_button.text(new_button.attr('data-original'));
+            if ( new_target.attr('next') ) {
+                $( new_target.attr('next') ).addClass('d-none');
+                var newer_button = $( $( new_target.attr('next') ).find('button') );
+                $( newer_button.attr('data-target') ).collapse('hide');
+                newer_button.text(newer_button.attr('data-original'));
+            };
+        };
     });
 })

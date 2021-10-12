@@ -1,0 +1,437 @@
+[
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "should": [
+                {
+                  "match": {
+                    "dating": "0778-08-07"
+                  }
+                },
+                {
+                  "nested": {
+                    "path": "specific_date",
+                    "query": {
+                      "bool": {
+                        "should": [
+                          {
+                            "bool": {
+                              "must": [
+                                {
+                                  "match": {
+                                    "specific_date.year": 778
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "specific_date.month": 8
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "specific_date.day": 7
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "bool": {
+              "should": [
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_or": {
+                          "clauses": [
+                            {
+                              "span_multi": {
+                                "match": {
+                                  "regexp": {
+                                    "Poenformel": {
+                                      "value": "n[uv]ll[uv]s",
+                                      "flags": "ALL",
+                                      "case_insensitive": true
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "span_or": {
+                          "clauses": [
+                            {
+                              "span_multi": {
+                                "match": {
+                                  "regexp": {
+                                    "Poenformel": {
+                                      "value": "contrad[ij]cere",
+                                      "flags": "ALL",
+                                      "case_insensitive": true
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": true
+                  }
+                }
+              ],
+              "minimum_should_match": 1
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "number_of_fragments": 0,
+      "fields": {
+        "text": {},
+        "Poenformel": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  },
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "should": [
+                {
+                  "match": {
+                    "dating": "0778-08-07"
+                  }
+                },
+                {
+                  "nested": {
+                    "path": "specific_date",
+                    "query": {
+                      "bool": {
+                        "should": [
+                          {
+                            "bool": {
+                              "must": [
+                                {
+                                  "match": {
+                                    "specific_date.year": 778
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "specific_date.month": 8
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "specific_date.day": 7
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "bool": {
+              "should": [
+                {
+                  "exists": {
+                    "field": "Corroboratio"
+                  }
+                }
+              ],
+              "minimum_should_match": 1
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "number_of_fragments": 0,
+      "fields": {
+        "text": {},
+        "Corroboratio": {
+          "no_match_size": 1000
+        },
+        "Poenformel": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  },
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "should": [
+                {
+                  "match": {
+                    "dating": "0778-08-07"
+                  }
+                },
+                {
+                  "nested": {
+                    "path": "specific_date",
+                    "query": {
+                      "bool": {
+                        "should": [
+                          {
+                            "bool": {
+                              "must": [
+                                {
+                                  "match": {
+                                    "specific_date.year": 778
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "specific_date.month": 8
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "specific_date.day": 7
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "bool": {
+              "should": [
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_or": {
+                          "clauses": [
+                            {
+                              "span_multi": {
+                                "match": {
+                                  "regexp": {
+                                    "text": {
+                                      "value": "regn[ij]",
+                                      "flags": "ALL",
+                                      "case_insensitive": true
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "span_or": {
+                          "clauses": [
+                            {
+                              "span_multi": {
+                                "match": {
+                                  "regexp": {
+                                    "text": {
+                                      "value": "d[uv]c[ij]s",
+                                      "flags": "ALL",
+                                      "case_insensitive": true
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ],
+                    "slop": "3",
+                    "in_order": false
+                  }
+                }
+              ],
+              "minimum_should_match": 1
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "number_of_fragments": 0,
+      "fields": {
+        "text": {},
+        "Corroboratio": {},
+        "Poenformel": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  },
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "should": [
+                {
+                  "match": {
+                    "dating": "0778-08-07"
+                  }
+                },
+                {
+                  "nested": {
+                    "path": "specific_date",
+                    "query": {
+                      "bool": {
+                        "should": [
+                          {
+                            "bool": {
+                              "must": [
+                                {
+                                  "match": {
+                                    "specific_date.year": 778
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "specific_date.month": 8
+                                  }
+                                },
+                                {
+                                  "match": {
+                                    "specific_date.day": 7
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "bool": {
+              "should": [
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "regest": {
+                                "value": "übergeben",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                }
+              ],
+              "minimum_should_match": 1
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "number_of_fragments": 0,
+      "fields": {
+        "text": {},
+        "Corroboratio": {},
+        "regest": {},
+        "Poenformel": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  }
+]

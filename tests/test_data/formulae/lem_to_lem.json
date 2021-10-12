@@ -37,7 +37,15 @@
 		"dathan",
 		"iohannes"
 	],
+	"dominus": [
+		"dominus_ortsname",
+		"domnus",
+		"dominicillus"
+	],
 	"regnum": [
 		"regnumque"
+	],
+	"ortsname": [
+		"dominus_ortsname"
 	]
 }
