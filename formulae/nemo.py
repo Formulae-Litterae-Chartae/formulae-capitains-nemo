@@ -371,9 +371,13 @@ class NemoFormulae(Nemo):
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
-                    par = re.sub(r'.*?(\d+\D?)\Z', r'\1', form_num)
-                    if par.lstrip('0') == '':
-                        par = _('(Prolog)')
+                    par = re.sub(r'.*?(\d+\w*)\Z', r'\1', form_num)
+                    if 'marculf' in form_num:
+                        if '2_' not in form_num and 'capitula' not in form_num:
+                            par = '1_' + par
+                    if par.endswith('000'):
+                        par = par.replace('000', _('(Prolog)'))
+                    par = par.replace('capitula', '0')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         elif re.search(r'anjou_archives|katalonien|marmoutier_manceau', m.id):
@@ -382,15 +386,17 @@ class NemoFormulae(Nemo):
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
             par = re.sub(r'.*?(\d+\w*)\Z', r'\1', list(m.parent)[0])
-            if par.lstrip('0') == '':
+            if 'marculf' in m.id:
+                if '2_' not in m.id and 'capitula' not in m.id:
+                    par = '1_' + par
+            if par.endswith('000'):
                 if 'andecavensis' in m.id:
                     par = _('(Titel)')
                 else:
-                    par = _('(Prolog)')
+                    par = par.replace('000', _('(Prolog)'))
             elif 'computus' in par:
                 par = '057(Computus)'
-            elif '2_capitula' in par:
-                par = '2_0'
+            par = par.replace('capitula', '0')
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         return par, metadata, m
@@ -770,8 +776,6 @@ class NemoFormulae(Nemo):
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' not in self.resolver.getMetadata(x['id']).ancestors][0]
                     if 'urn:cts:formulae:marculf' in m.ancestors and key == 'editions':
                         work_name = str(parent_title).replace('Marculf ', '')
-                        if 'Prolog' in work_name:
-                            work_name = _('(Prolog)')
                     elif 'Computus' in work_name:
                         work_name = '(Computus)'
                     elif 'Titel' in work_name:
@@ -780,13 +784,14 @@ class NemoFormulae(Nemo):
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
                             work_name = name_part.group(0)
-                    r[par] = {"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in m.id else '',
-                              "regest": [str(m.metadata.get_single(DC.description))] if 'andecavensis' in m.id else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
-                              "dating": str(m.metadata.get_single(DCTERMS.temporal)),
-                              "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
-                              "versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                              'name': Markup(work_name), 'title': Markup(str(parent_title))}
+                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []}}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
+                if key == 'editions':
+                    r[par].update({"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) or '',
+                                   "regest": [str(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
+                                   "dating": str(m.metadata.get_single(DCTERMS.temporal)),
+                                   "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
+                                   'name': Markup(work_name), 'title': Markup(str(parent_title))})
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
