@@ -590,6 +590,11 @@ class NemoFormulae(Nemo):
             session['previous_aggregations'] = g.previous_aggregations
         if getattr(g, 'highlighted_words', None):
             session['highlighted_words'] = g.highlighted_words
+        # Remove this line after the server down time is over
+        if not session.get('down_message_flashed', False):
+            flash(_('Der Formulae Werkstatt wird zwischen Freitag, 15.10.2021, und voraussichtlich Samstag, 16.10.2021 nicht erreichbar. Wir entschüldigen uns für die Störung.'),
+                  category='warning')
+            session['down_message_flashed'] = True
         return response
 
     def view_maker(self, name: str, instance=None) -> Callable:
