@@ -767,6 +767,9 @@ class NemoFormulae(Nemo):
                 if par in r.keys():
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 else:
+                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []}}
+                    r[par]["versions"][key].append(metadata + [manuscript_data])
+                if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     work_name = par.lstrip('0') if isinstance(par, str) else ''
                     parents = self.make_parents(m)
                     parent_title = parents[0]['label']
@@ -784,14 +787,11 @@ class NemoFormulae(Nemo):
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
                             work_name = name_part.group(0)
-                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []}}
-                    r[par]["versions"][key].append(metadata + [manuscript_data])
-                if key == 'editions':
                     r[par].update({"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) or '',
                                    "regest": [str(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
-                                   'name': Markup(work_name), 'title': Markup(str(parent_title))})
+                                   'name': Markup(work_name), 'title': Markup(str(self.make_parents(m)[0]['label']))})
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
@@ -852,7 +852,12 @@ class NemoFormulae(Nemo):
                     title = str(ed_parent.metadata.get_single(DC.title, lang=lang))
                     form = ed_parent.id
                     edition_name = ed_trans_mapping.get(edition, edition).title()
-                    full_edition_name = re.sub(r'{}|\(lat\)|\(deu\)'.format(title), '', str(m.metadata.get_single(DC.title))).strip()
+                    if 'manuscript_collection' in m.ancestors:
+                        full_edition = sorted([(k, v) for k, v in m.ancestors.items() if 'manuscript_collection' in v.ancestors])[0][-1]
+                        edition_name = str(full_edition.metadata.get_single(self.BIBO.AbbreviatedTitle, lang=lang))
+                    else:
+                        full_edition = sorted([(k, v) for k, v in m.ancestors.items() if 'formulae_collection' in v.ancestors])[0][-1]
+                    full_edition_name = str(full_edition.metadata.get_single(DC.title, lang=lang))
                     regest = str(m.metadata.get_single(DCTERMS.abstract))
 
                     if edition not in translations.keys():
@@ -896,7 +901,7 @@ class NemoFormulae(Nemo):
                         "regesten": regesten[k]
                     })
 
-            r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0))),
+            r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0)) if re.search(r'\d+', x['name']) else 0),
                                          key=lambda x: re.search(r'\D+', x['name']).group(0))
 
         else:

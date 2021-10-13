@@ -41,7 +41,7 @@
         {% endfor %}
     {% else %}
         {% for number, values in collections.readable.items() %}
-            <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{{values['name']|replace('(', '')|replace(')', '')}}{% else %}{{values['name']}}{% endif %}</a>
+            <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{% if '_' in values['name']%} {{values['title']}}{% else %}{{values['name']|replace('(', '')|replace(')', '')}}{% endif %}{% else %}{{values['name']}}{% endif %}</a>
         {% endfor %}
     {% endif %}
     <div class="row">
