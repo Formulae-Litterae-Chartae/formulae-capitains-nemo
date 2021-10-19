@@ -1269,7 +1269,7 @@ class TestFunctions(Formulae_Testing):
                                                        'urn:cts:formulae:marculf.2_capitula.lat001']],
                                             'name': 'lat001',
                                             'regesten': ['', '', ''],
-                                            'titles': ['Marculf Prolog',
+                                            'titles': ['I Prolog',
                                                        'Marculf I,3',
                                                        'Marculf II Capitula']}],
                               'transcriptions': [{'edition_name': 'Ko<span '
@@ -1306,7 +1306,7 @@ class TestFunctions(Formulae_Testing):
                                                              'urn:cts:formulae:p3.128vb129rb.lat001']],
                                                   'name': 'p3',
                                                   'regesten': ['', ''],
-                                                  'titles': ['Marculf Prolog', 'Marculf I,3']},
+                                                  'titles': ['I Prolog', 'Marculf I,3']},
                                                  {'edition_name': 'P<span '
                                                                   'class="manuscript-number">12</span>',
                                                   'full_edition_name': 'Paris BNF 4627',
