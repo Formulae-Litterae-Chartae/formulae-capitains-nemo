@@ -767,7 +767,13 @@ class NemoFormulae(Nemo):
                 if par in r.keys():
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 else:
-                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []}}
+                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                              "short_regest": '',
+                              "regest": [],
+                              "dating": '',
+                              "ausstellungsort": '',
+                              'name': '',
+                              'title': ''}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     work_name = par.lstrip('0') if isinstance(par, str) else ''

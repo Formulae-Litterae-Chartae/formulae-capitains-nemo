@@ -8,7 +8,7 @@
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
    <identifier>urn:cts:formulae:marculf.form000</identifier>
    <parent>urn:cts:formulae:marculf</parent>
-   <dc:title xml:lang="deu">Marculf Prolog</dc:title>
+   <dc:title xml:lang="deu">I Prolog</dc:title>
    <dc:type>cts:work</dc:type>
    <members>
       <collection path="../../p3/105va106rb/__capitains__.xml"
@@ -16,7 +16,7 @@
       <collection readable="true" path="./marculf.form000.lat001.xml">
          <identifier>urn:cts:formulae:marculf.form000.lat001</identifier>
          <parent>urn:cts:formulae:marculf.form000</parent>
-         <dc:title xml:lang="deu">Marculf Prolog (lat)</dc:title>
+         <dc:title xml:lang="deu">Marculf I Prolog (lat)</dc:title>
          <dc:language>lat</dc:language>
          <dc:type>cts:edition</dc:type>
          <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
@@ -29,7 +29,7 @@
          <structured-metadata>
             <bib:editor>Christoph Walther</bib:editor>
             <dct:created>2020-02-14</dct:created>
-            <dct:bibliographicCitation>Marculf Prolog (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-14, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:marculf.form000.lat001/passage/all]</dct:bibliographicCitation>
+            <dct:bibliographicCitation>Marculf I Prolog (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-14, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:marculf.form000.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
          </structured-metadata>
       </collection>

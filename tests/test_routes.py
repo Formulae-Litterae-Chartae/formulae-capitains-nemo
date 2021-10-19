@@ -518,7 +518,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             r = c.get('/texts/urn:cts:formulae:marculf.form000.lat001+urn:cts:formulae:p3.105va106rb.lat001/passage/all+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
-            self.assertIn('Marculf Prolog', r.get_data(as_text=True))
+            self.assertIn('Marculf I Prolog', r.get_data(as_text=True))
             c.get('/texts/urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertNotIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
@@ -563,7 +563,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/texts/urn:cts:formulae:flavigny.form041.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['linked_resources'],
-                             [('urn:cts:formulae:marculf.form000.lat001', 'Marculf Prolog (lat)')],
+                             [('urn:cts:formulae:marculf.form000.lat001', 'Marculf I Prolog (lat)')],
                              'Linked editions should be correctly passed to the template.')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
@@ -1258,66 +1258,72 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_corpus_mv('urn:cts:formulae:marculf')
             self.assertEqual(data['collections']['readable'],
                              {'editions': [{'edition_name': 'Edition',
-                                           'full_edition_name': '',
-                                           'links': [['urn:cts:formulae:marculf.form000',
-                                                      'urn:cts:formulae:marculf.form003',
-                                                      'urn:cts:formulae:marculf.2_capitula'],
-                                                     ['urn:cts:formulae:marculf.form000.lat001',
-                                                      'urn:cts:formulae:marculf.form003.lat001',
-                                                      'urn:cts:formulae:marculf.2_capitula.lat001']],
-                                           'name': 'lat001',
-                                           'regesten': ['', '', ''],
-                                           'titles': ['Marculf Prolog',
-                                                      'Marculf I,3',
-                                                      'Marculf II Capitula']}],
-                             'transcriptions': [{'edition_name': 'Ko2',
-                                                 'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
-                                                                      'Fabr. 84 [fol.69r-fol.70v]',
-                                                 'links': [['urn:cts:formulae:marculf.form003'],
-                                                           ['urn:cts:formulae:ko2.69r70v.lat001']],
-                                                 'name': 'ko2',
-                                                 'regesten': [''],
-                                                 'titles': ['Marculf I,3']},
-                                                {'edition_name': 'Le1',
-                                                 'full_edition_name': 'Leiden BPL 114 [fol.109v-fol.110v]',
-                                                 'links': [['urn:cts:formulae:marculf.form003'],
-                                                           ['urn:cts:formulae:le1.109v110v.lat001']],
-                                                 'name': 'le1',
-                                                 'regesten': [''],
-                                                 'titles': ['Marculf I,3']},
-                                                {'edition_name': 'M4',
-                                                 'full_edition_name': 'München BSB clm 4650 '
-                                                                      '[fol.60v-fol.61v]',
-                                                 'links': [['urn:cts:formulae:marculf.form003'],
-                                                           ['urn:cts:formulae:m4.60v61v.lat001']],
-                                                 'name': 'm4',
-                                                 'regesten': [''],
-                                                 'titles': ['Marculf I,3']},
-                                                {'edition_name': 'P3',
-                                                 'full_edition_name': 'Paris BNF 2123 '
-                                                                      '[fol.105va-fol.106rb]',
-                                                 'links': [['urn:cts:formulae:marculf.form000',
-                                                            'urn:cts:formulae:marculf.form003'],
-                                                           ['urn:cts:formulae:p3.105va106rb.lat001',
-                                                            'urn:cts:formulae:p3.128vb129rb.lat001']],
-                                                 'name': 'p3',
-                                                 'regesten': ['', ''],
-                                                 'titles': ['Marculf Prolog', 'Marculf I,3']},
-                                                {'edition_name': 'P12',
-                                                 'full_edition_name': 'Paris BNF 4627 [fol.65r-fol.65v]',
-                                                 'links': [['urn:cts:formulae:marculf.form003'],
-                                                           ['urn:cts:formulae:p12.65r65v.lat001']],
-                                                 'name': 'p12',
-                                                 'regesten': [''],
-                                                 'titles': ['Marculf I,3']},
-                                                {'edition_name': 'P16',
-                                                 'full_edition_name': 'Paris BNF 10756 [fol.7r-fol.7v]',
-                                                 'links': [['urn:cts:formulae:marculf.form003'],
-                                                           ['urn:cts:formulae:p16.7r7v.lat001']],
-                                                 'name': 'p16',
-                                                 'regesten': [''],
-                                                 'titles': ['Marculf I,3']}],
-                             'translations': []})
+                                            'full_edition_name': 'Formelbuch des <span\n'
+                                                                 '      '
+                                                                 'class="collection-origin">Marculf</span>',
+                                            'links': [['urn:cts:formulae:marculf.form000',
+                                                       'urn:cts:formulae:marculf.form003',
+                                                       'urn:cts:formulae:marculf.2_capitula'],
+                                                      ['urn:cts:formulae:marculf.form000.lat001',
+                                                       'urn:cts:formulae:marculf.form003.lat001',
+                                                       'urn:cts:formulae:marculf.2_capitula.lat001']],
+                                            'name': 'lat001',
+                                            'regesten': ['', '', ''],
+                                            'titles': ['Marculf Prolog',
+                                                       'Marculf I,3',
+                                                       'Marculf II Capitula']}],
+                              'transcriptions': [{'edition_name': 'Ko<span '
+                                                                  'class="manuscript-number">2</span>',
+                                                  'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
+                                                                       'Fabr. 84',
+                                                  'links': [['urn:cts:formulae:marculf.form003'],
+                                                            ['urn:cts:formulae:ko2.69r70v.lat001']],
+                                                  'name': 'ko2',
+                                                  'regesten': [''],
+                                                  'titles': ['Marculf I,3']},
+                                                 {'edition_name': 'Le<span '
+                                                                  'class="manuscript-number">1</span>',
+                                                  'full_edition_name': 'Leiden BPL 114',
+                                                  'links': [['urn:cts:formulae:marculf.form003'],
+                                                            ['urn:cts:formulae:le1.109v110v.lat001']],
+                                                  'name': 'le1',
+                                                  'regesten': [''],
+                                                  'titles': ['Marculf I,3']},
+                                                 {'edition_name': 'M<span '
+                                                                  'class="manuscript-number">4</span>',
+                                                  'full_edition_name': 'München BSB clm 4650',
+                                                  'links': [['urn:cts:formulae:marculf.form003'],
+                                                            ['urn:cts:formulae:m4.60v61v.lat001']],
+                                                  'name': 'm4',
+                                                  'regesten': [''],
+                                                  'titles': ['Marculf I,3']},
+                                                 {'edition_name': 'P<span '
+                                                                  'class="manuscript-number">3</span>',
+                                                  'full_edition_name': 'Paris BNF 2123',
+                                                  'links': [['urn:cts:formulae:marculf.form000',
+                                                             'urn:cts:formulae:marculf.form003'],
+                                                            ['urn:cts:formulae:p3.105va106rb.lat001',
+                                                             'urn:cts:formulae:p3.128vb129rb.lat001']],
+                                                  'name': 'p3',
+                                                  'regesten': ['', ''],
+                                                  'titles': ['Marculf Prolog', 'Marculf I,3']},
+                                                 {'edition_name': 'P<span '
+                                                                  'class="manuscript-number">12</span>',
+                                                  'full_edition_name': 'Paris BNF 4627',
+                                                  'links': [['urn:cts:formulae:marculf.form003'],
+                                                            ['urn:cts:formulae:p12.65r65v.lat001']],
+                                                  'name': 'p12',
+                                                  'regesten': [''],
+                                                  'titles': ['Marculf I,3']},
+                                                 {'edition_name': 'P<span '
+                                                                  'class="manuscript-number">16</span>',
+                                                  'full_edition_name': 'Paris BNF 10756',
+                                                  'links': [['urn:cts:formulae:marculf.form003'],
+                                                            ['urn:cts:formulae:p16.7r7v.lat001']],
+                                                  'name': 'p16',
+                                                  'regesten': [''],
+                                                  'titles': ['Marculf I,3']}],
+                              'translations': []})
 
     def test_corpus_mv_passau(self):
         """ Make sure the correct values are returned by r_corpus_mv"""
@@ -1340,8 +1346,9 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(data['collections']['readable']['0002']['name'], 'Nr. 1 (Reg. 2)',
                              'Lorsch works should be correctly named.')
             data = self.nemo.r_corpus('urn:cts:formulae:marculf')
-            self.assertEqual(data['collections']['readable']['(Prolog)']['name'], _('(Prolog)'),
-                             'Lorsch works should be correctly named.')
+            print(data['collections']['readable'])
+            self.assertEqual(data['collections']['readable']['1_(Prolog)']['name'], 'I Prolog',
+                             'Marculf works should be correctly named.')
             data = self.nemo.r_corpus('urn:cts:formulae:elexicon')
             self.assertEqual(data['template'], "main::elex_collection.html", "Elexicon should use elex template")
             data = self.nemo.r_corpus('urn:cts:formulae:salzburg')
