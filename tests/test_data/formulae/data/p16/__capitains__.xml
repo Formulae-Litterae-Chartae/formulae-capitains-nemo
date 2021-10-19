@@ -7,10 +7,10 @@
             xmlns:owl="http://www.w3.org/2002/07/owl#"
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
    <identifier>urn:cts:formulae:p16</identifier>
-   <dc:title xml:lang="deu">p16</dc:title>
+   <dc:title xml:lang="deu">Paris BNF 10756</dc:title>
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
-      <bib:AbbreviatedTitle>p16</bib:AbbreviatedTitle>
+      <bib:AbbreviatedTitle>P&lt;span class="manuscript-number"&gt;16&lt;/span&gt;</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
       <collection path="./7r7v/__capitains__.xml" identifier="urn:cts:formulae:p16.7r7v"/>

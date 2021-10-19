@@ -7,10 +7,10 @@
             xmlns:owl="http://www.w3.org/2002/07/owl#"
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
    <identifier>urn:cts:formulae:ko2</identifier>
-   <dc:title xml:lang="deu">ko2</dc:title>
+   <dc:title xml:lang="deu">Kopenhagen, Kongelige Bibliotek, Fabr. 84</dc:title>
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
-      <bib:AbbreviatedTitle>ko2</bib:AbbreviatedTitle>
+      <bib:AbbreviatedTitle>Ko&lt;span class="manuscript-number"&gt;2&lt;/span&gt;</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
       <collection path="./69r70v/__capitains__.xml"

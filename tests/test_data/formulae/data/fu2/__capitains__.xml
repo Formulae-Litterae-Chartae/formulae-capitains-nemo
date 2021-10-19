@@ -7,10 +7,10 @@
             xmlns:owl="http://www.w3.org/2002/07/owl#"
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
    <identifier>urn:cts:formulae:fu2</identifier>
-   <dc:title xml:lang="deu">fu2</dc:title>
+   <dc:title xml:lang="deu">Fulda, Hessische Landesbibliothek, D1</dc:title>
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
-      <bib:AbbreviatedTitle>fu2</bib:AbbreviatedTitle>
+      <bib:AbbreviatedTitle>Fu&lt;span class="manuscript-number"&gt;2&lt;/span&gt;</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
       <collection path="./136r/__capitains__.xml"
