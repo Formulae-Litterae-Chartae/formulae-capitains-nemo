@@ -129,7 +129,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "dominicillus",
+                                "value": "dominus_ortsname",
                                 "fuzziness": "0"
                               }
                             }
@@ -149,7 +149,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "dominus_ortsname",
+                                "value": "dominicillus",
                                 "fuzziness": "0"
                               }
                             }

@@ -1,22 +1,22 @@
 [
   {
-    "took": 20,
+    "took": 39,
     "timed_out": false,
     "_shards": {
-      "total": 57,
-      "successful": 57,
+      "total": 59,
+      "successful": 59,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 46,
+        "value": 50,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v3",
+          "_index": "andecavensis_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:andecavensis.form008.lat001",
           "_score": null,
@@ -48,7 +48,103 @@
           ]
         },
         {
-          "_index": "chartae_latinae_cxv_v3",
+          "_index": "marculf_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form030.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,30",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form030.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "regest": [
+              "regest text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form030.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_023.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,23",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_023.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "regest": [
+              "regest text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_023.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form2_024.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,24",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_024.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "regest": [
+              "regest text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_024.lat001"
+          ]
+        },
+        {
+          "_index": "chartae_latinae_cxv_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0033.lat001",
           "_score": null,
@@ -92,7 +188,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_cxv_v3",
+          "_index": "chartae_latinae_cxv_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0039.lat001",
           "_score": null,
@@ -136,7 +232,55 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "chartae_latinae_cxvi_v1",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0008.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Chartae Latinae antiquiores, Part 116, Austria IV, Belgium (Ed. Thaller) Nr. 8",
+            "keywords": "",
+            "urn": "urn:cts:formulae:chartae_latinae_cxvi.thaller0008.lat001",
+            "date_string": "837 02 23",
+            "comp_ort": "Ötting",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Ötting",
+            "collection": "chartae_latinae_cxvi",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 837,
+                "month": 2,
+                "day": 23
+              }
+            ],
+            "all_dates": [
+              "0837-02-23"
+            ],
+            "min_date": "0837-02-23",
+            "max_date": "0837-02-23",
+            "days": [
+              "Friday",
+              "Lent"
+            ],
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "regest": [
+              "regest text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:chartae_latinae_cxvi.thaller0008.lat001"
+          ]
+        },
+        {
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0915.lat001",
           "_score": null,
@@ -182,7 +326,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0953.lat001",
           "_score": null,
@@ -234,7 +378,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1118.lat001",
           "_score": null,
@@ -288,7 +432,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1155.lat001",
           "_score": null,
@@ -342,7 +486,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1245.lat001",
           "_score": null,
@@ -394,7 +538,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0045.lat001",
           "_score": null,
@@ -441,7 +585,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
           "_score": null,
@@ -488,7 +632,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0048.lat001",
           "_score": null,
@@ -520,8 +664,8 @@
             "min_date": "0948-03-27",
             "max_date": "0948-03-27",
             "days": [
-              "Monday",
-              "Lent"
+              "Lent",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -536,7 +680,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0049.lat003",
           "_score": null,
@@ -568,8 +712,8 @@
             "min_date": "0948-03-30",
             "max_date": "0948-03-30",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -584,7 +728,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0049.lat004",
           "_score": null,
@@ -616,8 +760,8 @@
             "min_date": "0948-03-30",
             "max_date": "0948-03-30",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -632,7 +776,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0052.lat001",
           "_score": null,
@@ -676,7 +820,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0070.lat001",
           "_score": null,
@@ -723,7 +867,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0071.lat001",
           "_score": null,
@@ -770,7 +914,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0080.lat001",
           "_score": null,
@@ -814,7 +958,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v3",
+          "_index": "merowinger1_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:merowinger1.koelzer0050.lat001",
           "_score": null,
@@ -861,7 +1005,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v3",
+          "_index": "mittelrheinisch_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0163.lat001",
           "_score": null,
@@ -905,10 +1049,15 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0023.lat001",
           "_score": null,
+          "_ignored": [
+            "Poenformel.keyword",
+            "Pertinenzformel.keyword",
+            "Dispositio.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -961,7 +1110,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0025.lat001",
           "_score": null,
@@ -1007,10 +1156,14 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0030.lat001",
           "_score": null,
+          "_ignored": [
+            "Poenformel.keyword",
+            "Publicatio.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1067,7 +1220,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0035.lat001",
           "_score": null,
@@ -1121,7 +1274,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0038.lat001",
           "_score": null,
@@ -1173,10 +1326,13 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0039.lat001",
           "_score": null,
+          "_ignored": [
+            "Pertinenzformel.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1229,10 +1385,13 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0058.lat001",
           "_score": null,
+          "_ignored": [
+            "Arenga.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1285,10 +1444,14 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0079.lat001",
           "_score": null,
+          "_ignored": [
+            "Arenga.keyword",
+            "Pertinenzformel.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1341,10 +1504,13 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0097.lat001",
           "_score": null,
+          "_ignored": [
+            "Narratio.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1397,10 +1563,13 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0131.lat001",
           "_score": null,
+          "_ignored": [
+            "Pertinenzformel.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1453,7 +1622,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0169.lat001",
           "_score": null,
@@ -1503,7 +1672,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0175.lat001",
           "_score": null,
@@ -1545,7 +1714,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0182.lat001",
           "_score": null,
@@ -1589,7 +1758,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0185.lat001",
           "_score": null,
@@ -1637,7 +1806,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0202.lat001",
           "_score": null,
@@ -1693,10 +1862,14 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0207.lat001",
           "_score": null,
+          "_ignored": [
+            "Pertinenzformel.keyword",
+            "Narratio.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1749,10 +1922,13 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0216.lat001",
           "_score": null,
+          "_ignored": [
+            "Pertinenzformel.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1803,13 +1979,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
           "_score": null,
-          "_ignored": [
-            "Pertinenzformel.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1871,7 +2044,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0479.lat001",
           "_score": null,
@@ -1919,7 +2092,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0586.lat001",
           "_score": null,
@@ -1966,7 +2139,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0587.lat001",
           "_score": null,
@@ -2013,7 +2186,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0588.lat001",
           "_score": null,
@@ -2060,7 +2233,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
           "_score": null,
@@ -2107,7 +2280,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0708.lat001",
           "_score": null,
@@ -2154,7 +2327,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v3",
+          "_index": "weissenburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
           "_score": null,
@@ -2201,7 +2374,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v3",
+          "_index": "weissenburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0090.lat001",
           "_score": null,
@@ -2245,7 +2418,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v3",
+          "_index": "weissenburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0158.lat001",
           "_score": null,

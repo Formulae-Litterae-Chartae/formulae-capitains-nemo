@@ -36,6 +36,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Chartae Latinae</b>: Chartae Latinae XLVI': {'match': {'collection': 'chartae_latinae_xlvi'}},
                                       '<b>Chartae Latinae</b>: Chartae Latinae XLVII': {'match': {'collection': 'chartae_latinae_xlvii'}},
                                       '<b>Chartae Latinae</b>: Chartae Latinae CXV': {'match': {'collection': 'chartae_latinae_cxv'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae CXVI': {'match': {'collection': 'chartae_latinae_cxvi'}},
                                       '<b>Dijon</b>: Saint-Bénigne de Dijon': {'match': {'collection': 'saint_bénigne'}},
                                       '<b>Echternach</b>: Echternach': {'match': {'collection': 'echternach'}},
                                       '<b>E-Lexikon</b>': {'match': {'collection': 'elexicon'}},
@@ -65,6 +66,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {'match': {'collection': 'marmoutier_barthelemy'}},
                                       '<b>Touraine</b>: Accord entre Bonneval et Marmoutier': {'match': {'collection': 'bonneval_marmoutier'}},
                                       '<b>Touraine</b>: Cormery (TELMA)': {'match': {'collection': 'telma_cormery'}},
+                                      '<b>Touraine</b>: Accomodement entre Marmoutier et S.-Martin': {'match': {'collection': 'cartier_1841'}},
                                       '<b>Touraine</b>: Eudes': {'match': {'collection': 'eudes'}},
                                       '<b>Touraine</b>: Fragments de Saint-Julien de Tours': {'match': {'collection': 'tours_st_julien_fragments'}},
                                       '<b>Touraine</b>: Marmoutier Cartulaire blésois': {'match': {'collection': 'marmoutier_blésois'}},
@@ -841,6 +843,7 @@ def advanced_query_index(corpus: list = None,
                         else:
                             regest_clauses.append({'match': {'regest': {'query': term, 'fuzziness': query_vals['fuzziness']}}})
                     bool_clauses.append({'bool': {'must': regest_clauses}})
+                    search_part_template['highlight']['fields'].update({'regest': {}})
                 search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
             elif query_vals['formulaic_parts']:
                 bool_clauses = [{'exists': {'field': x}} for x in query_vals['formulaic_parts'].split('+')]

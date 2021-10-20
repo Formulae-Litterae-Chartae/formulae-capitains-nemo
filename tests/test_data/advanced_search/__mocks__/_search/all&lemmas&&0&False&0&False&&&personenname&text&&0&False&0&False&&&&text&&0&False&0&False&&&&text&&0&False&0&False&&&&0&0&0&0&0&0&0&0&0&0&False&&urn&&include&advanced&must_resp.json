@@ -1,10 +1,10 @@
 [
   {
-    "took": 72,
+    "took": 113,
     "timed_out": false,
     "_shards": {
-      "total": 57,
-      "successful": 57,
+      "total": 59,
+      "successful": 59,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v3",
+          "_index": "andecavensis_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:andecavensis.computus.lat001",
           "_score": null,
@@ -48,7 +48,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v3",
+          "_index": "andecavensis_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
@@ -80,7 +80,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v3",
+          "_index": "andecavensis_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:andecavensis.form023.lat001",
           "_score": null,
@@ -112,7 +112,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v3",
+          "_index": "andecavensis_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:andecavensis.form034.lat001",
           "_score": null,
@@ -144,7 +144,7 @@
           ]
         },
         {
-          "_index": "marculf_v3",
+          "_index": "marculf_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marculf.form000.lat001",
           "_score": null,
@@ -152,7 +152,7 @@
             "text": "some real text",
             "lemmas": "lemma text",
             "regest": "regest text",
-            "title": "Marculf Prolog",
+            "title": "Marculf 0",
             "keywords": "",
             "urn": "urn:cts:formulae:marculf.form000.lat001",
             "date_string": " ",
@@ -176,7 +176,7 @@
           ]
         },
         {
-          "_index": "marculf_v3",
+          "_index": "marculf_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marculf.form038.lat001",
           "_score": null,
@@ -208,7 +208,7 @@
           ]
         },
         {
-          "_index": "marculf_v3",
+          "_index": "marculf_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marculf.form2_001.lat001",
           "_score": null,
@@ -240,7 +240,7 @@
           ]
         },
         {
-          "_index": "marculf_v3",
+          "_index": "marculf_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marculf.form2_003.lat001",
           "_score": null,
@@ -272,7 +272,7 @@
           ]
         },
         {
-          "_index": "marculf_v3",
+          "_index": "marculf_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marculf.form2_006.lat001",
           "_score": null,
@@ -304,7 +304,7 @@
           ]
         },
         {
-          "_index": "marculf_v3",
+          "_index": "marculf_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marculf.form2_017.lat001",
           "_score": null,
@@ -336,7 +336,7 @@
           ]
         },
         {
-          "_index": "marculf_v3",
+          "_index": "marculf_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marculf.form2_049.lat001",
           "_score": null,
@@ -368,7 +368,7 @@
           ]
         },
         {
-          "_index": "auvergne_v3",
+          "_index": "auvergne_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:auvergne.form001.lat001",
           "_score": null,

@@ -7,10 +7,10 @@
             xmlns:owl="http://www.w3.org/2002/07/owl#"
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
    <identifier>urn:cts:formulae:p12</identifier>
-   <dc:title xml:lang="deu">p12</dc:title>
+   <dc:title xml:lang="deu">Paris BNF 4627</dc:title>
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
-      <bib:AbbreviatedTitle>p12</bib:AbbreviatedTitle>
+      <bib:AbbreviatedTitle>P&lt;span class="manuscript-number"&gt;12&lt;/span&gt;</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
       <collection path="./65r65v/__capitains__.xml"

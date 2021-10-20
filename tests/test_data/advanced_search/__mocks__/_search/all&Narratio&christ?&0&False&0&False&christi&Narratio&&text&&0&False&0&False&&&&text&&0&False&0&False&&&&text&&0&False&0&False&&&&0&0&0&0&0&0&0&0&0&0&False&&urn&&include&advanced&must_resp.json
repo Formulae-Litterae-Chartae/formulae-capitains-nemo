@@ -1,10 +1,10 @@
 [
   {
-    "took": 51,
+    "took": 57,
     "timed_out": false,
     "_shards": {
-      "total": 57,
-      "successful": 57,
+      "total": 59,
+      "successful": 59,
       "skipped": 0,
       "failed": 0
     },
@@ -16,13 +16,10 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0018.lat001",
           "_score": null,
-          "_ignored": [
-            "Narratio.keyword"
-          ],
           "_source": {
             "text": "DONATIO ERCHANPALDI DE PERAHAH. In nomine domini nostri Jesu Christi salvatoris dei Ego Erchanpald cogitans enim aeternam beatitudinem possidere vel poenalem iudicium evadere et considerans, qualiter contemnentes deum poenam incidunt aeternam et Christo adherentes vitam adipiscunt sempiternam, propterea igitur statui ut de iura proprietatis meae quod pater meus mihi in hereditatem reliquid ad oppidum Frigisinga tradidi ad ecclesiam beatae dei genetricis Mariae semper virginis in locis nominatis Perahah et Munirihhinga Enimvero tradidi de Perahah domum cum omnibus aedificiis curtiferis sepe circumcinctis et tres familias cum coloniis et cum omnibus quaecunque habent quorum nomina Nordperht et alii quinque nomine Lantfrid et uxor sua Otrih et mater eius et Alarih frater eius et in vico Muni­rihhinga duas familias cum omnibus illorum utensiliis quorum nomina Pirhtilo et uxor sua Hroadheri cum sua uxore et omnem territorium sub nostro iure et alode pratis pascuis silvis quod ad me pertinere legibus videbatur post obitum vero meum donatum ad ecclesiam sanctae Mariae domum episcopalem sicut supradictum est donatum in perpetuum esse volo tam pro me quam pro patrem meum Reginpaldum et matrem meam Cotafrita et Oadalkerum, ut hereditas mea hereditas sit sanctorum",
             "lemmas": null,
@@ -75,13 +72,10 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0022.lat001",
           "_score": null,
-          "_ignored": [
-            "Poenformel.keyword"
-          ],
           "_source": {
             "text": "TRADITIO PERCHAK. In nomine domini nostri Jesu Christi Ego Reginolt et germanus meus Egeno pro remedio anime nostrae sive parentum nostrorum, id est pro patre vel matre seu avones et pro omnibus qui de propinquitate nostra sunt qui in Christo crediderunt tradidimus atque transfundavimus de paterna seu qualibet hereditate totum et integrum ad ecclesiam sancti Michahelis in loco qui vocatur Perchak, omnia ad ipsum locum dedimus atque transfundavimus per licentiam et hortamentum parentum nostrorum et ipsos presentes et testes tradentes ex integro qui presentes fuerunt secundum quod ecclesiasticis viris didicimus ut hec donatio firma et stabilis permaneat Et si quis de heredibus meis vel propinquis seu oppositia persona qui contra hanc donationem ire aut frangere voluerit, inprimis iram dei incurrat et iudici qui eodem tempore fuerit solvat auri uncias XII et in conspectu dei cum omnibus sanctis seu patribus CCCXVIII sciat se rationem redditurum qui ullo modo hanc donationem frangere voluerit, si se non emendaverit, dampnetur et anathematizetur ab omni aecclesia sancta dei. Nomina testium in libro traditionum habentur. Facta est hec epistula tempore excellentissimi viri Pippini regis et Tassiloni ducis mense VII. X. die mensi VII. Et ego Reginolt et germanus meus Egino per licentiam omnium servorum dei usque dum vita nostra est, si revertimus, petimus, ut ipsa causa que pro nos tradimus nobis deserviat et ad locum ubi nos deservimus et consolationem habemus seu et mater nostra ipso modo cum ipsa causa, usque dum vivat, in ea vivat et deserviat ad ipsos sanctos ut supra scriptum est.",
             "lemmas": null,
@@ -136,9 +130,9 @@
             "min_date": "0764-07-10",
             "max_date": "0767-07-10",
             "days": [
-              "Thursday",
-              "Wednesday",
               "Friday",
+              "Wednesday",
+              "Thursday",
               "Tuesday"
             ],
             "sort_prefix": 1,
@@ -170,13 +164,10 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0093.lat001",
           "_score": null,
-          "_ignored": [
-            "Narratio.keyword"
-          ],
           "_source": {
             "text": "TRADITIO UUILLAPATONIS PRESBITERI DE RUPILINGA ET AGUSINGA. In nomine domini nostri Jesu Christi salvatoris dei Ego Uuillapato presbiter cogitans enim aeternam beatitudinem possidere vel poenalem iudicium evadere et considerans, qualiter contemnentes deum poenam incidunt aeternam et Christo adherentes vitam adipiscunt sempiternam, propterea igitur statui ut de iura propriis meis quae pater meus mihi in hereditatem reliquid ad oppidum Frigisinga tradidi ad ecclesiam beatae dei genetricis Mariae semper virginis in locis nominatis Rupilinga et Agusinga, sunt exinde colonias II de territorio et lucrum meum quicquid ab eo die adipiscere aut emeliorare possim, totum et integrum post die discessionis meae ab ac luce redeat ad servitium domui supradicto firma et stabilis pro remedium animae meae Et haec sunt testes Umfrid presbiter. Samuel diaconus. Uuilliperht testis. Adalhart comes. Kerpato comes. Uualtrih testis.",
             "lemmas": null,
@@ -229,13 +220,10 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1031.lat001",
           "_score": null,
-          "_ignored": [
-            "Narratio.keyword"
-          ],
           "_source": {
             "text": "COMMUTATIO WALDONIS EPISCOPI ET VIDUAE IRMBURC NOMINE. In nomine dei et salvatoris nostri Agnoscant omnes Christiane religionis cultores, qualiter nobilis quedam vidua Irmburc nominata cogitans, quia unicuique incertus est dies erit sui et quia qui Christo dat ista transitoria secundum evangelium eterna recipiet premia. Huius evangelici promissi memor et etiam presentis vitae cauta inspectatrix venit cum aliquibus amicis suis in Frigisingam ad Uualdonem eidem sedis venerabilem rectorem inplorans, ut eius consultu et adiutorio et eternae et presentis vitae subsidium possidere mereretur. Cuius etiam peticioni pie annuens et consultu fidelium suorum consilium dedit et sicut secum de domo dei complacitare voluit rite et legaliter implevit Tradidit namque eadem prefata vidua cum advocato suo Richolfo nullo contradicente presente et eandem traditionem accipiende eodem episcopo cum advocato suo Erphhario necnon astante clericorum et nobilium laicorum non modica turba quicquid ad Murun proprietatis habuit in altare sanctae genitricis dei et sancti Corbiniani confessoris atque deinde ad Mosapurg in aram sancti Castuli martyris Christi, id est ecclesiam cum omnibus ecclesiasticis rebus infra ecclesiam campanas II altaria III capsas VI cruces in cornu paratas palliola serica IIII et alia VIIII calices II unum arg( enteum), alterum plumpeum patenas II unam arg( enteam), alteram cupream corporalem I casulam I sericam, alteram lineam, tertiam laneam stolam I albam I mappulas II zonas II missales II lectionarium I antiphonarium I gradalem I librum omeliarum I coronam I cortinas IIII vexillas IIII et omnem decimationem atque curtam cum domo et horreo atque aedificiis et etiam terram prata silvulas aquas aquarumve decursus vias et invias cum exitibus et reditibus et unum litus super Ysaram fluvium et quicquid ad eundem locum pertinuit in adquisitis et adquirendis totum et integrum tradidit et nihil pretermisit; mancipia vero tantum XX tradidit quorum nomina sunt: Liutperht, alius Livtperht, Adalger, Vuolfpero, Irmperht, Engilgoz, Plidker .. Odalrih, Uuillipolt, Waldni, Sigini, Ruodhilt, Kerhilt, Uuilla, Vuentilpurc, Vuillidrud, Sigipirc, alia Sigipirc. Isti sunt testes tradicionis quam eadem Irmpurc fecit Helmpreht. Ratolt. Engilhart. Asperht. Helmperht. Egilolf. Ruodperht. Rihheri. Ratolt. Epo. Diotperht. Wiccȏ. Uȏdalperht. Hunolf. Vuillihelm. Rihholf. Econtra vero prout voluit et complacitare libuit eadem prefata vidua tradente episcopo et advocato suo Erphhario coram altari sanctae Mariae cum advocato suo Rihholfo in proprietatem accepit quendam locum ad Mosapurc pertinentem qui dicitur Perchoua et quicquid ad eundem locum iure pertinere videbatur exceptis pratis de quibus tantum C carradas accepit. Haec sunt mancipia ad eundem locum pertinentia: Immo, Adalpold, alius Immo, Ellanpold, Egilolf, Liupuni, Heripold, Cotafrid, Altheri, Otker, Diotlind, Wasapurc, Adalmuot, Irmpurc, Vuillihilt, Perchkart, Cȏtila, Rihpirc, insuper etiam mansos II et in eisdem mancipia VIII quorum nomina sunt Adalolf et Emita, Adalger et Kundila, Adaluni et Himildrud, Ruoheri et Cozila adque molas duas in una domo et unum molinarium, insuper vero ad Grantouuva mansos II accepit et in eisdem mancipia VIII quorum nomina sunt Vuaninc et Adalmuȏt, Ruodmunt et Hiltidrud, Liutram et Patihilt, Etih et Irminhilt Haec omnia de domo dei ita accepit, ut usque in finem vitae suae eadem Irmpurc easdem res idem et quas tradidit et quas accepit teneat possideat et quamdiu vivat rite in eis faciat; post transitum vero et finem dierum suorum ambe res ad domum dei et curam rectorem eiusdem ecclesiae redeant et stabili nutu perenniter fixe permaneant. Actum ad Frigisingam in ecclesia beatae Mariae anno DCCCXCVIIII",
             "lemmas": null,
@@ -290,7 +278,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0013.lat001",
           "_score": null,
@@ -352,7 +340,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
           "_score": null,
@@ -415,7 +403,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
           "_score": null,
@@ -481,7 +469,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0085.lat001",
           "_score": null,
@@ -543,7 +531,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0087.lat001",
           "_score": null,
@@ -605,7 +593,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
           "_score": null,
@@ -1051,13 +1039,13 @@
             "min_date": "0766-07-25",
             "max_date": "0800-08-06",
             "days": [
+              "Sunday",
+              "Friday",
+              "Saturday",
               "Thursday",
               "Tuesday",
               "Monday",
-              "Friday",
-              "Sunday",
-              "Wednesday",
-              "Saturday"
+              "Wednesday"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
@@ -1094,7 +1082,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
           "_score": null,
@@ -1158,7 +1146,7 @@
           ]
         },
         {
-          "_index": "passau_v3",
+          "_index": "passau_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:passau.heuwieser0029.lat001",
           "_score": null,
@@ -1218,10 +1206,13 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0005.lat001",
           "_score": null,
+          "_ignored": [
+            "Narratio.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1274,7 +1265,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0027.lat001",
           "_score": null,
@@ -1337,14 +1328,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0074.lat001",
           "_score": null,
-          "_ignored": [
-            "Pertinenzformel.keyword",
-            "Narratio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",

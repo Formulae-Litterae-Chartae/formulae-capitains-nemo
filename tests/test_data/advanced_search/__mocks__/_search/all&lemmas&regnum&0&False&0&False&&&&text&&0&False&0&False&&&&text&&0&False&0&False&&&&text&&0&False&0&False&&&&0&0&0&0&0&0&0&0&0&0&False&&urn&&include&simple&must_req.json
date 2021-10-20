@@ -77,7 +77,8 @@
       "number_of_fragments": 0,
       "fields": {
         "text": {},
-        "lemmas": {}
+        "lemmas": {},
+        "regest": {}
       },
       "pre_tags": [
         "</small><strong>"

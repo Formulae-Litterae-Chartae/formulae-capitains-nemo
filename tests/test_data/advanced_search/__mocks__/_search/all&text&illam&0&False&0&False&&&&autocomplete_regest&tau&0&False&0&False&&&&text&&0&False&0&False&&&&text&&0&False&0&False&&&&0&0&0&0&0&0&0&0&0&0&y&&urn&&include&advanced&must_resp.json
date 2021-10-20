@@ -1,28 +1,72 @@
 [
   {
-    "took": 125,
+    "took": 162,
     "timed_out": false,
     "_shards": {
-      "total": 57,
-      "successful": 57,
+      "total": 59,
+      "successful": 59,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 672,
+        "value": 678,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "freising_v3",
+          "_index": "chartae_latinae_cxvi_v1",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0012.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Chartae Latinae antiquiores, Part 116, Austria IV, Belgium (Ed. Thaller) Nr. 12",
+            "keywords": "",
+            "urn": "urn:cts:formulae:chartae_latinae_cxvi.thaller0012.lat001",
+            "date_string": "851 11 15",
+            "comp_ort": "Regensburg",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Regensburg",
+            "collection": "chartae_latinae_cxvi",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 851,
+                "month": 11,
+                "day": 15
+              }
+            ],
+            "all_dates": [
+              "0851-11-15"
+            ],
+            "min_date": "0851-11-15",
+            "max_date": "0851-11-15",
+            "days": [
+              "Sunday"
+            ],
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete_regest": [
+              "autocomplete regest text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:chartae_latinae_cxvi.thaller0012.lat001"
+          ]
+        },
+        {
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
           "_score": null,
-          "_ignored": [
-            "Arenga.keyword"
-          ],
           "_source": {
             "text": "Consultum enim et rationabile videtur, ut quicquid ecclesiasticis vel saecularibus negotiis aut iudiciis agatur, serie literarum et testimonio nobilium et veracium virorum ita ligetur et confirmetur, ne in posterum ullo modo possit dissolvi vel corrumpi Notum sit enim sanctae dei ecclesiae fidelibus veracibusque viris, qualiter Dracholfus Frigisingensis ecclesiae venerabilis episcopus et Couuo eiusdem ecclesiae humilis chorepiscopus inter se conplacitaverunt et communi traditione testiumque conductione sicut mos est firmaverunt Remisit enim idem chorepiscopus et advocatus suus comes Sigihardus propriam abbatiolam suam quam coram rege et episcopis atque comitibus et ceteris principibus suis, sicut in cartula exinde precepto regis facta scriptum est, complacitavit Mosapurg nuncupatam ad ecclesiam beatae Marie semper virginis et sancti Corbiniani confessoris in manus prefati episcopi et advocati sui Kepolfi ea rations et tenore, quatenus ille quicquid eodem die vel tempore de episcopatu in beneficium haberet, deinceps usque in finem mortalis vitae sine ulla contradictione et molestia possideret. Insuper vero in eadem Frigisingensi villa eiusdem rei causa colonias duas cum habitatoribus suis caeterisque appendiciis ad easdem pertinentibus ab eodem episcopo idem chorepiscopus in proprietatem accepit, simili vero modo de eadem abbatiola Mosapurg dicta curtam unam Humbala vocatam cum omnibus ad illam pertinentibus mobilibus et inmobilibus adquisitis et adquirendis necnon et beneficiolum unum pene desertatum Suuanahiltadorf nominatum; preterea vero fabrum unum Heizonem et scutarium unum Perhtkozum atque pistorem unum Linguni dictum necnon et piscatorem unum Artheri nominatum atque de genetio ancillas XII, de orientali vero vino huc allato annuatim carradas duas et de vino Bauzano illic dato carradas III Haec vero complacitatio facta est in ecclesia Frigisingensi in publica synodo coram clero et asstante populo anno vero domini DCCCCVIII id. sept. anno prefati episcopi secundo incipiente, chorepiscopi vero VI. et incipiente VII Isti sunt testes eiusdem complacitationis, sicut mos est Baioariorum, per aures tracti: Arbo comes. Sigihart comes. Uuetti comes. Uuolfdregil comes et ceteri vassalli. Pernhart. Hartnid. Helmperht. Kotesscalh. Nothart. Tento. Adalfrid. Kisalolt. Jacob. Muotheri. Ratolt. Liutfrid. Ramuolf. Benedic. Kotahelm.",
             "lemmas": null,
@@ -78,7 +122,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
           "_score": null,
@@ -132,7 +176,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
           "_score": null,
@@ -186,7 +230,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
           "_score": null,
@@ -240,7 +284,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
           "_score": null,
@@ -294,7 +338,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
           "_score": null,
@@ -341,7 +385,7 @@
           ]
         },
         {
-          "_index": "passau_v3",
+          "_index": "passau_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
           "_score": null,
@@ -388,7 +432,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
           "_score": null,
@@ -444,7 +488,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
           "_score": null,
@@ -500,13 +544,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
           "_score": null,
-          "_ignored": [
-            "Pertinenzformel.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -568,14 +609,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
           "_score": null,
-          "_ignored": [
-            "Pertinenzformel.keyword",
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -635,7 +672,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
           "_score": null,
@@ -682,7 +719,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v3",
+          "_index": "weissenburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
           "_score": null,
@@ -732,29 +769,73 @@
     }
   },
   {
-    "took": 169,
+    "took": 198,
     "timed_out": false,
     "_shards": {
-      "total": 57,
-      "successful": 57,
+      "total": 59,
+      "successful": 59,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 878,
+        "value": 882,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "freising_v3",
+          "_index": "chartae_latinae_cxvi_v1",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0012.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Chartae Latinae antiquiores, Part 116, Austria IV, Belgium (Ed. Thaller) Nr. 12",
+            "keywords": "",
+            "urn": "urn:cts:formulae:chartae_latinae_cxvi.thaller0012.lat001",
+            "date_string": "851 11 15",
+            "comp_ort": "Regensburg",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Regensburg",
+            "collection": "chartae_latinae_cxvi",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 851,
+                "month": 11,
+                "day": 15
+              }
+            ],
+            "all_dates": [
+              "0851-11-15"
+            ],
+            "min_date": "0851-11-15",
+            "max_date": "0851-11-15",
+            "days": [
+              "Sunday"
+            ],
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "text": [
+              "text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:chartae_latinae_cxvi.thaller0012.lat001"
+          ]
+        },
+        {
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
           "_score": null,
-          "_ignored": [
-            "Arenga.keyword"
-          ],
           "_source": {
             "text": "Consultum enim et rationabile videtur, ut quicquid ecclesiasticis vel saecularibus negotiis aut iudiciis agatur, serie literarum et testimonio nobilium et veracium virorum ita ligetur et confirmetur, ne in posterum ullo modo possit dissolvi vel corrumpi Notum sit enim sanctae dei ecclesiae fidelibus veracibusque viris, qualiter Dracholfus Frigisingensis ecclesiae venerabilis episcopus et Couuo eiusdem ecclesiae humilis chorepiscopus inter se conplacitaverunt et communi traditione testiumque conductione sicut mos est firmaverunt Remisit enim idem chorepiscopus et advocatus suus comes Sigihardus propriam abbatiolam suam quam coram rege et episcopis atque comitibus et ceteris principibus suis, sicut in cartula exinde precepto regis facta scriptum est, complacitavit Mosapurg nuncupatam ad ecclesiam beatae Marie semper virginis et sancti Corbiniani confessoris in manus prefati episcopi et advocati sui Kepolfi ea rations et tenore, quatenus ille quicquid eodem die vel tempore de episcopatu in beneficium haberet, deinceps usque in finem mortalis vitae sine ulla contradictione et molestia possideret. Insuper vero in eadem Frigisingensi villa eiusdem rei causa colonias duas cum habitatoribus suis caeterisque appendiciis ad easdem pertinentibus ab eodem episcopo idem chorepiscopus in proprietatem accepit, simili vero modo de eadem abbatiola Mosapurg dicta curtam unam Humbala vocatam cum omnibus ad illam pertinentibus mobilibus et inmobilibus adquisitis et adquirendis necnon et beneficiolum unum pene desertatum Suuanahiltadorf nominatum; preterea vero fabrum unum Heizonem et scutarium unum Perhtkozum atque pistorem unum Linguni dictum necnon et piscatorem unum Artheri nominatum atque de genetio ancillas XII, de orientali vero vino huc allato annuatim carradas duas et de vino Bauzano illic dato carradas III Haec vero complacitatio facta est in ecclesia Frigisingensi in publica synodo coram clero et asstante populo anno vero domini DCCCCVIII id. sept. anno prefati episcopi secundo incipiente, chorepiscopi vero VI. et incipiente VII Isti sunt testes eiusdem complacitationis, sicut mos est Baioariorum, per aures tracti: Arbo comes. Sigihart comes. Uuetti comes. Uuolfdregil comes et ceteri vassalli. Pernhart. Hartnid. Helmperht. Kotesscalh. Nothart. Tento. Adalfrid. Kisalolt. Jacob. Muotheri. Ratolt. Liutfrid. Ramuolf. Benedic. Kotahelm.",
             "lemmas": null,
@@ -810,7 +891,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
           "_score": null,
@@ -864,7 +945,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
           "_score": null,
@@ -918,7 +999,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
           "_score": null,
@@ -972,7 +1053,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
           "_score": null,
@@ -1026,7 +1107,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v3",
+          "_index": "hersfeld_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
           "_score": null,
@@ -1073,7 +1154,7 @@
           ]
         },
         {
-          "_index": "passau_v3",
+          "_index": "passau_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
           "_score": null,
@@ -1120,7 +1201,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
           "_score": null,
@@ -1176,7 +1257,7 @@
           ]
         },
         {
-          "_index": "regensburg_v3",
+          "_index": "regensburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
           "_score": null,
@@ -1232,13 +1313,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
           "_score": null,
-          "_ignored": [
-            "Pertinenzformel.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1300,14 +1378,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
           "_score": null,
-          "_ignored": [
-            "Pertinenzformel.keyword",
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -1367,7 +1441,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
           "_score": null,
@@ -1414,7 +1488,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v3",
+          "_index": "weissenburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
           "_score": null,

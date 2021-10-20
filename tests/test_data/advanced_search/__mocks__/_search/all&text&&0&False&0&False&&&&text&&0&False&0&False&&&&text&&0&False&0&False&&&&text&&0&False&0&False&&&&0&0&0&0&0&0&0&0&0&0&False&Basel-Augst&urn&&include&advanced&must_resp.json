@@ -1,10 +1,10 @@
 [
   {
-    "took": 7,
+    "took": 11,
     "timed_out": false,
     "_shards": {
-      "total": 57,
-      "successful": 57,
+      "total": 59,
+      "successful": 59,
       "skipped": 0,
       "failed": 0
     },
@@ -16,13 +16,12 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
           "_score": null,
           "_ignored": [
-            "Poenformel.keyword",
-            "Pertinenzformel.keyword"
+            "Poenformel.keyword"
           ],
           "_source": {
             "text": "some real text",
