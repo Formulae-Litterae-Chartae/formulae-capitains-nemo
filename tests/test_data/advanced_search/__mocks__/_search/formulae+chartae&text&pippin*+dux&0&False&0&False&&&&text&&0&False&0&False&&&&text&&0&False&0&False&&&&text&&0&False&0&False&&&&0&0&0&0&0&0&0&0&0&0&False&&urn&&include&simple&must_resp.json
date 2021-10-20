@@ -1,10 +1,10 @@
 [
   {
-    "took": 23,
+    "took": 73,
     "timed_out": false,
     "_shards": {
-      "total": 57,
-      "successful": 57,
+      "total": 59,
+      "successful": 59,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "arnulfinger_v3",
+          "_index": "arnulfinger_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
           "_score": null,
@@ -54,6 +54,9 @@
             "sort_prefix": 1
           },
           "highlight": {
+            "regest": [
+              "regest text"
+            ],
             "text": [
               "text"
             ]
@@ -64,7 +67,7 @@
           ]
         },
         {
-          "_index": "echternach_v3",
+          "_index": "echternach_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:echternach.wampach0024.lat001",
           "_score": null,
@@ -102,6 +105,9 @@
             "sort_prefix": 1
           },
           "highlight": {
+            "regest": [
+              "regest text"
+            ],
             "text": [
               "text"
             ]

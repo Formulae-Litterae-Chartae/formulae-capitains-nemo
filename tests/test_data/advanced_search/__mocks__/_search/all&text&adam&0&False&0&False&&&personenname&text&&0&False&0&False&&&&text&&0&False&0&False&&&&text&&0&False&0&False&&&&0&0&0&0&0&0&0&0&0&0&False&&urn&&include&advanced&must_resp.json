@@ -1,10 +1,10 @@
 [
   {
-    "took": 18,
+    "took": 44,
     "timed_out": false,
     "_shards": {
-      "total": 57,
-      "successful": 57,
+      "total": 59,
+      "successful": 59,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v3",
+          "_index": "andecavensis_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:andecavensis.computus.lat001",
           "_score": null,
@@ -48,13 +48,10 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0071.lat001",
           "_score": null,
-          "_ignored": [
-            "Narratio.keyword"
-          ],
           "_source": {
             "text": "TRADITIO UUANINC DE MONTE VEL DE REHCPAHC. Regnante domino nostro Jesu Christo in anno XXVIIII. regni domni Tassiloni ducis ego Uuaninc languore depressus ad ultimum deductus cogitare coeperam de anima mea seu de futura vita, ut in quantitate apud pio domino veniam merear accipere. Haec meditans apud memet ipsum pertractans, ut alodem quem genitor meus Utto mihi in hereditatem reliquit vel a fratre meo sortitus sum in loco ad Monte nuncupante vel alio loco quae dicitur Rechpach vel quicquid ad ea. pertinent loca, id est servos mancipias colonias aedificia silvas frutecta ruras pascua pratas aquarum decursus cum omne utensilia ad nos iura pertinentia ut traderem ad ecclesiam beate et intemeratae virginis Mariae et confessoris Christi Corbiniani sepulchro castro Frigisinga site. Ita et fecimus haec omnia quae stilo conprehensa sunt in praesentia genitoris vel germani necnon et propinqnorum agmine vel coniugis atque sacerdotum, id est Uuicpot, Erlapald, Hunolt, ut si quis contra hanc traditionem venire temptaverit, in iudicio cum his incurrat sanctis quorum ibidem venerantur nomina in conspectu tremende maiestatis divinae et traditio haec nihilominus firma permaneat stipulatione subnexa iure functionis peracta Actum in loco praenotato per manus genitoris et germani seu praenotatum sacerdotum chrono superius couprehenso sub die consule quod erat IIII. kal. mar. Et haec testes et eorum nomina iure per aures tracti Erlapald. Uuicpot. Hunolt presbiter. Adam. Altuperht. Erpho. Adalger. Epo. Perhtcoz. Fritilo. Paturich. Uuicrat et cunctus clerus sanctae Mariae domui deservientes Ego Heripald clericus iussus ex ore Heredis episcopi conscripsi",
             "lemmas": null,
@@ -114,7 +111,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0428.lat001",
           "_score": null,
@@ -175,10 +172,13 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0429.lat001",
           "_score": null,
+          "_ignored": [
+            "Publicatio.keyword"
+          ],
           "_source": {
             "text": "TRADITIO ERLAPALDI PRESBITERI ET AMALFRIDI DIACONI ET ERCHANPALD PRESBITER ET ERLOLF LAICUS. Dum et omnibus non habetur incognitum, sed multis in episcopio beatissimae semper virginis Mariae bene est notum qualiter iam olim Erlapald presbiter propriam hereditatem suam domui sanctae Mariae tradidit et firmiter in perpetuum posidendum confirmavit quicquid habere et possidere videbatur in loco Rihcozeshouum; similiterque et Amalfrid diaconus eodem tempore suam hereditatem domui sanctae Mariae condonavit in loco propinquo nominato Rehpach, quicquid in eodem loco possidere et proprium habere visum est, hoc est territorium et unum mancipium et alium dimidium quem communem habuit cum fratre suo nomine Erlolf. Iam defuncto Amalfrido diacono venerunt ad domum Hittonem episcopum Erlapald presbiter et Adolf laicus et nuntiaverunt ei, qualiter iam dicta res temporibus Arbionis episcopi et Attonis episcopi iam acta fuerunt et in illius praesentia accesserunt ad altare sanctae Mariae et tradiderunt pro Erlolfum tertiam partem territorii ipsius Erlolfi in loco Rehpach et duos mancipios quorum nomina Cundalperht, Tota. Hoc fecit Erlapald presbiter et Adolf laicus, quia missi Erlolfi hanc traditionem perficere fuerunt et fecerunt ita. Hoc peractum accessit Erchanpald presbiter eadem hora et tradidit propriae hereditatis iurnales XXX et triginta carradas de pratis et mancipios llII Horscuni, Uuolfhram, Otfrit, Erchanfrit statuitque, ut post obitum eius haec omnia supradicta nullus domui sanctae Mariae contradicere potestatem habuisset Actum est haec in praesentia domni Hittonis episcopi et Heriberti archipresbiteri. Odalpald presbiter et monachus. Meginolt presbiter et monachus. Emicho diaconus. Anno diaconus. Nidperht diaconus seu alii multi. Testes vero per aures tracti Adam. Fridurat. Isancrim. Uualho. Marcheo. Petto. Juto. Cundhart. Adalunc. Einuorht. Uuillipald. Actum est haec XI. kal. dec anno gloriosi imperatoris Hloduici VI. indictione XI Ego Tagabertus indignus presbiter conscripsi iussione venerabilis Hittonis episcopi",
             "lemmas": null,
@@ -232,7 +232,7 @@
           ]
         },
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0514.lat001",
           "_score": null,
@@ -326,7 +326,7 @@
           ]
         },
         {
-          "_index": "katalonien_v3",
+          "_index": "katalonien_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0800.lat001",
           "_score": null,
@@ -373,7 +373,7 @@
           ]
         },
         {
-          "_index": "katalonien_v3",
+          "_index": "katalonien_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0926.lat001",
           "_score": null,
@@ -420,7 +420,7 @@
           ]
         },
         {
-          "_index": "lorsch_v3",
+          "_index": "lorsch_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner0214.lat001",
           "_score": null,
@@ -452,7 +452,7 @@
           ]
         },
         {
-          "_index": "lorsch_v3",
+          "_index": "lorsch_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner0226.lat001",
           "_score": null,
@@ -496,7 +496,7 @@
           ]
         },
         {
-          "_index": "lorsch_v3",
+          "_index": "lorsch_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner0227.lat001",
           "_score": null,
@@ -528,7 +528,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v3",
+          "_index": "marmoutier_blésois_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0007.lat001",
           "_score": null,
@@ -572,7 +572,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v3",
+          "_index": "marmoutier_blésois_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0070.lat001",
           "_score": null,
@@ -616,7 +616,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v3",
+          "_index": "marmoutier_blésois_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0093.lat001",
           "_score": null,
@@ -660,7 +660,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v3",
+          "_index": "marmoutier_blésois_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0173.lat001",
           "_score": null,
@@ -704,7 +704,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v3",
+          "_index": "marmoutier_blésois_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0184.lat001",
           "_score": null,
@@ -748,7 +748,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v3",
+          "_index": "marmoutier_blésois_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0189.lat001",
           "_score": null,
@@ -792,7 +792,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v3",
+          "_index": "marmoutier_blésois_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0190.lat001",
           "_score": null,
@@ -1976,7 +1976,7 @@
           ]
         },
         {
-          "_index": "marmoutier_pour_le_perche_v3",
+          "_index": "marmoutier_pour_le_perche_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0034.lat001",
           "_score": null,
@@ -2020,7 +2020,7 @@
           ]
         },
         {
-          "_index": "marmoutier_pour_le_perche_v3",
+          "_index": "marmoutier_pour_le_perche_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0062.lat001",
           "_score": null,
@@ -2064,7 +2064,7 @@
           ]
         },
         {
-          "_index": "marmoutier_pour_le_perche_v3",
+          "_index": "marmoutier_pour_le_perche_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0150.lat001",
           "_score": null,
@@ -2108,7 +2108,7 @@
           ]
         },
         {
-          "_index": "marmoutier_pour_le_perche_v3",
+          "_index": "marmoutier_pour_le_perche_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0151.lat001",
           "_score": null,
@@ -2463,7 +2463,7 @@
           ]
         },
         {
-          "_index": "saint_bénigne_v3",
+          "_index": "saint_bénigne_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:saint_bénigne.maurice0030.lat001",
           "_score": null,
@@ -2507,7 +2507,7 @@
           ]
         },
         {
-          "_index": "salzburg_v3",
+          "_index": "salzburg_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0048.lat001",
           "_score": null,
@@ -2566,13 +2566,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0118.lat001",
           "_score": null,
-          "_ignored": [
-            "Dispositio.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -2632,13 +2629,12 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0142.lat001",
           "_score": null,
           "_ignored": [
-            "Poenformel.keyword",
-            "Pertinenzformel.keyword"
+            "Poenformel.keyword"
           ],
           "_source": {
             "text": "some real text",
@@ -2701,7 +2697,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0578.lat001",
           "_score": null,
@@ -2772,13 +2768,10 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0751.lat001",
           "_score": null,
-          "_ignored": [
-            "Pertinenzformel.keyword"
-          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -2832,7 +2825,7 @@
           ]
         },
         {
-          "_index": "stgallen_v3",
+          "_index": "stgallen_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0752.lat001",
           "_score": null,
@@ -2889,7 +2882,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v3",
+          "_index": "telma_marmoutier_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1012.lat001",
           "_score": null,
@@ -2933,7 +2926,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v3",
+          "_index": "telma_marmoutier_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1573.lat001",
           "_score": null,
@@ -2977,7 +2970,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v3",
+          "_index": "telma_marmoutier_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2171.lat001",
           "_score": null,
@@ -3021,7 +3014,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v3",
+          "_index": "telma_marmoutier_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3150.lat001",
           "_score": null,
@@ -3065,7 +3058,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v3",
+          "_index": "telma_marmoutier_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3151.lat001",
           "_score": null,
@@ -3109,7 +3102,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v3",
+          "_index": "telma_marmoutier_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud4542.lat001",
           "_score": null,
@@ -3153,7 +3146,7 @@
           ]
         },
         {
-          "_index": "tours_st_julien_denis_v1",
+          "_index": "tours_st_julien_denis_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:tours_st_julien_denis.denis0019.lat001",
           "_score": null,
@@ -3197,7 +3190,7 @@
           ]
         },
         {
-          "_index": "tours_st_julien_denis_v1",
+          "_index": "tours_st_julien_denis_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:tours_st_julien_denis.denis0026.lat001",
           "_score": null,
@@ -3241,7 +3234,7 @@
           ]
         },
         {
-          "_index": "tours_st_julien_denis_v1",
+          "_index": "tours_st_julien_denis_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:tours_st_julien_denis.denis0029.lat001",
           "_score": null,
@@ -3285,7 +3278,7 @@
           ]
         },
         {
-          "_index": "tours_st_julien_denis_v1",
+          "_index": "tours_st_julien_denis_v2",
           "_type": "_doc",
           "_id": "urn:cts:formulae:tours_st_julien_denis.denis0039.lat001",
           "_score": null,

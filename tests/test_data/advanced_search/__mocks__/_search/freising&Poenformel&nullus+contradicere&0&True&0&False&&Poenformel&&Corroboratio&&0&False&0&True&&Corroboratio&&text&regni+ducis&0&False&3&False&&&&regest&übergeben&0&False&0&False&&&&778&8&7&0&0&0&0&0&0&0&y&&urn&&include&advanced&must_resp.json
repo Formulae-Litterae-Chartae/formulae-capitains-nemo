@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0090.lat001",
           "_score": null,
@@ -76,7 +76,7 @@
     }
   },
   {
-    "took": 4,
+    "took": 3,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -92,7 +92,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0090.lat001",
           "_score": null,
@@ -152,7 +152,7 @@
     }
   },
   {
-    "took": 2,
+    "took": 3,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -168,7 +168,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0090.lat001",
           "_score": null,
@@ -228,7 +228,7 @@
     }
   },
   {
-    "took": 2,
+    "took": 3,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -244,7 +244,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "freising_v3",
+          "_index": "freising_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0090.lat001",
           "_score": null,

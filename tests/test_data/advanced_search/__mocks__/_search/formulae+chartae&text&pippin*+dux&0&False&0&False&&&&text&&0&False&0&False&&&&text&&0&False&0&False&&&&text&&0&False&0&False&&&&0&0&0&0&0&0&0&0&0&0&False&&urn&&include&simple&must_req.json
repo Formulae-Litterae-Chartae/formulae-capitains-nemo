@@ -83,7 +83,8 @@
     "highlight": {
       "number_of_fragments": 0,
       "fields": {
-        "text": {}
+        "text": {},
+        "regest": {}
       },
       "pre_tags": [
         "</small><strong>"

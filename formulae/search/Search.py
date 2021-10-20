@@ -843,6 +843,7 @@ def advanced_query_index(corpus: list = None,
                         else:
                             regest_clauses.append({'match': {'regest': {'query': term, 'fuzziness': query_vals['fuzziness']}}})
                     bool_clauses.append({'bool': {'must': regest_clauses}})
+                    search_part_template['highlight']['fields'].update({'regest': {}})
                 search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
             elif query_vals['formulaic_parts']:
                 bool_clauses = [{'exists': {'field': x}} for x in query_vals['formulaic_parts'].split('+')]
