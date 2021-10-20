@@ -1,6 +1,6 @@
 [
   {
-    "took": 12,
+    "took": 17,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
           "_score": null,
@@ -81,7 +81,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0002.lat001",
           "_score": null,
@@ -113,8 +113,8 @@
             "min_date": "0813-02-12",
             "max_date": "0813-02-12",
             "days": [
-              "Saturday",
-              "Lent"
+              "Lent",
+              "Saturday"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "In Christi nomine",
@@ -145,7 +145,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
           "_score": null,
@@ -206,7 +206,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0007.lat001",
           "_score": null,
@@ -274,7 +274,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0008.lat001",
           "_score": null,
@@ -339,7 +339,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0009.lat001",
           "_score": null,
@@ -437,13 +437,13 @@
             "min_date": "0789-05-16",
             "max_date": "0800-05-16",
             "days": [
+              "Sunday",
+              "Friday",
+              "Saturday",
               "Thursday",
               "Tuesday",
               "Monday",
-              "Friday",
-              "Sunday",
-              "Wednesday",
-              "Saturday"
+              "Wednesday"
             ],
             "sort_prefix": 1,
             "Intitulatio": "Ego in dei nomine Alhart",
@@ -474,7 +474,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0011.lat001",
           "_score": null,
@@ -506,8 +506,8 @@
             "min_date": "0803-03-18",
             "max_date": "0803-03-18",
             "days": [
-              "Saturday",
-              "Lent"
+              "Lent",
+              "Saturday"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Mihhaelis in loco nuncupante Maninseo, ubi preest sanctus ac venerabilis Hiltipaldus archiepiscopus et sacri palatii capellanus",
@@ -545,7 +545,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0013.lat001",
           "_score": null,
@@ -610,7 +610,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0014.lat001",
           "_score": null,
@@ -682,7 +682,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0017.lat001",
           "_score": null,
@@ -748,7 +748,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0021.lat001",
           "_score": null,
@@ -820,7 +820,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0022.lat001",
           "_score": null,
@@ -885,7 +885,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0024.lat001",
           "_score": null,
@@ -952,7 +952,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0025.lat001",
           "_score": null,
@@ -1015,7 +1015,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0026.lat001",
           "_score": null,
@@ -1078,7 +1078,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0028.lat001",
           "_score": null,
@@ -1139,7 +1139,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0029.lat001",
           "_score": null,
@@ -1207,7 +1207,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0030.lat001",
           "_score": null,
@@ -1276,7 +1276,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0031.lat001",
           "_score": null,
@@ -1344,7 +1344,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0032.lat001",
           "_score": null,
@@ -1407,7 +1407,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0033.lat001",
           "_score": null,
@@ -1470,7 +1470,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0034.lat001",
           "_score": null,
@@ -1988,13 +1988,13 @@
             "min_date": "0748-05-07",
             "max_date": "0829-05-07",
             "days": [
+              "Sunday",
+              "Friday",
+              "Saturday",
               "Thursday",
               "Tuesday",
               "Monday",
-              "Friday",
-              "Sunday",
-              "Wednesday",
-              "Saturday"
+              "Wednesday"
             ],
             "sort_prefix": 1,
             "Arenga": "Vox evangelica tonet per orbem terrarum, qua dicitur: thesaurizate vobis thesauros in celo",
@@ -2030,7 +2030,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0036.lat001",
           "_score": null,
@@ -2082,7 +2082,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0038.lat001",
           "_score": null,
@@ -2149,7 +2149,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0039.lat001",
           "_score": null,
@@ -2205,7 +2205,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0044.lat001",
           "_score": null,
@@ -2270,7 +2270,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0045.lat001",
           "_score": null,
@@ -2333,7 +2333,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0047.lat001",
           "_score": null,
@@ -2365,8 +2365,8 @@
             "min_date": "0808-04-12",
             "max_date": "0808-04-12",
             "days": [
-              "Wednesday",
-              "Lent"
+              "Lent",
+              "Wednesday"
             ],
             "sort_prefix": 1,
             "Intitulatio": "Ego in die nomine Cozpald",
@@ -2402,7 +2402,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
           "_score": null,
@@ -2463,7 +2463,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
           "_score": null,
@@ -2529,7 +2529,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
           "_score": null,
@@ -2592,7 +2592,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0052.lat001",
           "_score": null,
@@ -2657,7 +2657,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
           "_score": null,
@@ -2722,7 +2722,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0056.lat001",
           "_score": null,
@@ -2785,7 +2785,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0057.lat001",
           "_score": null,
@@ -2855,7 +2855,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0059.lat001",
           "_score": null,
@@ -2918,7 +2918,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0063.lat001",
           "_score": null,
@@ -2981,7 +2981,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0064.lat001",
           "_score": null,
@@ -3052,7 +3052,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0067.lat001",
           "_score": null,
@@ -3115,7 +3115,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0068.lat001",
           "_score": null,
@@ -3147,8 +3147,8 @@
             "min_date": "0822-03-19",
             "max_date": "0822-03-19",
             "days": [
-              "Wednesday",
-              "Lent"
+              "Lent",
+              "Wednesday"
             ],
             "sort_prefix": 1,
             "Arenga": "Latores legum sanxerunt, ut, qui de iure propria alicui aliquid tradere volverit, inconvulsum valeat permanere",
@@ -3184,7 +3184,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0069.lat001",
           "_score": null,
@@ -3222,8 +3222,8 @@
             "min_date": "0792-07-06",
             "max_date": "0793-07-06",
             "days": [
-              "Saturday",
-              "Friday"
+              "Friday",
+              "Saturday"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "In nomine domini venerabile in Christo Hunriho abbati in Ioco nuncupante Maninseo",
@@ -3263,7 +3263,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
           "_score": null,
@@ -3332,7 +3332,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0071.lat001",
           "_score": null,
@@ -3402,7 +3402,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0072.lat001",
           "_score": null,
@@ -3472,7 +3472,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0073.lat001",
           "_score": null,
@@ -3544,7 +3544,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0075.lat001",
           "_score": null,
@@ -3607,7 +3607,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0078.lat001",
           "_score": null,
@@ -3670,7 +3670,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0079.lat001",
           "_score": null,
@@ -3733,7 +3733,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0080.lat001",
           "_score": null,
@@ -3809,7 +3809,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0085.lat001",
           "_score": null,
@@ -3874,7 +3874,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0086.lat001",
           "_score": null,
@@ -3943,7 +3943,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0087.lat001",
           "_score": null,
@@ -4008,7 +4008,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0088.lat001",
           "_score": null,
@@ -4078,7 +4078,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0089.lat001",
           "_score": null,
@@ -4116,8 +4116,8 @@
             "min_date": "0823-12-04",
             "max_date": "0823-12-05",
             "days": [
-              "Saturday",
-              "Friday"
+              "Friday",
+              "Saturday"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "Domino sancto et in Christo patri Lantperhto abbati de monasterio Maninseo una cum turma plurima monachorum ibidem consistencium, ubi reliquias sancti Michahelis archangeli dinoscitur",
@@ -4155,7 +4155,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0091.lat001",
           "_score": null,
@@ -4225,7 +4225,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0092.lat001",
           "_score": null,
@@ -4294,7 +4294,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0095.lat001",
           "_score": null,
@@ -4360,7 +4360,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
           "_score": null,
@@ -4806,13 +4806,13 @@
             "min_date": "0766-07-25",
             "max_date": "0800-08-06",
             "days": [
+              "Sunday",
+              "Friday",
+              "Saturday",
               "Thursday",
               "Tuesday",
               "Monday",
-              "Friday",
-              "Sunday",
-              "Wednesday",
-              "Saturday"
+              "Wednesday"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
@@ -4852,7 +4852,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0098.lat001",
           "_score": null,
@@ -4884,8 +4884,8 @@
             "min_date": "0809-04-04",
             "max_date": "0809-04-04",
             "days": [
-              "Wednesday",
-              "Lent"
+              "Lent",
+              "Wednesday"
             ],
             "sort_prefix": 1,
             "Narratio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Michahelis archangeli in loco nuncupante Maninseo, ubi preest sanctus ac venerabilis Hildipaldus archiepiscopus et sacri palacii capellanus ... constat mae non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro animae maeae remedium seu pro eterna retribucione",
@@ -4925,7 +4925,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
@@ -4995,7 +4995,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0104.lat001",
           "_score": null,
@@ -5059,7 +5059,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0107.lat001",
           "_score": null,
@@ -5115,7 +5115,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0110.lat001",
           "_score": null,
@@ -5176,7 +5176,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0112.lat001",
           "_score": null,
@@ -5247,7 +5247,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0114.lat001",
           "_score": null,
@@ -5315,7 +5315,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0116.lat001",
           "_score": null,
@@ -5378,7 +5378,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
           "_score": null,
@@ -5445,7 +5445,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0119.lat001",
           "_score": null,
@@ -5651,13 +5651,13 @@
             "min_date": "0787-09-30",
             "max_date": "0816-09-30",
             "days": [
+              "Sunday",
+              "Friday",
+              "Saturday",
               "Thursday",
               "Tuesday",
               "Monday",
-              "Friday",
-              "Sunday",
-              "Wednesday",
-              "Saturday"
+              "Wednesday"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "In nomine domini",
@@ -5688,7 +5688,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0121.lat001",
           "_score": null,
@@ -5760,7 +5760,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0123.lat001",
           "_score": null,
@@ -5828,7 +5828,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0124.lat001",
           "_score": null,
@@ -6034,13 +6034,13 @@
             "min_date": "0787-11-29",
             "max_date": "0816-11-29",
             "days": [
+              "Sunday",
+              "Friday",
+              "Saturday",
               "Thursday",
               "Tuesday",
               "Monday",
-              "Friday",
-              "Sunday",
-              "Wednesday",
-              "Saturday"
+              "Wednesday"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "In nomine patris et filii et spiritus sancti",
@@ -6073,7 +6073,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0126.lat001",
           "_score": null,
@@ -6138,7 +6138,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
           "_score": null,
@@ -6199,7 +6199,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0130.lat001",
           "_score": null,
@@ -6255,7 +6255,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0133.lat001",
           "_score": null,
@@ -6318,7 +6318,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
           "_score": null,
@@ -6385,7 +6385,7 @@
           ]
         },
         {
-          "_index": "mondsee_v3",
+          "_index": "mondsee_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0135.lat001",
           "_score": null,
