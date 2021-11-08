@@ -173,7 +173,7 @@
             <div class="dropdown-divider"></div>
         {% endif %}
         {% if inRefs %}
-            <span class="dropdown-item-text">{{ _('Formeln mit diesem Lemma') }}</span>
+            <span class="dropdown-item-text">{{ _('Texte mit diesem Lemma') }}</span>
             {% for r in inRefs %}
             {% if r is string %}
             <a class="dropdown-item">- <span>{{ r }}</span></a>
@@ -312,7 +312,7 @@
                         {% endif %}
                         {% if text.isReferencedBy %}
                             <button class="dropdown-toggle add-text-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span id="add-more-menu-{{ index }}" data-toggle="tooltip" data-container="#add-more-menu-{{ index }}" title="{{ _('Formeln mit diesem Lemma') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Formeln mit diesem Lemma') }}" class="align-top"> {{ _('Formeln mit diesem Lemma') }}</span>
+                                <span id="add-more-menu-{{ index }}" data-toggle="tooltip" data-container="#add-more-menu-{{ index }}" title="{{ _('Texte mit diesem Lemma') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Texte mit diesem Lemma') }}" class="align-top"> {{ _('Texte mit diesem Lemma') }}</span>
                             </button>
                             <div class="dropdown-menu version-dropdown">
                                 {% for r in text.isReferencedBy %}
@@ -460,7 +460,7 @@
                                 {% endif %}
                                 {% if text.isReferencedBy %}
                                     <button class="dropdown-toggle add-text-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span id="add-more-menu-{{ index }}" data-toggle="tooltip" data-container="#add-more-menu-{{ index }}" title="{{ _('Formeln mit diesem Lemma') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Formeln mit diesem Lemma') }}" class="align-top"> {{ _('Formeln mit diesem Lemma') }}</span>
+                                        <span id="add-more-menu-{{ index }}" data-toggle="tooltip" data-container="#add-more-menu-{{ index }}" title="{{ _('Texte mit diesem Lemma') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Texte mit diesem Lemma') }}" class="align-top"> {{ _('Texte mit diesem Lemma') }}</span>
                                     </button>
                                     <div class="dropdown-menu version-dropdown">
                                         {% for r in text.isReferencedBy %}
