@@ -347,7 +347,7 @@ class NemoFormulae(Nemo):
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], version]
         elif "elexicon" in m.id:
             parent_0 = list(m.parent)[0]
-            par = parent_0.split('.')[-1][0].capitalize()
+            par = parent_0.split('.')[-1].title()
             metadata = [m.id, parent_0.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
         elif "marmoutier_serfs" in m.id:
             par = re.sub(r'.*?(\d+)(app)?\Z', r'\2\1', list(m.parent)[0])
@@ -797,7 +797,9 @@ class NemoFormulae(Nemo):
                                    "regest": [str(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
-                                   'name': Markup(work_name), 'title': Markup(str(self.make_parents(m)[0]['label']))})
+                                   'name': Markup(work_name),
+                                   'title': Markup(str(self.make_parents(m)[0]['label'])),
+                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or '')})
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
@@ -822,7 +824,8 @@ class NemoFormulae(Nemo):
                 },
                 "readable": r,
                 "parents": current_parents,
-                "parent_ids": [x['id'] for x in current_parents]
+                "parent_ids": [x['id'] for x in current_parents],
+                "first_letters": set([x[0] for x in r.keys()])
             },
             "form": form
         }
