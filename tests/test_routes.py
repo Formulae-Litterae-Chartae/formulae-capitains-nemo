@@ -1347,7 +1347,7 @@ class TestFunctions(Formulae_Testing):
                              'Lorsch works should be correctly named.')
             data = self.nemo.r_corpus('urn:cts:formulae:marculf')
             print(data['collections']['readable'])
-            self.assertEqual(data['collections']['readable']['1_(Prolog)']['name'], 'I Prolog',
+            self.assertEqual(data['collections']['readable']['(Prolog)']['name'], 'I Prolog',
                              'Marculf works should be correctly named.')
             data = self.nemo.r_corpus('urn:cts:formulae:elexicon')
             self.assertEqual(data['template'], "main::elex_collection.html", "Elexicon should use elex template")
