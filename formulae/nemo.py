@@ -99,6 +99,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:bonneval_marmoutier',
                         'urn:cts:formulae:buenden',
+                        'urn:cts:formulae:cartier_1841',
                         'urn:cts:formulae:chartae_latinae_xi',
                         'urn:cts:formulae:chartae_latinae_xii',
                         'urn:cts:formulae:chartae_latinae_xlvi',
