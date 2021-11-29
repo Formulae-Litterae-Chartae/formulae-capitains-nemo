@@ -99,6 +99,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:bonneval_marmoutier',
                         'urn:cts:formulae:buenden',
+                        'urn:cts:formulae:cartier_1841',
                         'urn:cts:formulae:chartae_latinae_xi',
                         'urn:cts:formulae:chartae_latinae_xii',
                         'urn:cts:formulae:chartae_latinae_xlvi',
@@ -347,7 +348,7 @@ class NemoFormulae(Nemo):
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], version]
         elif "elexicon" in m.id:
             parent_0 = list(m.parent)[0]
-            par = parent_0.split('.')[-1][0].capitalize()
+            par = parent_0.split('.')[-1].title()
             metadata = [m.id, parent_0.split('.')[-1], self.LANGUAGE_MAPPING[m.lang]]
         elif "marmoutier_serfs" in m.id:
             par = re.sub(r'.*?(\d+)(app)?\Z', r'\2\1', list(m.parent)[0])
@@ -373,8 +374,10 @@ class NemoFormulae(Nemo):
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
                     par = re.sub(r'.*?(\d+\w*)\Z', r'\1', form_num)
                     if 'marculf' in form_num:
-                        if '2_' not in form_num and 'capitula' not in form_num:
-                            par = '1_' + par
+                        if 'capitula' in form_num:
+                            par = par.replace('capitula', '000a')
+                        if 'incipit' in form_num:
+                            par = par.replace('incipit', '000b')
                     if par.endswith('000'):
                         par = par.replace('000', _('(Prolog)'))
                     par = par.replace('capitula', '0')
@@ -387,8 +390,10 @@ class NemoFormulae(Nemo):
         else:
             par = re.sub(r'.*?(\d+\w*)\Z', r'\1', list(m.parent)[0])
             if 'marculf' in m.id:
-                if '2_' not in m.id and 'capitula' not in m.id:
-                    par = '1_' + par
+                if 'capitula' in m.id:
+                    par = par.replace('capitula', '000a')
+                if 'incipit' in m.id:
+                    par = par.replace('incipit', '000b')
             if par.endswith('000'):
                 if 'andecavensis' in m.id:
                     par = _('(Titel)')
@@ -797,7 +802,9 @@ class NemoFormulae(Nemo):
                                    "regest": [str(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
-                                   'name': Markup(work_name), 'title': Markup(str(self.make_parents(m)[0]['label']))})
+                                   'name': Markup(work_name),
+                                   'title': Markup(str(self.make_parents(m)[0]['label'])),
+                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or '')})
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
@@ -822,7 +829,8 @@ class NemoFormulae(Nemo):
                 },
                 "readable": r,
                 "parents": current_parents,
-                "parent_ids": [x['id'] for x in current_parents]
+                "parent_ids": [x['id'] for x in current_parents],
+                "first_letters": set([x[0] for x in r.keys()])
             },
             "form": form
         }
@@ -1164,7 +1172,7 @@ class NemoFormulae(Nemo):
                     'lang': metadata.lang,
                     'secondary_lang': secondary_language,
                     'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
-                    "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'andecavensis' in metadata.id else '',
+                    "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'formulae_collection' in [x['id'] for x in current_parents] else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
                     "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),

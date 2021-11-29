@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-10-13 11:29+0200\n"
+"POT-Creation-Date: 2021-11-08 16:59+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -46,16 +46,15 @@ msgstr "Catalan"
 msgid "Italienisch"
 msgstr "Italian"
 
-#: formulae/nemo.py:362 formulae/nemo.py:387 formulae/nemo.py:783
+#: formulae/nemo.py:362 formulae/nemo.py:394 formulae/nemo.py:791
 msgid "(Titel)"
 msgstr "(Title)"
 
-#: formulae/nemo.py:376 formulae/nemo.py:389 formulae/nemo.py:779
-#: tests/test_routes.py:1343
+#: formulae/nemo.py:379 formulae/nemo.py:396
 msgid "(Prolog)"
 msgstr "(Prologue)"
 
-#: formulae/nemo.py:559
+#: formulae/nemo.py:565
 msgid ""
 "Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt "
 "wird, dann laden Sie die Seite neu."
@@ -63,22 +62,15 @@ msgstr ""
 "Reading direction changed. You may need to refresh the page in your "
 "browser."
 
-#: formulae/nemo.py:595
-msgid ""
-"Der Formulae Werkstatt wird zwischen Freitag, 15.10.2021, und "
-"voraussichtlich Samstag, 16.10.2021 nicht erreichbar. Wir entschüldigen "
-"uns für die Störung."
-msgstr "The Formulae Werkstatt server will be down from Friday, October 15, 2021, until Satuday, October 16, 2021. We apologize for the disruption."
-
-#: formulae/nemo.py:722 formulae/nemo.py:804 formulae/nemo.py:908
-#: formulae/nemo.py:970 tests/test_routes.py:280 tests/test_routes.py:298
+#: formulae/nemo.py:723 formulae/nemo.py:810 formulae/nemo.py:919
+#: formulae/nemo.py:981 tests/test_routes.py:280 tests/test_routes.py:298
 #: tests/test_routes.py:311 tests/test_routes.py:327 tests/test_routes.py:329
 #: tests/test_routes.py:331 tests/test_routes.py:633 tests/test_routes.py:641
 #: tests/test_routes.py:645 tests/test_routes.py:674 tests/test_routes.py:676
 msgid "Diese Sammlung ist nicht öffentlich zugänglich."
 msgstr "This collection is not publicly available."
 
-#: formulae/nemo.py:802 tests/test_routes.py:277 tests/test_routes.py:643
+#: formulae/nemo.py:808 tests/test_routes.py:277 tests/test_routes.py:643
 msgid ""
 "Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte "
 "gegebenenfalls die Homepage der Bibliothek."
@@ -86,55 +78,55 @@ msgstr ""
 "You may be able to view the images of this manuscript at the library's "
 "home page."
 
-#: formulae/nemo.py:834 templates/main/multipassage.html:160
+#: formulae/nemo.py:840 templates/main/multipassage.html:160
 #: templates/main/multipassage.html:304 templates/main/multipassage.html:452
 #: templates/main/sub_collection.html:58 templates/search/part_results.html:94
 #: templates/search/search.html:151
 msgid "Edition"
 msgstr ""
 
-#: formulae/nemo.py:834 templates/main/multipassage.html:165
+#: formulae/nemo.py:840 templates/main/multipassage.html:165
 #: templates/main/multipassage.html:309 templates/main/multipassage.html:457
 msgid "Übersetzung"
 msgstr "Translation"
 
-#: formulae/nemo.py:905 tests/test_routes.py:465
+#: formulae/nemo.py:916 tests/test_routes.py:465
 msgid "Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar"
 msgstr "This view is only available for MARCULF and ANGERS."
 
-#: formulae/nemo.py:1088 formulae/viewer/routes.py:18 tests/test_routes.py:542
+#: formulae/nemo.py:1099 formulae/viewer/routes.py:18 tests/test_routes.py:542
 #: tests/test_routes.py:545
 msgid " hat keine Edition."
 msgstr " does not have an Edition."
 
-#: formulae/nemo.py:1097
+#: formulae/nemo.py:1108
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:1218
+#: formulae/nemo.py:1229
 msgid "Es gibt keine Manuskriptbilder für "
 msgstr "There are no manuscript images for "
 
-#: formulae/nemo.py:1269 tests/test_routes.py:349 tests/test_routes.py:351
+#: formulae/nemo.py:1280 tests/test_routes.py:349 tests/test_routes.py:351
 #: tests/test_routes.py:353 tests/test_routes.py:524 tests/test_routes.py:680
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
 "at this point"
 
-#: formulae/nemo.py:1415 tests/test_routes.py:389
+#: formulae/nemo.py:1426 tests/test_routes.py:389
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr "The PDF for this text is not available."
 
-#: formulae/nemo.py:1422
+#: formulae/nemo.py:1433
 msgid "Heruntergeladen: "
 msgstr "Downloaded: "
 
-#: formulae/auth/email.py:9 tests/test_routes.py:1765
+#: formulae/auth/email.py:9 tests/test_routes.py:1772
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Reset Your Password"
 
-#: formulae/auth/email.py:18 tests/test_routes.py:1779
+#: formulae/auth/email.py:18 tests/test_routes.py:1786
 msgid "[Formulae - Litterae - Chartae] Emailadresse ändern"
 msgstr "[Formulae - Litterae - Chartae] Change Your Email Address"
 
@@ -218,11 +210,11 @@ msgstr "Default Language"
 msgid "Anmelden"
 msgstr "Register"
 
-#: formulae/auth/forms.py:60 tests/test_routes.py:1683
+#: formulae/auth/forms.py:60 tests/test_routes.py:1690
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Please use a different user name."
 
-#: formulae/auth/forms.py:65 tests/test_routes.py:1685
+#: formulae/auth/forms.py:65 tests/test_routes.py:1692
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Please use a different email address."
 
@@ -232,15 +224,15 @@ msgstr "Please use a different email address."
 msgid "Sie sind schon eingeloggt."
 msgstr "You are already logged in."
 
-#: formulae/auth/routes.py:26 tests/test_routes.py:1711
+#: formulae/auth/routes.py:26 tests/test_routes.py:1718
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Invalid username or password"
 
-#: formulae/auth/routes.py:59 tests/test_routes.py:1885
+#: formulae/auth/routes.py:59 tests/test_routes.py:1892
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "This is not your current password."
 
-#: formulae/auth/routes.py:64 tests/test_routes.py:1871
+#: formulae/auth/routes.py:64 tests/test_routes.py:1878
 msgid "Sie haben Ihr Passwort erfolgreich geändert."
 msgstr "You have successfully changed your password."
 
@@ -248,7 +240,7 @@ msgstr "You have successfully changed your password."
 msgid "Sie haben Ihre Benutzersprache erfolgreich geändert."
 msgstr "You have successfully changed your default language."
 
-#: formulae/auth/routes.py:76 tests/test_routes.py:1785
+#: formulae/auth/routes.py:76 tests/test_routes.py:1792
 msgid ""
 "Ein Link zur Bestätigung dieser Änderung wurde an Ihre neue Emailadresse "
 "zugeschickt"
@@ -259,7 +251,7 @@ msgid "Benutzerprofil ändern"
 msgstr "Edit Profile"
 
 #: formulae/auth/routes.py:93 formulae/auth/routes.py:113
-#: tests/test_routes.py:617 tests/test_routes.py:1819
+#: tests/test_routes.py:617 tests/test_routes.py:1826
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
 msgstr "You are already logged in. You can change your password here."
 
@@ -267,26 +259,26 @@ msgstr "You are already logged in. You can change your password here."
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Your password has been reset."
 
-#: formulae/auth/routes.py:120 tests/test_routes.py:1771
-#: tests/test_routes.py:1796
+#: formulae/auth/routes.py:120 tests/test_routes.py:1778
+#: tests/test_routes.py:1803
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
 msgstr "Instructions for resetting your password have been emailed to you."
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:1843
+#: formulae/auth/routes.py:137 tests/test_routes.py:1850
 msgid "Der Token ist nicht gültig. Versuchen Sie es erneut."
 msgstr "This token is not valid. Please try again."
 
-#: formulae/auth/routes.py:140 tests/test_routes.py:1840
+#: formulae/auth/routes.py:140 tests/test_routes.py:1847
 msgid "Ihre Emailaddresse wurde nicht geändert. Versuchen Sie es erneut."
 msgstr "Your email address was not changed. Please try again."
 
-#: formulae/auth/routes.py:145 tests/test_routes.py:1836
+#: formulae/auth/routes.py:145 tests/test_routes.py:1843
 msgid "Ihr Email wurde erfolgreich geändert. Sie lautet jetzt"
 msgstr "Your email address was successfully changed. It is now"
 
-#: formulae/auth/routes.py:166 tests/test_routes.py:1752
+#: formulae/auth/routes.py:166 tests/test_routes.py:1759
 msgid "Sie sind nun registriert."
 msgstr "You are now registered."
 
@@ -295,12 +287,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "The URL you were looking for was not found"
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:11393
+#: tests/test_routes.py:11474
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "An unexpected error has occurred"
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:11394
+#: tests/test_routes.py:11475
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -310,16 +302,16 @@ msgstr "The administrator has been notified. Sorry for the inconvenience!"
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:360
+#: formulae/search/Search.py:362
 msgid "Regest nicht zugänglich."
 msgstr "Regest not available"
 
-#: formulae/search/Search.py:376
+#: formulae/search/Search.py:378
 msgid "Text nicht zugänglich."
 msgstr "Text not available"
 
-#: formulae/search/Search.py:657 tests/test_routes.py:10414
-#: tests/test_routes.py:10427
+#: formulae/search/Search.py:659 tests/test_routes.py:10475
+#: tests/test_routes.py:10488
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -440,14 +432,12 @@ msgstr "Search Radius"
 
 #: formulae/search/forms.py:69 formulae/search/forms.py:87
 #: formulae/search/forms.py:105 formulae/search/forms.py:123
-#, fuzzy
 msgid "Wortreihenfolge?"
-msgstr "Word Order"
+msgstr "Word Order?"
 
 #: formulae/search/forms.py:70 formulae/search/forms.py:88
 #: formulae/search/forms.py:106 formulae/search/forms.py:124
 #: formulae/search/routes.py:390
-#, fuzzy
 msgid "Suchfeld"
 msgstr "Search"
 
@@ -460,7 +450,6 @@ msgstr ""
 
 #: formulae/search/forms.py:71 formulae/search/forms.py:89
 #: formulae/search/forms.py:107 formulae/search/forms.py:125
-#, fuzzy
 msgid "Lemmata"
 msgstr "Lemma"
 
@@ -685,8 +674,8 @@ msgstr "OR"
 msgid "Suche Durchführen"
 msgstr "Search"
 
-#: formulae/search/routes.py:118 tests/test_routes.py:1635
-#: tests/test_routes.py:10489
+#: formulae/search/routes.py:118 tests/test_routes.py:1642
+#: tests/test_routes.py:10550
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")."
@@ -694,11 +683,11 @@ msgstr ""
 "You must select at least one collection to search (\"Formulae\" and/or "
 "\"Charters\")."
 
-#: formulae/search/routes.py:118 tests/test_routes.py:10490
+#: formulae/search/routes.py:118 tests/test_routes.py:10551
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
-#: formulae/search/routes.py:121 tests/test_routes.py:10500
+#: formulae/search/routes.py:121 tests/test_routes.py:10561
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr " The simple search requires a search term."
 
@@ -706,7 +695,7 @@ msgstr " The simple search requires a search term."
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Please enter data in at least one field."
 
-#: formulae/search/routes.py:358 tests/test_routes.py:10758
+#: formulae/search/routes.py:358 tests/test_routes.py:10819
 msgid "Keine Suchergebnisse zum Herunterladen."
 msgstr "There are no search results to download."
 
@@ -780,9 +769,8 @@ msgid "Urkundenteile"
 msgstr "Charter Parts"
 
 #: formulae/search/routes.py:395
-#, fuzzy
 msgid "Eigenname"
-msgstr "Person Name"
+msgstr "Proper Name"
 
 #: formulae/search/routes.py:396
 msgid "Nein"
@@ -793,9 +781,8 @@ msgid "Ja"
 msgstr "Yes"
 
 #: formulae/search/routes.py:400
-#, fuzzy
 msgid "Suchterminus "
-msgstr "Search Radius"
+msgstr "Search Term"
 
 #: formulae/search/routes.py:427
 msgid "Aus dem Regest"
@@ -834,7 +821,7 @@ msgid "Klicken Sie hier"
 msgstr "Click to Register"
 
 #: templates/email/reset_email.html:1 templates/email/reset_password.html:1
-#: tests/test_routes.py:1767 tests/test_routes.py:1781
+#: tests/test_routes.py:1774 tests/test_routes.py:1788
 msgid "Sehr geehrte(r)"
 msgstr "Dear"
 
@@ -1206,8 +1193,7 @@ msgstr "."
 msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
 msgstr "Mouse over a word to see its lemma."
 
-#: templates/main/lexicon_modal.html:13 templates/main/multipassage.html:176
-#: templates/main/multipassage.html:315 templates/main/multipassage.html:463
+#: templates/main/lexicon_modal.html:13
 msgid "Formeln mit diesem Lemma"
 msgstr "Formulae that contain this lemma"
 
@@ -1286,6 +1272,11 @@ msgstr "Edition, Translation, Transcription"
 #: templates/main/multipassage.html:170
 msgid "Transkription"
 msgstr "Transcription"
+
+#: templates/main/multipassage.html:176 templates/main/multipassage.html:315
+#: templates/main/multipassage.html:463
+msgid "Texte mit diesem Lemma"
+msgstr "Texts that contain this lemma"
 
 #: templates/main/multipassage.html:192 templates/main/multipassage.html:338
 #: templates/main/multipassage.html:486
@@ -1658,9 +1649,8 @@ msgstr "Open another search box"
 #: templates/search/advanced_search.html:137
 #: templates/search/advanced_search.html:225
 #: templates/search/advanced_search.html:308
-#, fuzzy
 msgid "Diese Suchmaske ausblenden"
-msgstr "Change this search"
+msgstr "Close this search box"
 
 #: templates/search/advanced_search.html:407
 #: templates/search/documentation.html:26
@@ -2206,9 +2196,8 @@ msgid " in"
 msgstr " in"
 
 #: templates/search/search.html:56
-#, fuzzy
 msgid "Keine Ergebnisse gefunden."
-msgstr "No results found for"
+msgstr "No results found."
 
 #: templates/search/search.html:108
 msgid "Nach folgenden Lemmata Suchen"
@@ -2239,9 +2228,8 @@ msgid "Aus dem Regest:"
 msgstr "From the Regest"
 
 #: templates/search/search.html:170
-#, fuzzy
 msgid "Text kann nicht angezeigt werden"
-msgstr "The Viewer could not be started."
+msgstr "This text cannot be shown."
 
 #: templates/search/search_box.html:23
 msgid "Die Lemmatasuche ist nur bei lateinischen Formeltexten möglich"
@@ -2251,11 +2239,11 @@ msgstr "Lemma search is currently only available for Latin formulae"
 msgid "Zur Seite der erweiterten Suche"
 msgstr "Go to the advanced search page"
 
-#: tests/test_routes.py:1636 tests/test_routes.py:1645
+#: tests/test_routes.py:1643 tests/test_routes.py:1652
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' is not valid input for this field."
 
-#: tests/test_routes.py:1644 tests/test_routes.py:10500
+#: tests/test_routes.py:1651 tests/test_routes.py:10561
 msgid "Dieses Feld wird benötigt."
 msgstr "This is a required field."
 
@@ -4288,4 +4276,15 @@ msgstr "This is a required field."
 
 #~ msgid "Hilfe für Regestensuche"
 #~ msgstr "Help for regest search"
+
+#~ msgid ""
+#~ "Der Formulae Werkstatt wird zwischen "
+#~ "Freitag, 15.10.2021, und voraussichtlich "
+#~ "Samstag, 16.10.2021 nicht erreichbar. Wir "
+#~ "entschüldigen uns für die Störung."
+#~ msgstr ""
+#~ "The Formulae Werkstatt server will be"
+#~ " down from Friday, October 15, 2021,"
+#~ " until Satuday, October 16, 2021. We"
+#~ " apologize for the disruption."
 
