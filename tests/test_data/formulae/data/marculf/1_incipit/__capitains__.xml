@@ -1,14 +1,14 @@
 <?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <collection xmlns:ti="http://chs.harvard.edu/xmlns/cts" xmlns:dct="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://purl.org/capitains/ns/1.0#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
-   <identifier>urn:cts:formulae:marculf.2_capitula</identifier>
+   <identifier>urn:cts:formulae:marculf.1_incipit</identifier>
    <parent>urn:cts:formulae:marculf</parent>
-   <dc:title xml:lang="deu">II Capitulatio</dc:title>
+   <dc:title xml:lang="deu">I Incipit</dc:title>
    <dc:type>cts:work</dc:type>
    <members>
-      <collection readable="true" path="./marculf.2_capitula.deu001.xml">
-         <identifier>urn:cts:formulae:marculf.2_capitula.deu001</identifier>
-         <parent>urn:cts:formulae:marculf.2_capitula</parent>
-         <dc:title xml:lang="deu">Marculf II Capitulatio (deu)</dc:title>
+      <collection readable="true" path="./marculf.1_incipit.deu001.xml">
+         <identifier>urn:cts:formulae:marculf.1_incipit.deu001</identifier>
+         <parent>urn:cts:formulae:marculf.1_incipit</parent>
+         <dc:title xml:lang="deu">Marculf I Incipit (deu)</dc:title>
          <dc:language>deu</dc:language>
          <dc:type>cts:translation</dc:type>
          <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
@@ -21,15 +21,15 @@
          <structured-metadata>
             <bib:editor>Christoph Walther</bib:editor>
             <dct:created>2021-11-18</dct:created>
-            <dct:bibliographicCitation>Marculf II Capitulatio.xml (deu), Formulae-Litterae-Chartae Projekt. Hamburg 2021-11-18, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:marculf.2_capitula.deu001/passage/all]</dct:bibliographicCitation>
+            <dct:bibliographicCitation>Marculf I Incipit.xml (deu), Formulae-Litterae-Chartae Projekt. Hamburg 2021-11-18, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:marculf.1_incipit.deu001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
          </structured-metadata>
       </collection>
-      <collection path="../../p16/1v2v/__capitains__.xml" identifier="urn:cts:formulae:p16.1v2v"/>
-      <collection readable="true" path="./marculf.2_capitula.lat001.xml">
-         <identifier>urn:cts:formulae:marculf.2_capitula.lat001</identifier>
-         <parent>urn:cts:formulae:marculf.2_capitula</parent>
-         <dc:title xml:lang="deu">Marculf II Capitulatio (lat)</dc:title>
+      <collection path="../../p16/4v/__capitains__.xml" identifier="urn:cts:formulae:p16.4v"/>
+      <collection readable="true" path="./marculf.1_incipit.lat001.xml">
+         <identifier>urn:cts:formulae:marculf.1_incipit.lat001</identifier>
+         <parent>urn:cts:formulae:marculf.1_incipit</parent>
+         <dc:title xml:lang="deu">Marculf I Incipit (lat)</dc:title>
          <dc:language>lat</dc:language>
          <dc:type>cts:edition</dc:type>
          <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
@@ -42,7 +42,7 @@
          <structured-metadata>
             <bib:editor>Christoph Walther</bib:editor>
             <dct:created>2021-11-18</dct:created>
-            <dct:bibliographicCitation>Marculf II Capitulatio (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2021-11-18, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:marculf.2_capitula.lat001/passage/all]</dct:bibliographicCitation>
+            <dct:bibliographicCitation>Marculf I Incipit (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2021-11-18, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:marculf.1_incipit.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
          </structured-metadata>
       </collection>

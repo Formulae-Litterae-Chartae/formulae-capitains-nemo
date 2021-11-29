@@ -13,6 +13,8 @@
       <bib:AbbreviatedTitle>P&lt;span class="manuscript-number"&gt;16&lt;/span&gt;</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
+      <collection path="./1v2v/__capitains__.xml" identifier="urn:cts:formulae:p16.1v2v"/>
+      <collection path="./4v/__capitains__.xml" identifier="urn:cts:formulae:p16.4v"/>
       <collection path="./7r7v/__capitains__.xml" identifier="urn:cts:formulae:p16.7r7v"/>
    </members>
 </collection>
