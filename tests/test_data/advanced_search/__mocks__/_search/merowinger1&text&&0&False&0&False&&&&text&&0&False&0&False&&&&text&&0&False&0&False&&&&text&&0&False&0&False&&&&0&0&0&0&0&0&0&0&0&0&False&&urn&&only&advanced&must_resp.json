@@ -1,6 +1,6 @@
 [
   {
-    "took": 20,
+    "took": 16,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -229,12 +229,12 @@
             "max_date": "0511-11-27",
             "days": [
               "Sunday",
-              "Friday",
-              "Saturday",
               "Thursday",
+              "Wednesday",
+              "Saturday",
+              "Friday",
               "Tuesday",
-              "Monday",
-              "Wednesday"
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -457,12 +457,12 @@
             "max_date": "0511-11-27",
             "days": [
               "Sunday",
-              "Friday",
-              "Saturday",
               "Thursday",
+              "Wednesday",
+              "Saturday",
+              "Friday",
               "Tuesday",
-              "Monday",
-              "Wednesday"
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -987,8 +987,8 @@
             "min_date": "0516-02-22",
             "max_date": "0516-02-22",
             "days": [
-              "Lent",
-              "Monday"
+              "Monday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -1243,9 +1243,9 @@
             "min_date": "0576-05-05",
             "max_date": "0606-05-05",
             "days": [
-              "Tuesday",
               "Thursday",
-              "Wednesday"
+              "Wednesday",
+              "Tuesday"
             ],
             "sort_prefix": 1
           },
@@ -2123,12 +2123,12 @@
             "max_date": "0657-02-01",
             "days": [
               "Sunday",
-              "Friday",
-              "Saturday",
               "Thursday",
+              "Wednesday",
+              "Saturday",
+              "Friday",
               "Tuesday",
-              "Monday",
-              "Wednesday"
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -2170,8 +2170,8 @@
             "min_date": "0634-04-04",
             "max_date": "0634-04-04",
             "days": [
-              "Lent",
-              "Monday"
+              "Monday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -2789,8 +2789,8 @@
             "min_date": "0640-04-15",
             "max_date": "0640-04-15",
             "days": [
-              "Lent",
-              "Saturday"
+              "Saturday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -2832,8 +2832,8 @@
             "min_date": "0640-04-15",
             "max_date": "0640-04-15",
             "days": [
-              "Lent",
-              "Saturday"
+              "Saturday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -3085,8 +3085,8 @@
             "min_date": "0662-04-02",
             "max_date": "0662-04-02",
             "days": [
-              "Lent",
-              "Saturday"
+              "Saturday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -3128,8 +3128,8 @@
             "min_date": "0706-03-01",
             "max_date": "0706-03-01",
             "days": [
-              "Lent",
-              "Monday"
+              "Monday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -3249,8 +3249,8 @@
             "min_date": "0641-02-26",
             "max_date": "0641-02-26",
             "days": [
-              "Lent",
-              "Monday"
+              "Monday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -4389,8 +4389,8 @@
             "min_date": "0687-03-27",
             "max_date": "0687-03-27",
             "days": [
-              "Lent",
-              "Wednesday"
+              "Wednesday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -4432,8 +4432,8 @@
             "min_date": "0689-04-01",
             "max_date": "0689-04-01",
             "days": [
-              "Lent",
-              "Thursday"
+              "Thursday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -4971,8 +4971,8 @@
             "min_date": "0722-03-02",
             "max_date": "0722-03-02",
             "days": [
-              "Lent",
-              "Monday"
+              "Monday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -5020,9 +5020,9 @@
             "min_date": "0723-03-01",
             "max_date": "0724-03-01",
             "days": [
-              "Lent",
+              "Wednesday",
               "Monday",
-              "Wednesday"
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -5313,8 +5313,8 @@
             "min_date": "0744-02-29",
             "max_date": "0744-02-29",
             "days": [
-              "Lent",
-              "Saturday"
+              "Saturday",
+              "Lent"
             ],
             "sort_prefix": 1
           },

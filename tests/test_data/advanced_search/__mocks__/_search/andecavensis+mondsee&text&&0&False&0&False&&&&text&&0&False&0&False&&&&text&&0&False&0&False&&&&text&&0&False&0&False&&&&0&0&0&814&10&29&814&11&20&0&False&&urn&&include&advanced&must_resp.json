@@ -1,6 +1,6 @@
 [
   {
-    "took": 8,
+    "took": 3,
     "timed_out": false,
     "_shards": {
       "total": 2,
@@ -632,6 +632,9 @@
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0093.lat001",
           "_score": null,
+          "_ignored": [
+            "Narratio.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
@@ -783,6 +786,9 @@
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0131.lat001",
           "_score": null,
+          "_ignored": [
+            "Pertinenzformel.keyword"
+          ],
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",

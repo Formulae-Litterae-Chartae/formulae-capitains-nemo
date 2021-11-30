@@ -1,17 +1,5 @@
 [
   {
-    "id": "urn:cts:formulae:freising.bitterauf0018.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:freising.bitterauf0022.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:freising.bitterauf0093.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:freising.bitterauf1031.lat001"
-  },
-  {
     "id": "urn:cts:formulae:mondsee.rath0013.lat001"
   },
   {
@@ -31,17 +19,5 @@
   },
   {
     "id": "urn:cts:formulae:mondsee.rath0118.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:passau.heuwieser0029.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:regensburg.wiedemann0005.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:stgallen.wartmann0027.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:stgallen.wartmann0074.lat001"
   }
 ]

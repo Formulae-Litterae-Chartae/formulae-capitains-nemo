@@ -50,7 +50,7 @@ class FakeElasticsearch(object):
         for i1, sub_resp in enumerate(resp):
             for i, h in enumerate(sub_resp['hits']['hits']):
                 if 'buenden' not in h['_id'] and 'freising' not in h['_id'] and 'papsturkunden_frankreich' not in h['_id']\
-                        and 'elexicon' not in h['_id']:
+                        and 'elexicon' not in h['_id'] and h['_id'] != 'urn:cts:formulae:mondsee.rath0099.lat001':
                     resp[i1]['hits']['hits'][i]['_source']['text'] = 'some real text'
                     resp[i1]['hits']['hits'][i]['_source']['lemmas'] = 'lemma text'
                     resp[i1]['hits']['hits'][i]['_source']['autocomplete'] = 'autocomplete text'

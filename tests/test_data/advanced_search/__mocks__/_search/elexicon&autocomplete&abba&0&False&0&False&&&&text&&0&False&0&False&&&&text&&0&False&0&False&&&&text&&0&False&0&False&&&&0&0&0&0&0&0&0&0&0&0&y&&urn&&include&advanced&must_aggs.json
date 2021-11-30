@@ -1,7 +1,7 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 146,
+      "doc_count": 166,
       "forgeries": {
         "doc_count": 0
       },
@@ -50,7 +50,7 @@
             "doc_count": 0
           },
           "<b>E-Lexikon</b>": {
-            "doc_count": 146
+            "doc_count": 166
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 0
@@ -137,6 +137,9 @@
             "doc_count": 0
           },
           "<b>Touraine</b>: Eudes": {
+            "doc_count": 0
+          },
+          "<b>Touraine</b>: Formeln von Tours": {
             "doc_count": 0
           },
           "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
@@ -254,7 +257,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 146
+        "doc_count": 166
       }
     },
     "forgeries": {
@@ -305,7 +308,7 @@
           "doc_count": 0
         },
         "<b>E-Lexikon</b>": {
-          "doc_count": 3
+          "doc_count": 4
         },
         "<b>Echternach</b>: Echternach": {
           "doc_count": 0
@@ -392,6 +395,9 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Eudes": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Formeln von Tours": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
@@ -509,7 +515,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 3
+      "doc_count": 4
     }
   }
 }
