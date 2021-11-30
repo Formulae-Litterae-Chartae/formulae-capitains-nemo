@@ -1542,6 +1542,10 @@ class TestFunctions(Formulae_Testing):
         self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:marculf'] if x[0] == '2_000a'],
                          ['urn:cts:formulae:marculf.2_capitula.deu001', 'urn:cts:formulae:marculf.2_capitula.lat001',
                           'urn:cts:formulae:p16.1v2v.lat001'])
+        self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:tours'] if x[0] == '000_a'],
+                         ['urn:cts:formulae:p10.135r.lat001',
+                          'urn:cts:formulae:tours.0_capitula.deu001',
+                          'urn:cts:formulae:tours.0_capitula.lat001'])
 
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""
