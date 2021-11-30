@@ -1188,6 +1188,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertIn('id="header-urn-cts-formulae-andecavensis-form003-deu001"',
                           r.get_data(as_text=True), 'Note card should be rendered for a formula.')
+            d = self.get_context_variable('objects')
+            self.assertIn('href="/texts/urn:cts:formulae:auvergne.form003.lat001/passage/1"', d[0]['notes'])
             r = c.get('/texts/urn:cts:formulae:elexicon.abbas.deu001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertIn('id="header-urn-cts-formulae-elexicon-abbas-deu001"',
