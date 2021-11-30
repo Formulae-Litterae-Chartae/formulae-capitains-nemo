@@ -2,12 +2,12 @@
    <teiHeader xml:lang="deu">
       <fileDesc>
          <titleStmt>
-            <title>Marculf II Capitulatio</title>
+            <title>Marculf I Incipit.xml</title>
             <author/>
             <editor>Christoph Walther</editor>
          </titleStmt>
          <editionStmt>
-            <edition>Digitale Edition von Marculf II Capitulatio</edition>
+            <edition>Digitale deutsche &#220;bersetzung von Marculf I Incipit.xml</edition>
             <respStmt>
                <resp>Projektleiter</resp>
                <resp xml:lang="eng">Principal investigator</resp>
@@ -53,9 +53,9 @@
    </teiHeader>
    <text>
       <body>
-         <div type="edition" xml:lang="lat" n="urn:cts:formulae:marculf.2_capitula.lat001">
+         <div type="translation" xml:lang="deu" n="urn:cts:formulae:marculf.1_incipit.deu001">
             <div type="textpart" subtype="formula" n="1">
-               <p xml:space="preserve" xml:id="urn-cts-formulae-marculf.2_capitula.lat001-1" corresp="urn-cts-formulae-marculf.2_capitula.deu001-1">Some text</p>
+               <p xml:space="preserve" xml:id="urn-cts-formulae-marculf.1_incipit.deu001-1" corresp="urn-cts-formulae-marculf.1_incipit.lat001-1">Some text</p>
             </div>
          </div>
       </body>

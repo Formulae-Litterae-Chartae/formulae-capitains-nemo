@@ -1258,72 +1258,89 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_corpus_mv('urn:cts:formulae:marculf')
             self.assertEqual(data['collections']['readable'],
                              {'editions': [{'edition_name': 'Edition',
-                                            'full_edition_name': 'Formelbuch des <span\n'
-                                                                 '      '
-                                                                 'class="collection-origin">Marculf</span>',
-                                            'links': [['urn:cts:formulae:marculf.form000',
-                                                       'urn:cts:formulae:marculf.form003',
-                                                       'urn:cts:formulae:marculf.2_capitula'],
-                                                      ['urn:cts:formulae:marculf.form000.lat001',
-                                                       'urn:cts:formulae:marculf.form003.lat001',
-                                                       'urn:cts:formulae:marculf.2_capitula.lat001']],
-                                            'name': 'lat001',
-                                            'regesten': ['', '', ''],
-                                            'titles': ['I Prolog',
-                                                       'Marculf I,3',
-                                                       'Marculf II Capitula']}],
-                              'transcriptions': [{'edition_name': 'Ko<span '
-                                                                  'class="manuscript-number">2</span>',
-                                                  'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
-                                                                       'Fabr. 84',
-                                                  'links': [['urn:cts:formulae:marculf.form003'],
-                                                            ['urn:cts:formulae:ko2.69r70v.lat001']],
-                                                  'name': 'ko2',
-                                                  'regesten': [''],
-                                                  'titles': ['Marculf I,3']},
-                                                 {'edition_name': 'Le<span '
-                                                                  'class="manuscript-number">1</span>',
-                                                  'full_edition_name': 'Leiden BPL 114',
-                                                  'links': [['urn:cts:formulae:marculf.form003'],
-                                                            ['urn:cts:formulae:le1.109v110v.lat001']],
-                                                  'name': 'le1',
-                                                  'regesten': [''],
-                                                  'titles': ['Marculf I,3']},
-                                                 {'edition_name': 'M<span '
-                                                                  'class="manuscript-number">4</span>',
-                                                  'full_edition_name': 'München BSB clm 4650',
-                                                  'links': [['urn:cts:formulae:marculf.form003'],
-                                                            ['urn:cts:formulae:m4.60v61v.lat001']],
-                                                  'name': 'm4',
-                                                  'regesten': [''],
-                                                  'titles': ['Marculf I,3']},
-                                                 {'edition_name': 'P<span '
-                                                                  'class="manuscript-number">3</span>',
-                                                  'full_edition_name': 'Paris BNF 2123',
-                                                  'links': [['urn:cts:formulae:marculf.form000',
-                                                             'urn:cts:formulae:marculf.form003'],
-                                                            ['urn:cts:formulae:p3.105va106rb.lat001',
-                                                             'urn:cts:formulae:p3.128vb129rb.lat001']],
-                                                  'name': 'p3',
-                                                  'regesten': ['', ''],
-                                                  'titles': ['I Prolog', 'Marculf I,3']},
-                                                 {'edition_name': 'P<span '
-                                                                  'class="manuscript-number">12</span>',
-                                                  'full_edition_name': 'Paris BNF 4627',
-                                                  'links': [['urn:cts:formulae:marculf.form003'],
-                                                            ['urn:cts:formulae:p12.65r65v.lat001']],
-                                                  'name': 'p12',
-                                                  'regesten': [''],
-                                                  'titles': ['Marculf I,3']},
-                                                 {'edition_name': 'P<span '
-                                                                  'class="manuscript-number">16</span>',
-                                                  'full_edition_name': 'Paris BNF 10756',
-                                                  'links': [['urn:cts:formulae:marculf.form003'],
-                                                            ['urn:cts:formulae:p16.7r7v.lat001']],
-                                                  'name': 'p16',
-                                                  'regesten': [''],
-                                                  'titles': ['Marculf I,3']}],
-                              'translations': []})
+               'full_edition_name': 'Formelbuch des <span\n'
+                                    '      '
+                                    'class="collection-origin">Marculf</span>',
+               'links': [['urn:cts:formulae:marculf.form000',
+                          'urn:cts:formulae:marculf.form003',
+                          'urn:cts:formulae:marculf.1_incipit',
+                          'urn:cts:formulae:marculf.2_capitula'],
+                         ['urn:cts:formulae:marculf.form000.lat001',
+                          'urn:cts:formulae:marculf.form003.lat001',
+                          'urn:cts:formulae:marculf.1_incipit.lat001',
+                          'urn:cts:formulae:marculf.2_capitula.lat001']],
+               'name': 'lat001',
+               'regesten': ['', '', '', ''],
+               'titles': ['I Prolog',
+                          'Marculf I,3',
+                          'I Incipit',
+                          'II Capitulatio']}],
+ 'transcriptions': [{'edition_name': 'Ko<span '
+                                     'class="manuscript-number">2</span>',
+                     'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
+                                          'Fabr. 84',
+                     'links': [['urn:cts:formulae:marculf.form003'],
+                               ['urn:cts:formulae:ko2.69r70v.lat001']],
+                     'name': 'ko2',
+                     'regesten': [''],
+                     'titles': ['Marculf I,3']},
+                    {'edition_name': 'Le<span '
+                                     'class="manuscript-number">1</span>',
+                     'full_edition_name': 'Leiden BPL 114',
+                     'links': [['urn:cts:formulae:marculf.form003'],
+                               ['urn:cts:formulae:le1.109v110v.lat001']],
+                     'name': 'le1',
+                     'regesten': [''],
+                     'titles': ['Marculf I,3']},
+                    {'edition_name': 'M<span '
+                                     'class="manuscript-number">4</span>',
+                     'full_edition_name': 'München BSB clm 4650',
+                     'links': [['urn:cts:formulae:marculf.form003'],
+                               ['urn:cts:formulae:m4.60v61v.lat001']],
+                     'name': 'm4',
+                     'regesten': [''],
+                     'titles': ['Marculf I,3']},
+                    {'edition_name': 'P<span '
+                                     'class="manuscript-number">3</span>',
+                     'full_edition_name': 'Paris BNF 2123',
+                     'links': [['urn:cts:formulae:marculf.form000',
+                                'urn:cts:formulae:marculf.form003'],
+                               ['urn:cts:formulae:p3.105va106rb.lat001',
+                                'urn:cts:formulae:p3.128vb129rb.lat001']],
+                     'name': 'p3',
+                     'regesten': ['', ''],
+                     'titles': ['I Prolog', 'Marculf I,3']},
+                    {'edition_name': 'P<span '
+                                     'class="manuscript-number">12</span>',
+                     'full_edition_name': 'Paris BNF 4627',
+                     'links': [['urn:cts:formulae:marculf.form003'],
+                               ['urn:cts:formulae:p12.65r65v.lat001']],
+                     'name': 'p12',
+                     'regesten': [''],
+                     'titles': ['Marculf I,3']},
+                    {'edition_name': 'P<span '
+                                     'class="manuscript-number">16</span>',
+                     'full_edition_name': 'Paris BNF 10756',
+                     'links': [['urn:cts:formulae:marculf.form003',
+                                'urn:cts:formulae:marculf.1_incipit',
+                                'urn:cts:formulae:marculf.2_capitula'],
+                               ['urn:cts:formulae:p16.7r7v.lat001',
+                                'urn:cts:formulae:p16.4v.lat001',
+                                'urn:cts:formulae:p16.1v2v.lat001']],
+                     'name': 'p16',
+                     'regesten': ['', '', ''],
+                     'titles': ['Marculf I,3', 'I Incipit', 'II Capitulatio']}],
+ 'translations': [{'edition_name': 'Übersetzung',
+                   'full_edition_name': 'Formelbuch des <span\n'
+                                        '      '
+                                        'class="collection-origin">Marculf</span>',
+                   'links': [['urn:cts:formulae:marculf.1_incipit',
+                              'urn:cts:formulae:marculf.2_capitula'],
+                             ['urn:cts:formulae:marculf.1_incipit.deu001',
+                              'urn:cts:formulae:marculf.2_capitula.deu001']],
+                   'name': 'deu001',
+                   'regesten': ['', ''],
+                   'titles': ['I Incipit', 'II Capitulatio']}]})
 
     def test_corpus_mv_passau(self):
         """ Make sure the correct values are returned by r_corpus_mv"""
@@ -1402,7 +1419,7 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(data['objects'][0]['prev_version'], None)
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:marculf.form003.lat001')
             data = self.nemo.r_multipassage('urn:cts:formulae:marculf.2_capitula.lat001', '1')
-            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:marculf.form003.lat001')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:marculf.1_incipit.lat001')
             self.assertEqual(data['objects'][0]['next_version'], None)
             data = self.nemo.r_multipassage('urn:cts:formulae:marmoutier_serfs.salmon0002.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
@@ -1516,6 +1533,15 @@ class TestFunctions(Formulae_Testing):
         old_args['proper_name_1'] = ['this', 'that']
         new_args = build_search_args(old_args)
         self.assertEqual(new_args['proper_name_1'], 'this+that')
+
+    def test_ordered_corpora(self):
+        """ Make sure that the corpora are correctly ordered"""
+        self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:marculf'] if x[0] == '1_000b'],
+                         ['urn:cts:formulae:marculf.1_incipit.deu001', 'urn:cts:formulae:marculf.1_incipit.lat001',
+                          'urn:cts:formulae:p16.4v.lat001'])
+        self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:marculf'] if x[0] == '2_000a'],
+                         ['urn:cts:formulae:marculf.2_capitula.deu001', 'urn:cts:formulae:marculf.2_capitula.lat001',
+                          'urn:cts:formulae:p16.1v2v.lat001'])
 
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""
