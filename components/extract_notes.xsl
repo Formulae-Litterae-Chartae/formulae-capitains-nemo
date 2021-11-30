@@ -127,10 +127,10 @@
             <xsl:text>&lt;a role="button" href="#" class="close" aria-label="Close"&gt;☒&lt;/a&gt;</xsl:text>
         </xsl:param>
         <xsl:choose>
-            <xsl:when test="contains(@n, 'werkstatt')">
+            <xsl:when test="contains(@n, 'urn:cts:formulae:')">
                 <xsl:element name="a">
                     <xsl:attribute name="href"><xsl:value-of select="@n"/></xsl:attribute>
-                    <xsl:attribute name="class">internal-link</xsl:attribute>
+                    <xsl:attribute name="class">internal-link formula-link</xsl:attribute>
                     <xsl:attribute name="tabindex">0</xsl:attribute>
                     <xsl:attribute name="target">_blank</xsl:attribute>
                     <xsl:apply-templates/>

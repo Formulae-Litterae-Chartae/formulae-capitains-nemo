@@ -59,7 +59,7 @@
               xml:lang="deu"
               n="urn:cts:formulae:andecavensis.form003.deu001">
             <div type="textpart" subtype="formula" n="1">
-               <p xml:space="preserve"><w>SOME</w> <w>TEXT</w><note targetEnd="#fn2" type="n1" n="2"><p xml:space="preserve">Some note text.</p></note></p>
+               <p xml:space="preserve"><w>SOME</w> <w>TEXT</w><note targetEnd="#fn2" type="n1" n="2"><p xml:space="preserve">Some note <bibl n="urn:cts:formulae:auvergne.form003.lat001">Auvergne 3</bibl> text.</p></note></p>
             </div>
          </div>
       </body>
