@@ -1,7 +1,8 @@
 {
 	"facio": [
 		"factus",
-		"facere"
+		"facere",
+		"facereque"
 	],
 	"gero": [
 		"gerere",
@@ -40,7 +41,9 @@
 	"dominus": [
 		"dominus_ortsname",
 		"domnus",
-		"dominicillus"
+		"dominicillus",
+		"domnusque",
+		"dominusque"
 	],
 	"regnum": [
 		"regnumque"

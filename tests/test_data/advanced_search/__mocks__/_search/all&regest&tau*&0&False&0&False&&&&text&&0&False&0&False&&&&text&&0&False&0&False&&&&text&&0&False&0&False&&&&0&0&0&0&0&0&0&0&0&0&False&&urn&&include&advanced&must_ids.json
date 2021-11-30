@@ -3,7 +3,7 @@
     "id": "urn:cts:formulae:andecavensis.form008.lat001"
   },
   {
-    "id": "urn:cts:formulae:marculf.form030.lat001"
+    "id": "urn:cts:formulae:marculf.form1_030.lat001"
   },
   {
     "id": "urn:cts:formulae:marculf.form2_023.lat001"
@@ -2008,6 +2008,9 @@
   },
   {
     "id": "urn:cts:formulae:stgallen.wartmann0767.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.form026.lat001"
   },
   {
     "id": "urn:cts:formulae:weissenburg.gloeckner0041.lat001"

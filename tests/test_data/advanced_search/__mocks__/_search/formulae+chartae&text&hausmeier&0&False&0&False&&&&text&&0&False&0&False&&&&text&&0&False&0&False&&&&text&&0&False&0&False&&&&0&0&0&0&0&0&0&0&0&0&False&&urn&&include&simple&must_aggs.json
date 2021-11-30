@@ -1,9 +1,9 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 13877,
+      "doc_count": 13936,
       "forgeries": {
-        "doc_count": 150
+        "doc_count": 151
       },
       "corpus": {
         "buckets": {
@@ -86,7 +86,7 @@
             "doc_count": 6
           },
           "<b>Marculf</b>: Marculf": {
-            "doc_count": 96
+            "doc_count": 106
           },
           "<b>Merowinger</b>: Merowinger": {
             "doc_count": 196
@@ -138,6 +138,9 @@
           },
           "<b>Touraine</b>: Eudes": {
             "doc_count": 34
+          },
+          "<b>Touraine</b>: Formeln von Tours": {
+            "doc_count": 49
           },
           "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
             "doc_count": 38
@@ -235,7 +238,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3544
+            "doc_count": 3543
           },
           {
             "key": "900-999",
@@ -254,7 +257,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 703
+        "doc_count": 763
       }
     },
     "forgeries": {
@@ -341,7 +344,7 @@
           "doc_count": 0
         },
         "<b>Marculf</b>: Marculf": {
-          "doc_count": 2
+          "doc_count": 3
         },
         "<b>Merowinger</b>: Merowinger": {
           "doc_count": 2
@@ -392,6 +395,9 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Eudes": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Formeln von Tours": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
@@ -509,7 +515,7 @@
       ]
     },
     "no_date": {
-      "doc_count": 2
+      "doc_count": 3
     }
   }
 }

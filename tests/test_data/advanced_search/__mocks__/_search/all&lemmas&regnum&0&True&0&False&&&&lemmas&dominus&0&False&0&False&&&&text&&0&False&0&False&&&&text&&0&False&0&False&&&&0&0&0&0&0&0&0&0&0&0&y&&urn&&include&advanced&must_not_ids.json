@@ -3,24 +3,27 @@
     "id": "urn:cts:formulae:andecavensis.computus.lat001"
   },
   {
-    "id": "urn:cts:formulae:marculf.form017.lat001"
+    "id": "urn:cts:formulae:marculf.form1_017.lat001"
   },
   {
-    "id": "urn:cts:formulae:marculf.form021.lat001"
+    "id": "urn:cts:formulae:marculf.form1_021.lat001"
   },
   {
-    "id": "urn:cts:formulae:marculf.form032.lat001"
+    "id": "urn:cts:formulae:marculf.form1_032.lat001"
   },
   {
-    "id": "urn:cts:formulae:marculf.form033.lat001"
+    "id": "urn:cts:formulae:marculf.form1_033.lat001"
   },
   {
-    "id": "urn:cts:formulae:marculf.form039.lat001"
+    "id": "urn:cts:formulae:marculf.form1_039.lat001"
   },
   {
-    "id": "urn:cts:formulae:marculf.form040.lat001"
+    "id": "urn:cts:formulae:marculf.form1_040.lat001"
   },
   {
     "id": "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001"
   }
 ]

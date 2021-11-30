@@ -1,6 +1,6 @@
 [
   {
-    "took": 9,
+    "took": 7,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -448,14 +448,14 @@
             "max_date": "0813-04-20",
             "days": [
               "Sunday",
-              "Friday",
-              "Saturday",
-              "Lent",
               "Thursday",
-              "Tuesday",
-              "Monday",
               "Easter",
-              "Wednesday"
+              "Lent",
+              "Wednesday",
+              "Saturday",
+              "Friday",
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -695,14 +695,14 @@
             "max_date": "0813-03-31",
             "days": [
               "Sunday",
-              "Friday",
-              "Saturday",
-              "Lent",
               "Thursday",
-              "Tuesday",
-              "Monday",
               "Easter",
-              "Wednesday"
+              "Lent",
+              "Wednesday",
+              "Saturday",
+              "Friday",
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },

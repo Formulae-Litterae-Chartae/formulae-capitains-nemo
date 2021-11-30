@@ -1,16 +1,16 @@
 [
   {
-    "took": 58,
+    "took": 24,
     "timed_out": false,
     "_shards": {
-      "total": 59,
-      "successful": 59,
+      "total": 60,
+      "successful": 60,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 18,
+        "value": 19,
         "relation": "eq"
       },
       "max_score": null,
@@ -18,7 +18,7 @@
         {
           "_index": "marculf_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:marculf.form024.lat001",
+          "_id": "urn:cts:formulae:marculf.form1_024.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
@@ -26,7 +26,7 @@
             "regest": "regest text",
             "title": "Marculf I,24",
             "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form024.lat001",
+            "urn": "urn:cts:formulae:marculf.form1_024.lat001",
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
@@ -44,13 +44,13 @@
           },
           "sort": [
             0,
-            "urn:cts:formulae:marculf.form024.lat001"
+            "urn:cts:formulae:marculf.form1_024.lat001"
           ]
         },
         {
           "_index": "marculf_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:marculf.form034.lat001",
+          "_id": "urn:cts:formulae:marculf.form1_034.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
@@ -58,7 +58,7 @@
             "regest": "regest text",
             "title": "Marculf I,34",
             "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form034.lat001",
+            "urn": "urn:cts:formulae:marculf.form1_034.lat001",
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
@@ -76,7 +76,39 @@
           },
           "sort": [
             0,
-            "urn:cts:formulae:marculf.form034.lat001"
+            "urn:cts:formulae:marculf.form1_034.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marculf.form3_3_003.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf Ergänzungen 3,3",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form3_3_003.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "regest": [
+              "regest text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form3_3_003.lat001"
           ]
         },
         {

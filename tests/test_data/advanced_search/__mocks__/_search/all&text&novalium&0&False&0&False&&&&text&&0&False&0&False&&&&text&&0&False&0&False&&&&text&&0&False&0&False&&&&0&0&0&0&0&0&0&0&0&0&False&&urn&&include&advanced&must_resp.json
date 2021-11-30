@@ -1,10 +1,10 @@
 [
   {
-    "took": 51,
+    "took": 43,
     "timed_out": false,
     "_shards": {
-      "total": 59,
-      "successful": 59,
+      "total": 60,
+      "successful": 60,
       "skipped": 0,
       "failed": 0
     },
@@ -60,7 +60,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v3",
+          "_index": "marmoutier_dunois_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0215.lat001",
           "_score": null,
@@ -104,7 +104,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0118.lat001",
           "_score": null,
@@ -148,7 +148,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001",
           "_score": null,
@@ -192,7 +192,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0133.lat001",
           "_score": null,
@@ -236,7 +236,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0168.lat001",
           "_score": null,
@@ -280,7 +280,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0175.lat001",
           "_score": null,
@@ -324,7 +324,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0181.lat001",
           "_score": null,
@@ -368,7 +368,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0197.lat001",
           "_score": null,
@@ -412,7 +412,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0198.lat001",
           "_score": null,
@@ -456,7 +456,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0216.lat001",
           "_score": null,
@@ -500,7 +500,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0233.lat001",
           "_score": null,
@@ -544,7 +544,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0236.lat001",
           "_score": null,
@@ -588,7 +588,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v3",
+          "_index": "papsturkunden_frankreich_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0246.lat001",
           "_score": null,

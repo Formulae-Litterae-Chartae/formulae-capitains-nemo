@@ -1,16 +1,16 @@
 [
   {
-    "took": 30,
+    "took": 20,
     "timed_out": false,
     "_shards": {
-      "total": 59,
-      "successful": 59,
+      "total": 60,
+      "successful": 60,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 33,
+        "value": 45,
         "relation": "eq"
       },
       "max_score": null,
@@ -184,7 +184,7 @@
             "text": "some real text",
             "lemmas": "lemma text",
             "regest": "regest text",
-            "title": "Marculf II Capitula",
+            "title": "Marculf II Capitulatio",
             "keywords": "",
             "urn": "urn:cts:formulae:marculf.2_capitula.lat001",
             "date_string": " ",
@@ -216,7 +216,7 @@
             "text": "some real text",
             "lemmas": "lemma text",
             "regest": "regest text",
-            "title": "Marculf 0",
+            "title": "Marculf Praefatio",
             "keywords": "",
             "urn": "urn:cts:formulae:marculf.form000.lat001",
             "date_string": " ",
@@ -400,24 +400,288 @@
           ]
         },
         {
-          "_index": "auvergne_v2",
+          "_index": "marmoutier_dunois_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:auvergne.form001.lat001",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0111.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
             "regest": "regest text",
-            "title": "Auvergne 1",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 111",
             "keywords": "",
-            "urn": "urn:cts:formulae:auvergne.form001.lat001",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0111.lat001",
+            "date_string": "1048-1061",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1048-01-01",
+                "lte": "1061-12-31"
+              }
+            ],
+            "all_dates": [
+              "1048-01-01",
+              "1061-12-31"
+            ],
+            "min_date": "1048-01-01",
+            "max_date": "1061-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0111.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0112.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 112",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0112.lat001",
+            "date_string": "1048-1060",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1048-01-01",
+                "lte": "1060-12-31"
+              }
+            ],
+            "all_dates": [
+              "1048-01-01",
+              "1060-12-31"
+            ],
+            "min_date": "1048-01-01",
+            "max_date": "1060-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0112.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0138.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 138",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0138.lat001",
+            "date_string": "Um 1080",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1080-01-01",
+                "lte": "1080-12-31"
+              }
+            ],
+            "all_dates": [
+              "1080-01-01",
+              "1080-12-31"
+            ],
+            "min_date": "1080-01-01",
+            "max_date": "1080-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0138.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0168.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 168",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0168.lat001",
+            "date_string": "1116-1136",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1116-01-01",
+                "lte": "1136-12-31"
+              }
+            ],
+            "all_dates": [
+              "1116-01-01",
+              "1136-12-31"
+            ],
+            "min_date": "1116-01-01",
+            "max_date": "1136-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0168.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0183.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 183",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0183.lat001",
+            "date_string": "1147-1156",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1147-01-01",
+                "lte": "1156-12-31"
+              }
+            ],
+            "all_dates": [
+              "1147-01-01",
+              "1156-12-31"
+            ],
+            "min_date": "1147-01-01",
+            "max_date": "1156-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0183.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0205.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 205",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0205.lat001",
+            "date_string": "1200",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1200-01-01",
+                "lte": "1200-12-31"
+              }
+            ],
+            "all_dates": [
+              "1200-01-01",
+              "1200-12-31"
+            ],
+            "min_date": "1200-01-01",
+            "max_date": "1200-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0205.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0003.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartularium Dunense Maioris Monasterii Nr. 3",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0003.lat001",
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "auvergne",
+            "collection": "marmoutier_dunois",
             "forgery": false,
             "sort_prefix": 1
           },
@@ -428,29 +692,41 @@
           },
           "sort": [
             1,
-            "urn:cts:formulae:auvergne.form001.lat001"
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0003.lat001"
           ]
         },
         {
-          "_index": "auvergne_v2",
+          "_index": "marmoutier_dunois_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:auvergne.form002.lat001",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0014.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
             "regest": "regest text",
-            "title": "Auvergne 2",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartularium Dunense Maioris Monasterii Nr. 14",
             "keywords": "",
-            "urn": "urn:cts:formulae:auvergne.form002.lat001",
-            "date_string": " ",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0014.lat001",
+            "date_string": "1060-1064",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "auvergne",
+            "collection": "marmoutier_dunois",
             "forgery": false,
+            "dating": [
+              {
+                "gte": "1060-01-01",
+                "lte": "1064-12-31"
+              }
+            ],
+            "all_dates": [
+              "1060-01-01",
+              "1064-12-31"
+            ],
+            "min_date": "1060-01-01",
+            "max_date": "1064-12-31",
             "sort_prefix": 1
           },
           "highlight": {
@@ -460,11 +736,99 @@
           },
           "sort": [
             1,
-            "urn:cts:formulae:auvergne.form002.lat001"
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0014.lat001"
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_dunois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0018.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartularium Dunense Maioris Monasterii Nr. 18",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0018.lat001",
+            "date_string": "1015-1020",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1015-01-01",
+                "lte": "1020-12-31"
+              }
+            ],
+            "all_dates": [
+              "1015-01-01",
+              "1020-12-31"
+            ],
+            "min_date": "1015-01-01",
+            "max_date": "1020-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0018.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0025.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartularium Dunense Maioris Monasterii Nr. 25",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0025.lat001",
+            "date_string": "1064 et seq.",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1064-01-01",
+                "lte": "1064-12-31"
+              }
+            ],
+            "all_dates": [
+              "1064-01-01",
+              "1064-12-31"
+            ],
+            "min_date": "1064-01-01",
+            "max_date": "1064-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0025.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0002.lat001",
           "_score": null,
@@ -508,7 +872,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0011app.lat001",
           "_score": null,
@@ -552,7 +916,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013app.lat001",
           "_score": null,
@@ -596,7 +960,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
           "_score": null,
@@ -640,7 +1004,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
           "_score": null,
@@ -684,7 +1048,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0024.lat001",
           "_score": null,
@@ -728,7 +1092,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0027.lat001",
           "_score": null,
@@ -772,7 +1136,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0029.lat001",
           "_score": null,
@@ -816,7 +1180,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0041.lat001",
           "_score": null,
@@ -860,7 +1224,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
           "_score": null,
@@ -904,7 +1268,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0045.lat001",
           "_score": null,
@@ -948,7 +1312,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0046.lat001",
           "_score": null,
@@ -992,7 +1356,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
           "_score": null,
@@ -1036,7 +1400,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0056.lat001",
           "_score": null,
@@ -1080,7 +1444,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
           "_score": null,
@@ -1124,7 +1488,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0078.lat001",
           "_score": null,
@@ -1168,7 +1532,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0092.lat001",
           "_score": null,
@@ -1212,7 +1576,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0094.lat001",
           "_score": null,
@@ -1256,7 +1620,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001",
           "_score": null,
@@ -1297,6 +1661,182 @@
           "sort": [
             1,
             "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_vendomois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0104.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Vendômois (Ed. Trémault) Nr. 104",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_vendomois.trémault0104.lat001",
+            "date_string": "1050-1064",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_vendomois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1050-01-01",
+                "lte": "1064-12-31"
+              }
+            ],
+            "all_dates": [
+              "1050-01-01",
+              "1064-12-31"
+            ],
+            "min_date": "1050-01-01",
+            "max_date": "1064-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_vendomois.trémault0104.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_vendomois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0118.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Vendômois (Ed. Trémault) Nr. 118",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_vendomois.trémault0118.lat001",
+            "date_string": "1050-1066",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_vendomois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1050-01-01",
+                "lte": "1066-12-31"
+              }
+            ],
+            "all_dates": [
+              "1050-01-01",
+              "1066-12-31"
+            ],
+            "min_date": "1050-01-01",
+            "max_date": "1066-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_vendomois.trémault0118.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_vendomois_appendix_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0031.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Vendômois. Appendix (Ed. de Trémault), Lavardin Nr. 31",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0031.lat001",
+            "date_string": "Um 1100",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_vendomois_appendix",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1080-01-01",
+                "lte": "1120-12-31"
+              }
+            ],
+            "all_dates": [
+              "1080-01-01",
+              "1120-12-31"
+            ],
+            "min_date": "1080-01-01",
+            "max_date": "1120-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0031.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_vendomois_appendix_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0040.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Vendômois. Appendix (Ed. de Trémault), Lavardin Nr. 40",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0040.lat001",
+            "date_string": "1190-1202",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_vendomois_appendix",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1190-01-01",
+                "lte": "1202-12-31"
+              }
+            ],
+            "all_dates": [
+              "1190-01-01",
+              "1202-12-31"
+            ],
+            "min_date": "1190-01-01",
+            "max_date": "1202-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0040.lat001"
           ]
         }
       ]

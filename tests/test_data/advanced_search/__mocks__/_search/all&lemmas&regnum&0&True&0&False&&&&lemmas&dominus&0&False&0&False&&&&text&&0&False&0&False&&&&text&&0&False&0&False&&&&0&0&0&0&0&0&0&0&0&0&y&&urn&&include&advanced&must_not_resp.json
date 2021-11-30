@@ -1,16 +1,16 @@
 [
   {
-    "took": 37,
+    "took": 26,
     "timed_out": false,
     "_shards": {
-      "total": 59,
-      "successful": 59,
+      "total": 60,
+      "successful": 60,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 23,
+        "value": 29,
         "relation": "eq"
       },
       "max_score": null,
@@ -50,7 +50,7 @@
         {
           "_index": "marculf_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:marculf.form017.lat001",
+          "_id": "urn:cts:formulae:marculf.form1_017.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
@@ -58,7 +58,7 @@
             "regest": "regest text",
             "title": "Marculf I,17",
             "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form017.lat001",
+            "urn": "urn:cts:formulae:marculf.form1_017.lat001",
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
@@ -76,13 +76,13 @@
           },
           "sort": [
             0,
-            "urn:cts:formulae:marculf.form017.lat001"
+            "urn:cts:formulae:marculf.form1_017.lat001"
           ]
         },
         {
           "_index": "marculf_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:marculf.form021.lat001",
+          "_id": "urn:cts:formulae:marculf.form1_021.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
@@ -90,7 +90,7 @@
             "regest": "regest text",
             "title": "Marculf I,21",
             "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form021.lat001",
+            "urn": "urn:cts:formulae:marculf.form1_021.lat001",
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
@@ -108,13 +108,13 @@
           },
           "sort": [
             0,
-            "urn:cts:formulae:marculf.form021.lat001"
+            "urn:cts:formulae:marculf.form1_021.lat001"
           ]
         },
         {
           "_index": "marculf_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:marculf.form032.lat001",
+          "_id": "urn:cts:formulae:marculf.form1_032.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
@@ -122,7 +122,7 @@
             "regest": "regest text",
             "title": "Marculf I,32",
             "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form032.lat001",
+            "urn": "urn:cts:formulae:marculf.form1_032.lat001",
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
@@ -140,13 +140,13 @@
           },
           "sort": [
             0,
-            "urn:cts:formulae:marculf.form032.lat001"
+            "urn:cts:formulae:marculf.form1_032.lat001"
           ]
         },
         {
           "_index": "marculf_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:marculf.form033.lat001",
+          "_id": "urn:cts:formulae:marculf.form1_033.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
@@ -154,7 +154,7 @@
             "regest": "regest text",
             "title": "Marculf I,33",
             "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form033.lat001",
+            "urn": "urn:cts:formulae:marculf.form1_033.lat001",
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
@@ -172,13 +172,13 @@
           },
           "sort": [
             0,
-            "urn:cts:formulae:marculf.form033.lat001"
+            "urn:cts:formulae:marculf.form1_033.lat001"
           ]
         },
         {
           "_index": "marculf_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:marculf.form039.lat001",
+          "_id": "urn:cts:formulae:marculf.form1_039.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
@@ -186,7 +186,7 @@
             "regest": "regest text",
             "title": "Marculf I,39",
             "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form039.lat001",
+            "urn": "urn:cts:formulae:marculf.form1_039.lat001",
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
@@ -204,13 +204,13 @@
           },
           "sort": [
             0,
-            "urn:cts:formulae:marculf.form039.lat001"
+            "urn:cts:formulae:marculf.form1_039.lat001"
           ]
         },
         {
           "_index": "marculf_v6",
           "_type": "_doc",
-          "_id": "urn:cts:formulae:marculf.form040.lat001",
+          "_id": "urn:cts:formulae:marculf.form1_040.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
@@ -218,7 +218,7 @@
             "regest": "regest text",
             "title": "Marculf I,40",
             "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form040.lat001",
+            "urn": "urn:cts:formulae:marculf.form1_040.lat001",
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "autocomplete text",
@@ -236,11 +236,11 @@
           },
           "sort": [
             0,
-            "urn:cts:formulae:marculf.form040.lat001"
+            "urn:cts:formulae:marculf.form1_040.lat001"
           ]
         },
         {
-          "_index": "marmoutier_serfs_v3",
+          "_index": "marmoutier_serfs_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001",
           "_score": null,
@@ -281,6 +281,50 @@
           "sort": [
             1,
             "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_vendomois_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Vendômois (Ed. Trémault) Nr. 62",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001",
+            "date_string": "Vor 1040",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_vendomois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0900-01-01",
+                "lte": "1040-01-01"
+              }
+            ],
+            "all_dates": [
+              "0900-01-01",
+              "1040-01-01"
+            ],
+            "min_date": "0900-01-01",
+            "max_date": "1040-01-01",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001"
           ]
         }
       ]

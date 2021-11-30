@@ -36,10 +36,34 @@
     "id": "urn:cts:formulae:marculf.form2_038.lat001"
   },
   {
-    "id": "urn:cts:formulae:auvergne.form001.lat001"
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0111.lat001"
   },
   {
-    "id": "urn:cts:formulae:auvergne.form002.lat001"
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0112.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0138.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0168.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0183.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0205.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0014.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0018.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0025.lat001"
   },
   {
     "id": "urn:cts:formulae:marmoutier_serfs.salmon0002.lat001"
@@ -97,5 +121,17 @@
   },
   {
     "id": "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_vendomois.trémault0104.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_vendomois.trémault0118.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0040.lat001"
   }
 ]

@@ -1544,6 +1544,10 @@ class TestFunctions(Formulae_Testing):
         self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:marculf'] if x[0] == '2_000a'],
                          ['urn:cts:formulae:marculf.2_capitula.deu001', 'urn:cts:formulae:marculf.2_capitula.lat001',
                           'urn:cts:formulae:p16.1v2v.lat001'])
+        self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:tours'] if x[0] == '000_a'],
+                         ['urn:cts:formulae:p10.135r.lat001',
+                          'urn:cts:formulae:tours.0_capitula.deu001',
+                          'urn:cts:formulae:tours.0_capitula.lat001'])
 
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""
@@ -6404,9 +6408,9 @@ class TestES(Formulae_Testing):
                                                                             ("forgeries", "include"),
                                                                             ('source', 'advanced'),
                                                                             ('bool_operator', 'must')]),
-                 'test_four_query_params': OrderedDict([("corpus", "freising"),
+                 'test_four_query_params': OrderedDict([("corpus", "mondsee"),
                                                         ("search_field_1", "text"),
-                                                        ("q_1", 'nullus+contradicere'),
+                                                        ("q_1", 'esse+non+credo'),
                                                         ("fuzziness_1", "0"),
                                                         ("in_order_1", "True"),
                                                         ("slop_1", "0"),
@@ -6424,7 +6428,7 @@ class TestES(Formulae_Testing):
                                                         ("formulaic_parts_2", "Corroboratio"),
                                                         ("proper_name_2", ""),
                                                         ("search_field_3", "text"),
-                                                        ("q_3", 'regni+ducis'),
+                                                        ("q_3", 'regni+domni'),
                                                         ("fuzziness_3", "0"),
                                                         ("in_order_3", "False"),
                                                         ("slop_3", "3"),
@@ -6433,7 +6437,7 @@ class TestES(Formulae_Testing):
                                                         ("formulaic_parts_3", ""),
                                                         ("proper_name_3", ""),
                                                         ("search_field_4", "regest"),
-                                                        ("q_4", 'übergeben'),
+                                                        ("q_4", 'schenkt'),
                                                         ("fuzziness_4", "0"),
                                                         ("in_order_4", "False"),
                                                         ("slop_4", "0"),
@@ -6441,9 +6445,9 @@ class TestES(Formulae_Testing):
                                                         ("exclude_q_4", ""),
                                                         ("formulaic_parts_4", ""),
                                                         ("proper_name_4", ""),
-                                                        ("year", 778),
-                                                        ("month", 8),
-                                                        ("day", 7),
+                                                        ("year", 803),
+                                                        ("month", 9),
+                                                        ("day", 6),
                                                         ("year_start", 0),
                                                         ("month_start", 0),
                                                         ("day_start", 0),
@@ -9059,6 +9063,9 @@ class TestES(Formulae_Testing):
           "<b>Touraine</b>: Une nouvelle charte de Théotolon": {
             "doc_count": 1
           },
+            '<b>Touraine</b>: Formeln von Tours': {
+                "doc_count": 69
+            },
           "<b>Werden</b>: Werden": {
             "doc_count": 66
           },
@@ -10661,6 +10668,7 @@ class TestES(Formulae_Testing):
                     'Abbas abbatissa Abt',
                     'abbas im ägyptischen Mönchtum im 4 Jahrhundert zur',
                     'abbas seit dem 5 Jahrhundert im lateinischen Westen im',
+                    'abbas wörtlich „Vater“ nach Vorbild der antiken',
                     'abbas zurück wurde dessen Stellvertreter und fand in',
                     'Abbates finden sich dabei nicht nur als',
                     'Abbatiat Die Wahrnehmung des materiellen Wertes der',
@@ -11422,10 +11430,10 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
-        sents = [{'sents': [Markup('<strong>Poenformel:</strong> </small><strong>Nullus</strong><small> </small><strong>contradicere</strong><small> valeat aut\n                  '),
-            Markup('<strong>Corroboratio:</strong> Haec testes et eorum nomina ... et ceteri multi quorum non\n                            est facile dinumerare vel scribere nomina'),
-            Markup('quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. </small><strong>regni</strong><small> domni Tassilonis inlustrissimi </small><strong>ducis</strong><small> sub die consule quod erat VII. id. aug firmiter tradiderunt c')]}]
-        regest_sents = [{'regest_sents': [Markup('Husina und Irminpald </small><strong>übergeben</strong><small> ein Gotteshaus zu Kreuzpullach,')]}]
+        sents = [{'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum </small><strong>esse</strong><small> </small><strong>non</strong><small> </small><strong>credo</strong><small>, si ego ipse aut ullus de heredibus'),
+            Markup('<strong>Corroboratio:</strong> Et testes ad roborandum secundum lege Bauuariorum; dedit'),
+            Markup('Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI </small><strong>regni</strong><small> </small><strong>domni</strong><small> nostri Karoli gloriosissime regis et imperii eius III Et testes ')]}]
+        regest_sents = [{'regest_sents': [Markup('Heripald, Sohn des verstorbenen Atto, </small><strong>schenkt</strong><small> dem Kloster, dessen Vorsteher')]}]
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
         self.assertEqual(regest_sents, [{"regest_sents": x['regest_sents']} for x in actual])
 
