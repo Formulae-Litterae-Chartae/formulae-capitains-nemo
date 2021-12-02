@@ -1,10 +1,10 @@
 [
   {
-    "took": 27,
+    "took": 11,
     "timed_out": false,
     "_shards": {
-      "total": 59,
-      "successful": 59,
+      "total": 60,
+      "successful": 60,
       "skipped": 0,
       "failed": 0
     },
@@ -313,14 +313,14 @@
             "max_date": "0813-04-20",
             "days": [
               "Sunday",
-              "Friday",
-              "Saturday",
-              "Lent",
               "Thursday",
-              "Tuesday",
-              "Monday",
               "Easter",
-              "Wednesday"
+              "Lent",
+              "Wednesday",
+              "Saturday",
+              "Friday",
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -555,14 +555,14 @@
             "max_date": "0813-03-31",
             "days": [
               "Sunday",
-              "Friday",
-              "Saturday",
-              "Lent",
               "Thursday",
-              "Tuesday",
-              "Monday",
               "Easter",
-              "Wednesday"
+              "Lent",
+              "Wednesday",
+              "Saturday",
+              "Friday",
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -576,11 +576,8 @@
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
           "_score": null,
-          "_ignored": [
-            "Publicatio.keyword"
-          ],
           "_source": {
-            "text": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi",
+            "text": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus, qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt. His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum: Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII. Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi.",
             "lemmas": null,
             "regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren frühere Schenkung.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 465",
@@ -588,7 +585,7 @@
             "urn": "urn:cts:formulae:freising.bitterauf0465.lat001",
             "date_string": "822 04 13",
             "comp_ort": "Freising",
-            "autocomplete": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi",
+            "autocomplete": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus, qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt. His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum: Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII. Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi.",
             "autocomplete_lemmas": null,
             "autocomplete_regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren frühere Schenkung.",
             "orig_comp_ort": "(Freising)",
@@ -610,17 +607,7 @@
               "Sunday",
               "Easter"
             ],
-            "sort_prefix": 1,
-            "Publicatio": "Constat enim\n                            multis in episcopio sanctae Mariae conversantibus ... Nunc vero ammonente\n                            divina gratia in proximo paschalis die quod erat id. aprilis veniens ad\n                            virum venerabilem Hittonem episcopum ita ut iam diximus ante acta\n                            renovavit et interim adquisita omnia in omnibus legitime tradidit et\n                            quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit,\n                            domui sanctae Mariae in propriam hereditatem adunare et firma\n                            stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel\n                            incultis tam terra aravile quam etiam pratas silvasque bene aptas inter\n                            totum iurnales plus minus CCCC. Haec nomina mancipiorum",
-            "Publicatio-lems": null,
-            "Intitulatio": "Uuago\n                            capellanus",
-            "Intitulatio-lems": null,
-            "Stipulationsformel": " communi manu firmiter tradiderunt et cum veraces testibus\n                            confirmaverunt ",
-            "Stipulationsformel-lems": null,
-            "Corroboratio": "communi manu firmiter tradiderunt et cum veraces testibus\n                            confirmaverunt",
-            "Corroboratio-lems": null,
-            "Eschatokoll": "anno gloriosi Hludiuuici imperatoris octavo indictione\n                            XIIII ... Ego indignus Tagaperhtus presbiter conscripsi iussione domni\n                            Hittonis episcopi",
-            "Eschatokoll-lems": null
+            "sort_prefix": 1
           },
           "sort": [
             1,
@@ -799,14 +786,14 @@
             "max_date": "0912-12-12",
             "days": [
               "Sunday",
-              "Friday",
+              "Thursday",
+              "Easter",
+              "Wednesday",
               "Lent",
               "Saturday",
-              "Thursday",
+              "Friday",
               "Tuesday",
-              "Monday",
-              "Easter",
-              "Wednesday"
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -855,9 +842,9 @@
             "max_date": "0919-04-25",
             "days": [
               "Sunday",
-              "Lent",
+              "Monday",
               "Easter",
-              "Monday"
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -1169,8 +1156,8 @@
             "min_date": "0766-04-19",
             "max_date": "0768-04-19",
             "days": [
-              "Sunday",
               "Saturday",
+              "Sunday",
               "Easter",
               "Tuesday"
             ],
@@ -2120,14 +2107,14 @@
             "max_date": "0880-04-17",
             "days": [
               "Sunday",
-              "Friday",
+              "Thursday",
+              "Easter",
+              "Wednesday",
               "Lent",
               "Saturday",
-              "Thursday",
+              "Friday",
               "Tuesday",
-              "Monday",
-              "Easter",
-              "Wednesday"
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -2860,14 +2847,14 @@
             "max_date": "0880-04-18",
             "days": [
               "Sunday",
-              "Friday",
-              "Lent",
-              "Saturday",
               "Thursday",
-              "Tuesday",
-              "Monday",
               "Easter",
-              "Wednesday"
+              "Lent",
+              "Wednesday",
+              "Saturday",
+              "Friday",
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -2964,13 +2951,13 @@
             "max_date": "0778-04-22",
             "days": [
               "Sunday",
-              "Friday",
-              "Saturday",
               "Thursday",
-              "Tuesday",
-              "Monday",
               "Easter",
-              "Wednesday"
+              "Wednesday",
+              "Saturday",
+              "Friday",
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -3067,14 +3054,14 @@
             "max_date": "0778-04-18",
             "days": [
               "Sunday",
-              "Friday",
+              "Thursday",
+              "Easter",
+              "Wednesday",
               "Lent",
               "Saturday",
-              "Thursday",
+              "Friday",
               "Tuesday",
-              "Monday",
-              "Easter",
-              "Wednesday"
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -3245,12 +3232,12 @@
             "max_date": "0786-04-23",
             "days": [
               "Sunday",
-              "Friday",
-              "Saturday",
-              "Tuesday",
-              "Monday",
               "Easter",
-              "Wednesday"
+              "Wednesday",
+              "Saturday",
+              "Friday",
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -3341,14 +3328,14 @@
             "max_date": "0813-04-13",
             "days": [
               "Sunday",
-              "Friday",
-              "Lent",
-              "Saturday",
               "Thursday",
-              "Tuesday",
-              "Monday",
               "Easter",
-              "Wednesday"
+              "Lent",
+              "Wednesday",
+              "Saturday",
+              "Friday",
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -3444,7 +3431,7 @@
           ]
         },
         {
-          "_index": "redon_v3",
+          "_index": "redon_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:redon.courson0040.lat001",
           "_score": null,
@@ -3519,12 +3506,12 @@
             "max_date": "0866-04-22",
             "days": [
               "Sunday",
-              "Saturday",
               "Thursday",
-              "Tuesday",
-              "Monday",
               "Easter",
-              "Wednesday"
+              "Wednesday",
+              "Saturday",
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -3569,15 +3556,7 @@
               "Sunday",
               "Easter"
             ],
-            "sort_prefix": 1,
-            "Intitulatio": "Gotabertus ... Ôdalbertus \n                  archiespiscopus \n                  uná \n                  cum \n                  advocato \n                  suo",
-            "Intitulatio-lems": null,
-            "Pertinenzformel": "quam \n                  ad \n                  Herioltingam \n                  visus \n                  est \n                  habere ... quod \n                  tunc \n                  in \n                  beneficium \n                  habuit \n                  in \n                  Bisontia \n                  loco \n                  Lêtto \n                  numcupato",
-            "Pertinenzformel-lems": null,
-            "Dispositio": "perpetualiter \n                  hanc \n                  consistendam ... tradidit",
-            "Dispositio-lems": null,
-            "Corroboratio": "Et \n                  isti \n                  sunt \n                  testes \n                  per \n                  aures \n                  attracti",
-            "Corroboratio-lems": null
+            "sort_prefix": 1
           },
           "sort": [
             1,
@@ -3620,17 +3599,7 @@
               "Sunday",
               "Easter"
             ],
-            "sort_prefix": 1,
-            "Publicatio": "Noverint omnes Christi fideles",
-            "Publicatio-lems": null,
-            "Intitulatio": "Ôdalbertus venerabilis archiepiscopus ... cum Gotesmanno presbitero suo",
-            "Intitulatio-lems": null,
-            "Dispositio": "peragere disposuit ... Tradidit namque ... et statim investituram dimisit ... perenniter in proprietatem possidendum et mancipium post obitum illius et filiae suae Agathae perpetualiter in proprietatem ibidem habendum ... tradidit",
-            "Dispositio-lems": null,
-            "Pertinenzformel": "veluti ipse Gotesman in loco Perahah dicto antea in beneficium tenuit, et ista mancipia: Perhtgoz Deotolf Perhtvuih, ipsi et Agathae filiae eius",
-            "Pertinenzformel-lems": null,
-            "Corroboratio": "Isti sunt testes per aures attracti",
-            "Corroboratio-lems": null
+            "sort_prefix": 1
           },
           "sort": [
             1,
@@ -3673,15 +3642,7 @@
               "Sunday",
               "Easter"
             ],
-            "sort_prefix": 1,
-            "Publicatio": "In istius enimvero cartulae agnitione omnes sanctae dei aecclesiae noverint cultores",
-            "Publicatio-lems": null,
-            "Dispositio": "quandam fecerat ... tradidit ... perenniter in proprietatem possidendum",
-            "Dispositio-lems": null,
-            "Pertinenzformel": "suam proprietatem tradidit quam habuit ad Tuzsilingon et Merinunmos cum mancipiis XX caeterisque omnibus iuste ad haec pertinentia ... duo loca, Ehartinga dicta et Tuzsilinga, cum omnibus legitime ad haec accedentia",
-            "Pertinenzformel-lems": null,
-            "Corroboratio": "Isti sunt testes exinde",
-            "Corroboratio-lems": null
+            "sort_prefix": 1
           },
           "sort": [
             1,
@@ -3724,15 +3685,7 @@
               "Sunday",
               "Easter"
             ],
-            "sort_prefix": 1,
-            "Publicatio": "Notum quoque sit omnibus aecclesiae dei fidelibus",
-            "Publicatio-lems": null,
-            "Dispositio": "quandam commutationem agere postulabant, at illae pro commissae sibi aecclesiae augmentatione et fidelium omnium suorum clericorum scilicet et laicorum consultus obauditione ita fore decrevit ... Tradidit itaque ... perenniter in proprietatem possidendum ... tradidit econtra",
-            "Dispositio-lems": null,
-            "Pertinenzformel": "duo loca dicta Holzhusa et Eralastat beneficium Herikeri",
-            "Pertinenzformel-lems": null,
-            "Corroboratio": "et eisdem praenotatis testibus scriptis in cartula viduae Diotrici legaliter adfirmaverunt, quorum nomina sunt",
-            "Corroboratio-lems": null
+            "sort_prefix": 1
           },
           "sort": [
             1,
@@ -3775,19 +3728,7 @@
               "Sunday",
               "Easter"
             ],
-            "sort_prefix": 1,
-            "Publicatio": "Et est etiam omnibus christianitatis cultoribus agnoscendum",
-            "Publicatio-lems": null,
-            "Intitulatio": "Fridapold vassus Kerhohi",
-            "Intitulatio-lems": null,
-            "Eschatokoll": "eodem die eademque hora in commutandi causa",
-            "Eschatokoll-lems": null,
-            "Dispositio": "in commutandi ...  tradidit  ... tradidit ... sibi in proprietatem perenniter possidere",
-            "Dispositio-lems": null,
-            "Pertinenzformel": "talem proprietatem, qualem ad Mosaheim et Gundperhtesdorf habuit, hobas II in Chimincgouue ... de domus dei territorio ad Herigozesdorf in comitatu Reginberti in Chimincgouue tradidit hobam unam",
-            "Pertinenzformel-lems": null,
-            "Corroboratio": "Et testibus in prioribus duobus epistolis praescriptis firmaverunt legaliter, quorum nomina sunt",
-            "Corroboratio-lems": null
+            "sort_prefix": 1
           },
           "sort": [
             1,
@@ -3830,13 +3771,7 @@
               "Sunday",
               "Easter"
             ],
-            "sort_prefix": 1,
-            "Dispositio": "Tradidit igitur ... post obitum suum et uxoris suae ... perenniter in proprietatem",
-            "Dispositio-lems": null,
-            "Pertinenzformel": "dimidietatem proprietatis suae, quam in loco Odratinga dicto habuit",
-            "Pertinenzformel-lems": null,
-            "Narratio": "pro remedio sui et antecessorum suorum",
-            "Narratio-lems": null
+            "sort_prefix": 1
           },
           "sort": [
             1,
@@ -3879,15 +3814,7 @@
               "Sunday",
               "Easter"
             ],
-            "sort_prefix": 1,
-            "Intitulatio": "Christi disponente providentia Grimaldus abba coenobii sancti Galli ... nos una cum consensu fratrum nostrorum et advocati Emichonis",
-            "Intitulatio-lems": null,
-            "Dispositio": "Convenit nos una cum consensu fratrum nostrorum et advocati Emichonis ut in concaptione, quae sita est in marcho Wangon prope Argunam aquiloniorem in utraque parte aquae, Reodolti filio, id est Purchardo, et omni posteritati eius hobas III dari deberemus, quod ita et fecimus ... ea videlicet ratione, ut dominum non habeat nisi abbatem, qui praeest monasterio sancti Galli, et ad illos fratres annisque singulis censum inde persolvant, id est solidum unum in quocumque pretio potuerint. Et si iterum alibi dominum elegerint, tunc praefata res ad praefatum monasterium redeat perpetualiter possidenda",
-            "Dispositio-lems": null,
-            "Corroboratio": "Actum in ipso monasterio publice, praesentibus quorum hic signacula continentur",
-            "Corroboratio-lems": null,
-            "Eschatokoll": "Ego itaque Otine rogatus scripsi et subscripsi ... die dominica, VII id. april ... regnante Hludwico rege nostro anno XII, sub Pabone comite",
-            "Eschatokoll-lems": null
+            "sort_prefix": 1
           },
           "sort": [
             1,
@@ -3989,26 +3916,10 @@
             "max_date": "0870-03-26",
             "days": [
               "Sunday",
-              "Lent",
-              "Easter"
+              "Easter",
+              "Lent"
             ],
-            "sort_prefix": 1,
-            "Invocatio": "In dei nomine",
-            "Invocatio-lems": null,
-            "Publicatio": "Notum sit omnibus presentibus et futuris, qualiter",
-            "Publicatio-lems": null,
-            "Intitulatio": "ego Amilger",
-            "Intitulatio-lems": null,
-            "Narratio": "pro remedio manimae meae",
-            "Narratio-lems": null,
-            "Dispositio": "do",
-            "Dispositio-lems": null,
-            "Pertinenzformel": "predium, quale comparavi in villa Trullinchoven a duobus fratribus Tancherado et Othachero, in proprietatem",
-            "Pertinenzformel-lems": null,
-            "Corroboratio": "Actum in Renaugensi insula, coram frequentia populi et idoneis testibus",
-            "Corroboratio-lems": null,
-            "Eschatokoll": "mense Martio, die lune ... anno quo supra",
-            "Eschatokoll-lems": null
+            "sort_prefix": 1
           },
           "sort": [
             1,

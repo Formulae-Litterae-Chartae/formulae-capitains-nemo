@@ -378,6 +378,9 @@ class NemoFormulae(Nemo):
                             par = par.replace('capitula', '000a')
                         if 'incipit' in form_num:
                             par = par.replace('incipit', '000b')
+                    if 'urn:cts:formulae:tours' in form_num:
+                        if 'capitula' in form_num:
+                            par = '000_a'
                     if par.endswith('000'):
                         par = par.replace('000', _('(Prolog)'))
                     par = par.replace('capitula', '0')
@@ -394,6 +397,9 @@ class NemoFormulae(Nemo):
                     par = par.replace('capitula', '000a')
                 if 'incipit' in m.id:
                     par = par.replace('incipit', '000b')
+            if 'urn:cts:formulae:tours' in m.id:
+                if 'capitula' in m.id:
+                    par = '000_a'
             if par.endswith('000'):
                 if 'andecavensis' in m.id:
                     par = _('(Titel)')
@@ -1422,7 +1428,15 @@ class NemoFormulae(Nemo):
             with open(self._transform['notes']) as f:
                 xslt = etree.XSLT(etree.parse(f))
 
-        return str(xslt(etree.fromstring(text)))
+        notes_html = xslt(etree.fromstring(text))
+        # Insert internal links
+        try:
+            for form_link in notes_html.xpath('//a[contains(@class, "formula-link")]'):
+                form_link.set('href', url_for("InstanceNemo.r_multipassage", objectIds=form_link.get('href'), subreferences='1'))
+        except:
+            pass
+
+        return str(notes_html)
 
     def r_pdf(self, objectId: str) -> Response:
         """Produces a PDF from the objectId for download and then delivers it

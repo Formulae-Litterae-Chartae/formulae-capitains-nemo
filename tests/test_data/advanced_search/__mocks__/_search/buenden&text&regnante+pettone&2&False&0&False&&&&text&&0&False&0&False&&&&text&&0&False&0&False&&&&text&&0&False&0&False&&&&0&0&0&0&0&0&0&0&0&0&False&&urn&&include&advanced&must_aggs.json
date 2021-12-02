@@ -139,6 +139,9 @@
           "<b>Touraine</b>: Eudes": {
             "doc_count": 0
           },
+          "<b>Touraine</b>: Formeln von Tours": {
+            "doc_count": 0
+          },
           "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
             "doc_count": 0
           },
@@ -392,6 +395,9 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Eudes": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Formeln von Tours": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {

@@ -1,6 +1,6 @@
 [
   {
-    "took": 3,
+    "took": 6,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -10,13 +10,13 @@
     },
     "hits": {
       "total": {
-        "value": 3,
+        "value": 4,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "elexicon_v2",
+          "_index": "elexicon_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:elexicon.abbas.deu001",
           "_score": null,
@@ -48,7 +48,39 @@
           ]
         },
         {
-          "_index": "elexicon_v2",
+          "_index": "elexicon_v6",
+          "_type": "_doc",
+          "_id": "urn:cts:formulae:elexicon.monachus.deu001",
+          "_score": null,
+          "_source": {
+            "text": "Monachus Mönch Von griechisch μοναχός für „allein“ bzw. „einsam“/ „Alleiniger“. Der Begriff μοναχός ist bereits im 2. Jahrhundert nachweisbar, wo er – zunächst ohne religiöse Konnotation – einsam Lebende bezeichnete. Mit dem Aufkommen des frühen Christentums wurde μοναχός im Griechischen bzw. monachus im Lateinischen zunächst auf asketisch lebende Anachoreten übertragen. Seit dem 4. Jahrhundert bezeichnete der Begriff zudem diejenigen Christen, die in den neu entstehenden Zönobien lebten – Glaubensgemeinschaften mit Gütergemeinschaft und gemeinsamem Gebet, in denen sich Asketen nach neutestamentarischem Vorbild organisierten. In spätantiken und frühmittelalterlichen Mönchsgemeinschaften fungierte der Abt (abbas, wörtlich „Vater“) nach Vorbild der antiken familia als Oberhaupt der Gemeinschaft, das aufgrund seiner Erfahrung die religiöse Lebensweise vorgab. Gehorsam gegenüber dem Abt (bzw. später auch den Ordensregeln) gehörte neben der Abkehr von der Welt und einem hohen Maß an Frömmigkeit zu den wichtigsten Leitlinien des mönchischen Lebens, durch die die christliche Vollkommenheit angestrebt wurde. Trotz des Ideals der Abkehr von Weltlichem konnten jedoch auch religiöse Aufgaben in der Gemeinde übernommen werden. Auch der Widerspruch zwischen asketischem Ideal und Gemeinschaft wurde bereits im frühen Christentum thematisiert, wodurch verschiedene Konzepte gemeinschaftlichen Lebens entstanden. Für den gallischen Raum prägend waren vor allem das auf äußere Askese fokussierte Mönchtum des Martin von Tours und das stärker auf das Innere des Gläubigen ausgerichtete Mönchtum des Klosters Lerins, wobei Letzteres durch seine straffe, weniger personengebundene Organisation länger Bestand hatte. Prägend für das europäische Mönchtum war außerdem die Benediktsregel, in der unter Rückbezug auf frühere Regeln äußere Organisation mit innerer Spiritualität verbunden und so ein ganzheitliches Konzept der Mönchsgemeinschaft geschaffen wurde. Weite Verbreitung erfuhr sie insbesondere seit dem 7. Jahrhundert, unter anderem durch irische und angelsächsische Missionare sowie durch karolingische Reformen seit dem 8. Jahrhundert. Im 10. Jahrhundert war sie Ausgangspunkt für die insbesondere von Cluny, Fleury und Gorze ausgehenden Reformbewegungen, die auf eine Intensivierung des geistlichen Lebens abzielten und in deren Folge verschiedene Auslegungen des benediktinischen Mönchtums das religiöse Leben weiter prägten. MR",
+            "lemmas": null,
+            "regest": null,
+            "title": "Monachus",
+            "keywords": "Mönch",
+            "urn": "urn:cts:formulae:elexicon.monachus.deu001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "Monachus Mönch Von griechisch μοναχός für „allein“ bzw. „einsam“/ „Alleiniger“. Der Begriff μοναχός ist bereits im 2. Jahrhundert nachweisbar, wo er – zunächst ohne religiöse Konnotation – einsam Lebende bezeichnete. Mit dem Aufkommen des frühen Christentums wurde μοναχός im Griechischen bzw. monachus im Lateinischen zunächst auf asketisch lebende Anachoreten übertragen. Seit dem 4. Jahrhundert bezeichnete der Begriff zudem diejenigen Christen, die in den neu entstehenden Zönobien lebten – Glaubensgemeinschaften mit Gütergemeinschaft und gemeinsamem Gebet, in denen sich Asketen nach neutestamentarischem Vorbild organisierten. In spätantiken und frühmittelalterlichen Mönchsgemeinschaften fungierte der Abt (abbas, wörtlich „Vater“) nach Vorbild der antiken familia als Oberhaupt der Gemeinschaft, das aufgrund seiner Erfahrung die religiöse Lebensweise vorgab. Gehorsam gegenüber dem Abt (bzw. später auch den Ordensregeln) gehörte neben der Abkehr von der Welt und einem hohen Maß an Frömmigkeit zu den wichtigsten Leitlinien des mönchischen Lebens, durch die die christliche Vollkommenheit angestrebt wurde. Trotz des Ideals der Abkehr von Weltlichem konnten jedoch auch religiöse Aufgaben in der Gemeinde übernommen werden. Auch der Widerspruch zwischen asketischem Ideal und Gemeinschaft wurde bereits im frühen Christentum thematisiert, wodurch verschiedene Konzepte gemeinschaftlichen Lebens entstanden. Für den gallischen Raum prägend waren vor allem das auf äußere Askese fokussierte Mönchtum des Martin von Tours und das stärker auf das Innere des Gläubigen ausgerichtete Mönchtum des Klosters Lerins, wobei Letzteres durch seine straffe, weniger personengebundene Organisation länger Bestand hatte. Prägend für das europäische Mönchtum war außerdem die Benediktsregel, in der unter Rückbezug auf frühere Regeln äußere Organisation mit innerer Spiritualität verbunden und so ein ganzheitliches Konzept der Mönchsgemeinschaft geschaffen wurde. Weite Verbreitung erfuhr sie insbesondere seit dem 7. Jahrhundert, unter anderem durch irische und angelsächsische Missionare sowie durch karolingische Reformen seit dem 8. Jahrhundert. Im 10. Jahrhundert war sie Ausgangspunkt für die insbesondere von Cluny, Fleury und Gorze ausgehenden Reformbewegungen, die auf eine Intensivierung des geistlichen Lebens abzielten und in deren Folge verschiedene Auslegungen des benediktinischen Mönchtums das religiöse Leben weiter prägten. MR",
+            "autocomplete_lemmas": null,
+            "autocomplete_regest": null,
+            "orig_comp_ort": " ",
+            "collection": "elexicon",
+            "forgery": false,
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "autocomplete": [
+              "Monachus Mönch Von griechisch μοναχός für „allein“ bzw. „einsam“&#x2F; „Alleiniger“. Der Begriff μοναχός ist bereits im 2. Jahrhundert nachweisbar, wo er – zunächst ohne religiöse Konnotation – einsam Lebende bezeichnete. Mit dem Aufkommen des frühen Christentums wurde μοναχός im Griechischen bzw. monachus im Lateinischen zunächst auf asketisch lebende Anachoreten übertragen. Seit dem 4. Jahrhundert bezeichnete der Begriff zudem diejenigen Christen, die in den neu entstehenden Zönobien lebten – Glaubensgemeinschaften mit Gütergemeinschaft und gemeinsamem Gebet, in denen sich Asketen nach neutestamentarischem Vorbild organisierten. In spätantiken und frühmittelalterlichen Mönchsgemeinschaften fungierte der Abt (</small><strong>abbas</strong><small>, wörtlich „Vater“) nach Vorbild der antiken familia als Oberhaupt der Gemeinschaft, das aufgrund seiner Erfahrung die religiöse Lebensweise vorgab. Gehorsam gegenüber dem Abt (bzw. später auch den Ordensregeln) gehörte neben der Abkehr von der Welt und einem hohen Maß an Frömmigkeit zu den wichtigsten Leitlinien des mönchischen Lebens, durch die die christliche Vollkommenheit angestrebt wurde. Trotz des Ideals der Abkehr von Weltlichem konnten jedoch auch religiöse Aufgaben in der Gemeinde übernommen werden. Auch der Widerspruch zwischen asketischem Ideal und Gemeinschaft wurde bereits im frühen Christentum thematisiert, wodurch verschiedene Konzepte gemeinschaftlichen Lebens entstanden. Für den gallischen Raum prägend waren vor allem das auf äußere Askese fokussierte Mönchtum des Martin von Tours und das stärker auf das Innere des Gläubigen ausgerichtete Mönchtum des Klosters Lerins, wobei Letzteres durch seine straffe, weniger personengebundene Organisation länger Bestand hatte. Prägend für das europäische Mönchtum war außerdem die Benediktsregel, in der unter Rückbezug auf frühere Regeln äußere Organisation mit innerer Spiritualität verbunden und so ein ganzheitliches Konzept der Mönchsgemeinschaft geschaffen wurde. Weite Verbreitung erfuhr sie insbesondere seit dem 7. Jahrhundert, unter anderem durch irische und angelsächsische Missionare sowie durch karolingische Reformen seit dem 8. Jahrhundert. Im 10. Jahrhundert war sie Ausgangspunkt für die insbesondere von Cluny, Fleury und Gorze ausgehenden Reformbewegungen, die auf eine Intensivierung des geistlichen Lebens abzielten und in deren Folge verschiedene Auslegungen des benediktinischen Mönchtums das religiöse Leben weiter prägten. MR"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:elexicon.monachus.deu001"
+          ]
+        },
+        {
+          "_index": "elexicon_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:elexicon.praepositus.deu001",
           "_score": null,
@@ -80,7 +112,7 @@
           ]
         },
         {
-          "_index": "elexicon_v2",
+          "_index": "elexicon_v6",
           "_type": "_doc",
           "_id": "urn:cts:formulae:elexicon.vir_venerabilis.deu001",
           "_score": null,
