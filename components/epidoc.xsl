@@ -189,6 +189,7 @@
     <xsl:template match="t:p">
         <xsl:element name="p">
             <xsl:if test="@style='subparagraph'"><xsl:attribute name="class">indented-paragraph</xsl:attribute></xsl:if>
+            <xsl:if test="@style='text-center'"><xsl:attribute name="class">text-center</xsl:attribute></xsl:if>
             <xsl:if test="@xml:id">
                 <xsl:attribute name="id">
                     <xsl:value-of select="@xml:id"/>
@@ -479,18 +480,25 @@
     <xsl:template match="t:table">
         <xsl:element name="table">
             <xsl:attribute name="class">table table-borderless table-sm</xsl:attribute>
+            <xsl:if test="@xml:id">
+                <xsl:attribute name="id">
+                    <xsl:value-of select="@xml:id"/>
+                </xsl:attribute>
+            </xsl:if>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:row">
         <xsl:element name="tr">
+            <xsl:if test="@style='text-center'"><xsl:attribute name="class">text-center</xsl:attribute></xsl:if>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:cell">
         <xsl:element name="td">
+            <xsl:if test="@cols"><xsl:attribute name="colspan"><xsl:value-of select="@cols"/></xsl:attribute></xsl:if>
             <xsl:call-template name="addWords"/>
         </xsl:element>
     </xsl:template>

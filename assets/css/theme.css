@@ -218,7 +218,7 @@ nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
 }
 
 .platzhalter {
-    font-weight: bold;
+  font-style: italic;
 }
 
 .lexicon {
@@ -1109,4 +1109,8 @@ p.short-regest {
     position: sticky;
     top: 100px;
     z-index: 900;
+}
+
+#capitula-table {
+    width: 60%;
 }
