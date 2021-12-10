@@ -26,5 +26,9 @@
 	"manifest:urn:cts:formulae:le1.109v110v.lat001": {
 		"manifest": "urn:cts:formulae:le1.109v110v.lat001.json",
 		"title": "Leiden BPL 114"
+	},
+	"manifest:urn:cts:formulae:v6.28v29r.lat001": {
+		"manifest": "urn:cts:formulae:v6.28v29r.json",
+		"title": "Vatikan BAV Reg. Lat. 612"
 	}
 }
