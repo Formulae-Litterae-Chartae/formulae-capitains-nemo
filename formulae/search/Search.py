@@ -49,6 +49,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Hersfeld</b>: Hersfeld': {'match': {'collection': 'hersfeld'}},
                                       '<b>Langobarden</b>: Codice Diplomatico Longobardo': {'match': {'collection': 'langobardisch'}},
                                       '<b>Lorsch</b>: Lorsch': {'match': {'collection': 'lorsch'}},
+                                      '<b>Ludwig II.</b>: Ludwig II.': {'match': {'collection': 'ludwig_2'}},
                                       '<b>Luzern</b>: Luzern': {'match': {'collection': 'luzern'}},
                                       '<b>Marculf</b>: Marculf': {'match': {'collection': 'marculf'}},
                                       '<b>Merowinger</b>: Merowinger': {'match': {'collection': 'merowinger1'}},
