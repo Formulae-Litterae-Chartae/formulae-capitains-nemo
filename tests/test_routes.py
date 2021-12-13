@@ -1465,9 +1465,11 @@ class TestFunctions(Formulae_Testing):
                         'urn:cts:formulae:fu2.148v':
                             '0148<span class="verso-recto">v</span>',
                         'urn:cts:formulae:p3.134vb':
-                            '0134<span class="verso-recto">vb</span>'}
+                            '0134<span class="verso-recto">vb</span>',
+                        'urn:cts:formulae:le1.155v156r2':
+                            '0155<span class="verso-recto">v</span>-156<span class="verso-recto">r</span>2'}
         for k, v in test_strings.items():
-            par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.nemo.sort_folia, k)
+            par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.nemo.sort_folia, k)
             self.assertEqual(par, v, '{} does not equal {}'.format(par, v))
 
     def test_load_inflected_to_lem_mapping(self):

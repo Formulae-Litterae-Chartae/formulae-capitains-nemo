@@ -14,6 +14,8 @@
    </structured-metadata>
    <members>
       <collection path="./109v110v/__capitains__.xml"
-                  identifier="urn:cts:formulae:le1.109v110v"/>
+         identifier="urn:cts:formulae:le1.109v110v"/>
+      <collection path="./155v156r2/__capitains__.xml"
+         identifier="urn:cts:formulae:le1.155v156r2"/>
    </members>
 </collection>

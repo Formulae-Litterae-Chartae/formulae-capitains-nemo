@@ -316,7 +316,10 @@ class NemoFormulae(Nemo):
         if matchobj.group(2):
             new_sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(2)).groups()
             groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
-        return '-'.join(groups)
+        return_value = '-'.join(groups)
+        if matchobj.group(3):
+            return_value += matchobj.group(3)
+        return return_value
 
     def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: str)\
             -> Tuple[Union[str, Tuple[str, Tuple[str, str]]],
@@ -364,11 +367,11 @@ class NemoFormulae(Nemo):
                     elif 'computus' in par:
                         par = '057(Computus)'
                 else:
-                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.sort_folia, list(m.parent)[0])
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
                 manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             else:
                 if collection in m.id:
-                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.sort_folia, list(m.parent)[0])
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
@@ -862,7 +865,7 @@ class NemoFormulae(Nemo):
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = self.all_texts[collection.id]
 
-        if 'marculf' in objectId or 'andecavensis' in objectId:
+        if 'formulae_collection' in collection.ancestors:
             for par, metadata, m in list_of_readable_descendants:
                 if self.check_project_team() is True or m.id in self.open_texts:
                     edition = str(m.id).split(".")[-1]
