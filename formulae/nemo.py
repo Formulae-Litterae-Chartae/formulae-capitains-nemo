@@ -114,6 +114,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:hersfeld',
                         # 'urn:cts:formulae:langobardisch', # needs correction
                         'urn:cts:formulae:lorsch',
+                        'urn:cts:formulae:ludwig_2',
                         'urn:cts:formulae:luzern',
                         'urn:cts:formulae:marmoutier_blésois',
                         'urn:cts:formulae:marmoutier_dunois',
@@ -152,6 +153,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:fulda_stengel',
                              # 'urn:cts:formulae:langobardisch', # needs correction
                              'urn:cts:formulae:lorsch',
+                             'urn:cts:formulae:ludwig_2',
                              'urn:cts:formulae:mondsee',
                              'urn:cts:formulae:papsturkunden_frankreich',
                              'urn:cts:formulae:regensburg',
