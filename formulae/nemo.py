@@ -871,7 +871,7 @@ class NemoFormulae(Nemo):
             for par, metadata, m in list_of_readable_descendants:
                 if self.check_project_team() is True or m.id in self.open_texts:
                     edition = str(m.id).split(".")[-1]
-                    if 'marculf' in objectId and 'marculf' not in m.id:
+                    if objectId not in m.id:
                         edition = str(m.id).split(':')[-1].split('.')[0]
                     ed_parent = sorted([(k, v) for k, v in m.ancestors.items() if objectId in k])[-1][-1]
                     title = str(ed_parent.metadata.get_single(DC.title, lang=lang))
