@@ -21,6 +21,7 @@
         <collection identifier="urn:cts:formulae:p10" path="../p10/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:p12" path="../p12/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:p16" path="../p16/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:v6" path="../v6/__capitains__.xml"/>
     </members>
 </collection>
 

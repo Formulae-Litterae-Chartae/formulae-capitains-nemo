@@ -318,7 +318,10 @@ class NemoFormulae(Nemo):
         if matchobj.group(2):
             new_sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(2)).groups()
             groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
-        return '-'.join(groups)
+        return_value = '-'.join(groups)
+        if matchobj.group(3):
+            return_value += matchobj.group(3)
+        return return_value
 
     def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: str)\
             -> Tuple[Union[str, Tuple[str, Tuple[str, str]]],
@@ -366,11 +369,11 @@ class NemoFormulae(Nemo):
                     elif 'computus' in par:
                         par = '057(Computus)'
                 else:
-                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.sort_folia, list(m.parent)[0])
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
                 manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             else:
                 if collection in m.id:
-                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.sort_folia, list(m.parent)[0])
+                    par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
@@ -864,11 +867,11 @@ class NemoFormulae(Nemo):
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = self.all_texts[collection.id]
 
-        if 'marculf' in objectId or 'andecavensis' in objectId:
+        if 'formulae_collection' in collection.ancestors:
             for par, metadata, m in list_of_readable_descendants:
                 if self.check_project_team() is True or m.id in self.open_texts:
                     edition = str(m.id).split(".")[-1]
-                    if 'marculf' in objectId and 'marculf' not in m.id:
+                    if objectId not in m.id:
                         edition = str(m.id).split(':')[-1].split('.')[0]
                     ed_parent = sorted([(k, v) for k, v in m.ancestors.items() if objectId in k])[-1][-1]
                     title = str(ed_parent.metadata.get_single(DC.title, lang=lang))
@@ -1268,6 +1271,9 @@ class NemoFormulae(Nemo):
                         # This links to the manuscript as a whole.
                         # I am not sure how to link to specific pages in their IIIF viewer.
                         d['lib_link'] = 'https://iiifviewer.universiteitleiden.nl/?manifest=' + this_manifest['@id']
+                    elif 'digi.vatlib.it' in this_manifest['@id']:
+                        # This works for resources from the Vatican Libraries
+                        d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['@id'].replace('iiif', 'view').replace('canvas/p', '')
                     folios = re.sub(r'(\d+)([rvab]{1,2})', r'\1<span class="verso-recto">\2</span>',
                                     this_manifest['sequences'][0]['canvases'][0]['label'])
                     if len(this_manifest['sequences'][0]['canvases']) > 1:
