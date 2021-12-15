@@ -462,7 +462,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:stgallen', follow_redirects=True)
-            self.assertIn(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'), [x[0] for x in self.flashed_messages])
+            self.assertIn(_('Diese View ist nur für Formelsammlungen verfuegbar'), [x[0] for x in self.flashed_messages])
             c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
@@ -1335,15 +1335,15 @@ class TestFunctions(Formulae_Testing):
                     {'edition_name': 'P<span '
                                      'class="manuscript-number">16</span>',
                      'full_edition_name': 'Paris BNF 10756',
-                     'links': [['urn:cts:formulae:marculf.form003',
+                     'links': [['urn:cts:formulae:marculf.2_capitula',
                                 'urn:cts:formulae:marculf.1_incipit',
-                                'urn:cts:formulae:marculf.2_capitula'],
-                               ['urn:cts:formulae:p16.7r7v.lat001',
+                                'urn:cts:formulae:marculf.form003'],
+                               ['urn:cts:formulae:p16.1v2v.lat001',
                                 'urn:cts:formulae:p16.4v.lat001',
-                                'urn:cts:formulae:p16.1v2v.lat001']],
+                                'urn:cts:formulae:p16.7r7v.lat001']],
                      'name': 'p16',
                      'regesten': ['', '', ''],
-                     'titles': ['Marculf I,3', 'I Incipit', 'II Capitulatio']}],
+                     'titles': ['II Capitulatio', 'I Incipit', 'Marculf I,3']}],
  'translations': [{'edition_name': 'Übersetzung',
                    'full_edition_name': 'Formelbuch des <span\n'
                                         '      '

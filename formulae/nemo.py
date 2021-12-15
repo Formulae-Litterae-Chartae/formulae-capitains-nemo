@@ -864,6 +864,7 @@ class NemoFormulae(Nemo):
         edition_names = {}
         full_edition_names = {}
         regesten = {}
+        parents = {}
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = self.all_texts[collection.id]
 
@@ -892,11 +893,13 @@ class NemoFormulae(Nemo):
                         edition_names[edition] = edition_name
                         full_edition_names[edition] = full_edition_name
                         regesten[edition] = [regest]
+                        parents[edition] = [re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])]
                     else:
                         titles[edition].append(title)
                         translations[edition].append(m.id)
                         forms[edition].append(form)
                         regesten[edition].append(regest)
+                        parents[edition].append(re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0]))
             for k, v in translations.items():
                 if k == 'lat001':
                     r['editions'].append({
@@ -917,13 +920,25 @@ class NemoFormulae(Nemo):
                         "regesten": regesten[k]
                     })
                 else:
+                    # Zip titles, forms and regesten together and then sort them with
+                    # re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
+                    # I might need to add the m.parent[0] information to the lists so that I can sort by the folia.
+                    new_titles = list()
+                    new_forms = list()
+                    new_regesten = list()
+                    new_v = list()
+                    for t_parent, t_title, t_form, t_regest, t_v in sorted(zip(parents[k], titles[k], forms[k], regesten[k], v)):
+                        new_titles.append(t_title)
+                        new_forms.append(t_form)
+                        new_regesten.append(t_regest)
+                        new_v.append(t_v)
                     r['transcriptions'].append({
                         "name": k,
                         "edition_name": edition_names[k],
                         "full_edition_name": full_edition_names[k],
-                        "titles": titles[k],
-                        "links": [forms[k], v],
-                        "regesten": regesten[k]
+                        "titles": new_titles,
+                        "links": [new_forms, new_v],
+                        "regesten": new_regesten
                     })
 
             r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0)) if re.search(r'\d+', x['name']) else 0),
@@ -932,7 +947,7 @@ class NemoFormulae(Nemo):
         else:
 
             r = {'editions': [], 'translations': [], 'transcriptions': []}
-            flash(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'))
+            flash(_('Diese View ist nur für Formelsammlungen verfuegbar'))
 
         if r == {'editions': [], 'translations': [], 'transcriptions': []}:
             flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
