@@ -1291,6 +1291,9 @@ class TestFunctions(Formulae_Testing):
                           'II Capitulatio']}],
  'transcriptions': [{'edition_name': 'Ko<span '
                                      'class="manuscript-number">2</span>',
+                     'folia': ['[fol.69<span '
+                               'class="verso-recto">r</span>-fol.70<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
                                           'Fabr. 84',
                      'links': [['urn:cts:formulae:marculf.form003'],
@@ -1300,6 +1303,9 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['Marculf I,3']},
                     {'edition_name': 'Le<span '
                                      'class="manuscript-number">1</span>',
+                     'folia': ['[fol.109<span '
+                               'class="verso-recto">v</span>-fol.110<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'Leiden BPL 114',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:le1.109v110v.lat001']],
@@ -1308,6 +1314,9 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['Marculf I,3']},
                     {'edition_name': 'M<span '
                                      'class="manuscript-number">4</span>',
+                     'folia': ['[fol.60<span '
+                               'class="verso-recto">v</span>-fol.61<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'München BSB clm 4650',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:m4.60v61v.lat001']],
@@ -1316,6 +1325,12 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['Marculf I,3']},
                     {'edition_name': 'P<span '
                                      'class="manuscript-number">3</span>',
+                     'folia': ['[fol.105<span '
+                               'class="verso-recto">va</span>-fol.106<span '
+                               'class="verso-recto">rb</span>]',
+                               '[fol.128<span '
+                               'class="verso-recto">vb</span>-fol.129<span '
+                               'class="verso-recto">rb</span>]'],
                      'full_edition_name': 'Paris BNF 2123',
                      'links': [['urn:cts:formulae:marculf.form000',
                                 'urn:cts:formulae:marculf.form003'],
@@ -1326,6 +1341,9 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['I Prolog', 'Marculf I,3']},
                     {'edition_name': 'P<span '
                                      'class="manuscript-number">12</span>',
+                     'folia': ['[fol.65<span '
+                               'class="verso-recto">r</span>-fol.65<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'Paris BNF 4627',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:p12.65r65v.lat001']],
@@ -1334,6 +1352,13 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['Marculf I,3']},
                     {'edition_name': 'P<span '
                                      'class="manuscript-number">16</span>',
+                     'folia': ['[fol.1<span '
+                               'class="verso-recto">v</span>-fol.2<span '
+                               'class="verso-recto">v</span>]',
+                               '[fol.4<span class="verso-recto">v</span>]',
+                               '[fol.7<span '
+                               'class="verso-recto">r</span>-fol.7<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'Paris BNF 10756',
                      'links': [['urn:cts:formulae:marculf.2_capitula',
                                 'urn:cts:formulae:marculf.1_incipit',
