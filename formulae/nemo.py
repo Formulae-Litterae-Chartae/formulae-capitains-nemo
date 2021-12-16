@@ -927,18 +927,21 @@ class NemoFormulae(Nemo):
                     new_forms = list()
                     new_regesten = list()
                     new_v = list()
+                    new_parents = list()
                     for t_parent, t_title, t_form, t_regest, t_v in sorted(zip(parents[k], titles[k], forms[k], regesten[k], v)):
                         new_titles.append(t_title)
                         new_forms.append(t_form)
                         new_regesten.append(t_regest)
                         new_v.append(t_v)
+                        new_parents.append('[fol.' + t_parent.lstrip('0').replace('</span>-', '</span>-fol.') + ']')
                     r['transcriptions'].append({
                         "name": k,
                         "edition_name": edition_names[k],
                         "full_edition_name": full_edition_names[k],
                         "titles": new_titles,
                         "links": [new_forms, new_v],
-                        "regesten": new_regesten
+                        "regesten": new_regesten,
+                        "folia": new_parents
                     })
 
             r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0)) if re.search(r'\d+', x['name']) else 0),
