@@ -462,7 +462,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:stgallen', follow_redirects=True)
-            self.assertIn(_('Diese View ist nur für MARCULF und ANDECAVENSIS verfuegbar'), [x[0] for x in self.flashed_messages])
+            self.assertIn(_('Diese View ist nur für Formelsammlungen verfuegbar'), [x[0] for x in self.flashed_messages])
             c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
@@ -547,6 +547,8 @@ class TestIndividualRoutes(Formulae_Testing):
             # self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.fu2/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[1]['lib_link'], 'https://fuldig.hs-fulda.de/viewer/image/PPN397372442/277/')
             c.get('/texts/manifest:urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             r = c.get('/texts/urn:cts:formulae:lorsch.gloeckner4233.lat001/passage/1', follow_redirects=True)
@@ -556,10 +558,20 @@ class TestIndividualRoutes(Formulae_Testing):
                              'A dead url should redirect to a live document.')
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:p12.65r65v.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[1]['lib_link'], 'https://gallica.bnf.fr/ark:/12148/btv1b9066087r/f68')
             c.get('/texts/manifest:urn:cts:formulae:m4.60v61v.lat001/passage/1', follow_redirects=True)
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[0]['lib_link'], 'https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb00071101/canvas/124/view')
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             c.get('/texts/manifest:urn:cts:formulae:le1.109v110v.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[0]['lib_link'], 'https://iiifviewer.universiteitleiden.nl/?manifest=https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610701/manifest')
+            c.get('/texts/manifest:urn:cts:formulae:v6.28v29r.lat001/passage/1', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[0]['lib_link'], 'https://digi.vatlib.it/view/MSS_Reg.lat.612/0060')
             c.get('/texts/urn:cts:formulae:flavigny.form041.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['linked_resources'],
@@ -1279,6 +1291,9 @@ class TestFunctions(Formulae_Testing):
                           'II Capitulatio']}],
  'transcriptions': [{'edition_name': 'Ko<span '
                                      'class="manuscript-number">2</span>',
+                     'folia': ['[fol.69<span '
+                               'class="verso-recto">r</span>-fol.70<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, '
                                           'Fabr. 84',
                      'links': [['urn:cts:formulae:marculf.form003'],
@@ -1288,6 +1303,9 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['Marculf I,3']},
                     {'edition_name': 'Le<span '
                                      'class="manuscript-number">1</span>',
+                     'folia': ['[fol.109<span '
+                               'class="verso-recto">v</span>-fol.110<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'Leiden BPL 114',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:le1.109v110v.lat001']],
@@ -1296,6 +1314,9 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['Marculf I,3']},
                     {'edition_name': 'M<span '
                                      'class="manuscript-number">4</span>',
+                     'folia': ['[fol.60<span '
+                               'class="verso-recto">v</span>-fol.61<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'München BSB clm 4650',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:m4.60v61v.lat001']],
@@ -1304,6 +1325,12 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['Marculf I,3']},
                     {'edition_name': 'P<span '
                                      'class="manuscript-number">3</span>',
+                     'folia': ['[fol.105<span '
+                               'class="verso-recto">va</span>-fol.106<span '
+                               'class="verso-recto">rb</span>]',
+                               '[fol.128<span '
+                               'class="verso-recto">vb</span>-fol.129<span '
+                               'class="verso-recto">rb</span>]'],
                      'full_edition_name': 'Paris BNF 2123',
                      'links': [['urn:cts:formulae:marculf.form000',
                                 'urn:cts:formulae:marculf.form003'],
@@ -1314,6 +1341,9 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['I Prolog', 'Marculf I,3']},
                     {'edition_name': 'P<span '
                                      'class="manuscript-number">12</span>',
+                     'folia': ['[fol.65<span '
+                               'class="verso-recto">r</span>-fol.65<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'Paris BNF 4627',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:p12.65r65v.lat001']],
@@ -1322,16 +1352,23 @@ class TestFunctions(Formulae_Testing):
                      'titles': ['Marculf I,3']},
                     {'edition_name': 'P<span '
                                      'class="manuscript-number">16</span>',
+                     'folia': ['[fol.1<span '
+                               'class="verso-recto">v</span>-fol.2<span '
+                               'class="verso-recto">v</span>]',
+                               '[fol.4<span class="verso-recto">v</span>]',
+                               '[fol.7<span '
+                               'class="verso-recto">r</span>-fol.7<span '
+                               'class="verso-recto">v</span>]'],
                      'full_edition_name': 'Paris BNF 10756',
-                     'links': [['urn:cts:formulae:marculf.form003',
+                     'links': [['urn:cts:formulae:marculf.2_capitula',
                                 'urn:cts:formulae:marculf.1_incipit',
-                                'urn:cts:formulae:marculf.2_capitula'],
-                               ['urn:cts:formulae:p16.7r7v.lat001',
+                                'urn:cts:formulae:marculf.form003'],
+                               ['urn:cts:formulae:p16.1v2v.lat001',
                                 'urn:cts:formulae:p16.4v.lat001',
-                                'urn:cts:formulae:p16.1v2v.lat001']],
+                                'urn:cts:formulae:p16.7r7v.lat001']],
                      'name': 'p16',
                      'regesten': ['', '', ''],
-                     'titles': ['Marculf I,3', 'I Incipit', 'II Capitulatio']}],
+                     'titles': ['II Capitulatio', 'I Incipit', 'Marculf I,3']}],
  'translations': [{'edition_name': 'Übersetzung',
                    'full_edition_name': 'Formelbuch des <span\n'
                                         '      '
@@ -1453,9 +1490,11 @@ class TestFunctions(Formulae_Testing):
                         'urn:cts:formulae:fu2.148v':
                             '0148<span class="verso-recto">v</span>',
                         'urn:cts:formulae:p3.134vb':
-                            '0134<span class="verso-recto">vb</span>'}
+                            '0134<span class="verso-recto">vb</span>',
+                        'urn:cts:formulae:le1.155v156r2':
+                            '0155<span class="verso-recto">v</span>-156<span class="verso-recto">r</span>2'}
         for k, v in test_strings.items():
-            par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?\Z', self.nemo.sort_folia, k)
+            par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.nemo.sort_folia, k)
             self.assertEqual(par, v, '{} does not equal {}'.format(par, v))
 
     def test_load_inflected_to_lem_mapping(self):
