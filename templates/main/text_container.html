@@ -57,7 +57,7 @@ var gutterBackgroundImage="url('{{ url_for('InstanceNemo.static', filename='imag
 var handleBackgroundImage="{{url_for('InstanceNemo.static', filename='images/horizontal_handle.png')}}";
 var hideAllPartsMessage="{{ _('Alle ausblenden') }}";
 var showAllPartsMessage="{{ _('Alle zeigen') }}";
-if (window.location.href.match("/tools/")) {
+if (window.location.href.match(/tools/)) {
   $('.platzhalter').css("font-weight", "bold")
 }
 </script>
