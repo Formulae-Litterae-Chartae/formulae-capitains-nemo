@@ -1,3 +1,15 @@
+// Determine whether the <CTRL> key is being held down during the click
+$(document).keydown(function(event){
+    if(event.which=="17")
+        cntrlIsPressed = true;
+});
+
+$(document).keyup(function(){
+    cntrlIsPressed = false;
+});
+
+var cntrlIsPressed = false;
+
 
 $(function() {
     $('.card.search-hit').click(function() {
@@ -12,8 +24,10 @@ $(function() {
                     var scrollParent = list_of_list[j].parentNode.parentNode;
                     scrollParent.scrollTop = list_of_list[j].offsetTop - (($(window).height() / 2) - (scrollParent.children[0].offsetHeight / 2));
                     list_of_list[j].style.backgroundColor = "#DDDD22"
-                }else{
-                    list_of_list[j].style.backgroundColor = "#FFF"
+                } else {
+                    if (cntrlIsPressed == false) {
+                        list_of_list[j].style.backgroundColor = "#FFF"
+                    }
                 }
             }
         }
