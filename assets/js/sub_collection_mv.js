@@ -10,7 +10,7 @@ $(function() {
             for(j = 0; j < list_of_list.length; j++){
                 if(list_of_list[j].children[0].innerText == target[0].childNodes[1].innerText){
                     var scrollParent = list_of_list[j].parentNode.parentNode;
-                    scrollParent.scrollTop = list_of_list[j].offsetTop - scrollParent.children[0].offsetHeight;
+                    scrollParent.scrollTop = list_of_list[j].offsetTop - (($(window).height() / 2) - (scrollParent.children[0].offsetHeight / 2));
                     list_of_list[j].style.backgroundColor = "#DDDD22"
                 }else{
                     list_of_list[j].style.backgroundColor = "#FFF"
