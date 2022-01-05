@@ -51,6 +51,7 @@
                 <xsl:if test="contains(parent::t:seg/@type, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@type, 'platzhalter')"><xsl:text> platzhalter</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@type, 'latin-word')"><xsl:text> latin-word</xsl:text></xsl:if>
+                <xsl:if test="@type='latin-word'"><xsl:text> latin-word</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@type, 'small-caps')"><xsl:text> small-caps</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@type, 'line-through')"><xsl:text> line-through</xsl:text></xsl:if>
                 <xsl:if test="contains(parent::t:seg/@type, 'superscript')"><xsl:text> superscript</xsl:text></xsl:if>
