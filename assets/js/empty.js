@@ -627,4 +627,37 @@ $(document).ready(function () {
             });
         }
     })
+        
+    $('#lemmaSearchButton').click(function() {
+        var button = $('#lemmaSearchButton');
+        var oldUrl = window.location.href;
+        var lemmatizeChecks = $('.searchbox-lemmas:checked');
+        $('.searchbox-lemmas:checked').each(function() {
+            qNum = $( this ).attr('value');
+            var reQ = new RegExp('&q_' + qNum + '=[^&]*');
+            var reField = new RegExp('&search_field_' + qNum + '=[^&]*');
+            var reRegex = new RegExp('&regex_search_' + qNum + '=[^&]*');
+            var reFuzziness = new RegExp('&fuzziness_' + qNum + '=[^&]*');
+            var newQ = new Array();
+            $('td.lem-to-search-q_' + qNum).each(function() {
+                newQ.push($( this ).attr('value'));
+            })
+            $('.lem-to-search-q_' + qNum + ':checked').each(function() {
+                newQ.push($( this ).attr('value'));
+            })
+            if (Array.isArray(newQ) && newQ.length) {
+                oldUrl = oldUrl.replace(reField, '&search_field_' + qNum + '=lemmas');
+                oldUrl = oldUrl.replace(reRegex, '&regex_search_' + qNum + '=False');
+                oldUrl = oldUrl.replace(reFuzziness, '&fuzziness_' + qNum + '=0');
+                oldUrl = oldUrl.replace(reQ, '&q_' + qNum + '=' + newQ.join('+'));
+            }
+        })
+        if (oldUrl != window.location.href) {
+            button.attr('href', oldUrl);
+        } else {
+            button.popover();
+            button.popover('toggle');
+        }
+        
+    })
 })
