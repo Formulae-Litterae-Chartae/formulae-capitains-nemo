@@ -5,6 +5,7 @@ from flask_login import UserMixin
 from time import time
 import jwt
 from typing import Tuple
+from datetime import datetime
 
 
 class User(UserMixin, db.Model):
@@ -14,6 +15,7 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     project_team = db.Column(db.Boolean, index=True, default=False)
     default_locale = db.Column(db.String(32), index=True, default="de")
+    pages = db.relationship('SavedPage', backref='author', lazy='dynamic')
 
     def __repr__(self) -> str:
         return '<User {}>'.format(self.username)
@@ -51,6 +53,17 @@ class User(UserMixin, db.Model):
         except:
             return
         return User.query.get(id)
+
+
+class SavedPage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(256))
+    url = db.Column(db.String(2048))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+    def __repr__(self):
+        return '<Name {}, URL {}>'.format(self.name, self.url)
 
 
 @login.user_loader
