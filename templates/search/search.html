@@ -102,36 +102,47 @@
     {% if searched_lems|length > 0 %}
     <div class="row py-1 justify-content-center" id="lemma-search-row">
         <div class="col-auto ml-auto pr-1">
-            <table id="lemma-search-table" class="table table-sm w-auto align-middle table-bordered">
+            <table class="table table-sm w-auto align-middle table-bordered" id="lemma-search-table">
                 <thead>
                     <tr class="table-secondary">
-                        <th colspan="{{ searched_lems|length }}">{{ _('Nach folgenden Lemmata Suchen') }}</th>
+                        <th colspan="{{ max_cols + 1 }}">{{ _('Nach folgenden Lemmata Suchen') }}</th>
                     </tr>
                 </thead>
+                {% for search_box, these_lems in searched_lems|dictsort %}
                 <tbody>
                     <tr class="table-secondary">
-                        {% for lem in searched_lems %}
+                        <th colspan="{{ max_cols }}">{{ _('Suchmaske') }} {{ search_box|replace('q_', '') }}</th>
+                        <td class="align-middle" rowspan="2">
+                            <div class="form-check">
+                                <input type="checkbox" id="choice{{ search_box }}" name="customCheck{{ search_box }}" class="form-check-input position-static searchbox-lemmas" value="{{ search_box|replace('q_', '') }}" aria-label="{{ _('Lemmata von Suchmaske ') + search_box|replace('q_', '') + _(' suchen') }}">                                        
+                            </div>                        
+                        </td>
+                    </tr>
+                    <tr class="table-secondary">
+                        {% for lem in these_lems %}
                             {% set outer_loop = loop %}
                             {% if lem|length == 1 %}
-                                <td class="align-middle lem-to-search" value="{{ lem|list|first }}" checked="True">
+                                <td class="align-middle lem-to-search-{{search_box}}" value="{{ lem|list|first }}" checked="True"{% if outer_loop.last %} colspan="{{ max_cols + 1 - outer_loop.length }}"{% endif %}>
                                 {{ lem|list|first }}
                             {% else %}
-                                <td class="align-middle">
+                                <td class="align-middle"{% if outer_loop.last %} colspan="{{ max_cols + 1 - outer_loop.length }}"{% endif %}>
                                 {% for l in lem|sort %}
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" id="choice{{ outer_loop.index }}-{{ loop.index }}" name="customRadio{{ outer_loop.index }}" class="custom-control-input lem-to-search" value="{{ l }}">
-                                    <label class="custom-control-label" for="choice{{ outer_loop.index }}-{{ loop.index }}">{{ l }}</label>
-                                </div>
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="choice{{ search_box }}-{{ outer_loop.index }}-{{ loop.index }}" name="customRadio{{ search_box }}-{{ outer_loop.index }}" class="custom-control-input lem-to-search-{{search_box}}" value="{{ l }}"{% if loop.first %} checked="True"{% endif %}>
+                                        <label class="custom-control-label" for="choice{{ search_box }}-{{ outer_loop.index }}-{{ loop.index }}">{{ l }}</label>
+                                    </div>
                                 {% endfor %}
                             {% endif %}
-                            </td>
+                                </td>
                         {% endfor %}
                     </tr>
                 </tbody>
+                {% endfor %}
             </table>
+            
         </div>
         <div class="col-auto mr-auto my-auto pl-1">
-            <a href="#" onclick="makeLemmaSearch()" type="button" class="btn btn-sm btn-primary" id="lemmaSearchButton" newUrl="#" data-content="{{ _('Mindestens ein Lemma auswählen.') }}">{{ _('Suchen') }}</a>
+            <a href="#" type="button" class="btn btn-sm btn-primary" id="lemmaSearchButton" newUrl="#" data-content="{{ _('Mindestens ein Lemma auswählen.') }}">{{ _('Suchen') }}</a>
         </div>
     </div>
     {% endif %}
