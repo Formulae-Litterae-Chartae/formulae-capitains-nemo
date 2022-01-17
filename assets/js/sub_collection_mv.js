@@ -16,28 +16,38 @@ var count = 0;
 
 
 $(function() {
-    $('.card.search-hit').click(function() {
+    $('.card.search-hit.transcription').click(function() {
         if (cntrlIsPressed == false) {
             count = 0;
         }
         var target = $(this);
-        var scrollContent = target[0].parentNode;
-        var listElement = scrollContent.parentNode;
-        var list = listElement.parentNode;
-        for (i = 0; i < list.children.length; i++) {
-            var list_of_list = list.children[i].children[1].children
-            for(j = 0; j < list_of_list.length; j++){
-                if(list_of_list[j].children[0].innerText == target[0].childNodes[1].innerText){
-                    var scrollParent = list_of_list[j].parentNode.parentNode;
-                    scrollParent.scrollTop = list_of_list[j].offsetTop - (($(window).height() / 2) - (scrollParent.children[0].offsetHeight / 2));
-                    list_of_list[j].style.backgroundColor = colorPalette[count % colorPalette.length];
-                } else {
-                    if (cntrlIsPressed == false) {
-                        list_of_list[j].style.backgroundColor = "#FFF"
-                    }
-                }
+        var formula = target.attr('formula');
+        $('.card.search-hit.transcription').each(function() {
+            if ( $(this).attr('formula') == formula ) {
+                var scrollParent = $(this).parents('.card.mv-rows');
+                scrollParent.scrollTop($(this).offset().top - scrollParent.offset().top + scrollParent.scrollTop() - scrollParent.height()/2 + $(this).height()/2);
+                $(this).css('background-color', "#dddd22");
+            } else {
+                $(this).css('background-color', "#fff");
             }
-        }
-        count++;
+        })
+//         var scrollContent = target[0].parentNode;
+//         var listElement = scrollContent.parentNode;
+//         var list = listElement.parentNode;
+//         for (i = 0; i < list.children.length; i++) {
+//             var list_of_list = list.children[i].children[1].children
+//             for(j = 0; j < list_of_list.length; j++){
+//                 if(list_of_list[j].children[0].innerText == target[0].childNodes[1].innerText){
+//                     var scrollParent = list_of_list[j].parentNode.parentNode;
+//                     scrollParent.scrollTop = list_of_list[j].offsetTop - (($(window).height() / 2) - (scrollParent.children[0].offsetHeight / 2));
+//                     list_of_list[j].style.backgroundColor = colorPalette[count % colorPalette.length];
+//                 } else {
+//                     if (cntrlIsPressed == false) {
+//                         list_of_list[j].style.backgroundColor = "#FFF"
+//                     }
+//                 }
+//             }
+//         }
+//         count++;
     })
 })
