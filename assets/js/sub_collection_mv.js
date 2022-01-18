@@ -10,27 +10,52 @@ $(document).keyup(function(){
 
 var cntrlIsPressed = false;
 
-var colorPalette = ["#dddd22ff", "#d76a03ff", "#9ae5e6ff", "#659157ff", "#3f88c5ff"];
+var colorPalette = ["#dddd22", "#d76a03", "#9ae5e6", "#659157", "#3f88c5"];
 
 var count = 0;
+var oldColor = "#fff";
+var newColor = "#dddd22";
 
 
 $(function() {
     $('.card.search-hit.transcription').click(function() {
+        console.log(count);
+        var target = $(this);
         if (cntrlIsPressed == false) {
             count = 0;
+            newColor = colorPalette[count % colorPalette.length];
+            oldColor = '#fff';
+        } else {
+            if ( target.css('background-color') != "rgb(255, 255, 255)" ) {
+                oldColor = target.css('background-color');
+            } else {
+                oldColor = '#fff';
+            }
         }
-        var target = $(this);
         var formula = target.attr('formula');
         $('.card.search-hit.transcription').each(function() {
             if ( $(this).attr('formula') == formula ) {
-                var scrollParent = $(this).parents('.card.mv-rows');
-                scrollParent.scrollTop($(this).offset().top - scrollParent.offset().top + scrollParent.scrollTop() - scrollParent.height()/2 + $(this).height()/2);
-                $(this).css('background-color', "#dddd22");
+                if ( oldColor != '#fff' ) {
+                    $(this).css('background-color', "#fff");
+                } else {
+                    var scrollParent = $(this).parents('.card.mv-rows');
+                    scrollParent.scrollTop($(this).offset().top - scrollParent.offset().top + scrollParent.scrollTop() - scrollParent.height()/2 + $(this).height()/2);
+                    $(this).css('background-color', newColor);
+                }
             } else {
-                $(this).css('background-color', "#fff");
+                if (cntrlIsPressed == false) {
+                    $(this).css('background-color', "#fff");
+                }
             }
+        
         })
+        if ( oldColor == '#fff' ) {
+            count++
+            newColor = colorPalette[count % colorPalette.length];
+        } else {
+            newColor = oldColor;
+            oldColor = '#fff';
+        }
 //         var scrollContent = target[0].parentNode;
 //         var listElement = scrollContent.parentNode;
 //         var list = listElement.parentNode;
