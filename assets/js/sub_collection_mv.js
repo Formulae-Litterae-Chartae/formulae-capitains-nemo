@@ -10,7 +10,7 @@ $(document).keyup(function(){
 
 var cntrlIsPressed = false;
 
-var colorPalette = ["#dddd22", "#d76a03", "#9ae5e6", "#659157", "#3f88c5"];
+var colorPalette = ["#dddd22", "#9ae5e6", "#E2D5B6", "#CFDFCE", "#7CFC00", "#F9C7D1", "#B5E2DA", "F5B7F5", "#BEDF7C", "#00FFFF"];
 
 var count = 0;
 var oldColor = "#fff";
