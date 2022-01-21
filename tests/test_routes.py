@@ -756,7 +756,8 @@ class TestIndividualRoutes(Formulae_Testing):
                                                                                  'search_field':
                                                                                      'text', 'exclude_q': ''}},
                                            bool_operator='must', search_id="1234")
-            self.assertEqual(self.get_context_variable('searched_lems'), [], 'When "q" is empty, there should be no searched lemmas.')
+            self.assertEqual(self.get_context_variable('searched_lems'), {}, 'When "q" is empty, there should be no searched lemmas for that term.')
+            self.assertEqual(self.get_context_variable('max_cols'), 0, 'When there are no searched lemmas for any search box, max_cols should be 0.')
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&special_days=Easter%20Tuesday'
@@ -875,29 +876,44 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [{'regnum'}],
+            self.assertEqual(self.get_context_variable('searched_lems'), {'q_1': [{'regnum'}]},
                                 'When a query word matches a lemma, it should be returned.')
+            self.assertEqual(self.get_context_variable('max_cols'), 1, 'When the most searched lemmas for any box is 1, max_cols should be 1.')
             with c.session_transaction() as session:
                 session['highlighted_words'] = ['regnum']
             c.get('/search/results?source=advanced&corpus=formulae&q=re*num&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [{'regnum'}],
+            self.assertEqual(self.get_context_variable('searched_lems'), {'q_1': [{'regnum'}]},
                                 'When a query pattern matches a lemma, it should be returned.')
             c.get('/search/results?source=advanced&corpus=formulae&q=word&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [],
+            self.assertEqual(self.get_context_variable('searched_lems'), {},
                                 'When a query word does not match a lemma, "searched_lems" should be empty.')
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum+domni+ad&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [{'regnum'}, {'dominus'}, {'a', 'ad', 'ab'}],
+            self.assertEqual(self.get_context_variable('searched_lems'), {'q_1': [{'regnum'}, {'dominus'}, {'a', 'ad', 'ab'}]},
                                 'When all query words match a lemma, all should be returned.')
+            self.assertEqual(self.get_context_variable('max_cols'), 3, 'When the most searched lemmas for any box is 3, max_cols should be 3.')
+            c.get('/search/results?source=advanced&sort=urn&lemma_search=False&simple_search_id=9342&q_1=regnum&'
+                  'regex_search_1=False&fuzziness_1=0&slop_1=0&in_order_1=False&search_field_1=text&exclude_q_1=&'
+                  'q_2=domni&regex_search_2=False&fuzziness_2=0&slop_2=0&in_order_2=False&search_field_2=text&'
+                  'exclude_q_2=&q_3=ad&regex_search_3=False&fuzziness_3=0&slop_3=0&in_order_3=False&search_field_3=text'
+                  '&exclude_q_3=&q_4=&regex_search_4=False&fuzziness_4=0&slop_4=0&in_order_4=False&search_field_4=text'
+                  '&exclude_q_4=&corpus=all&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&'
+                  'month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&special_days='
+                  '&forgeries=include&bool_operator=must&search_id=8723&submit=True')
+            self.assertEqual(self.get_context_variable('searched_lems'), {'q_1': [{'regnum'}],
+                                                                          'q_2': [{'dominus'}],
+                                                                          'q_3': [{'a', 'ad', 'ab'}]},
+                             'When all query words in several search fields match a lemma, all should be returned.')
+            self.assertEqual(self.get_context_variable('max_cols'), 1, 'When the most searched lemmas for any box is 1, max_cols should be 1.')
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum+word+ad&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [],
+            self.assertEqual(self.get_context_variable('searched_lems'), {},
                                 'When not all query words match a lemma, "searched_lems" should be empty.')
             # Check g.corpora
             self.assertIn(('<b>Angers</b>: Angers', 'andecavensis'), g.corpora,
