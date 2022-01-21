@@ -103,7 +103,7 @@
                                 {% set copy_class = '' %}
                             {% endif %}
                             {% if values['short_regest'] %}
-                                <p class="mb-1 short-regest {{ copy_class }}">{{ values['short_regest'] }}</p>
+                                <p class="mb-1 short-regest {{ copy_class }}">{{ values['short_regest']|safe }}</p>
                             {% endif %}
                             {% for p in values['regest'] %}
                                 <p class="full-regest {{ copy_class }}">{% if p != 'None' %}{{ p|safe }}{% endif %}</p>
