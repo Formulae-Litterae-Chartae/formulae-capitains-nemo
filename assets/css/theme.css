@@ -613,7 +613,7 @@ img[id$="-flag-navbar"] {
     text-decoration: underline;
 }
 
-.latin-word,[type="latin-word;"] {
+.latin-word,.latin-word; {
   font-style: italic;
 }
 
