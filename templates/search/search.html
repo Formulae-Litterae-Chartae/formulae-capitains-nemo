@@ -105,18 +105,13 @@
             <table class="table table-sm w-auto align-middle table-bordered" id="lemma-search-table">
                 <thead>
                     <tr class="table-secondary">
-                        <th colspan="{{ max_cols + 1 }}">{{ _('Nach folgenden Lemmata Suchen') }}</th>
+                        <th colspan="{{ max_cols + 1 }}">{{ _('Sie haben nach flektierten Formen gesucht.') }}<br>{{ _('Wollen Sie nach folgenden Lemmata suchen?') }}</th>
                     </tr>
                 </thead>
                 {% for search_box, these_lems in searched_lems|dictsort %}
                 <tbody>
                     <tr class="table-secondary">
-                        <th colspan="{{ max_cols }}">{{ _('Suchmaske') }} {{ search_box|replace('q_', '') }}</th>
-                        <td class="align-middle" rowspan="2">
-                            <div class="form-check">
-                                <input type="checkbox" id="choice{{ search_box }}" name="customCheck{{ search_box }}" class="form-check-input position-static searchbox-lemmas" value="{{ search_box|replace('q_', '') }}" aria-label="{{ _('Lemmata von Suchmaske ') + search_box|replace('q_', '') + _(' suchen') }}">                                        
-                            </div>                        
-                        </td>
+                        
                     </tr>
                     <tr class="table-secondary">
                         {% for lem in these_lems %}
@@ -135,6 +130,11 @@
                             {% endif %}
                                 </td>
                         {% endfor %}
+                        <td class="align-middle">
+                            <div class="form-check">
+                                <span id="choice{{ search_box }}-tooltip" data-toggle="tooltip" data-container="#choice{{ search_box }}-tooltip" title="{{ _('Nach ') }}{% for lem in these_lems %}{% if lem|length == 1 %}'{{ lem|list|first }}'{% else %}'{{ lem|list|join(_('\' oder \'')) }}'{% endif %}{% if loop.revindex == 2 %}{{ _(' und ') }}{% elif loop.nextitem %}, {% endif %}{% endfor %}{{ _(' suchen?')}}"><input type="checkbox" id="choice{{ search_box }}" name="customCheck{{ search_box }}" class="form-check-input position-static searchbox-lemmas" value="{{ search_box|replace('q_', '') }}"></span>                               
+                            </div>                        
+                        </td>
                     </tr>
                 </tbody>
                 {% endfor %}
