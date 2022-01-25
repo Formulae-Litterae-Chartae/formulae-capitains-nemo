@@ -1114,3 +1114,8 @@ p.short-regest {
 #capitula-table {
     width: 60%;
 }
+
+div.translation,div.edition {
+    text-align: justify;
+    margin-right: .5em;
+}
