@@ -942,6 +942,7 @@ class NemoFormulae(Nemo):
                         "full_edition_name": full_edition_names[k],
                         "titles": new_titles,
                         "links": [new_forms, new_v],
+                        "ms_images": [True if "manifest:" + x in self.app.picture_file else False for x in new_v],
                         "regesten": new_regesten,
                         "folia": new_parents
                     })
