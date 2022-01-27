@@ -568,10 +568,16 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://iiifviewer.universiteitleiden.nl/?manifest=https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610701/manifest')
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], [])
             c.get('/texts/manifest:urn:cts:formulae:v6.28v29r.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://digi.vatlib.it/view/MSS_Reg.lat.612/0060')
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf II,13', 'Tours 26'])
+            c.get('/corpus/urn:cts:formulae:v6', follow_redirects=True)
+            d = self.get_context_variable('collections')
+            self.assertEqual(d['readable']['0028<span class="verso-recto">v</span>-29<span class="verso-recto">r</span>']['transcribed_edition'],
+                             ['Marculf II,13', 'Tours 26'])
             c.get('/texts/urn:cts:formulae:flavigny.form041.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['linked_resources'],

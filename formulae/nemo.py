@@ -789,7 +789,8 @@ class NemoFormulae(Nemo):
                               "dating": '',
                               "ausstellungsort": '',
                               'name': '',
-                              'title': ''}
+                              'title': '',
+                              'transcribed_edition': []}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     work_name = par.lstrip('0') if isinstance(par, str) else ''
@@ -815,7 +816,8 @@ class NemoFormulae(Nemo):
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                                    'name': Markup(work_name),
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
-                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or '')})
+                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
+                                   'transcribed_edition': sorted([str(x) if x else '' for x in m.metadata.get(DCTERMS.isVersionOf)])})
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
@@ -1206,7 +1208,8 @@ class NemoFormulae(Nemo):
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
                     "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or ''),
-                    "linked_resources": linked_resources
+                    "linked_resources": linked_resources,
+                    "transcribed_edition": sorted([str(x) if x else '' for x in metadata.metadata.get(DCTERMS.isVersionOf)] if metadata.metadata.get(DCTERMS.isVersionOf) else [])
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
