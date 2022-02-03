@@ -1,3 +1,5 @@
+import os.path
+
 from flask import url_for, Markup, g, session, flash, request, Response, Blueprint, send_from_directory, abort
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
@@ -320,7 +322,7 @@ class NemoFormulae(Nemo):
             groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
         return_value = '-'.join(groups)
         if matchobj.group(3):
-            return_value += matchobj.group(3)
+            return_value += '(' + matchobj.group(3) + ')'
         return return_value
 
     def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: str)\
@@ -1269,6 +1271,11 @@ class NemoFormulae(Nemo):
                     else:
                         flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
                         continue
+                    d['alt_image'] = ''
+                    if os.path.isfile(self.app.config['IIIF_MAPPING'] + '/' + 'alternatives.json'):
+                        with open(self.app.config['IIIF_MAPPING'] + '/' + 'alternatives.json') as f:
+                            alt_images = json_load(f)
+                        d['alt_image'] = alt_images.get(id)
                     d["objectId"] = "manifest:" + id
                     d["div_v"] = "manifest" + str(view)
                     view = view + 1

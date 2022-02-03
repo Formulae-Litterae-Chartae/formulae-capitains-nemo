@@ -1,0 +1,114 @@
+{
+	"@id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b52512740n/manifest.json",
+	"label": "BnF. Département des Manuscrits. Latin 10756",
+	"attribution": "Bibliothèque nationale de France",
+	"license": "https://gallica.bnf.fr/html/und/conditions-dutilisation-des-contenus-de-gallica",
+	"logo": "https://gallica.bnf.fr/mbImage/logos/logo-bnf.png",
+	"related": "https://gallica.bnf.fr/ark:/12148/btv1b52512740n",
+	"seeAlso": [
+		"http://oai.bnf.fr/oai2/OAIHandler?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:bnf.fr:gallica/ark:/12148/btv1b52512740n"
+	],
+	"description": "Latin 10756",
+	"metadata": [
+		{
+			"label": "Repository",
+			"value": ""
+		},
+		{
+			"label": "Digitised by",
+			"value": "Bibliothèque nationale de France"
+		},
+		{
+			"label": "Source Images",
+			"value": "https://gallica.bnf.fr/ark:/12148/btv1b52512740n"
+		},
+		{
+			"label": "Metadata Source",
+			"value": "http://oai.bnf.fr/oai2/OAIHandler?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:bnf.fr:gallica/ark:/12148/btv1b52512740n"
+		},
+		{
+			"label": "Shelfmark",
+			"value": "Bibliothèque nationale de France. Département des Manuscrits. Latin 10756"
+		},
+		{
+			"label": "Title",
+			"value": "Latin 10756"
+		},
+		{
+			"label": "Date",
+			"value": [
+				{
+					"@value": "0701-0900"
+				},
+				{
+					"@value": "0701-0800"
+				},
+				{
+					"@value": "0701-0800"
+				},
+				{
+					"@value": "1001-1100"
+				}
+			]
+		},
+		{
+			"label": "Language",
+			"value": "latin"
+		},
+		{
+			"label": "Format",
+			"value": "71 ff. - 200 × 150 mm. - Reliure peau retournée, avec étui dos maroquin rouge au chiffre de Louis-Philippe, Tripier-Bradel 17 janvier 1845; cf. B. n. F., département des Manuscrits, Archives Modernes 620 et 624"
+		},
+		{
+			"label": "Relation",
+			"value": "Notice du catalogue : http://archivesetmanuscrits.bnf.fr/ark:/12148/cc724569"
+		},
+		{
+			"label": "Type",
+			"value": "Manuscrit"
+		}
+	],
+	"sequences": [
+		{
+			"label": "Current Page Order",
+			"@type": "sc:Sequence",
+			"@id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b52512740n/sequence/default",
+			"canvases": [
+				{
+					"@id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b52512740n/canvas/f18",
+					"label": "4v",
+					"height": 8985,
+					"width": 6341,
+					"images": [
+						{
+							"motivation": "sc:painting",
+							"on": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b52512740n/canvas/f18",
+							"resource": {
+								"format": "image/jpeg",
+								"service": {
+									"profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level2",
+									"@context": "http://iiif.io/api/image/1/context.json",
+									"@id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b52512740n/f18"
+								},
+								"height": 8985,
+								"width": 6341,
+								"@id": "https://gallica.bnf.fr/iiif/ark:/12148/btv1b52512740n/f18/full/full/0/native.jpg",
+								"@type": "dctypes:Image"
+							},
+							"@type": "oa:Annotation"
+						}
+					],
+					"thumbnail": {
+						"@id": "https://gallica.bnf.fr/ark:/12148/btv1b52512740n/f18.thumbnail"
+					},
+					"@type": "sc:Canvas"
+				}
+			]
+		}
+	],
+	"thumbnail": {
+		"@id": "https://gallica.bnf.fr/ark:/12148/btv1b52512740n.thumbnail"
+	},
+	"@type": "sc:Manifest",
+	"@context": "http://iiif.io/api/presentation/2/context.json"
+}
