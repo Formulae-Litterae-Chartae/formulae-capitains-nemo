@@ -1225,7 +1225,7 @@ class NemoFormulae(Nemo):
             "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
             "isReferencedBy": inRefs,
             "translations": translations + transcriptions,
-            "transcriptions": [x[0] for x in transcriptions]
+            "transcriptions": transcriptions
         }
 
     def r_multipassage(self, objectIds: str, subreferences: str, lang: str = None) -> Dict[str, Any]:
@@ -1312,12 +1312,12 @@ class NemoFormulae(Nemo):
 
                 else:
                     d["IIIFviewer"] = []
-                    for transcription in d['transcriptions']:
+                    for transcription, t_title, t_partOf in d['transcriptions']:
                         if "manifest:" + transcription.id in self.app.picture_file:
                             manifests = self.app.picture_file["manifest:" + transcription.id]
                             d["IIIFviewer"].append(("manifest:" + transcription.id,
                                                     manifests['title'],
-                                                    transcription.metadata.get_single(DCTERMS.isPartOf) or ''))
+                                                    t_partOf))
 
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]
@@ -1326,6 +1326,11 @@ class NemoFormulae(Nemo):
                     if d['collections']['current']['sigla'] != '':
                         d['collections']['current']['label'] = d['collections']['current']['label'].split(' [')
                         d['collections']['current']['label'][-1] = ' [' + d['collections']['current']['label'][-1]
+                filtered_transcriptions = []
+                for x in d['transcriptions']:
+                    if x[0].id not in ids and x not in filtered_transcriptions:
+                        filtered_transcriptions.append(x)
+                d['transcriptions'] = filtered_transcriptions
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
