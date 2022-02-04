@@ -33,8 +33,6 @@
 <div class="row_mv">
 
     <div class="card-group">
-        <!--{{ build_column(collections.readable.editions) }}-->
-        <!--{{ build_column(collections.readable.translations) }}-->
         {{ build_column(collections.readable.transcriptions) }}
     </div>
 </div>
@@ -53,9 +51,13 @@
         </div>
         <ul class="list-group list-group-flush">
         {% for name in values['links'][0]%}
+            {% set ms_href = url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+')) %}
+            {% if values['ms_images'][loop.index0] %}
+                {% set ms_href = url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string, 'manifest:' + values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+')) %}
+            {% endif %}
             <li class="list-group-item card search-hit transcription" formula="{{ values['titles'][loop.index-1]|replace(',', '-') }}">
                 {% if 'regesten' in values and values['regesten'][loop.index0] %}
-                {% if values['titles'][loop.index-1] %}<h5><a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ values['titles'][loop.index-1] }}</a></h5>{% endif %}
+                {% if values['titles'][loop.index-1] %}<h5><a class="card-link" href="{{ms_href}}">{{ values['titles'][loop.index-1] }}</a></h5>{% endif %}
                 <div class="card-text p-2 search-hit-menu{{ copy_class }}">
                     {{ values['regesten'][loop.index0] }}
                 </div>
@@ -66,7 +68,7 @@
                     {{ values['folia'][loop.index0]|safe }}
                 </div>
                 {% endif %}
-                <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ _('Lesen') }}</a>
+                <a class="card-link" href="{{ms_href}}">{{ _('Lesen') }}</a>
                 {% endif %}
             </li>
         {% endfor %}

@@ -9,32 +9,46 @@
                 
         {% if objs %}
             {% for text in objs %}
-            {% if text.notes %}
+            {% if text.notes or text.collections.current.transcribed_edition %}
                 <div class="card bg-hhblue px-0"
                     style="font-size: small; text-decoration: none;">
                     <div>
-                        <span class="align-middle">{{ text.collections.current.label }}</span>
+                        <span class="align-middle">{{ text.collections.current.label|safe }}</span>
                         <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-hide-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 relative-position" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')"data-toggle="tooltip" data-container="#{{ text.objectId|replace(':', '-')|replace('.', '-') }}-hide-button" title="{{ _('Alle Anmerkungen für diesen Text ausblenden') }}" data-placement="left">&#8855;</button>
                         <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 hidden-button relative-position" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" data-toggle="tooltip" data-container="#{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}" data-placement="left">&#8853;</button>
                     </div>
                 </div>
                 <div class="{{ note_class }}" id="header-{{ text.objectId|replace(':', '-')|replace('.', '-') }}">
+                    {% if text.collections.current.transcribed_edition %}
+                    <div class="collapse multi-collapse {{ text.objectId|replace(':', '-')|replace('.', '-') }} a1 show two-line" aria-expanded="false" aria-controls="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-editions" id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-editions" type="a1">
+                        <div class="card" style="font-size: small; color: black; text-decoration: none;" lang="de">
+                            <span><button type="button" class="close expand" toexpand="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-editions" aria-label="Expand" style="display: none;" title="Read More"><span aria-hidden="true">⇳</span></button>{{ text.collections.current.transcribed_edition|join('/') }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
                     {{ text.notes }}
                 </div>
             {% endif %}
             {% endfor %}
         {% elif text %}
-            {% if text.notes %}
+            {% if text.notes or text.collections.current.transcribed_edition %}
                 <div class="card bg-hhblue px-0"
                     style="font-size: small; text-decoration: none;">
                     <div>
 
-                        <span class="align-middle">{{ text.collections.current.label }}</span>
+                        <span class="align-middle">{{ text.collections.current.label|safe }}</span>
                         <button class="btn btn-link float-right btn-sm text-body m-0 p-0 relative-position" onclick="hideNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" id="notes-hide-1" data-toggle="tooltip" data-container="#notes-hide-1" title="{{ _('Alle Anmerkungen für diesen Text ausblenden') }}">&#8855;</button>
                         <button id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-show-button" class="btn btn-link float-right btn-sm text-body m-0 p-0 hidden-button relative-position" onclick="showNotes('{{ text.objectId|replace(':', '-')|replace('.', '-') }}')" id="notes-show-1" data-toggle="tooltip" data-container="#notes-show-1" title="{{ _('Alle Anmerkungen für diesen Text einblenden') }}">&#8853;</button>
                     </div>
                 </div>
                 <div class="note-card" id="header-{{ text .objectId|replace(':', '-')|replace('.', '-') }}">
+                    {% if text.collections.current.transcribed_edition %}
+                    <div class="collapse multi-collapse {{ text.objectId|replace(':', '-')|replace('.', '-') }} a1 show two-line" aria-expanded="false" aria-controls="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-editions" id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-editions" type="a1">
+                        <div class="card" style="font-size: small; color: black; text-decoration: none;" lang="de">
+                            <span><button type="button" class="close expand" toexpand="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-editions" aria-label="Expand" style="display: none;" title="Read More"><span aria-hidden="true">⇳</span></button>{{ text.collections.current.transcribed_edition|join('/') }}</span>
+                        </div>
+                    </div>
+                    {% endif %}
                     {{ text.notes }}
                 </div>
             {% endif %}

@@ -1,3 +1,5 @@
+import os.path
+
 from flask import url_for, Markup, g, session, flash, request, Response, Blueprint, send_from_directory, abort
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
@@ -320,7 +322,7 @@ class NemoFormulae(Nemo):
             groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
         return_value = '-'.join(groups)
         if matchobj.group(3):
-            return_value += matchobj.group(3)
+            return_value += '(' + matchobj.group(3) + ')'
         return return_value
 
     def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: str)\
@@ -789,7 +791,8 @@ class NemoFormulae(Nemo):
                               "dating": '',
                               "ausstellungsort": '',
                               'name': '',
-                              'title': ''}
+                              'title': '',
+                              'transcribed_edition': []}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     work_name = par.lstrip('0') if isinstance(par, str) else ''
@@ -815,7 +818,8 @@ class NemoFormulae(Nemo):
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                                    'name': Markup(work_name),
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
-                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or '')})
+                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
+                                   'transcribed_edition': sorted([str(x) if x else '' for x in m.metadata.get(DCTERMS.isVersionOf)])})
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
@@ -940,6 +944,7 @@ class NemoFormulae(Nemo):
                         "full_edition_name": full_edition_names[k],
                         "titles": new_titles,
                         "links": [new_forms, new_v],
+                        "ms_images": [True if "manifest:" + x in self.app.picture_file else False for x in new_v],
                         "regesten": new_regesten,
                         "folia": new_parents
                     })
@@ -1206,7 +1211,8 @@ class NemoFormulae(Nemo):
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
                     "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or ''),
-                    "linked_resources": linked_resources
+                    "linked_resources": linked_resources,
+                    "transcribed_edition": sorted([str(x) if x else '' for x in metadata.metadata.get(DCTERMS.isVersionOf)] if metadata.metadata.get(DCTERMS.isVersionOf) else [])
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
@@ -1265,6 +1271,11 @@ class NemoFormulae(Nemo):
                     else:
                         flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
                         continue
+                    d['alt_image'] = ''
+                    if os.path.isfile(self.app.config['IIIF_MAPPING'] + '/' + 'alternatives.json'):
+                        with open(self.app.config['IIIF_MAPPING'] + '/' + 'alternatives.json') as f:
+                            alt_images = json_load(f)
+                        d['alt_image'] = alt_images.get(id)
                     d["objectId"] = "manifest:" + id
                     d["div_v"] = "manifest" + str(view)
                     view = view + 1
