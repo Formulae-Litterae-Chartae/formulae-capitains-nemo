@@ -433,23 +433,29 @@
                                 {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
                             </div>
                             {% else %}
-                                {% if text.IIIFviewer|length > 0 %}
-                                    <div class="col-3 text-center">
-                                    {% if text.IIIFviewer|length > 1 %}
-                                        <button class="dropdown-toggle add-text-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span id="add-iiif-menu-{{ index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</span>
-                                        </button>
-                                        <div class="dropdown-menu version-dropdown">
+                                {% if 'formulae_collection' in text.collections.parent_ids %}
+                                    {% if text.IIIFviewer|length > 0 %}
+                                        <div class="col-3 text-center">
+                                        {% if text.IIIFviewer|length > 1 %}
+                                            <button class="dropdown-toggle add-text-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span id="add-iiif-menu-{{ index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</span>
+                                            </button>
+                                            <div class="dropdown-menu version-dropdown">
+                                                {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
+                                                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</span></a>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
                                             {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
-                                            <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</span></a>
+                                                <span id="add-iiif-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ loop.index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</a></span>
                                             {% endfor %}
+                                        {% endif %}
                                         </div>
-                                    {% else %}
-                                        {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
-                                            <span id="add-iiif-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ loop.index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</a></span>
-                                        {% endfor %}
+                                    {% elif 'manuscript_collection' in text.collections.parent_ids %}
+                                        <div class="col-3 text-center">
+                                            <span id="add-iiif-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ loop.index }}" title="{{ _('Die Manuskriptbilder können nicht gezeigt werden') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Die Manuskriptbilder können nicht gezeigt werden') }}" class="align-top disabled"> {{ _('Manuskriptbilder') }}</span>
+                                        </div>
                                     {% endif %}
-                                    </div>
                                 {% endif %}
                                 {% if text.transcriptions|length > 0 %}
                                     <div class="col-3 text-center">

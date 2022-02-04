@@ -1120,3 +1120,7 @@ div.translation,div.edition {
     text-align: justify;
     margin-right: .5em;
 }
+
+img.disabled {
+    filter: grayscale(100%);
+}
