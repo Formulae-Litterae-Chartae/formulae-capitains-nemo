@@ -1434,7 +1434,6 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(data['collections']['readable']['0002']['name'], 'Nr. 1 (Reg. 2)',
                              'Lorsch works should be correctly named.')
             data = self.nemo.r_corpus('urn:cts:formulae:marculf')
-            print(data['collections']['readable'])
             self.assertEqual(data['collections']['readable']['(Prolog)']['name'], 'I Prolog',
                              'Marculf works should be correctly named.')
             data = self.nemo.r_corpus('urn:cts:formulae:elexicon')
@@ -1568,6 +1567,16 @@ class TestFunctions(Formulae_Testing):
         with patch.object(self.app.logger, 'warning') as mock:
             self.nemo.make_dead_url_mapping()
             mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid dead url mapping from it.')
+
+    def test_load_manuscript_notes(self):
+        """ Ensure that the json manuscript notes file is correctly loaded."""
+        self.assertEqual(self.nemo.manuscript_notes['urn:cts:formulae:p12.31v.lat001'],
+                         "Teil der Cartae Senonicae",
+                         'Manuscript notes should have loaded correctly.')
+        self.app.config['CORPUS_FOLDERS'].append('tests/test_data/errored_formulae')
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_manuscript_notes()
+            mock.assert_called_with('tests/test_data/errored_formulae/manuscript_notes.json is not a valid JSON file. Unable to load valid manuscript notes from it.')
 
     def test_r_assets(self):
         """ Test return values from assets route"""
