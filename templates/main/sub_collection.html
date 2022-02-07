@@ -41,6 +41,7 @@
         {% endfor %}
     {% else %}
         {% for number, values in collections.readable.items() %}
+            {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzungen 1,1" %}<br>{% endif %}
             <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{% if '_' in values['name']%} {{values['title']}}{% else %}{{values['name']|replace('(', '')|replace(')', '')}}{% endif %}{% else %}{{values['name']}}{% endif %}</a>
         {% endfor %}
     {% endif %}
