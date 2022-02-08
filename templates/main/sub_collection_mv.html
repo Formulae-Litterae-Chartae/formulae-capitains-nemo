@@ -62,7 +62,7 @@
                     {{ values['regesten'][loop.index0] }}
                 </div>
                 {% else %}
-                {% if values['titles'][loop.index-1] %}<h5{% if 'folia' in values and values['folia'][loop.index0] %} class="mb-0"{% endif %}>{{ values['titles'][loop.index-1] }}</h5>{% endif %}
+                {% if values['titles'][loop.index-1] %}<h5{% if 'folia' in values and values['folia'][loop.index0] %} class="mb-0"{% endif %}>{{ values['titles'][loop.index-1] }}{% if values['links'][1][loop.index0] in manuscript_notes %}<span class="superscript" id="{{ values['edition_name']|striptags + '-' + loop.index0|string }}" data-toggle="tooltip" data-placement="top" data-container="#{{ values['edition_name']|striptags + '-' + loop.index0|string }}" title="{{ manuscript_notes[values['links'][1][loop.index0]]}}">*</span>{% endif %}</h5>{% endif %}
                 {% if 'folia' in values and values['folia'][loop.index0] %}
                 <div class="card-text">
                     {{ values['folia'][loop.index0]|safe }}

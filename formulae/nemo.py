@@ -214,8 +214,24 @@ class NemoFormulae(Nemo):
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
         self.dead_urls = self.make_dead_url_mapping()
         self.comp_places = self.make_comp_places_list()
+        self.manuscript_notes = self.make_manuscript_notes()
         # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
+
+    def make_manuscript_notes(self) -> dict:
+        """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
+        manuscript_notes = dict()
+        for corpus_folder in self.app.config['CORPUS_FOLDERS']:
+            if os.path.isfile(corpus_folder + '/' + 'manuscript_notes.json'):
+                with open(corpus_folder + '/' + 'manuscript_notes.json') as f:
+                    try:
+                        man_notes = json_load(f)
+                    except JSONDecodeError:
+                        self.app.logger.warning(corpus_folder + '/' + 'manuscript_notes.json' + ' is not a valid JSON file. Unable to load valid manuscript notes from it.')
+                        continue
+                for k, v in man_notes.items():
+                    manuscript_notes[k] = v
+        return dict(manuscript_notes)
 
     def make_inflected_to_lem_mapping(self) -> dict:
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
@@ -975,7 +991,8 @@ class NemoFormulae(Nemo):
                 "readable": r,
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
-            }
+            },
+            'manuscript_notes': self.manuscript_notes
         }
         return return_value
 
@@ -1493,6 +1510,7 @@ class NemoFormulae(Nemo):
 
         def add_citation_info(canvas, doc):
             cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
+            cit_string = re.sub(r'\s+', ' ', cit_string)
             cit_string += '<font color="grey">URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '</font>' + '<br/>'
             cit_string += '<font color="grey">' + _('Heruntergeladen: ') + date.today().isoformat() + '</font>'
             cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
