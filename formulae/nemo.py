@@ -808,7 +808,8 @@ class NemoFormulae(Nemo):
                               "ausstellungsort": '',
                               'name': '',
                               'title': '',
-                              'transcribed_edition': []}
+                              'transcribed_edition': [],
+                              'parent_id': str(m.id)}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     work_name = par.lstrip('0') if isinstance(par, str) else ''
@@ -863,7 +864,8 @@ class NemoFormulae(Nemo):
                 "parent_ids": [x['id'] for x in current_parents],
                 "first_letters": set([x[0] for x in r.keys()])
             },
-            "form": form
+            "form": form,
+            'manuscript_notes': self.manuscript_notes
         }
         return return_value
 

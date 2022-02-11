@@ -51,7 +51,7 @@
             {% for number, values in collections.readable.items() %}
                 <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5>{{values['title']}}: {% if values['transcribed_edition'] %}{{ values['transcribed_edition']|join('/') }}{% endif %}</h5>
+                        <h5>{{values['title']}}: {% if values['transcribed_edition'] %}<span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5>
                         <span>
                             {% if 'formulae_collection' in collections.parent_ids %}
                                 {% for urn, lang, version, source in values['versions']['editions']|sort %}
