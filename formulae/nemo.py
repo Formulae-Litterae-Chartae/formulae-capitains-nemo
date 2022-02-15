@@ -392,6 +392,11 @@ class NemoFormulae(Nemo):
             else:
                 if collection in m.id:
                     par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
+                    if "sg2" in m.id:
+                        par_parts = re.search(r'.*\[p\.\s*(\d+)\-?(\d+)?.*', str(m.metadata.get_single(DC.title)))
+                        par = '{:04}'.format(int(par_parts.group(1)))
+                        if len(par_parts.groups()) > 1:
+                            par += '-' + par_parts.group(2)
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
@@ -915,13 +920,27 @@ class NemoFormulae(Nemo):
                         edition_names[edition] = edition_name
                         full_edition_names[edition] = full_edition_name
                         regesten[edition] = [regest]
-                        parents[edition] = [re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])]
+                        if "sg2" in m.id:
+                            par_parts = re.search(r'.*\[p\.\s*(\d+)\-?(\d+)?.*', str(m.metadata.get_single(DC.title)))
+                            ms_par = '{:04}'.format(int(par_parts.group(1)))
+                            if len(par_parts.groups()) > 1:
+                                ms_par += '-' + par_parts.group(2)
+                            parents[edition] = [ms_par]
+                        else:
+                            parents[edition] = [re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])]
                     else:
                         titles[edition].append(title)
                         translations[edition].append(m.id)
                         forms[edition].append(form)
                         regesten[edition].append(regest)
-                        parents[edition].append(re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0]))
+                        if "sg2" in m.id:
+                            par_parts = re.search(r'.*\[p\.\s*(\d+)\-?(\d+)?.*', str(m.metadata.get_single(DC.title)))
+                            ms_par = '{:04}'.format(int(par_parts.group(1)))
+                            if len(par_parts.groups()) > 1:
+                                ms_par += '-' + par_parts.group(2)
+                            parents[edition].append(ms_par)
+                        else:
+                            parents[edition].append(re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0]))
             for k, v in translations.items():
                 if k == 'lat001':
                     r['editions'].append({
@@ -955,7 +974,10 @@ class NemoFormulae(Nemo):
                         new_forms.append(t_form)
                         new_regesten.append(t_regest)
                         new_v.append(t_v)
-                        new_parents.append('[fol.' + t_parent.lstrip('0').replace('</span>-', '</span>-fol.') + ']')
+                        if "sg2" in t_v:
+                            new_parents.append('[p.' + t_parent.lstrip('0') + ']')
+                        else:
+                            new_parents.append('[fol.' + t_parent.lstrip('0').replace('</span>-', '</span>-fol.') + ']')
                     r['transcriptions'].append({
                         "name": k,
                         "edition_name": edition_names[k],
