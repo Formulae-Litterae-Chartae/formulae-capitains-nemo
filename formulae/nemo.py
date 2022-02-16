@@ -933,7 +933,14 @@ class NemoFormulae(Nemo):
                         translations[edition].append(m.id)
                         forms[edition].append(form)
                         regesten[edition].append(regest)
-                        parents[edition].append(re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0]))
+                        if "sg2" in m.id:
+                            par_parts = re.search(r'.*\[p\.\s*(\d+)\-?(\d+)?.*', str(m.metadata.get_single(DC.title)))
+                            ms_par = '{:04}'.format(int(par_parts.group(1)))
+                            if len(par_parts.groups()) > 1:
+                                ms_par += '-' + par_parts.group(2)
+                            parents[edition].append(ms_par)
+                        else:
+                            parents[edition].append(re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0]))
             for k, v in translations.items():
                 if k == 'lat001':
                     r['editions'].append({
