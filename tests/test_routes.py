@@ -1400,7 +1400,16 @@ class TestFunctions(Formulae_Testing):
                      'ms_images': [False, True, False],
                      'name': 'p16',
                      'regesten': ['', '', ''],
-                     'titles': ['II Capitulatio', 'I Incipit', 'Marculf I,3']}],
+                     'titles': ['II Capitulatio', 'I Incipit', 'Marculf I,3']},
+                    {'edition_name': 'Sg<span class="manuscript-number">2</span>',
+                     'folia': ['[p.60-61]'],
+                     'full_edition_name': 'St.Gallen, StiBi, 550',
+                     'links': [['urn:cts:formulae:marculf.1_incipit'],
+                               ['urn:cts:formulae:sg2.6061.lat001']],
+                     'ms_images': [False],
+                     'name': 'sg2',
+                     'regesten': [''],
+                     'titles': ['I Incipit']}],
  'translations': [{'edition_name': 'Übersetzung',
                    'full_edition_name': 'Formelbuch des <span\n'
                                         '      '
@@ -1620,7 +1629,7 @@ class TestFunctions(Formulae_Testing):
         """ Make sure that the corpora are correctly ordered"""
         self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:marculf'] if x[0] == '1_000b'],
                          ['urn:cts:formulae:marculf.1_incipit.deu001', 'urn:cts:formulae:marculf.1_incipit.lat001',
-                          'urn:cts:formulae:p16.4v.lat001'])
+                          'urn:cts:formulae:p16.4v.lat001', 'urn:cts:formulae:sg2.6061.lat001'])
         self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:marculf'] if x[0] == '2_000a'],
                          ['urn:cts:formulae:marculf.2_capitula.deu001', 'urn:cts:formulae:marculf.2_capitula.lat001',
                           'urn:cts:formulae:p16.1v2v.lat001'])
