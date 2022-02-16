@@ -13,6 +13,7 @@
       <bib:AbbreviatedTitle>Sg&lt;span class="manuscript-number"&gt;2&lt;/span&gt;</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
+      <collection path="./5660/__capitains__.xml" identifier="urn:cts:formulae:sg2.5660"/>
       <collection path="./6061/__capitains__.xml" identifier="urn:cts:formulae:sg2.6061"/>
    </members>
 </collection>
