@@ -50,11 +50,11 @@
                                                  lang="{{ object.collections.current.secondary_lang }}"
             >{{object.label[1]|safe}}</h2>
                 <a class="internal-link" id="iiif-{{ index }}" href="{{ object.lib_link }}"
-                                             target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}" data-toggle="tooltip" data-container="#iiif-{{ index }}">{{ _('Zur Bibliothek')}}</a>
+                                             target="_blank" title="{{ _('Dieses Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}" data-toggle="tooltip" data-container="#iiif-{{ index }}">{{ _('Zur Bibliothek')}}</a>
                 {% if object.alt_image %}
                 <br>
                 <a class="internal-link" id="iiif-alt-{{ index }}" href="{{ object.alt_image }}"
-                                             target="_blank" title="{{ _('Die älteren Manuskriptbilder bei der Bibliothek in einem neuen Tab anschauen.') }}" data-toggle="tooltip" data-container="#iiif-alt-{{ index }}">{{ _('Zu den älteren Manuskriptbilder')}}</a>
+                                             target="_blank" title="{{ _('Die älteren Manuskriptbilder bei der Bibliothek in einem neuen Tab anschauen.') }}" data-toggle="tooltip" data-container="#iiif-alt-{{ index }}">{{ _('Ältere Manuskriptbilder')}}</a>
                 {% endif %}
             </div>
             {% if object.next_version %}
