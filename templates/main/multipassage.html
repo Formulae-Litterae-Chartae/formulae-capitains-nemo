@@ -49,8 +49,13 @@
                     {{object.label[0]|safe}}</h2><h2 class="entry-folia"
                                                  lang="{{ object.collections.current.secondary_lang }}"
             >{{object.label[1]|safe}}</h2>
+                {% if object.manifest %}
                 <a class="internal-link" id="iiif-{{ index }}" href="{{ object.lib_link }}"
                                              target="_blank" title="{{ _('Dieses Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}" data-toggle="tooltip" data-container="#iiif-{{ index }}">{{ _('Zur Bibliothek')}}</a>
+                {% elif object.lib_link %}
+                <a class="internal-link" id="iiif-{{ index }}" href="{{ object.lib_link }}"
+                                             target="_blank" title="{{ _('Mehr über dieses Manuskript bei der Bibliothek erfahren.') }}" data-toggle="tooltip" data-container="#iiif-{{ index }}">{{ _('Zur Bibliothek')}}</a>
+                {% endif %}
                 {% if object.alt_image %}
                 <br>
                 <a class="internal-link" id="iiif-alt-{{ index }}" href="{{ object.alt_image }}"
@@ -396,12 +401,22 @@
                 </div>
                 {% else %}
                 <div class="image-row">
+                {% if text.manifest %}
                     {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                     {% with manifest = text.manifest, div_v = text.div_v %}
                     {% include "viewer::embededmirador.html" %}
                     {% endwith %}
+                {% else %}
+                <div class="row mx-0">
+                    {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                </div>
+                <div class="row h-75 align-items-center justify-content-center">
+                    <div class="col text-center">
+                        <span tabindex="0" id="no-image-{{ loop.index }}" data-toggle="tooltip" data-container="#no-image-{{ loop.index }}" title="{{ _('Aus technischen bzw. rechtlichen Gründen kann keine Manuskriptbilder gezeigt werden') }}"><i class="fas fa-ban fa-10x" alt="{{ _('Keine Bilder') }}"></i></span>
+                    </div>
                 </div>
                 {% endif %}
+                    {% endif %}
             </article>
         </div>
         {% endfor %}
@@ -560,12 +575,23 @@
                                 {{ text.text_passage }}
                             <footer>{% include "main::passage_footer.html" %}</footer>
                         {% else %}
-                        <section class="text-section{{ copy_class }}">
-                            {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                            {% with manifest = text.manifest, div_v = text.div_v %}
-                            {% include "viewer::embededmirador.html" %}
-                            {% endwith %}
-                        {% endif %}
+                        <section class="text-section{{ copy_class }} h-100">
+                            {% if text.manifest %}
+                                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                                {% with manifest = text.manifest, div_v = text.div_v %}
+                                {% include "viewer::embededmirador.html" %}
+                                {% endwith %}
+                            {% else %}
+                            <div class="row mx-0">
+                                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                            </div>
+                            <div class="row h-75 align-items-center justify-content-center">
+                                <div class="col text-center">
+                                    <span tabindex="0" id="no-image-{{ loop.index }}" data-toggle="tooltip" data-container="#no-image-{{ loop.index }}" title="{{ _('Aus technischen bzw. rechtlichen Gründen kann keine Manuskriptbilder gezeigt werden') }}"><i class="fas fa-ban fa-10x" alt="{{ _('Keine Bilder') }}"></i></span>
+                                </div>
+                            </div>
+                            {% endif %}
+                                {% endif %}
                         </section>
                     </div>
                 {% endfor %}
