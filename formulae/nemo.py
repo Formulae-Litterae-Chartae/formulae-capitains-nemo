@@ -243,7 +243,7 @@ class NemoFormulae(Nemo):
                     try:
                         links = json_load(f)
                     except JSONDecodeError:
-                        self.app.logger.warning(corpus_folder + '/iiif/' + 'no_images.json' + ' is not a valid JSON file. Unable to load valid manuscript notes from it.')
+                        self.app.logger.warning(corpus_folder + '/iiif/' + 'no_images.json' + ' is not a valid JSON file. Unable to load valid library links from it.')
                         continue
                 for k, v in links.items():
                     lib_links[k] = v

@@ -1594,6 +1594,16 @@ class TestFunctions(Formulae_Testing):
             self.nemo.make_manuscript_notes()
             mock.assert_called_with('tests/test_data/errored_formulae/manuscript_notes.json is not a valid JSON file. Unable to load valid manuscript notes from it.')
 
+    def test_load_ms_lib_links(self):
+        """ Ensure that the json manuscript notes file is correctly loaded."""
+        self.assertEqual(self.nemo.ms_lib_links['wa1'],
+                         "https://crispa.uw.edu.pl/object/files/211890/display/Default",
+                         'Manuscript library links should have loaded correctly.')
+        self.app.config['CORPUS_FOLDERS'].append('tests/test_data/errored_formulae')
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_ms_lib_links()
+            mock.assert_called_with('tests/test_data/errored_formulae/iiif/no_images.json is not a valid JSON file. Unable to load valid library links from it.')
+
     def test_r_assets(self):
         """ Test return values from assets route"""
         r = self.nemo.r_assets('js', 'empty.js')
