@@ -215,6 +215,7 @@ class NemoFormulae(Nemo):
         self.dead_urls = self.make_dead_url_mapping()
         self.comp_places = self.make_comp_places_list()
         self.manuscript_notes = self.make_manuscript_notes()
+        self.ms_lib_links = self.make_ms_lib_links()
         # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
 
@@ -232,6 +233,21 @@ class NemoFormulae(Nemo):
                 for k, v in man_notes.items():
                     manuscript_notes[k] = v
         return dict(manuscript_notes)
+
+    def make_ms_lib_links(self) -> dict:
+        """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
+        lib_links = dict()
+        for corpus_folder in self.app.config['CORPUS_FOLDERS']:
+            if os.path.isfile(corpus_folder + '/iiif/' + 'no_images.json'):
+                with open(corpus_folder + '/iiif/' + 'no_images.json') as f:
+                    try:
+                        links = json_load(f)
+                    except JSONDecodeError:
+                        self.app.logger.warning(corpus_folder + '/iiif/' + 'no_images.json' + ' is not a valid JSON file. Unable to load valid library links from it.')
+                        continue
+                for k, v in links.items():
+                    lib_links[k] = v
+        return dict(lib_links)
 
     def make_inflected_to_lem_mapping(self) -> dict:
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
@@ -1307,11 +1323,9 @@ class NemoFormulae(Nemo):
                         translations[id].append(x)
                 if v:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
+                    formulae = dict()
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
                         formulae = self.app.picture_file['manifest:' + d['collections']['current']['id']]
-                    else:
-                        flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
-                        continue
                     d['alt_image'] = ''
                     if os.path.isfile(self.app.config['IIIF_MAPPING'] + '/' + 'alternatives.json'):
                         with open(self.app.config['IIIF_MAPPING'] + '/' + 'alternatives.json') as f:
@@ -1322,6 +1336,12 @@ class NemoFormulae(Nemo):
                     view = view + 1
                     del d['text_passage']
                     del d['notes']
+                    if formulae == {}:
+                        d['manifest'] = None
+                        d["label"] = [d['collections']['current']['label'], '']
+                        d['lib_link'] = self.ms_lib_links.get(id.split(':')[-1].split('.')[0], '')
+                        passage_data['objects'].append(d)
+                        continue
                     # this viewer work when the library or archive give an IIIF API for the external usage of theirs books
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:

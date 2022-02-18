@@ -574,6 +574,11 @@ class TestIndividualRoutes(Formulae_Testing):
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://digi.vatlib.it/view/MSS_Reg.lat.612/0060')
             self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf II,13', 'Tours 26'])
+            c.get('/texts/manifest:urn:cts:formulae:ko2.69r70v.lat001/passage/1', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[0]['lib_link'], 'http://www5.kb.dk/en/nb/samling/hs/index.html')
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf I,3'])
             c.get('/texts/manifest:urn:cts:formulae:p16.4v.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
@@ -1588,6 +1593,16 @@ class TestFunctions(Formulae_Testing):
         with patch.object(self.app.logger, 'warning') as mock:
             self.nemo.make_manuscript_notes()
             mock.assert_called_with('tests/test_data/errored_formulae/manuscript_notes.json is not a valid JSON file. Unable to load valid manuscript notes from it.')
+
+    def test_load_ms_lib_links(self):
+        """ Ensure that the json manuscript notes file is correctly loaded."""
+        self.assertEqual(self.nemo.ms_lib_links['wa1'],
+                         "https://crispa.uw.edu.pl/object/files/211890/display/Default",
+                         'Manuscript library links should have loaded correctly.')
+        self.app.config['CORPUS_FOLDERS'].append('tests/test_data/errored_formulae')
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_ms_lib_links()
+            mock.assert_called_with('tests/test_data/errored_formulae/iiif/no_images.json is not a valid JSON file. Unable to load valid library links from it.')
 
     def test_r_assets(self):
         """ Test return values from assets route"""
