@@ -266,7 +266,7 @@
 
         {% for text in objects %}
         {% set index=loop.index %}
-        {% if not current_user.project_team and 'formulae_collection' in text.collections.parent_ids %}
+        {% if not current_user.project_team and ('formulae_collection' in text.collections.parent_ids or 'manuscript_collection' in text.collections.parent_ids) %}
             {% set copy_class = ' no-copy' %}
         {% else %}
             {% set copy_class = '' %}
