@@ -252,6 +252,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('search::documentation.html', [x[0].name for x in self.templates])
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertIn(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             c.get('/auth/reset_password_request', follow_redirects=True)
             self.assertIn('auth::reset_password_request.html', [x[0].name for x in self.templates])
@@ -260,7 +261,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertIn('main::collection.html', [x[0].name for x in self.templates])
             c.get('/collections/formulae_collection', follow_redirects=True)
-            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
+            self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             r = c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
@@ -274,10 +275,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
-            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'),
-                          [x[0] for x in self.flashed_messages])
+            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             r = c.get('/collections/urn:cts:formulae:katalonien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             data = self.get_context_variable('collections')
             self.assertEqual(data['members'], [])
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
@@ -296,6 +297,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/add_collection/urn:cts:formulae:katalonien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             data = self.get_context_variable('collections')
             self.assertEqual(data['members'], [])
@@ -304,11 +306,12 @@ class TestIndividualRoutes(Formulae_Testing):
             data = self.get_context_variable('collections')
             self.assertNotEqual(data['members'], [])
             c.get('/add_collection/formulae_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
-            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
+            self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/add_collection/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
@@ -325,12 +328,21 @@ class TestIndividualRoutes(Formulae_Testing):
             # The following tests are to make sure that non-open texts are not available to non-project members
             c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
+            c.get('/corpus/urn:cts:formulae:p10', follow_redirects=True)
+            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
-            self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
+            c.get('/corpus_m/urn:cts:formulae:tours', follow_redirects=True)
+            self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
+            # self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             # Make sure the Salzburg collection is ordered correctly
             r = c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
             p = re.compile('<h5>Notitia Arnonis: </h5>.+<h5>Codex Odalberti Vorrede: </h5>.+<h5>Codex Odalberti 1: </h5>',
@@ -347,10 +359,13 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:marculf.form003.le1/passage/1', follow_redirects=True)
             self.assertEqual(response.status_code, 404, 'If too many or too few subreferences are passed, a 404 is raised.')
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001.lat001/passage/1', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/reading_format/rows', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
@@ -378,15 +393,17 @@ class TestIndividualRoutes(Formulae_Testing):
                              "Navigating to the results page from a simple search without q should return 0 results")
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
-            r = c.get('/viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
+            r = c.get('/viewer/manifest:urn:cts:formulae:m4.60v61v.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
+            c.get('/viewer/manifest:urn:cts:formulae:p10.135r.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertIn(_('Diese Formelsammlung ist noch nicht frei zugänglich.'), [x[0] for x in self.flashed_messages])
-            self.assertIn('main::index.html', [x[0].name for x in self.templates])
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form001.fu2', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
             c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
             self.assertIn(_('Das PDF für diesen Text ist nicht zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertIn('main::fulda_d1_desc.html', [x[0].name for x in self.templates])
             c.get('manuscript_desc/siglen', follow_redirects=True)
@@ -642,6 +659,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/reset_password_request', follow_redirects=True)
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             self.assertIn(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/auth/login', follow_redirects=True)
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             self.assertIn(_('Sie sind schon eingeloggt.'), [x[0] for x in self.flashed_messages])
@@ -651,13 +669,14 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertIn('main::collection.html', [x[0].name for x in self.templates])
             c.get('/collections/formulae_collection', follow_redirects=True)
-            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
+            self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/collections/lexicon_entries', follow_redirects=True)
             self.assertIn('main::elex_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
@@ -665,11 +684,15 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertIn('main::elex_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
+            self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
+            c.get('/corpus_m/urn:cts:formulae:tours', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
-            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
+            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:katalonien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/add_collection/urn:cts:formulae:katalonien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             data = self.get_context_variable('collections')
@@ -696,22 +719,32 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/login', follow_redirects=True)
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             self.assertIn(_('Sie sind schon eingeloggt.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             # The following tests are to make sure that non-open texts are not available to non-project members
             c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
+            c.get('/corpus/urn:cts:formulae:p10', follow_redirects=True)
+            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.', [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertIn('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.', [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
-            c.get('/viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
+            c.get('/viewer/manifest:urn:cts:formulae:m4.60v61v.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
+            c.get('/viewer/manifest:urn:cts:formulae:p10.135r.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertIn(_('Diese Formelsammlung ist noch nicht frei zugänglich.'), [x[0] for x in self.flashed_messages])
-            self.assertIn('main::index.html', [x[0].name for x in self.templates])
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
             r = c.get('/pdf/urn:cts:formulae:fulda_stengel.stengel0015.lat001', follow_redirects=True)
