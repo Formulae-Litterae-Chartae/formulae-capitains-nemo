@@ -332,6 +332,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
+            c.get('/corpus/urn:cts:formulae:p10', follow_redirects=True)
+            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
@@ -723,6 +726,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.flashed_messages = []
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
+            c.get('/corpus/urn:cts:formulae:p10', follow_redirects=True)
+            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.', [x[0] for x in self.flashed_messages])
