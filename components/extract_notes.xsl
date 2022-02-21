@@ -143,7 +143,7 @@
                     <xsl:attribute name="data-container">body</xsl:attribute>
                     <xsl:attribute name="data-toggle">bibl-popover</xsl:attribute>
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
-                    <xsl:attribute name="href">#</xsl:attribute>
+                    <xsl:attribute name="href">#<xsl:value-of select="generate-id()"/></xsl:attribute>
                     <xsl:attribute name="class">internal-link</xsl:attribute>
                     <xsl:apply-templates/>
                 </xsl:element>
