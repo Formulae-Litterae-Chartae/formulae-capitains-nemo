@@ -40,21 +40,27 @@ $(document).ready(function(){
     
     // Automatically set the max-height of the note-card for each text depending on the number of texts
     var noteCardsLeft = $('.noteCardLeft').length;
-    var max = "70vh";
+    var max = $(window).height() * .35;
     if (noteCardsLeft == 2 ) {
-        max = "34vh";
+        max = $(window).height() * .17;
     } else if (noteCardsLeft > 2) {
-        max = "22vh";
+        max = $(window).height() * .11;
     }
-    $('.noteCardLeft').css('max-height', max);
+    $('.noteCardLeft .notecard-row').each(function() {
+        var h = $(this).height();
+        $(this).css('height', Math.min(max + 12, h + 12));
+    });
     var noteCardsRight = $('.noteCardRight').length;
-    var max = "70vh";
+    var max = $(window).height() * .35;
     if (noteCardsRight == 2 ) {
-        max = "34vh";
+        max = $(window).height() * .17;
     } else if (noteCardsRight > 2) {
-        max = "22vh";
+        max = $(window).height() * .11;
     }
-    $('.noteCardRight').css('max-height', max);
+    $('.noteCardRight .notecard-row').each(function() {
+        var h = $(this).height();
+        $(this).css('height', Math.min(max + 12, h + 12));
+    });
     
     // Show expand icon only if the whole note is not shown. Thanks to http://jsfiddle.net/kedem/D9NCP/
     $('.two-line').each(function(index, element) {

@@ -38,9 +38,18 @@
                             </xsl:element>
                         </xsl:element>
                     </xsl:element>
-                    <xsl:for-each select="//a[@class='note' and @type='a1']">
-                        <xsl:call-template name="build_note"/>
-                    </xsl:for-each>
+                    <xsl:element name="div">
+                        <xsl:attribute name="class">notecard-row</xsl:attribute>
+                        <xsl:element name="div">
+                            <xsl:attribute name="class">row</xsl:attribute>
+                            <xsl:element name="div">
+                                <xsl:attribute name="class">col-12 notecard-col</xsl:attribute>
+                                <xsl:for-each select="//a[@class='note' and @type='a1']">
+                                    <xsl:call-template name="build_note"/>
+                                </xsl:for-each>
+                            </xsl:element>
+                        </xsl:element>
+                    </xsl:element>
                 </xsl:if>
                 <xsl:if test="count(//a[@class='note' and @type='n1']) > 0">
                     <xsl:element name="div">
@@ -70,9 +79,18 @@
                             </xsl:element>
                         </xsl:element>
                     </xsl:element>
-                    <xsl:for-each select="//a[@class='note' and @type='n1']">
-                        <xsl:call-template name="build_note"/>
-                    </xsl:for-each>
+                    <xsl:element name="div">
+                        <xsl:attribute name="class">notecard-row</xsl:attribute>
+                        <xsl:element name="div">
+                            <xsl:attribute name="class">row</xsl:attribute>
+                            <xsl:element name="div">
+                                <xsl:attribute name="class">col-12 notecard-col</xsl:attribute>
+                                <xsl:for-each select="//a[@class='note' and @type='n1']">
+                                    <xsl:call-template name="build_note"/>
+                                </xsl:for-each>
+                            </xsl:element>
+                        </xsl:element>
+                    </xsl:element>
                 </xsl:if>
             </xsl:when>
             <xsl:when test="count(//a[@class='note']) > 0">
