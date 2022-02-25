@@ -1137,3 +1137,7 @@ div.translation,div.edition {
 img.disabled {
     filter: grayscale(100%);
 }
+
+.missing-image {
+    color: lightgrey;
+}
