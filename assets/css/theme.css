@@ -318,8 +318,13 @@ nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
     top: 100px;
 }
 
-.noteCardLeft,.noteCardRight {
+.notecard-row {
     overflow: auto;
+    margin-right: -15px;
+}
+
+.notecard-col {
+    padding-right: 0;
 }
 
 /* To make this show three lines, change max-height to 3.7em */
@@ -808,6 +813,14 @@ li.flash-grey {
     width: 100%;
 }
 
+.notecard-row>.row {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    height: calc(100% - 12px);
+    width: 100%;
+}
+
 .multi-reading-row .image-row {
     overflow-y: auto;
     overflow-x: hidden;
@@ -1123,4 +1136,8 @@ div.translation,div.edition {
 
 img.disabled {
     filter: grayscale(100%);
+}
+
+.missing-image {
+    color: lightgrey;
 }
