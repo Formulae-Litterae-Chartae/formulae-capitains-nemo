@@ -29,6 +29,8 @@
             <dct:created>2021-12-01</dct:created>
             <dct:bibliographicCitation>Vatikan BAV Reg. Lat. 612 [fol.28&lt;span class="verso-recto"&gt;v&lt;/span&gt;-29&lt;span class="verso-recto"&gt;r&lt;/span&gt;], Formulae-Litterae-Chartae Projekt. Hamburg 2021-12-01, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:v6.28v29r.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
+            <dct:isVersionOf>Marculf II,13</dct:isVersionOf>
+            <dct:isVersionOf>Tours 26</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

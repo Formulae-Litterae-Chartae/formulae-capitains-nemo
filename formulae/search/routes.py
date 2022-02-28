@@ -210,7 +210,7 @@ def r_results():
         g.previous_search_args = old_search_args
         g.previous_aggregations = aggs
         g.previous_search_args['corpus'] = '+'.join(corps)
-    inf_to_lemmas = []
+    inf_to_lemmas = {q_term: list() for q_term in final_search_args['query_dict']}
     for k, v in sorted(final_search_args['query_dict'].items()):
         if v['search_field'] != 'lemmas':
             search_terms = v.get('q', '').split()
@@ -228,12 +228,19 @@ def r_results():
                         lem_possibilites.update(current_app.config['nemo_app'].inflected_to_lemma_mapping[inflected])
                     except KeyError:
                         continue
-                inf_to_lemmas.append(lem_possibilites)
-    if not all(inf_to_lemmas):
-        inf_to_lemmas = []
+                if lem_possibilites:
+                    inf_to_lemmas[k].append(lem_possibilites)
+                else:
+                    inf_to_lemmas[k].append(None)
+    searched_lems = dict()
+    max_cols = 0
+    for k, v in inf_to_lemmas.items():
+        if v and all(v):
+            searched_lems[k] = v
+            max_cols = max(len(v), max_cols)
     return current_app.config['nemo_app'].render(template=template, title=_('Suche'), posts=posts, current_page=page,
                                                  url=dict(), open_texts=g.open_texts, total_results=total, aggs=aggs,
-                                                 searched_lems=inf_to_lemmas)
+                                                 searched_lems=searched_lems, max_cols=max_cols)
 
 
 @bp.route("/advanced_search", methods=["GET"])

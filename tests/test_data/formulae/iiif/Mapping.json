@@ -30,5 +30,9 @@
 	"manifest:urn:cts:formulae:v6.28v29r.lat001": {
 		"manifest": "urn:cts:formulae:v6.28v29r.json",
 		"title": "Vatikan BAV Reg. Lat. 612"
+	},
+	"manifest:urn:cts:formulae:p16.4v.lat001": {
+		"manifest": "urn:cts:formulae:p16.4v.lat001.json",
+		"title": "Paris BnF Lat. 10756"
 	}
 }

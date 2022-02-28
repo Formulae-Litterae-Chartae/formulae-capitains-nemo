@@ -252,6 +252,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('search::documentation.html', [x[0].name for x in self.templates])
             c.get('/auth/user/project.member', follow_redirects=True)
             self.assertIn(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             c.get('/auth/reset_password_request', follow_redirects=True)
             self.assertIn('auth::reset_password_request.html', [x[0].name for x in self.templates])
@@ -260,7 +261,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertIn('main::collection.html', [x[0].name for x in self.templates])
             c.get('/collections/formulae_collection', follow_redirects=True)
-            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
+            self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             r = c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
@@ -274,10 +275,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
-            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'),
-                          [x[0] for x in self.flashed_messages])
+            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             r = c.get('/collections/urn:cts:formulae:katalonien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             data = self.get_context_variable('collections')
             self.assertEqual(data['members'], [])
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
@@ -296,6 +297,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/add_collection/urn:cts:formulae:katalonien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             data = self.get_context_variable('collections')
             self.assertEqual(data['members'], [])
@@ -304,11 +306,12 @@ class TestIndividualRoutes(Formulae_Testing):
             data = self.get_context_variable('collections')
             self.assertNotEqual(data['members'], [])
             c.get('/add_collection/formulae_collection/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
-            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
+            self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/add_collection/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/add_collection/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/add_text/urn:cts:formulae:andecavensis/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
@@ -325,12 +328,21 @@ class TestIndividualRoutes(Formulae_Testing):
             # The following tests are to make sure that non-open texts are not available to non-project members
             c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
+            c.get('/corpus/urn:cts:formulae:p10', follow_redirects=True)
+            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
-            self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
+            c.get('/corpus_m/urn:cts:formulae:tours', follow_redirects=True)
+            self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
+            # self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             # Make sure the Salzburg collection is ordered correctly
             r = c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
             p = re.compile('<h5>Notitia Arnonis: </h5>.+<h5>Codex Odalberti Vorrede: </h5>.+<h5>Codex Odalberti 1: </h5>',
@@ -347,10 +359,13 @@ class TestIndividualRoutes(Formulae_Testing):
             response = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:marculf.form003.le1/passage/1', follow_redirects=True)
             self.assertEqual(response.status_code, 404, 'If too many or too few subreferences are passed, a 404 is raised.')
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001.lat001/passage/1', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/reading_format/rows', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
@@ -378,15 +393,17 @@ class TestIndividualRoutes(Formulae_Testing):
                              "Navigating to the results page from a simple search without q should return 0 results")
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
-            r = c.get('/viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
+            r = c.get('/viewer/manifest:urn:cts:formulae:m4.60v61v.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
+            c.get('/viewer/manifest:urn:cts:formulae:p10.135r.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertIn(_('Diese Formelsammlung ist noch nicht frei zugänglich.'), [x[0] for x in self.flashed_messages])
-            self.assertIn('main::index.html', [x[0].name for x in self.templates])
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form001.fu2', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
             c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
             self.assertIn(_('Das PDF für diesen Text ist nicht zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('manuscript_desc/fulda_d1', follow_redirects=True)
             self.assertIn('main::fulda_d1_desc.html', [x[0].name for x in self.templates])
             c.get('manuscript_desc/siglen', follow_redirects=True)
@@ -568,10 +585,25 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://iiifviewer.universiteitleiden.nl/?manifest=https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610701/manifest')
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], [])
             c.get('/texts/manifest:urn:cts:formulae:v6.28v29r.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://digi.vatlib.it/view/MSS_Reg.lat.612/0060')
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf II,13', 'Tours 26'])
+            c.get('/texts/manifest:urn:cts:formulae:ko2.69r70v.lat001/passage/1', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[0]['lib_link'], 'http://www5.kb.dk/en/nb/samling/hs/index.html')
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf I,3'])
+            c.get('/texts/manifest:urn:cts:formulae:p16.4v.lat001/passage/1', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[0]['alt_image'], 'https://gallica.bnf.fr/ark:/12148/btv1b9065920c/f7')
+            c.get('/corpus/urn:cts:formulae:v6', follow_redirects=True)
+            d = self.get_context_variable('collections')
+            self.assertEqual(d['readable']['0028<span class="verso-recto">v</span>-29<span class="verso-recto">r</span>']['transcribed_edition'],
+                             ['Marculf II,13', 'Tours 26'])
             c.get('/texts/urn:cts:formulae:flavigny.form041.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['linked_resources'],
@@ -627,6 +659,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/reset_password_request', follow_redirects=True)
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             self.assertIn(_('Sie sind schon eingeloggt. Sie können Ihr Password hier ändern.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/auth/login', follow_redirects=True)
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             self.assertIn(_('Sie sind schon eingeloggt.'), [x[0] for x in self.flashed_messages])
@@ -636,13 +669,14 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertIn('main::collection.html', [x[0].name for x in self.templates])
             c.get('/collections/formulae_collection', follow_redirects=True)
-            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
+            self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/collections/lexicon_entries', follow_redirects=True)
             self.assertIn('main::elex_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
@@ -650,11 +684,15 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertIn('main::elex_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
+            self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
+            c.get('/corpus_m/urn:cts:formulae:tours', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
-            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
+            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:katalonien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/add_collection/urn:cts:formulae:katalonien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             data = self.get_context_variable('collections')
@@ -681,22 +719,32 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/login', follow_redirects=True)
             self.assertIn('auth::login.html', [x[0].name for x in self.templates])
             self.assertIn(_('Sie sind schon eingeloggt.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             # The following tests are to make sure that non-open texts are not available to non-project members
             c.get('/add_text/urn:cts:formulae:raetien/urn:cts:formulae:stgallen.wartmann0001.lat001/1', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
+            c.get('/corpus/urn:cts:formulae:p10', follow_redirects=True)
+            self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.', [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001/passage/1', follow_redirects=True)
             self.assertIn('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.', [x[0] for x in self.flashed_messages])
+            self.flashed_messages = []
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
-            c.get('/viewer/urn:cts:formulae:marculf.form003.lat001', follow_redirects=True)
+            c.get('/viewer/manifest:urn:cts:formulae:m4.60v61v.lat001?view=0&embedded=True', follow_redirects=True)
+            self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
+            c.get('/viewer/manifest:urn:cts:formulae:p10.135r.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertIn(_('Diese Formelsammlung ist noch nicht frei zugänglich.'), [x[0] for x in self.flashed_messages])
-            self.assertIn('main::index.html', [x[0].name for x in self.templates])
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
             r = c.get('/pdf/urn:cts:formulae:fulda_stengel.stengel0015.lat001', follow_redirects=True)
@@ -756,7 +804,8 @@ class TestIndividualRoutes(Formulae_Testing):
                                                                                  'search_field':
                                                                                      'text', 'exclude_q': ''}},
                                            bool_operator='must', search_id="1234")
-            self.assertEqual(self.get_context_variable('searched_lems'), [], 'When "q" is empty, there should be no searched lemmas.')
+            self.assertEqual(self.get_context_variable('searched_lems'), {}, 'When "q" is empty, there should be no searched lemmas for that term.')
+            self.assertEqual(self.get_context_variable('max_cols'), 0, 'When there are no searched lemmas for any search box, max_cols should be 0.')
             c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&special_days=Easter%20Tuesday'
@@ -875,29 +924,44 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [{'regnum'}],
+            self.assertEqual(self.get_context_variable('searched_lems'), {'q_1': [{'regnum'}]},
                                 'When a query word matches a lemma, it should be returned.')
+            self.assertEqual(self.get_context_variable('max_cols'), 1, 'When the most searched lemmas for any box is 1, max_cols should be 1.')
             with c.session_transaction() as session:
                 session['highlighted_words'] = ['regnum']
             c.get('/search/results?source=advanced&corpus=formulae&q=re*num&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [{'regnum'}],
+            self.assertEqual(self.get_context_variable('searched_lems'), {'q_1': [{'regnum'}]},
                                 'When a query pattern matches a lemma, it should be returned.')
             c.get('/search/results?source=advanced&corpus=formulae&q=word&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [],
+            self.assertEqual(self.get_context_variable('searched_lems'), {},
                                 'When a query word does not match a lemma, "searched_lems" should be empty.')
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum+domni+ad&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [{'regnum'}, {'dominus'}, {'a', 'ad', 'ab'}],
+            self.assertEqual(self.get_context_variable('searched_lems'), {'q_1': [{'regnum'}, {'dominus'}, {'a', 'ad', 'ab'}]},
                                 'When all query words match a lemma, all should be returned.')
+            self.assertEqual(self.get_context_variable('max_cols'), 3, 'When the most searched lemmas for any box is 3, max_cols should be 3.')
+            c.get('/search/results?source=advanced&sort=urn&lemma_search=False&simple_search_id=9342&q_1=regnum&'
+                  'regex_search_1=False&fuzziness_1=0&slop_1=0&in_order_1=False&search_field_1=text&exclude_q_1=&'
+                  'q_2=domni&regex_search_2=False&fuzziness_2=0&slop_2=0&in_order_2=False&search_field_2=text&'
+                  'exclude_q_2=&q_3=ad&regex_search_3=False&fuzziness_3=0&slop_3=0&in_order_3=False&search_field_3=text'
+                  '&exclude_q_3=&q_4=&regex_search_4=False&fuzziness_4=0&slop_4=0&in_order_4=False&search_field_4=text'
+                  '&exclude_q_4=&corpus=all&year=&month=0&day=&year_start=&month_start=0&day_start=&year_end=&'
+                  'month_end=0&day_end=&date_plus_minus=0&exclusive_date_range=False&composition_place=&special_days='
+                  '&forgeries=include&bool_operator=must&search_id=8723&submit=True')
+            self.assertEqual(self.get_context_variable('searched_lems'), {'q_1': [{'regnum'}],
+                                                                          'q_2': [{'dominus'}],
+                                                                          'q_3': [{'a', 'ad', 'ab'}]},
+                             'When all query words in several search fields match a lemma, all should be returned.')
+            self.assertEqual(self.get_context_variable('max_cols'), 1, 'When the most searched lemmas for any box is 1, max_cols should be 1.')
             c.get('/search/results?source=advanced&corpus=formulae&q=regnum+word+ad&fuzziness=0&slop=0&in_order=False&'
                   'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
                   'day_end=12&date_plus_minus=0&exclusive_date_range=False&regest_q=&search_id=1234&exclude_q=&submit=True')
-            self.assertEqual(self.get_context_variable('searched_lems'), [],
+            self.assertEqual(self.get_context_variable('searched_lems'), {},
                                 'When not all query words match a lemma, "searched_lems" should be empty.')
             # Check g.corpora
             self.assertIn(('<b>Angers</b>: Angers', 'andecavensis'), g.corpora,
@@ -1298,6 +1362,7 @@ class TestFunctions(Formulae_Testing):
                                           'Fabr. 84',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:ko2.69r70v.lat001']],
+                     'ms_images': [False],
                      'name': 'ko2',
                      'regesten': [''],
                      'titles': ['Marculf I,3']},
@@ -1309,6 +1374,7 @@ class TestFunctions(Formulae_Testing):
                      'full_edition_name': 'Leiden BPL 114',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:le1.109v110v.lat001']],
+                     'ms_images': [True],
                      'name': 'le1',
                      'regesten': [''],
                      'titles': ['Marculf I,3']},
@@ -1320,6 +1386,7 @@ class TestFunctions(Formulae_Testing):
                      'full_edition_name': 'München BSB clm 4650',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:m4.60v61v.lat001']],
+                     'ms_images': [True],
                      'name': 'm4',
                      'regesten': [''],
                      'titles': ['Marculf I,3']},
@@ -1336,6 +1403,7 @@ class TestFunctions(Formulae_Testing):
                                 'urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:p3.105va106rb.lat001',
                                 'urn:cts:formulae:p3.128vb129rb.lat001']],
+                     'ms_images': [False, False],
                      'name': 'p3',
                      'regesten': ['', ''],
                      'titles': ['I Prolog', 'Marculf I,3']},
@@ -1347,6 +1415,7 @@ class TestFunctions(Formulae_Testing):
                      'full_edition_name': 'Paris BNF 4627',
                      'links': [['urn:cts:formulae:marculf.form003'],
                                ['urn:cts:formulae:p12.65r65v.lat001']],
+                     'ms_images': [True],
                      'name': 'p12',
                      'regesten': [''],
                      'titles': ['Marculf I,3']},
@@ -1366,9 +1435,21 @@ class TestFunctions(Formulae_Testing):
                                ['urn:cts:formulae:p16.1v2v.lat001',
                                 'urn:cts:formulae:p16.4v.lat001',
                                 'urn:cts:formulae:p16.7r7v.lat001']],
+                     'ms_images': [False, True, False],
                      'name': 'p16',
                      'regesten': ['', '', ''],
-                     'titles': ['II Capitulatio', 'I Incipit', 'Marculf I,3']}],
+                     'titles': ['II Capitulatio', 'I Incipit', 'Marculf I,3']},
+                    {'edition_name': 'Sg<span class="manuscript-number">2</span>',
+                     'folia': ['[p.56-60]', '[p.60-61]'],
+                     'full_edition_name': 'St.Gallen, StiBi, 550',
+                     'links': [['urn:cts:formulae:marculf.1_incipit',
+                                'urn:cts:formulae:marculf.1_incipit'],
+                               ['urn:cts:formulae:sg2.5660.lat001',
+                                'urn:cts:formulae:sg2.6061.lat001']],
+                     'ms_images': [False, False],
+                     'name': 'sg2',
+                     'regesten': ['', ''],
+                     'titles': ['I Incipit', 'I Incipit']}],
  'translations': [{'edition_name': 'Übersetzung',
                    'full_edition_name': 'Formelbuch des <span\n'
                                         '      '
@@ -1402,7 +1483,6 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(data['collections']['readable']['0002']['name'], 'Nr. 1 (Reg. 2)',
                              'Lorsch works should be correctly named.')
             data = self.nemo.r_corpus('urn:cts:formulae:marculf')
-            print(data['collections']['readable'])
             self.assertEqual(data['collections']['readable']['(Prolog)']['name'], 'I Prolog',
                              'Marculf works should be correctly named.')
             data = self.nemo.r_corpus('urn:cts:formulae:elexicon')
@@ -1492,7 +1572,7 @@ class TestFunctions(Formulae_Testing):
                         'urn:cts:formulae:p3.134vb':
                             '0134<span class="verso-recto">vb</span>',
                         'urn:cts:formulae:le1.155v156r2':
-                            '0155<span class="verso-recto">v</span>-156<span class="verso-recto">r</span>2'}
+                            '0155<span class="verso-recto">v</span>-156<span class="verso-recto">r</span>(2)'}
         for k, v in test_strings.items():
             par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.nemo.sort_folia, k)
             self.assertEqual(par, v, '{} does not equal {}'.format(par, v))
@@ -1537,6 +1617,26 @@ class TestFunctions(Formulae_Testing):
             self.nemo.make_dead_url_mapping()
             mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid dead url mapping from it.')
 
+    def test_load_manuscript_notes(self):
+        """ Ensure that the json manuscript notes file is correctly loaded."""
+        self.assertEqual(self.nemo.manuscript_notes['urn:cts:formulae:p12.31v.lat001'],
+                         "Teil der Cartae Senonicae",
+                         'Manuscript notes should have loaded correctly.')
+        self.app.config['CORPUS_FOLDERS'].append('tests/test_data/errored_formulae')
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_manuscript_notes()
+            mock.assert_called_with('tests/test_data/errored_formulae/manuscript_notes.json is not a valid JSON file. Unable to load valid manuscript notes from it.')
+
+    def test_load_ms_lib_links(self):
+        """ Ensure that the json manuscript notes file is correctly loaded."""
+        self.assertEqual(self.nemo.ms_lib_links['wa1'],
+                         "https://crispa.uw.edu.pl/object/files/211890/display/Default",
+                         'Manuscript library links should have loaded correctly.')
+        self.app.config['CORPUS_FOLDERS'].append('tests/test_data/errored_formulae')
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_ms_lib_links()
+            mock.assert_called_with('tests/test_data/errored_formulae/iiif/no_images.json is not a valid JSON file. Unable to load valid library links from it.')
+
     def test_r_assets(self):
         """ Test return values from assets route"""
         r = self.nemo.r_assets('js', 'empty.js')
@@ -1579,7 +1679,8 @@ class TestFunctions(Formulae_Testing):
         """ Make sure that the corpora are correctly ordered"""
         self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:marculf'] if x[0] == '1_000b'],
                          ['urn:cts:formulae:marculf.1_incipit.deu001', 'urn:cts:formulae:marculf.1_incipit.lat001',
-                          'urn:cts:formulae:p16.4v.lat001'])
+                          'urn:cts:formulae:p16.4v.lat001', 'urn:cts:formulae:sg2.5660.lat001',
+                          'urn:cts:formulae:sg2.6061.lat001'])
         self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:marculf'] if x[0] == '2_000a'],
                          ['urn:cts:formulae:marculf.2_capitula.deu001', 'urn:cts:formulae:marculf.2_capitula.lat001',
                           'urn:cts:formulae:p16.1v2v.lat001'])
