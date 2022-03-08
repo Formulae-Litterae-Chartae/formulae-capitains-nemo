@@ -48,7 +48,9 @@ $(document).ready(function(){
     }
     $('.noteCardLeft .notecard-row').each(function() {
         var h = $(this).height();
-        $(this).css('height', Math.min(max + 12, h + 12));
+        var newHeight = Math.min(max + 12, h + 12);
+        $(this).css('height', newHeight);
+        $(this).attr('oldHeight', newHeight);
     });
     var noteCardsRight = $('.noteCardRight').length;
     var max = $(window).height() * .35;
@@ -59,7 +61,9 @@ $(document).ready(function(){
     }
     $('.noteCardRight .notecard-row').each(function() {
         var h = $(this).height();
-        $(this).css('height', Math.min(max + 12, h + 12));
+        var newHeight = Math.min(max + 12, h + 12);
+        $(this).css('height', newHeight);
+        $(this).attr('oldHeight', newHeight);
     });
     
     // Show expand icon only if the whole note is not shown. Thanks to http://jsfiddle.net/kedem/D9NCP/
@@ -249,6 +253,8 @@ function hideNotes(c) {
         if (comShow != null) {
             comShow.classList.remove('hidden-button');
         };
+        $('#' + urn + '-a1-row').css('height', 0)
+        $('#' + urn + '-n1-row').css('height', 0)
     } else {
         if (appHide != null && Boolean(appHide.classList.contains('hidden-button')) == false) {
             var allHidden = false;
@@ -261,6 +267,7 @@ function hideNotes(c) {
             document.getElementById(urn + '-show-button').classList.remove('hidden-button');
             document.getElementById(urn + '-hide-button').classList.add('hidden-button');
         }
+        $('#' + c.replace(' ', '-') + '-row').css('height', 0)
     };
 }
 
@@ -291,6 +298,8 @@ function showNotes(c) {
         if (comShow != null) {
             comShow.classList.add('hidden-button');
         };
+        $('#' + urn + '-a1-row').css('height', $('#' + urn + '-a1-row').attr('oldHeight'))
+        $('#' + urn + '-n1-row').css('height', $('#' + urn + '-n1-row').attr('oldHeight'))
     } else {
         if (appShow != null && Boolean(appShow.classList.contains('hidden-button')) == false) {
             var allShown = false;
@@ -303,6 +312,8 @@ function showNotes(c) {
             document.getElementById(urn + '-show-button').classList.add('hidden-button');
             document.getElementById(urn + '-hide-button').classList.remove('hidden-button');
         }
+        var noteRow = $('#' + c.replace(' ', '-') + '-row');
+        noteRow.css('height', noteRow.attr('oldHeight'))
     };
 }
 

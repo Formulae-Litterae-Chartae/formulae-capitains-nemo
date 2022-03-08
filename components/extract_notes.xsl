@@ -40,6 +40,7 @@
                     </xsl:element>
                     <xsl:element name="div">
                         <xsl:attribute name="class">notecard-row</xsl:attribute>
+                        <xsl:attribute name="id"><xsl:value-of select="$text-urn"/>-a1-row</xsl:attribute>
                         <xsl:element name="div">
                             <xsl:attribute name="class">row</xsl:attribute>
                             <xsl:element name="div">
@@ -81,6 +82,7 @@
                     </xsl:element>
                     <xsl:element name="div">
                         <xsl:attribute name="class">notecard-row</xsl:attribute>
+                        <xsl:attribute name="id"><xsl:value-of select="$text-urn"/>-n1-row</xsl:attribute>
                         <xsl:element name="div">
                             <xsl:attribute name="class">row</xsl:attribute>
                             <xsl:element name="div">
