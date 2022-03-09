@@ -1283,7 +1283,8 @@ class NemoFormulae(Nemo):
                     "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or ''),
                     "linked_resources": linked_resources,
-                    "transcribed_edition": sorted([str(x) if x else '' for x in metadata.metadata.get(DCTERMS.isVersionOf)] if metadata.metadata.get(DCTERMS.isVersionOf) else [])
+                    "transcribed_edition": sorted([str(x) if x else '' for x in metadata.metadata.get(DCTERMS.isVersionOf)] if metadata.metadata.get(DCTERMS.isVersionOf) else []),
+                    "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else []
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
