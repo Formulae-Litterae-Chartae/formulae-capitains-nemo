@@ -535,6 +535,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             r = c.get('/texts/urn:cts:formulae:marculf.form000.lat001+urn:cts:formulae:p3.105va106rb.lat001/passage/all+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[0]['collections']['current']['mss_eds'],
+                             ['P<span class="subscript smaller-text">12</span>, P<span class="subscript smaller-text">3</span><span class="verso-recto"> </span>',
+                              '<b>Lin</b>: Praefatio; <b>Zeu</b>: Praefatio; <b>Udd</b>: Praefatio'])
             self.assertIn('Marculf I Prolog', r.get_data(as_text=True))
             c.get('/texts/urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
