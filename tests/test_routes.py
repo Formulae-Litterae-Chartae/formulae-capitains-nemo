@@ -4824,6 +4824,60 @@ class TestES(Formulae_Testing):
                                                                              ("forgeries", "include"),
                                                                              ('source', 'advanced'),
                                                                              ('bool_operator', 'must')]),
+                 'test_multi_word_highlighting_repeated_words_outside_span': OrderedDict([("corpus", "buenden"),
+                                                                                          ("search_field_1", "text"),
+                                                                                          ("q_1", 'anathema+sit+et+peccatum+in+se'),
+                                                                                          ("fuzziness_1", "0"),
+                                                                                          ("in_order_1", "False"),
+                                                                                          ("slop_1", "0"),
+                                                                                          ("regex_search_1", 'False'),
+                                                                                          ("exclude_q_1", ""),
+                                                                                          ("formulaic_parts_1", ""),
+                                                                                          ("proper_name_1", ""),
+                                                                                          ("search_field_2", "text"),
+                                                                                          ("q_2", ''),
+                                                                                          ("fuzziness_2", "0"),
+                                                                                          ("in_order_2", "False"),
+                                                                                          ("slop_2", "0"),
+                                                                                          ("regex_search_2", 'False'),
+                                                                                          ("exclude_q_2", ""),
+                                                                                          ("formulaic_parts_2", ""),
+                                                                                          ("proper_name_2", ""),
+                                                                                          ("search_field_3", "text"),
+                                                                                          ("q_3", ''),
+                                                                                          ("fuzziness_3", "0"),
+                                                                                          ("in_order_3", "False"),
+                                                                                          ("slop_3", "0"),
+                                                                                          ("regex_search_3", 'False'),
+                                                                                          ("exclude_q_3", ""),
+                                                                                          ("formulaic_parts_3", ""),
+                                                                                          ("proper_name_3", ""),
+                                                                                          ("search_field_4", "text"),
+                                                                                          ("q_4", ''),
+                                                                                          ("fuzziness_4", "0"),
+                                                                                          ("in_order_4", "False"),
+                                                                                          ("slop_4", "0"),
+                                                                                          ("regex_search_4", 'False'),
+                                                                                          ("exclude_q_4", ""),
+                                                                                          ("formulaic_parts_4", ""),
+                                                                                          ("proper_name_4", ""),
+                                                                                          ("year", 0),
+                                                                                          ("month", 0),
+                                                                                          ("day", 0),
+                                                                                          ("year_start", 0),
+                                                                                          ("month_start", 0),
+                                                                                          ("day_start", 0),
+                                                                                          ("year_end", 0),
+                                                                                          ("month_end", 0),
+                                                                                          ("day_end", 0),
+                                                                                          ('date_plus_minus', 0),
+                                                                                          ('exclusive_date_range', 'False'),
+                                                                                          ("composition_place", ''),
+                                                                                          ('sort', 'urn'),
+                                                                                          ('special_days', ''),
+                                                                                          ("forgeries", "include"),
+                                                                                          ('source', 'advanced'),
+                                                                                          ('bool_operator', 'must')]),
                  'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
                                                                  ("search_field_1", "text"),
                                                                  ("q_1", 'tempore'),
@@ -10250,12 +10304,33 @@ class TestES(Formulae_Testing):
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
     def test_multi_word_highlighting_repeated_words(self, mock_vectors, mock_search):
-        """ Make sure that the correct sentence fragments are returned when searching for lemmas"""
+        """ Make sure that the all possible sentence fragments are returned when searching for repetitive sections"""
         test_args = copy(self.TEST_ARGS['test_multi_word_highlighting_repeated_words'])
         fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
         self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
-        sents = [{'sents': [Markup('Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Uuiliarentis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Crespionis</strong><small> testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro ')]}]
+        sents = [{'sents': [Markup('Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Uuiliarentis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Crespionis</strong><small> testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro '),
+                            Markup('testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. </small><strong>Signum</strong><small> </small><strong>Uuiliarentis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Crespionis</strong><small> </small><strong>testes</strong><small>. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia '),
+                            Markup('Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum </small><strong>Uuiliarentis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Crespionis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei ')]}]
+        mock_search.side_effect = self.search_side_effect
+        mock_vectors.return_value = self.term_vectors
+        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+        test_args['query_dict'] = make_query_dict(test_args)
+        actual, _, _, _ = advanced_query_index(**test_args)
+        self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+
+    @patch.object(Elasticsearch, "search")
+    @patch.object(Elasticsearch, "mtermvectors")
+    def test_multi_word_highlighting_repeated_words_outside_span(self, mock_vectors, mock_search):
+        """ Make sure that the correct sentence fragments are returned when searching for words that recur in a
+        short span but where only one of the words represents a hit.
+        """
+        test_args = copy(self.TEST_ARGS['test_multi_word_highlighting_repeated_words_outside_span'])
+        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+        self.search_response = cycle(fake.load_response())
+        self.search_aggs = fake.load_aggs()
+        sents = [{'sents': [Markup('ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, </small><strong>anathema</strong><small> </small><strong>sit</strong><small> </small><strong>et</strong><small> </small><strong>peccatum</strong><small> </small><strong>in</strong><small> </small><strong>se</strong><small> recipiat et quod repetit nihil obtineat effectum, sed cartula ista ')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
         test_args['corpus'] = test_args['corpus'].split('+')

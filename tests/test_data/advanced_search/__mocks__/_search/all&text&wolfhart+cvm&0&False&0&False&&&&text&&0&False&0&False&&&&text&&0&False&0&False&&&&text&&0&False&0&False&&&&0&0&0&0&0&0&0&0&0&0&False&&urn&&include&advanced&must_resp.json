@@ -1,10 +1,10 @@
 [
   {
-    "took": 64,
+    "took": 17,
     "timed_out": false,
     "_shards": {
-      "total": 60,
-      "successful": 60,
+      "total": 61,
+      "successful": 61,
       "skipped": 0,
       "failed": 0
     },
@@ -16,13 +16,13 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0090.lat001",
           "_score": null,
           "_source": {
             "text": "TRADITIO HUSINA ET IRMINPALDI DE POHLOHE ET PIPURGE. De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug. firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis. Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros. Haec testes et eorum nomina: Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodríh. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Husina und Irminpald übergeben ein Gotteshaus zu Kreuzpullach, Rihheri und Uuolfhart zu Ober(Unter)hiberg.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 90",
             "keywords": "",
@@ -30,7 +30,7 @@
             "date_string": "778 08 07",
             "comp_ort": " ",
             "autocomplete": "TRADITIO HUSINA ET IRMINPALDI DE POHLOHE ET PIPURGE. De dedicatione vel traditione ad episcopatum sanctae Mariae in loco Frigisinga domui genetricis dei perenne virginis Herede episcopo dedicatore titulos binos in una die, id est ad Pohloh quam Husina seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et Uuolfhart cum sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis sub die consule quod erat VII. id. aug. firmiter tradiderunt communis manibus supradictas domos dei ad praefatum domum episcopalem cum omnibus ad his iure pertinentibus territoriis mancipiis pratis pascuis silvis cultis non cultis. Nullus contradicere valeat aut audeat, sed firma et inviolata permaneant tam pro nobis quam parentes nostri seu et posteros. Haec testes et eorum nomina: Uualdman. Adalfrid. Cozperht. Fritilo. Kepahoh. Eio. Adalhram. Rihheri. Keruuentil. Uuolfhart. Sigipald. Immino. Hrodríh. Helfrih et ceteri multi quorum non est facile dinumerare vel scribere nomina.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Husina und Irminpald übergeben ein Gotteshaus zu Kreuzpullach, Rihheri und Uuolfhart zu Ober(Unter)hiberg.",
             "orig_comp_ort": " ",
             "collection": "freising",
