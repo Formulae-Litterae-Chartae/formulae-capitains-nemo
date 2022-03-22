@@ -1,9 +1,9 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 13936,
+      "doc_count": 14240,
       "forgeries": {
-        "doc_count": 151
+        "doc_count": 150
       },
       "corpus": {
         "buckets": {
@@ -15,9 +15,6 @@
           },
           "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
             "doc_count": 10
-          },
-          "<b>Arnulfinger</b>: Arnulfinger": {
-            "doc_count": 24
           },
           "<b>Auvergne</b>: Auvergne": {
             "doc_count": 6
@@ -73,11 +70,20 @@
           "<b>Graubünden</b>: Bünden": {
             "doc_count": 24
           },
+          "<b>Herrscherurkunden</b>: Arnulfinger": {
+            "doc_count": 24
+          },
+          "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo": {
+            "doc_count": 48
+          },
+          "<b>Herrscherurkunden</b>: Ludwig II.": {
+            "doc_count": 89
+          },
+          "<b>Herrscherurkunden</b>: Merowinger": {
+            "doc_count": 196
+          },
           "<b>Hersfeld</b>: Hersfeld": {
             "doc_count": 121
-          },
-          "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
-            "doc_count": 48
           },
           "<b>Lorsch</b>: Lorsch": {
             "doc_count": 4130
@@ -87,9 +93,6 @@
           },
           "<b>Marculf</b>: Marculf": {
             "doc_count": 106
-          },
-          "<b>Merowinger</b>: Merowinger": {
-            "doc_count": 196
           },
           "<b>Mondsee</b>: Mondsee": {
             "doc_count": 137
@@ -146,7 +149,7 @@
             "doc_count": 38
           },
           "<b>Touraine</b>: Marmoutier (TELMA)": {
-            "doc_count": 108
+            "doc_count": 323
           },
           "<b>Touraine</b>: Marmoutier - Dunois": {
             "doc_count": 281
@@ -238,7 +241,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3543
+            "doc_count": 3632
           },
           {
             "key": "900-999",
@@ -246,18 +249,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2997
+            "doc_count": 2996
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 1859
+            "doc_count": 2073
           }
         ]
       },
       "no_date": {
-        "doc_count": 763
+        "doc_count": 765
       }
     },
     "forgeries": {
@@ -272,9 +275,6 @@
           "doc_count": 0
         },
         "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
-          "doc_count": 0
-        },
-        "<b>Arnulfinger</b>: Arnulfinger": {
           "doc_count": 0
         },
         "<b>Auvergne</b>: Auvergne": {
@@ -331,11 +331,20 @@
         "<b>Graubünden</b>: Bünden": {
           "doc_count": 0
         },
-        "<b>Hersfeld</b>: Hersfeld": {
+        "<b>Herrscherurkunden</b>: Arnulfinger": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Ludwig II.": {
           "doc_count": 1
         },
-        "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
+        "<b>Herrscherurkunden</b>: Merowinger": {
           "doc_count": 0
+        },
+        "<b>Hersfeld</b>: Hersfeld": {
+          "doc_count": 1
         },
         "<b>Lorsch</b>: Lorsch": {
           "doc_count": 0
@@ -344,9 +353,6 @@
           "doc_count": 0
         },
         "<b>Marculf</b>: Marculf": {
-          "doc_count": 0
-        },
-        "<b>Merowinger</b>: Merowinger": {
           "doc_count": 0
         },
         "<b>Mondsee</b>: Mondsee": {
@@ -496,7 +502,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 8
+          "doc_count": 9
         },
         {
           "key": "900-999",

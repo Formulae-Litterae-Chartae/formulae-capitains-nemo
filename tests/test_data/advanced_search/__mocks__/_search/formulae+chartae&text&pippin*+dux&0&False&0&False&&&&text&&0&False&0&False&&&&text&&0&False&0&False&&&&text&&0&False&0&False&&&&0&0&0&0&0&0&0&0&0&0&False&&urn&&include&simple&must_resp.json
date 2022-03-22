@@ -1,10 +1,10 @@
 [
   {
-    "took": 22,
+    "took": 17,
     "timed_out": false,
     "_shards": {
-      "total": 60,
-      "successful": 60,
+      "total": 61,
+      "successful": 61,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "arnulfinger_v6",
+          "_index": "arnulfinger_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
           "_score": null,
@@ -67,7 +67,7 @@
           ]
         },
         {
-          "_index": "echternach_v6",
+          "_index": "echternach_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:echternach.wampach0024.lat001",
           "_score": null,
