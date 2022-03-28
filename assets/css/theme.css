@@ -1125,9 +1125,9 @@ p.short-regest {
     z-index: 900;
 }
 
-#capitula-table {
+/*#capitula-table {
     width: 60%;
-}
+}*/
 
 div.translation,div.edition {
     text-align: justify;
@@ -1140,4 +1140,8 @@ img.disabled {
 
 .missing-image {
     color: lightgrey;
+}
+
+.small-text-row {
+    font-size: 90%;
 }

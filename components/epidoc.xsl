@@ -495,7 +495,11 @@
     
     <xsl:template match="t:row">
         <xsl:element name="tr">
-            <xsl:if test="@style='text-center'"><xsl:attribute name="class">text-center</xsl:attribute></xsl:if>
+            <xsl:attribute name="class">
+                <xsl:if test="@style='text-center'">text-center</xsl:if>
+                <xsl:if test="@n='siglen-row'"> font-weight-bold</xsl:if>
+                <xsl:if test="@n='small-text-row'"> small-text-row</xsl:if>
+            </xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>
