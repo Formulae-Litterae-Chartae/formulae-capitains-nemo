@@ -1250,8 +1250,10 @@ class NemoFormulae(Nemo):
                          self.resolver.getMetadata(str(x)).metadata.get_single(DC.title),
                          self.resolver.getMetadata(str(x)).metadata.get_single(DCTERMS.isPartOf) or '')
                         for x in metadata.metadata.get(DCTERMS.hasVersion)]
-        transcriptions = [(m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '')
-                          for m in self.get_transcriptions(metadata)]
+        transcriptions = []
+        for m in self.get_transcriptions(metadata):
+            siglum = [x['short_title'] for x in self.make_parents(m) if 'manuscript_collection' in x['ancestors']]
+            transcriptions.append((m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '', siglum[-1]))
         current_parents = self.make_parents(metadata, lang=lang)
         linked_resources = []
         for resource in metadata.metadata.get(DCTERMS.relation):
@@ -1388,13 +1390,13 @@ class NemoFormulae(Nemo):
 
                 else:
                     d["IIIFviewer"] = []
-                    for transcription, t_title, t_partOf in d['transcriptions']:
+                    for transcription, t_title, t_partOf, t_siglum in d['transcriptions']:
+                        t_id = 'no_image'
                         if "manifest:" + transcription.id in self.app.picture_file:
-                            manifests = self.app.picture_file["manifest:" + transcription.id]
-                            siglum = [x['short_title'] for x in self.make_parents(transcription) if 'manuscript_collection' in x['ancestors']]
-                            d["IIIFviewer"].append(("manifest:" + transcription.id,
-                                                    manifests['title'] + ' (' + siglum[-1] + ')',
-                                                    t_partOf))
+                            t_id = "manifest:" + transcription.id
+                        d["IIIFviewer"].append((t_id,
+                                                t_title + ' (' + t_siglum + ')',
+                                                t_partOf))
 
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]

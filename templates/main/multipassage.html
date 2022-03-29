@@ -451,20 +451,18 @@
                                 {% if 'formulae_collection' in text.collections.parent_ids %}
                                     {% if text.IIIFviewer|length > 0 %}
                                         <div class="col-3 text-center">
-                                        {% if text.IIIFviewer|length > 1 %}
                                             <button class="dropdown-toggle add-text-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span id="add-iiif-menu-{{ index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</span>
                                             </button>
                                             <div class="dropdown-menu version-dropdown">
                                                 {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
+                                                {% if manifest[0] == 'no_image' %}
+                                                <span  data-toggle="tooltip" id="no-image-{{ index }}-{{ loop.index }}" data-container="#no-image-{{ index }}-{{ loop.index }}" title="{{ _('Diese Manuskriptbilder können nicht gezeigt werden') }}"><a class="dropdown-item pull-right disabled" href="#">- {% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</a></span>
+                                                {% else %}
                                                 <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</span></a>
+                                                {% endif %}
                                                 {% endfor %}
                                             </div>
-                                        {% else %}
-                                            {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
-                                                <span id="add-iiif-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ loop.index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</a></span>
-                                            {% endfor %}
-                                        {% endif %}
                                         </div>
                                     {% elif 'manuscript_collection' in text.collections.parent_ids %}
                                         <div class="col-3 text-center">
@@ -480,7 +478,7 @@
                                         </button>
                                         <div class="dropdown-menu version-dropdown">
                                             {% for transcription in text.transcriptions %}
-                                            <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, transcription[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if transcription[2] != '' %}{{ transcription[2]|safe }}: {% endif %}{{ transcription[1]|safe }}</span></a>
+                                            <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, transcription[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if transcription[2] != '' %}{{ transcription[2]|safe }}: {% endif %}{{ transcription[1]|safe }} ({{ transcription[3]|safe }})</span></a>
                                             {% endfor %}
                                         </div>
                                     {% else %}
