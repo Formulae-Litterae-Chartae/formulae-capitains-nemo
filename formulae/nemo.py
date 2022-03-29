@@ -1390,8 +1390,9 @@ class NemoFormulae(Nemo):
                     for transcription, t_title, t_partOf in d['transcriptions']:
                         if "manifest:" + transcription.id in self.app.picture_file:
                             manifests = self.app.picture_file["manifest:" + transcription.id]
+                            siglum = [x['short_title'] for x in self.make_parents(transcription) if 'manuscript_collection' in x['ancestors']]
                             d["IIIFviewer"].append(("manifest:" + transcription.id,
-                                                    manifests['title'],
+                                                    manifests['title'] + ' (' + siglum[-1] + ')',
                                                     t_partOf))
 
                     if 'previous_search' in session:
