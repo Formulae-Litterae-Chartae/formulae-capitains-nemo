@@ -12,6 +12,9 @@
     "id": "urn:cts:formulae:marculf.form2_024.lat001"
   },
   {
+    "id": "urn:cts:formulae:tours.form026.lat001"
+  },
+  {
     "id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
   },
   {
@@ -1620,6 +1623,18 @@
     "id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0020.lat001"
   },
   {
+    "id": "urn:cts:formulae:ludwig_2.wanner0067.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:ludwig_2.wanner0076.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:ludwig_2.wanner0084.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:ludwig_2.wanner0085.lat001"
+  },
+  {
     "id": "urn:cts:formulae:merowinger1.koelzer0050.lat001"
   },
   {
@@ -2008,9 +2023,6 @@
   },
   {
     "id": "urn:cts:formulae:stgallen.wartmann0767.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:tours.form026.lat001"
   },
   {
     "id": "urn:cts:formulae:weissenburg.gloeckner0041.lat001"

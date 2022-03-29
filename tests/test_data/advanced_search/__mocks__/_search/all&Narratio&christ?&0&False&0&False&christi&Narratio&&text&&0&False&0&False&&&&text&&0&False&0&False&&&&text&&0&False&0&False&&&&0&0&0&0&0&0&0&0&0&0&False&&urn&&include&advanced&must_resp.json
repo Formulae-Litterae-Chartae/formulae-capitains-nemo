@@ -1,10 +1,10 @@
 [
   {
-    "took": 23,
+    "took": 18,
     "timed_out": false,
     "_shards": {
-      "total": 60,
-      "successful": 60,
+      "total": 61,
+      "successful": 61,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0013.lat001",
           "_score": null,
@@ -81,7 +81,7 @@
           ]
         },
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
           "_score": null,
@@ -144,7 +144,7 @@
           ]
         },
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
           "_score": null,
@@ -215,7 +215,7 @@
           ]
         },
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0085.lat001",
           "_score": null,
@@ -281,7 +281,7 @@
           ]
         },
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0087.lat001",
           "_score": null,
@@ -346,7 +346,7 @@
           ]
         },
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
           "_score": null,
@@ -796,13 +796,13 @@
             "min_date": "0766-07-25",
             "max_date": "0800-08-06",
             "days": [
-              "Sunday",
-              "Thursday",
-              "Wednesday",
+              "Monday",
               "Saturday",
-              "Friday",
+              "Sunday",
               "Tuesday",
-              "Monday"
+              "Wednesday",
+              "Friday",
+              "Thursday"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
@@ -839,7 +839,7 @@
           ]
         },
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
           "_score": null,

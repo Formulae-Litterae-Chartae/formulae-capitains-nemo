@@ -109,7 +109,27 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "domnusque",
+                                "value": "dominus_ortsname",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "dominusque",
                                 "fuzziness": "0"
                               }
                             }
@@ -149,27 +169,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "dominus_ortsname",
-                                "fuzziness": "0"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "slop": "0",
-                    "in_order": false
-                  }
-                },
-                {
-                  "span_near": {
-                    "clauses": [
-                      {
-                        "span_multi": {
-                          "match": {
-                            "fuzzy": {
-                              "lemmas": {
-                                "value": "dominusque",
+                                "value": "domnusque",
                                 "fuzziness": "0"
                               }
                             }

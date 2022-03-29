@@ -9,7 +9,7 @@
                 
         {% if objs %}
             {% for text in objs %}
-            {% if text.notes or text.collections.current.transcribed_edition %}
+            {% if text.notes or text.collections.current.transcribed_edition or text.collections.current.mss_eds %}
                 <div class="card bg-hhblue px-0"
                     style="font-size: small; text-decoration: none;">
                     <div>
@@ -26,12 +26,19 @@
                         </div>
                     </div>
                     {% endif %}
+                    {% for v in text.collections.current.mss_eds %}
+                    <div class="collapse multi-collapse {{ text.objectId|replace(':', '-')|replace('.', '-') }} a1 show two-line" aria-expanded="false" aria-controls="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-editions" id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-mss-eds-{{ loop.index }}" type="a1">
+                        <div class="card" style="font-size: small; color: black; text-decoration: none;" lang="de">
+                            <span><button type="button" class="close expand" toexpand="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-mss-eds-{{ loop.index }}" aria-label="Expand" style="display: none;" title="Read More"><span aria-hidden="true">⇳</span></button>{{ v|safe }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
                     {{ text.notes }}
                 </div>
             {% endif %}
             {% endfor %}
         {% elif text %}
-            {% if text.notes or text.collections.current.transcribed_edition %}
+            {% if text.notes or text.collections.current.transcribed_edition or text.collections.current.mss_eds %}
                 <div class="card bg-hhblue px-0"
                     style="font-size: small; text-decoration: none;">
                     <div>
@@ -49,6 +56,13 @@
                         </div>
                     </div>
                     {% endif %}
+                    {% for v in text.collections.current.mss_eds %}
+                    <div class="collapse multi-collapse {{ text.objectId|replace(':', '-')|replace('.', '-') }} a1 show two-line" aria-expanded="false" aria-controls="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-editions" id="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-mss-eds-{{ loop.index }}" type="a1">
+                        <div class="card" style="font-size: small; color: black; text-decoration: none;" lang="de">
+                            <span><button type="button" class="close expand" toexpand="{{ text.objectId|replace(':', '-')|replace('.', '-') }}-mss-eds-{{ loop.index }}" aria-label="Expand" style="display: none;" title="Read More"><span aria-hidden="true">⇳</span></button>{{ v|safe }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
                     {{ text.notes }}
                 </div>
             {% endif %}

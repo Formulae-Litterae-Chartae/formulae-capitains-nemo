@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
@@ -26,7 +26,7 @@
           ],
           "_source": {
             "text": "ITEM DE SCEROLUINGON Ille bene possidet res in secula, qui sibi de caducis rebus conparat premia sempiterna Ideoque ego in dei nomine Heripald filius Attoni quondam cogitans casu humani fragilitatis vel eterna retribucione, ut mihi pius dominus remunerare in futura seculum dignetur, // et pro animae meae remedium vel patris mei Attoni quondam ad ecclesiam sancti Michahelis sitam in pago Matahgauue in loco, qui dicitur Maninseo, ubi Hiltipaldus archiepiscopus rector esse videtur vel norma plurima monachorum secundum regulam sancti Benedicti degentes donatumque in perpetuum esse // volo, hoc est res meas proprias in pago Atargauue in villa, qui dicitur Sceroluinga, totum et ad integrum, quantumcumque in iam dicta loca visus sum habere vel possedere ad iam dicto monasterio trado secundum lege Bauuariorum, transcedo atque transfundo a die presente habendi, tenendi licet commutandi pro afectu iam dicti monasterii in omnibus licenciam habeant faciendi, quod volverint tam campis, pratis, silvis, pascuis, agris, adiacenciis, aquis aquarumve decursibus, omnia et ex omnibus ad ipsum monasterium in die nomine transcedo atque transfundo Si quis vero, quod futurum esse non credo, si ego ipse aut ullus de heredibus vel proheredibus meis aut certe aut ulla emissa vel extranea persona, qui contra hanc traditionem, quam ego mea spontanea voluntate fieri vel et firmare rogavi, venire volverit aut eam infrangere temptaverit inferat, qui hoc repetit, dupliciter tantum, quantum tunc tempore ipsa traditio emeliorata fuerat, et insuper una cum distringente socio fisco auri libras III, argenti pondus VI coactus conponat et quod repetit, evindicare non valeat, sed ista tradiciome omnique tempore firma et stabilis permaneat cum stipulacione subnixa Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI regni domni nostri Karoli gloriosissime regis et imperii eius III Et testes ad roborandum secundum lege Bauuariorum; dedit",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 99",
             "keywords": "",
@@ -34,7 +34,7 @@
             "date_string": "803 09 06",
             "comp_ort": "Mondsee",
             "autocomplete": "ITEM DE SCEROLUINGON Ille bene possidet res in secula, qui sibi de caducis rebus conparat premia sempiterna Ideoque ego in dei nomine Heripald filius Attoni quondam cogitans casu humani fragilitatis vel eterna retribucione, ut mihi pius dominus remunerare in futura seculum dignetur, // et pro animae meae remedium vel patris mei Attoni quondam ad ecclesiam sancti Michahelis sitam in pago Matahgauue in loco, qui dicitur Maninseo, ubi Hiltipaldus archiepiscopus rector esse videtur vel norma plurima monachorum secundum regulam sancti Benedicti degentes donatumque in perpetuum esse // volo, hoc est res meas proprias in pago Atargauue in villa, qui dicitur Sceroluinga, totum et ad integrum, quantumcumque in iam dicta loca visus sum habere vel possedere ad iam dicto monasterio trado secundum lege Bauuariorum, transcedo atque transfundo a die presente habendi, tenendi licet commutandi pro afectu iam dicti monasterii in omnibus licenciam habeant faciendi, quod volverint tam campis, pratis, silvis, pascuis, agris, adiacenciis, aquis aquarumve decursibus, omnia et ex omnibus ad ipsum monasterium in die nomine transcedo atque transfundo Si quis vero, quod futurum esse non credo, si ego ipse aut ullus de heredibus vel proheredibus meis aut certe aut ulla emissa vel extranea persona, qui contra hanc traditionem, quam ego mea spontanea voluntate fieri vel et firmare rogavi, venire volverit aut eam infrangere temptaverit inferat, qui hoc repetit, dupliciter tantum, quantum tunc tempore ipsa traditio emeliorata fuerat, et insuper una cum distringente socio fisco auri libras III, argenti pondus VI coactus conponat et quod repetit, evindicare non valeat, sed ista tradiciome omnique tempore firma et stabilis permaneat cum stipulacione subnixa Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI regni domni nostri Karoli gloriosissime regis et imperii eius III Et testes ad roborandum secundum lege Bauuariorum; dedit",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "orig_comp_ort": "Mondsee",
             "collection": "mondsee",
@@ -90,7 +90,7 @@
     }
   },
   {
-    "took": 3,
+    "took": 2,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -106,7 +106,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
@@ -116,7 +116,7 @@
           ],
           "_source": {
             "text": "ITEM DE SCEROLUINGON Ille bene possidet res in secula, qui sibi de caducis rebus conparat premia sempiterna Ideoque ego in dei nomine Heripald filius Attoni quondam cogitans casu humani fragilitatis vel eterna retribucione, ut mihi pius dominus remunerare in futura seculum dignetur, // et pro animae meae remedium vel patris mei Attoni quondam ad ecclesiam sancti Michahelis sitam in pago Matahgauue in loco, qui dicitur Maninseo, ubi Hiltipaldus archiepiscopus rector esse videtur vel norma plurima monachorum secundum regulam sancti Benedicti degentes donatumque in perpetuum esse // volo, hoc est res meas proprias in pago Atargauue in villa, qui dicitur Sceroluinga, totum et ad integrum, quantumcumque in iam dicta loca visus sum habere vel possedere ad iam dicto monasterio trado secundum lege Bauuariorum, transcedo atque transfundo a die presente habendi, tenendi licet commutandi pro afectu iam dicti monasterii in omnibus licenciam habeant faciendi, quod volverint tam campis, pratis, silvis, pascuis, agris, adiacenciis, aquis aquarumve decursibus, omnia et ex omnibus ad ipsum monasterium in die nomine transcedo atque transfundo Si quis vero, quod futurum esse non credo, si ego ipse aut ullus de heredibus vel proheredibus meis aut certe aut ulla emissa vel extranea persona, qui contra hanc traditionem, quam ego mea spontanea voluntate fieri vel et firmare rogavi, venire volverit aut eam infrangere temptaverit inferat, qui hoc repetit, dupliciter tantum, quantum tunc tempore ipsa traditio emeliorata fuerat, et insuper una cum distringente socio fisco auri libras III, argenti pondus VI coactus conponat et quod repetit, evindicare non valeat, sed ista tradiciome omnique tempore firma et stabilis permaneat cum stipulacione subnixa Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI regni domni nostri Karoli gloriosissime regis et imperii eius III Et testes ad roborandum secundum lege Bauuariorum; dedit",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 99",
             "keywords": "",
@@ -124,7 +124,7 @@
             "date_string": "803 09 06",
             "comp_ort": "Mondsee",
             "autocomplete": "ITEM DE SCEROLUINGON Ille bene possidet res in secula, qui sibi de caducis rebus conparat premia sempiterna Ideoque ego in dei nomine Heripald filius Attoni quondam cogitans casu humani fragilitatis vel eterna retribucione, ut mihi pius dominus remunerare in futura seculum dignetur, // et pro animae meae remedium vel patris mei Attoni quondam ad ecclesiam sancti Michahelis sitam in pago Matahgauue in loco, qui dicitur Maninseo, ubi Hiltipaldus archiepiscopus rector esse videtur vel norma plurima monachorum secundum regulam sancti Benedicti degentes donatumque in perpetuum esse // volo, hoc est res meas proprias in pago Atargauue in villa, qui dicitur Sceroluinga, totum et ad integrum, quantumcumque in iam dicta loca visus sum habere vel possedere ad iam dicto monasterio trado secundum lege Bauuariorum, transcedo atque transfundo a die presente habendi, tenendi licet commutandi pro afectu iam dicti monasterii in omnibus licenciam habeant faciendi, quod volverint tam campis, pratis, silvis, pascuis, agris, adiacenciis, aquis aquarumve decursibus, omnia et ex omnibus ad ipsum monasterium in die nomine transcedo atque transfundo Si quis vero, quod futurum esse non credo, si ego ipse aut ullus de heredibus vel proheredibus meis aut certe aut ulla emissa vel extranea persona, qui contra hanc traditionem, quam ego mea spontanea voluntate fieri vel et firmare rogavi, venire volverit aut eam infrangere temptaverit inferat, qui hoc repetit, dupliciter tantum, quantum tunc tempore ipsa traditio emeliorata fuerat, et insuper una cum distringente socio fisco auri libras III, argenti pondus VI coactus conponat et quod repetit, evindicare non valeat, sed ista tradiciome omnique tempore firma et stabilis permaneat cum stipulacione subnixa Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI regni domni nostri Karoli gloriosissime regis et imperii eius III Et testes ad roborandum secundum lege Bauuariorum; dedit",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "orig_comp_ort": "Mondsee",
             "collection": "mondsee",
@@ -196,7 +196,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
@@ -206,7 +206,7 @@
           ],
           "_source": {
             "text": "ITEM DE SCEROLUINGON Ille bene possidet res in secula, qui sibi de caducis rebus conparat premia sempiterna Ideoque ego in dei nomine Heripald filius Attoni quondam cogitans casu humani fragilitatis vel eterna retribucione, ut mihi pius dominus remunerare in futura seculum dignetur, // et pro animae meae remedium vel patris mei Attoni quondam ad ecclesiam sancti Michahelis sitam in pago Matahgauue in loco, qui dicitur Maninseo, ubi Hiltipaldus archiepiscopus rector esse videtur vel norma plurima monachorum secundum regulam sancti Benedicti degentes donatumque in perpetuum esse // volo, hoc est res meas proprias in pago Atargauue in villa, qui dicitur Sceroluinga, totum et ad integrum, quantumcumque in iam dicta loca visus sum habere vel possedere ad iam dicto monasterio trado secundum lege Bauuariorum, transcedo atque transfundo a die presente habendi, tenendi licet commutandi pro afectu iam dicti monasterii in omnibus licenciam habeant faciendi, quod volverint tam campis, pratis, silvis, pascuis, agris, adiacenciis, aquis aquarumve decursibus, omnia et ex omnibus ad ipsum monasterium in die nomine transcedo atque transfundo Si quis vero, quod futurum esse non credo, si ego ipse aut ullus de heredibus vel proheredibus meis aut certe aut ulla emissa vel extranea persona, qui contra hanc traditionem, quam ego mea spontanea voluntate fieri vel et firmare rogavi, venire volverit aut eam infrangere temptaverit inferat, qui hoc repetit, dupliciter tantum, quantum tunc tempore ipsa traditio emeliorata fuerat, et insuper una cum distringente socio fisco auri libras III, argenti pondus VI coactus conponat et quod repetit, evindicare non valeat, sed ista tradiciome omnique tempore firma et stabilis permaneat cum stipulacione subnixa Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI regni domni nostri Karoli gloriosissime regis et imperii eius III Et testes ad roborandum secundum lege Bauuariorum; dedit",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 99",
             "keywords": "",
@@ -214,7 +214,7 @@
             "date_string": "803 09 06",
             "comp_ort": "Mondsee",
             "autocomplete": "ITEM DE SCEROLUINGON Ille bene possidet res in secula, qui sibi de caducis rebus conparat premia sempiterna Ideoque ego in dei nomine Heripald filius Attoni quondam cogitans casu humani fragilitatis vel eterna retribucione, ut mihi pius dominus remunerare in futura seculum dignetur, // et pro animae meae remedium vel patris mei Attoni quondam ad ecclesiam sancti Michahelis sitam in pago Matahgauue in loco, qui dicitur Maninseo, ubi Hiltipaldus archiepiscopus rector esse videtur vel norma plurima monachorum secundum regulam sancti Benedicti degentes donatumque in perpetuum esse // volo, hoc est res meas proprias in pago Atargauue in villa, qui dicitur Sceroluinga, totum et ad integrum, quantumcumque in iam dicta loca visus sum habere vel possedere ad iam dicto monasterio trado secundum lege Bauuariorum, transcedo atque transfundo a die presente habendi, tenendi licet commutandi pro afectu iam dicti monasterii in omnibus licenciam habeant faciendi, quod volverint tam campis, pratis, silvis, pascuis, agris, adiacenciis, aquis aquarumve decursibus, omnia et ex omnibus ad ipsum monasterium in die nomine transcedo atque transfundo Si quis vero, quod futurum esse non credo, si ego ipse aut ullus de heredibus vel proheredibus meis aut certe aut ulla emissa vel extranea persona, qui contra hanc traditionem, quam ego mea spontanea voluntate fieri vel et firmare rogavi, venire volverit aut eam infrangere temptaverit inferat, qui hoc repetit, dupliciter tantum, quantum tunc tempore ipsa traditio emeliorata fuerat, et insuper una cum distringente socio fisco auri libras III, argenti pondus VI coactus conponat et quod repetit, evindicare non valeat, sed ista tradiciome omnique tempore firma et stabilis permaneat cum stipulacione subnixa Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI regni domni nostri Karoli gloriosissime regis et imperii eius III Et testes ad roborandum secundum lege Bauuariorum; dedit",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "orig_comp_ort": "Mondsee",
             "collection": "mondsee",
@@ -270,7 +270,7 @@
     }
   },
   {
-    "took": 4,
+    "took": 3,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -286,7 +286,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v6",
+          "_index": "mondsee_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
@@ -296,7 +296,7 @@
           ],
           "_source": {
             "text": "ITEM DE SCEROLUINGON Ille bene possidet res in secula, qui sibi de caducis rebus conparat premia sempiterna Ideoque ego in dei nomine Heripald filius Attoni quondam cogitans casu humani fragilitatis vel eterna retribucione, ut mihi pius dominus remunerare in futura seculum dignetur, // et pro animae meae remedium vel patris mei Attoni quondam ad ecclesiam sancti Michahelis sitam in pago Matahgauue in loco, qui dicitur Maninseo, ubi Hiltipaldus archiepiscopus rector esse videtur vel norma plurima monachorum secundum regulam sancti Benedicti degentes donatumque in perpetuum esse // volo, hoc est res meas proprias in pago Atargauue in villa, qui dicitur Sceroluinga, totum et ad integrum, quantumcumque in iam dicta loca visus sum habere vel possedere ad iam dicto monasterio trado secundum lege Bauuariorum, transcedo atque transfundo a die presente habendi, tenendi licet commutandi pro afectu iam dicti monasterii in omnibus licenciam habeant faciendi, quod volverint tam campis, pratis, silvis, pascuis, agris, adiacenciis, aquis aquarumve decursibus, omnia et ex omnibus ad ipsum monasterium in die nomine transcedo atque transfundo Si quis vero, quod futurum esse non credo, si ego ipse aut ullus de heredibus vel proheredibus meis aut certe aut ulla emissa vel extranea persona, qui contra hanc traditionem, quam ego mea spontanea voluntate fieri vel et firmare rogavi, venire volverit aut eam infrangere temptaverit inferat, qui hoc repetit, dupliciter tantum, quantum tunc tempore ipsa traditio emeliorata fuerat, et insuper una cum distringente socio fisco auri libras III, argenti pondus VI coactus conponat et quod repetit, evindicare non valeat, sed ista tradiciome omnique tempore firma et stabilis permaneat cum stipulacione subnixa Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI regni domni nostri Karoli gloriosissime regis et imperii eius III Et testes ad roborandum secundum lege Bauuariorum; dedit",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 99",
             "keywords": "",
@@ -304,7 +304,7 @@
             "date_string": "803 09 06",
             "comp_ort": "Mondsee",
             "autocomplete": "ITEM DE SCEROLUINGON Ille bene possidet res in secula, qui sibi de caducis rebus conparat premia sempiterna Ideoque ego in dei nomine Heripald filius Attoni quondam cogitans casu humani fragilitatis vel eterna retribucione, ut mihi pius dominus remunerare in futura seculum dignetur, // et pro animae meae remedium vel patris mei Attoni quondam ad ecclesiam sancti Michahelis sitam in pago Matahgauue in loco, qui dicitur Maninseo, ubi Hiltipaldus archiepiscopus rector esse videtur vel norma plurima monachorum secundum regulam sancti Benedicti degentes donatumque in perpetuum esse // volo, hoc est res meas proprias in pago Atargauue in villa, qui dicitur Sceroluinga, totum et ad integrum, quantumcumque in iam dicta loca visus sum habere vel possedere ad iam dicto monasterio trado secundum lege Bauuariorum, transcedo atque transfundo a die presente habendi, tenendi licet commutandi pro afectu iam dicti monasterii in omnibus licenciam habeant faciendi, quod volverint tam campis, pratis, silvis, pascuis, agris, adiacenciis, aquis aquarumve decursibus, omnia et ex omnibus ad ipsum monasterium in die nomine transcedo atque transfundo Si quis vero, quod futurum esse non credo, si ego ipse aut ullus de heredibus vel proheredibus meis aut certe aut ulla emissa vel extranea persona, qui contra hanc traditionem, quam ego mea spontanea voluntate fieri vel et firmare rogavi, venire volverit aut eam infrangere temptaverit inferat, qui hoc repetit, dupliciter tantum, quantum tunc tempore ipsa traditio emeliorata fuerat, et insuper una cum distringente socio fisco auri libras III, argenti pondus VI coactus conponat et quod repetit, evindicare non valeat, sed ista tradiciome omnique tempore firma et stabilis permaneat cum stipulacione subnixa Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI regni domni nostri Karoli gloriosissime regis et imperii eius III Et testes ad roborandum secundum lege Bauuariorum; dedit",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "orig_comp_ort": "Mondsee",
             "collection": "mondsee",

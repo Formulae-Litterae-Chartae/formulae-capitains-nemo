@@ -1,6 +1,6 @@
 [
   {
-    "took": 8,
+    "took": 5,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,13 +16,13 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v6",
+          "_index": "buenden_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
           "_score": null,
           "_source": {
             "text": "In Christi nomine. Ego itaque bresbiter Valencio sanus a sana mente per comiatu senioris Iltebaldi et cum manu – – dono et facio et donatumque esse volo tibi nepoti meo Priecto et in manu Vigilii omnia mea proprietate, quatum ego abeo in Lopiene in solamen, in edificiis, in vineis, in cortinis, in agris, in pradis, die presente faciendi queque voluerit, sine censo, omnem omni permutandi. Et carta ista firma permaneat omni tempore. Et si quis contra anc cartam umquam inquietare voluerit, solvat duplum, quod carta ista continet, et aurum libras III. Facta in Lopiene, mense februarium, anno II regnante Ottone filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus, item Soluanus g, Umbertus testes. Et ego Paulinus cancelarius rogitus da Vigilio anc cartam scripsi.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Der Priester Valencio schenkt seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.",
             "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 140",
             "keywords": "",
@@ -30,7 +30,7 @@
             "date_string": "975 02",
             "comp_ort": "Maienfeld",
             "autocomplete": "In Christi nomine. Ego itaque bresbiter Valencio sanus a sana mente per comiatu senioris Iltebaldi et cum manu – – dono et facio et donatumque esse volo tibi nepoti meo Priecto et in manu Vigilii omnia mea proprietate, quatum ego abeo in Lopiene in solamen, in edificiis, in vineis, in cortinis, in agris, in pradis, die presente faciendi queque voluerit, sine censo, omnem omni permutandi. Et carta ista firma permaneat omni tempore. Et si quis contra anc cartam umquam inquietare voluerit, solvat duplum, quod carta ista continet, et aurum libras III. Facta in Lopiene, mense februarium, anno II regnante Ottone filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus, item Soluanus g, Umbertus testes. Et ego Paulinus cancelarius rogitus da Vigilio anc cartam scripsi.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Priester Valencio schenkt seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.",
             "orig_comp_ort": "Maienfeld",
             "collection": "buenden",

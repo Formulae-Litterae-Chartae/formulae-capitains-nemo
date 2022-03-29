@@ -419,9 +419,9 @@
       "number_of_fragments": 0,
       "fields": {
         "text": {},
+        "regest": {},
         "Poenformel": {},
-        "Corroboratio": {},
-        "regest": {}
+        "Corroboratio": {}
       },
       "pre_tags": [
         "</small><strong>"
