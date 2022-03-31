@@ -458,6 +458,8 @@
                                                 {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
                                                 {% if manifest[0] == 'no_image' %}
                                                 <span  data-toggle="tooltip" id="no-image-{{ index }}-{{ loop.index }}" data-container="#no-image-{{ index }}-{{ loop.index }}" title="{{ _('Diese Manuskriptbilder können nicht gezeigt werden') }}"><a class="dropdown-item pull-right disabled" href="#">- {% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</a></span>
+                                                {% elif 'http' in manifest[0] %}
+                                                <a class="dropdown-item pull-right" href="{{ manifest[0] }}" target="_blank">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }} <i class="fas fa-external-link-alt fa-sm"></i></span></a>
                                                 {% else %}
                                                 <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</span></a>
                                                 {% endif %}

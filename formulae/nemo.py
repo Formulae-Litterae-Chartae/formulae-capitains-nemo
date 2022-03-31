@@ -1394,6 +1394,8 @@ class NemoFormulae(Nemo):
                         t_id = 'no_image'
                         if "manifest:" + transcription.id in self.app.picture_file:
                             t_id = "manifest:" + transcription.id
+                        elif 'wa1' in transcription.id:
+                            t_id = self.ms_lib_links['wa1']
                         d["IIIFviewer"].append((t_id,
                                                 t_title + ' (' + t_siglum + ')',
                                                 t_partOf))
