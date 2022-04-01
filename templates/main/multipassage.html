@@ -49,8 +49,18 @@
                     {{object.label[0]|safe}}</h2><h2 class="entry-folia"
                                                  lang="{{ object.collections.current.secondary_lang }}"
             >{{object.label[1]|safe}}</h2>
+                {% if object.manifest %}
                 <a class="internal-link" id="iiif-{{ index }}" href="{{ object.lib_link }}"
-                                             target="_blank" title="{{ _('Dieser Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}" data-toggle="tooltip" data-container="#iiif-{{ index }}">{{ _('Zur Bibliothek')}}</a>
+                                             target="_blank" title="{{ _('Dieses Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}" data-toggle="tooltip" data-container="#iiif-{{ index }}">{{ _('Zur Bibliothek')}}</a>
+                {% elif object.lib_link %}
+                <a class="internal-link" id="iiif-{{ index }}" href="{{ object.lib_link }}"
+                                             target="_blank" title="{{ _('Mehr über dieses Manuskript bei der Bibliothek erfahren.') }}" data-toggle="tooltip" data-container="#iiif-{{ index }}">{{ _('Zur Bibliothek')}}</a>
+                {% endif %}
+                {% if object.alt_image %}
+                <br>
+                <a class="internal-link" id="iiif-alt-{{ index }}" href="{{ object.alt_image }}"
+                                             target="_blank" title="{{ _('Die älteren Manuskriptbilder bei der Bibliothek in einem neuen Tab anschauen.') }}" data-toggle="tooltip" data-container="#iiif-alt-{{ index }}">{{ _('Ältere Manuskriptbilder')}}</a>
+                {% endif %}
             </div>
             {% if object.next_version %}
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, 'manifest:' + object.next_version) %}
@@ -256,7 +266,7 @@
 
         {% for text in objects %}
         {% set index=loop.index %}
-        {% if not current_user.project_team and 'formulae_collection' in text.collections.parent_ids %}
+        {% if not current_user.project_team and ('formulae_collection' in text.collections.parent_ids or 'manuscript_collection' in text.collections.parent_ids) %}
             {% set copy_class = ' no-copy' %}
         {% else %}
             {% set copy_class = '' %}
@@ -391,12 +401,22 @@
                 </div>
                 {% else %}
                 <div class="image-row">
+                {% if text.manifest %}
                     {{ header_passage(text, loop.index, all_texts, all_reffs) }}
                     {% with manifest = text.manifest, div_v = text.div_v %}
                     {% include "viewer::embededmirador.html" %}
                     {% endwith %}
+                {% else %}
+                <div class="row mx-0">
+                    {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                </div>
+                <div class="row h-75 align-items-center justify-content-center">
+                    <div class="col text-center">
+                        <span class="missing-image" tabindex="0" id="no-image-{{ loop.index }}" data-toggle="tooltip" data-container="#no-image-{{ loop.index }}" title="{{ _('Aus technischen bzw. rechtlichen Gründen können keine Manuskriptbilder gezeigt werden') }}"><i class="fas fa-ban fa-10x" alt="{{ _('Keine Bilder') }}"></i></span>
+                    </div>
                 </div>
                 {% endif %}
+                    {% endif %}
             </article>
         </div>
         {% endfor %}
@@ -428,31 +448,55 @@
                                 {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
                             </div>
                             {% else %}
-                                {% if text.IIIFviewer|length > 0 %}
+                                {% if 'formulae_collection' in text.collections.parent_ids %}
+                                    {% if text.IIIFviewer|length > 0 %}
+                                        <div class="col-3 text-center">
+                                        {% if text.IIIFviewer|length > 1 %}
+                                            <button class="dropdown-toggle add-text-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span id="add-iiif-menu-{{ index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</span>
+                                            </button>
+                                            <div class="dropdown-menu version-dropdown">
+                                                {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
+                                                <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</span></a>
+                                                {% endfor %}
+                                            </div>
+                                        {% else %}
+                                            {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
+                                                <span id="add-iiif-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ loop.index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</a></span>
+                                            {% endfor %}
+                                        {% endif %}
+                                        </div>
+                                    {% elif 'manuscript_collection' in text.collections.parent_ids %}
+                                        <div class="col-3 text-center">
+                                            <span id="add-iiif-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ loop.index }}" title="{{ _('Die Manuskriptbilder können nicht gezeigt werden') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Die Manuskriptbilder können nicht gezeigt werden') }}" class="align-top disabled"> {{ _('Manuskriptbilder') }}</span>
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                                {% if text.transcriptions|length > 0 %}
                                     <div class="col-3 text-center">
-                                    {% if text.IIIFviewer|length > 1 %}
+                                    {% if text.transcriptions|length > 1 %}
                                         <button class="dropdown-toggle add-text-toggle btn btn-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span id="add-iiif-menu-{{ index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</span>
+                                            <span id="add-transcription-menu-{{ index }}" data-toggle="tooltip" data-container="#add-transcription-menu-{{ index }}" title="{{ _('Transkriptionen hinzufügen') }}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Transkriptionen hinzufügen') }}" class="align-top"> {{ _('Transkriptionen') }}</span>
                                         </button>
                                         <div class="dropdown-menu version-dropdown">
-                                            {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
-                                            <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</span></a>
+                                            {% for transcription in text.transcriptions %}
+                                            <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, transcription[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if transcription[2] != '' %}{{ transcription[2]|safe }}: {% endif %}{{ transcription[1]|safe }}</span></a>
                                             {% endfor %}
                                         </div>
                                     {% else %}
-                                        {% for manifest in text.IIIFviewer if manifest[0] not in request.path %}
-                                            <span id="add-iiif-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-iiif-menu-{{ loop.index }}" title="{{ _('Manuskriptbilder hinzufügen') }}"><a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top"> {{ _('Manuskriptbilder') }}</a></span>
+                                        {% for transcription in text.transcriptions %}
+                                            <span id="add-transcription-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-transcription-menu-{{ loop.index }}" title="{{ _('Transkriptionen hinzufügen') }}"><a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, transcription[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Transkriptionen hinzufügen') }}" class="align-top"> {{ _('Transkriptionen') }}</a></span>
                                         {% endfor %}
                                     {% endif %}
                                     </div>
                                 {% endif %}
-                                {% if translation[text.objectId] and 'formulae_collection' in text.collections.parent_ids %}
-                                    {% for edition in translation[text.objectId] if 'cts:edition' in edition[0].metadata.get_single('http://purl.org/dc/elements/1.1/type')|string %}
+                                {% if translation[text.objectId|replace('manifest:', '')] and 'formulae_collection' in text.collections.parent_ids %}
+                                    {% for edition in translation[text.objectId|replace('manifest:', '')] if 'cts:edition' in edition[0].metadata.get_single('http://purl.org/dc/elements/1.1/type')|string %}
                                     <div class="col-3 text-center">
                                         <span id="add-edition-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-edition-menu-{{ loop.index }}" title="{{ _('Edition hinzufügen') }}"><a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, edition[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Edition hinzufügen') }}" class="align-top"> {{ _('Edition') }}</a></span>
                                     </div>
                                     {% endfor %}
-                                    {% for translation in translation[text.objectId] if 'cts:translation' in translation[0].metadata.get_single('http://purl.org/dc/elements/1.1/type')|string %}
+                                    {% for translation in translation[text.objectId|replace('manifest:', '')] if 'cts:translation' in translation[0].metadata.get_single('http://purl.org/dc/elements/1.1/type')|string %}
                                     <div class="col-3 text-center">
                                         <span id="add-translation-menu-{{ loop.index }}" data-toggle="tooltip" data-container="#add-translation-menu-{{ loop.index }}" title="{{ _('Übersetzung hinzufügen') }}"><a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, translation[0].id)|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Übersetzung hinzufügen') }}" class="align-top"> {{ _('Übersetzung') }}</a></span>
                                     </div>
@@ -531,12 +575,23 @@
                                 {{ text.text_passage }}
                             <footer>{% include "main::passage_footer.html" %}</footer>
                         {% else %}
-                        <section class="text-section{{ copy_class }}">
-                            {{ header_passage(text, loop.index, all_texts, all_reffs) }}
-                            {% with manifest = text.manifest, div_v = text.div_v %}
-                            {% include "viewer::embededmirador.html" %}
-                            {% endwith %}
-                        {% endif %}
+                        <section class="text-section{{ copy_class }} h-100">
+                            {% if text.manifest %}
+                                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                                {% with manifest = text.manifest, div_v = text.div_v %}
+                                {% include "viewer::embededmirador.html" %}
+                                {% endwith %}
+                            {% else %}
+                            <div class="row mx-0">
+                                {{ header_passage(text, loop.index, all_texts, all_reffs) }}
+                            </div>
+                            <div class="row h-75 align-items-center justify-content-center">
+                                <div class="col text-center">
+                                    <span class="missing-image" tabindex="0" id="no-image-{{ loop.index }}" data-toggle="tooltip" data-container="#no-image-{{ loop.index }}" title="{{ _('Aus technischen bzw. rechtlichen Gründen können keine Manuskriptbilder gezeigt werden') }}"><i class="fas fa-ban fa-10x" alt="{{ _('Keine Bilder') }}"></i></span>
+                                </div>
+                            </div>
+                            {% endif %}
+                                {% endif %}
                         </section>
                     </div>
                 {% endfor %}

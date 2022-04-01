@@ -15,6 +15,12 @@
     "id": "urn:cts:formulae:andecavensis.form052.lat001"
   },
   {
+    "id": "urn:cts:formulae:auvergne.form001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:auvergne.form002.lat001"
+  },
+  {
     "id": "urn:cts:formulae:marculf.2_capitula.lat001"
   },
   {
@@ -34,6 +40,27 @@
   },
   {
     "id": "urn:cts:formulae:marculf.form2_038.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.0_capitula.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.form002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.form003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.form017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.form020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.form023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.form045.lat001"
   },
   {
     "id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0111.lat001"
@@ -133,5 +160,41 @@
   },
   {
     "id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0040.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_cormery.giraud1419.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1525.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2234.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3147.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3148.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3149.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3225.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3266.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3589.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3590.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4840.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4884.lat001"
   }
 ]

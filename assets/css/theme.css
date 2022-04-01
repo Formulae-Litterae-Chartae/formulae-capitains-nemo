@@ -318,8 +318,13 @@ nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
     top: 100px;
 }
 
-.noteCardLeft,.noteCardRight {
+.notecard-row {
     overflow: auto;
+    margin-right: -15px;
+}
+
+.notecard-col {
+    padding-right: 0;
 }
 
 /* To make this show three lines, change max-height to 3.7em */
@@ -613,7 +618,7 @@ img[id$="-flag-navbar"] {
     text-decoration: underline;
 }
 
-.latin-word,[type="latin-word;"] {
+.latin-word {
   font-style: italic;
 }
 
@@ -659,6 +664,7 @@ div.transcription p {
 .verso-recto {
     vertical-align: super;
     font-size: small;
+    font-variant: none;
 }
 
 h1 .manuscript-number {
@@ -804,6 +810,14 @@ li.flash-grey {
     overflow-x: hidden;
     position: relative;
     height: calc(100% - 24px);
+    width: 100%;
+}
+
+.notecard-row>.row {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    height: calc(100% - 12px);
     width: 100%;
 }
 
@@ -1111,6 +1125,23 @@ p.short-regest {
     z-index: 900;
 }
 
-#capitula-table {
+/*#capitula-table {
     width: 60%;
+}*/
+
+div.translation,div.edition {
+    text-align: justify;
+    margin-right: .5em;
+}
+
+img.disabled {
+    filter: grayscale(100%);
+}
+
+.missing-image {
+    color: lightgrey;
+}
+
+.small-text-row {
+    font-size: 90%;
 }

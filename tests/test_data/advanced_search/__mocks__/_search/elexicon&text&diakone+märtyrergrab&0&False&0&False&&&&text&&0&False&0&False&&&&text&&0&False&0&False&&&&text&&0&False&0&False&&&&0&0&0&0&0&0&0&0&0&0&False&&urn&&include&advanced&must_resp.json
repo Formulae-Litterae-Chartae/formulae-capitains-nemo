@@ -1,6 +1,6 @@
 [
   {
-    "took": 3,
+    "took": 1,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,13 +16,13 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "elexicon_v6",
+          "_index": "elexicon_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:elexicon.martyrarius.deu001",
           "_score": null,
           "_source": {
             "text": "Martyrarius Hüter eines Märtyrergrabes, Reliquienhüter Seit der ersten Hälfte des 6. Jahrhunderts belegt, scheint es sich beim martyrarius um einen Geistlichen gehandelt zu haben, dem die Fürsorge für ein Märtyrergrab oblag. Könnte es sich dabei zunächst noch um ein spezielles Amt gehandelt haben, so scheint martyrarius bald eine besondere Funktion zu bezeichnen, die verschiedene Amtsträger wie etwa Diakone oder Äbte innehaben konnten. HL",
-            "lemmas": null,
+            "lemmas": "",
             "regest": null,
             "title": "Martyrarius",
             "keywords": "Hüter Reliquienhüter",
@@ -30,7 +30,7 @@
             "date_string": " ",
             "comp_ort": " ",
             "autocomplete": "Martyrarius Hüter eines Märtyrergrabes, Reliquienhüter Seit der ersten Hälfte des 6. Jahrhunderts belegt, scheint es sich beim martyrarius um einen Geistlichen gehandelt zu haben, dem die Fürsorge für ein Märtyrergrab oblag. Könnte es sich dabei zunächst noch um ein spezielles Amt gehandelt haben, so scheint martyrarius bald eine besondere Funktion zu bezeichnen, die verschiedene Amtsträger wie etwa Diakone oder Äbte innehaben konnten. HL",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": null,
             "orig_comp_ort": " ",
             "collection": "elexicon",

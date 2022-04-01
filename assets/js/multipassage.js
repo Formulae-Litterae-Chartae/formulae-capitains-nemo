@@ -40,21 +40,31 @@ $(document).ready(function(){
     
     // Automatically set the max-height of the note-card for each text depending on the number of texts
     var noteCardsLeft = $('.noteCardLeft').length;
-    var max = "70vh";
+    var max = $(window).height() * .35;
     if (noteCardsLeft == 2 ) {
-        max = "34vh";
+        max = $(window).height() * .17;
     } else if (noteCardsLeft > 2) {
-        max = "22vh";
+        max = $(window).height() * .11;
     }
-    $('.noteCardLeft').css('max-height', max);
+    $('.noteCardLeft .notecard-row').each(function() {
+        var h = $(this).height();
+        var newHeight = Math.min(max + 12, h + 12);
+        $(this).css('height', newHeight);
+        $(this).attr('oldHeight', newHeight);
+    });
     var noteCardsRight = $('.noteCardRight').length;
-    var max = "70vh";
+    var max = $(window).height() * .35;
     if (noteCardsRight == 2 ) {
-        max = "34vh";
+        max = $(window).height() * .17;
     } else if (noteCardsRight > 2) {
-        max = "22vh";
+        max = $(window).height() * .11;
     }
-    $('.noteCardRight').css('max-height', max);
+    $('.noteCardRight .notecard-row').each(function() {
+        var h = $(this).height();
+        var newHeight = Math.min(max + 12, h + 12);
+        $(this).css('height', newHeight);
+        $(this).attr('oldHeight', newHeight);
+    });
     
     // Show expand icon only if the whole note is not shown. Thanks to http://jsfiddle.net/kedem/D9NCP/
     $('.two-line').each(function(index, element) {
@@ -243,6 +253,8 @@ function hideNotes(c) {
         if (comShow != null) {
             comShow.classList.remove('hidden-button');
         };
+        $('#' + urn + '-a1-row').css('height', 0)
+        $('#' + urn + '-n1-row').css('height', 0)
     } else {
         if (appHide != null && Boolean(appHide.classList.contains('hidden-button')) == false) {
             var allHidden = false;
@@ -255,6 +267,7 @@ function hideNotes(c) {
             document.getElementById(urn + '-show-button').classList.remove('hidden-button');
             document.getElementById(urn + '-hide-button').classList.add('hidden-button');
         }
+        $('#' + c.replace(' ', '-') + '-row').css('height', 0)
     };
 }
 
@@ -285,6 +298,8 @@ function showNotes(c) {
         if (comShow != null) {
             comShow.classList.add('hidden-button');
         };
+        $('#' + urn + '-a1-row').css('height', $('#' + urn + '-a1-row').attr('oldHeight'))
+        $('#' + urn + '-n1-row').css('height', $('#' + urn + '-n1-row').attr('oldHeight'))
     } else {
         if (appShow != null && Boolean(appShow.classList.contains('hidden-button')) == false) {
             var allShown = false;
@@ -297,6 +312,8 @@ function showNotes(c) {
             document.getElementById(urn + '-show-button').classList.add('hidden-button');
             document.getElementById(urn + '-hide-button').classList.remove('hidden-button');
         }
+        var noteRow = $('#' + c.replace(' ', '-') + '-row');
+        noteRow.css('height', noteRow.attr('oldHeight'))
     };
 }
 

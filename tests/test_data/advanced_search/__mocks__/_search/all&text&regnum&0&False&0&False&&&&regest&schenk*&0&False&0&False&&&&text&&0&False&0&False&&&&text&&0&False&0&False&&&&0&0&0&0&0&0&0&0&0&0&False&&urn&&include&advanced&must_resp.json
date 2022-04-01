@@ -1,22 +1,22 @@
 [
   {
-    "took": 206,
+    "took": 20,
     "timed_out": false,
     "_shards": {
-      "total": 60,
-      "successful": 60,
+      "total": 61,
+      "successful": 61,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 212,
+        "value": 217,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v6",
+          "_index": "andecavensis_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
@@ -48,13 +48,13 @@
           ]
         },
         {
-          "_index": "buenden_v6",
+          "_index": "buenden_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
             "text": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
             "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
             "keywords": "",
@@ -62,7 +62,7 @@
             "date_string": "(769–800 [813]) 03 31",
             "comp_ort": " ",
             "autocomplete": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
             "orig_comp_ort": " ",
             "collection": "buenden",
@@ -272,15 +272,15 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
-              "Sunday",
-              "Thursday",
+              "Monday",
+              "Saturday",
               "Easter",
+              "Sunday",
+              "Tuesday",
               "Lent",
               "Wednesday",
-              "Saturday",
               "Friday",
-              "Tuesday",
-              "Monday"
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -295,7 +295,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xii_v6",
+          "_index": "chartae_latinae_xii_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0529.lat001",
           "_score": null,
@@ -339,7 +339,7 @@
           ]
         },
         {
-          "_index": "echternach_v6",
+          "_index": "echternach_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
           "_score": null,
@@ -383,13 +383,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
           "_score": null,
           "_source": {
             "text": "TASSILO DUX AD FILUSA. In Christi nomine. Oportunum est unicuique . . dum terrena possidet, frequentius pro salute animae suae cogitet vel de vita futura et ut mereatur regnum presens vel ethereum adipisci. Idcirco ego Tassilo dux Bauuariorum rogante me Ursone presbitero in villa publica que dicitur Ufhusin coram episcopis necnon et presbiteris vel diaconibus seu vernaculis meis presentibus donavi ad ecclesiam beati Stephani ubi ipse supradictus Vrsus presbiter servire dinoscitur iuxta flumine nuncupante Filse, id est ab aquilone vel meridie. Si quis autem hanc donationem corrumpere voluerit, ipse vero possessor ad nos habeat licentiam veniendi. Nos vero sicut superius polliciti sumus ita conservare volumus et nostris temporibus et si successor nobis advenerit, similiter conservare debeat. Ut et ista donatio firma et stabilis permaneat, ego Tassilo propria manu mea scripsi et confirmavi. Signum testium: Liuprant presbiter. Pippi presbiter. Adilger. Choanrat. Reginolf. Rumolt.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Tassilo macht eine Schenkung zu Aufhausen an die Kirche zu Moosen.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 35",
             "keywords": "",
@@ -397,7 +397,7 @@
             "date_string": "Ca. 769",
             "comp_ort": " ",
             "autocomplete": "TASSILO DUX AD FILUSA. In Christi nomine. Oportunum est unicuique . . dum terrena possidet, frequentius pro salute animae suae cogitet vel de vita futura et ut mereatur regnum presens vel ethereum adipisci. Idcirco ego Tassilo dux Bauuariorum rogante me Ursone presbitero in villa publica que dicitur Ufhusin coram episcopis necnon et presbiteris vel diaconibus seu vernaculis meis presentibus donavi ad ecclesiam beati Stephani ubi ipse supradictus Vrsus presbiter servire dinoscitur iuxta flumine nuncupante Filse, id est ab aquilone vel meridie. Si quis autem hanc donationem corrumpere voluerit, ipse vero possessor ad nos habeat licentiam veniendi. Nos vero sicut superius polliciti sumus ita conservare volumus et nostris temporibus et si successor nobis advenerit, similiter conservare debeat. Ut et ista donatio firma et stabilis permaneat, ego Tassilo propria manu mea scripsi et confirmavi. Signum testium: Liuprant presbiter. Pippi presbiter. Adilger. Choanrat. Reginolf. Rumolt.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Tassilo macht eine Schenkung zu Aufhausen an die Kirche zu Moosen.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -425,13 +425,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
           "_score": null,
           "_source": {
             "text": "TRADITIO ALPOLTI ET FILII EIUS HUASUNI SUUAPINGA. Preceptum evangelicum tonat per orbem terrarum in quo fideles ammonet, ut caduca dispiciant et ad aeternam patriam tendant, ut lucrum sibi in perventione faciant sicut ab ore veritatis evangelista conclamat: Thesaurizate vobis thesauros in caelo. Inter his auditoribus quidam vir religiosus animatus cum divino timore cuius vocabulum est Alpolt et filius eius Huasuni tradiderunt atque transfundaverunt propriam hereditatem illorum quae est in loco quae dicitur Suuapinga et in alio loco cuius vocabulum est Sentilingas ad monasterium beati Dionisii martyris Christi quod consitum est secus flumine praefluente praecipito lapsu quam autumant coloni illius Isuram inibidem locis quicquid proprie hereditatis adquisitioni sue cultis et incultis mobilibus et immobilibus silvis ruris pratis pascuis fontibus vel rivolis eorum sive cum aedificatione tota structura atque cum omni familia servorum et ancillarum quibus ab avis atque protavis hereditarios consistunt, haec omnia deo offerebant propter remuneratione aeterne vitae et devitare metum gehenni ignis, ut nullus habeat potestatem propinquorum coheredumque eorum hanc traditionem irritam facere. Et hoc constituimus, ut neque nos ipsi aut successores nostri quod minime credimus quodsi praesumpserit aliquis horum quorum superius mentionem fecimus quolibet modo iniuste inire temptavit, iram dei incurrat et cum athleta Christi mereat rationem habere et inter hedis deputatus. Et haec testes per aures signati: Ezzilo. Lantperht. Oadalrih. Cundhart et nos ipsi qui tradidimus Alpolt et Oasuni. Actum est hoc in curte qui dicitur Niuuihingas indictione VIII. Hoc autem decrevit fieri princeps clarissimus Tassilo in anno quo regnum obtinuit XXXV. seu filius ipsius nobilissimus Theoto hanc traditionem probavit perenniter ad praedictum domum stabiliter perseverare. Scripsi autem hanc cartulam traditionis ego Leidrat licet indignus et peccator tamen diaconus iussus a principe summo Tassilone.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Alpolt und sein Sohn Huasuni schenken dem Kloster Schäftlarn Besitz zu Schwabing und Sendling.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 106",
             "keywords": "",
@@ -439,7 +439,7 @@
             "date_string": "782",
             "comp_ort": "Neuching",
             "autocomplete": "TRADITIO ALPOLTI ET FILII EIUS HUASUNI SUUAPINGA. Preceptum evangelicum tonat per orbem terrarum in quo fideles ammonet, ut caduca dispiciant et ad aeternam patriam tendant, ut lucrum sibi in perventione faciant sicut ab ore veritatis evangelista conclamat: Thesaurizate vobis thesauros in caelo. Inter his auditoribus quidam vir religiosus animatus cum divino timore cuius vocabulum est Alpolt et filius eius Huasuni tradiderunt atque transfundaverunt propriam hereditatem illorum quae est in loco quae dicitur Suuapinga et in alio loco cuius vocabulum est Sentilingas ad monasterium beati Dionisii martyris Christi quod consitum est secus flumine praefluente praecipito lapsu quam autumant coloni illius Isuram inibidem locis quicquid proprie hereditatis adquisitioni sue cultis et incultis mobilibus et immobilibus silvis ruris pratis pascuis fontibus vel rivolis eorum sive cum aedificatione tota structura atque cum omni familia servorum et ancillarum quibus ab avis atque protavis hereditarios consistunt, haec omnia deo offerebant propter remuneratione aeterne vitae et devitare metum gehenni ignis, ut nullus habeat potestatem propinquorum coheredumque eorum hanc traditionem irritam facere. Et hoc constituimus, ut neque nos ipsi aut successores nostri quod minime credimus quodsi praesumpserit aliquis horum quorum superius mentionem fecimus quolibet modo iniuste inire temptavit, iram dei incurrat et cum athleta Christi mereat rationem habere et inter hedis deputatus. Et haec testes per aures signati: Ezzilo. Lantperht. Oadalrih. Cundhart et nos ipsi qui tradidimus Alpolt et Oasuni. Actum est hoc in curte qui dicitur Niuuihingas indictione VIII. Hoc autem decrevit fieri princeps clarissimus Tassilo in anno quo regnum obtinuit XXXV. seu filius ipsius nobilissimus Theoto hanc traditionem probavit perenniter ad praedictum domum stabiliter perseverare. Scripsi autem hanc cartulam traditionis ego Leidrat licet indignus et peccator tamen diaconus iussus a principe summo Tassilone.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Alpolt und sein Sohn Huasuni schenken dem Kloster Schäftlarn Besitz zu Schwabing und Sendling.",
             "orig_comp_ort": "Neuching",
             "collection": "freising",
@@ -467,13 +467,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
           "_score": null,
           "_source": {
             "text": "TRADITIO ZEIZONI PRESBITERI AD ROTA FLUMINE. Dominus Jesus Christus ac redemptor omnium per sanctum evangelium clara voce intonuit dicens: Thesaurizate vobis thesaurum in caelo ubi nec fur veniat nec furetur; facite vobis sacculum de mammona iniquitatis qui non veterescet, et alio loco: Das parvum et conpares regnum; tribues transitoria pecunia et accepis sine fine mansura. Ideoque ego in dei nomine Zeizo presbiter cogitans de dei timore vel aeterna bona retributione, ut in aliquantulo veniam apud pio domino in aeterna tabernacula mercedem adipiscere mereamur, ob hoc donamus in amorem domini nostri Jesu Christi ad monasterio sanctae Mariae in castro sito Frigisinensis vel ibidem praeest venerabilis Hitto episcopus cum norma plurima servorum dei ad laudes Christi canendas adunata donatumque per hanc epistolam donationis volumus atque de nostro iure in iure et potestate ipsius supradicti domui tradimus atque transfundimus, hoc est in pago in loco nuncupante Rota in vestra vel ipsius monasterii sanctae Mariae tradimus ad dominandum eo modo, ut ipsam rem cum omni integritate vel soliditate ad se pertinente seu rediente possidere debeatis et facta nostra usque in perpetuum stabilis permaneat. Si quis vero quod futurum esse non credo, si ego ipse quod absit, aut ullus quislibet de heredis ac deheredibus meis seu ulla opposita vel emissa persona qui contra hanc donationem quem nos ob amore Christi et pro indulgentiam delictorum ad praedicto monasterio de antedicta re fieri et firmare rogavimus, pro qualibet iugenium aut articulum sicut mundum cotidie artibus et ingeniis ambulare aut infrangere conatus fuerit, inprimis iram trinitatis incurrat offensa et a liminibus sanctorum extraneus efficiatur et cum Juda Scariothis partem damnationis accipiat. Actum est hoc sub die consule VIII. id. aug. anno imperii Hludouuici augusti secundo et Hlodhario in Baiouuaria regnante primo. Haec sunt testes per aures tracti: Cundhart. Isker. Adalker. Eparheri. Rihpald. Uuillapato. Hrodperht. Reginhart. Isancrim. Pruninc. Aaron. Ego itaque Pirhtilo iussus a domno Hittone episcopo scripsi hanc donationem.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Der Priester Zeizo macht eine Schenkung zu Rott am Inn.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 344",
             "keywords": "",
@@ -481,7 +481,7 @@
             "date_string": "815 08 06",
             "comp_ort": " ",
             "autocomplete": "TRADITIO ZEIZONI PRESBITERI AD ROTA FLUMINE. Dominus Jesus Christus ac redemptor omnium per sanctum evangelium clara voce intonuit dicens: Thesaurizate vobis thesaurum in caelo ubi nec fur veniat nec furetur; facite vobis sacculum de mammona iniquitatis qui non veterescet, et alio loco: Das parvum et conpares regnum; tribues transitoria pecunia et accepis sine fine mansura. Ideoque ego in dei nomine Zeizo presbiter cogitans de dei timore vel aeterna bona retributione, ut in aliquantulo veniam apud pio domino in aeterna tabernacula mercedem adipiscere mereamur, ob hoc donamus in amorem domini nostri Jesu Christi ad monasterio sanctae Mariae in castro sito Frigisinensis vel ibidem praeest venerabilis Hitto episcopus cum norma plurima servorum dei ad laudes Christi canendas adunata donatumque per hanc epistolam donationis volumus atque de nostro iure in iure et potestate ipsius supradicti domui tradimus atque transfundimus, hoc est in pago in loco nuncupante Rota in vestra vel ipsius monasterii sanctae Mariae tradimus ad dominandum eo modo, ut ipsam rem cum omni integritate vel soliditate ad se pertinente seu rediente possidere debeatis et facta nostra usque in perpetuum stabilis permaneat. Si quis vero quod futurum esse non credo, si ego ipse quod absit, aut ullus quislibet de heredis ac deheredibus meis seu ulla opposita vel emissa persona qui contra hanc donationem quem nos ob amore Christi et pro indulgentiam delictorum ad praedicto monasterio de antedicta re fieri et firmare rogavimus, pro qualibet iugenium aut articulum sicut mundum cotidie artibus et ingeniis ambulare aut infrangere conatus fuerit, inprimis iram trinitatis incurrat offensa et a liminibus sanctorum extraneus efficiatur et cum Juda Scariothis partem damnationis accipiat. Actum est hoc sub die consule VIII. id. aug. anno imperii Hludouuici augusti secundo et Hlodhario in Baiouuaria regnante primo. Haec sunt testes per aures tracti: Cundhart. Isker. Adalker. Eparheri. Rihpald. Uuillapato. Hrodperht. Reginhart. Isancrim. Pruninc. Aaron. Ego itaque Pirhtilo iussus a domno Hittone episcopo scripsi hanc donationem.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Priester Zeizo macht eine Schenkung zu Rott am Inn.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -514,13 +514,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
           "_score": null,
           "_source": {
             "text": "TRADITIO RIHPERHTI. Traditio Rihperhti in loco Ekkiperhtesdorf, hoc est territorium iurnales XXX de pratis carradas L et in alio loco pratas communes ad Uuiniheringun, sicut alii coheredes eius habent, partem silve, simul etiam aquarum cursum. Haec sunt testes: Teor. Cundperht. Helmperht. Hartuni. Rihmunt. Rohinc. Eparachar. Hrodlant. Stollinc. Sigihart. Actum est haec in id. febr. indictione VIIII. anno III. Hludouuici augusti imperii regnum gubernantem.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Rihperht schenkt Grundstücke zu Eggersdorf und Winhöring.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 355",
             "keywords": "",
@@ -528,7 +528,7 @@
             "date_string": "816 02 13",
             "comp_ort": " ",
             "autocomplete": "TRADITIO RIHPERHTI. Traditio Rihperhti in loco Ekkiperhtesdorf, hoc est territorium iurnales XXX de pratis carradas L et in alio loco pratas communes ad Uuiniheringun, sicut alii coheredes eius habent, partem silve, simul etiam aquarum cursum. Haec sunt testes: Teor. Cundperht. Helmperht. Hartuni. Rihmunt. Rohinc. Eparachar. Hrodlant. Stollinc. Sigihart. Actum est haec in id. febr. indictione VIIII. anno III. Hludouuici augusti imperii regnum gubernantem.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Rihperht schenkt Grundstücke zu Eggersdorf und Winhöring.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -561,21 +561,21 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
           "_score": null,
           "_source": {
-            "text": "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebus-post meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usu­fructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia regnum et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi.",
-            "lemmas": null,
+            "text": "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebuspost meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usufructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia regnum et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi.",
+            "lemmas": "",
             "regest": "a) Bischof Andreas von Vicenza übergibt seinen Besitz zu „Suuindaha“ und „Asc“. b) Bestätigung und Investitur. c) Bischof Andreas erneuert die Schenkung bei der Rückkehr von Achen.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 400",
             "keywords": "",
             "urn": "urn:cts:formulae:freising.bitterauf0400.lat001",
             "date_string": "a) 818 08 b) 819 02 04 c) 08 12",
             "comp_ort": "a Vicenza",
-            "autocomplete": "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebus-post meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usu­fructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia regnum et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi.",
-            "autocomplete_lemmas": null,
+            "autocomplete": "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebuspost meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usufructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia regnum et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi.",
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "a) Bischof Andreas von Vicenza übergibt seinen Besitz zu „Suuindaha“ und „Asc“. b) Bestätigung und Investitur. c) Bischof Andreas erneuert die Schenkung bei der Rückkehr von Achen.",
             "orig_comp_ort": "a) Vicenza",
             "collection": "freising",
@@ -610,7 +610,7 @@
           },
           "highlight": {
             "text": [
-              "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebus-post meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usu­fructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia </small><strong>regnum</strong><small> et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi."
+              "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebuspost meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usufructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia </small><strong>regnum</strong><small> et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi."
             ]
           },
           "sort": [
@@ -619,13 +619,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
           "_score": null,
           "_source": {
             "text": "QUOMODO DEOTPALD PRESBITER REDDIDIT AD HOLZHUSUN. Nunc quoque ac deinceps universis facientibus necnon exercentibus verum etiam iustitiam consentientibus immo volentibus per cuncta Baiouuaria nobilibus ac degeneris perspicue sit dilucidatum, quod quidam presbiter nomine Deotpald suam igitur quam et fratris hereditatem seu adquisitionem quam iam dudum domui sanctae Mariae traditam et ordine legitimo habuerunt munitam die ad domum quo beatissimi principis iter apostolorum Petri carpebat, quicquid eo die tenere aut possidere visus fuerat in loco nominato ad Holzhusum, penitus hoc utique ex fundo iam dictus Deotpaldus in manus Hittonis episcopi et sui defensoris cum omni vestitura reddidit, ne quod absit a praedicto beate domo desidia scilicet sua et neglegentia minime abstractum aut aligenatum fuisset, tam in omnibus quicquid ex hac die suis coram placuisset oculis ad perfectum et utilitatem praememorato domo et familia posse videtur, libero arbitrio fruetur episcopus et haec traditio nihilominus firma permaneat. Hoc fuit XVIII. kal. mai. anno siquidem Hloduuuic gubernante regnum VI. indictione XII. Et haec testes stipulatione interposita: Haholf. Signum Heipo. Eparheri. Rihpald. Petto. Otperht. Tuoto. Memmo. Uuichart. Reginperht. Kammo. Cundhart. Arperht. Odalhart ceterique multi. Ego itaque Pirhtilo indignus subdiaconus iussu piissimi Hittoni episcopi scripsi et subscripsi.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Der Priester Deotpald gibt sein und seines Bruders Schenkung zu Holzhausen vor seiner Romfahrt zurück an Bischof Hitto.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 409",
             "keywords": "",
@@ -633,7 +633,7 @@
             "date_string": "819 04 14",
             "comp_ort": " ",
             "autocomplete": "QUOMODO DEOTPALD PRESBITER REDDIDIT AD HOLZHUSUN. Nunc quoque ac deinceps universis facientibus necnon exercentibus verum etiam iustitiam consentientibus immo volentibus per cuncta Baiouuaria nobilibus ac degeneris perspicue sit dilucidatum, quod quidam presbiter nomine Deotpald suam igitur quam et fratris hereditatem seu adquisitionem quam iam dudum domui sanctae Mariae traditam et ordine legitimo habuerunt munitam die ad domum quo beatissimi principis iter apostolorum Petri carpebat, quicquid eo die tenere aut possidere visus fuerat in loco nominato ad Holzhusum, penitus hoc utique ex fundo iam dictus Deotpaldus in manus Hittonis episcopi et sui defensoris cum omni vestitura reddidit, ne quod absit a praedicto beate domo desidia scilicet sua et neglegentia minime abstractum aut aligenatum fuisset, tam in omnibus quicquid ex hac die suis coram placuisset oculis ad perfectum et utilitatem praememorato domo et familia posse videtur, libero arbitrio fruetur episcopus et haec traditio nihilominus firma permaneat. Hoc fuit XVIII. kal. mai. anno siquidem Hloduuuic gubernante regnum VI. indictione XII. Et haec testes stipulatione interposita: Haholf. Signum Heipo. Eparheri. Rihpald. Petto. Otperht. Tuoto. Memmo. Uuichart. Reginperht. Kammo. Cundhart. Arperht. Odalhart ceterique multi. Ego itaque Pirhtilo indignus subdiaconus iussu piissimi Hittoni episcopi scripsi et subscripsi.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Priester Deotpald gibt sein und seines Bruders Schenkung zu Holzhausen vor seiner Romfahrt zurück an Bischof Hitto.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -651,8 +651,8 @@
             "min_date": "0819-04-14",
             "max_date": "0819-04-14",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -667,13 +667,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
           "_score": null,
           "_source": {
             "text": "QUOMODO SIGIFUNS RENOYAYIT DE PUPPININGA. Commemoratio, qualiter quidam presbiter Sigifuns suam iam dudum factam traditionem in loco nuncupato Puppininga iterum restauravit et hoc cum suo wadio in manus Hrodolfi presbiteri statuit, quatenus potestativa manu vestituram cum omni integritate domui sanctae Mariae laxaret, quod ita perfecit. Praedictus Hrodolfus venit ad domum beate dei genetricis in castro sito Frigisinga et cum I orario dimisit et reddidit in altare sanctae Mariae. Et haec sunt testes per aures tracti: Sigiperht. Pernolf. Haholf. Isancrim. Ampho. Kaganhart. Engilpoto. Uuichart. Kisalfrid. Cundheri. Uuicpald. Hoc fuit sub die quod est pridie non. mai. menne anno beatissimi ac gloriosissimi Hloduuuici imperatoris regnum regente VI. indictione XII.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Der Priester Sigifuns erneuert durch Priester Hrodolf die Schenkung seines Besitzes zu Puppling.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 412",
             "keywords": "",
@@ -681,7 +681,7 @@
             "date_string": "819 05 06",
             "comp_ort": "Freising",
             "autocomplete": "QUOMODO SIGIFUNS RENOYAYIT DE PUPPININGA. Commemoratio, qualiter quidam presbiter Sigifuns suam iam dudum factam traditionem in loco nuncupato Puppininga iterum restauravit et hoc cum suo wadio in manus Hrodolfi presbiteri statuit, quatenus potestativa manu vestituram cum omni integritate domui sanctae Mariae laxaret, quod ita perfecit. Praedictus Hrodolfus venit ad domum beate dei genetricis in castro sito Frigisinga et cum I orario dimisit et reddidit in altare sanctae Mariae. Et haec sunt testes per aures tracti: Sigiperht. Pernolf. Haholf. Isancrim. Ampho. Kaganhart. Engilpoto. Uuichart. Kisalfrid. Cundheri. Uuicpald. Hoc fuit sub die quod est pridie non. mai. menne anno beatissimi ac gloriosissimi Hloduuuici imperatoris regnum regente VI. indictione XII.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Priester Sigifuns erneuert durch Priester Hrodolf die Schenkung seines Besitzes zu Puppling.",
             "orig_comp_ort": "(Freising)",
             "collection": "freising",
@@ -714,21 +714,21 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
           "_score": null,
           "_source": {
-            "text": "TRADITIO QUAM FECIT ÚO AD-SEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante regnum VI. indictione XII.",
-            "lemmas": null,
+            "text": "TRADITIO QUAM FECIT ÚO ADSEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante regnum VI. indictione XII.",
+            "lemmas": "",
             "regest": "Úo übergibt seinen und seiner Gattin Anteil an Adalperhts Schenkung zu Seeon.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 415",
             "keywords": "",
             "urn": "urn:cts:formulae:freising.bitterauf0415.lat001",
             "date_string": "819 05 08",
             "comp_ort": " ",
-            "autocomplete": "TRADITIO QUAM FECIT ÚO AD-SEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante regnum VI. indictione XII.",
-            "autocomplete_lemmas": null,
+            "autocomplete": "TRADITIO QUAM FECIT ÚO ADSEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante regnum VI. indictione XII.",
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Úo übergibt seinen und seiner Gattin Anteil an Adalperhts Schenkung zu Seeon.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -752,7 +752,7 @@
           },
           "highlight": {
             "text": [
-              "TRADITIO QUAM FECIT ÚO AD-SEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante </small><strong>regnum</strong><small> VI. indictione XII."
+              "TRADITIO QUAM FECIT ÚO ADSEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante </small><strong>regnum</strong><small> VI. indictione XII."
             ]
           },
           "sort": [
@@ -761,13 +761,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
           "_score": null,
           "_source": {
             "text": "TRADITIO ISAAC PRESBITERI DE ANTHADESHOFA. Noverit igitur multorum sagacitas, qualiter quidam presbiter Isaac suam propriam alodem tradidit ad domum sanctae Mariae in loco nuncupante Anthadeshusir. Quando divina vocatione concedente migravit ex hac luce, venit suus licet nepus nomine Ásolt ad Hittonem episcopum, sedit contra marcam et ipsam iam dictam traditionem suprafati presbiteri in manus Hittonis episcopi reddidit ac renovavit et modis omnibus firmiter deligavit quicquid ibidem praesente tempore tam de alode quam et de conparato seu de conlatione relegiosorum virorum claruisset, hoc totam praeter ullam intermissionem in manus episcopi tradidit. Postea vero venerabilis episcopus ipsam rem eidem Asolfo in beneficium prestitit ea ratione, ut ipse haberet, dumdiu viveret, et pro hoc censuit annis singulis de argento solidum I. Alprih fideiussor. Et hec sunt testes: Uro. Reginhoh. Durinc. Sigideo. Eparheri. Emihho. Adalperht. Rihpald. Isanhart. Engilperht. Perhtolt. Ratpot. Petto. Lanto. Actum est hoc est ad Prenpruc XIII. kal. aug. anno incarnationis domini DCCCXX. et Hlodouuico imperatore regnum gubernante anno VIII.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Asolt erneuert die Schenkung seines † Oheims, des Priesters Isaak zu Ober(Unter)handenzhofen.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 439",
             "keywords": "",
@@ -775,7 +775,7 @@
             "date_string": "820 07 20",
             "comp_ort": "Prenpruc",
             "autocomplete": "TRADITIO ISAAC PRESBITERI DE ANTHADESHOFA. Noverit igitur multorum sagacitas, qualiter quidam presbiter Isaac suam propriam alodem tradidit ad domum sanctae Mariae in loco nuncupante Anthadeshusir. Quando divina vocatione concedente migravit ex hac luce, venit suus licet nepus nomine Ásolt ad Hittonem episcopum, sedit contra marcam et ipsam iam dictam traditionem suprafati presbiteri in manus Hittonis episcopi reddidit ac renovavit et modis omnibus firmiter deligavit quicquid ibidem praesente tempore tam de alode quam et de conparato seu de conlatione relegiosorum virorum claruisset, hoc totam praeter ullam intermissionem in manus episcopi tradidit. Postea vero venerabilis episcopus ipsam rem eidem Asolfo in beneficium prestitit ea ratione, ut ipse haberet, dumdiu viveret, et pro hoc censuit annis singulis de argento solidum I. Alprih fideiussor. Et hec sunt testes: Uro. Reginhoh. Durinc. Sigideo. Eparheri. Emihho. Adalperht. Rihpald. Isanhart. Engilperht. Perhtolt. Ratpot. Petto. Lanto. Actum est hoc est ad Prenpruc XIII. kal. aug. anno incarnationis domini DCCCXX. et Hlodouuico imperatore regnum gubernante anno VIII.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Asolt erneuert die Schenkung seines † Oheims, des Priesters Isaak zu Ober(Unter)handenzhofen.",
             "orig_comp_ort": "„Prenpruc“",
             "collection": "freising",
@@ -808,7 +808,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v6",
+          "_index": "fulda_stengel_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
           "_score": null,
@@ -852,7 +852,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v6",
+          "_index": "hersfeld_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
           "_score": null,
@@ -899,7 +899,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v6",
+          "_index": "merowinger1_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
           "_score": null,
@@ -943,7 +943,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v6",
+          "_index": "merowinger1_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
           "_score": null,
@@ -975,8 +975,8 @@
             "min_date": "0662-04-02",
             "max_date": "0662-04-02",
             "days": [
-              "Saturday",
-              "Lent"
+              "Lent",
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -991,7 +991,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
           "_score": null,
@@ -1038,7 +1038,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
@@ -1088,7 +1088,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
@@ -1138,7 +1138,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
           "_score": null,
@@ -1185,7 +1185,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
           "_score": null,
@@ -1217,8 +1217,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Wednesday",
-              "Lent"
+              "Lent",
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -1233,7 +1233,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
           "_score": null,
@@ -1287,7 +1287,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
           "_score": null,
@@ -1334,7 +1334,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
           "_score": null,
@@ -1381,7 +1381,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
           "_score": null,
@@ -1428,7 +1428,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
           "_score": null,
@@ -1484,11 +1484,11 @@
             "min_date": "0817-10-13",
             "max_date": "0821-10-13",
             "days": [
-              "Sunday",
-              "Thursday",
-              "Wednesday",
               "Saturday",
-              "Tuesday"
+              "Sunday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -1503,7 +1503,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
           "_score": null,
@@ -1547,7 +1547,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
           "_score": null,
@@ -1594,7 +1594,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
           "_score": null,
@@ -1638,7 +1638,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
           "_score": null,
@@ -1670,8 +1670,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -1686,7 +1686,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
           "_score": null,
@@ -1718,8 +1718,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -1734,7 +1734,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
           "_score": null,
@@ -1781,7 +1781,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
           "_score": null,
@@ -1828,7 +1828,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
           "_score": null,
@@ -1866,8 +1866,8 @@
             "min_date": "0844-06-11",
             "max_date": "0851-06-11",
             "days": [
-              "Thursday",
-              "Wednesday"
+              "Wednesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -1882,7 +1882,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
           "_score": null,
@@ -1929,7 +1929,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
           "_score": null,
@@ -1976,7 +1976,7 @@
           ]
         },
         {
-          "_index": "regensburg_v6",
+          "_index": "regensburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
           "_score": null,
@@ -2018,7 +2018,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v6",
+          "_index": "schaeftlarn_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
           "_score": null,
@@ -2060,7 +2060,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
           "_score": null,
@@ -2107,7 +2107,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
@@ -2154,7 +2154,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
           "_score": null,
@@ -2201,7 +2201,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
           "_score": null,
@@ -2248,7 +2248,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
           "_score": null,
@@ -2295,7 +2295,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
           "_score": null,
@@ -2327,8 +2327,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Wednesday",
-              "Lent"
+              "Lent",
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -2343,7 +2343,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
           "_score": null,
@@ -2390,7 +2390,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
           "_score": null,
@@ -2437,7 +2437,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
           "_score": null,
@@ -2484,7 +2484,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
           "_score": null,
@@ -2531,7 +2531,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
           "_score": null,
@@ -2578,7 +2578,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
           "_score": null,
@@ -2625,7 +2625,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
           "_score": null,
@@ -2657,8 +2657,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -2673,7 +2673,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
           "_score": null,
@@ -2705,8 +2705,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -2721,7 +2721,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
           "_score": null,
@@ -2753,8 +2753,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -2769,7 +2769,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
           "_score": null,
@@ -2816,7 +2816,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
           "_score": null,
@@ -2863,7 +2863,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
           "_score": null,
@@ -2910,7 +2910,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
           "_score": null,
@@ -2948,8 +2948,8 @@
             "min_date": "0844-06-11",
             "max_date": "0851-06-11",
             "days": [
-              "Thursday",
-              "Wednesday"
+              "Wednesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -2964,7 +2964,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
           "_score": null,
@@ -3011,7 +3011,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v6",
+          "_index": "weissenburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
           "_score": null,
@@ -3061,23 +3061,23 @@
     }
   },
   {
-    "took": 322,
+    "took": 45,
     "timed_out": false,
     "_shards": {
-      "total": 60,
-      "successful": 60,
+      "total": 61,
+      "successful": 61,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 1608,
+        "value": 1635,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v6",
+          "_index": "andecavensis_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
@@ -3109,13 +3109,13 @@
           ]
         },
         {
-          "_index": "buenden_v6",
+          "_index": "buenden_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
             "text": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
             "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
             "keywords": "",
@@ -3123,7 +3123,7 @@
             "date_string": "(769–800 [813]) 03 31",
             "comp_ort": " ",
             "autocomplete": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
             "orig_comp_ort": " ",
             "collection": "buenden",
@@ -3333,15 +3333,15 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
-              "Sunday",
-              "Thursday",
+              "Monday",
+              "Saturday",
               "Easter",
+              "Sunday",
+              "Tuesday",
               "Lent",
               "Wednesday",
-              "Saturday",
               "Friday",
-              "Tuesday",
-              "Monday"
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -3356,7 +3356,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xii_v6",
+          "_index": "chartae_latinae_xii_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0529.lat001",
           "_score": null,
@@ -3400,7 +3400,7 @@
           ]
         },
         {
-          "_index": "echternach_v6",
+          "_index": "echternach_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
           "_score": null,
@@ -3444,13 +3444,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
           "_score": null,
           "_source": {
             "text": "TASSILO DUX AD FILUSA. In Christi nomine. Oportunum est unicuique . . dum terrena possidet, frequentius pro salute animae suae cogitet vel de vita futura et ut mereatur regnum presens vel ethereum adipisci. Idcirco ego Tassilo dux Bauuariorum rogante me Ursone presbitero in villa publica que dicitur Ufhusin coram episcopis necnon et presbiteris vel diaconibus seu vernaculis meis presentibus donavi ad ecclesiam beati Stephani ubi ipse supradictus Vrsus presbiter servire dinoscitur iuxta flumine nuncupante Filse, id est ab aquilone vel meridie. Si quis autem hanc donationem corrumpere voluerit, ipse vero possessor ad nos habeat licentiam veniendi. Nos vero sicut superius polliciti sumus ita conservare volumus et nostris temporibus et si successor nobis advenerit, similiter conservare debeat. Ut et ista donatio firma et stabilis permaneat, ego Tassilo propria manu mea scripsi et confirmavi. Signum testium: Liuprant presbiter. Pippi presbiter. Adilger. Choanrat. Reginolf. Rumolt.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Tassilo macht eine Schenkung zu Aufhausen an die Kirche zu Moosen.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 35",
             "keywords": "",
@@ -3458,7 +3458,7 @@
             "date_string": "Ca. 769",
             "comp_ort": " ",
             "autocomplete": "TASSILO DUX AD FILUSA. In Christi nomine. Oportunum est unicuique . . dum terrena possidet, frequentius pro salute animae suae cogitet vel de vita futura et ut mereatur regnum presens vel ethereum adipisci. Idcirco ego Tassilo dux Bauuariorum rogante me Ursone presbitero in villa publica que dicitur Ufhusin coram episcopis necnon et presbiteris vel diaconibus seu vernaculis meis presentibus donavi ad ecclesiam beati Stephani ubi ipse supradictus Vrsus presbiter servire dinoscitur iuxta flumine nuncupante Filse, id est ab aquilone vel meridie. Si quis autem hanc donationem corrumpere voluerit, ipse vero possessor ad nos habeat licentiam veniendi. Nos vero sicut superius polliciti sumus ita conservare volumus et nostris temporibus et si successor nobis advenerit, similiter conservare debeat. Ut et ista donatio firma et stabilis permaneat, ego Tassilo propria manu mea scripsi et confirmavi. Signum testium: Liuprant presbiter. Pippi presbiter. Adilger. Choanrat. Reginolf. Rumolt.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Tassilo macht eine Schenkung zu Aufhausen an die Kirche zu Moosen.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -3486,13 +3486,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
           "_score": null,
           "_source": {
             "text": "TRADITIO ALPOLTI ET FILII EIUS HUASUNI SUUAPINGA. Preceptum evangelicum tonat per orbem terrarum in quo fideles ammonet, ut caduca dispiciant et ad aeternam patriam tendant, ut lucrum sibi in perventione faciant sicut ab ore veritatis evangelista conclamat: Thesaurizate vobis thesauros in caelo. Inter his auditoribus quidam vir religiosus animatus cum divino timore cuius vocabulum est Alpolt et filius eius Huasuni tradiderunt atque transfundaverunt propriam hereditatem illorum quae est in loco quae dicitur Suuapinga et in alio loco cuius vocabulum est Sentilingas ad monasterium beati Dionisii martyris Christi quod consitum est secus flumine praefluente praecipito lapsu quam autumant coloni illius Isuram inibidem locis quicquid proprie hereditatis adquisitioni sue cultis et incultis mobilibus et immobilibus silvis ruris pratis pascuis fontibus vel rivolis eorum sive cum aedificatione tota structura atque cum omni familia servorum et ancillarum quibus ab avis atque protavis hereditarios consistunt, haec omnia deo offerebant propter remuneratione aeterne vitae et devitare metum gehenni ignis, ut nullus habeat potestatem propinquorum coheredumque eorum hanc traditionem irritam facere. Et hoc constituimus, ut neque nos ipsi aut successores nostri quod minime credimus quodsi praesumpserit aliquis horum quorum superius mentionem fecimus quolibet modo iniuste inire temptavit, iram dei incurrat et cum athleta Christi mereat rationem habere et inter hedis deputatus. Et haec testes per aures signati: Ezzilo. Lantperht. Oadalrih. Cundhart et nos ipsi qui tradidimus Alpolt et Oasuni. Actum est hoc in curte qui dicitur Niuuihingas indictione VIII. Hoc autem decrevit fieri princeps clarissimus Tassilo in anno quo regnum obtinuit XXXV. seu filius ipsius nobilissimus Theoto hanc traditionem probavit perenniter ad praedictum domum stabiliter perseverare. Scripsi autem hanc cartulam traditionis ego Leidrat licet indignus et peccator tamen diaconus iussus a principe summo Tassilone.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Alpolt und sein Sohn Huasuni schenken dem Kloster Schäftlarn Besitz zu Schwabing und Sendling.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 106",
             "keywords": "",
@@ -3500,7 +3500,7 @@
             "date_string": "782",
             "comp_ort": "Neuching",
             "autocomplete": "TRADITIO ALPOLTI ET FILII EIUS HUASUNI SUUAPINGA. Preceptum evangelicum tonat per orbem terrarum in quo fideles ammonet, ut caduca dispiciant et ad aeternam patriam tendant, ut lucrum sibi in perventione faciant sicut ab ore veritatis evangelista conclamat: Thesaurizate vobis thesauros in caelo. Inter his auditoribus quidam vir religiosus animatus cum divino timore cuius vocabulum est Alpolt et filius eius Huasuni tradiderunt atque transfundaverunt propriam hereditatem illorum quae est in loco quae dicitur Suuapinga et in alio loco cuius vocabulum est Sentilingas ad monasterium beati Dionisii martyris Christi quod consitum est secus flumine praefluente praecipito lapsu quam autumant coloni illius Isuram inibidem locis quicquid proprie hereditatis adquisitioni sue cultis et incultis mobilibus et immobilibus silvis ruris pratis pascuis fontibus vel rivolis eorum sive cum aedificatione tota structura atque cum omni familia servorum et ancillarum quibus ab avis atque protavis hereditarios consistunt, haec omnia deo offerebant propter remuneratione aeterne vitae et devitare metum gehenni ignis, ut nullus habeat potestatem propinquorum coheredumque eorum hanc traditionem irritam facere. Et hoc constituimus, ut neque nos ipsi aut successores nostri quod minime credimus quodsi praesumpserit aliquis horum quorum superius mentionem fecimus quolibet modo iniuste inire temptavit, iram dei incurrat et cum athleta Christi mereat rationem habere et inter hedis deputatus. Et haec testes per aures signati: Ezzilo. Lantperht. Oadalrih. Cundhart et nos ipsi qui tradidimus Alpolt et Oasuni. Actum est hoc in curte qui dicitur Niuuihingas indictione VIII. Hoc autem decrevit fieri princeps clarissimus Tassilo in anno quo regnum obtinuit XXXV. seu filius ipsius nobilissimus Theoto hanc traditionem probavit perenniter ad praedictum domum stabiliter perseverare. Scripsi autem hanc cartulam traditionis ego Leidrat licet indignus et peccator tamen diaconus iussus a principe summo Tassilone.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Alpolt und sein Sohn Huasuni schenken dem Kloster Schäftlarn Besitz zu Schwabing und Sendling.",
             "orig_comp_ort": "Neuching",
             "collection": "freising",
@@ -3528,13 +3528,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
           "_score": null,
           "_source": {
             "text": "TRADITIO ZEIZONI PRESBITERI AD ROTA FLUMINE. Dominus Jesus Christus ac redemptor omnium per sanctum evangelium clara voce intonuit dicens: Thesaurizate vobis thesaurum in caelo ubi nec fur veniat nec furetur; facite vobis sacculum de mammona iniquitatis qui non veterescet, et alio loco: Das parvum et conpares regnum; tribues transitoria pecunia et accepis sine fine mansura. Ideoque ego in dei nomine Zeizo presbiter cogitans de dei timore vel aeterna bona retributione, ut in aliquantulo veniam apud pio domino in aeterna tabernacula mercedem adipiscere mereamur, ob hoc donamus in amorem domini nostri Jesu Christi ad monasterio sanctae Mariae in castro sito Frigisinensis vel ibidem praeest venerabilis Hitto episcopus cum norma plurima servorum dei ad laudes Christi canendas adunata donatumque per hanc epistolam donationis volumus atque de nostro iure in iure et potestate ipsius supradicti domui tradimus atque transfundimus, hoc est in pago in loco nuncupante Rota in vestra vel ipsius monasterii sanctae Mariae tradimus ad dominandum eo modo, ut ipsam rem cum omni integritate vel soliditate ad se pertinente seu rediente possidere debeatis et facta nostra usque in perpetuum stabilis permaneat. Si quis vero quod futurum esse non credo, si ego ipse quod absit, aut ullus quislibet de heredis ac deheredibus meis seu ulla opposita vel emissa persona qui contra hanc donationem quem nos ob amore Christi et pro indulgentiam delictorum ad praedicto monasterio de antedicta re fieri et firmare rogavimus, pro qualibet iugenium aut articulum sicut mundum cotidie artibus et ingeniis ambulare aut infrangere conatus fuerit, inprimis iram trinitatis incurrat offensa et a liminibus sanctorum extraneus efficiatur et cum Juda Scariothis partem damnationis accipiat. Actum est hoc sub die consule VIII. id. aug. anno imperii Hludouuici augusti secundo et Hlodhario in Baiouuaria regnante primo. Haec sunt testes per aures tracti: Cundhart. Isker. Adalker. Eparheri. Rihpald. Uuillapato. Hrodperht. Reginhart. Isancrim. Pruninc. Aaron. Ego itaque Pirhtilo iussus a domno Hittone episcopo scripsi hanc donationem.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Der Priester Zeizo macht eine Schenkung zu Rott am Inn.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 344",
             "keywords": "",
@@ -3542,7 +3542,7 @@
             "date_string": "815 08 06",
             "comp_ort": " ",
             "autocomplete": "TRADITIO ZEIZONI PRESBITERI AD ROTA FLUMINE. Dominus Jesus Christus ac redemptor omnium per sanctum evangelium clara voce intonuit dicens: Thesaurizate vobis thesaurum in caelo ubi nec fur veniat nec furetur; facite vobis sacculum de mammona iniquitatis qui non veterescet, et alio loco: Das parvum et conpares regnum; tribues transitoria pecunia et accepis sine fine mansura. Ideoque ego in dei nomine Zeizo presbiter cogitans de dei timore vel aeterna bona retributione, ut in aliquantulo veniam apud pio domino in aeterna tabernacula mercedem adipiscere mereamur, ob hoc donamus in amorem domini nostri Jesu Christi ad monasterio sanctae Mariae in castro sito Frigisinensis vel ibidem praeest venerabilis Hitto episcopus cum norma plurima servorum dei ad laudes Christi canendas adunata donatumque per hanc epistolam donationis volumus atque de nostro iure in iure et potestate ipsius supradicti domui tradimus atque transfundimus, hoc est in pago in loco nuncupante Rota in vestra vel ipsius monasterii sanctae Mariae tradimus ad dominandum eo modo, ut ipsam rem cum omni integritate vel soliditate ad se pertinente seu rediente possidere debeatis et facta nostra usque in perpetuum stabilis permaneat. Si quis vero quod futurum esse non credo, si ego ipse quod absit, aut ullus quislibet de heredis ac deheredibus meis seu ulla opposita vel emissa persona qui contra hanc donationem quem nos ob amore Christi et pro indulgentiam delictorum ad praedicto monasterio de antedicta re fieri et firmare rogavimus, pro qualibet iugenium aut articulum sicut mundum cotidie artibus et ingeniis ambulare aut infrangere conatus fuerit, inprimis iram trinitatis incurrat offensa et a liminibus sanctorum extraneus efficiatur et cum Juda Scariothis partem damnationis accipiat. Actum est hoc sub die consule VIII. id. aug. anno imperii Hludouuici augusti secundo et Hlodhario in Baiouuaria regnante primo. Haec sunt testes per aures tracti: Cundhart. Isker. Adalker. Eparheri. Rihpald. Uuillapato. Hrodperht. Reginhart. Isancrim. Pruninc. Aaron. Ego itaque Pirhtilo iussus a domno Hittone episcopo scripsi hanc donationem.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Priester Zeizo macht eine Schenkung zu Rott am Inn.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -3575,13 +3575,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
           "_score": null,
           "_source": {
             "text": "TRADITIO RIHPERHTI. Traditio Rihperhti in loco Ekkiperhtesdorf, hoc est territorium iurnales XXX de pratis carradas L et in alio loco pratas communes ad Uuiniheringun, sicut alii coheredes eius habent, partem silve, simul etiam aquarum cursum. Haec sunt testes: Teor. Cundperht. Helmperht. Hartuni. Rihmunt. Rohinc. Eparachar. Hrodlant. Stollinc. Sigihart. Actum est haec in id. febr. indictione VIIII. anno III. Hludouuici augusti imperii regnum gubernantem.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Rihperht schenkt Grundstücke zu Eggersdorf und Winhöring.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 355",
             "keywords": "",
@@ -3589,7 +3589,7 @@
             "date_string": "816 02 13",
             "comp_ort": " ",
             "autocomplete": "TRADITIO RIHPERHTI. Traditio Rihperhti in loco Ekkiperhtesdorf, hoc est territorium iurnales XXX de pratis carradas L et in alio loco pratas communes ad Uuiniheringun, sicut alii coheredes eius habent, partem silve, simul etiam aquarum cursum. Haec sunt testes: Teor. Cundperht. Helmperht. Hartuni. Rihmunt. Rohinc. Eparachar. Hrodlant. Stollinc. Sigihart. Actum est haec in id. febr. indictione VIIII. anno III. Hludouuici augusti imperii regnum gubernantem.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Rihperht schenkt Grundstücke zu Eggersdorf und Winhöring.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -3622,21 +3622,21 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
           "_score": null,
           "_source": {
-            "text": "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebus-post meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usu­fructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia regnum et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi.",
-            "lemmas": null,
+            "text": "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebuspost meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usufructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia regnum et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi.",
+            "lemmas": "",
             "regest": "a) Bischof Andreas von Vicenza übergibt seinen Besitz zu „Suuindaha“ und „Asc“. b) Bestätigung und Investitur. c) Bischof Andreas erneuert die Schenkung bei der Rückkehr von Achen.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 400",
             "keywords": "",
             "urn": "urn:cts:formulae:freising.bitterauf0400.lat001",
             "date_string": "a) 818 08 b) 819 02 04 c) 08 12",
             "comp_ort": "a Vicenza",
-            "autocomplete": "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebus-post meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usu­fructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia regnum et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi.",
-            "autocomplete_lemmas": null,
+            "autocomplete": "DONATIO ANDREAE EPISCOPI IN LOCIS NOMINATIS AD SUUINDAHA ET ASC. a) In nomine patris et filii et spiritus sancti. Hludouuicus serenissimus augustus et dei Providentia imperator imperantem eum in Italia anno quinto mense aug. per indictionem XI. feliciter. Metuendo âc terribili omnipotentis dei valde timenda sunt iudicia, ut dum in hoc seculo moramur, illa possemus disponere vel quando dies exitus noster nos iniunxerit, inparatos nos minime inveniat. Proideo ego in dei nomine Andreas Christi misericordia humilis episcopus consideravi huius vanis et fragilitatis seculi, ut nec me repentina mors inparatum inveniat aut nec me ille seductor radix iniquus rapiat, ut leo animam meam, ita nec ad perpetuam poenam perducat, sed intercedente angelica voce ad dexteram pietatis gregis suae iubeat nos numerari et in consortio beatorum, deinde ordinationem atque offersionem facere visus sum de rebus vel substantiam atque pecuniam quam habere videor in proprietario nominato de parentibus meis in Baiouuaria in locis nominatis Suuindaha et Asc aut undecumque ad me iusto ordine pertinere videtur in superscripta fine vel iudiciaria Baiouuariense, qualiter vel quomodo post meo decesso esse debeat pro refrigerio animole meae. Primis omnium volo atque discerno, ut fructuario nomine diebus vite meae de omnes res meas in mea reservo potestatem usu fruendi nam non alienandi ipsis rebus; haec volo igitur, ut sit in mea potestate ordinando ipsis rebus in usofructu in unum hominem qualem ego melius praevidero per consensu venerabili Hittoni episcopi vel de eius successores qui habea ipsis rebuspost meo decesso usu fructuario nomine, nam non alienandi vel aliquid subtrahendi de ipsis rebus et faciat exinde talem elymosinam qualem ego per meam ordinationem distribuero vel ordinavero ipse homo in quem ego ipsis rebus in usufructu dedero, tantum exinde faciat ipse homo quicquid voluntas mea fuerit ad iudicandum et reservo mihi tantummodo in meam potestatem, ut licentiam habeam ego de servos vel ancillas meas ad liberos vel liberas demittendi quantos vel quales ego voluero vel providero et cui ego libertatem fecero, libertas illi permaneat. Nam id quod supersignavi de superscriptis rebus volo, ut post meum vel ipsius hominis in quem ego ipsis rebus in usufructu post meum decesso ordinavero, ut omnes res vel substantias meas tam casas dominicales seu cespitales cum diversisque territoriis ad ipsas casas pertinentes ubi per singulas locas habere visus sum ut supradixi in fine Baiouuaria omnia in integro deveniat pro refrigerio animae meae in domo vel ecclesia sanctae Mariae in Frigisingun ubi corpus beati Corbiniani quiescit et ubi venerabilis Hitto episcopus praeesse videtur; et volo, ut ad praesenti die ipse Hitto episcopus vel qui pro tempore in ipso domo post eius decessu fuerit episcopus, habeat potestatem ipsis rebus ordinare vel defensare aut bene disponere sicut alias ecclesiasticas res in eo ordine sicut superius legitur, ut usufructu ipsis rebus diebus vitae meae in mea sit potestate vel in ipsius hominis in quem ego ipsis rebus iudicavero usufructuandi. Nam post nostro amborum decessu sicut superius legitur pro refrigerio animole meae firmo et stabile permaneat omni in tempore et numquam mihi liceat nolle quod semel bono animo ordinavi aut disposui, sed praesens mea ordinatio stabilis permaneat. Quam enim paginam ordinationis seu dispositionis ad omnia superscripta Petro presbitero scribere commonui et manu mea propria subterscripsi et testes rogidis obtuli roborandam. Actum in Italia in civitate Uincentia regnum et indictione superscripta. Ego Andreas humilis episcopus in hanc paginam ordinationis a me facta manu mea subscripsi vel signavi. † Manus Johannis testis. † † Signum manus Rodulfo testis. † Signum † manus Cundharti comitis testis. Ego Kisulfus diaconus ex iussione domni Andreae episcopi manu mea subscripsi. Ego Petrus indignus diaconus ex ore domni Andreae episcopi manu mea subscripsi. Ego Johannis indignus diaconus ex iussione domini Andreae episcopi manu mea subscripsi. Signum † Hungario testis. Signum † manus Uuaidoni testis. Scripsi ego qui supra Petrus indignus presbiter hanc paginam ordinationis et subscripsi atque conplevi. b) Iterum ob quam causam confirmandam direxi missum meum nomine Hringolf et eum potestativum ac legitimum advocatum feci de supradicta causa mea quodque Hittonem episcopum qui praeerat domo genetricis dei Mariae plene atque perfecte vestiret seu etiam suae dominationi redderet quicquid proprie hereditatis aut adquisitionis habere videtur in locis nominatis Suuindaha et Asc. Tunc quoque contigit praedictum episcopum verum etiam et Job comitem insimul venire in loco fato Suuindkirha ibique iam dictus Hringolfus obviam episcopo pervenit et narravit omnia quae sibi â domino suo peragere seu etiam pleniter ac firmiter iniuncta fuerant exercere et per wadium omnia ex omnibus tam de alode quam et de conparato seu de qualibet adtracto ad se ibidem continebat; hoc quoque funditus in manus praefati episcopi et defensorum suorum Sigiberti et Liutpranti relaxavit ac legitime vestivit ad praedictum domum beatae Mariae. Job fideiussor. Inde enim perrexit episcopus et ceteri multi nobiles viri cum eo ad supramenioratum locum Suuindaha et praedictus missus pariter cum eo et ecclesiae vestivit episcopum et iam dictos defensores cum corda unde signum tangitur, domui quoque cum omni integritate vel soliditate penes una columna. Fideiussores Eparheri, Scrot. Inde vero transivit ad Aske et vestituram ac potestatem pro uno assere suscepit ea quoque ratione, ut ille ipse Andreas quousque in hac fragili vita degeret ad suum usum et potestatem haberet; post obitum vero nempe suum unicuicumque voluisset conplacitare in suo arbitrio fuisset et hoc cum tam magno censu quam igitur et servitio sicut familia vel rector domui beatae Mariae decrevisset, post his duobus firmiter ac stabilis fuisset ad Frigisinga. Actum est hoc praesentibus istis: Johan, Heriperht archipresbiteri. Ascrih, Uuisunt, Jacob, Selprat, Uualdker presbiteri. Anno, Nidperht, Undeo diaconi. Anulo, Sigihart subdiaconi. Laici: Joseph. Hrodheri. Fater. Adalhoh. Uuolfolt. Toto. Hunperht. Diudolf. Snelhart. Uualho. Adalunc. Reginhoh. Ampricho. Kepahoh. Alpheri. Meginrat. Kerperht. Otperht. Uuillahelm. Aûo. Irminhart. Marcho. Ellaahart. Heimperht. Kerhoh. Eparheri. Scrôt. Ponafezzo. Egino. Kaganhart. Kisalmar. Offo. Adalperht ceterique multi. Perfectio huius rei sub die consule II. non. febr. anno et indictione supradictis. c) Postea vero tertia vice veniens iam dictus vir venerabilis Andreas episcopus de Italia pergens ad palatium; inde vero rediens pervenit in Baiouuaria in iam dictam alodem in loco Suuindaha ibique aliquot morabatur dies et ita venit ad Frigisinga ad Hittonem pium pontificem et inter alia dulcia et fraterna conloquia convenit illos, ut iam dictam traditionem renovarent et ita firmiter Andreas episcopus omnia in omnibus in iam dictis locis nominatis suae hereditatis seu adquisitionis firmiter tradidit et confirmavit in altarem sanctae Mariae. Actum est haec in praesentia domni Hittonis episcopi vel cunctae familiae sanctae Mariae. Haec autem testes per aures tracti: Kaganhart. Heipo. Kerhart. Peppo. Durinc. Cundhart. Engilhart. Kerperht. Uuichart. Uuigant. Emicho Reginhoh. Azzo. Uuisurih. Engilger. Actum est haec in III. id. aug. anno VI. Hludouuici imperatoris indictione XII. Ego quidem Tagibertus indignus presbiter scripsi iussione Hittonis episcopi.",
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "a) Bischof Andreas von Vicenza übergibt seinen Besitz zu „Suuindaha“ und „Asc“. b) Bestätigung und Investitur. c) Bischof Andreas erneuert die Schenkung bei der Rückkehr von Achen.",
             "orig_comp_ort": "a) Vicenza",
             "collection": "freising",
@@ -3680,13 +3680,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
           "_score": null,
           "_source": {
             "text": "QUOMODO DEOTPALD PRESBITER REDDIDIT AD HOLZHUSUN. Nunc quoque ac deinceps universis facientibus necnon exercentibus verum etiam iustitiam consentientibus immo volentibus per cuncta Baiouuaria nobilibus ac degeneris perspicue sit dilucidatum, quod quidam presbiter nomine Deotpald suam igitur quam et fratris hereditatem seu adquisitionem quam iam dudum domui sanctae Mariae traditam et ordine legitimo habuerunt munitam die ad domum quo beatissimi principis iter apostolorum Petri carpebat, quicquid eo die tenere aut possidere visus fuerat in loco nominato ad Holzhusum, penitus hoc utique ex fundo iam dictus Deotpaldus in manus Hittonis episcopi et sui defensoris cum omni vestitura reddidit, ne quod absit a praedicto beate domo desidia scilicet sua et neglegentia minime abstractum aut aligenatum fuisset, tam in omnibus quicquid ex hac die suis coram placuisset oculis ad perfectum et utilitatem praememorato domo et familia posse videtur, libero arbitrio fruetur episcopus et haec traditio nihilominus firma permaneat. Hoc fuit XVIII. kal. mai. anno siquidem Hloduuuic gubernante regnum VI. indictione XII. Et haec testes stipulatione interposita: Haholf. Signum Heipo. Eparheri. Rihpald. Petto. Otperht. Tuoto. Memmo. Uuichart. Reginperht. Kammo. Cundhart. Arperht. Odalhart ceterique multi. Ego itaque Pirhtilo indignus subdiaconus iussu piissimi Hittoni episcopi scripsi et subscripsi.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Der Priester Deotpald gibt sein und seines Bruders Schenkung zu Holzhausen vor seiner Romfahrt zurück an Bischof Hitto.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 409",
             "keywords": "",
@@ -3694,7 +3694,7 @@
             "date_string": "819 04 14",
             "comp_ort": " ",
             "autocomplete": "QUOMODO DEOTPALD PRESBITER REDDIDIT AD HOLZHUSUN. Nunc quoque ac deinceps universis facientibus necnon exercentibus verum etiam iustitiam consentientibus immo volentibus per cuncta Baiouuaria nobilibus ac degeneris perspicue sit dilucidatum, quod quidam presbiter nomine Deotpald suam igitur quam et fratris hereditatem seu adquisitionem quam iam dudum domui sanctae Mariae traditam et ordine legitimo habuerunt munitam die ad domum quo beatissimi principis iter apostolorum Petri carpebat, quicquid eo die tenere aut possidere visus fuerat in loco nominato ad Holzhusum, penitus hoc utique ex fundo iam dictus Deotpaldus in manus Hittonis episcopi et sui defensoris cum omni vestitura reddidit, ne quod absit a praedicto beate domo desidia scilicet sua et neglegentia minime abstractum aut aligenatum fuisset, tam in omnibus quicquid ex hac die suis coram placuisset oculis ad perfectum et utilitatem praememorato domo et familia posse videtur, libero arbitrio fruetur episcopus et haec traditio nihilominus firma permaneat. Hoc fuit XVIII. kal. mai. anno siquidem Hloduuuic gubernante regnum VI. indictione XII. Et haec testes stipulatione interposita: Haholf. Signum Heipo. Eparheri. Rihpald. Petto. Otperht. Tuoto. Memmo. Uuichart. Reginperht. Kammo. Cundhart. Arperht. Odalhart ceterique multi. Ego itaque Pirhtilo indignus subdiaconus iussu piissimi Hittoni episcopi scripsi et subscripsi.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Priester Deotpald gibt sein und seines Bruders Schenkung zu Holzhausen vor seiner Romfahrt zurück an Bischof Hitto.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -3712,8 +3712,8 @@
             "min_date": "0819-04-14",
             "max_date": "0819-04-14",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -3728,13 +3728,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
           "_score": null,
           "_source": {
             "text": "QUOMODO SIGIFUNS RENOYAYIT DE PUPPININGA. Commemoratio, qualiter quidam presbiter Sigifuns suam iam dudum factam traditionem in loco nuncupato Puppininga iterum restauravit et hoc cum suo wadio in manus Hrodolfi presbiteri statuit, quatenus potestativa manu vestituram cum omni integritate domui sanctae Mariae laxaret, quod ita perfecit. Praedictus Hrodolfus venit ad domum beate dei genetricis in castro sito Frigisinga et cum I orario dimisit et reddidit in altare sanctae Mariae. Et haec sunt testes per aures tracti: Sigiperht. Pernolf. Haholf. Isancrim. Ampho. Kaganhart. Engilpoto. Uuichart. Kisalfrid. Cundheri. Uuicpald. Hoc fuit sub die quod est pridie non. mai. menne anno beatissimi ac gloriosissimi Hloduuuici imperatoris regnum regente VI. indictione XII.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Der Priester Sigifuns erneuert durch Priester Hrodolf die Schenkung seines Besitzes zu Puppling.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 412",
             "keywords": "",
@@ -3742,7 +3742,7 @@
             "date_string": "819 05 06",
             "comp_ort": "Freising",
             "autocomplete": "QUOMODO SIGIFUNS RENOYAYIT DE PUPPININGA. Commemoratio, qualiter quidam presbiter Sigifuns suam iam dudum factam traditionem in loco nuncupato Puppininga iterum restauravit et hoc cum suo wadio in manus Hrodolfi presbiteri statuit, quatenus potestativa manu vestituram cum omni integritate domui sanctae Mariae laxaret, quod ita perfecit. Praedictus Hrodolfus venit ad domum beate dei genetricis in castro sito Frigisinga et cum I orario dimisit et reddidit in altare sanctae Mariae. Et haec sunt testes per aures tracti: Sigiperht. Pernolf. Haholf. Isancrim. Ampho. Kaganhart. Engilpoto. Uuichart. Kisalfrid. Cundheri. Uuicpald. Hoc fuit sub die quod est pridie non. mai. menne anno beatissimi ac gloriosissimi Hloduuuici imperatoris regnum regente VI. indictione XII.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Priester Sigifuns erneuert durch Priester Hrodolf die Schenkung seines Besitzes zu Puppling.",
             "orig_comp_ort": "(Freising)",
             "collection": "freising",
@@ -3775,21 +3775,21 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
           "_score": null,
           "_source": {
-            "text": "TRADITIO QUAM FECIT ÚO AD-SEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante regnum VI. indictione XII.",
-            "lemmas": null,
+            "text": "TRADITIO QUAM FECIT ÚO ADSEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante regnum VI. indictione XII.",
+            "lemmas": "",
             "regest": "Úo übergibt seinen und seiner Gattin Anteil an Adalperhts Schenkung zu Seeon.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 415",
             "keywords": "",
             "urn": "urn:cts:formulae:freising.bitterauf0415.lat001",
             "date_string": "819 05 08",
             "comp_ort": " ",
-            "autocomplete": "TRADITIO QUAM FECIT ÚO AD-SEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante regnum VI. indictione XII.",
-            "autocomplete_lemmas": null,
+            "autocomplete": "TRADITIO QUAM FECIT ÚO ADSEUUON. Dum et omnibus incognitum non habetur, sed multis in episcopio sanctae Mariae bene notum est eo, quod quidam homo nomine Úo, antequam se moveret in ostes, venit ad sedem Frigisinensium civitatis et tradidit ad beatam domum Mariae quantumcunque ipse et uxor sua Hiltipirc habuerunt de illa traditione quam eis Adalpertus fecit in loco nominato ad Seuuon, hoc vero cum omni integritate vel soliditate ad praedicto domo. Ea ratione traditionem fecit, si in illo comitatu vitam finiret, eodem die tenetur ad iam dicto domo, si autem inde veniret, tunc fuisset in sua potestate. Testes: Uuillahelm. Kaganhart. Uueriant. Popo. Uualho. Marcho. Crimheri. Nothart. Actum est hoc in VIII. id. mai. anno Hloduuuico imperatoris et ordinante regnum VI. indictione XII.",
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Úo übergibt seinen und seiner Gattin Anteil an Adalperhts Schenkung zu Seeon.",
             "orig_comp_ort": " ",
             "collection": "freising",
@@ -3822,13 +3822,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
           "_score": null,
           "_source": {
             "text": "TRADITIO ISAAC PRESBITERI DE ANTHADESHOFA. Noverit igitur multorum sagacitas, qualiter quidam presbiter Isaac suam propriam alodem tradidit ad domum sanctae Mariae in loco nuncupante Anthadeshusir. Quando divina vocatione concedente migravit ex hac luce, venit suus licet nepus nomine Ásolt ad Hittonem episcopum, sedit contra marcam et ipsam iam dictam traditionem suprafati presbiteri in manus Hittonis episcopi reddidit ac renovavit et modis omnibus firmiter deligavit quicquid ibidem praesente tempore tam de alode quam et de conparato seu de conlatione relegiosorum virorum claruisset, hoc totam praeter ullam intermissionem in manus episcopi tradidit. Postea vero venerabilis episcopus ipsam rem eidem Asolfo in beneficium prestitit ea ratione, ut ipse haberet, dumdiu viveret, et pro hoc censuit annis singulis de argento solidum I. Alprih fideiussor. Et hec sunt testes: Uro. Reginhoh. Durinc. Sigideo. Eparheri. Emihho. Adalperht. Rihpald. Isanhart. Engilperht. Perhtolt. Ratpot. Petto. Lanto. Actum est hoc est ad Prenpruc XIII. kal. aug. anno incarnationis domini DCCCXX. et Hlodouuico imperatore regnum gubernante anno VIII.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Asolt erneuert die Schenkung seines † Oheims, des Priesters Isaak zu Ober(Unter)handenzhofen.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 439",
             "keywords": "",
@@ -3836,7 +3836,7 @@
             "date_string": "820 07 20",
             "comp_ort": "Prenpruc",
             "autocomplete": "TRADITIO ISAAC PRESBITERI DE ANTHADESHOFA. Noverit igitur multorum sagacitas, qualiter quidam presbiter Isaac suam propriam alodem tradidit ad domum sanctae Mariae in loco nuncupante Anthadeshusir. Quando divina vocatione concedente migravit ex hac luce, venit suus licet nepus nomine Ásolt ad Hittonem episcopum, sedit contra marcam et ipsam iam dictam traditionem suprafati presbiteri in manus Hittonis episcopi reddidit ac renovavit et modis omnibus firmiter deligavit quicquid ibidem praesente tempore tam de alode quam et de conparato seu de conlatione relegiosorum virorum claruisset, hoc totam praeter ullam intermissionem in manus episcopi tradidit. Postea vero venerabilis episcopus ipsam rem eidem Asolfo in beneficium prestitit ea ratione, ut ipse haberet, dumdiu viveret, et pro hoc censuit annis singulis de argento solidum I. Alprih fideiussor. Et hec sunt testes: Uro. Reginhoh. Durinc. Sigideo. Eparheri. Emihho. Adalperht. Rihpald. Isanhart. Engilperht. Perhtolt. Ratpot. Petto. Lanto. Actum est hoc est ad Prenpruc XIII. kal. aug. anno incarnationis domini DCCCXX. et Hlodouuico imperatore regnum gubernante anno VIII.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Asolt erneuert die Schenkung seines † Oheims, des Priesters Isaak zu Ober(Unter)handenzhofen.",
             "orig_comp_ort": "„Prenpruc“",
             "collection": "freising",
@@ -3869,7 +3869,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v6",
+          "_index": "fulda_stengel_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
           "_score": null,
@@ -3913,7 +3913,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v6",
+          "_index": "hersfeld_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
           "_score": null,
@@ -3960,7 +3960,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v6",
+          "_index": "merowinger1_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
           "_score": null,
@@ -4004,7 +4004,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v6",
+          "_index": "merowinger1_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
           "_score": null,
@@ -4036,8 +4036,8 @@
             "min_date": "0662-04-02",
             "max_date": "0662-04-02",
             "days": [
-              "Saturday",
-              "Lent"
+              "Lent",
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -4052,7 +4052,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
           "_score": null,
@@ -4099,7 +4099,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
@@ -4149,7 +4149,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
@@ -4199,7 +4199,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
           "_score": null,
@@ -4246,7 +4246,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
           "_score": null,
@@ -4278,8 +4278,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Wednesday",
-              "Lent"
+              "Lent",
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -4294,7 +4294,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
           "_score": null,
@@ -4348,7 +4348,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
           "_score": null,
@@ -4395,7 +4395,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
           "_score": null,
@@ -4442,7 +4442,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
           "_score": null,
@@ -4489,7 +4489,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
           "_score": null,
@@ -4545,11 +4545,11 @@
             "min_date": "0817-10-13",
             "max_date": "0821-10-13",
             "days": [
-              "Sunday",
-              "Thursday",
-              "Wednesday",
               "Saturday",
-              "Tuesday"
+              "Sunday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -4564,7 +4564,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
           "_score": null,
@@ -4608,7 +4608,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
           "_score": null,
@@ -4655,7 +4655,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
           "_score": null,
@@ -4699,7 +4699,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
           "_score": null,
@@ -4731,8 +4731,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -4747,7 +4747,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
           "_score": null,
@@ -4779,8 +4779,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -4795,7 +4795,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
           "_score": null,
@@ -4842,7 +4842,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
           "_score": null,
@@ -4889,7 +4889,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
           "_score": null,
@@ -4927,8 +4927,8 @@
             "min_date": "0844-06-11",
             "max_date": "0851-06-11",
             "days": [
-              "Thursday",
-              "Wednesday"
+              "Wednesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -4943,7 +4943,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
           "_score": null,
@@ -4990,7 +4990,7 @@
           ]
         },
         {
-          "_index": "raetien_v6",
+          "_index": "raetien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
           "_score": null,
@@ -5037,7 +5037,7 @@
           ]
         },
         {
-          "_index": "regensburg_v6",
+          "_index": "regensburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
           "_score": null,
@@ -5079,7 +5079,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v6",
+          "_index": "schaeftlarn_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
           "_score": null,
@@ -5121,7 +5121,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
           "_score": null,
@@ -5168,7 +5168,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
@@ -5215,7 +5215,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
           "_score": null,
@@ -5262,7 +5262,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
           "_score": null,
@@ -5309,7 +5309,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
           "_score": null,
@@ -5356,7 +5356,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
           "_score": null,
@@ -5388,8 +5388,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Wednesday",
-              "Lent"
+              "Lent",
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -5404,7 +5404,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
           "_score": null,
@@ -5451,7 +5451,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
           "_score": null,
@@ -5498,7 +5498,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
           "_score": null,
@@ -5545,7 +5545,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
           "_score": null,
@@ -5592,7 +5592,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
           "_score": null,
@@ -5639,7 +5639,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
           "_score": null,
@@ -5686,7 +5686,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
           "_score": null,
@@ -5718,8 +5718,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -5734,7 +5734,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
           "_score": null,
@@ -5766,8 +5766,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -5782,7 +5782,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
           "_score": null,
@@ -5814,8 +5814,8 @@
             "min_date": "0821-03-07",
             "max_date": "0821-03-07",
             "days": [
-              "Thursday",
-              "Lent"
+              "Lent",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -5830,7 +5830,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
           "_score": null,
@@ -5877,7 +5877,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
           "_score": null,
@@ -5924,7 +5924,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
           "_score": null,
@@ -5971,7 +5971,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
           "_score": null,
@@ -6009,8 +6009,8 @@
             "min_date": "0844-06-11",
             "max_date": "0851-06-11",
             "days": [
-              "Thursday",
-              "Wednesday"
+              "Wednesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -6025,7 +6025,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
           "_score": null,
@@ -6072,7 +6072,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v6",
+          "_index": "weissenburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
           "_score": null,

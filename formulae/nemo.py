@@ -1,3 +1,5 @@
+import os.path
+
 from flask import url_for, Markup, g, session, flash, request, Response, Blueprint, send_from_directory, abort
 from flask_login import current_user, login_required
 from flask_babel import _, refresh, get_locale
@@ -112,10 +114,16 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:fulda_stengel',
                         'urn:cts:formulae:gorze',
                         'urn:cts:formulae:hersfeld',
+                        'urn:cts:formulae:ka1',
+                        'urn:cts:formulae:ko2',
                         # 'urn:cts:formulae:langobardisch', # needs correction
+                        'urn:cts:formulae:le1',
+                        'urn:cts:formulae:le3',
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:ludwig_2',
                         'urn:cts:formulae:luzern',
+                        'urn:cts:formulae:m4',
+                        'urn:cts:formulae:marculf',
                         'urn:cts:formulae:marmoutier_blésois',
                         'urn:cts:formulae:marmoutier_dunois',
                         'urn:cts:formulae:marmoutier_laurain',
@@ -127,18 +135,26 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:marmoutier_vendomois_appendix',
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
+                        'urn:cts:formulae:p3',
+                        'urn:cts:formulae:p12',
+                        'urn:cts:formulae:p16a',
                         'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
                         'urn:cts:formulae:redon',
                         'urn:cts:formulae:regensburg',
                         'urn:cts:formulae:rheinisch',
+                        'urn:cts:formulae:s2',
                         'urn:cts:formulae:saint_bénigne',
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
+                        'urn:cts:formulae:sg2',
                         'urn:cts:formulae:stgallen',
+                        'urn:cts:formulae:syd',
                         'urn:cts:formulae:tours_gasnault',
                         'tours_st_julien_denis',
                         'urn:cts:formulae:tours_st_julien_fragments',
+                        'urn:cts:formulae:v6',
+                        'urn:cts:formulae:wa1',
                         'urn:cts:formulae:weissenburg',
                         'urn:cts:formulae:werden',
                         'urn:cts:formulae:zuerich']
@@ -212,8 +228,40 @@ class NemoFormulae(Nemo):
         self.lem_to_lem_mapping = self.make_lem_to_lem_mapping()
         self.dead_urls = self.make_dead_url_mapping()
         self.comp_places = self.make_comp_places_list()
+        self.manuscript_notes = self.make_manuscript_notes()
+        self.ms_lib_links = self.make_ms_lib_links()
         # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
+
+    def make_manuscript_notes(self) -> dict:
+        """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
+        manuscript_notes = dict()
+        for corpus_folder in self.app.config['CORPUS_FOLDERS']:
+            if os.path.isfile(corpus_folder + '/' + 'manuscript_notes.json'):
+                with open(corpus_folder + '/' + 'manuscript_notes.json') as f:
+                    try:
+                        man_notes = json_load(f)
+                    except JSONDecodeError:
+                        self.app.logger.warning(corpus_folder + '/' + 'manuscript_notes.json' + ' is not a valid JSON file. Unable to load valid manuscript notes from it.')
+                        continue
+                for k, v in man_notes.items():
+                    manuscript_notes[k] = v
+        return dict(manuscript_notes)
+
+    def make_ms_lib_links(self) -> dict:
+        """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
+        lib_links = dict()
+        for corpus_folder in self.app.config['CORPUS_FOLDERS']:
+            if os.path.isfile(corpus_folder + '/iiif/' + 'no_images.json'):
+                with open(corpus_folder + '/iiif/' + 'no_images.json') as f:
+                    try:
+                        links = json_load(f)
+                    except JSONDecodeError:
+                        self.app.logger.warning(corpus_folder + '/iiif/' + 'no_images.json' + ' is not a valid JSON file. Unable to load valid library links from it.')
+                        continue
+                for k, v in links.items():
+                    lib_links[k] = v
+        return dict(lib_links)
 
     def make_inflected_to_lem_mapping(self) -> dict:
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
@@ -320,7 +368,7 @@ class NemoFormulae(Nemo):
             groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
         return_value = '-'.join(groups)
         if matchobj.group(3):
-            return_value += matchobj.group(3)
+            return_value += '(' + matchobj.group(3) + ')'
         return return_value
 
     def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: str)\
@@ -374,6 +422,11 @@ class NemoFormulae(Nemo):
             else:
                 if collection in m.id:
                     par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
+                    if "sg2" in m.id:
+                        par_parts = re.search(r'.*\[p\.\s*(\d+)\-?(\d+)?.*', str(m.metadata.get_single(DC.title)))
+                        par = '{:04}'.format(int(par_parts.group(1)))
+                        if len(par_parts.groups()) > 1:
+                            par += '-' + par_parts.group(2)
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
@@ -789,7 +842,9 @@ class NemoFormulae(Nemo):
                               "dating": '',
                               "ausstellungsort": '',
                               'name': '',
-                              'title': ''}
+                              'title': '',
+                              'transcribed_edition': [],
+                              'parent_id': str(m.id)}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     work_name = par.lstrip('0') if isinstance(par, str) else ''
@@ -815,7 +870,8 @@ class NemoFormulae(Nemo):
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                                    'name': Markup(work_name),
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
-                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or '')})
+                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
+                                   'transcribed_edition': sorted([str(x) if x else '' for x in m.metadata.get(DCTERMS.isVersionOf)])})
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
@@ -843,7 +899,8 @@ class NemoFormulae(Nemo):
                 "parent_ids": [x['id'] for x in current_parents],
                 "first_letters": set([x[0] for x in r.keys()])
             },
-            "form": form
+            "form": form,
+            'manuscript_notes': self.manuscript_notes
         }
         return return_value
 
@@ -893,13 +950,27 @@ class NemoFormulae(Nemo):
                         edition_names[edition] = edition_name
                         full_edition_names[edition] = full_edition_name
                         regesten[edition] = [regest]
-                        parents[edition] = [re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])]
+                        if "sg2" in m.id:
+                            par_parts = re.search(r'.*\[p\.\s*(\d+)\-?(\d+)?.*', str(m.metadata.get_single(DC.title)))
+                            ms_par = '{:04}'.format(int(par_parts.group(1)))
+                            if len(par_parts.groups()) > 1:
+                                ms_par += '-' + par_parts.group(2)
+                            parents[edition] = [ms_par]
+                        else:
+                            parents[edition] = [re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])]
                     else:
                         titles[edition].append(title)
                         translations[edition].append(m.id)
                         forms[edition].append(form)
                         regesten[edition].append(regest)
-                        parents[edition].append(re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0]))
+                        if "sg2" in m.id:
+                            par_parts = re.search(r'.*\[p\.\s*(\d+)\-?(\d+)?.*', str(m.metadata.get_single(DC.title)))
+                            ms_par = '{:04}'.format(int(par_parts.group(1)))
+                            if len(par_parts.groups()) > 1:
+                                ms_par += '-' + par_parts.group(2)
+                            parents[edition].append(ms_par)
+                        else:
+                            parents[edition].append(re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0]))
             for k, v in translations.items():
                 if k == 'lat001':
                     r['editions'].append({
@@ -933,13 +1004,17 @@ class NemoFormulae(Nemo):
                         new_forms.append(t_form)
                         new_regesten.append(t_regest)
                         new_v.append(t_v)
-                        new_parents.append('[fol.' + t_parent.lstrip('0').replace('</span>-', '</span>-fol.') + ']')
+                        if "sg2" in t_v:
+                            new_parents.append('[p.' + t_parent.lstrip('0') + ']')
+                        else:
+                            new_parents.append('[fol.' + t_parent.lstrip('0').replace('</span>-', '</span>-fol.') + ']')
                     r['transcriptions'].append({
                         "name": k,
                         "edition_name": edition_names[k],
                         "full_edition_name": full_edition_names[k],
                         "titles": new_titles,
                         "links": [new_forms, new_v],
+                        "ms_images": [True if "manifest:" + x in self.app.picture_file else False for x in new_v],
                         "regesten": new_regesten,
                         "folia": new_parents
                     })
@@ -970,7 +1045,8 @@ class NemoFormulae(Nemo):
                 "readable": r,
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
-            }
+            },
+            'manuscript_notes': self.manuscript_notes
         }
         return return_value
 
@@ -1206,7 +1282,9 @@ class NemoFormulae(Nemo):
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
                     "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or ''),
-                    "linked_resources": linked_resources
+                    "linked_resources": linked_resources,
+                    "transcribed_edition": sorted([str(x) if x else '' for x in metadata.metadata.get(DCTERMS.isVersionOf)] if metadata.metadata.get(DCTERMS.isVersionOf) else []),
+                    "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else []
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
@@ -1219,7 +1297,7 @@ class NemoFormulae(Nemo):
             "urldate": "{:04}-{:02}-{:02}".format(date.today().year, date.today().month, date.today().day),
             "isReferencedBy": inRefs,
             "translations": translations + transcriptions,
-            "transcriptions": [x[0] for x in transcriptions]
+            "transcriptions": transcriptions
         }
 
     def r_multipassage(self, objectIds: str, subreferences: str, lang: str = None) -> Dict[str, Any]:
@@ -1260,16 +1338,25 @@ class NemoFormulae(Nemo):
                         translations[id].append(x)
                 if v:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
+                    formulae = dict()
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
                         formulae = self.app.picture_file['manifest:' + d['collections']['current']['id']]
-                    else:
-                        flash(_('Es gibt keine Manuskriptbilder für ') + d['collections']['current']['label'])
-                        continue
+                    d['alt_image'] = ''
+                    if os.path.isfile(self.app.config['IIIF_MAPPING'] + '/' + 'alternatives.json'):
+                        with open(self.app.config['IIIF_MAPPING'] + '/' + 'alternatives.json') as f:
+                            alt_images = json_load(f)
+                        d['alt_image'] = alt_images.get(id)
                     d["objectId"] = "manifest:" + id
                     d["div_v"] = "manifest" + str(view)
                     view = view + 1
                     del d['text_passage']
                     del d['notes']
+                    if formulae == {}:
+                        d['manifest'] = None
+                        d["label"] = [d['collections']['current']['label'], '']
+                        d['lib_link'] = self.ms_lib_links.get(id.split(':')[-1].split('.')[0], '')
+                        passage_data['objects'].append(d)
+                        continue
                     # this viewer work when the library or archive give an IIIF API for the external usage of theirs books
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
@@ -1301,12 +1388,12 @@ class NemoFormulae(Nemo):
 
                 else:
                     d["IIIFviewer"] = []
-                    for transcription in d['transcriptions']:
+                    for transcription, t_title, t_partOf in d['transcriptions']:
                         if "manifest:" + transcription.id in self.app.picture_file:
                             manifests = self.app.picture_file["manifest:" + transcription.id]
                             d["IIIFviewer"].append(("manifest:" + transcription.id,
                                                     manifests['title'],
-                                                    transcription.metadata.get_single(DCTERMS.isPartOf) or ''))
+                                                    t_partOf))
 
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]
@@ -1315,6 +1402,11 @@ class NemoFormulae(Nemo):
                     if d['collections']['current']['sigla'] != '':
                         d['collections']['current']['label'] = d['collections']['current']['label'].split(' [')
                         d['collections']['current']['label'][-1] = ' [' + d['collections']['current']['label'][-1]
+                filtered_transcriptions = []
+                for x in d['transcriptions']:
+                    if x[0].id not in ids and x not in filtered_transcriptions:
+                        filtered_transcriptions.append(x)
+                d['transcriptions'] = filtered_transcriptions
                 passage_data['objects'].append(d)
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
@@ -1477,6 +1569,7 @@ class NemoFormulae(Nemo):
 
         def add_citation_info(canvas, doc):
             cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
+            cit_string = re.sub(r'\s+', ' ', cit_string)
             cit_string += '<font color="grey">URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '</font>' + '<br/>'
             cit_string += '<font color="grey">' + _('Heruntergeladen: ') + date.today().isoformat() + '</font>'
             cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)

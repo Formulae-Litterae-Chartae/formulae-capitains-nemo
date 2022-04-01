@@ -115,9 +115,12 @@
     <xsl:template match="t:div[@type = 'edition']">
         <div>
             <xsl:attribute name="class">
-                <xsl:text>text edition lang_</xsl:text>
+                <xsl:text>text lang_</xsl:text>
                 <xsl:value-of select="@xml:lang"/>
-                <xsl:if test="@subtype='transcription'"><xsl:text> transcription</xsl:text></xsl:if>
+                <xsl:choose>
+                    <xsl:when test="@subtype='transcription'"><xsl:text> transcription</xsl:text></xsl:when>
+                    <xsl:otherwise> edition</xsl:otherwise>
+                </xsl:choose>
             </xsl:attribute>
             <xsl:attribute name="data-lang"><xsl:value-of select="./@xml:lang"/></xsl:attribute>
             <xsl:attribute name="lang"><xsl:value-of select="substring(./@xml:lang, 1, 2)"/></xsl:attribute>
@@ -492,7 +495,11 @@
     
     <xsl:template match="t:row">
         <xsl:element name="tr">
-            <xsl:if test="@style='text-center'"><xsl:attribute name="class">text-center</xsl:attribute></xsl:if>
+            <xsl:attribute name="class">
+                <xsl:if test="@style='text-center'">text-center</xsl:if>
+                <xsl:if test="@n='siglen-row'"> font-weight-bold</xsl:if>
+                <xsl:if test="@n='small-text-row'"> small-text-row</xsl:if>
+            </xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>

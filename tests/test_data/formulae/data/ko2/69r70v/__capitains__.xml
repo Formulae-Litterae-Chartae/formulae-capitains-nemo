@@ -1,20 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
-            xmlns:dct="http://purl.org/dc/terms/"
-            xmlns:dc="http://purl.org/dc/elements/1.1/"
-            xmlns="http://purl.org/capitains/ns/1.0#"
-            xmlns:owl="http://www.w3.org/2002/07/owl#"
-            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?><collection xmlns:ti="http://chs.harvard.edu/xmlns/cts" xmlns:dct="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://purl.org/capitains/ns/1.0#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
    <identifier>urn:cts:formulae:ko2.69r70v</identifier>
    <parent>urn:cts:formulae:ko2</parent>
-   <dc:title xml:lang="deu">Kopenhagen, Kongelige Bibliotek, Fabr. 84 [fol.69r-fol.70v]</dc:title>
+   <dc:title xml:lang="deu">fol.69&lt;span class="verso-recto"&gt;r&lt;/span&gt;-70&lt;span class="verso-recto"&gt;v&lt;/span&gt;</dc:title>
    <dc:type>cts:work</dc:type>
    <members>
       <collection readable="true" path="./ko2.69r70v.lat001.xml">
          <identifier>urn:cts:formulae:ko2.69r70v.lat001</identifier>
          <parent>urn:cts:formulae:ko2.69r70v</parent>
-         <dc:title xml:lang="deu">Kopenhagen, Kongelige Bibliotek, Fabr. 84 [fol.69r-fol.70v]</dc:title>
+         <dc:title xml:lang="deu">Kopenhagen, Kongelige Bibliotek, Fabr. 84 [fol.69&lt;span class="verso-recto"&gt;r&lt;/span&gt;-70&lt;span class="verso-recto"&gt;v&lt;/span&gt;]</dc:title>
          <dc:language>lat</dc:language>
          <dc:type>transcription</dc:type>
          <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
@@ -22,13 +15,14 @@
          <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
          <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
          <dc:format>application/tei+xml</dc:format>
-         <dc:source>Kopenhagen, Kongelige Bibliotek, Fabr. 84 [fol.69r-fol.70v]</dc:source>
+         <dc:source>Ko&lt;span class="manuscript-number"&gt;2&lt;/span&gt;&lt;span class="verso-recto"&gt;&lt;/span&gt; (Kopenhagen, Kongelige Bibliotek, Fabr. 84)</dc:source>
          <dc:description xml:lang="deu"/>
          <structured-metadata>
             <bib:editor>Christoph Walther</bib:editor>
-            <dct:created>2020-02-12</dct:created>
-            <dct:bibliographicCitation>Kopenhagen, Kongelige Bibliotek, Fabr. 84 [fol.69r-fol.70v], Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-12, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:ko2.69r70v.lat001/passage/all]</dct:bibliographicCitation>
+            <dct:created>2022-02-14</dct:created>
+            <dct:bibliographicCitation>Kopenhagen, Kongelige Bibliotek, Fabr. 84 [fol.69&lt;span class="verso-recto"&gt;r&lt;/span&gt;-70&lt;span class="verso-recto"&gt;v&lt;/span&gt;], Formulae-Litterae-Chartae Projekt. Hamburg 2022-02-14, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:ko2.69r70v.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
+            <dct:isVersionOf>Marculf I,3</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

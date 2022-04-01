@@ -25,7 +25,9 @@
             <dct:abstract xml:lang="deu"/>
          </structured-metadata>
       </collection>
-      <collection path="../../p16/4v/__capitains__.xml" identifier="urn:cts:formulae:p16.4v"/>
+      <collection path="../../p16/6061/__capitains__.xml" identifier="urn:cts:formulae:sg2.6061"/>
+      <collection path="../../p16/5660/__capitains__.xml" identifier="urn:cts:formulae:sg2.5660"/>
+      <collection path="../../sg2/4v/__capitains__.xml" identifier="urn:cts:formulae:p16.4v"/>
       <collection readable="true" path="./marculf.1_incipit.lat001.xml">
          <identifier>urn:cts:formulae:marculf.1_incipit.lat001</identifier>
          <parent>urn:cts:formulae:marculf.1_incipit</parent>

@@ -60,7 +60,7 @@ $(document).ready(function () {
     }
     
     // Allow texts when in rows reading format to be expanded and contracted by the user
-    $('.multi-reading-row').resizable({
+    $('.multi-reading-row,.notecard-row').resizable({
         handles: "s",
     });
     
