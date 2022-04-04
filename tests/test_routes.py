@@ -572,6 +572,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(d[1]['lib_link'], 'https://fuldig.hs-fulda.de/viewer/image/PPN397372442/277/')
             c.get('/texts/manifest:urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            c.get('/texts/urn:cts:formulae:tours.0_capitula.lat001/passage/1', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[0]["IIIFviewer"][1][0], 'https://crispa.uw.edu.pl/object/files/211890/display/Default')
             r = c.get('/texts/urn:cts:formulae:lorsch.gloeckner4233.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             c_v = self.get_context_variable('objects')
@@ -1691,7 +1695,8 @@ class TestFunctions(Formulae_Testing):
         self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:tours'] if x[0] == '000_a'],
                          ['urn:cts:formulae:p10.135r.lat001',
                           'urn:cts:formulae:tours.0_capitula.deu001',
-                          'urn:cts:formulae:tours.0_capitula.lat001'])
+                          'urn:cts:formulae:tours.0_capitula.lat001',
+                          'urn:cts:formulae:wa1.226r226v.lat001'])
 
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""
