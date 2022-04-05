@@ -318,9 +318,9 @@
                 <xsl:when test="current()[@type='a1']">
                     <xsl:number value="count(preceding::t:note[@type='a1']) + 1" format="a"/>
                 </xsl:when>
-                <!--<xsl:otherwise>
+                <xsl:otherwise>
                     <xsl:number value="count(preceding::t:note) + 1" format="1"/>
-                </xsl:otherwise>-->
+                </xsl:otherwise>
             </xsl:choose>
         </xsl:param>
         <xsl:choose>
