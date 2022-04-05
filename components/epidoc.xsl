@@ -325,14 +325,20 @@
         </xsl:param>
         <xsl:choose>
             <xsl:when test="@place='right'">
-                <xsl:element name="a">
-                    <xsl:attribute name="role">button</xsl:attribute>
-                    <xsl:attribute name="data-toggle">popover</xsl:attribute>
+                <xsl:element name="span">
+                    <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
+                    <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                     <xsl:attribute name="data-html">true</xsl:attribute>
-                    <xsl:attribute name="data-trigger">focus</xsl:attribute>
-                    <xsl:attribute name="data-content"><xsl:copy-of select="current()"/></xsl:attribute>
-                    <xsl:copy-of select="current()"/>
-                    <xsl:apply-templates select="preceding-sibling::t:w[1]"><xsl:with-param name="wTag">true</xsl:with-param></xsl:apply-templates>
+                    <xsl:attribute name="title"></xsl:attribute>
+                    <xsl:attribute name="class">btn btn-link px-0 right-note-tooltip</xsl:attribute>
+                    <xsl:attribute name="tabindex">0</xsl:attribute>
+                    <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
+                    <xsl:element name="span">
+                        <xsl:attribute name="hidden">true</xsl:attribute>
+                        <xsl:attribute name="class">tooltipTitle</xsl:attribute>
+                        <xsl:apply-templates mode="noteSegs"></xsl:apply-templates>
+                    </xsl:element>
+                    <xsl:apply-templates select="preceding-sibling::node()[1]"><xsl:with-param name="wTag">true</xsl:with-param></xsl:apply-templates>
                 </xsl:element>
             </xsl:when>
             <xsl:otherwise>
@@ -358,6 +364,11 @@
                 </xsl:element>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="node()[self::text()][following-sibling::node()[1][self::t:note[@place='right']]]">
+        <xsl:param name="wTag"/>
+        <xsl:if test="$wTag"><xsl:value-of select="."/></xsl:if>
     </xsl:template>
     
     <!-- I don't think there will be any more anchors in the next conversion, at least none without notes associated with them. So I think I can probably delete this template. -->
