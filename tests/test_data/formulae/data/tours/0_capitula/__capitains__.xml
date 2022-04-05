@@ -12,7 +12,9 @@
    <dc:type>cts:work</dc:type>
    <members>
       <collection path="../../p10/135r/__capitains__.xml"
-                  identifier="urn:cts:formulae:p10.135r"/>
+         identifier="urn:cts:formulae:p10.135r"/>
+      <collection path="../../wa1/226r226v/__capitains__.xml"
+         identifier="urn:cts:formulae:wa1.226r226v"/>
       <collection readable="true" path="./tours.0_capitula.deu001.xml">
          <identifier>urn:cts:formulae:tours.0_capitula.deu001</identifier>
          <parent>urn:cts:formulae:tours.0_capitula</parent>
