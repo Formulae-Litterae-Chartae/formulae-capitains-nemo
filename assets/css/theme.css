@@ -1124,9 +1124,9 @@ p.short-regest {
     z-index: 900;
 }
 
-/*#capitula-table {
-    width: 60%;
-}*/
+#capitula-table {
+    table-layout: fixed;
+}
 
 div.translation,div.edition {
     text-align: justify;
