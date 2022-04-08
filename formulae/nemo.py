@@ -1578,6 +1578,7 @@ class NemoFormulae(Nemo):
             cit_string += '<font color="grey">URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '</font>' + '<br/>'
             cit_string += '<font color="grey">' + _('Heruntergeladen: ') + date.today().isoformat() + '</font>'
             cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
+            cit_string = re.sub(r'<span class="verso-recto">([^<]+)</span>', r'<super>\1</super>', cit_string)
             cit_string = re.sub(r'<span class="surname">([^<]+)</span>', r'<b>\1</b>', cit_string)
             cit_flowables = [Paragraph(cit_string, cit_style)]
             f = Frame(doc.leftMargin - .9 * inch, 0.01 * inch, doc.pagesize[0] - .2 * inch, 0.7 * inch, showBoundary=0)
@@ -1608,7 +1609,7 @@ class NemoFormulae(Nemo):
         pdf_buffer = BytesIO()
         doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>',
                            r'<sub>\1</sub>',
-                           re.sub(r'<span class="verso-recto">(\w+?)</span>', r'<super>\1</super>',
+                           re.sub(r'<span class="verso-recto">([^<]+)</span>', r'<super>\1</super>',
                                   str(metadata.metadata.get_single(DC.title, lang=None))))
         description = '{} ({})'.format(doc_title, date.today().isoformat())
         trans_table = {'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'Ä': 'Ae', 'Ö': 'Oe', 'Ü': 'Ue', 'ẞ': 'Ss'}
