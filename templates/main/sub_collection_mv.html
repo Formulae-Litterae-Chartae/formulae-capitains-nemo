@@ -52,12 +52,6 @@
         <ul class="list-group list-group-flush">
         {% for name in values['links'][0]%}
             <li class="list-group-item card search-hit transcription" formula="{{ values['titles'][loop.index-1]|replace(',', '-') }}">
-                {% if 'regesten' in values and values['regesten'][loop.index0] %}
-                {% if values['titles'][loop.index-1] %}<h5><a class="card-link" href="{{ms_href}}">{{ values['titles'][loop.index-1] }}</a></h5>{% endif %}
-                <div class="card-text p-2 search-hit-menu{{ copy_class }}">
-                    {{ values['regesten'][loop.index0] }}
-                </div>
-                {% else %}
                 {% if values['titles'][loop.index-1] %}<h5{% if 'folia' in values and values['folia'][loop.index0] %} class="mb-0"{% endif %}{% if values['links'][1][loop.index0] in manuscript_notes %} id="{{ values['edition_name']|striptags + '-' + loop.index0|string }}" data-toggle="tooltip" data-placement="top" data-container="#{{ values['edition_name']|striptags + '-' + loop.index0|string }}" title="{{ manuscript_notes[values['links'][1][loop.index0]]}}"{% endif %}>{{ values['titles'][loop.index-1] }}{% if values['links'][1][loop.index0] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</h5>{% endif %}
                 {% if 'folia' in values and values['folia'][loop.index0] %}
                 <div class="card-text">
@@ -65,7 +59,6 @@
                 </div>
                 {% endif %}
                 <a class="card-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string, 'manifest:' + values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+')) }}">{{ _('Lesen') }}</a>
-                {% endif %}
             </li>
         {% endfor %}
         </ul>
