@@ -324,7 +324,7 @@
             </xsl:choose>
         </xsl:param>
         <xsl:choose>
-            <xsl:when test="@place='right'">
+            <xsl:when test="@place='right' and starts-with(.//text()[1], '[fol]')">
                 <xsl:element name="span">
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
                     <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
