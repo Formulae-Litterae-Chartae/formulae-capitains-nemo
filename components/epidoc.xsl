@@ -46,7 +46,7 @@
         </xsl:if> -->     
         <xsl:param name="wTag"/>
         <xsl:choose>
-            <xsl:when test="following-sibling::*[1][self::t:note[@place='right']] and not($wTag)"></xsl:when>
+            <xsl:when test="following-sibling::*[1][self::t:note[@place='right']//*[starts-with(text(), '[fol')]] and not($wTag)"></xsl:when>
             <xsl:otherwise>
                 <xsl:element name="span">
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
@@ -324,13 +324,13 @@
             </xsl:choose>
         </xsl:param>
         <xsl:choose>
-            <xsl:when test="@place='right'">
+            <xsl:when test="@place='right' and .//*[starts-with(text(), '[fol')]">
                 <xsl:element name="span">
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
                     <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                     <xsl:attribute name="data-html">true</xsl:attribute>
                     <xsl:attribute name="title"></xsl:attribute>
-                    <xsl:attribute name="class">btn btn-link px-0 right-note-tooltip</xsl:attribute>
+                    <xsl:attribute name="class">btn btn-link px-0 right-note-tooltip text-body</xsl:attribute>
                     <xsl:attribute name="tabindex">0</xsl:attribute>
                     <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
                     <xsl:element name="span">
