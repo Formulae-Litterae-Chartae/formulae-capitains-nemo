@@ -217,9 +217,9 @@ nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
     color: rgba(255,255,255);
 }
 
-/*.platzhalter {
-  font-style: italic;
-}*/
+span[lemma$="platzhalter"] {
+  font-weight: bold;
+}
 
 .lexicon {
     text-decoration: underline wavy
