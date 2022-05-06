@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:marculf.form2_011</identifier>
+   <parent>urn:cts:formulae:marculf</parent>
+   <dc:title xml:lang="deu">II,11</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection path="../../p3/147rb147va/__capitains__.xml"
+                  identifier="urn:cts:formulae:p3.147rb147va"/>
+      <collection path="../../v6/17r17v/__capitains__.xml"
+                  identifier="urn:cts:formulae:v6.17r17v"/>
+      <collection path="../../p16a/30r30v/__capitains__.xml"
+                  identifier="urn:cts:formulae:p16a.30r30v"/>
+      <collection readable="true" path="./marculf.form2_011.deu001.xml">
+         <identifier>urn:cts:formulae:marculf.form2_011.deu001</identifier>
+         <parent>urn:cts:formulae:marculf.form2_011</parent>
+         <dc:title xml:lang="deu">Marculf II,11 (deu)</dc:title>
+         <dc:language>deu</dc:language>
+         <dc:type>cts:translation</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <dc:description xml:lang="deu">Übertragung einer Ortschaft durch eine Person an ihren Enkel mit der Verpflichtung, erstere zu pflegen.</dc:description>
+         <structured-metadata>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2022-02-25</dct:created>
+            <dct:bibliographicCitation>Marculf II,11 (deu), Formulae-Litterae-Chartae Projekt. Hamburg 2022-02-25, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:marculf.form2_011.deu001/passage/all]</dct:bibliographicCitation>
+            <dct:abstract xml:lang="deu">Übertragung einer Ortschaft gegen Pflege</dct:abstract>
+            <dct:isVersionOf/>
+         </structured-metadata>
+      </collection>
+      <collection readable="true" path="./marculf.form2_011.lat001.xml">
+         <identifier>urn:cts:formulae:marculf.form2_011.lat001</identifier>
+         <parent>urn:cts:formulae:marculf.form2_011</parent>
+         <dc:title xml:lang="deu">Marculf II,11 (lat)</dc:title>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <dc:description xml:lang="deu">Übertragung einer Ortschaft durch eine Person an ihren Enkel mit der Verpflichtung, erstere zu pflegen.</dc:description>
+         <structured-metadata>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2022-02-25</dct:created>
+            <dct:bibliographicCitation>Marculf II,11 (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2022-02-25, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:marculf.form2_011.lat001/passage/all]</dct:bibliographicCitation>
+            <dct:abstract xml:lang="deu">Übertragung einer Ortschaft gegen Pflege</dct:abstract>
+            <dct:isVersionOf/>
+         </structured-metadata>
+      </collection>
+      <collection path="../../p12/97v98v/__capitains__.xml"
+                  identifier="urn:cts:formulae:p12.97v98v"/>
+      <collection path="../../le1/146r146v/__capitains__.xml"
+                  identifier="urn:cts:formulae:le1.146r146v"/>
+   </members>
+</collection>

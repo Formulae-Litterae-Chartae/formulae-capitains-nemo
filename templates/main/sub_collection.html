@@ -40,10 +40,16 @@
             <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{{values['name']|replace('app', '')|int}}</a>
         {% endfor %}
     {% else %}
+        {% if 'non_display_collection' in collections.parent_ids %}
+            {% for number, values in collections.readable.items() %}
+            <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}</a>
+            {% endfor %}
+        {% else %}
         {% for number, values in collections.readable.items() %}
             {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzungen 1,1" %}<br>{% endif %}
             <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{% if '_' in values['name']%} {{values['title']}}{% else %}{{values['name']|replace('(', '')|replace(')', '')}}{% endif %}{% else %}{{values['name']}}{% endif %}</a>
         {% endfor %}
+        {% endif %}
     {% endif %}
     <div class="row">
         <div class="{{ 'col-xl-8 col-12' if collections.current.open_regesten or current_user.project_team else 'col-xl-4 col-12' }}">
@@ -51,17 +57,43 @@
             {% for number, values in collections.readable.items() %}
                 <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5>{{values['title']}}: {% if values['transcribed_edition'] %}<span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5>
+                        <h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}: {% if values['transcribed_edition'] %}<span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5>
                         <span>
-                            {% if 'formulae_collection' in collections.parent_ids %}
+                            {% if 'formulae_collection' in collections.parent_ids or 'non_display_collection' in collections.parent_ids %}
+                                {% if values['versions']['editions']|length > 1 %}
+                                <div class="btn-group">
+                                    <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ _('Editionen') }}
+                                    </button>
+                                    <div class="dropdown-menu transcription-dropdown">
+                                    {% for urn, lang, version, source in values['versions']['editions'] %}
+                                        <a class="dropdown-item " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ values['name'][loop.index0] }}</a>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                {% else %}
                                 {% for urn, lang, version, source in values['versions']['editions']|sort %}
                                     <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">
                                         [{{ _('Edition') }}]
                                     </a>
                                 {% endfor %}
+                                {% endif %}
+                                {% if values['versions']['translations']|length > 1 %}
+                                <div class="btn-group">
+                                    <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ _('Deutsche Übersetzungen') }}
+                                    </button>
+                                    <div class="dropdown-menu transcription-dropdown">
+                                    {% for urn, lang, version, source in values['versions']['translations'] %}
+                                        <a class="dropdown-item " href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{{ values['name'][loop.index0] }}</a>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                                {% else %}
                                 {% for urn, lang, version, source in values['versions']['translations']|sort %}
                                     <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ _('Deutsche Übersetzung') }}]</a>
                                 {% endfor %}
+                                {% endif %}
                                 {% if values['versions']['transcriptions'] %}
                                     <div class="btn-group">
                                         <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

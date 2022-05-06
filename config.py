@@ -20,6 +20,7 @@ class Config(object):
     DEAD_URLS = os.environ.get('DEAD_URLS').split(';') if os.environ.get('DEAD_URLS') else []
     COMP_PLACES = os.environ.get('COMP_PLACES').split(';') if os.environ.get('COMP_PLACES') else []
     LEMMA_LISTS = os.environ.get('LEMMA_LISTS').split(';') if os.environ.get('LEMMA_LISTS') else []
+    COLLECTED_COLLS = os.environ.get('COLLECTED_COLLS').split(';') if os.environ.get('COLLECTED_COLLS') else []
     # TERM_VECTORS = os.environ.get('TERM_VECTORS')
     CACHE_DIRECTORY = os.environ.get('NEMO_CACHE_DIR') or './cache/'
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
