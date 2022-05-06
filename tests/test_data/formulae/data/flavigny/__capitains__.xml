@@ -14,6 +14,8 @@
    </structured-metadata>
    <members>
       <collection path="./form1_010/__capitains__.xml"
-                  identifier="urn:cts:formulae:flavigny.form1_010"/>
+         identifier="urn:cts:formulae:flavigny.form1_010"/>
+      <collection path="./form041/__capitains__.xml"
+         identifier="urn:cts:formulae:flavigny.form041"/>
    </members>
 </collection>

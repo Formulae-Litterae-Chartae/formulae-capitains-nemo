@@ -617,6 +617,11 @@ class TestIndividualRoutes(Formulae_Testing):
             d = self.get_context_variable('collections')
             self.assertCountEqual(d['readable']['104']['name'],
                                   ['Marculf II,11', 'Flavigny 10'])
+            c.get('/texts/urn:cts:formulae:flavigny.form041.lat001/passage/all', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['linked_resources'],
+                             [('urn:cts:formulae:marculf.form000.lat001', 'Marculf I Prolog (lat)')],
+                             'Linked editions should be correctly passed to the template.')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             c.get('/viewer/urn:cts:formulae:andecavensis.form001?view=0&embedded=True', follow_redirects=True)
