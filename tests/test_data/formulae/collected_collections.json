@@ -1,0 +1,11 @@
+{
+	"urn:cts:formulae:flavigny_paris": {
+		"001": [
+			"urn:cts:formulae:marculf.form000"
+		],
+		"104": [
+			"urn:cts:formulae:marculf.form2_011",
+			"urn:cts:formulae:flavigny.form1_010"
+		]
+	}
+}
