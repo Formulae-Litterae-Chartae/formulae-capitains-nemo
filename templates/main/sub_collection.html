@@ -26,6 +26,9 @@
     {% elif collections.current.id == 'urn:cts:formulae:fu2' %}
     <a class="outside-link man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a><br>
     {% endif %}
+    {% if collections.current.id == 'urn:cts:formulae:flavigny' %}
+    <h2><a class="outside-link ml-2" href="{{ url_for('InstanceNemo.r_corpus', objectId='urn:cts:formulae:flavigny_paris') }}">Flavigny (Paris)</a><br></h2>
+    {% endif %}
 </header>
 </div>
 {% if collections.readable %}
