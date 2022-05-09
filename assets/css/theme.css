@@ -217,9 +217,9 @@ nav .dropdown:hover .dropdown-menu, nav .dropup:hover .dropdown-menu {
     color: rgba(255,255,255);
 }
 
-/*.platzhalter {
-  font-style: italic;
-}*/
+span[lemma$="platzhalter"] {
+  font-weight: bold;
+}
 
 .lexicon {
     text-decoration: underline wavy
@@ -682,7 +682,6 @@ h1 .manuscript-number {
 }
 
 .entry-title {
-    font-variant: small-caps;
     font-size: larger;
     line-height: 1em;
     margin-bottom: 0;
@@ -1125,9 +1124,9 @@ p.short-regest {
     z-index: 900;
 }
 
-/*#capitula-table {
-    width: 60%;
-}*/
+#capitula-table {
+    table-layout: fixed;
+}
 
 div.translation,div.edition {
     text-align: justify;

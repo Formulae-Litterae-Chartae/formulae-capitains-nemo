@@ -39,6 +39,7 @@ class TestConfig(Config):
     DEAD_URLS = ["tests/test_data/formulae/dead_urls.json"]
     COMP_PLACES = ["tests/test_data/formulae/composition_places.json"]
     LEMMA_LISTS = ["tests/test_data/formulae/lem_list_1.json", "tests/test_data/formulae/lem_list_2.json"]
+    COLLECTED_COLLS = ["tests/test_data/formulae/collected_collections.json"]
     # TERM_VECTORS = "tests/test_data/formulae/composition_places.json"
     WTF_CSRF_ENABLED = False
     SESSION_TYPE = 'filesystem'
@@ -339,7 +340,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
-            c.get('/corpus_m/urn:cts:formulae:tours', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:flavigny', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             # self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
@@ -572,6 +573,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(d[1]['lib_link'], 'https://fuldig.hs-fulda.de/viewer/image/PPN397372442/277/')
             c.get('/texts/manifest:urn:cts:formulae:andecavensis.form003.deu001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            c.get('/texts/urn:cts:formulae:tours.0_capitula.lat001/passage/1', follow_redirects=True)
+            self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            d = self.get_context_variable('objects')
+            self.assertEqual(d[0]["IIIFviewer"][1][0], 'https://crispa.uw.edu.pl/object/files/211890/display/Default')
             r = c.get('/texts/urn:cts:formulae:lorsch.gloeckner4233.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             c_v = self.get_context_variable('objects')
@@ -608,6 +613,10 @@ class TestIndividualRoutes(Formulae_Testing):
             d = self.get_context_variable('collections')
             self.assertEqual(d['readable']['0028<span class="verso-recto">v</span>-29<span class="verso-recto">r</span>']['transcribed_edition'],
                              ['Marculf II,13', 'Tours 26'])
+            c.get('/corpus/urn:cts:formulae:flavigny_paris', follow_redirects=True)
+            d = self.get_context_variable('collections')
+            self.assertCountEqual(d['readable']['104']['name'],
+                                  ['Marculf II,11', 'Flavigny 10'])
             c.get('/texts/urn:cts:formulae:flavigny.form041.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['linked_resources'],
@@ -620,6 +629,9 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertNotIn(b'Encrypt', r.get_data())
             self.assertIn('Angers 2 \\(lat\\) \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
+            r = c.get('/pdf/urn:cts:formulae:m4.60v61v.lat001', follow_redirects=True)
+            self.assertNotIn(b'Encrypt', r.get_data())
+            self.assertIn('M\\374nchen BSB clm 4650 [fol.60<super>v</super>-61<super>v</super>] \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
             r = c.get('/pdf/urn:cts:formulae:raetien.erhart0001.lat001', follow_redirects=True)
             self.assertIn('Urkundenlandschaft R\\344tien \\(Ed. Erhart/Kleindinst\\) Nr. 1 \\({}\\)'.format(date.today().isoformat()).encode(), r.get_data())
             self.assertNotIn(b'Encrypt', r.get_data())
@@ -689,7 +701,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::elex_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
-            c.get('/corpus_m/urn:cts:formulae:tours', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:flavigny', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
@@ -1346,17 +1358,20 @@ class TestFunctions(Formulae_Testing):
                'links': [['urn:cts:formulae:marculf.form000',
                           'urn:cts:formulae:marculf.form003',
                           'urn:cts:formulae:marculf.1_incipit',
-                          'urn:cts:formulae:marculf.2_capitula'],
+                          'urn:cts:formulae:marculf.2_capitula',
+                          'urn:cts:formulae:marculf.form2_011'],
                          ['urn:cts:formulae:marculf.form000.lat001',
                           'urn:cts:formulae:marculf.form003.lat001',
                           'urn:cts:formulae:marculf.1_incipit.lat001',
-                          'urn:cts:formulae:marculf.2_capitula.lat001']],
+                          'urn:cts:formulae:marculf.2_capitula.lat001',
+                          'urn:cts:formulae:marculf.form2_011.lat001']],
                'name': 'lat001',
-               'regesten': ['', '', '', ''],
+               'regesten': ['', '', '', '', 'Übertragung einer Ortschaft gegen Pflege'],
                'titles': ['I Prolog',
                           'Marculf I,3',
                           'I Incipit',
-                          'II Capitulatio']}],
+                          'II Capitulatio',
+                          'II,11']}],
  'transcriptions': [{'edition_name': 'Ko<span '
                                      'class="manuscript-number">2</span>',
                      'folia': ['[fol.69<span '
@@ -1459,12 +1474,14 @@ class TestFunctions(Formulae_Testing):
                                         '      '
                                         'class="collection-origin">Marculf</span>',
                    'links': [['urn:cts:formulae:marculf.1_incipit',
-                              'urn:cts:formulae:marculf.2_capitula'],
+                              'urn:cts:formulae:marculf.2_capitula',
+                              'urn:cts:formulae:marculf.form2_011'],
                              ['urn:cts:formulae:marculf.1_incipit.deu001',
-                              'urn:cts:formulae:marculf.2_capitula.deu001']],
+                              'urn:cts:formulae:marculf.2_capitula.deu001',
+                              'urn:cts:formulae:marculf.form2_011.deu001']],
                    'name': 'deu001',
-                   'regesten': ['', ''],
-                   'titles': ['I Incipit', 'II Capitulatio']}]})
+                   'regesten': ['', '', 'Übertragung einer Ortschaft gegen Pflege'],
+                   'titles': ['I Incipit', 'II Capitulatio', 'II,11']}]})
 
     def test_corpus_mv_passau(self):
         """ Make sure the correct values are returned by r_corpus_mv"""
@@ -1541,8 +1558,8 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_multipassage('urn:cts:formulae:marculf.form000.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:marculf.form003.lat001')
-            data = self.nemo.r_multipassage('urn:cts:formulae:marculf.2_capitula.lat001', '1')
-            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:marculf.1_incipit.lat001')
+            data = self.nemo.r_multipassage('urn:cts:formulae:marculf.form2_011.lat001', '1')
+            self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:marculf.2_capitula.lat001')
             self.assertEqual(data['objects'][0]['next_version'], None)
             data = self.nemo.r_multipassage('urn:cts:formulae:marmoutier_serfs.salmon0002.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
@@ -1631,6 +1648,17 @@ class TestFunctions(Formulae_Testing):
             self.nemo.make_manuscript_notes()
             mock.assert_called_with('tests/test_data/errored_formulae/manuscript_notes.json is not a valid JSON file. Unable to load valid manuscript notes from it.')
 
+    def test_make_collected_colls(self):
+        """ Ensure that the json manuscript notes file is correctly loaded."""
+        print(self.nemo.collected_colls)
+        self.assertIn(['urn:cts:formulae:marculf.form000.lat001', 'Latein', ('lat', '001')],
+                      [x[1] for x in self.nemo.collected_colls['urn:cts:formulae:flavigny_paris']],
+                      'Collected collections should have loaded correctly.')
+        self.app.config['COLLECTED_COLLS'] = ["tests/test_data/formulae/inflected_to_lem_error.txt"]
+        with patch.object(self.app.logger, 'warning') as mock:
+            self.nemo.make_collected_colls()
+            mock.assert_called_with('tests/test_data/formulae/inflected_to_lem_error.txt is not a valid JSON file. Unable to load valid collected collections from it.')
+
     def test_load_ms_lib_links(self):
         """ Ensure that the json manuscript notes file is correctly loaded."""
         self.assertEqual(self.nemo.ms_lib_links['wa1'],
@@ -1691,7 +1719,8 @@ class TestFunctions(Formulae_Testing):
         self.assertEqual([x[1][0] for x in self.nemo.all_texts['urn:cts:formulae:tours'] if x[0] == '000_a'],
                          ['urn:cts:formulae:p10.135r.lat001',
                           'urn:cts:formulae:tours.0_capitula.deu001',
-                          'urn:cts:formulae:tours.0_capitula.lat001'])
+                          'urn:cts:formulae:tours.0_capitula.lat001',
+                          'urn:cts:formulae:wa1.226r226v.lat001'])
 
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""

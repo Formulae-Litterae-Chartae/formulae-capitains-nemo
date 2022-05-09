@@ -18,13 +18,13 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" role="button" id="formulaeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Formeln') }}</a>
                 <div class="dropdown-menu" aria-labelledby="formulaeDropdown">
-                    {% for coll in g.sub_colls['formulae_collection'] %}
+                    {% for coll in g.sub_colls['display_formulae'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
                     <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
                                                      {% if not coll['lemmatized'] %} class="invisible"{%endif %}
                                                                 data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
                                                                 title="{{ _('Dieses Corpus ist lemmatisiert') }}"
-                                            tabindex="0">* </span></b>{{ coll['label']|safe }}</a>
+                                            tabindex="0">* </span></b>{{ coll['label']|safe }}{% if 'urn:cts:formulae' not in coll['id'] %} ↗{% endif %}</a>
                     {% endif %}
                     {% endfor %}
                 </div>

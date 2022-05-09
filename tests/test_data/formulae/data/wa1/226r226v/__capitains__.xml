@@ -6,15 +6,15 @@
             xmlns="http://purl.org/capitains/ns/1.0#"
             xmlns:owl="http://www.w3.org/2002/07/owl#"
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
-   <identifier>urn:cts:formulae:m4.60v61v</identifier>
-   <parent>urn:cts:formulae:m4</parent>
-   <dc:title xml:lang="deu">fol.60&lt;span class="verso-recto"&gt;v&lt;/span&gt;-61&lt;span class="verso-recto"&gt;v&lt;/span&gt;</dc:title>
+   <identifier>urn:cts:formulae:wa1.226r226v</identifier>
+   <parent>urn:cts:formulae:wa1</parent>
+   <dc:title xml:lang="deu">fol.226&lt;span class="verso-recto"&gt;r&lt;/span&gt;-226&lt;span class="verso-recto"&gt;v&lt;/span&gt;</dc:title>
    <dc:type>cts:work</dc:type>
    <members>
-      <collection readable="true" path="./m4.60v61v.lat001.xml">
-         <identifier>urn:cts:formulae:m4.60v61v.lat001</identifier>
-         <parent>urn:cts:formulae:m4.60v61v</parent>
-         <dc:title xml:lang="deu">München BSB clm 4650 [fol.60&lt;span class="verso-recto"&gt;v&lt;/span&gt;-61&lt;span class="verso-recto"&gt;v&lt;/span&gt;]</dc:title>
+      <collection readable="true" path="./wa1.226r226v.lat001.xml">
+         <identifier>urn:cts:formulae:wa1.226r226v.lat001</identifier>
+         <parent>urn:cts:formulae:wa1.226r226v</parent>
+         <dc:title xml:lang="deu">Warschau, UB 1 [fol.226&lt;span class="verso-recto"&gt;r&lt;/span&gt;-226&lt;span class="verso-recto"&gt;v&lt;/span&gt;]</dc:title>
          <dc:language>lat</dc:language>
          <dc:type>transcription</dc:type>
          <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
@@ -22,14 +22,14 @@
          <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
          <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
          <dc:format>application/tei+xml</dc:format>
-         <dc:source>M&lt;span class="manuscript-number"&gt;4&lt;/span&gt;&lt;span class="verso-recto"&gt;&lt;/span&gt; (München BSB clm 4650)</dc:source>
+         <dc:source>Wa&lt;span class="manuscript-number"&gt;1&lt;/span&gt;&lt;span class="verso-recto"&gt;&lt;/span&gt; (Warschau, UB 1)</dc:source>
          <dc:description xml:lang="deu"/>
          <structured-metadata>
             <bib:editor>Christoph Walther</bib:editor>
-            <dct:created>2022-02-25</dct:created>
-            <dct:bibliographicCitation>München BSB clm 4650 [fol.60&lt;span class="verso-recto"&gt;v&lt;/span&gt;-61&lt;span class="verso-recto"&gt;v&lt;/span&gt;], Formulae-Litterae-Chartae Projekt. Hamburg 2022-02-25, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:m4.60v61v.lat001/passage/all]</dct:bibliographicCitation>
+            <dct:created>2022-03-09</dct:created>
+            <dct:bibliographicCitation>Warschau, UB 1 [fol.226&lt;span class="verso-recto"&gt;r&lt;/span&gt;-226&lt;span class="verso-recto"&gt;v&lt;/span&gt;], Formulae-Litterae-Chartae Projekt. Hamburg 2022-03-09, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:wa1.226r226v.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
-            <dct:isVersionOf>Marculf I,3</dct:isVersionOf>
+            <dct:isVersionOf>Tours Capitulatio</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

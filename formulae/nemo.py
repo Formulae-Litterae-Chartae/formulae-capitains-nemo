@@ -184,7 +184,8 @@ class NemoFormulae(Nemo):
                               "urn:cts:formulae:marmoutier_manceau",
                               "urn:cts:formulae:marmoutier_vendomois_appendix",
                               "urn:cts:formulae:marmoutier_dunois",
-                              "urn:cts:formulae:anjou_archives"]
+                              "urn:cts:formulae:anjou_archives",
+                              "display_flavigny_formulae"]
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
                         "eng": _l("Englisch"), "cat": _l("Katalanisch"), "ita": _l("Italienisch")}
@@ -211,6 +212,7 @@ class NemoFormulae(Nemo):
             self.pdf_folder = kwargs["pdf_folder"]
             del kwargs["pdf_folder"]
         super(NemoFormulae, self).__init__(*args, **kwargs)
+        self.collected_colls = self.make_collected_colls()
         self.sub_colls = self.get_all_corpora()
         self.all_texts, self.open_texts, self.half_open_texts = self.get_open_texts()
         self.app.jinja_env.filters["remove_from_list"] = self.f_remove_from_list
@@ -232,6 +234,25 @@ class NemoFormulae(Nemo):
         self.ms_lib_links = self.make_ms_lib_links()
         # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
+
+    def make_collected_colls(self) -> dict:
+        """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
+        collected_colls = defaultdict(list)
+        for j in self.app.config['COLLECTED_COLLS']:
+            with open(j) as f:
+                try:
+                    collected_coll = json_load(f)
+                except JSONDecodeError:
+                    self.app.logger.warning(j + ' is not a valid JSON file. Unable to load valid collected collections from it.')
+                    continue
+            for k, v in collected_coll.items():
+                for parent_number, coll_urns in v.items():
+                    for coll_urn in coll_urns:
+                        for r_desc in self.resolver.getMetadata(coll_urn).readableDescendants.values():
+                            manuscript_parts = re.search(r'(\D+)(\d+)', r_desc.id.split('.')[-1])
+                            metadata = [r_desc.id, self.LANGUAGE_MAPPING[r_desc.lang], manuscript_parts.groups()]
+                            collected_colls[k].append((parent_number, metadata, r_desc))
+        return dict(collected_colls)
 
     def make_manuscript_notes(self) -> dict:
         """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
@@ -355,6 +376,7 @@ class NemoFormulae(Nemo):
             else:
                 colls[member['id']] = sorted(members, key=lambda x: (x['coverage'].lower().replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss'),
                                                                      x['label']))
+        print(colls.keys())
         return colls
 
     @staticmethod
@@ -504,6 +526,7 @@ class NemoFormulae(Nemo):
         all_texts.update({m: sorted([self.ordered_corpora(r, m)
                                      for r in self.resolver.getMetadata(m).readableDescendants.values()])
                           for m in self.resolver.children['urn:cts:formulae:anjou_archives']})
+        all_texts.update({k: sorted(v) for k, v in self.collected_colls.items()})
         for c in all_texts.keys():
             parents = [p.id for p in self.resolver.getMetadata(c).ancestors.values() if 'urn:cts:formulae:' in p.id]
             if set(self.OPEN_COLLECTIONS).intersection(parents + [c]):
@@ -782,7 +805,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in a given collection
         """
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
-        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|display_flavigny_formulae', objectId)
         direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
         if self.check_project_team() is False:
             if not from_four_level_collection:
@@ -847,15 +870,20 @@ class NemoFormulae(Nemo):
                               'parent_id': str(m.id)}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
-                    work_name = par.lstrip('0') if isinstance(par, str) else ''
+                    work_name = Markup(par.lstrip('0') if isinstance(par, str) else '')
                     parents = self.make_parents(m)
                     parent_title = parents[0]['label']
                     if 'manuscript_collection' in collection.ancestors:
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' in self.resolver.getMetadata(x['id']).ancestors][0]
                     elif 'formulae_collection' in collection.ancestors:
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' not in self.resolver.getMetadata(x['id']).ancestors][0]
-                    if 'urn:cts:formulae:marculf' in m.ancestors and key == 'editions':
-                        work_name = str(parent_title).replace('Marculf ', '')
+                    if 'non_display_collection' in collection.ancestors:
+                        if r[par]['name']:
+                            work_name = [r[par]['name'], Markup(re.sub(r' \(lat\)', '', str(m.metadata.get_single(DC.title))))]
+                        else:
+                            work_name = Markup(re.sub(r' \(lat\)', '', str(m.metadata.get_single(DC.title))))
+                    elif 'urn:cts:formulae:marculf' in m.ancestors and key == 'editions':
+                        work_name = Markup(str(parent_title).replace('Marculf ', ''))
                     elif 'Computus' in work_name:
                         work_name = '(Computus)'
                     elif 'Titel' in work_name:
@@ -863,12 +891,12 @@ class NemoFormulae(Nemo):
                     elif 'urn:cts:formulae:lorsch' in m.ancestors:
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
-                            work_name = name_part.group(0)
+                            work_name = Markup(name_part.group(0))
                     r[par].update({"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) or '',
                                    "regest": [str(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
-                                   'name': Markup(work_name),
+                                   'name': work_name,
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
                                    'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
                                    'transcribed_edition': sorted([str(x) if x else '' for x in m.metadata.get(DCTERMS.isVersionOf)])})
@@ -1250,8 +1278,10 @@ class NemoFormulae(Nemo):
                          self.resolver.getMetadata(str(x)).metadata.get_single(DC.title),
                          self.resolver.getMetadata(str(x)).metadata.get_single(DCTERMS.isPartOf) or '')
                         for x in metadata.metadata.get(DCTERMS.hasVersion)]
-        transcriptions = [(m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '')
-                          for m in self.get_transcriptions(metadata)]
+        transcriptions = []
+        for m in self.get_transcriptions(metadata):
+            siglum = [x['short_title'] for x in self.make_parents(m) if 'manuscript_collection' in x['ancestors']]
+            transcriptions.append((m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '', siglum[-1]))
         current_parents = self.make_parents(metadata, lang=lang)
         linked_resources = []
         for resource in metadata.metadata.get(DCTERMS.relation):
@@ -1388,12 +1418,15 @@ class NemoFormulae(Nemo):
 
                 else:
                     d["IIIFviewer"] = []
-                    for transcription, t_title, t_partOf in d['transcriptions']:
+                    for transcription, t_title, t_partOf, t_siglum in d['transcriptions']:
+                        t_id = 'no_image'
                         if "manifest:" + transcription.id in self.app.picture_file:
-                            manifests = self.app.picture_file["manifest:" + transcription.id]
-                            d["IIIFviewer"].append(("manifest:" + transcription.id,
-                                                    manifests['title'],
-                                                    t_partOf))
+                            t_id = "manifest:" + transcription.id
+                        elif 'wa1' in transcription.id:
+                            t_id = self.ms_lib_links['wa1']
+                        d["IIIFviewer"].append((t_id,
+                                                t_title + ' (' + t_siglum + ')',
+                                                t_partOf))
 
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]
@@ -1573,6 +1606,7 @@ class NemoFormulae(Nemo):
             cit_string += '<font color="grey">URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '</font>' + '<br/>'
             cit_string += '<font color="grey">' + _('Heruntergeladen: ') + date.today().isoformat() + '</font>'
             cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
+            cit_string = re.sub(r'<span class="verso-recto">([^<]+)</span>', r'<super>\1</super>', cit_string)
             cit_string = re.sub(r'<span class="surname">([^<]+)</span>', r'<b>\1</b>', cit_string)
             cit_flowables = [Paragraph(cit_string, cit_style)]
             f = Frame(doc.leftMargin - .9 * inch, 0.01 * inch, doc.pagesize[0] - .2 * inch, 0.7 * inch, showBoundary=0)
@@ -1603,7 +1637,7 @@ class NemoFormulae(Nemo):
         pdf_buffer = BytesIO()
         doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>',
                            r'<sub>\1</sub>',
-                           re.sub(r'<span class="verso-recto">(\w+?)</span>', r'<super>\1</super>',
+                           re.sub(r'<span class="verso-recto">([^<]+)</span>', r'<super>\1</super>',
                                   str(metadata.metadata.get_single(DC.title, lang=None))))
         description = '{} ({})'.format(doc_title, date.today().isoformat())
         trans_table = {'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'Ä': 'Ae', 'Ö': 'Oe', 'Ü': 'Ue', 'ẞ': 'Ss'}

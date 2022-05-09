@@ -6,16 +6,14 @@
             xmlns="http://purl.org/capitains/ns/1.0#"
             xmlns:owl="http://www.w3.org/2002/07/owl#"
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
-   <identifier>urn:cts:formulae:flavigny</identifier>
-   <dc:title xml:lang="deu">Formeln aus &lt;span class="collection-origin"&gt;Flavigny&lt;/span&gt; (Betaversion)</dc:title>
+   <identifier>urn:cts:formulae:wa1</identifier>
+   <dc:title xml:lang="deu">Warschau UB 1</dc:title>
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
-      <bib:AbbreviatedTitle>Flavigny</bib:AbbreviatedTitle>
+      <bib:AbbreviatedTitle>Wa&lt;span class="manuscript-number"&gt;1&lt;/span&gt;</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
-      <collection path="./form1_010/__capitains__.xml"
-         identifier="urn:cts:formulae:flavigny.form1_010"/>
-      <collection path="./form041/__capitains__.xml"
-         identifier="urn:cts:formulae:flavigny.form041"/>
+      <collection path="./226r226v/__capitains__.xml"
+         identifier="urn:cts:formulae:wa1.226r226v"/>
    </members>
 </collection>

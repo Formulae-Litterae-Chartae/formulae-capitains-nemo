@@ -329,6 +329,10 @@ $(document).ready(function () {
     $('[id$="n1-hide-button"]').attr('title', comCloseButton)
     $('[id$="n1-show-button"]').attr('title', comOpenButton)
     
+    $('.right-note-tooltip').each(function() {
+        $(this).attr('title', $(this).children('span.tooltipTitle').prop('innerHTML'))
+    })
+    
     $('[data-toggle="tooltip"]').tooltip({trigger: 'manual'})
     
     $('[data-toggle="tooltip"]').on({
