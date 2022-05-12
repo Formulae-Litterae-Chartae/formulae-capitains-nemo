@@ -26,9 +26,6 @@
     {% elif collections.current.id == 'urn:cts:formulae:fu2' %}
     <a class="outside-link man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a><br>
     {% endif %}
-    {% if collections.current.id == 'urn:cts:formulae:flavigny' %}
-    <h2><a class="outside-link ml-2" href="{{ url_for('InstanceNemo.r_corpus', objectId='urn:cts:formulae:flavigny_paris') }}">Flavigny (Paris)  ↗</a><br></h2>
-    {% endif %}
 </header>
 </div>
 {% if collections.readable %}
@@ -43,13 +40,22 @@
             <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{{values['name']|replace('app', '')|int}}</a>
         {% endfor %}
     {% else %}
+        {% if collections.current.id == 'urn:cts:formulae:flavigny' %}
+        <h5>{{ _('Gemeinsames Material') }}</h5>
+        {% endif %}
         {% if 'non_display_collection' in collections.parent_ids %}
             {% for number, values in collections.readable.items() %}
             <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}</a>
             {% endfor %}
         {% else %}
         {% for number, values in collections.readable.items() %}
-            {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzungen 1,1" %}<br>{% endif %}
+            {% if number == '2_0' %}
+            <h5 class="mt-1">{{ _('Material aus') }} P<span class="manuscript-number">3</span></h5>
+            {% elif number == '3_0' %}
+            <h5 class="mt-1">{{ _('Material aus') }} Ko<span class="manuscript-number">2</span></h5>
+            {% elif 'Capitulatio' in values['name'] or values['name'] == "Ergänzungen 1,1" %}
+            <br>
+            {% endif %}
             <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{% if '_' in values['name']%} {{values['title']}}{% else %}{{values['name']|replace('(', '')|replace(')', '')}}{% endif %}{% else %}{{values['name']}}{% endif %}</a>
         {% endfor %}
         {% endif %}
@@ -60,7 +66,7 @@
             {% for number, values in collections.readable.items() %}
                 <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}: {% if values['transcribed_edition'] %}<span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5>
+                        <h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if collections.current.id != "urn:cts:formulae:flavigny" %}:{% endif %} {% if values['transcribed_edition'] %}<span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5>
                         <span>
                             {% if 'formulae_collection' in collections.parent_ids or 'non_display_collection' in collections.parent_ids %}
                                 {% if values['versions']['editions']|length > 1 %}
