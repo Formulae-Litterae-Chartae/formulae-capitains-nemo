@@ -21,7 +21,7 @@
     <h1>
     {{collections.current.label|striptags}}{% if "manuscript_collection" in collections.parent_ids %} ({{ collections.current.short_title|safe }}){% endif %}
     </h1>
-    {% if collections.parents[-1].id == 'formulae_collection' %}
+    {% if 'formulae_collection' in collections.parent_ids %}
     <a class="outside-link ml-2" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a>
     {% elif collections.current.id == 'urn:cts:formulae:fu2' %}
     <a class="outside-link man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a><br>
