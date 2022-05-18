@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-18 11:22+0200\n"
+"POT-Creation-Date: 2022-05-18 13:25+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -1187,18 +1187,18 @@ msgstr "."
 
 #: templates/main/index.html:31
 msgid "Hinweis:"
-msgstr ""
+msgstr "Attention:"
 
 #: templates/main/index.html:31
 msgid ""
-"Manche Teile der Werkstatt funktionieren nicht mit Internet Explorer. Wir"
-" empfehlen einen moderneren Browser wie Firefox, Chrome, Safari oder "
+"Manche Teile der Werkstatt funktionieren nicht mit dem Internet Explorer."
+" Wir empfehlen einen moderneren Browser wie Firefox, Chrome, Safari oder "
 "Microsoft Edge. JavaScript ist ebenfalls zentral für verschiedene "
 "Funktionen. Wenn Sie einen Ad-Blocker oder ähnliche Software benutzen, "
-"könnte sie zu beschränkter Funktionalität der Werkstatt führen. "
+"könnte dies zu beschränkter Funktionalität der Werkstatt führen. "
 "Normalerweise kann solche Software für einzelne, vertraute Webseiten "
 "ausgeschaltet werden."
-msgstr ""
+msgstr "Some parts of the Werkstatt do not function correctly with Internet Explorer. We recommend using a more modern browser, such as Firefox, Chrome, Safari, or Microsoft Edge. JavaScript is also central for the normal operation of the website. If your browser uses an ad-blocker or similar software it could limit JavaScript performance. Such software can usually be disabled for trusted websites."
 
 #: templates/main/lexicon.html:4
 msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
@@ -1565,15 +1565,15 @@ msgstr "Manuscript Contents"
 
 #: templates/main/sub_collection.html:44
 msgid "Gemeinsames Material"
-msgstr ""
+msgstr "Shared Material"
 
 #: templates/main/sub_collection.html:53 templates/main/sub_collection.html:55
 msgid "Material aus"
-msgstr ""
+msgstr "Material from"
 
 #: templates/main/sub_collection.html:75
 msgid "Editionen"
-msgstr ""
+msgstr "Editions"
 
 #: templates/main/sub_collection.html:93
 #, fuzzy
@@ -4386,4 +4386,19 @@ msgstr "This is a required field."
 
 #~ msgid "Es gibt keine Manuskriptbilder für "
 #~ msgstr "There are no manuscript images for "
+
+#~ msgid ""
+#~ "Manche Teile der Werkstatt funktionieren "
+#~ "nicht mit Internet Explorer. Wir "
+#~ "empfehlen einen moderneren Browser wie "
+#~ "Firefox, Chrome, Safari oder Microsoft "
+#~ "Edge. JavaScript ist ebenfalls zentral "
+#~ "für verschiedene Funktionen. Wenn Sie "
+#~ "einen Ad-Blocker oder ähnliche Software"
+#~ " benutzen, könnte sie zu beschränkter "
+#~ "Funktionalität der Werkstatt führen. "
+#~ "Normalerweise kann solche Software für "
+#~ "einzelne, vertraute Webseiten ausgeschaltet "
+#~ "werden."
+#~ msgstr ""
 
