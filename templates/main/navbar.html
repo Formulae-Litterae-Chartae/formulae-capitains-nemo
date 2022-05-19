@@ -13,6 +13,7 @@
                 <a class="nav-link" href="{{ url_for('auth.r_login') }}">{{ _('Einloggen') }}</a>
             {% else %}
                 <span class="navbar-text px-2"><a href="{{ url_for('auth.r_user', username=current_user.username) }}" id="profile-link" data-toggle="tooltip" data-container="#profile-link" title="{{ _('Benutzerprofil ändern') }}">{{ current_user.username }}</a> <small>(<a href="{{ url_for('auth.r_logout') }}">{{ _('ausloggen') }}</a>)</small></span>
+                <span class="navbar-text px-2">{% include "auth::save_page.html" %}</span>
             {% endif %}
             </li>
             <li class="nav-item dropdown">

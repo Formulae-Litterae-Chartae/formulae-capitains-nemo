@@ -1,0 +1,26 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% if g.save_page_form %}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-link" data-toggle="modal" data-target="#savePageModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="savePageModal" tabindex="-1" aria-labelledby="savePageModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="savePageModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{ wtf.quick_form(g.save_page_form, button_map={'submit': 'secondary'}) }}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
