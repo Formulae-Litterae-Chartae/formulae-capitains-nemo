@@ -376,7 +376,6 @@ class NemoFormulae(Nemo):
             else:
                 colls[member['id']] = sorted(members, key=lambda x: (x['coverage'].lower().replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss'),
                                                                      x['label']))
-        print(colls.keys())
         return colls
 
     @staticmethod
