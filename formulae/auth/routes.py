@@ -179,7 +179,8 @@ def r_save_page():
     form = AddSavedPageForm()
     url = request.referrer
     if form.validate_on_submit():
-        if url_parse(url).netloc != '':
+        print(request.root_url)
+        if url_parse(url).netloc != url_parse(request.root_url).netloc:
             flash(_('Dieses URL ist nicht Teil der Werkstatt.'))
             return redirect(url_for('InstanceNemo.r_index'))
         page = SavedPage(name=form.name.data, url=url, user_id=user_id)
