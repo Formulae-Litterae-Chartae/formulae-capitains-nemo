@@ -430,6 +430,18 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/', follow_redirects=True)
             for a in attributes:
                 self.assertEqual(session[a], 'some_value')
+            r = c.get('/auth/save_page', follow_redirects=True,
+                  headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
+            self.assertIn(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'), [x[0] for x in self.flashed_messages])
+            self.assertEqual(r.request.path, '/auth/login')
+            r = c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
+                   follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_multipassage', objectIds='urn:cts:formulae:stgallen.wartmann0001.lat001', subreferences='all', _external=True)})
+            self.assertIn(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'), [x[0] for x in self.flashed_messages])
+            self.assertEqual(r.request.path, '/auth/login')
+            r = c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
+                   follow_redirects=True, headers={'Referer': 'https://www.google.com'})
+            self.assertIn(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'), [x[0] for x in self.flashed_messages])
+            self.assertEqual(r.request.path, '/auth/login')
 
     def test_authorized_project_member(self):
 
@@ -655,6 +667,21 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual([('<b>Chartae Latinae</b>: Chartae Latinae XI', 'chartae_latinae_xi', False),
                               ('<b>Chartae Latinae</b>: Chartae Latinae CXV', 'chartae_latinae_cxv', False)],
                              self.get_context_variable('categories')['chartae_latinae'])
+            c.get('/auth/save_page', follow_redirects=True,
+                  headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
+            self.assertIn('auth::save_page.html', [x[0].name for x in self.templates])
+            c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
+                   follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_multipassage', objectIds='urn:cts:formulae:stgallen.wartmann0001.lat001', subreferences='all', _external=True)})
+            self.assertIn('St. Gallen 1', [p.name for p in current_user.pages])
+            c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
+                   follow_redirects=True, headers={'Referer': 'https://www.google.com'})
+            self.assertIn(_('Diese URL ist nicht Teil der Werkstatt.'), [x[0] for x in self.flashed_messages])
+            c.get('/auth/saved_pages', follow_redirects=True)
+            self.assertEqual(self.get_context_variable('pages'), [p for p in current_user.pages])
+            page_id_to_remove = [p for p in current_user.pages][0].id
+            r = c.get('/auth/remove_page/{}'.format(page_id_to_remove), follow_redirects=True)
+            self.assertEqual(r.request.path, '/auth/saved_pages')
+            self.assertEqual([], [p for p in current_user.pages])
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -772,7 +799,21 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::manuscript_siglen.html', [x[0].name for x in self.templates])
             c.get('accessibility_statement', follow_redirects=True)
             self.assertIn('main::accessibility_statement.html', [x[0].name for x in self.templates])
-
+            c.get('/auth/save_page', follow_redirects=True,
+                  headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
+            self.assertIn('auth::save_page.html', [x[0].name for x in self.templates])
+            c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
+                   follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_multipassage', objectIds='urn:cts:formulae:stgallen.wartmann0001.lat001', subreferences='all', _external=True)})
+            self.assertIn('St. Gallen 1', [p.name for p in current_user.pages])
+            c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
+                   follow_redirects=True, headers={'Referer': 'https://www.google.com'})
+            self.assertIn(_('Diese URL ist nicht Teil der Werkstatt.'), [x[0] for x in self.flashed_messages])
+            c.get('/auth/saved_pages', follow_redirects=True)
+            self.assertEqual(self.get_context_variable('pages'), [p for p in current_user.pages])
+            page_id_to_remove = [p for p in current_user.pages][0].id
+            r = c.get('/auth/remove_page/{}'.format(page_id_to_remove), follow_redirects=True)
+            self.assertEqual(r.request.path, '/auth/saved_pages')
+            self.assertEqual([], [p for p in current_user.pages])
 
     @patch("formulae.search.routes.advanced_query_index")
     def test_advanced_search_results(self, mock_search):
@@ -1650,7 +1691,6 @@ class TestFunctions(Formulae_Testing):
 
     def test_make_collected_colls(self):
         """ Ensure that the json manuscript notes file is correctly loaded."""
-        print(self.nemo.collected_colls)
         self.assertIn(['urn:cts:formulae:marculf.form000.lat001', 'Latein', ('lat', '001')],
                       [x[1] for x in self.nemo.collected_colls['urn:cts:formulae:flavigny_paris']],
                       'Collected collections should have loaded correctly.')
