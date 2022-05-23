@@ -180,9 +180,9 @@ def r_save_page():
     url = url_parse(request.referrer)
     if form.validate_on_submit():
         if url.netloc != url_parse(request.root_url).netloc:
-            flash(_('Dieses URL ist nicht Teil der Werkstatt.'))
+            flash(_('Diese URL ist nicht Teil der Werkstatt.'))
             return redirect(url_for('InstanceNemo.r_index'))
-        page = SavedPage(name=form.name.data, url='?'.join([url.path, url.query]), user_id=user_id)
+        page = SavedPage(name=form.name.data or url.path, url='?'.join([url.path, url.query]), user_id=user_id)
         db.session.add(page)
         db.session.commit()
         flash(_('Seite gespeichert.'))
@@ -213,6 +213,5 @@ def r_remove_page(page_id):
     page = SavedPage.query.get(int(page_id))
     db.session.delete(page)
     db.session.commit()
-    flash(_('Seite aus dem Konto entfernt.'))
-    page_list = [p for p in current_user.pages]
-    return current_app.config['nemo_app'].render(template='auth::saved_pages.html', title=_('Gespeicherte Seiten'), pages=page_list, url=dict())
+    flash(_('Seite nicht mehr gespeichert.'))
+    return redirect(url_for('.r_saved_pages'))

@@ -2,14 +2,20 @@
 {% block title %}Formulae - Litterae - Chartae: {{ title }}{% endblock %}
 
 {% block article %}
-    <article class="container-fluid" id="login-article">
+    <article class="container-fluid">
     <header><h1>{{ title }}</h1></header>
     <div class="row">
-        <div class="col">
-        {% for page in pages %}
-        <p><a href="{{ page.url }}" title="{{ _('Zu dieser Seite') }}">{{ page.name }}</a> ({{ page.timestamp.date() }}) <a href="{{ url_for('auth.r_remove_page', page_id=page.id) }}">{{ _('Entfernen') }}</p>
-        {% endfor %}
+        <div class="col-4">
+        {% if pages %}
+            <table class="table table-sm table-bordered">
+            {% for page in pages %}
+                <tr><td><a class="internal-link" href="{{ page.url }}">{{ page.name }}</a></td><td>{{ page.timestamp.date() }}</td><td><a class="internal-link" href="{{ url_for('auth.r_remove_page', page_id=page.id) }}">{{ _('Aus der Liste entfernen') }}</td></tr>
+            {% endfor %}
+            </table>
+        {% else %}
+        <p>{{ _('Keine gespeicherte Seiten') }}</p>
+        {% endif %}
         </div>
-</div>
+    </div>
 </article>
 {% endblock %}
