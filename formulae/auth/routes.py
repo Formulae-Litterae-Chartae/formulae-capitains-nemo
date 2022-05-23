@@ -177,15 +177,42 @@ def r_save_page():
     """
     user_id = current_user.id
     form = AddSavedPageForm()
-    url = request.referrer
+    url = url_parse(request.referrer)
     if form.validate_on_submit():
-        print(request.root_url)
-        if url_parse(url).netloc != url_parse(request.root_url).netloc:
+        if url.netloc != url_parse(request.root_url).netloc:
             flash(_('Dieses URL ist nicht Teil der Werkstatt.'))
             return redirect(url_for('InstanceNemo.r_index'))
-        page = SavedPage(name=form.name.data, url=url, user_id=user_id)
+        page = SavedPage(name=form.name.data, url='?'.join([url.path, url.query]), user_id=user_id)
         db.session.add(page)
         db.session.commit()
         flash(_('Seite gespeichert.'))
-        return redirect(url)
+        return redirect(page.url)
     return current_app.config['nemo_app'].render(template='auth::save_page.html', title=_('Diese Seite speichern'), form=form, url=dict())
+
+
+@bp.route("/saved_pages", methods=['GET'])
+@login_required
+def r_saved_pages():
+    """ Route for users to retrieve the saved pages from their user account
+
+    :return: template, form
+    """
+    page_list = [p for p in current_user.pages]
+    return current_app.config['nemo_app'].render(template='auth::saved_pages.html', title=_('Gespeicherte Seiten'), pages=page_list, url=dict())
+
+
+
+
+@bp.route("/remove_page/<page_id>", methods=['GET'])
+@login_required
+def r_remove_page(page_id):
+    """ Route for users to retrieve the saved pages from their user account
+
+    :return: template, form
+    """
+    page = SavedPage.query.get(int(page_id))
+    db.session.delete(page)
+    db.session.commit()
+    flash(_('Seite aus dem Konto entfernt.'))
+    page_list = [p for p in current_user.pages]
+    return current_app.config['nemo_app'].render(template='auth::saved_pages.html', title=_('Gespeicherte Seiten'), pages=page_list, url=dict())

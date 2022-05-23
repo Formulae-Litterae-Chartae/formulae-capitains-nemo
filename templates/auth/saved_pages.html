@@ -1,0 +1,15 @@
+{% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ title }}{% endblock %}
+
+{% block article %}
+    <article class="container-fluid" id="login-article">
+    <header><h1>{{ title }}</h1></header>
+    <div class="row">
+        <div class="col">
+        {% for page in pages %}
+        <p><a href="{{ page.url }}" title="{{ _('Zu dieser Seite') }}">{{ page.name }}</a> ({{ page.timestamp.date() }}) <a href="{{ url_for('auth.r_remove_page', page_id=page.id) }}">{{ _('Entfernen') }}</p>
+        {% endfor %}
+        </div>
+</div>
+</article>
+{% endblock %}
