@@ -141,6 +141,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:p16a',
                         'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
+                        'urn:cts:formulae:pippin_3',
                         'urn:cts:formulae:redon',
                         'urn:cts:formulae:regensburg',
                         'urn:cts:formulae:rheinisch',
