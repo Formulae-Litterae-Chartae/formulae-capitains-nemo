@@ -1,10 +1,10 @@
 [
   {
-    "took": 11,
+    "took": 5,
     "timed_out": false,
     "_shards": {
-      "total": 60,
-      "successful": 60,
+      "total": 61,
+      "successful": 61,
       "skipped": 0,
       "failed": 0
     },
@@ -16,13 +16,13 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v6",
+          "_index": "buenden_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
             "text": "– – a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
             "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 24",
             "keywords": "",
@@ -30,7 +30,7 @@
             "date_string": "(769–813 [813]) 04 20",
             "comp_ort": " ",
             "autocomplete": "– – a quem dimisit filio suo Rofino et agrum in Pulueraria modios IIII, confinat da supra in Uia mediana, da subtus medium in sancti Iohannis et medium in ipsius Baseli; alium agrum super Salubrium modios VIII, confinat da subtus in ipsa Uia mediana, da supra in Aurelii coloni et da una parte in sancti Martini, da alia in sancti Iohannis. Et sic statuit coram testibus, ut ab omni homine defensatum sit, et si aliquis exinde minuere voluerit, si ipsa terrola defendere non potuerit, de suo proprio illi restituat, qui eum conpellet, ea tamen condicione, ut dum advivo ego Baselius vel uxor me Laurencia, actor sancti Helarii pro benediccione debeat nobis donare per singulas kalendas modium semis de grano, post obitum vero nostrum, quod superius intuli ad prefatum sanctum locum pro remedium anime nostre sit in perpetuo. Et si, quod absit, aliter reiudicare voluero, inanis sit posterior factus meus, sed cartula ista maneat inconvulsa. Et si quis, quod fieri non credimus, si aliquis aliquando de heredibus vel pro heredibus meis vel quodlibet persona contra hanc cartula donacionis ire temtare vel inrumpere voluerit, sit scumunicatus ab ipsa loca sancta et solvat iudici, qui eo tempore fuerit dubla pecunia, et cartula ista firma permaneat Aquiliani Archaciani legis stipulacionis subnixa, qui omnium cartarum adcommodat firmitatem. Facta cartula in civitate Curia, sub regnum domni nostri Charoli gloriosissimi regis, sub die, quod est XV kl. madii, sub presenciarum bonorum virorum testium, qui ab eo rogiti venerunt vel signa fecerunt, Notavi diem et regnum superscripsi. Signum Baselii et filii sui Rofini, qui haec fieri rogaverunt testes. Signum Seffonis filii Prestanti testes. Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum Uuiliarentis testes. Signum Crespionis testes. Signum Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei vocatus presbiter ad vice Pettonis presbiteri scripsi et suscripsi.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
             "orig_comp_ort": " ",
             "collection": "buenden",
@@ -312,15 +312,15 @@
             "min_date": "0769-04-20",
             "max_date": "0813-04-20",
             "days": [
-              "Sunday",
-              "Thursday",
-              "Easter",
-              "Lent",
-              "Wednesday",
+              "Monday",
               "Saturday",
-              "Friday",
+              "Easter",
+              "Sunday",
+              "Lent",
               "Tuesday",
-              "Monday"
+              "Wednesday",
+              "Friday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -330,13 +330,13 @@
           ]
         },
         {
-          "_index": "buenden_v6",
+          "_index": "buenden_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
             "text": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
             "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 27",
             "keywords": "",
@@ -344,7 +344,7 @@
             "date_string": "(769–800 [813]) 03 31",
             "comp_ort": " ",
             "autocomplete": "–– ant sin autem voluerint traditum sit ad ipsa ecclesia super scripta; item pratum in Lasine honera VI, confinat de supra in Theudoranes, dabtus in sancti Petri; alium pratum a Sanguinetum honus I, confinat da una parte in Canilias, da alia in via; agrum a Tonbeclo modios II, confinat in Scolchengus, da alia in sancti Petri; alium agrum modios a Tomba maiore, confinat da una parte in Martini, de alia in Lubuciones magistri; alium agrum in Tedo, modios III, confinat da una parte in Pauli, de alia in Scolchengo; agrum in Cercene modios II, confinat da una parte in Bannentes, da alia in Santuli; et de ipsa super scripta terrola dum advivo usum fructum mihi reservo, post obitum vero meum volo, ut revertat ad supra scripta ecclesia sancti Helarii pro remediu animae meae, seu patris mei Uiuenti necnon et matris mei Alpinanis et volo, ut in perpetuo ibi permaniat. Et si quis, quod fieri non credimus, ut aliquis aliquando de heredes vel pro heredes seu subposita presona contra hanc concessione vel donacione ire temptare vel recausare voluerit in ira trinitatis incurrat et ab omni ecclesie sancto alienatus fiat et super solvat iudici publico uncias III nihilominus et quod repetit, nullum obtineat affectum et donacio ista intemerata permaneat Aquiliani Archaciani legis stibulacionis subnixa, qui omnium cartarum accomodat firmitate. Facta donacio in loco Fortunes, sub presencia virorum testium sub regnum domni nostri Caroli regis, Sub die, quod est pridie kl. aprilis. Notavi diem et regnum superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri rogaverunt testes. Signum Uiuenti maiores testes, Signum Uigili scavenzii testes. Signum Massones testes. Signum Orsacii testes. Signum Paulini saltarii testes. Signum Exuberii testes. Ego Orsacius licet indignus presbiter a vice Augustani diaconis scripsi et suscripsi.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
             "orig_comp_ort": " ",
             "collection": "buenden",
@@ -554,15 +554,15 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
-              "Sunday",
-              "Thursday",
+              "Monday",
+              "Saturday",
               "Easter",
+              "Sunday",
+              "Tuesday",
               "Lent",
               "Wednesday",
-              "Saturday",
               "Friday",
-              "Tuesday",
-              "Monday"
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -572,13 +572,13 @@
           ]
         },
         {
-          "_index": "freising_v6",
+          "_index": "freising_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
           "_score": null,
           "_source": {
             "text": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus, qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt. His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum: Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII. Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi.",
-            "lemmas": null,
+            "lemmas": "",
             "regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren frühere Schenkung.",
             "title": "Die Traditionen des Hochstifts Freising (Ed. Bitterauf), Nr. 465",
             "keywords": "",
@@ -586,7 +586,7 @@
             "date_string": "822 04 13",
             "comp_ort": "Freising",
             "autocomplete": "RENOVATIO UUAGONI CAPELLANI. Constat enim multis in episcopio sanctae Mariae conversantibus, qualiter Uuago capellanus traditiones iam olim actas a patre vel matre ipsius seu etiam fratre quorum nomina Toto, Oaspurc, Scrot pariterque et Uuago que ad suam partem pertinebat omnia ex integro eo tempore habentia quae eis legitime in propriam hereditatem pertinere videbatur domui sanctae Mariae communi manu firmiter tradiderunt et cum veraces testibus confirmaverunt. His vero defunctis Uuago superstis exstitit et has quattour partes a defensore sanctae Mariae in beneficium accepit ad augmentandum et meliorandum, non in nullo minuendum aut distrahendum. Ita et actum, gratias deo, in omnibus apparet. Nunc vero ammonente divina gratia in proximo paschalis die quod erat id. aprilis veniens ad virum venerabilem Hittonem episcopum ita ut iam diximus ante acta renovavit et interim adquisita omnia in omnibus legitime tradidit et quicquid deinceps adipisci potuisset omnia prumpta voluntate promisit, domui sanctae Mariae in propriam hereditatem adunare et firma stabilitate permanere, hoc erat in mancipiis et territoriis cultis vel incultis tam terra aravile quam etiam pratas silvasque bene aptas inter totum iurnales plus minus CCCC. Haec nomina mancipiorum: Ellanker, Heriperht, Peraheri, Hiruz, Adalhelm, Cotescalh, Engilscalh, Liupman, Uuirdilo, Liupheri, Deotheri, Huno, Zeizzo, Hrodbart, Deotheri, Lantfrid, Deotolt, Richuni, Managolt, Adaluuih, Cunduuih, Keruuih, Reginuuih, Uuerducha, Hrodflat, Zeizflat, Moatflat, Ratdrud, Ricpirc, Hiltipirc, Rekingund, Teorsuuind, Purgunt, Kerpurc, Hilticund. Haec nomina testium: Liutprant. Crimheri. Toto. Uuillihelm. Cundhart. Sigipald. Kiso. Reginhoh. Sulman. Uuolfperht. Hruadperht. Erchanolf. Cozolt. Oadalhart. Heriperht. Unalaheri. Arhart. Irminfrid. Drudmunt. Frumolt. Hruadrit. Lantrih. Engilhart. Arahad. Putilo. Isaac. Adalgrim. Tato. Irminperht. Salucho. Mahtperht. Uuillihelm. Petto. Eparheri. Diudolf. Kerhoh. Kunheri. Sigiuuart. Asolt. Reginolt. Hiltiuuart. Deotrih. Isker. Reginperht. Kepahoh. Kauo. Egilrih. Reginpald. Alpheri. Durinc. Hatto. Uuisurih. Liutker. Tetti. Adalperht. Kaganhart. Uuago. Cotafrid. Snelhart. Egino. Actum est enim haec die consule quod facit id. aprilis anno gloriosi Hludiuuici imperatoris octavo indictione XIIII. Ego indignus Tagaperhtus presbiter conscripsi iussione domni Hittonis episcopi.",
-            "autocomplete_lemmas": null,
+            "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren frühere Schenkung.",
             "orig_comp_ort": "(Freising)",
             "collection": "freising",
@@ -615,7 +615,7 @@
           ]
         },
         {
-          "_index": "katalonien_v6",
+          "_index": "katalonien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
           "_score": null,
@@ -785,15 +785,15 @@
             "min_date": "0912-01-10",
             "max_date": "0912-12-12",
             "days": [
-              "Sunday",
-              "Thursday",
+              "Monday",
+              "Saturday",
               "Easter",
+              "Sunday",
+              "Tuesday",
               "Wednesday",
               "Lent",
-              "Saturday",
               "Friday",
-              "Tuesday",
-              "Monday"
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -803,7 +803,7 @@
           ]
         },
         {
-          "_index": "katalonien_v6",
+          "_index": "katalonien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
           "_score": null,
@@ -841,8 +841,8 @@
             "min_date": "0919-04-19",
             "max_date": "0919-04-25",
             "days": [
-              "Sunday",
               "Monday",
+              "Sunday",
               "Easter",
               "Lent"
             ],
@@ -854,7 +854,7 @@
           ]
         },
         {
-          "_index": "katalonien_v6",
+          "_index": "katalonien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
           "_score": null,
@@ -897,7 +897,7 @@
           ]
         },
         {
-          "_index": "katalonien_v6",
+          "_index": "katalonien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
           "_score": null,
@@ -940,7 +940,7 @@
           ]
         },
         {
-          "_index": "katalonien_v6",
+          "_index": "katalonien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
           "_score": null,
@@ -983,7 +983,7 @@
           ]
         },
         {
-          "_index": "katalonien_v6",
+          "_index": "katalonien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
           "_score": null,
@@ -1026,7 +1026,7 @@
           ]
         },
         {
-          "_index": "katalonien_v6",
+          "_index": "katalonien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
           "_score": null,
@@ -1069,7 +1069,7 @@
           ]
         },
         {
-          "_index": "katalonien_v6",
+          "_index": "katalonien_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1760.lat001",
           "_score": null,
@@ -1112,7 +1112,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner0384.lat001",
           "_score": null,
@@ -1156,10 +1156,10 @@
             "min_date": "0766-04-19",
             "max_date": "0768-04-19",
             "days": [
-              "Saturday",
               "Sunday",
               "Easter",
-              "Tuesday"
+              "Tuesday",
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -1169,7 +1169,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner0516.lat001",
           "_score": null,
@@ -1212,7 +1212,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner0617.lat001",
           "_score": null,
@@ -1255,7 +1255,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner0923.lat001",
           "_score": null,
@@ -1298,7 +1298,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner0982.lat001",
           "_score": null,
@@ -1341,7 +1341,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner0989.lat001",
           "_score": null,
@@ -1384,7 +1384,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner1240.lat001",
           "_score": null,
@@ -2106,15 +2106,15 @@
             "min_date": "0765-04-17",
             "max_date": "0880-04-17",
             "days": [
-              "Sunday",
-              "Thursday",
-              "Easter",
-              "Wednesday",
-              "Lent",
+              "Monday",
               "Saturday",
-              "Friday",
+              "Easter",
+              "Sunday",
+              "Lent",
+              "Wednesday",
               "Tuesday",
-              "Monday"
+              "Friday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -2124,7 +2124,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner1241.lat001",
           "_score": null,
@@ -2846,15 +2846,15 @@
             "min_date": "0765-04-18",
             "max_date": "0880-04-18",
             "days": [
-              "Sunday",
-              "Thursday",
-              "Easter",
-              "Lent",
-              "Wednesday",
+              "Monday",
               "Saturday",
-              "Friday",
+              "Easter",
+              "Sunday",
+              "Lent",
               "Tuesday",
-              "Monday"
+              "Wednesday",
+              "Friday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -2864,7 +2864,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner1261.lat001",
           "_score": null,
@@ -2950,14 +2950,14 @@
             "min_date": "0769-04-22",
             "max_date": "0778-04-22",
             "days": [
-              "Sunday",
-              "Thursday",
-              "Easter",
-              "Wednesday",
+              "Monday",
               "Saturday",
-              "Friday",
+              "Easter",
+              "Sunday",
               "Tuesday",
-              "Monday"
+              "Wednesday",
+              "Friday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -2967,7 +2967,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner1492.lat001",
           "_score": null,
@@ -3053,15 +3053,15 @@
             "min_date": "0769-04-18",
             "max_date": "0778-04-18",
             "days": [
-              "Sunday",
-              "Thursday",
-              "Easter",
-              "Wednesday",
-              "Lent",
+              "Monday",
               "Saturday",
-              "Friday",
+              "Easter",
+              "Sunday",
+              "Lent",
               "Tuesday",
-              "Monday"
+              "Wednesday",
+              "Friday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -3071,7 +3071,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner1683.lat001",
           "_score": null,
@@ -3114,7 +3114,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner1853.lat001",
           "_score": null,
@@ -3157,7 +3157,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner1987.lat001",
           "_score": null,
@@ -3231,13 +3231,13 @@
             "min_date": "0779-04-23",
             "max_date": "0786-04-23",
             "days": [
-              "Sunday",
-              "Easter",
-              "Wednesday",
+              "Monday",
               "Saturday",
-              "Friday",
+              "Easter",
+              "Sunday",
               "Tuesday",
-              "Monday"
+              "Wednesday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -3247,7 +3247,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner2941.lat001",
           "_score": null,
@@ -3327,15 +3327,15 @@
             "min_date": "0805-04-13",
             "max_date": "0813-04-13",
             "days": [
-              "Sunday",
-              "Thursday",
+              "Monday",
+              "Saturday",
               "Easter",
+              "Sunday",
+              "Tuesday",
               "Lent",
               "Wednesday",
-              "Saturday",
               "Friday",
-              "Tuesday",
-              "Monday"
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -3345,7 +3345,7 @@
           ]
         },
         {
-          "_index": "lorsch_v6",
+          "_index": "lorsch_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:lorsch.gloeckner3728.lat001",
           "_score": null,
@@ -3388,7 +3388,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v6",
+          "_index": "merowinger1_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
           "_score": null,
@@ -3431,7 +3431,7 @@
           ]
         },
         {
-          "_index": "redon_v6",
+          "_index": "redon_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:redon.courson0040.lat001",
           "_score": null,
@@ -3505,13 +3505,13 @@
             "min_date": "0859-04-22",
             "max_date": "0866-04-22",
             "days": [
-              "Sunday",
-              "Thursday",
-              "Easter",
-              "Wednesday",
+              "Monday",
               "Saturday",
+              "Easter",
+              "Sunday",
               "Tuesday",
-              "Monday"
+              "Wednesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -3521,7 +3521,7 @@
           ]
         },
         {
-          "_index": "salzburg_v6",
+          "_index": "salzburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
           "_score": null,
@@ -3564,7 +3564,7 @@
           ]
         },
         {
-          "_index": "salzburg_v6",
+          "_index": "salzburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
           "_score": null,
@@ -3607,7 +3607,7 @@
           ]
         },
         {
-          "_index": "salzburg_v6",
+          "_index": "salzburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
           "_score": null,
@@ -3650,7 +3650,7 @@
           ]
         },
         {
-          "_index": "salzburg_v6",
+          "_index": "salzburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
           "_score": null,
@@ -3693,7 +3693,7 @@
           ]
         },
         {
-          "_index": "salzburg_v6",
+          "_index": "salzburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
           "_score": null,
@@ -3736,7 +3736,7 @@
           ]
         },
         {
-          "_index": "salzburg_v6",
+          "_index": "salzburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
           "_score": null,
@@ -3779,7 +3779,7 @@
           ]
         },
         {
-          "_index": "stgallen_v6",
+          "_index": "stgallen_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:stgallen.wartmann0440.lat001",
           "_score": null,
@@ -3822,7 +3822,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v6",
+          "_index": "weissenburg_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0266.lat001",
           "_score": null,
@@ -3865,7 +3865,7 @@
           ]
         },
         {
-          "_index": "zuerich_v6",
+          "_index": "zuerich_v13",
           "_type": "_doc",
           "_id": "urn:cts:formulae:zuerich.escher0113.lat001",
           "_score": null,

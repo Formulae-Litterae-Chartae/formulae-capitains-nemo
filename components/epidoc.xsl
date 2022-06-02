@@ -43,49 +43,55 @@
         <!-- I may need to add the ability to strip space from <p> tags if this produces too much space once we start exporting form CTE -->
         <!--<xsl:if test="not(preceding-sibling::node()[1][self::text()])">
             <xsl:text> </xsl:text>
-        </xsl:if> -->       
-        <xsl:element name="span">
-            <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
-            <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
-                <xsl:if test="contains(parent::t:seg/@rend, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
-                <xsl:if test="contains(parent::t:seg/@type, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
-                <xsl:if test="contains(parent::t:seg/@type, 'platzhalter')"><xsl:text> platzhalter</xsl:text></xsl:if>
-                <xsl:if test="contains(parent::t:seg/@type, 'latin-word')"><xsl:text> latin-word</xsl:text></xsl:if>
-                <xsl:if test="@type='latin-word'"><xsl:text> latin-word</xsl:text></xsl:if>
-                <xsl:if test="contains(parent::t:seg/@type, 'small-caps')"><xsl:text> small-caps</xsl:text></xsl:if>
-                <xsl:if test="contains(parent::t:seg/@type, 'line-through')"><xsl:text> line-through</xsl:text></xsl:if>
-                <xsl:if test="contains(parent::t:seg/@type, 'superscript')"><xsl:text> superscript</xsl:text></xsl:if>
-                <xsl:if test="contains(parent::t:seg/@type, 'subscript')"><xsl:text> subscript</xsl:text></xsl:if>
-                <xsl:if test="contains(parent::t:seg/@type, 'smaller-text')"><xsl:text> smaller-text</xsl:text></xsl:if>
-                <xsl:if test="parent::t:label"> formulae-label</xsl:if>
-                </xsl:attribute>
-            <xsl:if test="@lemma">
-                <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
-            </xsl:if>
-            <xsl:if test="@n">
-                <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
-            </xsl:if>
-            <xsl:if test="current()[@lemmaRef]">
-                <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
-                <xsl:attribute name="tabindex">0</xsl:attribute>
-                <xsl:attribute name="role">button</xsl:attribute>
-                <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
-            </xsl:if>
-            <xsl:if test="contains(parent::t:seg/@type, 'latin-word')">
-                <xsl:attribute name="lang"><xsl:text>la</xsl:text></xsl:attribute>
-            </xsl:if>
-            <xsl:if test="current()[@type]">
-                <xsl:choose>
-                    <xsl:when test="@type='latin-word'">
-                        <xsl:attribute name="lang">la</xsl:attribute>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:if>
-            <xsl:apply-templates/>
-        </xsl:element>
+        </xsl:if> -->     
+        <xsl:param name="wTag"/>
+        <xsl:choose>
+            <xsl:when test="following-sibling::*[1][self::t:note[@place='right']//*[starts-with(text(), '[fol')]] and not($wTag)"></xsl:when>
+            <xsl:otherwise>
+                <xsl:element name="span">
+                    <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
+                    <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
+                        <xsl:if test="contains(parent::t:seg/@rend, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
+                        <xsl:if test="contains(parent::t:seg/@type, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
+                        <xsl:if test="contains(parent::t:seg/@type, 'platzhalter')"><xsl:text> platzhalter</xsl:text></xsl:if>
+                        <xsl:if test="contains(parent::t:seg/@type, 'latin-word')"><xsl:text> latin-word</xsl:text></xsl:if>
+                        <xsl:if test="@type='latin-word'"><xsl:text> latin-word</xsl:text></xsl:if>
+                        <xsl:if test="contains(parent::t:seg/@type, 'small-caps')"><xsl:text> small-caps</xsl:text></xsl:if>
+                        <xsl:if test="contains(parent::t:seg/@type, 'line-through')"><xsl:text> line-through</xsl:text></xsl:if>
+                        <xsl:if test="contains(parent::t:seg/@type, 'superscript')"><xsl:text> superscript</xsl:text></xsl:if>
+                        <xsl:if test="contains(parent::t:seg/@type, 'subscript')"><xsl:text> subscript</xsl:text></xsl:if>
+                        <xsl:if test="contains(parent::t:seg/@type, 'smaller-text')"><xsl:text> smaller-text</xsl:text></xsl:if>
+                        <xsl:if test="parent::t:label"> formulae-label</xsl:if>
+                        </xsl:attribute>
+                    <xsl:if test="@lemma">
+                        <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
+                    </xsl:if>
+                    <xsl:if test="@n">
+                        <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
+                    </xsl:if>
+                    <xsl:if test="current()[@lemmaRef]">
+                        <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
+                        <xsl:attribute name="tabindex">0</xsl:attribute>
+                        <xsl:attribute name="role">button</xsl:attribute>
+                        <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
+                    </xsl:if>
+                    <xsl:if test="contains(parent::t:seg/@type, 'latin-word')">
+                        <xsl:attribute name="lang"><xsl:text>la</xsl:text></xsl:attribute>
+                    </xsl:if>
+                    <xsl:if test="current()[@type]">
+                        <xsl:choose>
+                            <xsl:when test="@type='latin-word'">
+                                <xsl:attribute name="lang">la</xsl:attribute>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:if>
+                    <xsl:apply-templates/>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
     
     <xsl:template match="t:pc">
@@ -317,26 +323,52 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:param>
-        <xsl:element name="sup">
-            <xsl:element name="a">
-                <xsl:attribute name="class">note</xsl:attribute>
-                <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
-                <xsl:attribute name="href"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
-                <xsl:attribute name="role">button</xsl:attribute>
-                <xsl:attribute name="aria-expanded">false</xsl:attribute>
-                <xsl:attribute name="aria-controls"><xsl:value-of select="generate-id()"/></xsl:attribute>
-                <xsl:attribute name="text-urn"><xsl:value-of select="translate(/t:TEI/t:text/t:body/t:div[1]/@n, ':.', '--')"/></xsl:attribute>
-                <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
-                <xsl:value-of select="$note_num"/>
+        <xsl:choose>
+            <xsl:when test="@place='right' and .//*[starts-with(text(), '[fol')]">
                 <xsl:element name="span">
-                    <xsl:attribute name="hidden">true</xsl:attribute>
-                    <xsl:apply-templates mode="noteSegs"></xsl:apply-templates>
+                    <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
+                    <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
+                    <xsl:attribute name="data-html">true</xsl:attribute>
+                    <xsl:attribute name="title"></xsl:attribute>
+                    <xsl:attribute name="class">btn btn-link px-0 right-note-tooltip text-body</xsl:attribute>
+                    <xsl:attribute name="tabindex">0</xsl:attribute>
+                    <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
+                    <xsl:element name="span">
+                        <xsl:attribute name="hidden">true</xsl:attribute>
+                        <xsl:attribute name="class">tooltipTitle</xsl:attribute>
+                        <xsl:apply-templates mode="noteSegs"></xsl:apply-templates>
+                    </xsl:element>
+                    <xsl:apply-templates select="preceding-sibling::node()[1]"><xsl:with-param name="wTag">true</xsl:with-param></xsl:apply-templates>
                 </xsl:element>
-            </xsl:element>
-            <xsl:if test="following-sibling::*[1][self::t:note]">
-                <xsl:text>/</xsl:text>
-            </xsl:if>
-        </xsl:element>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:element name="sup">
+                    <xsl:element name="a">
+                        <xsl:attribute name="class">note</xsl:attribute>
+                        <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
+                        <xsl:attribute name="href"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
+                        <xsl:attribute name="role">button</xsl:attribute>
+                        <xsl:attribute name="aria-expanded">false</xsl:attribute>
+                        <xsl:attribute name="aria-controls"><xsl:value-of select="generate-id()"/></xsl:attribute>
+                        <xsl:attribute name="text-urn"><xsl:value-of select="translate(/t:TEI/t:text/t:body/t:div[1]/@n, ':.', '--')"/></xsl:attribute>
+                        <xsl:attribute name="type"><xsl:value-of select="@type"/></xsl:attribute>
+                        <xsl:value-of select="$note_num"/>
+                        <xsl:element name="span">
+                            <xsl:attribute name="hidden">true</xsl:attribute>
+                            <xsl:apply-templates mode="noteSegs"></xsl:apply-templates>
+                        </xsl:element>
+                    </xsl:element>
+                    <xsl:if test="following-sibling::*[1][self::t:note]">
+                        <xsl:text>/</xsl:text>
+                    </xsl:if>
+                </xsl:element>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="node()[self::text()][following-sibling::node()[1][self::t:note[@place='right']]]">
+        <xsl:param name="wTag"/>
+        <xsl:if test="$wTag"><xsl:value-of select="."/></xsl:if>
     </xsl:template>
     
     <!-- I don't think there will be any more anchors in the next conversion, at least none without notes associated with them. So I think I can probably delete this template. -->
@@ -495,7 +527,11 @@
     
     <xsl:template match="t:row">
         <xsl:element name="tr">
-            <xsl:if test="@style='text-center'"><xsl:attribute name="class">text-center</xsl:attribute></xsl:if>
+            <xsl:attribute name="class">
+                <xsl:if test="@style='text-center'">text-center</xsl:if>
+                <xsl:if test="@n='siglen-row'"> font-weight-bold</xsl:if>
+                <xsl:if test="@n='small-text-row'"> small-text-row</xsl:if>
+            </xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>

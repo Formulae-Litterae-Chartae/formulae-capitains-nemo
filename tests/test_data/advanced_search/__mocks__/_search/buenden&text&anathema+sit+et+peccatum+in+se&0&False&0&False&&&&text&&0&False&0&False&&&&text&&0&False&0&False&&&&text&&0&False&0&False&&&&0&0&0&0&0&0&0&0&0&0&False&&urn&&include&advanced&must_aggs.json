@@ -1,7 +1,7 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 1383,
+      "doc_count": 24,
       "forgeries": {
         "doc_count": 0
       },
@@ -14,9 +14,6 @@
             "doc_count": 0
           },
           "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
-            "doc_count": 0
-          },
-          "<b>Arnulfinger</b>: Arnulfinger": {
             "doc_count": 0
           },
           "<b>Auvergne</b>: Auvergne": {
@@ -59,7 +56,7 @@
             "doc_count": 0
           },
           "<b>Freising</b>: Freising": {
-            "doc_count": 1383
+            "doc_count": 0
           },
           "<b>Fulda</b>: Fulda (Dronke)": {
             "doc_count": 0
@@ -71,12 +68,21 @@
             "doc_count": 0
           },
           "<b>Graubünden</b>: Bünden": {
+            "doc_count": 24
+          },
+          "<b>Herrscherurkunden</b>: Arnulfinger": {
+            "doc_count": 0
+          },
+          "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo": {
+            "doc_count": 0
+          },
+          "<b>Herrscherurkunden</b>: Ludwig II.": {
+            "doc_count": 0
+          },
+          "<b>Herrscherurkunden</b>: Merowinger": {
             "doc_count": 0
           },
           "<b>Hersfeld</b>: Hersfeld": {
-            "doc_count": 0
-          },
-          "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
             "doc_count": 0
           },
           "<b>Lorsch</b>: Lorsch": {
@@ -86,9 +92,6 @@
             "doc_count": 0
           },
           "<b>Marculf</b>: Marculf": {
-            "doc_count": 0
-          },
-          "<b>Merowinger</b>: Merowinger": {
             "doc_count": 0
           },
           "<b>Mondsee</b>: Mondsee": {
@@ -206,7 +209,7 @@
             "from_as_string": "0002",
             "to": -46420214400000.0,
             "to_as_string": "0499",
-            "doc_count": 0
+            "doc_count": 1
           },
           {
             "key": "500-599",
@@ -230,7 +233,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 181
+            "doc_count": 11
           },
           {
             "key": "800-899",
@@ -238,7 +241,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 861
+            "doc_count": 8
           },
           {
             "key": "900-999",
@@ -246,7 +249,7 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 331
+            "doc_count": 4
           },
           {
             "key": ">1000",
@@ -257,7 +260,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 2
+        "doc_count": 0
       }
     },
     "forgeries": {
@@ -272,9 +275,6 @@
           "doc_count": 0
         },
         "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
-          "doc_count": 0
-        },
-        "<b>Arnulfinger</b>: Arnulfinger": {
           "doc_count": 0
         },
         "<b>Auvergne</b>: Auvergne": {
@@ -329,12 +329,21 @@
           "doc_count": 0
         },
         "<b>Graubünden</b>: Bünden": {
+          "doc_count": 1
+        },
+        "<b>Herrscherurkunden</b>: Arnulfinger": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Ludwig II.": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Merowinger": {
           "doc_count": 0
         },
         "<b>Hersfeld</b>: Hersfeld": {
-          "doc_count": 0
-        },
-        "<b>Langobarden</b>: Codice Diplomatico Longobardo": {
           "doc_count": 0
         },
         "<b>Lorsch</b>: Lorsch": {
@@ -344,9 +353,6 @@
           "doc_count": 0
         },
         "<b>Marculf</b>: Marculf": {
-          "doc_count": 0
-        },
-        "<b>Merowinger</b>: Merowinger": {
           "doc_count": 0
         },
         "<b>Mondsee</b>: Mondsee": {
@@ -488,7 +494,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 0
+          "doc_count": 1
         },
         {
           "key": "800-899",

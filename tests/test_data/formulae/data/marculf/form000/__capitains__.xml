@@ -31,6 +31,7 @@
             <dct:created>2020-02-14</dct:created>
             <dct:bibliographicCitation>Marculf I Prolog (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-14, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:marculf.form000.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
+            <dct:references>P&lt;span class="subscript smaller-text"&gt;12&lt;/span&gt;, P&lt;span class="subscript smaller-text"&gt;3&lt;/span&gt;&lt;span class="verso-recto"&gt; &lt;/span&gt;**&lt;b&gt;Lin&lt;/b&gt;: Praefatio; &lt;b&gt;Zeu&lt;/b&gt;: Praefatio; &lt;b&gt;Udd&lt;/b&gt;: Praefatio</dct:references>
          </structured-metadata>
       </collection>
    </members>

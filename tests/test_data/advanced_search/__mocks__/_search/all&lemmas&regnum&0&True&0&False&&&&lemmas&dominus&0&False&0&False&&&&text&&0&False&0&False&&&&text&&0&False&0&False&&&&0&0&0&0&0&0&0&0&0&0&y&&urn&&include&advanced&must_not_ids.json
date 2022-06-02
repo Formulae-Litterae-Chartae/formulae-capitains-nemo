@@ -21,9 +21,30 @@
     "id": "urn:cts:formulae:marculf.form1_040.lat001"
   },
   {
+    "id": "urn:cts:formulae:marculf.form3_3_002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.form027.lat001"
+  },
+  {
     "id": "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001"
   },
   {
     "id": "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2197.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3515.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3534.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3574.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_martin_tours.giraud1542.lat001"
   }
 ]

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:flavigny.form1_010</identifier>
+   <parent>urn:cts:formulae:flavigny</parent>
+   <dc:title xml:lang="deu">10</dc:title>
+   <dc:type>cts:work</dc:type>
+   <members>
+      <collection path="../../ko2/23v24r/__capitains__.xml"
+                  identifier="urn:cts:formulae:ko2.23v24r"/>
+      <collection readable="true" path="./flavigny.form1_010.lat001.xml">
+         <identifier>urn:cts:formulae:flavigny.form1_010.lat001</identifier>
+         <parent>urn:cts:formulae:flavigny.form1_010</parent>
+         <dc:title xml:lang="deu">Flavigny 10 (lat)</dc:title>
+         <dc:language>lat</dc:language>
+         <dc:type>cts:edition</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <dc:description xml:lang="deu"/>
+         <structured-metadata>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2022-05-02</dct:created>
+            <dct:bibliographicCitation>Flavigny 10 (lat), Formulae-Litterae-Chartae Projekt. Hamburg 2022-05-02, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:flavigny.form1_010.lat001/passage/all]</dct:bibliographicCitation>
+            <dct:abstract xml:lang="deu"/>
+            <dct:isVersionOf/>
+         </structured-metadata>
+      </collection>
+      <collection readable="true" path="./flavigny.form1_010.deu001.xml">
+         <identifier>urn:cts:formulae:flavigny.form1_010.deu001</identifier>
+         <parent>urn:cts:formulae:flavigny.form1_010</parent>
+         <dc:title xml:lang="deu">Flavigny 10 (deu)</dc:title>
+         <dc:language>deu</dc:language>
+         <dc:type>cts:translation</dc:type>
+         <dc:contributor>Prof. Dr. Philippe Depreux (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Christoph Walther (Universität Hamburg)</dc:contributor>
+         <dc:contributor>Dr. Matthew Munson (Universität Hamburg)</dc:contributor>
+         <dc:publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</dc:publisher>
+         <dc:format>application/tei+xml</dc:format>
+         <dc:source>Formulae - Litterae - Chartae Projekt, Hamburg</dc:source>
+         <dc:description xml:lang="deu"/>
+         <structured-metadata>
+            <bib:editor>Christoph Walther</bib:editor>
+            <dct:created>2022-05-02</dct:created>
+            <dct:bibliographicCitation>Flavigny 10 (deu), Formulae-Litterae-Chartae Projekt. Hamburg 2022-05-02, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:flavigny.form1_010.deu001/passage/all]</dct:bibliographicCitation>
+            <dct:abstract xml:lang="deu"/>
+            <dct:isVersionOf/>
+         </structured-metadata>
+      </collection>
+      <collection path="../../p3/147rb147va/__capitains__.xml"
+                  identifier="urn:cts:formulae:p3.147rb147va"/>
+   </members>
+</collection>

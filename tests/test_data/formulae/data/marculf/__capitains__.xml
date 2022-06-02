@@ -19,5 +19,6 @@
          identifier="urn:cts:formulae:marculf.2_capitula"/>
       <collection path="./1_incipit/__capitains__.xml"
          identifier="urn:cts:formulae:marculf.1_incipit"/>
+      <collection path="./form2_011/__capitains__.xml" identifier="urn:cts:formulae:marculf.form2_011"/>
    </members>
 </collection>

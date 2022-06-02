@@ -285,43 +285,48 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                         for pos in positions[q_words[0]]:
                             index_range = range(max(pos - search_range_start - 1, 0), pos + search_range_end + 1)
                             used_q_words = {q_words[0]}
-                            span = {pos}
+                            matching_positions = [[pos]]
+                            # This now works for 'non est incognetum' in Angers 5 'HIC EST Dum non est incognetum'
+                            # Need to write a test for it
                             for w in q_words[1:]:
+                                this_pos = list()
                                 for next_pos in positions[w]:
-                                    if next_pos in index_range and next_pos not in span:
-                                        span.add(next_pos)
+                                    if next_pos in index_range and next_pos not in this_pos:
+                                        this_pos.append(next_pos)
                                         used_q_words.add(w)
-                                        break
-                            compare_true = True
-                            if query_terms['compare_term']:
-                                compare_true = False
-                                for position in span:
-                                    if highlight_offsets[query_terms['compare_field']][position][-1] in query_terms['compare_term'] + [x for y in query_terms['compare_term'] for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
-                                        compare_true = True
-                                        break
-                            if set(q_words) == used_q_words and len(span) == len(q_words) and compare_true:
-                                ordered_span = sorted(span)
-                                if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(query_terms['slop']):
-                                    hit_highlight_positions.append(ordered_span)
-                                    start_offsets = [highlight_offsets[highlight_field][x][0] for x in ordered_span]
-                                    end_offsets = [highlight_offsets[highlight_field][x][1] - 1 for x in ordered_span]
-                                    start_index = highlight_offsets[highlight_field][max(0, ordered_span[0] - 10)][0]
-                                    end_index = highlight_offsets[highlight_field][min(len(highlight_offsets[highlight_field]) - 1, ordered_span[-1] + 10)][1] + 1
-                                    sentence = ''
-                                    for i, x in enumerate(text[start_index:end_index]):
-                                        if i + start_index in start_offsets and i + start_index in end_offsets:
-                                            sentence += PRE_TAGS + x + POST_TAGS
-                                        elif i + start_index in start_offsets:
-                                            sentence += PRE_TAGS + x
-                                        elif i + start_index in end_offsets:
-                                            sentence += x + POST_TAGS
-                                        else:
-                                            sentence += x
-                                    marked_sent = Markup(sentence)
-                                    if marked_sent not in sentences:
-                                        sentences.append(marked_sent)
-                                        sentence_spans.append(range(max(0, ordered_span[0] - 10),
-                                                                    min(len(highlight_offsets[highlight_field]), ordered_span[-1] + 11)))
+                                matching_positions.append(this_pos)
+                            for span in product(*matching_positions):
+                                span = set(span)
+                                compare_true = True
+                                if query_terms['compare_term']:
+                                    compare_true = False
+                                    for position in span:
+                                        if highlight_offsets[query_terms['compare_field']][position][-1] in query_terms['compare_term'] + [x for y in query_terms['compare_term'] for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
+                                            compare_true = True
+                                            break
+                                if set(q_words) == used_q_words and len(span) == len(q_words) and compare_true:
+                                    ordered_span = sorted(span)
+                                    if (ordered_span[-1] - ordered_span[0]) - (len(ordered_span) - 1) <= int(query_terms['slop']):
+                                        hit_highlight_positions.append(ordered_span)
+                                        start_offsets = [highlight_offsets[highlight_field][x][0] for x in ordered_span]
+                                        end_offsets = [highlight_offsets[highlight_field][x][1] - 1 for x in ordered_span]
+                                        start_index = highlight_offsets[highlight_field][max(0, ordered_span[0] - 10)][0]
+                                        end_index = highlight_offsets[highlight_field][min(len(highlight_offsets[highlight_field]) - 1, ordered_span[-1] + 10)][1] + 1
+                                        sentence = ''
+                                        for i, x in enumerate(text[start_index:end_index]):
+                                            if i + start_index in start_offsets and i + start_index in end_offsets:
+                                                sentence += PRE_TAGS + x + POST_TAGS
+                                            elif i + start_index in start_offsets:
+                                                sentence += PRE_TAGS + x
+                                            elif i + start_index in end_offsets:
+                                                sentence += x + POST_TAGS
+                                            else:
+                                                sentence += x
+                                        marked_sent = Markup(sentence)
+                                        if marked_sent not in sentences:
+                                            sentences.append(marked_sent)
+                                            sentence_spans.append(range(max(0, ordered_span[0] - 10),
+                                                                        min(len(highlight_offsets[highlight_field]), ordered_span[-1] + 11)))
                     else:
                         terms = highlighted_words
                         positions = set()
