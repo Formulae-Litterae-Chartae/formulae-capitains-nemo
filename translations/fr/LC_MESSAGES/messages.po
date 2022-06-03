@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-05-18 13:25+0200\n"
+"POT-Creation-Date: 2022-06-02 13:53+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -14,7 +14,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: formulae/__init__.py:21 tests/test_routes.py:255
+#: formulae/__init__.py:21 tests/test_routes.py:255 tests/test_routes.py:435
+#: tests/test_routes.py:439 tests/test_routes.py:443
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Veuillez vous connecter pour accéder à cette page."
 
@@ -22,101 +23,101 @@ msgstr "Veuillez vous connecter pour accéder à cette page."
 msgid "Der Viewer konnte nicht gestartet werden."
 msgstr ""
 
-#: formulae/nemo.py:190
+#: formulae/nemo.py:192
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:190
+#: formulae/nemo.py:192
 msgid "Deutsch"
 msgstr "Allemand"
 
-#: formulae/nemo.py:190
+#: formulae/nemo.py:192
 msgid "Französisch"
 msgstr "Français"
 
-#: formulae/nemo.py:191
+#: formulae/nemo.py:193
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:191
+#: formulae/nemo.py:193
 msgid "Katalanisch"
 msgstr ""
 
-#: formulae/nemo.py:191
+#: formulae/nemo.py:193
 msgid "Italienisch"
 msgstr ""
 
-#: formulae/nemo.py:437 formulae/nemo.py:484 formulae/nemo.py:889
+#: formulae/nemo.py:439 formulae/nemo.py:486 formulae/nemo.py:892
 msgid "(Titel)"
 msgstr "(Titre)"
 
-#: formulae/nemo.py:464 formulae/nemo.py:486
+#: formulae/nemo.py:466 formulae/nemo.py:488
 msgid "(Prolog)"
 msgstr ""
 
-#: formulae/nemo.py:656
+#: formulae/nemo.py:658
 msgid ""
 "Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt "
 "wird, dann laden Sie die Seite neu."
 msgstr ""
 
-#: formulae/nemo.py:814 formulae/nemo.py:911 formulae/nemo.py:1058
-#: formulae/nemo.py:1121 tests/test_routes.py:281 tests/test_routes.py:300
+#: formulae/nemo.py:817 formulae/nemo.py:914 formulae/nemo.py:1061
+#: formulae/nemo.py:1124 tests/test_routes.py:281 tests/test_routes.py:300
 #: tests/test_routes.py:314 tests/test_routes.py:331 tests/test_routes.py:334
-#: tests/test_routes.py:344 tests/test_routes.py:694 tests/test_routes.py:705
-#: tests/test_routes.py:710 tests/test_routes.py:741 tests/test_routes.py:744
+#: tests/test_routes.py:344 tests/test_routes.py:722 tests/test_routes.py:733
+#: tests/test_routes.py:738 tests/test_routes.py:769 tests/test_routes.py:772
 msgid "Diese Sammlung ist nicht öffentlich zugänglich."
 msgstr ""
 
-#: formulae/nemo.py:909 tests/test_routes.py:337 tests/test_routes.py:747
+#: formulae/nemo.py:912 tests/test_routes.py:337 tests/test_routes.py:775
 msgid ""
 "Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte "
 "gegebenenfalls die Homepage der Bibliothek."
 msgstr ""
 
-#: formulae/nemo.py:943 templates/main/multipassage.html:170
+#: formulae/nemo.py:946 templates/main/multipassage.html:170
 #: templates/main/multipassage.html:314 templates/main/multipassage.html:496
 #: templates/main/sub_collection.html:86 templates/search/part_results.html:94
 #: templates/search/search.html:162
 msgid "Edition"
 msgstr ""
 
-#: formulae/nemo.py:943 templates/main/multipassage.html:175
+#: formulae/nemo.py:946 templates/main/multipassage.html:175
 #: templates/main/multipassage.html:319 templates/main/multipassage.html:501
 msgid "Übersetzung"
 msgstr ""
 
-#: formulae/nemo.py:1055 tests/test_routes.py:483
+#: formulae/nemo.py:1058 tests/test_routes.py:495
 msgid "Diese View ist nur für Formelsammlungen verfuegbar"
 msgstr ""
 
-#: formulae/nemo.py:1239 formulae/viewer/routes.py:18 tests/test_routes.py:564
-#: tests/test_routes.py:567
+#: formulae/nemo.py:1242 formulae/viewer/routes.py:18 tests/test_routes.py:576
+#: tests/test_routes.py:579
 msgid " hat keine Edition."
 msgstr ""
 
-#: formulae/nemo.py:1248
+#: formulae/nemo.py:1251
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr "Aucun résultat trouvé. Le texte complet est affiché."
 
-#: formulae/nemo.py:1444 tests/test_routes.py:362 tests/test_routes.py:365
-#: tests/test_routes.py:368 tests/test_routes.py:546 tests/test_routes.py:753
+#: formulae/nemo.py:1447 tests/test_routes.py:362 tests/test_routes.py:365
+#: tests/test_routes.py:368 tests/test_routes.py:558 tests/test_routes.py:781
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr "Au moins un texte que vous souhaitez afficher n'est pas disponible."
 
-#: formulae/nemo.py:1598 tests/test_routes.py:406
+#: formulae/nemo.py:1601 tests/test_routes.py:406
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr ""
 
-#: formulae/nemo.py:1606
+#: formulae/nemo.py:1609
 msgid "Heruntergeladen: "
 msgstr ""
 
-#: formulae/auth/email.py:9 tests/test_routes.py:1977
+#: formulae/auth/email.py:9 tests/test_routes.py:2018
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Réinitialiser le mot de passe"
 
-#: formulae/auth/email.py:18 tests/test_routes.py:1991
+#: formulae/auth/email.py:18 tests/test_routes.py:2032
 msgid "[Formulae - Litterae - Chartae] Emailadresse ändern"
 msgstr ""
 
@@ -200,29 +201,42 @@ msgstr "Langue par défault"
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:60 tests/test_routes.py:1895
+#: formulae/auth/forms.py:60 tests/test_routes.py:1936
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Veuillez choisir un autre nom d'utilisateur."
 
-#: formulae/auth/forms.py:65 tests/test_routes.py:1897
+#: formulae/auth/forms.py:65 tests/test_routes.py:1938
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Veuillez choisir une autre adresse e-mail."
 
+#: formulae/auth/forms.py:69 formulae/auth/routes.py:190
+#: templates/main/navbar.html:22
+msgid "Diese Seite speichern"
+msgstr ""
+
+#: formulae/auth/forms.py:70
+msgid "Name"
+msgstr ""
+
+#: formulae/auth/forms.py:71
+msgid "Seite speichern"
+msgstr ""
+
 #: formulae/auth/routes.py:20 formulae/auth/routes.py:156
-#: tests/test_routes.py:507 tests/test_routes.py:681 tests/test_routes.py:684
-#: tests/test_routes.py:737
+#: tests/test_routes.py:519 tests/test_routes.py:709 tests/test_routes.py:712
+#: tests/test_routes.py:765
 msgid "Sie sind schon eingeloggt."
 msgstr "Vous êtes déjà connecté(e)."
 
-#: formulae/auth/routes.py:26 tests/test_routes.py:1923
+#: formulae/auth/routes.py:26 tests/test_routes.py:1964
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
-#: formulae/auth/routes.py:59 tests/test_routes.py:2097
+#: formulae/auth/routes.py:59 tests/test_routes.py:2138
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "Ceci n'est pas votre mot de passe actuel."
 
-#: formulae/auth/routes.py:64 tests/test_routes.py:2083
+#: formulae/auth/routes.py:64 tests/test_routes.py:2124
 msgid "Sie haben Ihr Passwort erfolgreich geändert."
 msgstr "Vous avez réussi à changer votre mot de passe."
 
@@ -230,18 +244,18 @@ msgstr "Vous avez réussi à changer votre mot de passe."
 msgid "Sie haben Ihre Benutzersprache erfolgreich geändert."
 msgstr "Vous avez réussi à changer la langue par défault."
 
-#: formulae/auth/routes.py:76 tests/test_routes.py:1997
+#: formulae/auth/routes.py:76 tests/test_routes.py:2038
 msgid ""
 "Ein Link zur Bestätigung dieser Änderung wurde an Ihre neue Emailadresse "
 "zugeschickt"
 msgstr ""
 
-#: formulae/auth/routes.py:80 templates/main/navbar.html:15
+#: formulae/auth/routes.py:80 templates/main/navbar.html:18
 msgid "Benutzerprofil ändern"
 msgstr "Changer le profil d’utilisateur"
 
 #: formulae/auth/routes.py:93 formulae/auth/routes.py:113
-#: tests/test_routes.py:677 tests/test_routes.py:2031
+#: tests/test_routes.py:705 tests/test_routes.py:2072
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
 msgstr "Vous êtes déjà connecté(e). Vous pouvez changer votre mot de passe ici."
 
@@ -249,8 +263,8 @@ msgstr "Vous êtes déjà connecté(e). Vous pouvez changer votre mot de passe i
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Vous avez réussi à réinitialiser votre mot de passe."
 
-#: formulae/auth/routes.py:120 tests/test_routes.py:1983
-#: tests/test_routes.py:2008
+#: formulae/auth/routes.py:120 tests/test_routes.py:2024
+#: tests/test_routes.py:2049
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
@@ -258,33 +272,50 @@ msgstr ""
 "L'instruction pour réinitialiser votre mot de passe vous a été envoyée "
 "par e-mail"
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:2055
+#: formulae/auth/routes.py:137 tests/test_routes.py:2096
 msgid "Der Token ist nicht gültig. Versuchen Sie es erneut."
 msgstr ""
 
-#: formulae/auth/routes.py:140 tests/test_routes.py:2052
+#: formulae/auth/routes.py:140 tests/test_routes.py:2093
 msgid "Ihre Emailaddresse wurde nicht geändert. Versuchen Sie es erneut."
 msgstr ""
 
-#: formulae/auth/routes.py:145 tests/test_routes.py:2048
+#: formulae/auth/routes.py:145 tests/test_routes.py:2089
 msgid "Ihr Email wurde erfolgreich geändert. Sie lautet jetzt"
 msgstr ""
 
-#: formulae/auth/routes.py:166 tests/test_routes.py:1964
+#: formulae/auth/routes.py:166 tests/test_routes.py:2005
 msgid "Sie sind nun registriert."
 msgstr "Vous êtes désormais enregistré(e)."
+
+#: formulae/auth/routes.py:183 tests/test_routes.py:678
+#: tests/test_routes.py:811
+msgid "Diese URL ist nicht Teil der Werkstatt."
+msgstr ""
+
+#: formulae/auth/routes.py:188
+msgid "Seite gespeichert."
+msgstr ""
+
+#: formulae/auth/routes.py:201 templates/main/navbar.html:25
+msgid "Gespeicherte Seiten"
+msgstr ""
+
+#: formulae/auth/routes.py:216
+msgid "Seite nicht mehr gespeichert."
+msgstr ""
 
 #: formulae/errors/handlers.py:6
 msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "L'URL cherchée n'a pas éte trouvée."
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:11758
+#: tests/test_routes.py:11799
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "Une erreur inattendue s'est produite."
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:11759
+#: tests/test_routes.py:11800
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -296,16 +327,16 @@ msgstr ""
 msgid "Zurück zur Startseite"
 msgstr "Retour à la page principale"
 
-#: formulae/search/Search.py:369
+#: formulae/search/Search.py:370
 msgid "Regest nicht zugänglich."
 msgstr ""
 
-#: formulae/search/Search.py:385
+#: formulae/search/Search.py:386
 msgid "Text nicht zugänglich."
 msgstr ""
 
-#: formulae/search/Search.py:666 tests/test_routes.py:10758
-#: tests/test_routes.py:10771
+#: formulae/search/Search.py:667 tests/test_routes.py:10799
+#: tests/test_routes.py:10812
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -364,7 +395,7 @@ msgstr ""
 #: formulae/search/forms.py:44 formulae/search/forms.py:63
 #: formulae/search/forms.py:81 formulae/search/forms.py:99
 #: formulae/search/forms.py:117 formulae/search/routes.py:241
-#: templates/main/container.html:140
+#: templates/main/container.html:157
 msgid "Suche"
 msgstr "Recherche"
 
@@ -375,7 +406,7 @@ msgstr "Corpus"
 
 #: formulae/search/forms.py:45 formulae/search/forms.py:136
 #: templates/main/multipassage.html:210 templates/main/multipassage.html:355
-#: templates/main/multipassage.html:537 templates/main/navbar.html:19
+#: templates/main/multipassage.html:537 templates/main/navbar.html:32
 #: templates/main/sub_collections.html:15
 msgid "Formeln"
 msgstr "Formules"
@@ -387,7 +418,7 @@ msgstr "Chartes"
 #: formulae/search/forms.py:46 formulae/search/forms.py:137
 #: templates/main/elex_collection.html:16 templates/main/multipassage.html:211
 #: templates/main/multipassage.html:356 templates/main/multipassage.html:538
-#: templates/main/navbar.html:33 templates/search/advanced_search.html:51
+#: templates/main/navbar.html:46 templates/search/advanced_search.html:51
 msgid "Lexikon"
 msgstr "Lexique"
 
@@ -481,7 +512,7 @@ msgstr ""
 msgid "Ausschlusskriterium"
 msgstr ""
 
-#: formulae/search/forms.py:135 templates/main/container.html:141
+#: formulae/search/forms.py:135 templates/main/container.html:158
 #: templates/search/advanced_search.html:20
 msgid "Alle"
 msgstr "Tous"
@@ -492,7 +523,7 @@ msgid "Jahr"
 msgstr "Année"
 
 #: formulae/search/forms.py:139 formulae/search/forms.py:150
-#: formulae/search/forms.py:163 tests/test_routes.py:1211
+#: formulae/search/forms.py:163 tests/test_routes.py:1253
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "L'année doit se situer entre 500 et 1000."
 
@@ -672,26 +703,26 @@ msgstr ""
 msgid "Suche Durchführen"
 msgstr ""
 
-#: formulae/search/routes.py:118 tests/test_routes.py:1847
-#: tests/test_routes.py:10833
+#: formulae/search/routes.py:118 tests/test_routes.py:1888
+#: tests/test_routes.py:10874
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")."
 msgstr ""
 
-#: formulae/search/routes.py:118 tests/test_routes.py:10834
+#: formulae/search/routes.py:118 tests/test_routes.py:10875
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr "Les résultats pour \"Formules\" et \"Chartes\" sont affichés ici. "
 
-#: formulae/search/routes.py:121 tests/test_routes.py:10844
+#: formulae/search/routes.py:121 tests/test_routes.py:10885
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr "La recherche facile nécessite seulement un mot de recherche."
 
-#: formulae/search/routes.py:315 tests/test_routes.py:1214
+#: formulae/search/routes.py:315 tests/test_routes.py:1256
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Veuillez remplir au moins un champ."
 
-#: formulae/search/routes.py:365 tests/test_routes.py:11103
+#: formulae/search/routes.py:365 tests/test_routes.py:11144
 msgid "Keine Suchergebnisse zum Herunterladen."
 msgstr ""
 
@@ -797,7 +828,7 @@ msgid "Suchergebnisse"
 msgstr "Résultats de la recherche"
 
 #: formulae/viewer/routes.py:29 tests/test_routes.py:400
-#: tests/test_routes.py:763
+#: tests/test_routes.py:791
 msgid "Diese Formelsammlung ist noch nicht frei zugänglich."
 msgstr ""
 
@@ -817,8 +848,16 @@ msgstr "Nouvel(le) utilisateur(trice)?"
 msgid "Klicken Sie hier"
 msgstr "Cliquez ici"
 
+#: templates/auth/saved_pages.html:12
+msgid "Aus der Liste entfernen"
+msgstr ""
+
+#: templates/auth/saved_pages.html:16
+msgid "Keine gespeicherte Seiten"
+msgstr ""
+
 #: templates/email/reset_email.html:1 templates/email/reset_password.html:1
-#: tests/test_routes.py:1979 tests/test_routes.py:1993
+#: tests/test_routes.py:2020 tests/test_routes.py:2034
 msgid "Sehr geehrte(r)"
 msgstr "Cher/Chère"
 
@@ -895,11 +934,11 @@ msgid "Zurück"
 msgstr "Retour"
 
 #: templates/main/accessibility_statement.html:2
-#: templates/main/container.html:106
+#: templates/main/container.html:123
 msgid "Erklärung zur Barrierefreiheit"
 msgstr ""
 
-#: templates/main/bibliography.html:6 templates/main/navbar.html:62
+#: templates/main/bibliography.html:6 templates/main/navbar.html:75
 msgid "Bibliographie"
 msgstr "Bibliographie"
 
@@ -912,79 +951,79 @@ msgid "Textsammlungen"
 msgstr "Collections de textes"
 
 #: templates/main/contact.html:2 templates/main/contact.html:7
-#: templates/main/container.html:102
+#: templates/main/container.html:119
 msgid "Kontakt"
 msgstr "Contact"
 
-#: templates/main/container.html:76
+#: templates/main/container.html:93
 msgid "Suche Läuft"
 msgstr ""
 
-#: templates/main/container.html:87
+#: templates/main/container.html:104
 msgid "Suche unterbrechen"
 msgstr ""
 
-#: templates/main/container.html:101
+#: templates/main/container.html:118
 msgid "Impressum"
 msgstr ""
 
-#: templates/main/container.html:104
+#: templates/main/container.html:121
 msgid "Barrierefreiheit"
 msgstr ""
 
-#: templates/main/container.html:107
+#: templates/main/container.html:124
 msgid "Barrieren melden"
 msgstr ""
 
-#: templates/main/container.html:124
+#: templates/main/container.html:141
 msgid "Ein Suchterminus ist erforderlich."
 msgstr ""
 
-#: templates/main/container.html:127
+#: templates/main/container.html:144
 msgid "Mehr zeigen"
 msgstr "Afficher plus"
 
-#: templates/main/container.html:128
+#: templates/main/container.html:145
 msgid "Weniger zeigen"
 msgstr "Afficher moins"
 
-#: templates/main/container.html:129
+#: templates/main/container.html:146
 msgid "Apparatus"
 msgstr ""
 
-#: templates/main/container.html:130
+#: templates/main/container.html:147
 msgid "Kommentar"
 msgstr ""
 
-#: templates/main/container.html:131
+#: templates/main/container.html:148
 msgid "Alle Apparatusanmerkungen für diesen Text ausblenden"
 msgstr ""
 
-#: templates/main/container.html:132
+#: templates/main/container.html:149
 msgid "Alle Apparatusanmerkungen für diesen Text einblenden"
 msgstr ""
 
-#: templates/main/container.html:133
+#: templates/main/container.html:150
 msgid "Alle Kommentaranmerkungen für diesen Text ausblenden"
 msgstr ""
 
-#: templates/main/container.html:134
+#: templates/main/container.html:151
 msgid "Alle Kommentaranmerkungen für diesen Text einblenden"
 msgstr ""
 
-#: templates/main/container.html:135
+#: templates/main/container.html:152
 msgid "Texte unabhängig von einander scrollen."
 msgstr ""
 
-#: templates/main/container.html:137
+#: templates/main/container.html:154
 msgid "Texte zusammen scrollen."
 msgstr ""
 
-#: templates/main/container.html:139
+#: templates/main/container.html:156
 msgid "Eintrag zu "
 msgstr ""
 
-#: templates/main/container.html:139
+#: templates/main/container.html:156
 msgid " im Elexikon lesen"
 msgstr ""
 
@@ -1016,7 +1055,7 @@ msgid "letzter Aufruf:"
 msgstr "Dernier appel"
 
 #: templates/main/feedback.html:2 templates/main/feedback.html:7
-#: templates/main/navbar.html:65
+#: templates/main/navbar.html:78
 msgid "Feedback"
 msgstr ""
 
@@ -1191,10 +1230,10 @@ msgid ""
 "Manche Teile der Werkstatt funktionieren nicht mit dem Internet Explorer."
 " Wir empfehlen einen moderneren Browser wie Firefox, Chrome, Safari oder "
 "Microsoft Edge. JavaScript ist ebenfalls zentral für verschiedene "
-"Funktionen. Wenn Sie einen Ad-Blocker oder ähnliche Software benutzen, "
-"könnte dies zu beschränkter Funktionalität der Werkstatt führen. "
-"Normalerweise kann solche Software für einzelne, vertraute Webseiten "
-"ausgeschaltet werden."
+"Funktionen. Wenn Sie einen Ad-Blocker oder eine ähnliche Software "
+"benutzen, könnte dies zu beschränkter Funktionalität der Werkstatt "
+"führen. Normalerweise kann solche Software für einzelne, vertraute "
+"Webseiten ausgeschaltet werden."
 msgstr ""
 
 #: templates/main/lexicon.html:4
@@ -1434,11 +1473,12 @@ msgstr ""
 msgid "Über das Projekt"
 msgstr "A propos"
 
-#: templates/main/navbar.html:15
-msgid "ausloggen"
+#: templates/main/navbar.html:26
+#, fuzzy
+msgid "Ausloggen"
 msgstr "Déconnexion"
 
-#: templates/main/navbar.html:26 templates/main/navbar.html:43
+#: templates/main/navbar.html:39 templates/main/navbar.html:56
 #: templates/main/sub_collections.html:37
 #: templates/main/sub_collections.html:49
 #: templates/main/sub_collections.html:61
@@ -1447,15 +1487,15 @@ msgstr "Déconnexion"
 msgid "Dieses Corpus ist lemmatisiert"
 msgstr ""
 
-#: templates/main/navbar.html:36 templates/main/sub_collections.html:17
+#: templates/main/navbar.html:49 templates/main/sub_collections.html:17
 msgid "Urkunden + Briefe"
 msgstr ""
 
-#: templates/main/navbar.html:50
+#: templates/main/navbar.html:63
 msgid "Manuskripte"
 msgstr ""
 
-#: templates/main/navbar.html:52
+#: templates/main/navbar.html:65
 msgid "Liste aller Formelhandschriften"
 msgstr ""
 
@@ -2284,11 +2324,11 @@ msgstr ""
 msgid "Zur Seite der erweiterten Suche"
 msgstr ""
 
-#: tests/test_routes.py:1848 tests/test_routes.py:1857
+#: tests/test_routes.py:1889 tests/test_routes.py:1898
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' n'est pas valable pour ce champ de recherche."
 
-#: tests/test_routes.py:1856 tests/test_routes.py:10844
+#: tests/test_routes.py:1897 tests/test_routes.py:10885
 msgid "Dieses Feld wird benötigt."
 msgstr "Ce champ est nécessaire."
 
@@ -3797,6 +3837,21 @@ msgstr "Ce champ est nécessaire."
 #~ "für verschiedene Funktionen. Wenn Sie "
 #~ "einen Ad-Blocker oder ähnliche Software"
 #~ " benutzen, könnte sie zu beschränkter "
+#~ "Funktionalität der Werkstatt führen. "
+#~ "Normalerweise kann solche Software für "
+#~ "einzelne, vertraute Webseiten ausgeschaltet "
+#~ "werden."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Manche Teile der Werkstatt funktionieren "
+#~ "nicht mit dem Internet Explorer. Wir "
+#~ "empfehlen einen moderneren Browser wie "
+#~ "Firefox, Chrome, Safari oder Microsoft "
+#~ "Edge. JavaScript ist ebenfalls zentral "
+#~ "für verschiedene Funktionen. Wenn Sie "
+#~ "einen Ad-Blocker oder ähnliche Software"
+#~ " benutzen, könnte dies zu beschränkter "
 #~ "Funktionalität der Werkstatt führen. "
 #~ "Normalerweise kann solche Software für "
 #~ "einzelne, vertraute Webseiten ausgeschaltet "

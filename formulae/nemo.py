@@ -13,6 +13,7 @@ from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetad
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
 from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
+from formulae.auth.forms import AddSavedPageForm
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
@@ -661,6 +662,7 @@ class NemoFormulae(Nemo):
 
     def before_request(self):
         g.search_form = SearchForm()
+        g.save_page_form = AddSavedPageForm()
         g.sub_colls = self.sub_colls
         g.open_texts = self.open_texts
         g.open_collections = self.OPEN_COLLECTIONS

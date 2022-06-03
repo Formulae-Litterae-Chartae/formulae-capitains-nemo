@@ -1,3 +1,5 @@
+{% import 'bootstrap/wtf.html' as wtf %}
+
 <!DOCTYPE html>
 <html lang="{{ get_locale() }}">
   <head>
@@ -52,6 +54,21 @@
     {% include "main::header.html" %}
     {% include "main::navbar.html" %}
     <main class="container-fluid" id="main-container">
+        <div class="modal" id="savePageModal" tabindex="-1" aria-labelledby="savePageModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="savePageModalLabel">{{ g.save_page_form.title }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{ wtf.quick_form(g.save_page_form, button_map={'submit': 'secondary'}, action=url_for('auth.r_save_page')) }}
+            </div>
+            </div>
+        </div>
+        </div>
     {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
     <div class="row pb-0">
