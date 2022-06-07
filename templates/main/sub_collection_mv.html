@@ -58,6 +58,11 @@
                     {{ values['folia'][loop.index0]|safe }}
                 </div>
                 {% endif %}
+                {% if 'regesten' in values and values['regesten'][loop.index0] %}
+                <div class="small">
+                    {{ values['regesten'][loop.index0]|safe }}
+                </div>
+                {% endif %}
                 <a class="card-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, values['links'][1][loop.index-1]|string, 'manifest:' + values['links'][1][loop.index-1]|string]|join_list_values('+'), subreferences=[prev_reffs, 'all', 'all']|join_list_values('+')) }}">{{ _('Lesen') }}</a>
             </li>
         {% endfor %}
