@@ -4,7 +4,7 @@
 {% macro make_dates(values) %}
 
 {% if values['ausstellungsort'] not in ['None', ''] or values['dating'] not in ['None', ''] %}
-    <p class="mb-0 temp-place">{% if values['dating'] not in ['None', ''] %}{{ _('Datum') }}: {{ values['dating'] }}{% endif %}{% if values['ausstellungsort'] not in ['None', ''] %}{% if values['dating'] not in ['None', ''] %}<br>{% endif %}{{ _('Ausstellungsort') }}: {{ values['ausstellungsort'] }}{% endif %}</p>
+    <p class="mb-0 temp-place">{% if values['dating'] not in ['None', ''] %}{{ _('Datum') }}: {{ values['dating']|safe }}{% endif %}{% if values['ausstellungsort'] not in ['None', ''] %}{% if values['dating'] not in ['None', ''] %}<br>{% endif %}{{ _('Ausstellungsort') }}: {{ values['ausstellungsort']|safe }}{% endif %}</p>
 {% endif %}
     
 {% endmacro %}
