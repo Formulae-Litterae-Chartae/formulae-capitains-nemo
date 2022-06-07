@@ -965,13 +965,16 @@ class NemoFormulae(Nemo):
                     title = str(ed_parent.metadata.get_single(DC.title, lang=lang))
                     form = ed_parent.id
                     edition_name = ed_trans_mapping.get(edition, edition).title()
+                    regest = str(m.metadata.get_single(DCTERMS.abstract))
                     if 'manuscript_collection' in m.ancestors:
                         full_edition = sorted([(k, v) for k, v in m.ancestors.items() if 'manuscript_collection' in v.ancestors])[0][-1]
                         edition_name = str(full_edition.metadata.get_single(self.BIBO.AbbreviatedTitle, lang=lang))
+                        for k, v in ed_parent.readableDescendants.items():
+                            if 'deu001' in k:
+                                regest = str(v.metadata.get_single(DCTERMS.abstract))
                     else:
                         full_edition = sorted([(k, v) for k, v in m.ancestors.items() if 'formulae_collection' in v.ancestors])[0][-1]
                     full_edition_name = str(full_edition.metadata.get_single(DC.title, lang=lang))
-                    regest = str(m.metadata.get_single(DCTERMS.abstract))
 
                     if edition not in translations.keys():
                         titles[edition] = [title]
