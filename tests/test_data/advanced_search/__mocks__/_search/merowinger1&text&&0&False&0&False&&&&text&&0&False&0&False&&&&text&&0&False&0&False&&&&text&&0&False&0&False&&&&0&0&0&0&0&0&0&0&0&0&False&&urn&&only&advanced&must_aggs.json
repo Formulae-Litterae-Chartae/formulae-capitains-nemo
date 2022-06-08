@@ -1,11 +1,13 @@
 {
   "aggregations": {
     "all_docs": {
+      "meta": {},
       "doc_count": 196,
       "forgeries": {
         "doc_count": 118
       },
       "corpus": {
+        "meta": {},
         "buckets": {
           "<b>Angers</b>: Angers": {
             "doc_count": 0
@@ -81,6 +83,9 @@
           },
           "<b>Herrscherurkunden</b>: Merowinger": {
             "doc_count": 196
+          },
+          "<b>Herrscherurkunden</b>: Pippin III": {
+            "doc_count": 0
           },
           "<b>Hersfeld</b>: Hersfeld": {
             "doc_count": 0
@@ -267,6 +272,7 @@
       "doc_count": 118
     },
     "corpus": {
+      "meta": {},
       "buckets": {
         "<b>Angers</b>: Angers": {
           "doc_count": 0
@@ -342,6 +348,9 @@
         },
         "<b>Herrscherurkunden</b>: Merowinger": {
           "doc_count": 118
+        },
+        "<b>Herrscherurkunden</b>: Pippin III": {
+          "doc_count": 0
         },
         "<b>Hersfeld</b>: Hersfeld": {
           "doc_count": 0

@@ -9534,6 +9534,11 @@ class TestES(Formulae_Testing):
         fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
         return fake.load_response()
 
+    def set_corpus(self, old_corpus):
+        if old_corpus in [['all'], 'all']:
+            return ['form_lit_chart']
+        return old_corpus
+
     def build_file_name(self, fake_args):
         for arg in fake_args:
             if 'formulaic_parts' in arg and fake_args[arg] != '':
@@ -9572,7 +9577,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9581,7 +9586,7 @@ class TestES(Formulae_Testing):
         # Test with old args
         mock_search.reset_mock()
         test_args = copy(self.OLD_ARGS['test_date_range_search_same_year'])
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9597,7 +9602,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9606,7 +9611,7 @@ class TestES(Formulae_Testing):
         # Test with old args
         mock_search.reset_mock()
         test_args = copy(self.OLD_ARGS['test_date_range_search_same_month'])
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9622,7 +9627,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9631,7 +9636,7 @@ class TestES(Formulae_Testing):
         # Test with old args
         mock_search.reset_mock()
         test_args = copy(self.OLD_ARGS['test_date_range_search_different_year'])
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9647,7 +9652,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9663,7 +9668,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9679,7 +9684,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9695,7 +9700,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, total, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9716,7 +9721,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9736,7 +9741,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=['all'], doc_type="", body=b)
+            mock_search.assert_any_call(index=['form_lit_chart'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_start_year_and_month(self, mock_search):
@@ -9747,7 +9752,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9763,7 +9768,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9779,7 +9784,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9795,7 +9800,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9811,7 +9816,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9827,7 +9832,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9843,7 +9848,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9859,7 +9864,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9875,7 +9880,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9884,7 +9889,7 @@ class TestES(Formulae_Testing):
         # Test with old args
         mock_search.reset_mock()
         test_args = copy(self.OLD_ARGS['test_multi_corpus_search'])
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9902,7 +9907,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -9912,7 +9917,7 @@ class TestES(Formulae_Testing):
         # Test with old args
         mock_search.reset_mock()
         test_args = copy(self.OLD_ARGS['test_multiword_wildcard_search'])
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q'] = test_args['q'].replace('+', ' ')
         test_args = build_search_args(test_args)
         test_args['query_dict'] = make_query_dict(test_args)
@@ -9932,7 +9937,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -9941,7 +9946,7 @@ class TestES(Formulae_Testing):
         # Test with old args
         mock_search.reset_mock()
         test_args = copy(self.OLD_ARGS['test_lemma_advanced_search'])
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q'] = test_args['q'].replace('+', ' ')
         test_args = build_search_args(test_args)
         test_args['query_dict'] = make_query_dict(test_args)
@@ -9961,7 +9966,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['search_id'] = '1234'
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -9982,7 +9987,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10006,7 +10011,7 @@ class TestES(Formulae_Testing):
                     hit['highlight']['lemmas'] = hit['highlight']['text']
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         test_args['source'] = 'simple'
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10025,7 +10030,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body[0]['query']['bool']['must'][0]['bool']['should'],
@@ -10044,7 +10049,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
@@ -10062,7 +10067,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10087,7 +10092,7 @@ class TestES(Formulae_Testing):
                     del h['highlight']['regest']
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10112,7 +10117,7 @@ class TestES(Formulae_Testing):
                     del h['highlight']['regest']
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
@@ -10147,7 +10152,7 @@ class TestES(Formulae_Testing):
                 new_vector['_id'] = h['_id']
                 vector_return_value['docs'].append(new_vector)
         mock_vectors.return_value = vector_return_value
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
@@ -10166,7 +10171,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10186,7 +10191,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -10204,7 +10209,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -10222,7 +10227,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -10242,7 +10247,7 @@ class TestES(Formulae_Testing):
         responses.append(aggs)
         mock_search.side_effect = cycle(responses)
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10265,7 +10270,7 @@ class TestES(Formulae_Testing):
         mock_vectors.return_value = self.term_vectors
         sents = [{'sents':
                       [Markup('seu Irminpald condiderunt, simili modo ad Pipurc quem Rihheri et </small><strong>Uuolfhart</strong><small> </small><strong>cum</strong><small> sociis construxerunt in anno XXXI. regni domni Tassilonis inlustrissimi ducis ')]}]
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10288,7 +10293,7 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = cycle(responses)
         mock_vectors.side_effect = self.vector_side_effect
         sents = [Markup('fuerit, pro episcopalis officii debito absque molestia uobis prebeant. Sane </small><strong>noualium</strong><small> etc. Quemadmodum autem uos ab omni exactione liberas esse statuimus,')]
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10313,7 +10318,7 @@ class TestES(Formulae_Testing):
         responses.append(aggs)
         mock_search.side_effect = cycle(responses)
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10345,7 +10350,7 @@ class TestES(Formulae_Testing):
                        Markup('Sub die, quod est pridie kl. aprilis. Notavi diem et </small><strong>regnum</strong><small> superscripsi. Signum Uictorini et Felicianes uxoris ipsius, qui haec fieri ')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q'] = 'reg*'
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10365,7 +10370,7 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10384,7 +10389,7 @@ class TestES(Formulae_Testing):
                             Markup('Signum Lobicini presbiteri testes. Signum Seffonis fratris Remedii testes. Signum </small><strong>Uuiliarentis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> </small><strong>Crespionis</strong><small> </small><strong>testes</strong><small>. </small><strong>Signum</strong><small> Donati testes. Signum Gauuenti testes. Ego Orsacius pro misericordia dei ')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10403,7 +10408,7 @@ class TestES(Formulae_Testing):
         sents = [{'sents': [Markup('ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, </small><strong>anathema</strong><small> </small><strong>sit</strong><small> </small><strong>et</strong><small> </small><strong>peccatum</strong><small> </small><strong>in</strong><small> </small><strong>se</strong><small> recipiat et quod repetit nihil obtineat effectum, sed cartula ista ')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10426,7 +10431,7 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('libras III. Facta in Lopiene, mense februarium, anno II regnante </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10449,7 +10454,7 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('libras III. Facta in Lopiene, mense februarium, anno II regnante </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10469,7 +10474,7 @@ class TestES(Formulae_Testing):
                  {'sents': [Markup('Orsacius per misericordiam dei vocatus presbiter a vice Lubucionis diaconi </small><strong>scripsi</strong><small> </small><strong>et</strong><small> </small><strong>suscripsi</strong><small>.')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10486,7 +10491,7 @@ class TestES(Formulae_Testing):
         sents = [{'sents': [Markup('aurum libras III. Facta in Lopiene, mense februarium, anno II </small><strong>regnante</strong><small> </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10503,7 +10508,7 @@ class TestES(Formulae_Testing):
         sents = [{'sents': [Markup('aurum libras III. Facta in Lopiene, mense februarium, anno II </small><strong>regnante</strong><small> </small><strong>Ottone</strong><small> filio Ottonis. Testes: Laurencius, Vigilius, Dominicus, Saluianus, Soluanus, Orsacius, Maginaldus,')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10533,7 +10538,7 @@ class TestES(Formulae_Testing):
                        Markup('donacio in loco Fortunes, sub presencia virorum testium sub regnum </small><strong>domni</strong><small> nostri Caroli </small><strong>regis</strong><small>, Sub die, quod est pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = 'reg* domni'
         test_args['slop_1'] = '3'
         test_args['query_dict'] = make_query_dict(test_args)
@@ -10615,7 +10620,7 @@ class TestES(Formulae_Testing):
                                    'Felicianes uxoris ipsius, qui haec fieri ')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10651,7 +10656,7 @@ class TestES(Formulae_Testing):
                                    'pridie kl. aprilis.')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10687,7 +10692,7 @@ class TestES(Formulae_Testing):
                                    'pridie kl. aprilis.')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10715,7 +10720,7 @@ class TestES(Formulae_Testing):
                 single_response['hits']['hits'][i]['_source']['lemmas'] = single_response['hits']['hits'][i]['_source']['text']
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10748,7 +10753,7 @@ class TestES(Formulae_Testing):
                                    'pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10780,7 +10785,7 @@ class TestES(Formulae_Testing):
                                    'pridie kl. aprilis. Notavi diem et ')]}]
         mock_search.side_effect = self.search_side_effect
         mock_vectors.return_value = self.term_vectors
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10820,7 +10825,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -10860,8 +10865,8 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = ['']
         test_args['query_dict'] = make_query_dict(test_args)
         hits, total, aggs, prev = advanced_query_index(**test_args)
-        self.assertEqual(mock_search.call_args[1]['index'], ['all'],
-                         'Empty string for corpus input should default to ["all"]')
+        self.assertEqual(mock_search.call_args[1]['index'], ['form_lit_chart'],
+                         'Empty string for corpus input should default to ["form_lit_chart"]')
         test_args['corpus'] = ['formulae', 'chartae']
         test_args['q'] = ''
         test_args['query_dict'] = make_query_dict(test_args)
@@ -11091,7 +11096,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         with patch('builtins.open', new_callable=mock_open()) as m:
             with patch('json.dump') as mock_dump:
@@ -11110,7 +11115,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['special_days'] = test_args['special_days'].split('+')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11127,7 +11132,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['special_days'] = test_args['special_days'].split('+')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11155,7 +11160,7 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         mock_open_texts.return_value = True, False
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['special_days'] = [test_args['special_days']]
         self.nemo.open_texts += ['urn:cts:formulae:buenden.meyer-marthaler0027.lat001', 'urn:cts:formulae:mondsee.rath0128.lat001']
         with open('tests/test_data/advanced_search/downloaded_search.pdf', mode='rb') as f:
@@ -11201,7 +11206,7 @@ class TestES(Formulae_Testing):
             self.search_response = cycle(fake.load_response())
             self.search_aggs = fake.load_aggs()
             mock_search.side_effect = self.search_side_effect
-            test_args['corpus'] = test_args['corpus'].split('+')
+            test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
             test_args['special_days'] = [test_args['special_days']]
             url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_download_search_results_regest'].items()])
             c.get('/search/results?source=advanced&' + url_params)
@@ -11219,7 +11224,7 @@ class TestES(Formulae_Testing):
             self.search_response = cycle(resp)
             self.search_aggs = fake.load_aggs()
             mock_search.side_effect = self.search_side_effect
-            test_args['corpus'] = test_args['corpus'].split('+')
+            test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
             test_args['special_days'] = [test_args['special_days']]
             url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_multi_charter_part_search'].items()])
             c.get('/search/results?source=advanced&' + url_params)
@@ -11241,7 +11246,7 @@ class TestES(Formulae_Testing):
                     if 'highlight' in h and 'regest' in h['highlight']:
                         del h['highlight']['regest']
             mock_search.side_effect = self.search_side_effect
-            test_args['corpus'] = test_args['corpus'].split('+')
+            test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
             test_args['special_days'] = [test_args['special_days']]
             url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_charter_part_search_no_q'].items()])
             c.get('/search/results?source=advanced&' + url_params)
@@ -11291,7 +11296,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11309,7 +11314,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11330,7 +11335,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11351,7 +11356,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11372,7 +11377,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11396,7 +11401,7 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         mock_open_texts.return_value = True, True
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11414,7 +11419,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11438,7 +11443,7 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         mock_open_texts.return_value = True, True
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11471,7 +11476,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11489,7 +11494,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11506,7 +11511,7 @@ class TestES(Formulae_Testing):
         self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11522,7 +11527,7 @@ class TestES(Formulae_Testing):
         self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11538,7 +11543,7 @@ class TestES(Formulae_Testing):
         self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11556,7 +11561,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11574,7 +11579,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
@@ -11589,7 +11594,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         expected_sents = [[Markup('</small><strong>Diakone</strong><small> sind bereits bei Paulus bezeugt (Phil. 1, 1) und erscheinen im Neuen Testament als Diener und'),
                            Markup('In der Frühzeit der Kirche wurden </small><strong>Diakone</strong><small> gemeinsam mit den Bischöfen von der Gemeinde gewählt, waren'),
@@ -11614,7 +11619,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11631,7 +11636,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11648,7 +11653,7 @@ class TestES(Formulae_Testing):
         self.search_aggs = fake.load_aggs()
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11667,7 +11672,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11687,7 +11692,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
@@ -11711,7 +11716,7 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         mock_open_texts.return_value = True, False
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['q_3'] = test_args['q_3'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
@@ -11741,7 +11746,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         exp_should_clauses = list()
@@ -11764,7 +11769,7 @@ class TestES(Formulae_Testing):
         ids = fake.load_ids()
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
-        test_args['corpus'] = test_args['corpus'].split('+')
+        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         exp_should_clauses = list()

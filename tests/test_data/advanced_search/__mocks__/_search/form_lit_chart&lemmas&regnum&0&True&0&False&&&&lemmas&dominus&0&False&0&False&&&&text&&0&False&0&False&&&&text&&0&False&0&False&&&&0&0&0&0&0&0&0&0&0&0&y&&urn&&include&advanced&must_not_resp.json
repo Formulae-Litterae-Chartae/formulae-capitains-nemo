@@ -1,0 +1,601 @@
+[
+  {
+    "took": 161,
+    "timed_out": false,
+    "_shards": {
+      "total": 63,
+      "successful": 63,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 41,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "andecavensis_v4",
+          "_id": "urn:cts:formulae:andecavensis.computus.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers Weltzeitalter und computus",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.computus.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.computus.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_017.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,17",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_017.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_017.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_021.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,21",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_021.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_021.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_032.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,32",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_032.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_032.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_033.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,33",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_033.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_033.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_039.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,39",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_039.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_039.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_040.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,40",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_040.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_040.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form3_3_002.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf Ergänzungen 3,2",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form3_3_002.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form3_3_002.lat001"
+          ]
+        },
+        {
+          "_index": "tours_v1",
+          "_id": "urn:cts:formulae:tours.form027.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 27",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form027.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form027.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_serfs_v4",
+          "_id": "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Le livre des serfs de Marmoutier (Ed. Salmon) Appendix, Nr. 17",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001",
+            "date_string": "1056",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_serfs",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1056-01-01",
+                "lte": "1056-12-31"
+              }
+            ],
+            "all_dates": [
+              "1056-01-01",
+              "1056-12-31"
+            ],
+            "min_date": "1056-01-01",
+            "max_date": "1056-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_serfs.salmon0017app.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_vendomois_v4",
+          "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Vendômois (Ed. Trémault) Nr. 62",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001",
+            "date_string": "Vor 1040",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_vendomois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0900-01-01",
+                "lte": "1040-01-01"
+              }
+            ],
+            "all_dates": [
+              "0900-01-01",
+              "1040-01-01"
+            ],
+            "min_date": "0900-01-01",
+            "max_date": "1040-01-01",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001"
+          ]
+        },
+        {
+          "_index": "telma_marmoutier_v1",
+          "_id": "urn:cts:formulae:telma_marmoutier.giraud2197.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 2197",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_marmoutier.giraud2197.lat001",
+            "date_string": "1040",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_marmoutier",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1040-01-01",
+                "lte": "1040-12-31"
+              }
+            ],
+            "all_dates": [
+              "1040-01-01",
+              "1040-12-31"
+            ],
+            "min_date": "1040-01-01",
+            "max_date": "1040-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_marmoutier.giraud2197.lat001"
+          ]
+        },
+        {
+          "_index": "telma_marmoutier_v1",
+          "_id": "urn:cts:formulae:telma_marmoutier.giraud3515.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 3515",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_marmoutier.giraud3515.lat001",
+            "date_string": "1044-08-21",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_marmoutier",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 1044,
+                "month": 8,
+                "day": 21
+              }
+            ],
+            "all_dates": [
+              "1044-08-21"
+            ],
+            "min_date": "1044-08-21",
+            "max_date": "1044-08-21",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_marmoutier.giraud3515.lat001"
+          ]
+        },
+        {
+          "_index": "telma_marmoutier_v1",
+          "_id": "urn:cts:formulae:telma_marmoutier.giraud3534.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 3534",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_marmoutier.giraud3534.lat001",
+            "date_string": "1037-11-15",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_marmoutier",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 1037,
+                "month": 11,
+                "day": 15
+              }
+            ],
+            "all_dates": [
+              "1037-11-15"
+            ],
+            "min_date": "1037-11-15",
+            "max_date": "1037-11-15",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_marmoutier.giraud3534.lat001"
+          ]
+        },
+        {
+          "_index": "telma_marmoutier_v1",
+          "_id": "urn:cts:formulae:telma_marmoutier.giraud3574.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 3574",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_marmoutier.giraud3574.lat001",
+            "date_string": "1037-11-15",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_marmoutier",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 1037,
+                "month": 11,
+                "day": 15
+              }
+            ],
+            "all_dates": [
+              "1037-11-15"
+            ],
+            "min_date": "1037-11-15",
+            "max_date": "1037-11-15",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_marmoutier.giraud3574.lat001"
+          ]
+        },
+        {
+          "_index": "telma_martin_tours_v1",
+          "_id": "urn:cts:formulae:telma_martin_tours.giraud1542.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 1542",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_martin_tours.giraud1542.lat001",
+            "date_string": "949",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_martin_tours",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0949-01-01",
+                "lte": "0949-12-31"
+              }
+            ],
+            "all_dates": [
+              "0949-01-01",
+              "0949-12-31"
+            ],
+            "min_date": "0949-01-01",
+            "max_date": "0949-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_martin_tours.giraud1542.lat001"
+          ]
+        }
+      ]
+    }
+  }
+]

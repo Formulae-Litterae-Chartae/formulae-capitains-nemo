@@ -1,10 +1,10 @@
 [
   {
-    "took": 17,
+    "took": 211,
     "timed_out": false,
     "_shards": {
-      "total": 61,
-      "successful": 61,
+      "total": 63,
+      "successful": 63,
       "skipped": 0,
       "failed": 0
     },
@@ -16,8 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "arnulfinger_v13",
-          "_type": "_doc",
+          "_index": "arnulfinger_v4",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
           "_score": null,
           "_source": {
@@ -48,8 +47,8 @@
             "min_date": "0714-03-02",
             "max_date": "0714-03-02",
             "days": [
-              "Friday",
-              "Lent"
+              "Lent",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -67,8 +66,7 @@
           ]
         },
         {
-          "_index": "echternach_v13",
-          "_type": "_doc",
+          "_index": "echternach_v4",
           "_id": "urn:cts:formulae:echternach.wampach0024.lat001",
           "_score": null,
           "_source": {
@@ -99,8 +97,8 @@
             "min_date": "0714-03-02",
             "max_date": "0714-03-02",
             "days": [
-              "Friday",
-              "Lent"
+              "Lent",
+              "Friday"
             ],
             "sort_prefix": 1
           },

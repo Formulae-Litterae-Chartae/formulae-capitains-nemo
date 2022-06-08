@@ -1,11 +1,13 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 185,
+      "meta": {},
+      "doc_count": 192,
       "forgeries": {
         "doc_count": 0
       },
       "corpus": {
+        "meta": {},
         "buckets": {
           "<b>Angers</b>: Angers": {
             "doc_count": 0
@@ -47,7 +49,7 @@
             "doc_count": 0
           },
           "<b>E-Lexikon</b>": {
-            "doc_count": 185
+            "doc_count": 192
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 0
@@ -80,6 +82,9 @@
             "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Merowinger": {
+            "doc_count": 0
+          },
+          "<b>Herrscherurkunden</b>: Pippin III": {
             "doc_count": 0
           },
           "<b>Hersfeld</b>: Hersfeld": {
@@ -260,13 +265,14 @@
         ]
       },
       "no_date": {
-        "doc_count": 185
+        "doc_count": 192
       }
     },
     "forgeries": {
       "doc_count": 0
     },
     "corpus": {
+      "meta": {},
       "buckets": {
         "<b>Angers</b>: Angers": {
           "doc_count": 0
@@ -341,6 +347,9 @@
           "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Merowinger": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Pippin III": {
           "doc_count": 0
         },
         "<b>Hersfeld</b>: Hersfeld": {

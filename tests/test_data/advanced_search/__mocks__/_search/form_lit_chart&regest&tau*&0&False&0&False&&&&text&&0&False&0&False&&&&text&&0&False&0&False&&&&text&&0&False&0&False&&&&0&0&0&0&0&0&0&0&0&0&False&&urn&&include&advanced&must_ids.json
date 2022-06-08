@@ -1,0 +1,2051 @@
+[
+  {
+    "id": "urn:cts:formulae:andecavensis.form008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form1_030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form2_023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:marculf.form2_024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours.form026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:arnulfinger.heidrich0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:buenden.meyer-marthaler0086.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0017b.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:echternach.wampach0152.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0116.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0267.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0283.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0298.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0671.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0726.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0727.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0729.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0730.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0731.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0733.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0736.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0736.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0737.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0739.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0745.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0746.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0748.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0750.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0751.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0752.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0753.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0753.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0755.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0756.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0757.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0758.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0761.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0762.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0763.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0764.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0765.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0765.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0766.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0768.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0769.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0770.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0771.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0775.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0776.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0777.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0778.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0779.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0780.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0783.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0784.lat003"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0784.lat004"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0786.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0787.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0788.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0789.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0790.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0791.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0792.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0793.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0794.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0796.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0798.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0799.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0800.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0801.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0802.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0803.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0804.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0805.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0806.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0807.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0808.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0811.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0812.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0813.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0814.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0815.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0816.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0817.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0818.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0819.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0820.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0821.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0822.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0823.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0824.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0825.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0826.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0828.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0829.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0830.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0831.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0832.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0833.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0834.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0835.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0836.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0837.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0838.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0840.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0841.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0842.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0843.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0844.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0845.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0846.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0847.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0848.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0849.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0850.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0851.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0853.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0867.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0868.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0869.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0870.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0871.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0872.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0873.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0874.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0875.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0876.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0877.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0878.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0879.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0880.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0881.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0882.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0883.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0883.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0883.lat003"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0884.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0885.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0886.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0890.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0891.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0892.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0894.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0896.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0915.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0916.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0917.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0918.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0919.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0922.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0924.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0925.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0926.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0927.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0928.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0929.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0930.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0931.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0932.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0933.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0934.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0935.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0937.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0939.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0940.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0941.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0942.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0944.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0945.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0946.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0947.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0948.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0949.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0950.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0951.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0952.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0953.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0954.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0956.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0957.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0958.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0959.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0960.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0961.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0962.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0963.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0964.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0965.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0967.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0968.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0969.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0970.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0971.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0972.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0973.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0974.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0975.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0977.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0978.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0979.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0980.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0981.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0982.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0983.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0984.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0985.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0986.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0987.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0988.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0989.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0990.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0991.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0992.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0994.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0995.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0996.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0997.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0998.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf0999.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1000.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1004.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1014.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1017.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1019.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1038.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1041.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1042.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1045.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1046.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1048.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1049.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1051.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1055.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1056.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1057.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1058.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1059.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1060.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1062.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1064.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1065.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1066.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1067.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1068.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1069.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1070.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1071.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1072.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1073.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1074.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1076.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1077.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1078.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1079.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1080.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1083.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1084.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1086.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1091.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1092.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1092.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1094.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1096.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1097.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1098.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1099.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1100.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1105.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1106.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1109.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1110.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1111.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1112.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1113.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1114.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1115.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1116.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1117.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1118.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1119.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1120.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1121.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1122.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1124.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1125.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1126.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1127.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1128.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1129.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1130.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1131.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1132.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1133.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1136.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1137.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1138.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1140.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1141.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1142.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1145.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1146.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1147.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1148.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1149.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1150.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1151.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1152.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1153.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1155.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1156.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1159.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1159.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1160.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1161.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1163.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1164.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1165.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1167.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1168.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1169.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1170.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1172.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1173.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1175.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1176.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1178.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1179.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1180.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1181.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1182.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1184.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1185.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1186.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1187.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1188.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1190.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1191.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1192.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1193.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1194.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1195.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1196.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1197.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1198.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1199.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1200.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1201.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1201.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1202.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1203.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1205.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1206.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1209.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1210.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1211.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1212.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1213.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1214.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1215.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1216.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1217.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1218.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1219.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1220.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1221.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1222.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1223.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1224.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1225.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1227.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1228.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1229.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1230.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1231.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1232.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1233.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1234.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1234.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1236.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1236.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1237.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1238.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1239.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1240.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1242.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1245.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1246.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1247.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1248.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1249.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1250.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1251.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1254.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1255.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1256.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1258.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1259.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1260.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1261.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1262.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1263.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1264.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1266.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1267.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1269.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1270.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1271.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1272.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1273.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1274.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1275.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1276.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1277.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1278.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1280.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1281.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1282.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1283.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1284.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1285.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1286.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1289.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1290.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1291.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1292.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1293.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1294.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1295.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1296.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1297.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1298.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1299.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1300.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1302.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1303.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1304.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1305.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1306.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1307.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1308.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1309.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1310.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1312.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1318.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1319.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1320.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1321.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1323.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1324.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1325.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1327.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1328.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1329.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1330.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1331.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1332.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1333.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1334.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1335.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1336.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1337.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1338.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1339.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1340.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1341.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1342.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1343.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1344.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1345.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1347.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1348.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1349.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1350.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1351.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1352.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1353.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1354.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1355.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1356.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:freising.bitterauf1357.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0097.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0414.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0510.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:fulda_stengel.stengel0513.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0045.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0046.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0048.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0049.lat003"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0049.lat004"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0052.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0060.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0070.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0071.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0079.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0080.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0083.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0084.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0086.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0110.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0116.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:hersfeld.weirich0117.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0737.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:ludwig_2.wanner0067.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:ludwig_2.wanner0076.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:ludwig_2.wanner0084.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:ludwig_2.wanner0085.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:merowinger1.koelzer0050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0043.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0058.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0062.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0065.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0098.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0163.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0166.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mittelrheinisch.beyer0184.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:passau.heuwieser0082.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:passau.heuwieser0086.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:passau.heuwieser0087.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:passau.heuwieser0091.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0038.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0042.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0043.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0045.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0049.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0051.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0052.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0053.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0056.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0058.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0062.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0063.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0064.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0065.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0068.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0069.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0070.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0071.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0076.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0077.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0079.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0082.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0083.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0085.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0088.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0090.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0091.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0092.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0096.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0097.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0099.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0100.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0101.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0103.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0104.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0105.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0106.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0107.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0109.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0109.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0110.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0115.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0116.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0120.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0121.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0122.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0123.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0124.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0128.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0129.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0130.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0131.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0133.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0135.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0140.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0142.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0149.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0152.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0154.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0155.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0156.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0158.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0159.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0165.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0167.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0168.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0169.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0172.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0173.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0174.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0175.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0178.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0182.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0183.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0185.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0186.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0187.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0188.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0189.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0192.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0193.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0202.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0207.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0214.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:regensburg.wiedemann0216.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:rheinisch.wisplinghoff0071.lat002"
+  },
+  {
+    "id": "urn:cts:formulae:rheinisch.wisplinghoff0071.lat003"
+  },
+  {
+    "id": "urn:cts:formulae:salzburg.hauthaler-a0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:salzburg.hauthaler-a0048.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:salzburg.hauthaler-a0051.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:salzburg.hauthaler-e0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:schaeftlarn.weissthanner0029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0308.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0381.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0405.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0427.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0479.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0586.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0587.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0588.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0694.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0708.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:stgallen.wartmann0767.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:weissenburg.gloeckner0041.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:weissenburg.gloeckner0090.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:weissenburg.gloeckner0158.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:zuerich.escher0121.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:zuerich.escher0145.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:zuerich.escher0184.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:zuerich.escher0191.lat001"
+  }
+]
