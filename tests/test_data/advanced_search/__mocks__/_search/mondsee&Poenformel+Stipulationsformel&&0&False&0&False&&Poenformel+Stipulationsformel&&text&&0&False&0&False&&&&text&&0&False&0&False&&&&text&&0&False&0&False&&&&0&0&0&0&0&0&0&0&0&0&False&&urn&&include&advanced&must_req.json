@@ -33,10 +33,10 @@
       "number_of_fragments": 0,
       "fields": {
         "text": {},
-        "Poenformel": {
+        "Stipulationsformel": {
           "no_match_size": 1000
         },
-        "Stipulationsformel": {
+        "Poenformel": {
           "no_match_size": 1000
         }
       },

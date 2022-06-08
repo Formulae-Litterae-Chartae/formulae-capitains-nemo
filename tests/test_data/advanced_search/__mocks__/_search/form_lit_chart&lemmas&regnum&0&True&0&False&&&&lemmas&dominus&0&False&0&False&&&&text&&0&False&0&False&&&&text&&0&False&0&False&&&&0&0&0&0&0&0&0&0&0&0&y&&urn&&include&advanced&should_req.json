@@ -1,0 +1,232 @@
+[
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "should": [
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "regnum",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": true
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "regnumque",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": true
+                  }
+                }
+              ],
+              "minimum_should_match": 1
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "number_of_fragments": 0,
+      "fields": {
+        "text": {},
+        "lemmas": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  },
+  {
+    "query": {
+      "bool": {
+        "must": [
+          {
+            "bool": {
+              "should": [
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "dominus",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "domnus",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "domnusque",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "dominus_ortsname",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "dominicillus",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "dominusque",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                }
+              ],
+              "minimum_should_match": 1
+            }
+          }
+        ]
+      }
+    },
+    "sort": [
+      "sort_prefix",
+      "urn"
+    ],
+    "from": 0,
+    "size": 10000,
+    "highlight": {
+      "number_of_fragments": 0,
+      "fields": {
+        "text": {},
+        "lemmas": {}
+      },
+      "pre_tags": [
+        "</small><strong>"
+      ],
+      "post_tags": [
+        "</strong><small>"
+      ],
+      "encoder": "html"
+    }
+  }
+]

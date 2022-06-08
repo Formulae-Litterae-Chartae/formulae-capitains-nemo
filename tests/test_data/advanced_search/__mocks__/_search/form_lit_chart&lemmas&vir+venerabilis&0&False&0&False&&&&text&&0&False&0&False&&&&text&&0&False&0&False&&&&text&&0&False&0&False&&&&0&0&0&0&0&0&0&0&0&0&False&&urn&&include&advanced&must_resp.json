@@ -1,0 +1,799 @@
+[
+  {
+    "took": 124,
+    "timed_out": false,
+    "_shards": {
+      "total": 63,
+      "successful": 63,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 22,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "andecavensis_v4",
+          "_id": "urn:cts:formulae:andecavensis.form001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form001.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form001.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v4",
+          "_id": "urn:cts:formulae:andecavensis.form010.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 10",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form010.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form010.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v4",
+          "_id": "urn:cts:formulae:andecavensis.form029.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 29",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form029.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form029.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v4",
+          "_id": "urn:cts:formulae:andecavensis.form046.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 46",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form046.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form046.lat001"
+          ]
+        },
+        {
+          "_index": "andecavensis_v4",
+          "_id": "urn:cts:formulae:andecavensis.form047.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Angers 47",
+            "keywords": "",
+            "urn": "urn:cts:formulae:andecavensis.form047.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "andecavensis",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:andecavensis.form047.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_006.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,6",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_006.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_006.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_015.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,15",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_015.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_015.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_024.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,24",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_024.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_024.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form1_035.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf I,35",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form1_035.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form1_035.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form2_023.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,23",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_023.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_023.lat001"
+          ]
+        },
+        {
+          "_index": "marculf_v4",
+          "_id": "urn:cts:formulae:marculf.form2_037.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,37",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_037.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_037.lat001"
+          ]
+        },
+        {
+          "_index": "tours_v1",
+          "_id": "urn:cts:formulae:tours.form001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form001.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form001.lat001"
+          ]
+        },
+        {
+          "_index": "tours_v1",
+          "_id": "urn:cts:formulae:tours.form003.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 3",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form003.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form003.lat001"
+          ]
+        },
+        {
+          "_index": "tours_v1",
+          "_id": "urn:cts:formulae:tours.form040_a.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 40(a)",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form040_a.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form040_a.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v4",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0139.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 139",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0139.lat001",
+            "date_string": "1077-1084",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1077-01-01",
+                "lte": "1084-12-31"
+              }
+            ],
+            "all_dates": [
+              "1077-01-01",
+              "1084-12-31"
+            ],
+            "min_date": "1077-01-01",
+            "max_date": "1084-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0139.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v4",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0192.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 192",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0192.lat001",
+            "date_string": "1184",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1184-01-01",
+                "lte": "1184-12-31"
+              }
+            ],
+            "all_dates": [
+              "1184-01-01",
+              "1184-12-31"
+            ],
+            "min_date": "1184-01-01",
+            "max_date": "1184-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0192.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v4",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0208.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 208",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0208.lat001",
+            "date_string": "1200",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1200-01-01",
+                "lte": "1200-12-31"
+              }
+            ],
+            "all_dates": [
+              "1200-01-01",
+              "1200-12-31"
+            ],
+            "min_date": "1200-01-01",
+            "max_date": "1200-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0208.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v4",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0213.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 213",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0213.lat001",
+            "date_string": "1202",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1202-01-01",
+                "lte": "1202-12-31"
+              }
+            ],
+            "all_dates": [
+              "1202-01-01",
+              "1202-12-31"
+            ],
+            "min_date": "1202-01-01",
+            "max_date": "1202-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0213.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v4",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0236.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 236",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0236.lat001",
+            "date_string": "1225",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1225-01-01",
+                "lte": "1225-12-31"
+              }
+            ],
+            "all_dates": [
+              "1225-01-01",
+              "1225-12-31"
+            ],
+            "min_date": "1225-01-01",
+            "max_date": "1225-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0236.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v4",
+          "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0238.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Dunois (Ed. Mabille), Cartae Prioratum Dunensium Maioris Monasterii Nr. 238",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0238.lat001",
+            "date_string": "1227",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_dunois",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1227-01-01",
+                "lte": "1227-12-31"
+              }
+            ],
+            "all_dates": [
+              "1227-01-01",
+              "1227-12-31"
+            ],
+            "min_date": "1227-01-01",
+            "max_date": "1227-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0238.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_vendomois_appendix_v4",
+          "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Cartulaire de Marmoutier pour le Vendômois. Appendix (Ed. de Trémault), Saint-Mars lez Vendôme Nr. 1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0001.lat001",
+            "date_string": "833",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "marmoutier_vendomois_appendix",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0833-01-01",
+                "lte": "0833-12-31"
+              }
+            ],
+            "all_dates": [
+              "0833-01-01",
+              "0833-12-31"
+            ],
+            "min_date": "0833-01-01",
+            "max_date": "0833-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0001.lat001"
+          ]
+        },
+        {
+          "_index": "telma_marmoutier_v1",
+          "_id": "urn:cts:formulae:telma_marmoutier.giraud4785.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marmoutier. Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud, Renault, Tock) Nr. 4785",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_marmoutier.giraud4785.lat001",
+            "date_string": "1046-03-01",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_marmoutier",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 1046,
+                "month": 3,
+                "day": 1
+              }
+            ],
+            "all_dates": [
+              "1046-03-01"
+            ],
+            "min_date": "1046-03-01",
+            "max_date": "1046-03-01",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_marmoutier.giraud4785.lat001"
+          ]
+        }
+      ]
+    }
+  }
+]

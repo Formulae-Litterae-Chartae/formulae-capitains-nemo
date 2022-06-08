@@ -1,11 +1,13 @@
 {
   "aggregations": {
     "all_docs": {
-      "doc_count": 14240,
+      "meta": {},
+      "doc_count": 14320,
       "forgeries": {
-        "doc_count": 150
+        "doc_count": 162
       },
       "corpus": {
+        "meta": {},
         "buckets": {
           "<b>Angers</b>: Angers": {
             "doc_count": 62
@@ -53,7 +55,7 @@
             "doc_count": 152
           },
           "<b>Flavigny</b>: Flavigny": {
-            "doc_count": 0
+            "doc_count": 38
           },
           "<b>Freising</b>: Freising": {
             "doc_count": 1383
@@ -81,6 +83,9 @@
           },
           "<b>Herrscherurkunden</b>: Merowinger": {
             "doc_count": 196
+          },
+          "<b>Herrscherurkunden</b>: Pippin III": {
+            "doc_count": 42
           },
           "<b>Hersfeld</b>: Hersfeld": {
             "doc_count": 121
@@ -233,7 +238,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4437
+            "doc_count": 4470
           },
           {
             "key": "800-899",
@@ -260,13 +265,14 @@
         ]
       },
       "no_date": {
-        "doc_count": 765
+        "doc_count": 812
       }
     },
     "forgeries": {
       "doc_count": 1
     },
     "corpus": {
+      "meta": {},
       "buckets": {
         "<b>Angers</b>: Angers": {
           "doc_count": 0
@@ -342,6 +348,9 @@
         },
         "<b>Herrscherurkunden</b>: Merowinger": {
           "doc_count": 2
+        },
+        "<b>Herrscherurkunden</b>: Pippin III": {
+          "doc_count": 0
         },
         "<b>Hersfeld</b>: Hersfeld": {
           "doc_count": 0
