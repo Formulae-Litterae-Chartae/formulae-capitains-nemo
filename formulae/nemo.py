@@ -666,7 +666,7 @@ class NemoFormulae(Nemo):
         g.sub_colls = self.sub_colls
         g.open_texts = self.open_texts
         g.open_collections = self.OPEN_COLLECTIONS
-        if not re.search('texts|search|assets|favicon|reading_format', request.url):
+        if not re.search('texts|search|assets|favicon|reading_format|save_page', request.url):
             session.pop('previous_search', None)
 
     def after_request(self, response: Response) -> Response:
