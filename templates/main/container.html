@@ -64,7 +64,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/auth/save_page" method="post" class="form" role="form">
+                <form action="{{ url_for('auth.r_save_page', _external=True) }}" method="post" class="form" role="form">
                 {{ g.save_page_form.hidden_tag() }}
                 {{ wtf.form_errors(g.save_page_form, hiddens="only") }}
 
