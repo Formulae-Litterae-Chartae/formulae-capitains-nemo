@@ -1,4 +1,4 @@
-from flask import flash, url_for, request, redirect, current_app
+from flask import flash, url_for, request, redirect, current_app, session
 from flask_login import current_user, login_user, logout_user, login_required
 from flask_babel import _, refresh
 from werkzeug.urls import url_parse
@@ -182,7 +182,14 @@ def r_save_page():
         if url.netloc != url_parse(request.root_url).netloc:
             flash(_('Diese URL ist nicht Teil der Werkstatt.'))
             return redirect(url_for('InstanceNemo.r_index'))
-        page = SavedPage(name=form.name.data or url.path, url='?'.join([url.path, url.query]), user_id=user_id)
+        search_results = None
+        if form.save_search_results.data is True:
+            search_results = session.get('previous_search', None)
+        page = SavedPage(name=form.name.data or url.path,
+                         url='?'.join([url.path, url.query]),
+                         user_id=user_id,
+                         search_results=search_results
+                         )
         db.session.add(page)
         db.session.commit()
         flash(_('Seite gespeichert.'))
@@ -201,12 +208,10 @@ def r_saved_pages():
     return current_app.config['nemo_app'].render(template='auth::saved_pages.html', title=_('Gespeicherte Seiten'), pages=page_list, url=dict())
 
 
-
-
 @bp.route("/remove_page/<page_id>", methods=['GET'])
 @login_required
 def r_remove_page(page_id):
-    """ Route for users to retrieve the saved pages from their user account
+    """ Route for users to remove a page from their user account
 
     :return: template, form
     """
@@ -215,3 +220,17 @@ def r_remove_page(page_id):
     db.session.commit()
     flash(_('Seite nicht mehr gespeichert.'))
     return redirect(url_for('.r_saved_pages'))
+
+
+@bp.route("/open_page/<page_id>", methods=['GET'])
+@login_required
+def r_open_page(page_id):
+    """ Route for users to open a saved page from their user account
+
+    :return: template, form
+    """
+    page = SavedPage.query.get(int(page_id))
+    page_url = page.url
+    if page.search_results:
+        session['previous_search'] = page.search_results
+    return redirect(page_url)

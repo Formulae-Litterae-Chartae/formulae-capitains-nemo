@@ -9,7 +9,7 @@
         {% if pages %}
             <table class="table table-sm table-bordered">
             {% for page in pages %}
-                <tr><td><a class="internal-link" href="{{ page.url }}">{{ page.name }}</a></td><td>{{ page.timestamp.date() }}</td><td><a class="internal-link" href="{{ url_for('auth.r_remove_page', page_id=page.id) }}">{{ _('Aus der Liste entfernen') }}</td></tr>
+                <tr><td><a class="internal-link" href="{{ url_for('auth.r_open_page', page_id=page.id) }}">{{ page.name }}</a></td><td>{{ page.timestamp.date() }}</td><td><a class="internal-link" href="{{ url_for('auth.r_remove_page', page_id=page.id) }}">{{ _('Aus der Liste entfernen') }}</td></tr>
             {% endfor %}
             </table>
         {% else %}
