@@ -64,7 +64,16 @@
                 </button>
             </div>
             <div class="modal-body">
-                {{ wtf.quick_form(g.save_page_form, button_map={'submit': 'secondary'}, action=url_for('auth.r_save_page')) }}
+                <form action="{{ url_for('auth.r_save_page', _external=True, _scheme=config['PREFERRED_URL_SCHEME']) }}" method="post" class="form" role="form">
+                {{ g.save_page_form.hidden_tag() }}
+                {{ wtf.form_errors(g.save_page_form, hiddens="only") }}
+
+                {{ wtf.form_field(g.save_page_form.name) }}
+                {% if session['previous_search'] %}
+                {{ wtf.form_field(g.save_page_form.save_search_results) }}
+                {% endif %}
+                {{ wtf.form_field(g.save_page_form.submit, button_map={'submit': 'secondary'}) }}
+                </form>
             </div>
             </div>
         </div>

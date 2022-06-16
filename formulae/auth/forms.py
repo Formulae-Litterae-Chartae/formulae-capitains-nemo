@@ -68,4 +68,5 @@ class RegistrationForm(FlaskForm):
 class AddSavedPageForm(FlaskForm):
     title = _l("Diese Seite speichern")
     name = StringField(_l('Name'))
+    save_search_results = BooleanField(_l('Suchresultate speichern?'))
     submit = SubmitField(_l("Seite speichern"))

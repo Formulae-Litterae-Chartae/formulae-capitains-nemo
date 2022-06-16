@@ -695,9 +695,12 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/save_page', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
             self.assertIn('auth::save_page.html', [x[0].name for x in self.templates])
-            c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
+            with c.session_transaction() as session:
+                session['previous_search'] = [{'id': 'urn:cts:formulae:stgallen.wartmann0001.lat001'}]
+            c.post('/auth/save_page', data=dict(name='St. Gallen 1', save_search_results=True),
                    follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_multipassage', objectIds='urn:cts:formulae:stgallen.wartmann0001.lat001', subreferences='all', _external=True)})
             self.assertIn('St. Gallen 1', [p.name for p in current_user.pages])
+            self.assertIn([{'id': 'urn:cts:formulae:stgallen.wartmann0001.lat001'}], [p.search_results for p in current_user.pages])
             c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
                    follow_redirects=True, headers={'Referer': 'https://www.google.com'})
             self.assertIn(_('Diese URL ist nicht Teil der Werkstatt.'), [x[0] for x in self.flashed_messages])
@@ -705,6 +708,8 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(self.get_context_variable('pages'), [p for p in current_user.pages])
             page_to_remove = [p for p in current_user.pages][0]
             self.assertEqual('<Name St. Gallen 1, URL /texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all?>', page_to_remove.__repr__())
+            c.get('/auth/open_page/{}'.format(page_to_remove.id), follow_redirects=True)
+            self.assertEqual(session['previous_search'], [{'id': 'urn:cts:formulae:stgallen.wartmann0001.lat001'}])
             r = c.get('/auth/remove_page/{}'.format(page_to_remove.id), follow_redirects=True)
             self.assertEqual(r.request.path, '/auth/saved_pages')
             self.assertEqual([], [p for p in current_user.pages])
@@ -842,15 +847,20 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/auth/save_page', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:stgallen.wartmann0001.lat001/passage/all'})
             self.assertIn('auth::save_page.html', [x[0].name for x in self.templates])
-            c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
+            with c.session_transaction() as session:
+                session['previous_search'] = [{'id': 'urn:cts:formulae:stgallen.wartmann0001.lat001'}]
+            c.post('/auth/save_page', data=dict(name='St. Gallen 1', save_search_results='y'),
                    follow_redirects=True, headers={'Referer': url_for('InstanceNemo.r_multipassage', objectIds='urn:cts:formulae:stgallen.wartmann0001.lat001', subreferences='all', _external=True)})
             self.assertIn('St. Gallen 1', [p.name for p in current_user.pages])
+            self.assertIn([{'id': 'urn:cts:formulae:stgallen.wartmann0001.lat001'}], [p.search_results for p in current_user.pages])
             c.post('/auth/save_page', data=dict(name='St. Gallen 1'),
                    follow_redirects=True, headers={'Referer': 'https://www.google.com'})
             self.assertIn(_('Diese URL ist nicht Teil der Werkstatt.'), [x[0] for x in self.flashed_messages])
             c.get('/auth/saved_pages', follow_redirects=True)
             self.assertEqual(self.get_context_variable('pages'), [p for p in current_user.pages])
             page_id_to_remove = [p for p in current_user.pages][0].id
+            c.get('/auth/open_page/{}'.format(page_id_to_remove), follow_redirects=True)
+            self.assertEqual(session['previous_search'], [{'id': 'urn:cts:formulae:stgallen.wartmann0001.lat001'}])
             r = c.get('/auth/remove_page/{}'.format(page_id_to_remove), follow_redirects=True)
             self.assertEqual(r.request.path, '/auth/saved_pages')
             self.assertEqual([], [p for p in current_user.pages])
