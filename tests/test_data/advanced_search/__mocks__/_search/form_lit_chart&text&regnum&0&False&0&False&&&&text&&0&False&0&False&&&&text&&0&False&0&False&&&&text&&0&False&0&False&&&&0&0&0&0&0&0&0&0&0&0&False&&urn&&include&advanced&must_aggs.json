@@ -2,7 +2,7 @@
   "aggregations": {
     "all_docs": {
       "meta": {},
-      "doc_count": 14320,
+      "doc_count": 14413,
       "forgeries": {
         "doc_count": 162
       },
@@ -183,6 +183,9 @@
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
             "doc_count": 184
           },
+          "<b>Touraine</b>: Pancarte Noire": {
+            "doc_count": 93
+          },
           "<b>Touraine</b>: Saint-Julien de Tours": {
             "doc_count": 157
           },
@@ -230,7 +233,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 163
+            "doc_count": 164
           },
           {
             "key": "700-799",
@@ -238,7 +241,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4470
+            "doc_count": 4479
           },
           {
             "key": "800-899",
@@ -246,7 +249,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3632
+            "doc_count": 3691
           },
           {
             "key": "900-999",
@@ -254,13 +257,13 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2996
+            "doc_count": 3015
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 2073
+            "doc_count": 2078
           }
         ]
       },
@@ -448,6 +451,9 @@
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
           "doc_count": 3
         },
+        "<b>Touraine</b>: Pancarte Noire": {
+          "doc_count": 4
+        },
         "<b>Touraine</b>: Saint-Julien de Tours": {
           "doc_count": 1
         },
@@ -511,7 +517,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 110
+          "doc_count": 111
         },
         {
           "key": "900-999",
@@ -519,7 +525,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 22
+          "doc_count": 25
         },
         {
           "key": ">1000",

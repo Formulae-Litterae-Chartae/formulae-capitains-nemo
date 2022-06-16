@@ -1,6 +1,6 @@
 [
   {
-    "took": 21,
+    "took": 4,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v4",
+          "_index": "buenden_v7",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -312,14 +312,14 @@
             "max_date": "0813-04-20",
             "days": [
               "Lent",
-              "Sunday",
-              "Thursday",
-              "Tuesday",
               "Easter",
-              "Saturday",
+              "Sunday",
               "Friday",
+              "Tuesday",
+              "Thursday",
+              "Wednesday",
               "Monday",
-              "Wednesday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },

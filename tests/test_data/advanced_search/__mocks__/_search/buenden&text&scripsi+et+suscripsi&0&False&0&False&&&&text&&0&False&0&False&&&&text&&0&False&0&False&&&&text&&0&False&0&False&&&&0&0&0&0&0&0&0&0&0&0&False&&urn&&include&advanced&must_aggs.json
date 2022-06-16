@@ -183,6 +183,9 @@
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
             "doc_count": 0
           },
+          "<b>Touraine</b>: Pancarte Noire": {
+            "doc_count": 0
+          },
           "<b>Touraine</b>: Saint-Julien de Tours": {
             "doc_count": 0
           },
@@ -446,6 +449,9 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Pancarte Noire": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Julien de Tours": {
