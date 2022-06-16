@@ -81,6 +81,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Touraine</b>: Marmoutier - Vendômois': {'match': {'collection': 'marmoutier_vendomois'}},
                                       '<b>Touraine</b>: Marmoutier - Vendômois, Appendix': {'match': {'collection': 'marmoutier_vendomois_appendix'}},
                                       '<b>Touraine</b>: Marmoutier (TELMA)': {'match': {'collection': 'telma_marmoutier'}},
+                                      '<b>Touraine</b>: Pancarte Noire': {'match': {'collection': 'pancarte_noir_internal'}},
                                       '<b>Touraine</b>: Saint-Julien de Tours': {'match': {'collection': 'tours_st_julien_denis'}},
                                       '<b>Touraine</b>: Saint-Martin de Tours (TELMA)': {'match': {'collection': 'telma_martin_tours'}},
                                       '<b>Touraine</b>: Un acte faux de Marmoutier': {'match': {'collection': 'marmoutier_laurain'}},
@@ -108,7 +109,9 @@ LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 def check_open_texts(hit_id):
     """ Used for mock tests to return True for highlighting purposes"""
-    return hit_id in current_app.config['nemo_app'].open_texts, hit_id in current_app.config['nemo_app'].half_open_texts
+    open_text = hit_id in current_app.config['nemo_app'].open_texts and hit_id not in current_app.config['nemo_app'].closed_texts['closed']
+    half_open_text = hit_id in current_app.config['nemo_app'].half_open_texts or hit_id in current_app.config['nemo_app'].closed_texts['half_closed']
+    return open_text, half_open_text
 
 
 def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, str]], str]]]:

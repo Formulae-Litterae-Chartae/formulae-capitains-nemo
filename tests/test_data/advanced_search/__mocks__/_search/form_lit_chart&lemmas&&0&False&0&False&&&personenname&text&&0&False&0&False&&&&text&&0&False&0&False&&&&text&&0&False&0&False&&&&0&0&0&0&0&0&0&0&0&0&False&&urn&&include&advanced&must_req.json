@@ -23,55 +23,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "aeglidulfus_personenname_platzhalter",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "grossus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "lepos_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "pilum_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "auris_personenname",
+                          "value": "caulis_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -95,7 +47,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "barba_personenname",
+                          "value": "marca_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -107,199 +59,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "hodierna_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "frumentinus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "balbus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "granum_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "oculus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "longus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "grandis_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "chlotharius",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "childebertus",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "perpetuus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "parvus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "germanus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "trahitforas_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "honorius",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "bellus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "rubeus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "panis_paratus_personenname",
+                          "value": "theodorigus",
                           "fuzziness": "0"
                         }
                       }
@@ -323,523 +83,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "altus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "conversus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "normannus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "childoricus",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "flagellum_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "turbatus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "caulis_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "barbatus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "landericus_personenname_platzhalter",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "urbanus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "david",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "moses",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "malus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "zezia",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "calvus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
                           "value": "dathan",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "crassus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "iohannes",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "verumdicit_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "jesus",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "marculfus",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "pilleatus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "marinus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "fortis_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "mordens_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "diabolus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "rana_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "dominicus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "securis_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "paulus",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "bibe_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "paratus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "avitus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "lupus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "melior_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "malaherba_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "sollemnis_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "noah",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "asinus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "marca_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "scabiosus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "beatus_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "abiron",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "herba_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -863,7 +107,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "maria",
+                          "value": "caro_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -875,7 +119,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "clemens_personenname",
+                          "value": "crassus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -887,7 +131,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "albus_personenname",
+                          "value": "chlodoveus",
                           "fuzziness": "0"
                         }
                       }
@@ -899,7 +143,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "loripes_personenname",
+                          "value": "pilleatus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -911,7 +155,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "opera_personenname",
+                          "value": "normannus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -923,7 +167,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "lupa_personenname",
+                          "value": "moses",
                           "fuzziness": "0"
                         }
                       }
@@ -935,7 +179,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "adam",
+                          "value": "noah",
                           "fuzziness": "0"
                         }
                       }
@@ -947,7 +191,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "iosoe",
+                          "value": "insanus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -959,7 +203,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "victor_personenname",
+                          "value": "barbatus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -971,7 +215,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "dapifer_personenname",
+                          "value": "flagellum_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -983,7 +227,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "theodosius",
+                          "value": "parvus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -995,7 +239,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "christianus_personenname",
+                          "value": "rana_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1007,7 +251,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "papabos_personenname",
+                          "value": "auris_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1019,7 +263,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "natalis_personenname",
+                          "value": "lupus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1031,7 +275,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "clarus_personenname",
+                          "value": "fortis_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1043,67 +287,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "coluber_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "theudorigus",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "martinus",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "millescuta_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "pagana_personenname",
-                          "fuzziness": "0"
-                        }
-                      }
-                    }
-                  }
-                },
-                {
-                  "span_multi": {
-                    "match": {
-                      "fuzzy": {
-                        "lemmas": {
-                          "value": "musca_personenname",
+                          "value": "lepos_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1127,7 +311,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "niger_personenname",
+                          "value": "germanus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1139,7 +323,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "peregrinus_personenname",
+                          "value": "papabos_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1151,7 +335,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "canis",
+                          "value": "frumentinus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1163,7 +347,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "theodosianus",
+                          "value": "coluber_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1175,7 +359,163 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "theudoricus",
+                          "value": "marinus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "cantus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "granum_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "diabolus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "childoricus",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "campio_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "chlotharius",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "caput_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "barba_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "dominicus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "dapifer_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "marculfus",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "avitus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "turbatus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1211,7 +551,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "corona_personenname",
+                          "value": "pilum_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1223,7 +563,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "chlodoveus",
+                          "value": "bibe_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1235,7 +575,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "caput_personenname",
+                          "value": "iohannes",
                           "fuzziness": "0"
                         }
                       }
@@ -1247,7 +587,31 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "insanus_personenname",
+                          "value": "canis",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "theodosius",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "longus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1271,7 +635,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "theodorigus",
+                          "value": "pagana_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1283,7 +647,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "caro_personenname",
+                          "value": "peregrinus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1295,7 +659,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "iudas",
+                          "value": "urbanus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1307,7 +671,7 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "planus_personenname",
+                          "value": "theodosianus",
                           "fuzziness": "0"
                         }
                       }
@@ -1331,7 +695,331 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "cantus_personenname",
+                          "value": "niger_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "corona_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "verumdicit_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "musca_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "calvus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "lupa_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "iudas",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "panis_paratus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "natalis_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "david",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "honorius",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "millescuta_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "hodierna_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "iosoe",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "mordens_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "paratus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "christianus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "melior_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "rubeus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "victor_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "landericus_personenname_platzhalter",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "grossus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "childebertus",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "theudoricus",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "theudorigus",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "paulus",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "securis_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "perpetuus_personenname",
                           "fuzziness": "0"
                         }
                       }
@@ -1355,7 +1043,43 @@
                     "match": {
                       "fuzzy": {
                         "lemmas": {
-                          "value": "campio_personenname",
+                          "value": "herba_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "trahitforas_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "loripes_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "aeglidulfus_personenname_platzhalter",
                           "fuzziness": "0"
                         }
                       }
@@ -1368,6 +1092,282 @@
                       "fuzzy": {
                         "lemmas": {
                           "value": "comitissa_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "malaherba_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "bellus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "grandis_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "conversus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "adam",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "abiron",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "zezia",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "asinus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "oculus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "planus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "jesus",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "albus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "balbus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "sollemnis_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "scabiosus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "altus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "malus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "martinus",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "clemens_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "maria",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "opera_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "clarus_personenname",
+                          "fuzziness": "0"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "span_multi": {
+                    "match": {
+                      "fuzzy": {
+                        "lemmas": {
+                          "value": "beatus_personenname",
                           "fuzziness": "0"
                         }
                       }

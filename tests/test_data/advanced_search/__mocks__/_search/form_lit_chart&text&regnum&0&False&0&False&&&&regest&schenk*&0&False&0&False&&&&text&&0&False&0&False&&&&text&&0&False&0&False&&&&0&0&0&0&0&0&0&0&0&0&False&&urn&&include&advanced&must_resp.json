@@ -1,22 +1,22 @@
 [
   {
-    "took": 932,
+    "took": 483,
     "timed_out": false,
     "_shards": {
-      "total": 63,
-      "successful": 63,
+      "total": 64,
+      "successful": 64,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 225,
+        "value": 229,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v4",
+          "_index": "andecavensis_v7",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "buenden_v4",
+          "_index": "buenden_v7",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -271,14 +271,14 @@
             "max_date": "0813-03-31",
             "days": [
               "Lent",
-              "Sunday",
-              "Thursday",
-              "Tuesday",
-              "Easter",
-              "Saturday",
-              "Friday",
               "Monday",
-              "Wednesday"
+              "Easter",
+              "Sunday",
+              "Friday",
+              "Thursday",
+              "Wednesday",
+              "Tuesday",
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -293,7 +293,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xii_v4",
+          "_index": "chartae_latinae_xii_v7",
           "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0529.lat001",
           "_score": null,
           "_source": {
@@ -336,7 +336,7 @@
           ]
         },
         {
-          "_index": "echternach_v4",
+          "_index": "echternach_v7",
           "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
           "_score": null,
           "_source": {
@@ -379,7 +379,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
           "_score": null,
           "_source": {
@@ -420,7 +420,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
           "_score": null,
           "_source": {
@@ -461,7 +461,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
           "_score": null,
           "_source": {
@@ -507,7 +507,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
           "_score": null,
           "_source": {
@@ -553,7 +553,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
           "_score": null,
           "_source": {
@@ -610,7 +610,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
           "_score": null,
           "_source": {
@@ -657,7 +657,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
           "_score": null,
           "_source": {
@@ -703,7 +703,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
           "_score": null,
           "_source": {
@@ -749,7 +749,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
           "_score": null,
           "_source": {
@@ -795,7 +795,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v4",
+          "_index": "fulda_stengel_v7",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
           "_score": null,
           "_source": {
@@ -838,7 +838,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v4",
+          "_index": "hersfeld_v7",
           "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
           "_score": null,
           "_source": {
@@ -884,7 +884,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v4",
+          "_index": "merowinger1_v7",
           "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
           "_score": null,
           "_source": {
@@ -927,7 +927,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v4",
+          "_index": "merowinger1_v7",
           "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
           "_score": null,
           "_source": {
@@ -974,7 +974,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v4",
+          "_index": "pippin_3_v7",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0013.lat001",
           "_score": null,
           "_source": {
@@ -1017,7 +1017,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v4",
+          "_index": "pippin_3_v7",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0016.lat001",
           "_score": null,
           "_source": {
@@ -1063,7 +1063,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
           "_score": null,
           "_source": {
@@ -1109,7 +1109,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
           "_source": {
@@ -1158,7 +1158,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
           "_source": {
@@ -1207,7 +1207,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
           "_score": null,
           "_source": {
@@ -1253,7 +1253,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
           "_score": null,
           "_source": {
@@ -1284,8 +1284,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Lent",
-              "Wednesday"
+              "Wednesday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -1300,7 +1300,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
           "_score": null,
           "_source": {
@@ -1353,7 +1353,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
           "_score": null,
           "_source": {
@@ -1399,7 +1399,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
           "_score": null,
           "_source": {
@@ -1445,7 +1445,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
           "_score": null,
           "_source": {
@@ -1491,7 +1491,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
           "_score": null,
           "_source": {
@@ -1547,10 +1547,10 @@
             "max_date": "0821-10-13",
             "days": [
               "Sunday",
-              "Thursday",
               "Tuesday",
-              "Saturday",
-              "Wednesday"
+              "Wednesday",
+              "Thursday",
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -1565,7 +1565,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
           "_score": null,
           "_source": {
@@ -1608,7 +1608,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
           "_score": null,
           "_source": {
@@ -1654,7 +1654,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
           "_score": null,
           "_source": {
@@ -1697,7 +1697,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
           "_score": null,
           "_source": {
@@ -1744,7 +1744,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
           "_score": null,
           "_source": {
@@ -1791,7 +1791,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
           "_score": null,
           "_source": {
@@ -1837,7 +1837,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
           "_score": null,
           "_source": {
@@ -1883,7 +1883,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
           "_score": null,
           "_source": {
@@ -1936,7 +1936,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
           "_score": null,
           "_source": {
@@ -1982,7 +1982,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
           "_score": null,
           "_source": {
@@ -2028,7 +2028,7 @@
           ]
         },
         {
-          "_index": "regensburg_v4",
+          "_index": "regensburg_v7",
           "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
           "_score": null,
           "_source": {
@@ -2069,7 +2069,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v4",
+          "_index": "schaeftlarn_v7",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
           "_score": null,
           "_source": {
@@ -2110,7 +2110,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
           "_score": null,
           "_source": {
@@ -2156,7 +2156,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
           "_source": {
@@ -2202,7 +2202,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
           "_score": null,
           "_source": {
@@ -2248,7 +2248,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
           "_score": null,
           "_source": {
@@ -2294,7 +2294,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
           "_score": null,
           "_source": {
@@ -2340,7 +2340,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
           "_score": null,
           "_source": {
@@ -2371,8 +2371,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Lent",
-              "Wednesday"
+              "Wednesday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -2387,7 +2387,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
           "_score": null,
           "_source": {
@@ -2433,7 +2433,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
           "_score": null,
           "_source": {
@@ -2479,7 +2479,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
           "_score": null,
           "_source": {
@@ -2525,7 +2525,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
           "_score": null,
           "_source": {
@@ -2571,7 +2571,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
           "_score": null,
           "_source": {
@@ -2617,7 +2617,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
           "_score": null,
           "_source": {
@@ -2663,7 +2663,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
           "_score": null,
           "_source": {
@@ -2710,7 +2710,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
           "_score": null,
           "_source": {
@@ -2757,7 +2757,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
           "_score": null,
           "_source": {
@@ -2804,7 +2804,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
           "_score": null,
           "_source": {
@@ -2850,7 +2850,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
           "_score": null,
           "_source": {
@@ -2896,7 +2896,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
           "_score": null,
           "_source": {
@@ -2942,7 +2942,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
           "_score": null,
           "_source": {
@@ -2995,7 +2995,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
           "_score": null,
           "_source": {
@@ -3041,7 +3041,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v4",
+          "_index": "weissenburg_v7",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
           "_score": null,
           "_source": {
@@ -3090,23 +3090,23 @@
     }
   },
   {
-    "took": 2073,
+    "took": 804,
     "timed_out": false,
     "_shards": {
-      "total": 63,
-      "successful": 63,
+      "total": 64,
+      "successful": 64,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 1649,
+        "value": 1651,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v4",
+          "_index": "andecavensis_v7",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -3137,7 +3137,7 @@
           ]
         },
         {
-          "_index": "buenden_v4",
+          "_index": "buenden_v7",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -3361,14 +3361,14 @@
             "max_date": "0813-03-31",
             "days": [
               "Lent",
-              "Sunday",
-              "Thursday",
-              "Tuesday",
-              "Easter",
-              "Saturday",
-              "Friday",
               "Monday",
-              "Wednesday"
+              "Easter",
+              "Sunday",
+              "Friday",
+              "Thursday",
+              "Wednesday",
+              "Tuesday",
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -3383,7 +3383,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xii_v4",
+          "_index": "chartae_latinae_xii_v7",
           "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0529.lat001",
           "_score": null,
           "_source": {
@@ -3426,7 +3426,7 @@
           ]
         },
         {
-          "_index": "echternach_v4",
+          "_index": "echternach_v7",
           "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
           "_score": null,
           "_source": {
@@ -3469,7 +3469,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
           "_score": null,
           "_source": {
@@ -3510,7 +3510,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
           "_score": null,
           "_source": {
@@ -3551,7 +3551,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
           "_score": null,
           "_source": {
@@ -3597,7 +3597,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
           "_score": null,
           "_source": {
@@ -3643,7 +3643,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
           "_score": null,
           "_source": {
@@ -3700,7 +3700,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
           "_score": null,
           "_source": {
@@ -3747,7 +3747,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
           "_score": null,
           "_source": {
@@ -3793,7 +3793,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
           "_score": null,
           "_source": {
@@ -3839,7 +3839,7 @@
           ]
         },
         {
-          "_index": "freising_v4",
+          "_index": "freising_v7",
           "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
           "_score": null,
           "_source": {
@@ -3885,7 +3885,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v4",
+          "_index": "fulda_stengel_v7",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
           "_score": null,
           "_source": {
@@ -3928,7 +3928,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v4",
+          "_index": "hersfeld_v7",
           "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
           "_score": null,
           "_source": {
@@ -3974,7 +3974,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v4",
+          "_index": "merowinger1_v7",
           "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
           "_score": null,
           "_source": {
@@ -4017,7 +4017,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v4",
+          "_index": "merowinger1_v7",
           "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
           "_score": null,
           "_source": {
@@ -4064,7 +4064,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v4",
+          "_index": "pippin_3_v7",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0013.lat001",
           "_score": null,
           "_source": {
@@ -4107,7 +4107,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v4",
+          "_index": "pippin_3_v7",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0016.lat001",
           "_score": null,
           "_source": {
@@ -4153,7 +4153,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
           "_score": null,
           "_source": {
@@ -4199,7 +4199,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
           "_source": {
@@ -4248,7 +4248,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
           "_source": {
@@ -4297,7 +4297,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
           "_score": null,
           "_source": {
@@ -4343,7 +4343,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
           "_score": null,
           "_source": {
@@ -4374,8 +4374,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Lent",
-              "Wednesday"
+              "Wednesday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -4390,7 +4390,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
           "_score": null,
           "_source": {
@@ -4443,7 +4443,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
           "_score": null,
           "_source": {
@@ -4489,7 +4489,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
           "_score": null,
           "_source": {
@@ -4535,7 +4535,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
           "_score": null,
           "_source": {
@@ -4581,7 +4581,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
           "_score": null,
           "_source": {
@@ -4637,10 +4637,10 @@
             "max_date": "0821-10-13",
             "days": [
               "Sunday",
-              "Thursday",
               "Tuesday",
-              "Saturday",
-              "Wednesday"
+              "Wednesday",
+              "Thursday",
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -4655,7 +4655,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
           "_score": null,
           "_source": {
@@ -4698,7 +4698,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
           "_score": null,
           "_source": {
@@ -4744,7 +4744,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
           "_score": null,
           "_source": {
@@ -4787,7 +4787,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
           "_score": null,
           "_source": {
@@ -4834,7 +4834,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
           "_score": null,
           "_source": {
@@ -4881,7 +4881,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
           "_score": null,
           "_source": {
@@ -4927,7 +4927,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
           "_score": null,
           "_source": {
@@ -4973,7 +4973,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
           "_score": null,
           "_source": {
@@ -5026,7 +5026,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
           "_score": null,
           "_source": {
@@ -5072,7 +5072,7 @@
           ]
         },
         {
-          "_index": "raetien_v4",
+          "_index": "raetien_v7",
           "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
           "_score": null,
           "_source": {
@@ -5118,7 +5118,7 @@
           ]
         },
         {
-          "_index": "regensburg_v4",
+          "_index": "regensburg_v7",
           "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
           "_score": null,
           "_source": {
@@ -5159,7 +5159,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v4",
+          "_index": "schaeftlarn_v7",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
           "_score": null,
           "_source": {
@@ -5200,7 +5200,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
           "_score": null,
           "_source": {
@@ -5246,7 +5246,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
           "_source": {
@@ -5292,7 +5292,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
           "_score": null,
           "_source": {
@@ -5338,7 +5338,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
           "_score": null,
           "_source": {
@@ -5384,7 +5384,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
           "_score": null,
           "_source": {
@@ -5430,7 +5430,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
           "_score": null,
           "_source": {
@@ -5461,8 +5461,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Lent",
-              "Wednesday"
+              "Wednesday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -5477,7 +5477,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
           "_score": null,
           "_source": {
@@ -5523,7 +5523,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
           "_score": null,
           "_source": {
@@ -5569,7 +5569,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
           "_score": null,
           "_source": {
@@ -5615,7 +5615,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
           "_score": null,
           "_source": {
@@ -5661,7 +5661,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
           "_score": null,
           "_source": {
@@ -5707,7 +5707,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
           "_score": null,
           "_source": {
@@ -5753,7 +5753,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
           "_score": null,
           "_source": {
@@ -5800,7 +5800,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
           "_score": null,
           "_source": {
@@ -5847,7 +5847,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
           "_score": null,
           "_source": {
@@ -5894,7 +5894,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
           "_score": null,
           "_source": {
@@ -5940,7 +5940,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
           "_score": null,
           "_source": {
@@ -5986,7 +5986,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
           "_score": null,
           "_source": {
@@ -6032,7 +6032,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
           "_score": null,
           "_source": {
@@ -6085,7 +6085,7 @@
           ]
         },
         {
-          "_index": "stgallen_v4",
+          "_index": "stgallen_v7",
           "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
           "_score": null,
           "_source": {
@@ -6131,7 +6131,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v4",
+          "_index": "weissenburg_v7",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
           "_score": null,
           "_source": {

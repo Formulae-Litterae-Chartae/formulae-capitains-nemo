@@ -139,6 +139,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:p3',
                         'urn:cts:formulae:p12',
                         'urn:cts:formulae:p16a',
+                        'urn:cts:formulae:pancarte_noir_internal',
                         'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
                         'urn:cts:formulae:pippin_3',
@@ -234,8 +235,24 @@ class NemoFormulae(Nemo):
         self.comp_places = self.make_comp_places_list()
         self.manuscript_notes = self.make_manuscript_notes()
         self.ms_lib_links = self.make_ms_lib_links()
+        self.closed_texts = self.make_closed_texts()
         # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
+
+    def make_closed_texts(self) -> dict:
+        """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
+        closed_texts = dict()
+        for corpus_folder in self.app.config['CORPUS_FOLDERS']:
+            if os.path.isfile(corpus_folder + '/' + 'closed_texts.json'):
+                with open(corpus_folder + '/' + 'closed_texts.json') as f:
+                    try:
+                        closed = json_load(f)
+                    except JSONDecodeError:
+                        self.app.logger.warning(corpus_folder + '/' + 'closed_texts.json' + ' is not a valid JSON file. Unable to load valid closed texts from it.')
+                        continue
+                for k, v in closed.items():
+                    closed_texts[k] = v
+        return dict(closed_texts)
 
     def make_collected_colls(self) -> dict:
         """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
@@ -894,8 +911,13 @@ class NemoFormulae(Nemo):
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
                             work_name = Markup(name_part.group(0))
+                    regest = [str(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')]
+                    if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
+                        if len(regest) == 2:
+                            regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
+
                     r[par].update({"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) or '',
-                                   "regest": [str(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
+                                   "regest": regest,
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                                    'name': work_name,
@@ -1254,6 +1276,8 @@ class NemoFormulae(Nemo):
             flash('{}, {}'.format(metadata.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
+        if objectId in self.closed_texts['closed'] and self.check_project_team() is False:
+            passage = '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.'))
         secondary_language = 'de'
         all_langs = [str(x) for x in metadata.metadata.get(DC.language, lang=None)]
         if len(all_langs) > 0:
@@ -1292,6 +1316,10 @@ class NemoFormulae(Nemo):
         for resource in metadata.metadata.get(DCTERMS.relation):
             linked_md = self.resolver.getMetadata(str(resource))
             linked_resources.append((linked_md.id, str(linked_md.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang)))
+        regest = [str(metadata.metadata.get_single(DC.description))] if 'formulae_collection' in metadata.ancestors else [Markup(x) for x in str(metadata.metadata.get_single(DC.description)).split('***')]
+        if self.check_project_team() is False and (metadata.id in self.closed_texts['half_closed'] or metadata.id in self.closed_texts['closed']):
+            if len(regest) == 2:
+                regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
         return {
             "template": "",
             "objectId": objectId,
@@ -1304,7 +1332,7 @@ class NemoFormulae(Nemo):
                     "type": str(metadata.type),
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
-                    "description": Markup(str(metadata.metadata.get_single(DC.description))) or '',
+                    "description": regest,
                     "coins": self.make_coins(metadata, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
@@ -1462,7 +1490,7 @@ class NemoFormulae(Nemo):
         root = etree.fromstring(html)
         spans = root.xpath('//span[contains(@class, "w")]')
         ids = results
-        if not any(ids):
+        if not any(ids) or spans == []:
             return html
         for sent, span in zip(ids[0]['sents'], ids[0]['sentence_spans']):
             if isinstance(span, str):
