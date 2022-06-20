@@ -1,6 +1,6 @@
 [
   {
-    "took": 2,
+    "took": 6,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,8 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v13",
-          "_type": "_doc",
+          "_index": "mondsee_v7",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
           "_ignored": [
@@ -90,7 +89,7 @@
     }
   },
   {
-    "took": 2,
+    "took": 29,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -106,8 +105,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v13",
-          "_type": "_doc",
+          "_index": "mondsee_v7",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
           "_ignored": [
@@ -180,7 +178,7 @@
     }
   },
   {
-    "took": 2,
+    "took": 12,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -196,8 +194,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v13",
-          "_type": "_doc",
+          "_index": "mondsee_v7",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
           "_ignored": [
@@ -270,7 +267,7 @@
     }
   },
   {
-    "took": 3,
+    "took": 21,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -286,8 +283,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v13",
-          "_type": "_doc",
+          "_index": "mondsee_v7",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
           "_ignored": [

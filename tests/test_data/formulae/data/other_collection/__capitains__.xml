@@ -20,6 +20,7 @@
         <collection identifier="urn:cts:formulae:lorsch" path="../lorsch/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:marmoutier_manceau" path="../marmoutier_manceau/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:marmoutier_serfs" path="../marmoutier_serfs/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:pancarte_noir_internal" path="../pancarte_noir_internal/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:raetien" path="../raetien/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:salzburg" path="../salzburg/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:stgallen" path="../stgallen/__capitains__.xml"/>

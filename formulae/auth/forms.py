@@ -63,3 +63,10 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError(_l('Bitte wählen Sie eine andere Emailaddresse.'))
+
+
+class AddSavedPageForm(FlaskForm):
+    title = _l("Diese Seite speichern")
+    name = StringField(_l('Name'))
+    save_search_results = BooleanField(_l('Suchresultate speichern?'))
+    submit = SubmitField(_l("Seite speichern"))

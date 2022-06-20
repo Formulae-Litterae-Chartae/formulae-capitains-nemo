@@ -1,11 +1,13 @@
 {
   "aggregations": {
     "all_docs": {
+      "meta": {},
       "doc_count": 199,
       "forgeries": {
         "doc_count": 0
       },
       "corpus": {
+        "meta": {},
         "buckets": {
           "<b>Angers</b>: Angers": {
             "doc_count": 62
@@ -80,6 +82,9 @@
             "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Merowinger": {
+            "doc_count": 0
+          },
+          "<b>Herrscherurkunden</b>: Pippin III": {
             "doc_count": 0
           },
           "<b>Hersfeld</b>: Hersfeld": {
@@ -178,6 +183,9 @@
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
             "doc_count": 0
           },
+          "<b>Touraine</b>: Pancarte Noire": {
+            "doc_count": 0
+          },
           "<b>Touraine</b>: Saint-Julien de Tours": {
             "doc_count": 0
           },
@@ -267,6 +275,7 @@
       "doc_count": 0
     },
     "corpus": {
+      "meta": {},
       "buckets": {
         "<b>Angers</b>: Angers": {
           "doc_count": 0
@@ -341,6 +350,9 @@
           "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Merowinger": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Pippin III": {
           "doc_count": 0
         },
         "<b>Hersfeld</b>: Hersfeld": {
@@ -437,6 +449,9 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Pancarte Noire": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Julien de Tours": {

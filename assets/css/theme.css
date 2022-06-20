@@ -745,10 +745,10 @@ h1 .manuscript-number {
     margin-left: 1em;
 }
 
-.mv-rows {
+/*.mv-rows {
     max-height: 80vh;
     width: 15%;
-}
+}*/
 
 #aggs-all-docs {
     text-decoration: underline;

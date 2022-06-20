@@ -1,0 +1,905 @@
+[
+  {
+    "took": 69,
+    "timed_out": false,
+    "_shards": {
+      "total": 64,
+      "successful": 64,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 7,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "mondsee_v7",
+          "_id": "urn:cts:formulae:mondsee.rath0013.lat001",
+          "_score": null,
+          "_ignored": [
+            "Narratio.keyword"
+          ],
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 13",
+            "keywords": "",
+            "urn": "urn:cts:formulae:mondsee.rath0013.lat001",
+            "date_string": "771",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "mondsee",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 771
+              }
+            ],
+            "all_dates": [
+              "0771"
+            ],
+            "min_date": "0771",
+            "max_date": "0771",
+            "sort_prefix": 1,
+            "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
+            "Invocatio-oder-Inscriptio-lems": null,
+            "Eschatokoll": "Temporibus gloriosissimi ducis Tassiloni anno regni eius vicesimo quarto, indiccione quinta",
+            "Eschatokoll-lems": null,
+            "Intitulatio": "Ego Uuillihelm",
+            "Intitulatio-lems": null,
+            "Narratio": "tractante enim de eterna beatitudine seu de poenali iudicio, qualiter deum contempnentes paenam incidunt infinibilem et Christo adhaerentes vitam adipiscunt sempiternam. Ob hoc igitur statui apud me ipsum ... cum consensu et licencia summi principis Tassiloni ... ad monasterium beati Mihhaelis, qui situs est ad Maninsee",
+            "Narratio-lems": null,
+            "Pertinenzformel": "de substancia ... omnia, que ibidem habeo, servos vel ancillas seu liberos ad ipsum locum detentos, terram, pratas, silvas, cultum vel incultum, vel quicquid ibi habere potvero, omnia ex integro",
+            "Pertinenzformel-lems": null,
+            "Provenienz": "qua mihi princeps prefatus concessit ad Marchluppa",
+            "Provenienz-lems": null,
+            "Dispositio": "trado atque confirmo ... ut post obitum meum ibi deserviat die ac nocte, et ibi [sit] fruibilis pro redempcione animae meae, cum ex hac luce fuero subtractus",
+            "Dispositio-lems": null,
+            "Poenformel": "Si quis autem contra hanc cartam tradicionis, quelibet opposita persona, contraire volverit, iram dei omnipotentis incurrat, et causam [habeat] cum beato Mihhaelo archangelo et partem cum Iuda traditore",
+            "Poenformel-lems": null,
+            "Stipulationsformel": "et carta haec nihilominus firma permaneat",
+            "Stipulationsformel-lems": null,
+            "Corroboratio": "Sunt multi testes",
+            "Corroboratio-lems": null
+          },
+          "highlight": {
+            "Narratio": [
+              "tractante enim de eterna beatitudine seu de poenali iudicio, qualiter deum contempnentes paenam incidunt infinibilem et </small><strong>Christo</strong><small> adhaerentes vitam adipiscunt sempiternam. Ob hoc igitur statui apud me ipsum ... cum consensu et licencia summi principis Tassiloni ... ad monasterium beati Mihhaelis, qui situs est ad Maninsee"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:mondsee.rath0013.lat001"
+          ]
+        },
+        {
+          "_index": "mondsee_v7",
+          "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 49",
+            "keywords": "",
+            "urn": "urn:cts:formulae:mondsee.rath0049.lat001",
+            "date_string": "820 11 22",
+            "comp_ort": "Köstendorf",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Köstendorf",
+            "collection": "mondsee",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 820,
+                "month": 11,
+                "day": 22
+              }
+            ],
+            "all_dates": [
+              "0820-11-22"
+            ],
+            "min_date": "0820-11-22",
+            "max_date": "0820-11-22",
+            "days": [
+              "Thursday"
+            ],
+            "sort_prefix": 1,
+            "Narratio": "Magnifico in Christo venerabili patri Lantperhtus abbati",
+            "Narratio-lems": null,
+            "Intitulatio": "Ego igitur in dei nomine Aluuuih",
+            "Intitulatio-lems": null,
+            "Dispositio": "constat me a te vendidisse et ita vendidi ... et dono tibi econtra atque trado ... Unde accepimus inter nos precium taxatum sicut nos bene conplacuit atque convenit, ut inter nos in evum et inconvulsum permaneat",
+            "Dispositio-lems": null,
+            "Pertinenzformel": "unum poledrum ... partem hereditatis meae, hoc est illa silva, quod de Odalpaldo exquesierat in loco, qui dicitur ad Chessindorf",
+            "Pertinenzformel-lems": null,
+            "Poenformel": "Et si fuerit aliquis deinceps, qui contra hanc venditionem calumniam repetere conaverit aut eam mutare volverit, cui litem intulerit",
+            "Poenformel-lems": null,
+            "Strafe": "auro uncias VI ad sancto Michahelo coactus exsolvat",
+            "Strafe-lems": null,
+            "Stipulationsformel": "et quod repetit, nullo modo evindicare non valeat, sed divturnum tempus maneat inconvulsum",
+            "Stipulationsformel-lems": null,
+            "Corroboratio": "Et isti sunt fideiussores et burgiones et testes: Reginhelm, Ratolt, Reginhoh, et isti sunt testes",
+            "Corroboratio-lems": null
+          },
+          "highlight": {
+            "Narratio": [
+              "Magnifico in </small><strong>Christo</strong><small> venerabili patri Lantperhtus abbati"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:mondsee.rath0049.lat001"
+          ]
+        },
+        {
+          "_index": "mondsee_v7",
+          "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
+          "_score": null,
+          "_ignored": [
+            "Poenformel.keyword",
+            "Pertinenzformel.keyword",
+            "Narratio.keyword"
+          ],
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 70",
+            "keywords": "",
+            "urn": "urn:cts:formulae:mondsee.rath0070.lat001",
+            "date_string": "(Letztes Drittel 8 Jhd.? / nach 770?) 10 12",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "mondsee",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0760-10-12",
+                "lte": "0800-10-12"
+              }
+            ],
+            "all_dates": [
+              "0760-10-12",
+              "0800-10-12"
+            ],
+            "min_date": "0760-10-12",
+            "max_date": "0800-10-12",
+            "sort_prefix": 1,
+            "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
+            "Invocatio-oder-Inscriptio-lems": null,
+            "Intitulatio": "Ego Trogo",
+            "Intitulatio-lems": null,
+            "Narratio": "tractante enim me de aeterna beatitudine seu de terribili gehenna, qualiter deum contemnentes paenam incidunt aeternam et Christo servientes vitam adipiscunt sempiternam. Pro hoc igitur statui in animo meo de hereditate mea deo inspirante ... ad monasterium sancti Michahelis, qui vocatur Maninseo, qui est constructus in pago Matahgauuense",
+            "Narratio-lems": null,
+            "Pertinenzformel": "de hereditate mea ... quod habui in loco nuncupante Herigisinga ... casa cum curte et cum scuria, campis, pratis, silvis, aquis, viis, cultis et incultis, cum omnibus, qui ad ipsum locum de hereditate sua pertinere videntur, id est casatos III cum domibus [et] aedifitiis eorum, cum uxoribus et filiis ac filiabus eorum, et inter totas mancipias numero sunt X et VIII",
+            "Pertinenzformel-lems": null,
+            "Provenienz": "quam mihi meus genitor dereliquid",
+            "Provenienz-lems": null,
+            "Dispositio": "tradidi insuper et transfundavi",
+            "Dispositio-lems": null,
+            "Poenformel": "Si quis autem, quod futurum esse non credo, aut ego ipse aut aliquis de heredibus vel successoribus meis, qui contra hanc donationis cartam venire aut eam infrangere volverit, inprimis in iram dei incurrat et sanctorum eius, et a limitibus aecclesia extraneos efficiatur, et habeat partem cum Iuda traditore et causamn cum sancto Michahelo archangelo",
+            "Poenformel-lems": null,
+            "Strafe": "et sit culpabilis in fisco auri uncias III, argenti pondera VI",
+            "Strafe-lems": null,
+            "Stipulationsformel": "et quod repetit, evindicare non valeat, et haec carta a me facta firma et stabilis omni tempore permaneat, stipulatione subnixa",
+            "Stipulationsformel-lems": null,
+            "Corroboratio": "Testes multi",
+            "Corroboratio-lems": null,
+            "Eschatokoll": "Actum est autem haec IIII id. octb",
+            "Eschatokoll-lems": null
+          },
+          "highlight": {
+            "Narratio": [
+              "tractante enim me de aeterna beatitudine seu de terribili gehenna, qualiter deum contemnentes paenam incidunt aeternam et </small><strong>Christo</strong><small> servientes vitam adipiscunt sempiternam. Pro hoc igitur statui in animo meo de hereditate mea deo inspirante ... ad monasterium sancti Michahelis, qui vocatur Maninseo, qui est constructus in pago Matahgauuense"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:mondsee.rath0070.lat001"
+          ]
+        },
+        {
+          "_index": "mondsee_v7",
+          "_id": "urn:cts:formulae:mondsee.rath0085.lat001",
+          "_score": null,
+          "_ignored": [
+            "Pertinenzformel.keyword",
+            "Narratio.keyword"
+          ],
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 85",
+            "keywords": "",
+            "urn": "urn:cts:formulae:mondsee.rath0085.lat001",
+            "date_string": "772",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "mondsee",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 772
+              }
+            ],
+            "all_dates": [
+              "0772"
+            ],
+            "min_date": "0772",
+            "max_date": "0772",
+            "sort_prefix": 1,
+            "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
+            "Invocatio-oder-Inscriptio-lems": null,
+            "Intitulatio": "Ego Reginolf clericus",
+            "Intitulatio-lems": null,
+            "Narratio": "tractante enim me de eterna beatitudine seu de terribili gehaennae, qualiter deum contempnentes poenam incidunt eternam et Christo servientes vitam adipiscunt sempiternam. Pro hoc igitur statui in animo meo de hereditate mea deo inspirante ... cum consensu et licencia summi principis Tassilonis ... ad monasterium beati Michahelis archangeli, qui situs est ad Maninsee",
+            "Narratio-lems": null,
+            "Pertinenzformel": "de hereditate mea ... quod habui [in loco] nuncupante Rorpah, id est eclesiam cum domo et cum ipsa curte et ea, quae infra ipsa sunt, et vineam, quam ibi habui, et terram, quam ibi habui, antequam meus pater ex hac luce fuisset subtractus, cultam vel incultam, vel pratas, quas ante habui, et V servos habitantes, excepto duos infantes, cum omnia, que possident",
+            "Pertinenzformel-lems": null,
+            "Provenienz": "quam mihi meus genitor dereliquid",
+            "Provenienz-lems": null,
+            "Eschatokoll": "anno regni eius vicesimo quinto, indiccione V",
+            "Eschatokoll-lems": null,
+            "Dispositio": "tradidi insuper et transfundavi ... ut ibi sit firmiter [et] stabilis pro beatitudine anime meae",
+            "Dispositio-lems": null,
+            "Corroboratio": "coram multis testibus, quorum nomina in antea ex parte perscribimus ... Testes multi",
+            "Corroboratio-lems": null,
+            "Poenformel": "Si quis autem contra hanc cartam donacionis, quelibet opposita persona, contraire volverit, iram dei incurrat, et partem habeat cum Iuda traditore et causam cum beato Michahelo",
+            "Poenformel-lems": null,
+            "Stipulationsformel": "et carta haec nihilominus firma permaneat",
+            "Stipulationsformel-lems": null
+          },
+          "highlight": {
+            "Narratio": [
+              "tractante enim me de eterna beatitudine seu de terribili gehaennae, qualiter deum contempnentes poenam incidunt eternam et </small><strong>Christo</strong><small> servientes vitam adipiscunt sempiternam. Pro hoc igitur statui in animo meo de hereditate mea deo inspirante ... cum consensu et licencia summi principis Tassilonis ... ad monasterium beati Michahelis archangeli, qui situs est ad Maninsee"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:mondsee.rath0085.lat001"
+          ]
+        },
+        {
+          "_index": "mondsee_v7",
+          "_id": "urn:cts:formulae:mondsee.rath0087.lat001",
+          "_score": null,
+          "_ignored": [
+            "Narratio.keyword"
+          ],
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 87",
+            "keywords": "",
+            "urn": "urn:cts:formulae:mondsee.rath0087.lat001",
+            "date_string": "(748/770?- 788)",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "mondsee",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0748",
+                "lte": "0788-12-31"
+              }
+            ],
+            "all_dates": [
+              "0748",
+              "0788-12-31"
+            ],
+            "min_date": "0748",
+            "max_date": "0788-12-31",
+            "sort_prefix": 1,
+            "Invocatio-oder-Inscriptio": "In nomine dei salvatoris nostri Ihesu Christi",
+            "Invocatio-oder-Inscriptio-lems": null,
+            "Intitulatio": "Ego Alpkis",
+            "Intitulatio-lems": null,
+            "Narratio": "tractante enim me de eterna beatitudine seu de poenali iudicio, qualiter deum contempnentes poenam incidunt infinibilem et Christo adherentes vitam adipiscunt sempiternam. Ob hoc igitur statui apud me ipsum et licenciam summi principis Tassiloni ... apud me ipsum ... ad monasterium beati Michahelis, qui situs est ad Maninseae",
+            "Narratio-lems": null,
+            "Pertinenzformel": "de substancia ... omnia, que ibidem habeo, servos vel ancillas seu [liberos] ad ipsum locum detentos, terram, pratas, silvas, cultum vel incultum, vel quicquid ibi habere potvero, omnia ex integro",
+            "Pertinenzformel-lems": null,
+            "Provenienz": "qua mihi princeps prefatus concessit ad Pahmannon",
+            "Provenienz-lems": null,
+            "Dispositio": "trado atque confirmo ... ut post obitum meum ibi servat die ac nocte, et ibi sit fruibilis pro redempcione animae meae, cum ex hac luce fuero subtractus",
+            "Dispositio-lems": null,
+            "Poenformel": "Si quis autem contra hanc donacionem, quelibet opposita persona, contraire volverit, iram dei omnipotentis incurrat, et causam [habeat] cum beato Michahelo archangelo et partem cum Iuda traditore",
+            "Poenformel-lems": null,
+            "Stipulationsformel": "et carta hec nihilominus firma permaneat",
+            "Stipulationsformel-lems": null,
+            "Corroboratio": "Et sunt testes multi",
+            "Corroboratio-lems": null
+          },
+          "highlight": {
+            "Narratio": [
+              "tractante enim me de eterna beatitudine seu de poenali iudicio, qualiter deum contempnentes poenam incidunt infinibilem et </small><strong>Christo</strong><small> adherentes vitam adipiscunt sempiternam. Ob hoc igitur statui apud me ipsum et licenciam summi principis Tassiloni ... apud me ipsum ... ad monasterium beati Michahelis, qui situs est ad Maninseae"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:mondsee.rath0087.lat001"
+          ]
+        },
+        {
+          "_index": "mondsee_v7",
+          "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
+          "_score": null,
+          "_ignored": [
+            "Poenformel.keyword",
+            "Narratio.keyword"
+          ],
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 96",
+            "keywords": "",
+            "urn": "urn:cts:formulae:mondsee.rath0096.lat001",
+            "date_string": "(Letztes Drittel 8 Jhd.?/783?/798) 07 25/08 06",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "mondsee",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 766,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 766,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 767,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 767,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 768,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 768,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 769,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 769,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 770,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 770,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 771,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 771,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 772,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 772,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 773,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 773,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 774,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 774,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 775,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 775,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 776,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 776,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 777,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 777,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 778,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 778,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 779,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 779,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 780,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 780,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 781,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 781,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 782,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 782,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 783,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 783,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 784,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 784,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 785,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 785,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 786,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 786,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 787,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 787,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 788,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 788,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 789,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 789,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 790,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 790,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 791,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 791,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 792,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 792,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 793,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 793,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 794,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 794,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 795,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 795,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 796,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 796,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 797,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 797,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 798,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 798,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 799,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 799,
+                "month": 8,
+                "day": 6
+              },
+              {
+                "year": 800,
+                "month": 7,
+                "day": 25
+              },
+              {
+                "year": 800,
+                "month": 8,
+                "day": 6
+              }
+            ],
+            "all_dates": [
+              "0766-07-25",
+              "0766-08-06",
+              "0767-07-25",
+              "0767-08-06",
+              "0768-07-25",
+              "0768-08-06",
+              "0769-07-25",
+              "0769-08-06",
+              "0770-07-25",
+              "0770-08-06",
+              "0771-07-25",
+              "0771-08-06",
+              "0772-07-25",
+              "0772-08-06",
+              "0773-07-25",
+              "0773-08-06",
+              "0774-07-25",
+              "0774-08-06",
+              "0775-07-25",
+              "0775-08-06",
+              "0776-07-25",
+              "0776-08-06",
+              "0777-07-25",
+              "0777-08-06",
+              "0778-07-25",
+              "0778-08-06",
+              "0779-07-25",
+              "0779-08-06",
+              "0780-07-25",
+              "0780-08-06",
+              "0781-07-25",
+              "0781-08-06",
+              "0782-07-25",
+              "0782-08-06",
+              "0783-07-25",
+              "0783-08-06",
+              "0784-07-25",
+              "0784-08-06",
+              "0785-07-25",
+              "0785-08-06",
+              "0786-07-25",
+              "0786-08-06",
+              "0787-07-25",
+              "0787-08-06",
+              "0788-07-25",
+              "0788-08-06",
+              "0789-07-25",
+              "0789-08-06",
+              "0790-07-25",
+              "0790-08-06",
+              "0791-07-25",
+              "0791-08-06",
+              "0792-07-25",
+              "0792-08-06",
+              "0793-07-25",
+              "0793-08-06",
+              "0794-07-25",
+              "0794-08-06",
+              "0795-07-25",
+              "0795-08-06",
+              "0796-07-25",
+              "0796-08-06",
+              "0797-07-25",
+              "0797-08-06",
+              "0798-07-25",
+              "0798-08-06",
+              "0799-07-25",
+              "0799-08-06",
+              "0800-07-25",
+              "0800-08-06"
+            ],
+            "min_date": "0766-07-25",
+            "max_date": "0800-08-06",
+            "days": [
+              "Sunday",
+              "Friday",
+              "Tuesday",
+              "Thursday",
+              "Wednesday",
+              "Monday",
+              "Saturday"
+            ],
+            "sort_prefix": 1,
+            "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
+            "Invocatio-oder-Inscriptio-lems": null,
+            "Intitulatio": "Ego itaque Hiltiperht",
+            "Intitulatio-lems": null,
+            "Narratio": "tractante enim mae de eterna beatitudine seu de terribili gehennea, qualiter deum contempnentes penam incidunt sempiternam et Christo servientes vitam adipiscunt eternam. Pro hoc igitur statui in animo meo de hereditate mea deo inspirante ... ad monasterium sancti Michahelis, qui vocatur Maninseo, qui est constructus in pago Matahgauue",
+            "Narratio-lems": null,
+            "Pertinenzformel": "de hereditate mea ... quod habui in loco nuncupante Atargauui in villa, qui dicitur Campara, cum domibus, edificiis, rures, campos, pratas, silvis, viis, aquis aquarumve decursibus, cum quattuor mancipiis",
+            "Pertinenzformel-lems": null,
+            "Provenienz": "quam mihi pater meus dereliquid",
+            "Provenienz-lems": null,
+            "Dispositio": "tradidi insuper et transfundavi",
+            "Dispositio-lems": null,
+            "Poenformel": "Si quis autem, quod futurum esse non credo, aut ego ipse aut aliquis de heredibus meis vel successoribus meis, qui contra hanc donacionis cartam venire aut eam infrangere temptaverit, inprimis iram die incurrat et sanctorum eius, et a limitibus eclesiae extraneus efficiatur, et habeat partem cum Juda traditore et causam cum sancto Michahelo archangelo",
+            "Poenformel-lems": null,
+            "Strafe": "et sit culpabilis in fisco auri uncias III, argenti pondera VI",
+            "Strafe-lems": null,
+            "Stipulationsformel": "et quod repetit, evindicare non valeat, et hec carta nihilominus firma permaneat et stabilis omni tempore, stipulacione subnixa",
+            "Stipulationsformel-lems": null,
+            "Eschatokoll": "Die consule VIII aug., indiccione VI",
+            "Eschatokoll-lems": null,
+            "Corroboratio": "Sunt testes multi",
+            "Corroboratio-lems": null
+          },
+          "highlight": {
+            "Narratio": [
+              "tractante enim mae de eterna beatitudine seu de terribili gehennea, qualiter deum contempnentes penam incidunt sempiternam et </small><strong>Christo</strong><small> servientes vitam adipiscunt eternam. Pro hoc igitur statui in animo meo de hereditate mea deo inspirante ... ad monasterium sancti Michahelis, qui vocatur Maninseo, qui est constructus in pago Matahgauue"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:mondsee.rath0096.lat001"
+          ]
+        },
+        {
+          "_index": "mondsee_v7",
+          "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
+          "_score": null,
+          "_ignored": [
+            "Poenformel.keyword",
+            "Narratio.keyword"
+          ],
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Das älteste Traditionsbuch des Klosters Mondsee (Ed. Rath/Reiter) Nr. 118",
+            "keywords": "",
+            "urn": "urn:cts:formulae:mondsee.rath0118.lat001",
+            "date_string": "Letzte Drittel 8 Jhd.?/nach 770?",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "mondsee",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0766",
+                "lte": "0800-12-31"
+              }
+            ],
+            "all_dates": [
+              "0766",
+              "0800-12-31"
+            ],
+            "min_date": "0766",
+            "max_date": "0800-12-31",
+            "sort_prefix": 1,
+            "Invocatio-oder-Inscriptio": "In nomine domini dei salvatoris nostri Ihesu Christi",
+            "Invocatio-oder-Inscriptio-lems": null,
+            "Intitulatio": "Ego itaque Arperht",
+            "Intitulatio-lems": null,
+            "Narratio": "tractante enim mae de aetaerna beatitudine seu de terribili gehenna, qualiter deum contempnentes poenam incidunt etaernam et Christo servientes vitam adipiscunt sempiternam. Pro hoc igitur statui in animo meo de hereditate mea deo inspirante ... ad monasterium sancti Michahelis, qui vocatur Maninseo, qui est constructus in pago Matahgauuense",
+            "Narratio-lems": null,
+            "Pertinenzformel": "de hereditate mea ... quod habui in loco nuncupante Ezzinpah et Antesana",
+            "Pertinenzformel-lems": null,
+            "Provenienz": "quam mihi meus genitor dereliquid",
+            "Provenienz-lems": null,
+            "Dispositio": "tradidi insuper et transfundavi",
+            "Dispositio-lems": null,
+            "Poenformel": "Si quis autem, quod futurum esse non credo, si ego ipse aut aliquis de heredibus vel successoribus meis, qui contra hanc cartam donationis venire aut eam infrangere volverit, inprimis iram dei incurrat et sanctorum eius, et a limitibus eclesiae extraneus efficiatur, et habeat partem cum Iuda traditore et causam cum sancto Michahelo archangelo",
+            "Poenformel-lems": null,
+            "Strafe": "et sit culpabilis in fisco auri uncias III, argenti pondera VI, et quod repetit, evindicare non valeat",
+            "Strafe-lems": null,
+            "Stipulationsformel": "et haec carta a mae facta firma et stabilis permaneat, stipulatione subnixa",
+            "Stipulationsformel-lems": null,
+            "Corroboratio": "Sunt multi testes",
+            "Corroboratio-lems": null
+          },
+          "highlight": {
+            "Narratio": [
+              "tractante enim mae de aetaerna beatitudine seu de terribili gehenna, qualiter deum contempnentes poenam incidunt etaernam et </small><strong>Christo</strong><small> servientes vitam adipiscunt sempiternam. Pro hoc igitur statui in animo meo de hereditate mea deo inspirante ... ad monasterium sancti Michahelis, qui vocatur Maninseo, qui est constructus in pago Matahgauuense"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:mondsee.rath0118.lat001"
+          ]
+        }
+      ]
+    }
+  }
+]

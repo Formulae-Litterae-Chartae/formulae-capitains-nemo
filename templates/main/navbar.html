@@ -12,7 +12,20 @@
             {% if current_user.is_anonymous %}
                 <a class="nav-link" href="{{ url_for('auth.r_login') }}">{{ _('Einloggen') }}</a>
             {% else %}
-                <span class="navbar-text px-2"><a href="{{ url_for('auth.r_user', username=current_user.username) }}" id="profile-link" data-toggle="tooltip" data-container="#profile-link" title="{{ _('Benutzerprofil ändern') }}">{{ current_user.username }}</a> <small>(<a href="{{ url_for('auth.r_logout') }}">{{ _('ausloggen') }}</a>)</small></span>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" role="button" id="accountDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ current_user.username }}</a>
+                    <div class="dropdown-menu" aria-labelledby="accountDropdown">
+                        <a class="dropdown-item" href="{{ url_for('auth.r_user', username=current_user.username) }}" id="profile-link" data-toggle="tooltip" data-container="#profile-link">{{ _('Benutzerprofil ändern') }}</a>
+                        {% if g.save_page_form %}
+                        <!-- Button trigger modal -->
+                        <a class="dropdown-item" role="button" data-toggle="modal" data-target="#savePageModal">
+                        {{ _('Diese Seite speichern') }}
+                        </a>
+                        {% endif %}
+                        <a class="dropdown-item" href="{{ url_for('auth.r_saved_pages') }}">{{ _('Gespeicherte Seiten') }}</a>
+                        <a class="dropdown-item" href="{{ url_for('auth.r_logout') }}">{{ _('Ausloggen') }}</a>
+                    </div>
+                </li>
             {% endif %}
             </li>
             <li class="nav-item dropdown">
