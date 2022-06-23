@@ -1,161 +1,312 @@
 {
 	"@context": "http://iiif.io/api/presentation/2/context.json",
-	"@id": "https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/manifest",
+	"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/manifest/",
 	"@type": "sc:Manifest",
 	"label": "Breviarium Alarici - Formulae Andecavenses",
-	"metadata": [{
-		"label": [{
-			"@value": "Titel",
-			"@language": "de"
-		}, {
-			"@value": "Title",
-			"@language": "en"
-		}, {
-			"@value": "Título",
-			"@language": "es"
-		}],
-		"value": "Breviarium Alarici - Formulae Andecavenses"
-	}],
-	"thumbnail": {
-		"@id": "https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000001.tif/full/!200,220/0/default.jpg",
-		"@type": "dcTypes:Image",
-		"service": {
-			"@context": "http://iiif.io/api/image/2/context.json",
-			"@id": "https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000001.tif",
-			"profile": "http://iiif.io/api/image/2/level2.json"
-		}
-	},
-	"attribution": [{
-		"@value": "Hochschul- und Landesbibliothek Fulda",
-		"@language": "de"
-	}, {
-		"@value": "Goobi viewer",
-		"@language": "en"
-	}, {
-		"@value": "Goobi viewer",
-		"@language": "es"
-	}],
+	"attribution": "Goobi viewer",
+	"license": "iiif_license",
 	"logo": {
 		"@id": "https://fuldig.hs-fulda.de/viewer/resources/themes/hlbf/images/dfgviewer_intranda.jpg",
 		"@type": "dcTypes:Image"
 	},
-	"rendering": [{
-		"@id": "https://fuldig.hs-fulda.de/viewer/image/PPN397372442/1/LOG_0000/",
-		"label": "goobi viewer",
-		"format": "text/html"
-	}, {
-		"@id": "https://fuldig.hs-fulda.de/viewer/rest/pdf/mets/PPN397372442.xml/Breviarium_Alarici__Formulae_Andecavenses.pdf?watermarkText=https%3A%2F%2Ffuldig.hs-fulda.de%2Fviewer%2Fimage%2FPPN397372442%2F1%2F",
-		"label": "PDF",
-		"format": "applocation/pdf"
-	}],
+	"thumbnail": {
+		"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000001.tif/full/!400,400/0/default.jpg",
+		"@type": "dcTypes:Image",
+		"service": {
+			"@context": "http://iiif.io/api/image/2/context.json",
+			"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000001.tif",
+			"profile": "http://iiif.io/api/image/2/level2.json"
+		}
+	},
+	"metadata": [
+		{
+			"label": "MD_PROCESSID",
+			"value": "3009"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Umfang"
+				},
+				{
+					"@language": "en",
+					"@value": "Scope"
+				}
+			],
+			"value": "1 Online-Ressource (186 Blätter)"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Erscheinungsjahr"
+				},
+				{
+					"@language": "en",
+					"@value": "Year of publication"
+				}
+			],
+			"value": "8. Jh."
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Dokumenttyp"
+				},
+				{
+					"@language": "en",
+					"@value": "Document type"
+				}
+			],
+			"value": "Handschrift"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Titel"
+				},
+				{
+					"@language": "en",
+					"@value": "Title"
+				}
+			],
+			"value": "Breviarium Alarici - Formulae Andecavenses"
+		},
+		{
+			"label": "MD_SHELFMARK_STOEBERN",
+			"value": "D 1"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Signatur"
+				},
+				{
+					"@language": "en",
+					"@value": "Shelfmark"
+				}
+			],
+			"value": "100 D 1"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Umfang"
+				},
+				{
+					"@language": "en",
+					"@value": "Scope"
+				}
+			],
+			"value": "1 Online-Ressource (186 Blätter)"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Erscheinungsort"
+				},
+				{
+					"@language": "en",
+					"@value": "Place of publication"
+				}
+			],
+			"value": "Frankreich (Angers?)"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Erscheinungsjahr"
+				},
+				{
+					"@language": "en",
+					"@value": "Year of publication"
+				}
+			],
+			"value": "0750"
+		},
+		{
+			"label": [
+				{
+					"@language": "de",
+					"@value": "Sprache"
+				},
+				{
+					"@language": "en",
+					"@value": "Language"
+				}
+			],
+			"value": [
+				{
+					"@language": "de",
+					"@value": "latein"
+				},
+				{
+					"@language": "en",
+					"@value": "Latin"
+				}
+			]
+		}
+	],
+	"service": {
+		"@context": "http://iiif.io/api/search/1/context.json",
+		"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/manifest/search",
+		"profile": "http://iiif.io/api/search/1/search",
+		"@type": "SearchService1",
+		"service": [
+			{
+				"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/manifest/autocomplete",
+				"profile": "http://iiif.io/api/search/1/autocomplete",
+				"@type": "AutoCompleteService1"
+			}
+		]
+	},
 	"seeAlso": {
 		"@id": "https://fuldig.hs-fulda.de/viewer/metsresolver?id=PPN397372442",
 		"label": "METS/MODS",
 		"format": "text/xml"
 	},
-	"sequences": [{
-		"@id": "https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/sequence/basic",
-		"@type": "sc:Sequence",
-		"viewingHint": "paged",
-		"within": "https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/manifest",
-		"canvases": [
-            {
-               "@id":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/canvas/277",
-               "@type":"sc:Canvas",
-               "label":"139r",
-               "thumbnail":{
-                  "@id":"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000277.tif/full/!200,220/0/default.jpg",
-                  "@type":"dcTypes:Image"
-               },
-               "rendering":{
-                  "@id":"https://fuldig.hs-fulda.de/viewer/image/PPN397372442/277/",
-                  "label":"goobi viewer",
-                  "format":"text/html"
-               },
-               "within":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/sequence/basic",
-               "width":2139,
-               "height":3269,
-               "images":[
-                  {
-                     "@id":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/canvas/277/image/1",
-                     "@type":"oa:Annotation",
-                     "motivation":"sc:painting",
-                     "on":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/canvas/277",
-                     "resource":{
-                        "@id":"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000277.tif/full/!200,220/0/default.jpg",
-                        "@type":"dcTypes:Image",
-                        "width":2139,
-                        "height":3269,
-                        "format":"image/jpeg",
-                        "service":{
-                           "@context":"http://iiif.io/api/image/2/context.json",
-                           "@id":"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000277.tif",
-                           "profile":"http://iiif.io/api/image/2/level2.json"
-                        }
-                     }
-                  }
-               ],
-               "otherContent":[
-                  {
-                     "@id":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/list/277/PDF",
-                     "@type":"sc:AnnotationList",
-                     "label":"PDF"
-                  }
-               ]
-            }
-            ,{
-               "@id":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/canvas/278",
-               "@type":"sc:Canvas",
-               "label":"139v",
-               "thumbnail":{
-                  "@id":"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000278.tif/full/!200,220/0/default.jpg",
-                  "@type":"dcTypes:Image"
-               },
-               "rendering":{
-                  "@id":"https://fuldig.hs-fulda.de/viewer/image/PPN397372442/278/",
-                  "label":"goobi viewer",
-                  "format":"text/html"
-               },
-               "within":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/sequence/basic",
-               "width":2079,
-               "height":3277,
-               "images":[
-                  {
-                     "@id":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/canvas/278/image/1",
-                     "@type":"oa:Annotation",
-                     "motivation":"sc:painting",
-                     "on":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/canvas/278",
-                     "resource":{
-                        "@id":"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000278.tif/full/!200,220/0/default.jpg",
-                        "@type":"dcTypes:Image",
-                        "width":2079,
-                        "height":3277,
-                        "format":"image/jpeg",
-                        "service":{
-                           "@context":"http://iiif.io/api/image/2/context.json",
-                           "@id":"https://fuldig.hs-fulda.de/viewer/rest/image/PPN397372442/00000278.tif",
-                           "profile":"http://iiif.io/api/image/2/level2.json"
-                        }
-                     }
-                  }
-               ],
-               "otherContent":[
-                  {
-                     "@id":"https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/list/278/PDF",
-                     "@type":"sc:AnnotationList",
-                     "label":"PDF"
-                  }
-               ]
-            }
-
-
-],
-		"viewingDirection": "left-to-right"
-	}],
-	"structures": [{
-		"@id": "https://fuldig.hs-fulda.de/viewer/rest/iiif/manifests/PPN397372442/range/LOG_0000",
-		"@type": "sc:Range",
-		"label": "CONTENT",
-		"viewingHint": "top"
-	}]
+	"sequences": [
+		{
+			"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pages/sequence/base/",
+			"@type": "sc:Sequence",
+			"viewingHint": "paged",
+			"within": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/manifest/",
+			"viewingDirection": "left-to-right",
+			"canvases": [
+				{
+					"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pages/277/canvas/",
+					"@type": "sc:Canvas",
+					"label": "139r",
+					"thumbnail": {
+						"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000277.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"within": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pages/sequence/base/",
+					"width": 2139,
+					"height": 3269,
+					"images": [
+						{
+							"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pages/277/canvas/image/1/",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000277.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 2139,
+								"height": 3269,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000277.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							},
+							"on": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pages/277/canvas/"
+						}
+					],
+					"rendering": [
+						{
+							"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000277.tif/full.pdf",
+							"@type": "dcTypes:Image",
+							"label": "PDF",
+							"format": "application/pdf"
+						},
+						{
+							"@id": "https://fuldig.hs-fulda.de/viewer/image/PPN397372442/277/",
+							"@type": "dcTypes:InteractiveResource",
+							"label": "Goobi viewer",
+							"format": "text/html"
+						}
+					]
+				},
+				{
+					"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pages/278/canvas/",
+					"@type": "sc:Canvas",
+					"label": "139v",
+					"thumbnail": {
+						"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000278.tif/full/!400,400/0/default.jpg",
+						"@type": "dcTypes:Image"
+					},
+					"within": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pages/sequence/base/",
+					"width": 2079,
+					"height": 3277,
+					"images": [
+						{
+							"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pages/278/canvas/image/1/",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"resource": {
+								"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000278.tif/full/!400,400/0/default.jpg",
+								"@type": "dcTypes:Image",
+								"width": 2079,
+								"height": 3277,
+								"format": "image/jpeg",
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000278.tif",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							},
+							"on": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pages/278/canvas/"
+						}
+					],
+					"rendering": [
+						{
+							"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/files/images/00000278.tif/full.pdf",
+							"@type": "dcTypes:Image",
+							"label": "PDF",
+							"format": "application/pdf"
+						},
+						{
+							"@id": "https://fuldig.hs-fulda.de/viewer/image/PPN397372442/278/",
+							"@type": "dcTypes:InteractiveResource",
+							"label": "Goobi viewer",
+							"format": "text/html"
+						}
+					]
+				}
+			]
+		}
+	],
+	"structures": [
+		{
+			"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/sections/LOG_0000/range/",
+			"@type": "sc:Range",
+			"label": "CONTENT",
+			"viewingHint": "top"
+		}
+	],
+	"rendering": [
+		{
+			"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/pdf/",
+			"@type": "dcTypes:Image",
+			"label": "PDF",
+			"format": "application/pdf"
+		},
+		{
+			"@id": "https://fuldig.hs-fulda.de/viewer/image/PPN397372442/1/LOG_0000/",
+			"@type": "dcTypes:InteractiveResource",
+			"label": "Goobi viewer",
+			"format": "text/html"
+		},
+		{
+			"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/plaintext/",
+			"@type": "dcTypes:Text",
+			"label": "Fulltext",
+			"format": "text/plain"
+		},
+		{
+			"@id": "https://fuldig.hs-fulda.de/viewer/api/v1/records/PPN397372442/alto/",
+			"@type": "dcTypes:Text",
+			"label": "ALTO",
+			"format": "text/xml"
+		}
+	]
 }
