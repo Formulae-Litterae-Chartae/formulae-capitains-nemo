@@ -138,7 +138,7 @@ def r_results():
     if 'elexicon' in corpus:
         corpus = ['elexicon']
         corps = ['elexicon']
-    elif corpus in [['all'], ['formulae', 'chartae'], ['']]:
+    elif corpus in [['all'], ['formulae', 'chartae'], [''], ['form_lit_chart']]:
         corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']] + sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
     elif corpus == ['formulae']:
         corps = [x['id'].split(':')[-1] for x in g.sub_colls['formulae_collection']]

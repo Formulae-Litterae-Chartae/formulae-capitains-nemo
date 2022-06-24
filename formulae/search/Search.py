@@ -81,6 +81,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Touraine</b>: Marmoutier - Vendômois': {'match': {'collection': 'marmoutier_vendomois'}},
                                       '<b>Touraine</b>: Marmoutier - Vendômois, Appendix': {'match': {'collection': 'marmoutier_vendomois_appendix'}},
                                       '<b>Touraine</b>: Marmoutier (TELMA)': {'match': {'collection': 'telma_marmoutier'}},
+                                      '<b>Touraine</b>: Pancarte Noire': {'match': {'collection': 'pancarte_noir_internal'}},
                                       '<b>Touraine</b>: Saint-Julien de Tours': {'match': {'collection': 'tours_st_julien_denis'}},
                                       '<b>Touraine</b>: Saint-Martin de Tours (TELMA)': {'match': {'collection': 'telma_martin_tours'}},
                                       '<b>Touraine</b>: Un acte faux de Marmoutier': {'match': {'collection': 'marmoutier_laurain'}},
@@ -108,7 +109,9 @@ LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 def check_open_texts(hit_id):
     """ Used for mock tests to return True for highlighting purposes"""
-    return hit_id in current_app.config['nemo_app'].open_texts, hit_id in current_app.config['nemo_app'].half_open_texts
+    open_text = hit_id in current_app.config['nemo_app'].open_texts and hit_id not in current_app.config['nemo_app'].closed_texts['closed']
+    half_open_text = hit_id in current_app.config['nemo_app'].half_open_texts or hit_id in current_app.config['nemo_app'].closed_texts['half_closed']
+    return open_text, half_open_text
 
 
 def build_sort_list(sort_str: str) -> Union[str, List[Union[Dict[str, Dict[str, str]], str]]]:
@@ -404,90 +407,6 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
         current_app.redis.setex(download_id, 60, '100%')
     return ids, all_highlighted_terms
 
-    """for list_index, hit in enumerate(search['hits']['hits']):
-        open_text = hit['_id'] in current_app.config['nemo_app'].open_texts
-        half_open_text = hit['_id'] in current_app.config['nemo_app'].half_open_texts
-        show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
-        text = hit['_source']['text']
-        sentences = []
-        sentence_spans = []
-        other_sentences = []
-        part_sentences = []
-        regest_sents = []
-        vectors = corp_vectors[hit['_id']]['term_vectors']
-        for search_field in hit['highlight']:
-            highlight_offsets = {search_field: {}}
-            highlight_offsets.update({'text': {}})
-            if search_field in ('text', 'lemmas'):
-                search_field_words = re.findall(r'[\w</>·]+', hit['highlight'][search_field][0])
-                for k, v in vectors[search_field]['terms'].items():
-                    highlight_offsets[search_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
-                if search_field == 'lemmas':
-                    for k, v in vectors['text']['terms'].items():
-                        highlight_offsets['text'].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
-                h_l_indices = sorted([(i, re.sub(r'.*>(\w+)<.*', r'\1', x)) for i, x in enumerate(search_field_words) if '<strong>' in x])
-                word_ranges = [range(max(0, h_l_indices[0][0] - 10), min(h_l_indices[0][0] + 11, len(highlight_offsets['text'])))]
-                for i, w in h_l_indices:
-                    highlight_tags = [PRE_TAGS, POST_TAGS]
-                    if highlight_offsets[search_field][i][-1] != w.lower():
-                        print(hit['_id'], hit['highlight'])
-                        print(i, highlight_offsets[search_field][i][-1])
-                        highlight_tags = ['', '']
-                    if i in word_ranges[-1]:
-                        word_ranges[-1] = range(word_ranges[-1].start, min(i + 11, len(highlight_offsets['text'])))
-                    else:
-                        word_ranges.append(range(max(0, i - 10), min(i + 11, len(highlight_offsets['text']))))
-                start_offsets = [highlight_offsets['text'][x[0]][0] for x in h_l_indices]
-                end_offsets = [highlight_offsets['text'][x[0]][1] - 1 for x in h_l_indices]
-                for r in word_ranges:
-                    start_index = highlight_offsets['text'][r.start][0]
-                    end_index = highlight_offsets['text'][r.stop - 1][1] + 1
-                    sentence = ''
-                    for i, x in enumerate(text[start_index:end_index]):
-                        if i + start_index in start_offsets and i + start_index in end_offsets:
-                            sentence += highlight_tags[0] + x + highlight_tags[1]
-                        elif i + start_index in start_offsets:
-                            sentence += highlight_tags[0] + x
-                        elif i + start_index in end_offsets:
-                            sentence += x + highlight_tags[1]
-                        else:
-                            sentence += x
-                    sentences.append(Markup(sentence))
-                    sentence_spans.append(r)
-            elif search_field in FORM_PARTS.keys():
-                part_sentences += [Markup('<strong>' + search_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)) for x in hit['highlight'][search_field]]
-            elif 'regest' in search_field:
-                if show_regest is False:
-                    regest_sents = [_('Regest nicht zugänglich.')]
-                else:
-                    regest_sents = [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]]
-            else:
-                other_sentences += [Markup(highlight_segment(x)) for x in hit['highlight'][search_field]]
-
-        if download_id and list_index % 500 == 0:
-            current_app.redis.set(download_id, str(50 + floor((list_index / len(search['hits']['hits'])) * 50)) + '%')
-        ordered_sentences = list()
-        ordered_sentence_spans = list()
-        for x, y in sorted(zip(sentences, sentence_spans), key=lambda z: (z[1].start, z[1].stop)):
-            ordered_sentences.append(x)
-            ordered_sentence_spans.append(y)
-        ordered_sentences += other_sentences
-        ordered_sentences += [x for x in sorted(part_sentences)]
-        if ordered_sentences or regest_sents:
-            if current_app.config['nemo_app'].check_project_team() is False and not open_text:
-                ordered_sentences = [_('Text nicht zugänglich.')]
-                ordered_sentence_spans = [range(0, 1)]
-        ids.append({'id': hit['_id'],
-                    'info': hit['_source'],
-                    'sents': ordered_sentences,
-                    'sentence_spans': ordered_sentence_spans,
-                    'title': hit['_source']['title'],
-                    'regest_sents': regest_sents,
-                    'highlight': ordered_sentences})
-    if download_id:
-        current_app.redis.setex(download_id, 60, '100%')
-    return ids, all_highlighted_terms"""
-
 
 def advanced_query_index(corpus: list = None,
                          query_dict: dict = None,
@@ -535,8 +454,8 @@ def advanced_query_index(corpus: list = None,
                                                                'encoder': 'html'}})
     if 'q_1' not in query_dict and source == 'simple':
         return [], 0, {}, []
-    if corpus is None or not any(corpus):
-        corpus = ['all']
+    if corpus is None or not any(corpus) or corpus in [['all'], 'all']:
+        corpus = ['form_lit_chart']
     if special_days is None:
         special_days = []
     search_highlight = set()

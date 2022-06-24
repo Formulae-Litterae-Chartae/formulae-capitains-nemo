@@ -13,6 +13,7 @@ from MyCapytain.resources.collections.capitains import XmlCapitainsReadableMetad
 from MyCapytain.errors import UnknownCollection
 from formulae.search.forms import SearchForm
 from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
+from formulae.auth.forms import AddSavedPageForm
 from lxml import etree
 from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
 import re
@@ -99,6 +100,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:andecavensis',
                         'urn:cts:formulae:anjou_archives',
                         'urn:cts:formulae:anjou_comtes_chroniques',
+                        'urn:cts:formulae:auvergne',
                         'urn:cts:formulae:bonneval_marmoutier',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:cartier_1841',
@@ -136,8 +138,13 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:p3',
+                        'urn:cts:formulae:p8',
+                        'urn:cts:formulae:p10',
                         'urn:cts:formulae:p12',
+                        'urn:cts:formulae:p14',
                         'urn:cts:formulae:p16a',
+                        'urn:cts:formulae:p16b',
+                        'urn:cts:formulae:pancarte_noir_internal',
                         'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
                         'urn:cts:formulae:pippin_3',
@@ -151,10 +158,13 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:sg2',
                         'urn:cts:formulae:stgallen',
                         'urn:cts:formulae:syd',
+                        'urn:cts:formulae:tours',
                         'urn:cts:formulae:tours_gasnault',
                         'tours_st_julien_denis',
                         'urn:cts:formulae:tours_st_julien_fragments',
                         'urn:cts:formulae:v6',
+                        'urn:cts:formulae:v8',
+                        'urn:cts:formulae:v9',
                         'urn:cts:formulae:wa1',
                         'urn:cts:formulae:weissenburg',
                         'urn:cts:formulae:werden',
@@ -233,8 +243,24 @@ class NemoFormulae(Nemo):
         self.comp_places = self.make_comp_places_list()
         self.manuscript_notes = self.make_manuscript_notes()
         self.ms_lib_links = self.make_ms_lib_links()
+        self.closed_texts = self.make_closed_texts()
         # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
+
+    def make_closed_texts(self) -> dict:
+        """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
+        closed_texts = dict()
+        for corpus_folder in self.app.config['CORPUS_FOLDERS']:
+            if os.path.isfile(corpus_folder + '/' + 'closed_texts.json'):
+                with open(corpus_folder + '/' + 'closed_texts.json') as f:
+                    try:
+                        closed = json_load(f)
+                    except JSONDecodeError:
+                        self.app.logger.warning(corpus_folder + '/' + 'closed_texts.json' + ' is not a valid JSON file. Unable to load valid closed texts from it.')
+                        continue
+                for k, v in closed.items():
+                    closed_texts[k] = v
+        return dict(closed_texts)
 
     def make_collected_colls(self) -> dict:
         """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
@@ -661,10 +687,11 @@ class NemoFormulae(Nemo):
 
     def before_request(self):
         g.search_form = SearchForm()
+        g.save_page_form = AddSavedPageForm()
         g.sub_colls = self.sub_colls
         g.open_texts = self.open_texts
         g.open_collections = self.OPEN_COLLECTIONS
-        if not re.search('texts|search|assets|favicon|reading_format', request.url):
+        if not re.search('texts|search|assets|favicon|reading_format|save_page', request.url):
             session.pop('previous_search', None)
 
     def after_request(self, response: Response) -> Response:
@@ -892,8 +919,13 @@ class NemoFormulae(Nemo):
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
                             work_name = Markup(name_part.group(0))
+                    regest = [Markup(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')]
+                    if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
+                        if len(regest) == 2:
+                            regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
+
                     r[par].update({"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) or '',
-                                   "regest": [str(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')],
+                                   "regest": regest,
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                                    'name': work_name,
@@ -963,13 +995,16 @@ class NemoFormulae(Nemo):
                     title = str(ed_parent.metadata.get_single(DC.title, lang=lang))
                     form = ed_parent.id
                     edition_name = ed_trans_mapping.get(edition, edition).title()
+                    regest = str(m.metadata.get_single(DCTERMS.abstract))
                     if 'manuscript_collection' in m.ancestors:
                         full_edition = sorted([(k, v) for k, v in m.ancestors.items() if 'manuscript_collection' in v.ancestors])[0][-1]
                         edition_name = str(full_edition.metadata.get_single(self.BIBO.AbbreviatedTitle, lang=lang))
+                        for k, v in ed_parent.readableDescendants.items():
+                            if 'deu001' in k:
+                                regest = str(v.metadata.get_single(DCTERMS.abstract))
                     else:
                         full_edition = sorted([(k, v) for k, v in m.ancestors.items() if 'formulae_collection' in v.ancestors])[0][-1]
                     full_edition_name = str(full_edition.metadata.get_single(DC.title, lang=lang))
-                    regest = str(m.metadata.get_single(DCTERMS.abstract))
 
                     if edition not in translations.keys():
                         titles[edition] = [title]
@@ -1249,6 +1284,8 @@ class NemoFormulae(Nemo):
             flash('{}, {}'.format(metadata.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
+        if objectId in self.closed_texts['closed'] and self.check_project_team() is False:
+            passage = '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.'))
         secondary_language = 'de'
         all_langs = [str(x) for x in metadata.metadata.get(DC.language, lang=None)]
         if len(all_langs) > 0:
@@ -1287,6 +1324,10 @@ class NemoFormulae(Nemo):
         for resource in metadata.metadata.get(DCTERMS.relation):
             linked_md = self.resolver.getMetadata(str(resource))
             linked_resources.append((linked_md.id, str(linked_md.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang)))
+        regest = [Markup(metadata.metadata.get_single(DC.description))] if 'formulae_collection' in metadata.ancestors else [Markup(x) for x in str(metadata.metadata.get_single(DC.description)).split('***')]
+        if self.check_project_team() is False and (metadata.id in self.closed_texts['half_closed'] or metadata.id in self.closed_texts['closed']):
+            if len(regest) == 2:
+                regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
         return {
             "template": "",
             "objectId": objectId,
@@ -1299,7 +1340,7 @@ class NemoFormulae(Nemo):
                     "type": str(metadata.type),
                     "author": str(metadata.metadata.get_single(DC.creator, lang=None)) or text.get_creator(lang),
                     "title": text.get_title(lang),
-                    "description": Markup(str(metadata.metadata.get_single(DC.description))) or '',
+                    "description": regest,
                     "coins": self.make_coins(metadata, text, subreference, lang=lang),
                     "pubdate": str(metadata.metadata.get_single(DCTERMS.created, lang=lang)),
                     "publang": str(metadata.metadata.get_single(DC.language, lang=lang)),
@@ -1393,7 +1434,7 @@ class NemoFormulae(Nemo):
                         this_manifest = json_load(f)
                     if 'fuldig.hs-fulda.de' in this_manifest['@id']:
                         # This works for resources from https://fuldig.hs-fulda.de/
-                        d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering']['@id']
+                        d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering'][1]['@id']
                     elif 'gallica.bnf.fr' in this_manifest['@id']:
                         # This link needs to be constructed from the thumbnail link for images from https://gallica.bnf.fr/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['thumbnail']['@id'].replace('.thumbnail', '')
@@ -1457,7 +1498,7 @@ class NemoFormulae(Nemo):
         root = etree.fromstring(html)
         spans = root.xpath('//span[contains(@class, "w")]')
         ids = results
-        if not any(ids):
+        if not any(ids) or spans == []:
             return html
         for sent, span in zip(ids[0]['sents'], ids[0]['sentence_spans']):
             if isinstance(span, str):

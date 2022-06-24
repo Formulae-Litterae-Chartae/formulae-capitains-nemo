@@ -182,7 +182,7 @@
                 {% endif %}
                 </td>
                 {% if request.args['corpus'] != 'elexicon' %}
-                <td>{% if post['info']['date_string'] != ' ' %}- {{ post['info']['date_string'] }}{% endif %}</td>
+                <td>{% if post['info']['date_string'] != ' ' %}- {{ post['info']['date_string']|safe }}{% endif %}</td>
                 <td data-order="{{  post['info']['min_date'] }}" class="hidden-cell"></td>
                 <td data-order="{{  post['info']['max_date'] }}" class="hidden-cell"></td>
                 <td data-order="{{  post['info']['comp_ort'] }}">{% if post['info']['orig_comp_ort']  != ' ' %}- {{ post['info']['orig_comp_ort'] }}{% endif %}</td>
