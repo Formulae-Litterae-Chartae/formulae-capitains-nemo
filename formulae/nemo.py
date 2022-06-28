@@ -864,6 +864,10 @@ class NemoFormulae(Nemo):
         r = OrderedDict()
         template = "main::sub_collection.html"
         current_parents = self.make_parents(collection, lang=lang)
+        containing_colls = list()
+        for cont_coll in collection.metadata.get(DCTERMS.isPartOf):
+            cont_coll_md = self.resolver.getMetadata(str(cont_coll)).metadata
+            containing_colls.append((Markup(cont_coll_md.get_single(self.BIBO.AbbreviatedTitle)), cont_coll_md.get_single(DC.title), str(cont_coll)))
         form = None
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
@@ -952,7 +956,8 @@ class NemoFormulae(Nemo):
                     "model": str(collection.model),
                     "type": str(collection.type),
                     "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS,
-                    "short_title": collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''
+                    "short_title": collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or '',
+                    "containing_collections": containing_colls
                 },
                 "readable": r,
                 "parents": current_parents,
