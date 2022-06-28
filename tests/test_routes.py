@@ -646,7 +646,7 @@ class TestIndividualRoutes(Formulae_Testing):
                              [('urn:cts:formulae:marculf.form000.lat001', 'Marculf I Prolog (lat)')],
                              'Linked editions should be correctly passed to the template.')
             c.get('/corpus/urn:cts:formulae:flavigny', follow_redirects=True)
-            self.assertEqual(self.get_context_variable('collections')['current']['containing_collections'],
+            self.assertCountEqual(self.get_context_variable('collections')['current']['containing_collections'],
                              [(Markup('Ko<span class="manuscript-number">2</span>'),
                                rdflib.term.Literal('Kopenhagen, Kongelige Bibliotek, Fabr. 84', lang='deu'),
                                'urn:cts:formulae:ko2'),
