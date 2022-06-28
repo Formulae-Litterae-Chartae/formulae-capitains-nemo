@@ -1361,7 +1361,7 @@ class NemoFormulae(Nemo):
                     "publisher": str(metadata.metadata.get_single(DC.publisher, lang=lang)),
                     'lang': metadata.lang,
                     'secondary_lang': secondary_language,
-                    'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)),
+                    'citation': str(metadata.metadata.get_single(DCTERMS.bibliographicCitation, lang=lang)).replace('&lt;', '<').replace('&gt;', '>'),
                     "short_regest": str(metadata.metadata.get_single(DCTERMS.abstract)) if 'formulae_collection' in [x['id'] for x in current_parents] else '',
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
