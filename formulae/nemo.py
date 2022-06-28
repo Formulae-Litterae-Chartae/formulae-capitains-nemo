@@ -908,12 +908,7 @@ class NemoFormulae(Nemo):
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' in self.resolver.getMetadata(x['id']).ancestors][0]
                     elif 'formulae_collection' in collection.ancestors:
                         parent_title = [x['label'] for x in parents if 'manuscript_collection' not in self.resolver.getMetadata(x['id']).ancestors][0]
-                    if 'non_display_collection' in collection.ancestors:
-                        if r[par]['name']:
-                            work_name = [r[par]['name'], Markup(re.sub(r' \(lat\)', '', str(m.metadata.get_single(DC.title))))]
-                        else:
-                            work_name = Markup(re.sub(r' \(lat\)', '', str(m.metadata.get_single(DC.title))))
-                    elif 'urn:cts:formulae:marculf' in m.ancestors and key == 'editions':
+                    if 'urn:cts:formulae:marculf' in m.ancestors and key == 'editions':
                         work_name = Markup(str(parent_title).replace('Marculf ', ''))
                     elif 'Computus' in work_name:
                         work_name = '(Computus)'
@@ -924,18 +919,32 @@ class NemoFormulae(Nemo):
                         if name_part:
                             work_name = Markup(name_part.group(0))
                     regest = [Markup(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')]
+                    short_regest = str(m.metadata.get_single(DCTERMS.abstract)) or ''
+                    for form_version in m.metadata.get(DCTERMS.isVersionOf):
+                        if form_version:
+                            form_metadata = self.resolver.getMetadata(str(form_version))
+                            form_parent = [str(x['id']) for x in self.make_parents(form_metadata) if 'formulae_collection' in x['ancestors'] and 'manuscript_collection' not in x['ancestors']][0]
+                            for readable_form in form_metadata.readableDescendants.values():
+                                form_par, form_md, form_m = self.ordered_corpora(readable_form, form_parent)
+                                form_ms_data = [readable_form.metadata.get_single(DC.source), "manifest:" + readable_form.id in self.app.picture_file]
+                                if readable_form.subtype == {'cts:translation'}:
+                                    r[par]["versions"]['translations'].append(form_md + [form_ms_data])
+                                elif readable_form.subtype == {'cts:edition'}:
+                                    r[par]["versions"]['editions'].append(form_md + [form_ms_data])
+                                    r[par]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
+                                    regest = [Markup(readable_form.metadata.get_single(DC.description))]
+                                    short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
                     if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
                         if len(regest) == 2:
                             regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
 
-                    r[par].update({"short_regest": str(m.metadata.get_single(DCTERMS.abstract)) or '',
+                    r[par].update({"short_regest": short_regest,
                                    "regest": regest,
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                                    'name': work_name,
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
-                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
-                                   'transcribed_edition': sorted([str(x) if x else '' for x in m.metadata.get(DCTERMS.isVersionOf)])})
+                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or '')})
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),

@@ -22,7 +22,7 @@
             <dct:created>2022-02-14</dct:created>
             <dct:bibliographicCitation>Kopenhagen, Kongelige Bibliotek, Fabr. 84 [fol.69&lt;span class="verso-recto"&gt;r&lt;/span&gt;-70&lt;span class="verso-recto"&gt;v&lt;/span&gt;], Formulae-Litterae-Chartae Projekt. Hamburg 2022-02-14, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:ko2.69r70v.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
-            <dct:isVersionOf>Marculf I,3</dct:isVersionOf>
+            <dct:isVersionOf>urn:cts:formulae:marculf.form2_011</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

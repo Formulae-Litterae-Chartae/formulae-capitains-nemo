@@ -166,7 +166,7 @@ class Formulae_Testing(TestCase):
         for template, context in self.templates:
             if name in context:
                 return context[name]
-        raise AttributeError('{} does not exist in this context')
+        raise AttributeError('"{}" does not exist in this context'.format(name))
 
 
 class TestNemoSetup(Formulae_Testing):
@@ -625,24 +625,20 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://digi.vatlib.it/view/MSS_Reg.lat.612/0060')
-            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf II,13', 'Tours 26'])
+            self.assertCountEqual(d[0]['collections']['current']['transcribed_edition'], ['urn:cts:formulae:marculf.form2_011', 'urn:cts:formulae:tours.0_capitula'])
             c.get('/texts/manifest:urn:cts:formulae:ko2.69r70v.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'http://www5.kb.dk/en/nb/samling/hs/index.html')
-            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf I,3'])
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['urn:cts:formulae:marculf.form2_011'])
             c.get('/texts/manifest:urn:cts:formulae:p16.4v.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['alt_image'], 'https://gallica.bnf.fr/ark:/12148/btv1b9065920c/f7')
             c.get('/corpus/urn:cts:formulae:v6', follow_redirects=True)
             d = self.get_context_variable('collections')
-            self.assertEqual(d['readable']['0028<span class="verso-recto">v</span>-29<span class="verso-recto">r</span>']['transcribed_edition'],
-                             ['Marculf II,13', 'Tours 26'])
-            c.get('/corpus/urn:cts:formulae:flavigny_paris', follow_redirects=True)
-            d = self.get_context_variable('collections')
-            self.assertCountEqual(d['readable']['104']['name'],
-                                  ['Marculf II,11', 'Flavigny 10'])
+            self.assertCountEqual(d['readable']['0028<span class="verso-recto">v</span>-29<span class="verso-recto">r</span>']['transcribed_edition'],
+                                  [Markup('Tours Capitulatio'), Markup('Marculf II,11')])
             c.get('/texts/urn:cts:formulae:flavigny.form041.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['linked_resources'],
