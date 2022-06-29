@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-06-20 11:59+0200\n"
+"POT-Creation-Date: 2022-06-29 10:44+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -23,102 +23,102 @@ msgstr "Veuillez vous connecter pour accéder à cette page."
 msgid "Der Viewer konnte nicht gestartet werden."
 msgstr ""
 
-#: formulae/nemo.py:193
+#: formulae/nemo.py:201
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:193
+#: formulae/nemo.py:201
 msgid "Deutsch"
 msgstr "Allemand"
 
-#: formulae/nemo.py:193
+#: formulae/nemo.py:201
 msgid "Französisch"
 msgstr "Français"
 
-#: formulae/nemo.py:194
+#: formulae/nemo.py:202
 msgid "Englisch"
 msgstr "Anglais"
 
-#: formulae/nemo.py:194
+#: formulae/nemo.py:202
 msgid "Katalanisch"
 msgstr ""
 
-#: formulae/nemo.py:194
+#: formulae/nemo.py:202
 msgid "Italienisch"
 msgstr ""
 
-#: formulae/nemo.py:456 formulae/nemo.py:503 formulae/nemo.py:909
+#: formulae/nemo.py:464 formulae/nemo.py:511 formulae/nemo.py:917
 msgid "(Titel)"
 msgstr "(Titre)"
 
-#: formulae/nemo.py:483 formulae/nemo.py:505
+#: formulae/nemo.py:491 formulae/nemo.py:513
 msgid "(Prolog)"
 msgstr ""
 
-#: formulae/nemo.py:675
+#: formulae/nemo.py:683
 msgid ""
 "Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt "
 "wird, dann laden Sie die Seite neu."
 msgstr ""
 
-#: formulae/nemo.py:834 formulae/nemo.py:936 formulae/nemo.py:1086
-#: formulae/nemo.py:1149 tests/test_routes.py:281 tests/test_routes.py:300
+#: formulae/nemo.py:842 formulae/nemo.py:944 formulae/nemo.py:1094
+#: formulae/nemo.py:1157 tests/test_routes.py:281 tests/test_routes.py:300
 #: tests/test_routes.py:314 tests/test_routes.py:331 tests/test_routes.py:334
 #: tests/test_routes.py:344 tests/test_routes.py:752 tests/test_routes.py:777
 #: tests/test_routes.py:782 tests/test_routes.py:813 tests/test_routes.py:816
 msgid "Diese Sammlung ist nicht öffentlich zugänglich."
 msgstr ""
 
-#: formulae/nemo.py:917 formulae/nemo.py:1322 tests/test_routes.py:356
+#: formulae/nemo.py:925 formulae/nemo.py:1330 tests/test_routes.py:356
 #: tests/test_routes.py:361 tests/test_routes.py:764 tests/test_routes.py:769
 msgid "Dieses Regest ist nicht öffentlich zugänglich"
 msgstr ""
 
-#: formulae/nemo.py:934 tests/test_routes.py:337 tests/test_routes.py:819
+#: formulae/nemo.py:942 tests/test_routes.py:337 tests/test_routes.py:819
 msgid ""
 "Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte "
 "gegebenenfalls die Homepage der Bibliothek."
 msgstr ""
 
-#: formulae/nemo.py:968 templates/main/multipassage.html:170
+#: formulae/nemo.py:976 templates/main/multipassage.html:170
 #: templates/main/multipassage.html:314 templates/main/multipassage.html:496
 #: templates/main/sub_collection.html:86 templates/search/part_results.html:94
 #: templates/search/search.html:162
 msgid "Edition"
 msgstr ""
 
-#: formulae/nemo.py:968 templates/main/multipassage.html:175
+#: formulae/nemo.py:976 templates/main/multipassage.html:175
 #: templates/main/multipassage.html:319 templates/main/multipassage.html:501
 msgid "Übersetzung"
 msgstr ""
 
-#: formulae/nemo.py:1083 tests/test_routes.py:509
+#: formulae/nemo.py:1091 tests/test_routes.py:509
 msgid "Diese View ist nur für Formelsammlungen verfuegbar"
 msgstr ""
 
-#: formulae/nemo.py:1267 formulae/viewer/routes.py:18 tests/test_routes.py:590
+#: formulae/nemo.py:1275 formulae/viewer/routes.py:18 tests/test_routes.py:590
 #: tests/test_routes.py:593
 msgid " hat keine Edition."
 msgstr ""
 
-#: formulae/nemo.py:1276
+#: formulae/nemo.py:1284
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr "Aucun résultat trouvé. Le texte complet est affiché."
 
-#: formulae/nemo.py:1280 tests/test_routes.py:364 tests/test_routes.py:772
+#: formulae/nemo.py:1288 tests/test_routes.py:364 tests/test_routes.py:772
 msgid "Dieser Text ist nicht öffentlich zugänglich."
 msgstr ""
 
-#: formulae/nemo.py:1478 tests/test_routes.py:376 tests/test_routes.py:379
+#: formulae/nemo.py:1486 tests/test_routes.py:376 tests/test_routes.py:379
 #: tests/test_routes.py:382 tests/test_routes.py:572 tests/test_routes.py:825
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr "Au moins un texte que vous souhaitez afficher n'est pas disponible."
 
-#: formulae/nemo.py:1632 tests/test_routes.py:420
+#: formulae/nemo.py:1640 tests/test_routes.py:420
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr ""
 
-#: formulae/nemo.py:1640
+#: formulae/nemo.py:1648
 msgid "Heruntergeladen: "
 msgstr ""
 
@@ -414,8 +414,9 @@ msgstr "Recherche"
 
 #: formulae/search/forms.py:45 formulae/search/forms.py:135
 #: formulae/search/routes.py:395 templates/search/documentation.html:12
-msgid "Corpora"
-msgstr "Corpus"
+#: templates/search/part_results.html:64 templates/search/search.html:72
+msgid "Korpora"
+msgstr ""
 
 #: formulae/search/forms.py:45 formulae/search/forms.py:136
 #: templates/main/multipassage.html:210 templates/main/multipassage.html:355
@@ -1497,7 +1498,7 @@ msgstr "Déconnexion"
 #: templates/main/sub_collections.html:61
 #: templates/search/advanced_search.html:28
 #: templates/search/advanced_search.html:42
-msgid "Dieses Corpus ist lemmatisiert"
+msgid "Dieses Korpus ist lemmatisiert"
 msgstr ""
 
 #: templates/main/navbar.html:49 templates/main/sub_collections.html:17
@@ -1641,7 +1642,7 @@ msgid "Überlieferungsübersicht"
 msgstr ""
 
 #: templates/main/sub_collection_mv.html:27
-msgid "Zur Corpusübersicht"
+msgid "Zur Korpusübersicht"
 msgstr ""
 
 #: templates/main/sub_collections.html:28
@@ -1860,10 +1861,11 @@ msgid "Wortreihenfolge"
 msgstr "Ordre des mots"
 
 #: templates/search/help_messages.html:3
+#, fuzzy
 msgid ""
-"Die Liste enthält alle durchsuchbaren Corpora des Projektes. Einige "
-"Corpora sind jedoch urheberrechtlich geschützt und können nicht im "
-"Volltext angezeigt werden. Sämtliche Corpora sind durchsuchbar und auch "
+"Die Liste enthält alle durchsuchbaren Korpora des Projektes. Einige "
+"Korpora sind jedoch urheberrechtlich geschützt und können nicht im "
+"Volltext angezeigt werden. Sämtliche Korpora sind durchsuchbar und auch "
 "Treffer im urheberrechtlich geschützten Material werden angezeigt. Sie "
 "können diese Stellen in der angegebenen Printedition nachschlagen."
 msgstr ""
@@ -1906,10 +1908,11 @@ msgid ""
 msgstr ""
 
 #: templates/search/help_messages.html:12
+#, fuzzy
 msgid ""
 "Die Vorschläge, die in der Wortsuche gezeigt werden, werden von alle "
 "anderen Parametern in der Suchmaske bestimmt. Wird etwa "
-"<em><b>Andecavensis</b></em> als zu durchsuchendes Corpus ausgewählt, "
+"<em><b>Andecavensis</b></em> als zu durchsuchendes Korpus ausgewählt, "
 "werden nur Vorschläge aus den Formeln von Angers gezeigt. Die oben "
 "erwähnten Suchbeschränkungen gelten auch hier. Die Lemmasuche liefert "
 "keine Vorschläge aus den Urkunden. Der einzige Parameter, der keinen "
@@ -1949,7 +1952,7 @@ msgid ""
 " Formen dieses Wortes wie <em><b>domini</b></em> oder "
 "<em><b>Domino</b></em> an. Auch orthographische Varianten wie "
 "<em><b>domni</b></em> oder <em><b>Domeno</b></em> werden durchsucht. Die "
-"Lemmasuche funktioniert nur in ausgewählten Corpora."
+"Lemmasuche funktioniert nur in ausgewählten Korpora."
 msgstr ""
 
 #: templates/search/help_messages.html:21
@@ -2169,7 +2172,7 @@ msgid " Treffer aus"
 msgstr ""
 
 #: templates/search/part_results.html:10 templates/search/search.html:18
-msgid "Die Gesamtzahl der Dokumente in den gewählten Corpora."
+msgid "Die Gesamtzahl der Dokumente in den gewählten Korpora."
 msgstr ""
 
 #: templates/search/part_results.html:10 templates/search/search.html:18
@@ -2181,7 +2184,7 @@ msgid "Mehr Statistiken"
 msgstr "Plus de statistiques"
 
 #: templates/search/part_results.html:15 templates/search/search.html:23
-msgid "Corpus"
+msgid "Korpus"
 msgstr ""
 
 #: templates/search/part_results.html:16 templates/search/part_results.html:93
@@ -2196,7 +2199,7 @@ msgid "Treffer"
 msgstr ""
 
 #: templates/search/part_results.html:23 templates/search/search.html:31
-msgid "Gesamtzahl der Dokumente in diesem Corpus"
+msgid "Gesamtzahl der Dokumente in diesem Korpus"
 msgstr ""
 
 #: templates/search/part_results.html:30 templates/search/search.html:38
@@ -2230,10 +2233,6 @@ msgstr ""
 #: templates/search/part_results.html:61 templates/search/search.html:69
 msgid "Zeig Alle Resultate"
 msgstr "Afficher tous les résultats"
-
-#: templates/search/part_results.html:64 templates/search/search.html:72
-msgid "Korpora"
-msgstr ""
 
 #: templates/search/part_results.html:81 templates/search/search.html:95
 msgid "Los!"
@@ -3869,5 +3868,36 @@ msgstr "Ce champ est nécessaire."
 #~ "Normalerweise kann solche Software für "
 #~ "einzelne, vertraute Webseiten ausgeschaltet "
 #~ "werden."
+#~ msgstr ""
+
+#~ msgid "Corpora"
+#~ msgstr "Corpus"
+
+#~ msgid "Dieses Corpus ist lemmatisiert"
+#~ msgstr ""
+
+#~ msgid "Zur Corpusübersicht"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Die Lemmasuche sucht nach Wörterbuchformen "
+#~ "statt nach flektierten Formen. Eine "
+#~ "Lemmasuche etwa nach <em><b>dominus</b></em> "
+#~ "zeigt alle flektierten Formen dieses "
+#~ "Wortes wie <em><b>domini</b></em> oder "
+#~ "<em><b>Domino</b></em> an. Auch orthographische "
+#~ "Varianten wie <em><b>domni</b></em> oder "
+#~ "<em><b>Domeno</b></em> werden durchsucht. Die "
+#~ "Lemmasuche funktioniert nur in ausgewählten"
+#~ " Corpora."
+#~ msgstr ""
+
+#~ msgid "Die Gesamtzahl der Dokumente in den gewählten Corpora."
+#~ msgstr ""
+
+#~ msgid "Corpus"
+#~ msgstr ""
+
+#~ msgid "Gesamtzahl der Dokumente in diesem Corpus"
 #~ msgstr ""
 
