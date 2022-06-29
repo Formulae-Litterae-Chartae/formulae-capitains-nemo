@@ -106,7 +106,7 @@
     <xsl:template name="build_note" match="a">
         <xsl:param name="ident" select="translate(@href, '#', '')"/>
         <xsl:element name="div">
-            <xsl:attribute name="class">collapse multi-collapse <xsl:value-of select="@text-urn"/><xsl:text> </xsl:text><xsl:value-of select="@type"/> show two-line fade-out</xsl:attribute>
+            <xsl:attribute name="class">collapse multi-collapse <xsl:value-of select="@text-urn"/><xsl:text> </xsl:text><xsl:value-of select="@type"/> show two-line fade-out mr-2</xsl:attribute>
             <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
             <xsl:attribute name="aria-expanded">false</xsl:attribute>
             <!--<xsl:attribute name="role">button</xsl:attribute>-->
