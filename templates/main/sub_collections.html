@@ -34,7 +34,7 @@
                 <a class="internal-link" href="{{url_for(coll_route, objectId=coll.id, objectIds=prev_texts, reffs=prev_reffs)}}"><h5 class="my-1"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
                                                      {% if not coll['lemmatized'] %} class="invisible"{%endif %}
                                                                 data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
-                                                                title="{{ _('Dieses Corpus ist lemmatisiert') }}"
+                                                                title="{{ _('Dieses Korpus ist lemmatisiert') }}"
                                             tabindex="0">* </span></b><span class="corpus_coverage">{{ coll['coverage'] }}:</span> {{ coll['label']|safe }}</h5></a>
             </li>
             {% endif %}
@@ -46,7 +46,7 @@
                     <h5 class="my-2"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
                                                      {% if not coll['lemmatized'] %} class="invisible"{%endif %}
                                                                 data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
-                                                                title="{{ _('Dieses Corpus ist lemmatisiert') }}"
+                                                                title="{{ _('Dieses Korpus ist lemmatisiert') }}"
                                             tabindex="0">* </span></b>{{ coll.label|safe }}</h5>
                 </a>
             </li>
@@ -58,7 +58,7 @@
                     <h5 class="my-2"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
                                                      {% if not coll['lemmatized'] %} class="invisible"{%endif %}
                                                                 data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
-                                                                title="{{ _('Dieses Corpus ist lemmatisiert') }}"
+                                                                title="{{ _('Dieses Korpus ist lemmatisiert') }}"
                                             tabindex="0">* </span></b>{{ coll.label|safe }}</h5>
                 </a>
             </li>

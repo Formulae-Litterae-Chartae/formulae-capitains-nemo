@@ -392,7 +392,7 @@ def download_search_results(download_id: str) -> Response:
                               ('exclusive_date_range', _('Exklusiv')),
                               ('composition_place', _('Ausstellungsort')),
                               ('special_days', _('Besondere Tage')),
-                              ('corpus', _('Corpora'))]
+                              ('corpus', _('Korpora'))]
         query_dict_mapping = [('q', _('Suchbegriff')),
                               ('search_field', _('Suchfeld')),
                               ('fuzziness', _('Unschärfegrad')),
