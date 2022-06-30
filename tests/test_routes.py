@@ -621,7 +621,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://iiifviewer.universiteitleiden.nl/?manifest=https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610701/manifest')
-            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], [])
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['urn:cts:formulae:tours.0_capitula'])
             c.get('/texts/manifest:urn:cts:formulae:v6.28v29r.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
@@ -1579,6 +1579,80 @@ class TestFunctions(Formulae_Testing):
                    'name': 'deu001',
                    'regesten': ['', '', 'Übertragung einer Ortschaft gegen Pflege'],
                    'titles': ['I Incipit', 'II Capitulatio', 'II,11']}]})
+
+    def test_corpus_mv_manuscript(self):
+        """ Make sure the correct values are returned by r_corpus_mv for manuscripts"""
+        with self.client as c:
+            c.post('/auth/login', data=dict(username='project.member', password="some_password"),
+                   follow_redirects=True)
+            data = self.nemo.r_corpus_mv('urn:cts:formulae:p3')
+            self.assertEqual(data['collections']['readable'],
+                             {'editions': [],
+                              'translations': [],
+                              'transcriptions':
+                                  [{'name': 'p3',
+                                    'edition_name': 'P<span class="manuscript-number">3</span>',
+                                    'full_edition_name': 'Paris BNF 2123',
+                                    'titles':
+                                        ['Marculf II,11', 'Flavigny 10'],
+                                    'links':
+                                        [['urn:cts:formulae:marculf.form2_011', 'urn:cts:formulae:flavigny.form1_010'],
+                                         ['urn:cts:formulae:p3.105va106rb.lat001', 'urn:cts:formulae:p3.128vb129rb.lat001']],
+                                    'ms_images': [False, False],
+                                    'regesten': ['Übertragung einer Ortschaft gegen Pflege', ''],
+                                    'folia': ['[fol.105<span class="verso-recto">va</span>-fol.106<span class="verso-recto">rb</span>]',
+                                              '[fol.128<span class="verso-recto">vb</span>-fol.129<span class="verso-recto">rb</span>]']},
+                                   {'name': 'ko2',
+                                    'edition_name': 'Ko<span class="manuscript-number">2</span>',
+                                    'full_edition_name': 'Kopenhagen, Kongelige Bibliotek, Fabr. 84',
+                                    'titles': ['Marculf II,11'],
+                                    'links': [['urn:cts:formulae:marculf.form2_011'],
+                                              ['urn:cts:formulae:ko2.69r70v.lat001']],
+                                    'ms_images': [False],
+                                    'regesten': ['Übertragung einer Ortschaft gegen Pflege'],
+                                    'folia': ['[fol.69<span class="verso-recto">r</span>-fol.70<span class="verso-recto">v</span>]']},
+                                   {'name': 'le1',
+                                    'edition_name': 'Le<span class="manuscript-number">1</span>',
+                                    'full_edition_name': 'Leiden BPL 114',
+                                    'titles': ['Tours Capitulatio', 'Flavigny 10/Marculf II,11'],
+                                    'links': [['urn:cts:formulae:tours.0_capitula', 'urn:cts:formulae:marculf.form2_011'],
+                                              ['urn:cts:formulae:le1.109v110v.lat001', 'urn:cts:formulae:le1.155v156r2.lat001']],
+                                    'ms_images': [True, False],
+                                    'regesten': ['', 'Übertragung einer Ortschaft gegen Pflege'],
+                                    'folia': ['[fol.109<span class="verso-recto">v</span>-fol.110<span class="verso-recto">v</span>]',
+                                              '[fol.155<span class="verso-recto">v</span>-fol.156<span class="verso-recto">r</span>(2)]']},
+                                   {'name': 'm4',
+                                    'edition_name': 'M<span class="manuscript-number">4</span>',
+                                    'full_edition_name': 'München BSB clm 4650', 'titles': ['Tours Capitulatio'],
+                                    'links': [['urn:cts:formulae:tours.0_capitula'],
+                                              ['urn:cts:formulae:m4.60v61v.lat001']],
+                                    'ms_images': [True],
+                                    'regesten': [''],
+                                    'folia': ['[fol.60<span class="verso-recto">v</span>-fol.61<span class="verso-recto">v</span>]']},
+                                   {'name': 'p12',
+                                    'edition_name': 'P<span class="manuscript-number">12</span>',
+                                    'full_edition_name': 'Paris BNF 4627',
+                                    'titles': ['Marculf II,11'],
+                                    'links': [['urn:cts:formulae:marculf.form2_011'],
+                                              ['urn:cts:formulae:p12.65r65v.lat001']],
+                                    'ms_images': [True],
+                                    'regesten': ['Übertragung einer Ortschaft gegen Pflege'],
+                                    'folia': ['[fol.65<span class="verso-recto">r</span>-fol.65<span class="verso-recto">v</span>]']},
+                                   {'name': 'p16',
+                                    'edition_name': 'P<span class="manuscript-number">16</span>',
+                                    'full_edition_name': 'Paris BNF 10756',
+                                    'titles': ['Flavigny 10', 'Marculf I Incipit', 'Tours Capitulatio'],
+                                    'links': [['urn:cts:formulae:flavigny.form1_010',
+                                               'urn:cts:formulae:marculf.1_incipit',
+                                               'urn:cts:formulae:tours.0_capitula'],
+                                              ['urn:cts:formulae:p16.1v2v.lat001',
+                                               'urn:cts:formulae:p16.4v.lat001',
+                                               'urn:cts:formulae:p16.7r7v.lat001']],
+                                    'ms_images': [False, True, False],
+                                    'regesten': ['', '', ''],
+                                    'folia': ['[fol.1<span class="verso-recto">v</span>-fol.2<span class="verso-recto">v</span>]',
+                                              '[fol.4<span class="verso-recto">v</span>]',
+                                              '[fol.7<span class="verso-recto">r</span>-fol.7<span class="verso-recto">v</span>]']}]})
 
     def test_corpus_mv_passau(self):
         """ Make sure the correct values are returned by r_corpus_mv"""

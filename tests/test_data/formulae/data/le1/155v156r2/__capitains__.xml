@@ -29,6 +29,8 @@
             <dct:created>2021-12-01</dct:created>
             <dct:bibliographicCitation>Leiden BPL 114 [fol.155&lt;span class="verso-recto"&gt;v&lt;/span&gt;-156&lt;span class="verso-recto"&gt;r&lt;/span&gt;], Formulae-Litterae-Chartae Projekt. Hamburg 2021-12-01, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:le1.155v156r2.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
+            <dct:isVersionOf>urn:cts:formulae:flavigny.form1_010</dct:isVersionOf>
+            <dct:isVersionOf>urn:cts:formulae:marculf.form2_011</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

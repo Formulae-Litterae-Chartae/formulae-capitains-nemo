@@ -20,12 +20,14 @@
 
 <link rel="stylesheet"  href="{{url_for('InstanceNemo.static', filename='css/sub_collection_mv.css')}}">
 
+<div class="col">
 <header>
     <h1>
     {{collections.current.label|striptags}}
     </h1>
-    <a class="internal-link ml-2" href="{{ url_for('InstanceNemo.r_corpus', objectId=collections.current.id) }}">{{ _('Zur Korpusübersicht') }}</a>
+    <h3><a class="internal-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=collections.current.id) }}">{{ _('Zur Korpusübersicht') }}</a></h3>
 </header>
+</div>
 </div>
 
 

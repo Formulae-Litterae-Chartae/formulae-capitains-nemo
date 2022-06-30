@@ -1023,7 +1023,7 @@ class NemoFormulae(Nemo):
                         edition = str(m.id).split(':')[-1].split('.')[0]
                     if 'manuscript_collection' in collection.ancestors:
                         ed_titles = list()
-                        for ed_parent_id in m.metadata.get(DCTERMS.isVersionOf):
+                        for ed_parent_id in sorted(m.metadata.get(DCTERMS.isVersionOf)):
                             ed_parent = self.resolver.getMetadata(str(ed_parent_id))
                             ed_titles.append([v.metadata.get_single(DC.title) for v in ed_parent.readableDescendants.values() if 'cts:edition' in v.subtype][0].replace(' (lat)', ''))
                             form = ed_parent.id

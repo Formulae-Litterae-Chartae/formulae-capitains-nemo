@@ -29,6 +29,8 @@
             <dct:created>2020-02-12</dct:created>
             <dct:bibliographicCitation>Paris BNF 2123 [fol.128vb-fol.129rb], Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-12, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:p3.128vb129rb.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
+            
+            <dct:isVersionOf>urn:cts:formulae:flavigny.form1_010</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

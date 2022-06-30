@@ -29,6 +29,7 @@
             <dct:created>2020-02-12</dct:created>
             <dct:bibliographicCitation>Paris BNF 4627 [fol.65r-fol.65v], Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-12, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:p12.65r65v.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
+            <dct:isVersionOf>urn:cts:formulae:marculf.form2_011</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>
