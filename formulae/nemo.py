@@ -785,6 +785,12 @@ class NemoFormulae(Nemo):
         """
         return 10 - len(d['ancestors'])
 
+    @staticmethod
+    def sort_sigla(x: str) -> list:
+        sorting_groups = list(re.search(r'(\D+)(\d+)?(\D+)?', x).groups(default=0))
+        sorting_groups[1] = int(sorting_groups[1])
+        return sorting_groups
+
     def make_parents(self, collection: Union[XmlCapitainsCollectionMetadata, XmlCapitainsReadableMetadata],
                      lang: str=None) -> List[Dict[str, Union[str, int]]]:
         """ Build parents list for given collection
@@ -865,7 +871,7 @@ class NemoFormulae(Nemo):
         template = "main::sub_collection.html"
         current_parents = self.make_parents(collection, lang=lang)
         containing_colls = list()
-        for cont_coll in collection.metadata.get(DCTERMS.isPartOf):
+        for cont_coll in sorted(collection.metadata.get(DCTERMS.isPartOf), key=lambda x: self.sort_sigla(x.split(':')[-1])):
             cont_coll_md = self.resolver.getMetadata(str(cont_coll)).metadata
             containing_colls.append((Markup(cont_coll_md.get_single(self.BIBO.AbbreviatedTitle)), cont_coll_md.get_single(DC.title), str(cont_coll)))
         form = None
@@ -999,11 +1005,6 @@ class NemoFormulae(Nemo):
         template = "main::sub_collection_mv.html"
         list_of_readable_descendants = copy(self.all_texts[collection.id])
 
-        def sort_sigla(x):
-            sorting_groups = list(re.search(r'(\D+)(\d+)?(\D+)?', x['name']).groups(default=0))
-            sorting_groups[1] = int(sorting_groups[1])
-            return sorting_groups
-
         if 'manuscript_collection' in collection.ancestors:
             related_mss = set()
             for ms_r_d in list_of_readable_descendants:
@@ -1120,7 +1121,7 @@ class NemoFormulae(Nemo):
                         "folia": new_parents
                     })
 
-            r['transcriptions'] = sorted(sorted(r['transcriptions'], key=sort_sigla), key=lambda x: x['name'] not in collection.id)
+            r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: self.sort_sigla(x['name'])), key=lambda x: x['name'] not in collection.id)
 
         else:
 
