@@ -983,17 +983,41 @@ class NemoFormulae(Nemo):
         regesten = {}
         parents = {}
         template = "main::sub_collection_mv.html"
-        list_of_readable_descendants = self.all_texts[collection.id]
+        list_of_readable_descendants = copy(self.all_texts[collection.id])
 
-        if 'formulae_collection' in collection.ancestors:
+        def sort_sigla(x):
+            sorting_groups = list(re.search(r'(\D+)(\d+)?(\D+)?', x['name']).groups(default=0))
+            sorting_groups[1] = int(sorting_groups[1])
+            return sorting_groups
+
+        if 'manuscript_collection' in collection.ancestors:
+            related_mss = set()
+            for ms_r_d in list_of_readable_descendants:
+                form_parent = [self.resolver.getMetadata(v['id']) for v in self.make_parents(ms_r_d[-1]) if 'manuscript_collection' not in v['ancestors']][0]
+                form_mss_r = [v_r for v_r in form_parent.readableDescendants.values() if 'manuscript_collection' in v_r.ancestors]
+                for form_ms_r in form_mss_r:
+                    related_mss.add([v['id'] for v in self.make_parents(form_ms_r) if 'manuscript_collection' in v['ancestors']][-1])
+            list_of_readable_descendants = list()
+            for related_ms in related_mss:
+                list_of_readable_descendants += self.all_texts[related_ms]
+
+        if {'formulae_collection', 'manuscript_collection'} & set(collection.ancestors):
             for par, metadata, m in list_of_readable_descendants:
                 if self.check_project_team() is True or m.id in self.open_texts:
                     edition = str(m.id).split(".")[-1]
-                    if objectId not in m.id:
+                    if 'manuscript_collection' in m.ancestors:
                         edition = str(m.id).split(':')[-1].split('.')[0]
-                    ed_parent = sorted([(k, v) for k, v in m.ancestors.items() if objectId in k])[-1][-1]
-                    title = str(ed_parent.metadata.get_single(DC.title, lang=lang))
-                    form = ed_parent.id
+                    if 'manuscript_collection' in collection.ancestors:
+                        ed_titles = list()
+                        for ed_parent_id in m.metadata.get(DCTERMS.isVersionOf):
+                            ed_parent = self.resolver.getMetadata(str(ed_parent_id))
+                            ed_titles.append([v.metadata.get_single(DC.title) for v in ed_parent.readableDescendants.values() if 'cts:edition' in v.subtype][0].replace(' (lat)', ''))
+                            form = ed_parent.id
+                        title = '/'.join(sorted(ed_titles))
+                    else:
+                        ed_parent = sorted([(k, v) for k, v in m.ancestors.items() if objectId in k])[-1][-1]
+                        title = str(ed_parent.metadata.get_single(DC.title, lang=lang))
+                        form = ed_parent.id
                     edition_name = ed_trans_mapping.get(edition, edition).title()
                     regest = str(m.metadata.get_single(DCTERMS.abstract))
                     if 'manuscript_collection' in m.ancestors:
@@ -1082,8 +1106,7 @@ class NemoFormulae(Nemo):
                         "folia": new_parents
                     })
 
-            r['transcriptions'] = sorted(sorted(r['transcriptions'], key=lambda x: int(re.search(r'\d+', x['name']).group(0)) if re.search(r'\d+', x['name']) else 0),
-                                         key=lambda x: re.search(r'\D+', x['name']).group(0))
+            r['transcriptions'] = sorted(sorted(r['transcriptions'], key=sort_sigla), key=lambda x: x['name'] not in collection.id)
 
         else:
 
