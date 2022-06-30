@@ -29,7 +29,7 @@
             <dct:created>2022-02-25</dct:created>
             <dct:bibliographicCitation>München BSB clm 4650 [fol.60&lt;span class="verso-recto"&gt;v&lt;/span&gt;-61&lt;span class="verso-recto"&gt;v&lt;/span&gt;], Formulae-Litterae-Chartae Projekt. Hamburg 2022-02-25, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:m4.60v61v.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
-            <dct:isVersionOf>Marculf I,3</dct:isVersionOf>
+            <dct:isVersionOf>urn:cts:formulae:tours.0_capitula</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

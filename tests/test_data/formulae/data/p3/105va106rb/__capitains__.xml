@@ -23,7 +23,10 @@
             <dct:created>2020-02-14</dct:created>
             <dct:bibliographicCitation>Paris BNF 2123 [fol.105va-fol.106rb], Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-14, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:p3.105va106rb.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
-         <dct:temporal></dct:temporal><dct:spatial></dct:spatial></structured-metadata>
+            <dct:temporal></dct:temporal>
+            <dct:spatial></dct:spatial>
+            <dct:isVersionOf>urn:cts:formulae:marculf.form2_011</dct:isVersionOf>
+         </structured-metadata>
       </collection>
    </members>
 </collection>

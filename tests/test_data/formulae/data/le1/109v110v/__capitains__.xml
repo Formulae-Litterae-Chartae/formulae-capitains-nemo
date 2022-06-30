@@ -29,6 +29,7 @@
             <dct:created>2020-02-12</dct:created>
             <dct:bibliographicCitation>Leiden BPL 114 [fol.109v-fol.110v], Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-12, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:le1.109v110v.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
+            <dct:isVersionOf>urn:cts:formulae:tours.0_capitula</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

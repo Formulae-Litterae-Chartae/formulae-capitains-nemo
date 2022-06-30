@@ -29,6 +29,7 @@
             <dct:created>2021-11-18</dct:created>
             <dct:bibliographicCitation>Incipit BNF 10756 [fol.4&lt;span class="verso-recto"&gt;v&lt;/span&gt;], Formulae-Litterae-Chartae Projekt. Hamburg 2021-11-18, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:p16.4v.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
+            <dct:isVersionOf>urn:cts:formulae:marculf.1_incipit</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

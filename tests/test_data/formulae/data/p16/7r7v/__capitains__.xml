@@ -29,6 +29,7 @@
             <dct:created>2020-02-12</dct:created>
             <dct:bibliographicCitation>Paris BNF 10756 [fol.7r-fol.7v], Formulae-Litterae-Chartae Projekt. Hamburg 2020-02-12, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:p16.7r7v.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
+            <dct:isVersionOf>urn:cts:formulae:tours.0_capitula</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

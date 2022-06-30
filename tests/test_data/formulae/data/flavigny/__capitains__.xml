@@ -11,6 +11,8 @@
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
       <bib:AbbreviatedTitle>Flavigny</bib:AbbreviatedTitle>
+      <dct:isPartOf>urn:cts:formulae:ko2</dct:isPartOf>
+      <dct:isPartOf>urn:cts:formulae:p3</dct:isPartOf>
    </structured-metadata>
    <members>
       <collection path="./form1_010/__capitains__.xml"
