@@ -15,12 +15,12 @@
                 {{ _(' in') }}
                 {% endif %}
                 <span
-                    id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Corpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
+                    id="aggs-all-docs" data-toggle="tooltip" data-container="#aggs-all-docs" title="{{ _('Die Gesamtzahl der Dokumente in den gewählten Korpora.') }}">{{ aggs['all_docs']['doc_count']|string }}</span> {{ _('Dokumenten') }}<div class="btn-group dropright">
          <a href="#" type="button" id="searchStats" class="btn btn-link pl-1" data-container="body" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span id="searchTotal" data-toggle="tooltip" data-container="#searchTotal" data-placement="right" title="{{ _('Mehr Statistiken') }}">Σ</span></a>
         <div class="dropdown-menu" aria-labelledby="searchStats">
             <div id="search-stat-table">
             <div class="table-header">
-                <div class="table-cell">{{ _('Corpus') }}</div>
+                <div class="table-cell">{{ _('Korpus') }}</div>
                 <div class="table-cell">{{ _('Datierung') }}</div>
             </div>
             <div class="table-row">
@@ -28,7 +28,7 @@
                     <div class="stat-sub-table">
                     {% for search_corp, corp_hits in aggs['corpus']['buckets']|dictsort %}
                     {% if aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] != 0 %}
-                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ search_corp|replace(' ', '&nbsp;')|safe }}</div><div class="stat-sub-cell px-2 text-right" id="{{ loop.index }}-corp-hits-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-corp-hits-tooltip" title="{{ _('Treffer')}}">{{ corp_hits['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" id="{{ loop.index }}-corp-total-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-corp-total-tooltip" title="{{ _('Gesamtzahl der Dokumente in diesem Corpus')}}">({{ aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] }})</div></div>
+                    <div class="stat-sub-row"><div class="stat-sub-cell">{{ search_corp|replace(' ', '&nbsp;')|safe }}</div><div class="stat-sub-cell px-2 text-right" id="{{ loop.index }}-corp-hits-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-corp-hits-tooltip" title="{{ _('Treffer')}}">{{ corp_hits['doc_count'] }}</div><div class="stat-sub-cell pr-2 text-right" id="{{ loop.index }}-corp-total-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-corp-total-tooltip" title="{{ _('Gesamtzahl der Dokumente in diesem Korpus')}}">({{ aggs['all_docs']['corpus']['buckets'][search_corp]['doc_count'] }})</div></div>
                     {% endif %}
                     {% endfor %}
                     </div>
