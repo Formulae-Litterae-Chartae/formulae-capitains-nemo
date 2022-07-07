@@ -100,6 +100,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:andecavensis',
                         'urn:cts:formulae:anjou_archives',
                         'urn:cts:formulae:anjou_comtes_chroniques',
+                        'urn:cts:formulae:auvergne',
                         'urn:cts:formulae:bonneval_marmoutier',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:cartier_1841',
@@ -137,8 +138,12 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:p3',
+                        'urn:cts:formulae:p8',
+                        'urn:cts:formulae:p10',
                         'urn:cts:formulae:p12',
+                        'urn:cts:formulae:p14',
                         'urn:cts:formulae:p16a',
+                        'urn:cts:formulae:p16b',
                         'urn:cts:formulae:pancarte_noir_internal',
                         'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
@@ -153,10 +158,13 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:sg2',
                         'urn:cts:formulae:stgallen',
                         'urn:cts:formulae:syd',
+                        'urn:cts:formulae:tours',
                         'urn:cts:formulae:tours_gasnault',
                         'tours_st_julien_denis',
                         'urn:cts:formulae:tours_st_julien_fragments',
                         'urn:cts:formulae:v6',
+                        'urn:cts:formulae:v8',
+                        'urn:cts:formulae:v9',
                         'urn:cts:formulae:wa1',
                         'urn:cts:formulae:weissenburg',
                         'urn:cts:formulae:werden',
@@ -911,7 +919,7 @@ class NemoFormulae(Nemo):
                         name_part = re.search(r'(Kap\.|Nr\.).*', str(m.metadata.get_single(DC.title)))
                         if name_part:
                             work_name = Markup(name_part.group(0))
-                    regest = [str(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')]
+                    regest = [Markup(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')]
                     if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
                         if len(regest) == 2:
                             regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
@@ -1316,7 +1324,7 @@ class NemoFormulae(Nemo):
         for resource in metadata.metadata.get(DCTERMS.relation):
             linked_md = self.resolver.getMetadata(str(resource))
             linked_resources.append((linked_md.id, str(linked_md.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang)))
-        regest = [str(metadata.metadata.get_single(DC.description))] if 'formulae_collection' in metadata.ancestors else [Markup(x) for x in str(metadata.metadata.get_single(DC.description)).split('***')]
+        regest = [Markup(metadata.metadata.get_single(DC.description))] if 'formulae_collection' in metadata.ancestors else [Markup(x) for x in str(metadata.metadata.get_single(DC.description)).split('***')]
         if self.check_project_team() is False and (metadata.id in self.closed_texts['half_closed'] or metadata.id in self.closed_texts['closed']):
             if len(regest) == 2:
                 regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
@@ -1426,7 +1434,7 @@ class NemoFormulae(Nemo):
                         this_manifest = json_load(f)
                     if 'fuldig.hs-fulda.de' in this_manifest['@id']:
                         # This works for resources from https://fuldig.hs-fulda.de/
-                        d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering']['@id']
+                        d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering'][1]['@id']
                     elif 'gallica.bnf.fr' in this_manifest['@id']:
                         # This link needs to be constructed from the thumbnail link for images from https://gallica.bnf.fr/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['thumbnail']['@id'].replace('.thumbnail', '')

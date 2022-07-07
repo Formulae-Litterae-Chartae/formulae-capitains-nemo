@@ -38,5 +38,9 @@
 	"manifest:urn:cts:formulae:ka1.113va114va.lat001": {
 		"manifest": "urn:cts:formulae:ka1.113va114va.lat001.json",
 		"title": "Karlsruhe BLB Aug. perg. 112"
+	},
+	"manifest:urn:cts:formulae:p16d.7r7v.lat001": {
+		"manifest": "urn:cts:formulae:p16.7r7v.lat001.json",
+		"title": "Paris BnF Lat. 10756"
 	}
 }

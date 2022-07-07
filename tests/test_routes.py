@@ -333,7 +333,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
-            c.get('/corpus/urn:cts:formulae:p10', follow_redirects=True)
+            c.get('/corpus/urn:cts:formulae:p16d', follow_redirects=True)
             self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
@@ -410,7 +410,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             r = c.get('/viewer/manifest:urn:cts:formulae:m4.60v61v.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
-            c.get('/viewer/manifest:urn:cts:formulae:p10.135r.lat001?view=0&embedded=True', follow_redirects=True)
+            c.get('/viewer/manifest:urn:cts:formulae:p16d.7r7v.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertIn(_('Diese Formelsammlung ist noch nicht frei zugänglich.'), [x[0] for x in self.flashed_messages])
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
@@ -820,7 +820,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:raetien', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
-            c.get('/corpus/urn:cts:formulae:p10', follow_redirects=True)
+            c.get('/corpus/urn:cts:formulae:p16d', follow_redirects=True)
             self.assertIn(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
@@ -836,7 +836,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             c.get('/viewer/manifest:urn:cts:formulae:m4.60v61v.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
-            c.get('/viewer/manifest:urn:cts:formulae:p10.135r.lat001?view=0&embedded=True', follow_redirects=True)
+            c.get('/viewer/manifest:urn:cts:formulae:p16d.7r7v.lat001?view=0&embedded=True', follow_redirects=True)
             self.assertIn(_('Diese Formelsammlung ist noch nicht frei zugänglich.'), [x[0] for x in self.flashed_messages])
             r = c.get('/pdf/urn:cts:formulae:andecavensis.form002.lat001', follow_redirects=True)
             self.assertRegex(r.get_data(), b'Encrypt \d+ 0 R', 'PDF should be encrypted.')
