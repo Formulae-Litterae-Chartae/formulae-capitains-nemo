@@ -1450,6 +1450,11 @@ class NemoFormulae(Nemo):
                     elif 'digi.vatlib.it' in this_manifest['@id']:
                         # This works for resources from the Vatican Libraries
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['@id'].replace('iiif', 'view').replace('canvas/p', '')
+                    elif 'digital.blb-karlsruhe.de' in this_manifest['@id']:
+                        # This works for resources from the BLB Karlsrühe
+                        # This links to the manuscript as a whole.
+                        # I am not sure how to link to specific pages in their IIIF viewer.
+                        d['lib_link'] = 'https://i3f.vls.io/?collection=i3fblbk&id=' + this_manifest['@id']
                     folios = re.sub(r'(\d+)([rvab]{1,2})', r'\1<span class="verso-recto">\2</span>',
                                     this_manifest['sequences'][0]['canvases'][0]['label'])
                     if len(this_manifest['sequences'][0]['canvases']) > 1:
