@@ -1,0 +1,705 @@
+{
+	"viewingHint": "paged",
+	"service": [],
+	"license": "https://creativecommons.org/licenses/by/4.0/deed.de",
+	"structures": [
+		{
+			"ranges": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48304",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48306",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48309",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48312",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48315",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48323",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48325",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48327",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48329",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48333",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48338",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48340",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48343",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48345",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48349",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48352",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48355",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48357",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48366",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48369",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48372",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48390",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48392",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48396",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48398",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48401",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48404",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48406",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48410",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48419",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48424",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48429",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48433",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48436",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48438",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48441",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48452",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48456",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48459",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48462",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48481",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48484",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48492",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48495",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48497",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48501",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48503",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48513",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48516",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48519",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48522",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48526",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48528",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48531",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48540",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48543",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48546",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48548",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48552",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48554",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48558",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48560",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48564",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48567",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48569",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48572",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48575",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48577",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48580",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48582",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48585",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48587",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48649",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48651"
+			],
+			"viewingHint": "top",
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/20141",
+			"@type": "sc:Range",
+			"label": "Table of Contents"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11144",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11360"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48304",
+			"@type": "sc:Range",
+			"label": "Vorderdeckel"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11124"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48306",
+			"@type": "sc:Range",
+			"label": "Isidorus, Etymologiae (l.v,iv.1)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11125",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11126",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11127",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11128",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11129"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48309",
+			"@type": "sc:Range",
+			"label": "Ps. Sergius/Servius, Explanationum in artem Donati Lib. I"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11130",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11131",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11132",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11133",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11134",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11135",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11136",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11137",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11138",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11139",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11140",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11141",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11145",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11146",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11147",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11148",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11149",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11150"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48315",
+			"@type": "sc:Range",
+			"label": "Anonymus, De Litteris"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11151"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48325",
+			"@type": "sc:Range",
+			"label": "Anonymi, Carmina Rhythmica"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11152",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11153",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11154",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11155",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11156",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11157",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11158",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11159",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11160",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11161",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11162",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11163",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11164",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11165",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11166",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11167",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11168",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11169",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11170",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11171",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11172",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11173",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11174",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11175",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11176",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11177",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11178",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11179",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11180",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11181",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11182",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11183",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11184",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11185",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11186",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11187"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48327",
+			"@type": "sc:Range",
+			"label": "Iuvencus, Evangeliorum libri (III et IV, II.1-387)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11188"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48329",
+			"@type": "sc:Range",
+			"label": "Leges Alamannorum (n. XXXIII)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11189"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48333",
+			"@type": "sc:Range",
+			"label": "Antiphon (= Luc. 16.19-21)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11191",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11192",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11193",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11194",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11195",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11196",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11197",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11198",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11199",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11200",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11201",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11202",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11203",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11204",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11205",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11206",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11207",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11208",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11209",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11210",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11211",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11212",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11213",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11214",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11215"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48338",
+			"@type": "sc:Range",
+			"label": "Isidorus, De fide catholica contra ludaeos (l.i.1 - l.xvii.4)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11217",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11218",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11219",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11220",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11221"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48340",
+			"@type": "sc:Range",
+			"label": "Isidorus, Etymologiae (VII.xii, XVII.viii.5-12, XVII.ix.3-39)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11222"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48352",
+			"@type": "sc:Range",
+			"label": "Recapitulatio de Ponderibus"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11223",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11224",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11225",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11226"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48357",
+			"@type": "sc:Range",
+			"label": "Anonymus, De Officio"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11227",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11228",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11229",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11230",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11231",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11232",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11233",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11234",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11235",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11236",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11237",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11238",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11239",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11240",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11241",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11242",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11243",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11244",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11245",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11246",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11247",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11248"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48366",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Minor"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11249",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11250"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48369",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Maior II (excerptum ex De Partibus Orationis, De Nomine)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11251"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48372",
+			"@type": "sc:Range",
+			"label": "Ps. Sergius/Servius, Explanationum in Artem Donati Lib. I"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11252",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11253"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48390",
+			"@type": "sc:Range",
+			"label": "Audax grammaticus, De Scauri et Paladii Libris (Excerpta de nomine)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11254"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48396",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Maior II (excerpta ex De Nomine)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11255",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11256",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11257",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11258",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11259",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11260",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11261",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11262",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11263",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11264"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48401",
+			"@type": "sc:Range",
+			"label": "Anonymus, De declinationibus"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11265"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48406",
+			"@type": "sc:Range",
+			"label": "Isidorus, Etymologiae (l.vii.27)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11266",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11267"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48410",
+			"@type": "sc:Range",
+			"label": "Ps. Sergius/Servius, Explanationum in Artem Donati Lib. I"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11268",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11269",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11270",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11271"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48419",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Maior II"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11272"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48429",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Maior II"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11273"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48433",
+			"@type": "sc:Range",
+			"label": "Isidore, Etymologiae (l.vii.31-33)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11274",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11275",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11276",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11277",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11278",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11279",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11280",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11281",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11282"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48436",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Maior II"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11283",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11284",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11285"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48492",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Maior II"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11286",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11287",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11288",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11289",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11290",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11291",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11292",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11293",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11294",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11295"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48495",
+			"@type": "sc:Range",
+			"label": "Ps. Sergius/Servius, Explanationum in Artem Donati Lib. I"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11296",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11297",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11298",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11299",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11300",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11301",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11302",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11303",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11304",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11305",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11306",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11307",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11308",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11309"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48497",
+			"@type": "sc:Range",
+			"label": "Anonymus, Tabula de coniugationibus"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11310",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11311"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48503",
+			"@type": "sc:Range",
+			"label": "Ps. Sergius/Servius,  Explanationum in Artem Donati Lib. I"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11312",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11313"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48516",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Maior II"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11314"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48519",
+			"@type": "sc:Range",
+			"label": "Sergius, Primae expositiones"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11315"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48522",
+			"@type": "sc:Range",
+			"label": "Ps. Asper, Ars grammatica"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11316",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11317",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11318"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48528",
+			"@type": "sc:Range",
+			"label": "Ps. Sergius/Servius, Explanationum in Artem Donati Lib. I"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11319"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48540",
+			"@type": "sc:Range",
+			"label": "Anonymus, De participiis"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11320",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11321"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48543",
+			"@type": "sc:Range",
+			"label": "Ps. Sergius/Servius, Explanationum in Artem Donati Lib. I"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11322"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48548",
+			"@type": "sc:Range",
+			"label": "Isidorus, Etymologiae (l.xii)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11323"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48554",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Maior II"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11324",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11325",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11326"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48558",
+			"@type": "sc:Range",
+			"label": "Ps. Asper grammaticus, Ars"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11327",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11328"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48560",
+			"@type": "sc:Range",
+			"label": "Ps. Sergius/Servius, Explanationum in Artem Donati Lib. I"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11329",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11330",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11331",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11332",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11333",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11334",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11335",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11336",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11337",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11338",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11339",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11340"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48569",
+			"@type": "sc:Range",
+			"label": "Beda, Liber de Schematibus et Tropis"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11341",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11342",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11343",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11344"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48572",
+			"@type": "sc:Range",
+			"label": "Donatus, Ars Maior III"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11345",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11346",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11347"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48575",
+			"@type": "sc:Range",
+			"label": "Isidorus, Etymologiae (VIII.ix.9-13, XVI.xxv.1-12)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11348"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48577",
+			"@type": "sc:Range",
+			"label": "Anonymus, Series nominum Germanicorum"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11349",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11350",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11351",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11352",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11353",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11354",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11355",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11356"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48585",
+			"@type": "sc:Range",
+			"label": "Formulae Augienses (Collectio A, nn. 1-20)"
+		},
+		{
+			"canvases": [
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11143",
+				"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11142"
+			],
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/range/48651",
+			"@type": "sc:Range",
+			"label": "Rückdeckel"
+		}
+	],
+	"sequences": [
+		{
+			"viewingHint": "paged",
+			"startCanvas": "https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11144",
+			"viewingDirection": "left-to-right",
+			"label": "Current Page Order",
+			"@context": "http://iiif.io/api/presentation/2/context.json",
+			"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/sequence/normal",
+			"@type": "sc:Sequence",
+			"canvases": [{"height":4829,"width":3869,"images":[{"resource":{"service":{"profile":"http://iiif.io/api/image/2/level2.json","@context":"http://iiif.io/api/image/2/context.json","@id":"https://digital.blb-karlsruhe.de/i3f/v20/11352"},"format":"image/jpeg","height":1248,"width":1000,"@id":"https://digital.blb-karlsruhe.de/download/webcache/1000/11352","@type":"dctypes:Image"},"on":"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11352","motivation":"sc:painting","@id":"https://digital.blb-karlsruhe.de/i3f/v20/20141/annotation/11352","@type":"oa:Annotation"}],"label":"113v","@id":"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11352","@type":"sc:Canvas"},
+			{"height":4781,"width":3696,"images":[{"resource":{"service":{"profile":"http://iiif.io/api/image/2/level2.json","@context":"http://iiif.io/api/image/2/context.json","@id":"https://digital.blb-karlsruhe.de/i3f/v20/11353"},"format":"image/jpeg","height":1293,"width":1000,"@id":"https://digital.blb-karlsruhe.de/download/webcache/1000/11353","@type":"dctypes:Image"},"on":"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11353","motivation":"sc:painting","@id":"https://digital.blb-karlsruhe.de/i3f/v20/20141/annotation/11353","@type":"oa:Annotation"}],"label":"114r","@id":"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11353","@type":"sc:Canvas"},
+			{"height":4800,"width":3907,"images":[{"resource":{"service":{"profile":"http://iiif.io/api/image/2/level2.json","@context":"http://iiif.io/api/image/2/context.json","@id":"https://digital.blb-karlsruhe.de/i3f/v20/11354"},"format":"image/jpeg","height":1228,"width":1000,"@id":"https://digital.blb-karlsruhe.de/download/webcache/1000/11354","@type":"dctypes:Image"},"on":"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11354","motivation":"sc:painting","@id":"https://digital.blb-karlsruhe.de/i3f/v20/20141/annotation/11354","@type":"oa:Annotation"}],"label":"114v","@id":"https://digital.blb-karlsruhe.de/i3f/v20/20141/canvas/11354","@type":"sc:Canvas"}]
+		}
+	],
+	"label": "Sammelhandschrift - Cod. Aug. perg. 112",
+	"thumbnail": {
+		"width": 304,
+		"height": 402,
+		"@id": "https://digital.blb-karlsruhe.de/i3f/v21/11130/full/304/0/default.jpg",
+		"@type": "dctypes:Image",
+		"format": "image/jpeg"
+	},
+	"logo": {
+		"@id": "https://digital.blb-karlsruhe.de/domainresource/static/graphics/connectors/viewerLogo.gif",
+		"service": {
+			"profile": "http://iiif.io/api/image/2/level2.json",
+			"@context": "http://iiif.io/api/image/2/context.json",
+			"@id": "http://www.blb-karlsruhe.de/"
+		}
+	},
+	"@context": "http://iiif.io/api/presentation/2/context.json",
+	"metadata": [
+		{
+			"value": "Sammelhandschrift - Cod. Aug. perg. 112",
+			"label": "Titel"
+		},
+		{
+			"value": "[S.l.], [8. bis 9. Jh.]",
+			"label": "Erschienen"
+		},
+		{
+			"value": "115 Bl. ; 30,2 x 22,2 cm",
+			"label": "Umfang"
+		},
+		{
+			"value": "Original: Handschrift auf Pergament",
+			"label": "Anmerkung"
+		},
+		{
+			"value": "Cod. Aug. perg. 112",
+			"label": "Signatur"
+		},
+		{
+			"value": "Reichenau",
+			"label": "Schlagwörter"
+		},
+		{
+			"value": "DigitalisierungKatalognachweis",
+			"label": "URL"
+		},
+		{
+			"value": "Karlsruhe : Badische Landesbibliothek, 2008",
+			"label": "Online-Ausgabe"
+		},
+		{
+			"value": "urn:nbn:de:bsz:31-1464",
+			"label": "URN"
+		}
+	],
+	"@id": "https://digital.blb-karlsruhe.de/i3f/v20/20141/manifest",
+	"@type": "sc:Manifest",
+	"seeAlso": {
+		"format": "application/xml",
+		"@id": "https://digital.blb-karlsruhe.de/oai?verb=GetRecord&metadataPrefix=mets&identifier=20141",
+		"label": "METS"
+	}
+}
