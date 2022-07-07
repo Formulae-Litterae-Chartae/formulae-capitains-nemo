@@ -1,0 +1,24 @@
+{% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Feedback') }}{% endblock %}
+
+{%block article%}
+<div class="container">
+    <header>
+        <h1 class="text-center">{{ _('Videos') }}</h3>
+    </header>
+    <div class="row row-cols-3">
+        {% for video, subtitles in videos %}
+        <div class="col">
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls src="{{ video }}" >
+                    {% if subtitles %}
+                    <track label="Deutsch" kind="subtitles" srclang="de" src="{{ subtitles }}" default>
+                    {% endif %}
+                    {{ _('Ihr Browser kann keine eingebetteten Videos zeigen.') }}
+                </video>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{%endblock%}

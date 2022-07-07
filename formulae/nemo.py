@@ -32,6 +32,7 @@ from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
 from collections import defaultdict, OrderedDict
 from random import randint
 import roman
+from glob import glob
 
 
 class NemoFormulae(Nemo):
@@ -57,7 +58,8 @@ class NemoFormulae(Nemo):
         ("/reading_format/<direction>", "r_reading_format", ["GET"]),
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"]),
         ("/manuscript_desc/siglen", "r_man_siglen", ["GET"]),
-        ("/accessibility_statement", "r_accessibility_statement", ["GET"])
+        ("/accessibility_statement", "r_accessibility_statement", ["GET"]),
+        ("/videos", "r_videos", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1643,6 +1645,21 @@ class NemoFormulae(Nemo):
         :rtype: {str: str}
         """
         return {"template": "main::accessibility_statement.html"}
+
+    def r_videos(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for videos
+
+        :return: Video template with video and subtitle filenames
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        videos = list()
+        for video in sorted(glob(os.path.join(self.static_folder, 'videos', '*.mp4'))):
+            subtitles = ''
+            if os.path.isfile(video.replace('.mp4', '.vtt')):
+                subtitles = os.path.basename(video).replace('.mp4', '.vtt')
+            videos.append((url_for('InstanceNemo.static', filename='videos/{}'.format(os.path.basename(video))),
+                           subtitles))
+        return {"template": "main::videos.html", 'videos': videos}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
