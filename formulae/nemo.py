@@ -1652,13 +1652,17 @@ class NemoFormulae(Nemo):
         :return: Video template with video and subtitle filenames
         :rtype: {str: str, str: list(tuple(str))}
         """
-        videos = list()
-        for video in sorted(glob(os.path.join(self.static_folder, 'videos', '*.mp4'))):
-            subtitles = ''
-            if os.path.isfile(video.replace('.mp4', '.vtt')):
-                subtitles = os.path.basename(video).replace('.mp4', '.vtt')
-            videos.append((url_for('InstanceNemo.static', filename='videos/{}'.format(os.path.basename(video))),
-                           subtitles))
+        videos = {_('Suche'):
+                      {_('Einfache Suche'):
+                           {'video': 'videos/einfache_suche.mp4', 'subtitles': ''},
+                       _('Suchergebnisse herunterladen'):
+                           {'video': 'videos/suchergebnisse_herunterladen.mp4',
+                            'subtitles': (('de', 'Deutsch', 'videos/suchergebnisse_herunterladen_de.vtt'),
+                                          ('en', 'English', 'videos/suchergebnisse_herunterladen_en.vtt'))},
+                       _('Suchergebnisse in ihrem Benutzerkonto speichern'):
+                           {'video': 'videos/suchergebnisse_speichern.mp4', 'subtitles': ''}
+                       }
+                  }
         return {"template": "main::videos.html", 'videos': videos}
 
     def extract_notes(self, text: str) -> str:

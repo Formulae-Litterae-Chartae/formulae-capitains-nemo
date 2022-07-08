@@ -2,17 +2,26 @@
 {% block title %}Formulae - Litterae - Chartae: {{ _('Feedback') }}{% endblock %}
 
 {%block article%}
-<div class="container">
+<div class="container-fluid">
     <header>
         <h1 class="text-center">{{ _('Videos') }}</h3>
     </header>
+    {% for category, video_information in videos|dictsort %}
+    <div class="row">
+        <div class="col-auto">
+            <h3>{{ category }}</h3>
+        </div>
+    </div>
     <div class="row row-cols-3">
-        {% for video, subtitles in videos %}
+        {% for title, files in video_information|dictsort %}
         <div class="col">
+            <h5 class="text-center">{{ title }}</h5>
             <div class="embed-responsive embed-responsive-16by9">
-                <video controls src="{{ video }}" >
-                    {% if subtitles %}
-                    <track label="Deutsch" kind="subtitles" srclang="de" src="{{ subtitles }}" default>
+                <video controls src="{{ url_for('InstanceNemo.static', filename=files['video']) }}" >
+                    {% if files['subtitles'] %}
+                        {% for language, label, filename in files['subtitles'] %}
+                        <track label="{{ label }}" kind="subtitles" srclang="{{ language }}" src="{{ url_for('InstanceNemo.static', filename=filename) }}"{% if language == 'de' %} default{% endif %}>
+                        {% endfor %}
                     {% endif %}
                     {{ _('Ihr Browser kann keine eingebetteten Videos zeigen.') }}
                 </video>
@@ -20,5 +29,6 @@
         </div>
         {% endfor %}
     </div>
+    {% endfor %}
 </div>
 {%endblock%}
