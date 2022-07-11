@@ -1653,14 +1653,18 @@ class NemoFormulae(Nemo):
         :rtype: {str: str, str: list(tuple(str))}
         """
         videos = {_('Suche'):
-                      {_('Einfache Suche'):
-                           {'video': 'videos/einfache_suche.mp4', 'subtitles': ''},
-                       _('Suchergebnisse herunterladen'):
+                      {_('01 - Die Einfache Suche'):
+                           {'video': 'videos/einfache_suche.mp4',
+                            'subtitles': (('de', 'Deutsch', 'videos/einfache_suche_de.vtt'),
+                                          ('en', 'English', 'videos/einfache_suche_en.vtt'))},
+                       _('02 - Suchergebnisse herunterladen'):
                            {'video': 'videos/suchergebnisse_herunterladen.mp4',
                             'subtitles': (('de', 'Deutsch', 'videos/suchergebnisse_herunterladen_de.vtt'),
                                           ('en', 'English', 'videos/suchergebnisse_herunterladen_en.vtt'))},
-                       _('Suchergebnisse in ihrem Benutzerkonto speichern'):
-                           {'video': 'videos/suchergebnisse_speichern.mp4', 'subtitles': ''}
+                       _('03 - Suchergebnisse in ihrem Benutzerkonto speichern'):
+                           {'video': 'videos/suchergebnisse_speichern.mp4',
+                            'subtitles': (('de', 'Deutsch', 'videos/suchergebnisse_speichern_de.vtt'),
+                                          ('en', 'English', 'videos/suchergebnisse_speichern_en.vtt'))}
                        }
                   }
         return {"template": "main::videos.html", 'videos': videos}
