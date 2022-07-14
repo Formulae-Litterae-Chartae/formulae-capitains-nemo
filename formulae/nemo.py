@@ -1672,6 +1672,15 @@ class NemoFormulae(Nemo):
                                           ('en', 'English', 'videos/suchergebnisse_speichern_en.vtt'))}
                        }
                   }
+        # Load transcripts from .txt files
+        for v in videos.values():
+            for v1 in v.values():
+                v1['transcripts'] = []
+                for code, language, path in v1['subtitles']:
+                    transcript_filename = os.path.join(self.static_folder, path.replace('.vtt', '.txt'))
+                    if os.path.isfile(transcript_filename):
+                        with open(transcript_filename) as f:
+                            v1['transcripts'].append((language, f.read()))
         return {"template": "main::videos.html", 'videos': videos}
 
     def extract_notes(self, text: str) -> str:
