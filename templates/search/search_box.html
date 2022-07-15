@@ -1,4 +1,7 @@
 {% if g.search_form and 'advanced_search' not in request.url %}
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#simpleSearchVideoModal">
+  Launch demo modal
+</button>
 <form id="simple-search-form" class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
     {{ g.search_form.simple_search_id }}
     <div class="form-row">
