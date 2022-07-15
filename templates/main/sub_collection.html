@@ -23,19 +23,19 @@
     {{collections.current.label|striptags}}{% if "manuscript_collection" in collections.parent_ids %} ({{ collections.current.short_title|safe }}){% endif %}
     </h1>
     {% if 'formulae_collection' in collections.parent_ids %}
-    <h3><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a></h3>
+    <h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a></h5>
     {% elif 'manuscript_collection' in collections.parent_ids %}
-    <h3><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zum Handschriftenvergleich') }}</a></h3>
+    <h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zum Handschriftenvergleich') }}</a></h5>
     {% endif %}
     {% if collections.current.id == 'urn:cts:formulae:fu2' %}
     <br>
-    <h3><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a></h3><br>
+    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
     {% endif %}
     {% if collections.current.containing_collections %}
     <div class="row">
-        <div class="col-auto"><h3>{{ _('Im Handschriftenkontext von:') }}</h3></div>
+        <div class="col-auto"><h5>{{ _('Im Handschriftenkontext von:') }}</h5></div>
         {% for siglum, title, urn in collections.current.containing_collections %}
-        <div class="col-auto"><h3><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=urn) }}" id="{{ urn|replace(':', '-') }}-ms-link" data-toggle="tooltip" data-placement="top" data-container="#{{ urn|replace(':', '-') }}-ms-link" title="{{ title }}">{{ siglum }}</a></h3></div>
+        <div class="col-auto"><h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=urn) }}" id="{{ urn|replace(':', '-') }}-ms-link" data-toggle="tooltip" data-placement="top" data-container="#{{ urn|replace(':', '-') }}-ms-link" title="{{ title }}">{{ siglum }}</a></h5></div>
         {% endfor %}
     </div>
     {% endif %}
