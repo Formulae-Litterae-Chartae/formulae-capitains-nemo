@@ -665,11 +665,26 @@ $(document).ready(function () {
         
     })
     
-    $('.mssColumnControl').click(function() {
-        var controlledColumn = '.' + $( this ).attr('aria-controls');
-        $( controlledColumn ).toggleClass('d-none');
-        $( '#' + $( this ).attr('aria-controls') ).toggleClass('card');
-        $( this ).toggleClass('d-none');
-        $( this ).siblings('.mssColumnControl').toggleClass('d-none');
+    $('.mssColumnHide').click(function() {
+        var controlledColumn = $('.' + $( this ).attr('aria-controls') );
+        var container = $( '#' + $( this ).attr('aria-controls') );
+        var containerWidth = container.width();
+        controlledColumn.addClass('d-none');
+        container.toggleClass('card');
+        container.width( containerWidth );
+        container.attr('origWidth', containerWidth);
+        container.animate({width: 16});
+        $( this ).addClass('d-none');
+        $( this ).siblings('.mssColumnShow').removeClass('d-none');
+    })
+    
+    $('.mssColumnShow').click(function() {
+        var controlledColumn = $('.' + $( this ).attr('aria-controls') );
+        var container = $( '#' + $( this ).attr('aria-controls') );
+        var containerWidth = container.attr('origWidth');
+        controlledColumn.removeClass('d-none');
+        container.animate({width: containerWidth}, function() {container.toggleClass('card');} );
+        $( this ).addClass('d-none');
+        $( this ).siblings('.mssColumnHide').removeClass('d-none');
     })
 })

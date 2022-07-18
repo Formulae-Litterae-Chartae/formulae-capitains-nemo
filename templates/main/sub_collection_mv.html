@@ -48,8 +48,8 @@
 {% macro build_column(type_dict) %}
     {% for values in type_dict %}
     <div id="ms-col-{{loop.index}}" class="card mv-rows">
-        <span class="mssColumnControl text-center" title="{{ _('Verstecke') }} {{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true"><img src="{{url_for('InstanceNemo.static', filename='images/hide_column.png')}}" alt="{{ _('Diese Spalte verstecken') }}"></span>
-        <span class="mssColumnControl d-none" title="{{ _('Zeige') }} {{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true"><img src="{{url_for('InstanceNemo.static', filename='images/expand_column.png')}}" alt="{{ _('Diese Spalte zeigen') }}"></span>
+        <span class="mssColumnHide text-center" title="{{ _('Verstecke') }} {{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true"><img src="{{url_for('InstanceNemo.static', filename='images/close_window.png')}}" alt="{{ _('Diese Spalte verstecken') }}"></span>
+        <span class="mssColumnShow d-none" title="{{ _('Zeige') }} {{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Diese Spalte zeigen') }}"></span>
         <div class="card-header mv-card-header text-center ms-col-{{loop.index}} ms-col">
             <h5 id="full-{{values['edition_name']|striptags}}" data-toggle="tooltip" data-placement="top" data-container="#full-{{values['edition_name']|striptags}}" title="{{values['full_edition_name']}}" data-html="true">{{values['edition_name']|safe}}</h5>
         </div>

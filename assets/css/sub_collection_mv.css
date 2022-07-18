@@ -16,10 +16,6 @@
     max-width: 200;
 }
 
-.mv-rows{
-    width: 16px;
-}
-
 .mv-card-header{
     position: sticky;
     top: 0px;
@@ -33,7 +29,7 @@
     margin-right: auto;
 }
 
-.mv-rows .mssColumnControl{
+.mssColumnHide,.mssColumnShow{
     border: none;
     background: #f3f3f3;
 }
