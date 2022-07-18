@@ -664,4 +664,12 @@ $(document).ready(function () {
         }
         
     })
+    
+    $('.mssColumnControl').click(function() {
+        var controlledColumn = '.' + $( this ).attr('aria-controls');
+        $( controlledColumn ).toggleClass('d-none');
+        $( '#' + $( this ).attr('aria-controls') ).toggleClass('card');
+        $( this ).toggleClass('d-none');
+        $( this ).siblings('.mssColumnControl').toggleClass('d-none');
+    })
 })
