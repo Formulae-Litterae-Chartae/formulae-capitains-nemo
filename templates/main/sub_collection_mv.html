@@ -25,7 +25,7 @@
     <h1>
     {{collections.current.label|striptags}}
     </h1>
-    <h3><a class="internal-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=collections.current.id) }}">{{ _('Zur Korpusübersicht') }}</a></h3>
+    <h5><a class="internal-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=collections.current.id) }}">{{ _('Zur Korpusübersicht') }}</a></h5>
 </header>
 </div>
 </div>
@@ -47,11 +47,13 @@
 
 {% macro build_column(type_dict) %}
     {% for values in type_dict %}
-    <div id="{{values['edition_name']}}" class="card mv-rows">
-        <div class="card-header mv-card-header text-center" id="full-{{values['edition_name']|striptags}}" data-toggle="tooltip" data-placement="top" data-container="#full-{{values['edition_name']|striptags}}" title="{{values['full_edition_name']}}" data-html="true">
-            <h5>{{values['edition_name']|safe}}</h5>
+    <div id="ms-col-{{loop.index}}" class="card mv-rows">
+        <span class="mssColumnHide text-center" title="{{ _('Verstecke') }} {{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true"><img src="{{url_for('InstanceNemo.static', filename='images/close_window.png')}}" alt="{{ _('Diese Spalte verstecken') }}"></span>
+        <span class="mssColumnShow d-none" title="{{ _('Zeige') }} {{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Diese Spalte zeigen') }}"></span>
+        <div class="card-header mv-card-header text-center ms-col-{{loop.index}} ms-col">
+            <h5 id="full-{{values['edition_name']|striptags}}" data-toggle="tooltip" data-placement="top" data-container="#full-{{values['edition_name']|striptags}}" title="{{values['full_edition_name']}}" data-html="true">{{values['edition_name']|safe}}</h5>
         </div>
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush ms-col-{{loop.index}} ms-col">
         {% for name in values['links'][0]%}
             <li class="list-group-item card search-hit transcription" formula="{{ values['titles'][loop.index-1]|replace(',', '-') }}">
                 {% if values['titles'][loop.index-1] %}<h5{% if 'folia' in values and values['folia'][loop.index0] %} class="mb-0"{% endif %}{% if values['links'][1][loop.index0] in manuscript_notes %} id="{{ values['edition_name']|striptags + '-' + loop.index0|string }}" data-toggle="tooltip" data-placement="top" data-container="#{{ values['edition_name']|striptags + '-' + loop.index0|string }}" title="{{ manuscript_notes[values['links'][1][loop.index0]]}}"{% endif %}>{{ values['titles'][loop.index-1]|safe }}{% if values['links'][1][loop.index0] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</h5>{% endif %}
