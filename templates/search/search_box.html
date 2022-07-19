@@ -1,7 +1,7 @@
 {% if g.search_form and 'advanced_search' not in request.url %}
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#simpleSearchVideoModal">
-  Launch demo modal
-</button>
+<a class="text-white pr-2" type="button" role="button" class="btn btn-link" data-toggle="modal" data-target="#simpleSearchVideoModal">
+  <img src="{{url_for('InstanceNemo.static', filename='images/video-white-question-mark.png')}}" alt="{{ _('Manuskriptbilder hinzufügen') }}" class="align-top" height="20" width="23">
+</a>
 <form id="simple-search-form" class="form mb-0" method="get" action="{{ url_for('search.r_simple_search') }}">
     {{ g.search_form.simple_search_id }}
     <div class="form-row">
