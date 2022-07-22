@@ -1143,7 +1143,8 @@ class NemoFormulae(Nemo):
                     "id": collection.id,
                     "model": str(collection.model),
                     "type": str(collection.type),
-                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS
+                    "open_regesten": collection.id not in self.HALF_OPEN_COLLECTIONS,
+                    "short_title": collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or '',
                 },
                 "readable": r,
                 "parents": current_parents,
