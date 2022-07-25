@@ -29,7 +29,7 @@
             <dct:created>2022-02-25</dct:created>
             <dct:bibliographicCitation>Karlsruhe BLB Aug. perg. 112 [fol.113&lt;span class="verso-recto"&gt;va&lt;/span&gt;-114&lt;span class="verso-recto"&gt;va&lt;/span&gt;], Formulae-Litterae-Chartae Projekt. Hamburg 2022-02-25, [URL: https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:ka1.113va114va.lat001/passage/all]</dct:bibliographicCitation>
             <dct:abstract xml:lang="deu"/>
-            <dct:isVersionOf>Marculf II,3</dct:isVersionOf>
+            <dct:isVersionOf>urn:cts:formulae:marculf.form2_011</dct:isVersionOf>
          </structured-metadata>
       </collection>
    </members>

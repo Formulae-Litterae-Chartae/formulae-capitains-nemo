@@ -1369,6 +1369,15 @@ class NemoFormulae(Nemo):
         if self.check_project_team() is False and (metadata.id in self.closed_texts['half_closed'] or metadata.id in self.closed_texts['closed']):
             if len(regest) == 2:
                 regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
+        transcribed_edition = []
+
+        for mss_ed in metadata.metadata.get(DCTERMS.isVersionOf):
+            if str(mss_ed):
+                ed_name = self.resolver.getMetadata(str(mss_ed))
+                for child_id, child_col in ed_name.children.items():
+                    if str(child_col.metadata.get_single(DC.type)) == 'cts:edition':
+                        transcribed_edition.append(str(child_col.metadata.get_single(DC.title)).replace(' (lat)', ''))
+
         return {
             "template": "",
             "objectId": objectId,
@@ -1395,7 +1404,7 @@ class NemoFormulae(Nemo):
                     "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or ''),
                     "linked_resources": linked_resources,
-                    "transcribed_edition": sorted([str(x) if x else '' for x in metadata.metadata.get(DCTERMS.isVersionOf)] if metadata.metadata.get(DCTERMS.isVersionOf) else []),
+                    "transcribed_edition": sorted(transcribed_edition),
                     "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else []
                 },
                 "parents": current_parents,
