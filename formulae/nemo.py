@@ -1752,7 +1752,8 @@ class NemoFormulae(Nemo):
         metadata = self.resolver.getMetadata(objectId=objectId)
         with open(self._transform['pdf']) as xml_file:
             xslt = etree.XSLT(etree.parse(xml_file))
-        d = json_loads(re.sub(r'\s+', ' ', str(xslt(text.export(Mimetypes.PYTHON.ETREE)))))
+        transformed_xml = str(xslt(text.export(Mimetypes.PYTHON.ETREE)))
+        d = json_loads(re.sub(r'\s+', ' ', transformed_xml))
         pdf_buffer = BytesIO()
         doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>',
                            r'<sub>\1</sub>',
