@@ -1796,13 +1796,13 @@ class NemoFormulae(Nemo):
             flowables.append(HRFlowable())
             flowables.append(Spacer(1, 5))
             for n in d['app']:
-                flowables.append(Paragraph(n, custom_style))
+                flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
         if d['hist_notes']:
             flowables.append(Spacer(1, 5))
             flowables.append(HRFlowable())
             flowables.append(Spacer(1, 5))
             for n in d['hist_notes']:
-                flowables.append(Paragraph(n, custom_style))
+                flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
         if self.check_project_team() is False and is_formula is True:
             flowables.append(encryption)
         my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
