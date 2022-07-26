@@ -1811,7 +1811,7 @@ class NemoFormulae(Nemo):
             flowables.append(HRFlowable())
             flowables.append(Spacer(1, 5))
             for n in normal_xml.xpath('//tei:note', namespaces={'tei': 'http://www.tei-c.org/ns/1.0'}):
-                flowables.append(Paragraph(''.join(n.xpath('.//text()')), custom_style))
+                flowables.append(Paragraph(str(''.join(n.xpath('.//text()'))), custom_style))
         if self.check_project_team() is False and is_formula is True:
             flowables.append(encryption)
         my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
