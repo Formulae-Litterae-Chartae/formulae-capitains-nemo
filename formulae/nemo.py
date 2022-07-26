@@ -1753,7 +1753,10 @@ class NemoFormulae(Nemo):
         with open(self._transform['pdf']) as xml_file:
             xslt = etree.XSLT(etree.parse(xml_file))
         transformed_xml = str(xslt(text.export(Mimetypes.PYTHON.ETREE)))
+        normal_xml = text.export(Mimetypes.PYTHON.ETREE)
+        print(etree.tostring(normal_xml, encoding=str))
         d = json_loads(re.sub(r'\s+', ' ', transformed_xml))
+        print(d)
         pdf_buffer = BytesIO()
         doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>',
                            r'<sub>\1</sub>',
@@ -1803,6 +1806,12 @@ class NemoFormulae(Nemo):
             flowables.append(Spacer(1, 5))
             for n in d['hist_notes']:
                 flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
+        if normal_xml.xpath('//tei:note[not(@type="a1")]', namespaces={'tei': 'http://www.tei-c.org/ns/1.0'}):
+            flowables.append(Spacer(1, 5))
+            flowables.append(HRFlowable())
+            flowables.append(Spacer(1, 5))
+            for n in normal_xml.xpath('//tei:note', namespaces={'tei': 'http://www.tei-c.org/ns/1.0'}):
+                flowables.append(Paragraph(''.join(n.xpath('.//text()')), custom_style))
         if self.check_project_team() is False and is_formula is True:
             flowables.append(encryption)
         my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
