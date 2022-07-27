@@ -691,4 +691,16 @@ $(document).ready(function () {
             $( '#show-column-list' ).addClass('d-none');
         }
     })
+    
+    $('#show-regest-control').click(function() {
+        $('.ms-regesten').removeClass('d-none');
+        $( this ).addClass('d-none');
+        $('#hide-regest-control').removeClass('d-none');
+    })
+    
+    $('#hide-regest-control').click(function() {
+        $('.ms-regesten').addClass('d-none');
+        $( this ).addClass('d-none');
+        $('#show-regest-control').removeClass('d-none');
+    })
 })
