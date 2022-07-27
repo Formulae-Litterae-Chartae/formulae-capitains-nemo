@@ -15,6 +15,10 @@
     width: 15%;
 }
 
+.card.mv-rows::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
 .mv-card-header{
     position: sticky;
     top: 0px;
