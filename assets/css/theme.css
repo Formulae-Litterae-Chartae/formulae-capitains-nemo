@@ -1150,3 +1150,12 @@ img.disabled {
 .small-text-row {
     font-size: 90%;
 }
+
+::-webkit-scrollbar {
+    width: 2px;  /* Remove scrollbar space */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #bfbfbf;
+}
