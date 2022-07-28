@@ -1717,7 +1717,8 @@ class NemoFormulae(Nemo):
         if self.check_project_team() is False and objectId not in self.open_texts:
             flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
             return redirect(url_for('InstanceNemo.r_index'))
-        is_formula = re.search(r'marculf|andecavensis|elexicon', objectId) is not None
+        metadata = self.resolver.getMetadata(objectId=objectId)
+        is_formula = 'formulae_collection' in metadata.ancestors
 
         def add_citation_info(canvas, doc):
             cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
@@ -1749,11 +1750,8 @@ class NemoFormulae(Nemo):
             canvas.restoreState()
         new_subref = self.get_reffs(objectId)[0][0]
         text = self.get_passage(objectId=objectId, subreference=new_subref)
-        metadata = self.resolver.getMetadata(objectId=objectId)
-        with open(self._transform['pdf']) as xml_file:
-            xslt = etree.XSLT(etree.parse(xml_file))
-        transformed_xml = str(xslt(text.export(Mimetypes.PYTHON.ETREE)))
-        d = json_loads(re.sub(r'\s+', ' ', transformed_xml))
+        transformed_str = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId).replace('<?xml version="1.0" encoding="UTF-8"?>', '')
+        transformed_xml = etree.fromstring(transformed_str)
         pdf_buffer = BytesIO()
         doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>',
                            r'<sub>\1</sub>',
@@ -1789,19 +1787,113 @@ class NemoFormulae(Nemo):
                                         canModify=0)
         flowables = list()
         flowables.append(Paragraph(doc_title, sample_style_sheet['Heading1']))
-        for p in d['paragraphs']:
-            flowables.append(Paragraph(p, sample_style_sheet['BodyText']))
-        if d['app']:
+        hist_note_num = 1
+        for paragraph in transformed_xml.xpath('/div/div/p'):
+            p = ''
+            for c in paragraph.xpath('child::node()'):
+                c_class = None
+                c_text = ''
+                if isinstance(c, etree._Element):
+                    c_class = c.get('class')
+                    c_text = c.text if c.text else ''
+                if isinstance(c, etree._ElementUnicodeResult):
+                    p += c
+                elif c_class and 'w' in c_class.split():
+                    opening_tag = ''
+                    closing_tag = ''
+                    if 'font-italic' in c_class or 'latin-word' in c_class:
+                        opening_tag += '<i>'
+                        closing_tag = '</i>' + closing_tag
+                    if c.get('lemma') and 'platzhalter' in c.get('lemma'):
+                        opening_tag += '<b>'
+                        closing_tag = '</b>' + closing_tag
+                    if 'line-through' in c_class:
+                        opening_tag += '<strike>'
+                        closing_tag = '</strike>' + closing_tag
+                    if 'superscript' in c_class:
+                        opening_tag += '<super>'
+                        closing_tag = '</super>' + closing_tag
+                    if 'subscript' in c_class:
+                        opening_tag += '<sub>'
+                        closing_tag = '</sub>' + closing_tag
+                    p += opening_tag + c_text + closing_tag
+                elif c.xpath('./a[@type="a1"]'):
+                    note_num = c.xpath('./a[@class="note"]')[0].text
+                    p += '<sup>{}</sup>'.format(note_num)
+                elif c_class and c.xpath('self::span[contains(@class, "right-note-tooltip")]|./a[@class="note"]'):
+                    if c.xpath('self::span[contains(@class, "right-note-tooltip")]'):
+                        text_to_add = ''.join(c.xpath('./text()'))
+                        p += text_to_add
+                    p += '<sup>{}</sup>'.format(hist_note_num)
+                    hist_note_num += 1
+            flowables.append(Paragraph(re.sub(u'\u200c', '', p), sample_style_sheet['BodyText']))
+        if transformed_xml.xpath('/div/div/p/sup/a[@type="a1"]'):
             flowables.append(Spacer(1, 5))
             flowables.append(HRFlowable())
             flowables.append(Spacer(1, 5))
-            for n in d['app']:
+            for app_note in transformed_xml.xpath('/div/div/p/sup/a[@type="a1"]'):
+                n = '<sup>{}</sup>'.format(app_note.text)
+                for c in app_note.xpath('./span[@hidden="true"]/child::node()'):
+                    c_class = None
+                    c_text = ''
+                    if isinstance(c, etree._Element):
+                        c_class = c.get('class')
+                        c_text = c.text if c.text else ''
+                    if isinstance(c, etree._ElementUnicodeResult):
+                        n += c
+                    elif c_class:
+                        opening_tag = ''
+                        closing_tag = ''
+                        if 'italic' in c_class or 'latin-word' in c_class:
+                            opening_tag += '<i>'
+                            closing_tag = '</i>' + closing_tag
+                        if 'line-through' in c_class:
+                            opening_tag += '<strike>'
+                            closing_tag = '</strike>' + closing_tag
+                        if 'superscript' in c_class:
+                            opening_tag += '<super>'
+                            closing_tag = '</super>' + closing_tag
+                        if 'subscript' in c_class:
+                            opening_tag += '<sub>'
+                            closing_tag = '</sub>' + closing_tag
+                        n += opening_tag + c_text + closing_tag
+                    else:
+                        n += c_text
                 flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
-        if d['hist_notes']:
+        if transformed_xml.xpath('/div/div/p/sup/a[not(@type="a1")]|/div/div/p/span[contains(@class, "right-note-tooltip")]'):
             flowables.append(Spacer(1, 5))
             flowables.append(HRFlowable())
             flowables.append(Spacer(1, 5))
-            for n in d['hist_notes']:
+            hist_note_num = 1
+            for app_note in transformed_xml.xpath('/div/div/p/sup/a[not(@type="a1")]|/div/div/p/span[contains(@class, "right-note-tooltip")]'):
+                n = '<sup>{}</sup>'.format(hist_note_num)
+                hist_note_num += 1
+                for c in app_note.xpath('./span[@hidden="true"]/child::node()'):
+                    c_class = None
+                    c_text = ''
+                    if isinstance(c, etree._Element):
+                        c_class = c.get('class')
+                        c_text = c.text if c.text else ''
+                    if isinstance(c, etree._ElementUnicodeResult):
+                        n += c
+                    elif c_class:
+                        opening_tag = ''
+                        closing_tag = ''
+                        if 'italic' in c_class or 'latin-word' in c_class:
+                            opening_tag += '<i>'
+                            closing_tag = '</i>' + closing_tag
+                        if 'line-through' in c_class:
+                            opening_tag += '<strike>'
+                            closing_tag = '</strike>' + closing_tag
+                        if 'superscript' in c_class:
+                            opening_tag += '<super>'
+                            closing_tag = '</super>' + closing_tag
+                        if 'subscript' in c_class:
+                            opening_tag += '<sub>'
+                            closing_tag = '</sub>' + closing_tag
+                        n += opening_tag + c_text + closing_tag
+                    else:
+                        n += c_text
                 flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
         if self.check_project_team() is False and is_formula is True:
             flowables.append(encryption)
