@@ -158,12 +158,18 @@
             {% if loop.first %}
                 <span class="dropdown-item-text">{{ _('Manuskriptbilder') }}</span>
             {% endif %}
+            {% if manifest[0] == 'no_image' %}
+                <span  data-toggle="tooltip" id="no-image-{{ index }}-{{ loop.index }}" data-container="#no-image-{{ index }}-{{ loop.index }}" title="{{ _('Diese Manuskriptbilder können nicht gezeigt werden') }}"><a class="dropdown-item pull-right disabled" href="#">- {% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</a></span>
+            {% elif 'http' in manifest[0] %}
+                <a class="dropdown-item pull-right" href="{{ manifest[0] }}" target="_blank">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }} <i class="fas fa-external-link-alt fa-sm"></i></span></a>
+            {% else %}
                 <a class="dropdown-item pull-right" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(index, manifest[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(index, 'all')|join_list_values('+'))}}">- <span class="text-primary">{% if manifest[2] != '' %}{{ manifest[2]|safe }}: {% endif %}{{ manifest[1]|safe }}</span></a>
+            {% endif %}
             {% if loop.last %}
                 <div class="dropdown-divider"></div>
             {% endif %}
         {% endfor %}
-        {% if translation[objId] and object.collections.parents[-1]['id'] in ['formulae_collection', 'manuscript_collection'] %}
+        {% if translation[objId] and 'formulae_collection' in object.collections.parent_ids %}
             <span class="dropdown-item-text">{{ _('Edition, Übersetzung, Transkription') }}</span>
             {% for t in translation[objId] if 'cts:edition' in t[0].metadata.get_single('http://purl.org/dc/elements/1.1/type')|string %}
             <div class="col-3 text-center">
