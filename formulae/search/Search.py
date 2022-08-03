@@ -87,6 +87,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Touraine</b>: Un acte faux de Marmoutier': {'match': {'collection': 'marmoutier_laurain'}},
                                       '<b>Touraine</b>: Une nouvelle charte de Théotolon': {'match': {'collection': 'tours_gasnault'}},
                                       '<b>Touraine</b>: Formeln von Tours': {'match': {'collection': 'tours'}},
+                                      '<b>Touraine</b>: Tours-Überarbeitung': {'match': {'collection': 'tours_ueberarbeitung'}},
                                       '<b>Werden</b>: Werden': {'match': {'collection': 'werden'}},
                                       '<b>Wissembourg</b>: Weißenburg': {'match': {'collection': 'weissenburg'}},
                                       '<b>Zürich</b>: Zürich': {'match': {'collection': 'zuerich'}}}}}

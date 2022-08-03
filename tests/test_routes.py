@@ -2,7 +2,7 @@ from config import Config
 from MyCapytain.resolvers.capitains.local import XmlCapitainsLocalResolver
 from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
-from formulae.models import User
+from formulae.models import User, load_user
 from formulae.search.Search import advanced_query_index, build_sort_list, \
     suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
@@ -340,7 +340,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
-            c.get('/corpus_m/urn:cts:formulae:flavigny', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:flavigny_paris', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             # self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
@@ -778,7 +778,7 @@ class TestIndividualRoutes(Formulae_Testing):
                              'Text should be changed for non-project members.')
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
-            c.get('/corpus_m/urn:cts:formulae:flavigny', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:flavigny_paris', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
@@ -1826,6 +1826,13 @@ class TestFunctions(Formulae_Testing):
                           'urn:cts:formulae:tours.0_capitula.deu001',
                           'urn:cts:formulae:tours.0_capitula.lat001',
                           'urn:cts:formulae:wa1.226r226v.lat001'])
+
+    def test_load_user(self):
+        """ Ensure that load_user function returns the correct user"""
+        u = load_user(1)
+        self.assertEqual(u.username, 'project.member')
+        u = load_user(2)
+        self.assertEqual(u.username, 'not.project')
 
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""
