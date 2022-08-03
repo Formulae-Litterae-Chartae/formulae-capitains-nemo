@@ -43,12 +43,16 @@
                 </div>
             {% endif %}
             <div class="col text-center">
-                <h2 class="entry-title" lang="{{ object.collections.current.secondary_lang }}">{% if
-                    object.collections.current.sigla != '' %}{{
-                    object.collections.current.sigla|safe }}: {% endif %}
-                    {{object.label[0]|safe}}</h2><h2 class="entry-folia"
-                                                 lang="{{ object.collections.current.secondary_lang }}"
-            >{{object.label[1]|safe}}</h2>
+                <h2 class="entry-title" lang="{{ object.collections.current.secondary_lang }}">
+                {% if object.collections.current.sigla != '' %}
+                    {{ object.collections.current.sigla|safe }}: {{object.collections.current.label[0]|safe}}
+                </h2>
+                <h2 class="entry-folia" lang="{{ object.collections.current.secondary_lang }}">{{object.collections.current.label[1]|safe}}</h2>
+                {% else %}
+                    {{object.collections.current.label|safe}}
+                    {% if object.collections.current.ms_source %}<br>({{ object.collections.current.ms_source|safe }}){% endif %}
+                </h2>
+                {% endif %}
                 {% if object.manifest %}
                 <a class="internal-link" id="iiif-{{ index }}" href="{{ object.lib_link }}"
                                              target="_blank" title="{{ _('Dieses Manuskript bei der Bibliothek in einem neuen Tab anschauen.') }}" data-toggle="tooltip" data-container="#iiif-{{ index }}">{{ _('Zur Bibliothek')}}</a>
@@ -97,15 +101,16 @@
                 </div>
             {% endif %}
             <div class="col text-center">
-                <h2 class="entry-title" lang="{{ object.collections.current.secondary_lang }}">{% if
-                    object.collections.current.sigla != '' %}{{
-                    object.collections.current.sigla|safe }}:
-                    {{object.collections.current.label[0]|safe}}</h2><h2 class="entry-folia" lang="{{ object.collections.current.secondary_lang }}"
-            >{{object.collections.current
-                .label[1]|safe}}</h2>{% else
-                    %}{{object.collections.current.label|safe}}{% if object.collections.current.ms_source %}<br>({{
-                    object.collections.current.ms_source|safe }}){%
-                    endif %}</h2>{% endif %}
+                <h2 class="entry-title" lang="{{ object.collections.current.secondary_lang }}">
+                {% if object.collections.current.sigla != '' %}
+                    {{ object.collections.current.sigla|safe }}: {{object.collections.current.label[0]|safe}}
+                </h2>
+                <h2 class="entry-folia" lang="{{ object.collections.current.secondary_lang }}">{{object.collections.current.label[1]|safe}}</h2>
+                {% else %}
+                    {{object.collections.current.label|safe}}
+                    {% if object.collections.current.ms_source %}<br>({{ object.collections.current.ms_source|safe }}){% endif %}
+                </h2>
+                {% endif %}
                 {% for l_r in object.collections.current.linked_resources %}
                 <h2 class="entry-title"> = <a class="internal-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|insert_in_list(objects|length, l_r[0])|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|insert_in_list(objects|length, 'all')|join_list_values('+'))}}">{{ l_r[1] }}</a></h2>
                 {% endfor %}

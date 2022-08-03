@@ -1378,13 +1378,18 @@ class NemoFormulae(Nemo):
                     if str(child_col.metadata.get_single(DC.type)) == 'cts:edition':
                         transcribed_edition.append(str(child_col.metadata.get_single(DC.title)).replace(' (lat)', ''))
 
+        coll_label = str(metadata.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang)
+        if 'manuscript_collection' in metadata.ancestors:
+            coll_siglum = [x['short_title'] for x in self.make_parents(m) if 'manuscript_collection' in x['ancestors']][-1]
+            coll_label = '{} ({})<br>[{}'.format(coll_label.split(' [')[0], coll_siglum, coll_label.split(' [')[-1])
+
         return {
             "template": "",
             "objectId": objectId,
             "subreference": subreference,
             "collections": {
                 "current": {
-                    "label": str(metadata.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang),
+                    "label": coll_label,
                     "id": metadata.id,
                     "model": str(metadata.model),
                     "type": str(metadata.type),
