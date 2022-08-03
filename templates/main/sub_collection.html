@@ -30,6 +30,8 @@
     {% if collections.current.id == 'urn:cts:formulae:fu2' %}
     <br>
     <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
+    {% elif collections.current.id == 'urn:cts:formulae:flavigny' %}
+    <h5><a class="outside-link flavigny_concordance_link" href="{{url_for('InstanceNemo.static', filename='pdf_folder/flavigny_konkordanz.pdf')}}" target="_blank">{{ _('Zur Konkordanz mit Zeumer') }}</a></h5>
     {% endif %}
     {% if collections.current.containing_collections %}
     <div class="row">
