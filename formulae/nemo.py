@@ -112,6 +112,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:elexicon',
                         'urn:cts:formulae:echternach',
                         'urn:cts:formulae:eudes',
+                        'urn:cts:formulae:flavigny',
                         'urn:cts:formulae:freising',
                         'urn:cts:formulae:fu2',
                         'urn:cts:formulae:fulda_dronke',
@@ -164,12 +165,14 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:tours_gasnault',
                         'tours_st_julien_denis',
                         'urn:cts:formulae:tours_st_julien_fragments',
+                        'urn:cts:formulae:tours_ueberarbeitung',
                         'urn:cts:formulae:v6',
                         'urn:cts:formulae:v8',
                         'urn:cts:formulae:v9',
                         'urn:cts:formulae:wa1',
                         'urn:cts:formulae:weissenburg',
                         'urn:cts:formulae:werden',
+                        'urn:cts:formulae:z2',
                         'urn:cts:formulae:zuerich']
 
     # Half-open collections are those that are newer than death-of-editor plus 70 years.
