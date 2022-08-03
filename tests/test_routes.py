@@ -340,7 +340,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
-            c.get('/corpus_m/urn:cts:formulae:flavigny', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:flavigny_paris', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             # self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
@@ -778,7 +778,7 @@ class TestIndividualRoutes(Formulae_Testing):
                              'Text should be changed for non-project members.')
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
-            c.get('/corpus_m/urn:cts:formulae:flavigny', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:flavigny_paris', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
