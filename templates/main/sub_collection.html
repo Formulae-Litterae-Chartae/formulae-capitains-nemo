@@ -22,9 +22,12 @@
     {{collections.current.label|striptags}}{% if "manuscript_collection" in collections.parent_ids %} ({{ collections.current.short_title|safe }}){% endif %}
     </h1>
     {% if 'formulae_collection' in collections.parent_ids %}
-    <a class="outside-link ml-2" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a>
-    {% elif collections.current.id == 'urn:cts:formulae:fu2' %}
-    <a class="outside-link man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a><br>
+    <h5><a class="outside-link ml-2" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a></h5>
+    {% endif %}
+    {% if collections.current.id == 'urn:cts:formulae:fu2' %}
+    <h5><a class="outside-link man_desc_link ml-2" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
+    {% elif collections.current.id == 'urn:cts:formulae:flavigny' %}
+    <h5><a class="outside-link flavigny_concordance_link ml-2" href="{{url_for('InstanceNemo.static', filename='pdf_folder/flavigny_konkordanz.pdf')}}" target="_blank">{{ _('Zur Konkordanz mit Zeumer') }}</a></h5>
     {% endif %}
 </header>
 </div>
