@@ -1733,7 +1733,7 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(data['objects'][0]['next_version'], None)
             data = self.nemo.r_multipassage('urn:cts:formulae:p3.105va106rb.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
-            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:p3.128vb129rb.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:p3.106rb108ra.lat001')
             data = self.nemo.r_multipassage('urn:cts:formulae:marculf.form000.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:marculf.form003.lat001')
