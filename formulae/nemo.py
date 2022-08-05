@@ -492,6 +492,9 @@ class NemoFormulae(Nemo):
                     if 'urn:cts:formulae:tours' in form_num:
                         if 'capitula' in form_num:
                             par = '000_a'
+                    elif 'urn:cts:formulae:flavigny' in form_num:
+                        if 'capitula' in form_num:
+                            par = '0' + par
                     if par.endswith('000'):
                         par = par.replace('000', _('(Prolog)'))
                     par = par.replace('capitula', '0')
@@ -511,6 +514,9 @@ class NemoFormulae(Nemo):
             if 'urn:cts:formulae:tours' in m.id:
                 if 'capitula' in m.id:
                     par = '000_a'
+            elif 'urn:cts:formulae:flavigny' in m.id:
+                if 'capitula' in m.id:
+                    par = '0' + par
             if par.endswith('000'):
                 if 'andecavensis' in m.id:
                     par = _('(Titel)')
