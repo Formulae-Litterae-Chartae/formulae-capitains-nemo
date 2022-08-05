@@ -1601,13 +1601,14 @@ class TestFunctions(Formulae_Testing):
                                     'edition_name': 'P<span class="manuscript-number">3</span>',
                                     'full_edition_name': 'Paris BNF 2123',
                                     'titles':
-                                        ['Marculf II,11', 'Flavigny 10'],
+                                        ['Marculf II,11', 'Flavigny Pa Capitulatio', 'Flavigny 10'],
                                     'links':
-                                        [['urn:cts:formulae:marculf.form2_011', 'urn:cts:formulae:flavigny.form1_010'],
-                                         ['urn:cts:formulae:p3.105va106rb.lat001', 'urn:cts:formulae:p3.128vb129rb.lat001']],
-                                    'ms_images': [False, False],
-                                    'regesten': ['Übertragung einer Ortschaft gegen Pflege', ''],
+                                        [['urn:cts:formulae:marculf.form2_011', 'urn:cts:formulae:flavigny.2_capitula', 'urn:cts:formulae:flavigny.form1_010'],
+                                         ['urn:cts:formulae:p3.105va106rb.lat001', 'urn:cts:formulae:p3.106rb108ra.lat001', 'urn:cts:formulae:p3.128vb129rb.lat001']],
+                                    'ms_images': [False, False, False],
+                                    'regesten': ['Übertragung einer Ortschaft gegen Pflege', '', ''],
                                     'folia': ['[fol.105<span class="verso-recto">va</span>-fol.106<span class="verso-recto">rb</span>]',
+                                              '[fol.106<span class="verso-recto">rb</span>-fol.108<span class="verso-recto">ra</span>]',
                                               '[fol.128<span class="verso-recto">vb</span>-fol.129<span class="verso-recto">rb</span>]']},
                                    {'name': 'ko2',
                                     'edition_name': 'Ko<span class="manuscript-number">2</span>',
@@ -1732,7 +1733,7 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(data['objects'][0]['next_version'], None)
             data = self.nemo.r_multipassage('urn:cts:formulae:p3.105va106rb.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
-            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:p3.128vb129rb.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:p3.106rb108ra.lat001')
             data = self.nemo.r_multipassage('urn:cts:formulae:marculf.form000.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:marculf.form003.lat001')

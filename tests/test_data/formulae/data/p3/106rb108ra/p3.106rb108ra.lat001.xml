@@ -1,0 +1,76 @@
+<?xml-model href="https://digitallatin.github.io/guidelines/critical-editions.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader xml:lang="deu">
+      <fileDesc>
+         <titleStmt>
+            <title>Paris, BnF Lat. 2123 [fol.106&lt;span class="verso-recto"&gt;rb&lt;/span&gt;-108&lt;span class="verso-recto"&gt;ra&lt;/span&gt;]</title>
+            <title type="subtitle">Flavigny Pa Capitulatio</title>
+            <author/>
+            <editor>Philippe Depreux</editor>
+            <editor>Horst Lößlein</editor>
+            <editor>Christoph Walther</editor>
+         </titleStmt>
+         <editionStmt>
+            <edition>Digitale Transkription von Paris, BnF Lat. 2123 [fol.106&lt;span class="verso-recto"&gt;rb&lt;/span&gt;-108&lt;span class="verso-recto"&gt;ra&lt;/span&gt;]</edition>
+            <respStmt>
+               <resp>Herausgeber</resp>
+               <resp xml:lang="eng">Editor</resp>
+               <persName>Prof. Dr. Philippe Depreux (Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Herausgeber</resp>
+               <resp xml:lang="eng">Editor</resp>
+               <persName>Dr. Christoph Walther (Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Herausgeber</resp>
+               <resp xml:lang="eng">Editor</resp>
+               <persName>Dr. Horst Löslein (Universität Hamburg)</persName>
+            </respStmt>
+            <respStmt>
+               <resp>Hauptentwickler</resp>
+               <resp xml:lang="eng">Lead developer</resp>
+               <persName>Dr. Matthew Munson (Universität Hamburg)</persName>
+            </respStmt>
+            <sponsor>Akademie der Wissenschaften in Hamburg</sponsor>
+            <sponsor>Universität Hamburg</sponsor>
+         </editionStmt>
+         <publicationStmt>
+            <publisher xml:lang="mul">Formulae-Litterae-Chartae Projekt</publisher>
+            <pubPlace>Hamburg</pubPlace>
+            <date when="2022-08-04"/>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+                                Distributed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+                            </licence>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <idno>P3</idno>
+                  <msName>Paris, BnF Lat. 2123</msName>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <p>Exportiert von <ref target="http://cte.oeaw.ac.at/">Classical Text Editor</ref> als TEI-P5 Dokument. Automatische XSLT-Umwandlung ins <ref target="https://digitallatin.github.io/guidelines/">Digital-Latin-Library-Format</ref> nach <ref target="http://capitains.org/pages/guidelines">CapiTainS-Vorgaben</ref>.</p>
+         <p xml:lang="eng">Exported from the <ref target="http://cte.oeaw.ac.at/">Classical Text Editor</ref> as TEI-P5. Automatically transformed with XSLT to the <ref target="https://digitallatin.github.io/guidelines/">Digital Latin Library Format</ref> according to the <ref target="http://capitains.org/pages/guidelines">CapiTainS Guidelines</ref>.</p>
+         <refsDecl n="CTS">
+            <cRefPattern n="formula" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div/tei:div[@n='$1'])">
+               <p xml:lang="eng">This pattern extracts the whole formula</p>
+            </cRefPattern>
+         </refsDecl>
+      </encodingDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="edition" xml:lang="lat" n="urn:cts:formulae:p3.106rb108ra.lat001" subtype="transcription">
+            <div type="textpart" subtype="formula" n="1">
+               <p xml:space="preserve"><w>Some</w> <w>transcription</w></p>
+            </div>
+         </div>
+      </body>
+   </text>
+</TEI>
