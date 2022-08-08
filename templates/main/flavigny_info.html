@@ -1,14 +1,8 @@
 <!-- Extra information for Flavigny -->
 
+    
     <div class="row">
-        <div class="col-2">
-            <h5>{{ _('Zur Kondordanz') }}</h5>
-            <p class="mb-0">
-                Karl Zeumer war nur die Handschrift Paris, BnF, Lat. 2123 (<b>P<span class="subscript smaller-text">3</span></b>) bekannt. Die <i>Collectio Flaviniacensis</i> (K. Zeumer, Formulae, S. 471-492) bietet das Material dieser Handschrift entsprechend seiner historischen Reihenfolge. Die <a class="outside-link" href="{{url_for('InstanceNemo.static', filename='pdf_folder/flavigny_konkordanz.pdf')}}" target="_blank" id="flavigny_concordance_link" data-toggle="tooltip" data-container="#flavigny_concordance_link" title="{{ _('Konkordanz im neuen Tab öffnen') }}">Konkordanz</a> ermöglicht die Zuordnung der Edition zur Ausgabe Zeumer.
-            </p>
-            <br>
-        </div>
-        <div class="col-4">
+        <div class="col-6">
             <h5>{{ _('Zur Sammlung') }}</h5>
             <p>
             Formelmaterial aus Flavigny wird unabhängig voneinander in zwei Handschriften überliefert. Sowohl Paris, BnF, Lat. 2123 (<b>P<span class="subscript smaller-text">3</span></b>) als auch Kopenhagen, Kongelige Bibliotek, Fabr. 84 (<b>Ko<span class="subscript smaller-text">2</span></b>) enthalten jeweils eingeständige Formelsammlungen mit einem Bezug zu Flavigny. Beide Handschriften teilen sich Material, bieten aber auch eigenständige Formeln. Das gemeinsame Material liegt in beiden Codices in vollkommen unterschiedlicher Reihenfolge und Anordnung vor. Für die Edition ergeben sich damit drei Gruppen:
@@ -23,5 +17,14 @@
                     <td class="py-0">eigenständiges Material aus <b>Ko<span class="subscript smaller-text">2</span></b></td></tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <h5>{{ _('Zur Kondordanz') }}</h5>
+            <p class="mb-0">
+                Karl Zeumer war nur die Handschrift Paris, BnF, Lat. 2123 (<b>P<span class="subscript smaller-text">3</span></b>) bekannt. Die <i>Collectio Flaviniacensis</i> (K. Zeumer, Formulae, S. 471-492) bietet das Material dieser Handschrift entsprechend seiner historischen Reihenfolge. Die <a class="outside-link" href="{{url_for('InstanceNemo.static', filename='pdf_folder/flavigny_konkordanz.pdf')}}" target="_blank" id="flavigny_concordance_link" data-toggle="tooltip" data-container="#flavigny_concordance_link" title="{{ _('Konkordanz im neuen Tab öffnen') }}">Konkordanz</a> ermöglicht die Zuordnung der Edition zur Ausgabe Zeumer.
+            </p>
+            <br>
         </div>
     </div>
