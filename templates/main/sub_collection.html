@@ -59,7 +59,7 @@
         {% endfor %}
     {% else %}
         {% if collections.current.id == 'urn:cts:formulae:flavigny' %}
-        <h5>{{ _('Kapitulatien') }}</h5>
+        <h5>Capitulationes</h5>
         {% endif %}
         {% if 'non_display_collection' in collections.parent_ids %}
             {% for number, values in collections.readable.items() %}

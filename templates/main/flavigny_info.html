@@ -1,30 +1,27 @@
 <!-- Extra information for Flavigny -->
 
     <div class="row">
-        <div class="col-6">
-            <div role="heading" aria-level="3"><a class="internal-link" data-toggle="collapse" data-toggle="tooltip" href="#flavigny-collection-collapse" aria-expanded="false" role="button" aria-controls="flavigny-collection-collapse">{{ _('Zur Bennenung und Ausbau der Sammlung') }}</a></div>
-            <div class="collapse" id="flavigny-collection-collapse">
-                <div class="card card-body bg-light">
-                    <p>
-                    Formelmaterial aus Flavigny wird unabhängig voneinander in zwei Handschriften überliefert. Sowohl Paris, BnF, Lat. 2123 (<b>P<span class="subscript smaller-text">3</span></b>) als auch Kopenhagen, Kongelige Bibliotek, Fabr. 84 (<b>Ko<span class="subscript smaller-text">2</span></b>) enthalten jeweils eingeständige Formelsammlungen mit einem Bezug zu Flavigny. Beide Handschriften teilen sich Material, bieten aber auch eigenständige Formeln. Das gemeinsame Material liegt in beiden Codices in vollkommen unterschiedlicher Reihenfolge und Anordnung vor. Für die Edition ergeben sich damit drei Gruppen:
-                    </p>
-                    <dl class="row mb-0">
-                        <dt class="col-sm-3">Flavigny Pa+Ko</dt>
-                        <dd class="col-sm-9">Formeln aus <b>P<span class="subscript smaller-text">3</span></b> und <b>Ko<span class="subscript smaller-text">2</span></b></dd>
-                        <dt class="col-sm-3">Flavigny Pa</dt>
-                        <dd class="col-sm-9">eigenständige Formeln aus <b>P<span class="subscript smaller-text">3</span></b></dd>
-                        <dt class="col-sm-3">Flavigny Pa+Ko</dt>
-                        <dd class="col-sm-9">eigenständiges Material aus <b>Ko<span class="subscript smaller-text">2</span></b></dd>
-                    </dl>
-                </div>
-            </div>
-            <div role="heading" aria-level="3"><a class="internal-link" data-toggle="collapse" data-toggle="tooltip" href="#flavigny-concordance-collapse" aria-expanded="false" role="button" aria-controls="flavigny-concordance-collapse">{{ _('Zur Kondordanz mit Zeumer') }}</a></div>
-            <div class="collapse" id="flavigny-concordance-collapse">
-                <div class="card card-body bg-light">
-                    <p class="mb-0">
-                        Karl Zeumer war nur die Handschrift Paris, BnF, Lat. 2123 (<b>P<span class="subscript smaller-text">3</span></b>) bekannt. Die <i>Collectio Flaviniacensis</i> (K. Zeumer, Formulae, S. 471-492) bietet das Material dieser Handschrift entsprechend seiner historischen Reihenfolge. Die <a class="outside-link" href="{{url_for('InstanceNemo.static', filename='pdf_folder/flavigny_konkordanz.pdf')}}" target="_blank" id="flavigny_concordance_link" data-toggle="tooltip" data-container="#flavigny_concordance_link" title="{{ _('Konkordanz im neuen Tab öffnen') }}">Konkordanz</a> ermöglicht die Zuordnung der Edition zur Ausgabe Zeumer.
-                    </p>
-                </div>
-            </div>
+        <div class="col-2">
+            <h5>{{ _('Zur Kondordanz') }}</h5>
+            <p class="mb-0">
+                Karl Zeumer war nur die Handschrift Paris, BnF, Lat. 2123 (<b>P<span class="subscript smaller-text">3</span></b>) bekannt. Die <i>Collectio Flaviniacensis</i> (K. Zeumer, Formulae, S. 471-492) bietet das Material dieser Handschrift entsprechend seiner historischen Reihenfolge. Die <a class="outside-link" href="{{url_for('InstanceNemo.static', filename='pdf_folder/flavigny_konkordanz.pdf')}}" target="_blank" id="flavigny_concordance_link" data-toggle="tooltip" data-container="#flavigny_concordance_link" title="{{ _('Konkordanz im neuen Tab öffnen') }}">Konkordanz</a> ermöglicht die Zuordnung der Edition zur Ausgabe Zeumer.
+            </p>
+            <br>
+        </div>
+        <div class="col-4">
+            <h5>{{ _('Zur Sammlung') }}</h5>
+            <p>
+            Formelmaterial aus Flavigny wird unabhängig voneinander in zwei Handschriften überliefert. Sowohl Paris, BnF, Lat. 2123 (<b>P<span class="subscript smaller-text">3</span></b>) als auch Kopenhagen, Kongelige Bibliotek, Fabr. 84 (<b>Ko<span class="subscript smaller-text">2</span></b>) enthalten jeweils eingeständige Formelsammlungen mit einem Bezug zu Flavigny. Beide Handschriften teilen sich Material, bieten aber auch eigenständige Formeln. Das gemeinsame Material liegt in beiden Codices in vollkommen unterschiedlicher Reihenfolge und Anordnung vor. Für die Edition ergeben sich damit drei Gruppen:
+            </p>
+            <table class="table table-borderless table-sm">
+                <tbody>
+                    <tr><th class="py-0" scope="row">Flavigny Pa+Ko</th>
+                    <td class="py-0">Formeln aus <b>P<span class="subscript smaller-text">3</span></b> und <b>Ko<span class="subscript smaller-text">2</span></b></td></tr>
+                    <tr><th class="py-0" scope="row">Flavigny Pa</th>
+                    <td class="py-0">eigenständige Formeln aus <b>P<span class="subscript smaller-text">3</span></b></td></tr>
+                    <tr><th class="py-0" scope="row">Flavigny Pa+Ko</th>
+                    <td class="py-0">eigenständiges Material aus <b>Ko<span class="subscript smaller-text">2</span></b></td></tr>
+                </tbody>
+            </table>
         </div>
     </div>
