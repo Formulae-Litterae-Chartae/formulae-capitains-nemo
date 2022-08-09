@@ -1418,7 +1418,7 @@ class NemoFormulae(Nemo):
                     "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or ''),
                     "linked_resources": linked_resources,
-                    "transcribed_edition": sorted(transcribed_edition),
+                    "transcribed_edition": sorted([Markup(x) for x in transcribed_edition]),
                     "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else []
                 },
                 "parents": current_parents,
