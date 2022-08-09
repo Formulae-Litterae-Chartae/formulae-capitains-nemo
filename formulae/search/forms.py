@@ -42,7 +42,7 @@ def validate_optional_number_range(minimum: int = -1, maximum: int = -1, message
 
 class SearchForm(FlaskForm):
     q_1 = StringField(_l('Suche'), validators=[DataRequired()])
-    corpus = SelectMultipleField(_l('Corpora'), choices=[('formulae', _l('Formeln')), ('chartae', _l('Urkunden')),
+    corpus = SelectMultipleField(_l('Korpora'), choices=[('formulae', _l('Formeln')), ('chartae', _l('Urkunden')),
                                                          ('elexicon', _l('Lexikon'))],
                                  option_widget=CheckboxInput(),
                                  validators=[DataRequired(
@@ -132,7 +132,7 @@ class AdvancedSearchForm(SearchForm):
                                                                        ('ortsname', _l('Ortsname'))])
 
     exclude_q_4 = StringField(_l('Ausschlusskriterium'))
-    corpus = SelectMultipleField(_l('Corpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
+    corpus = SelectMultipleField(_l('Korpora'), choices=[('all', _l('Alle')), ('chartae', _l('Urkunden')),
                                                                          ('formulae', _l('Formeln')),
                                                          ('elexicon', _l('Lexikon'))])
     year = StringField(_l('Jahr'), validators=[validate_optional_number_range(minimum=500, maximum=1000,

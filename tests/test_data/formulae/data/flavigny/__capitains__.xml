@@ -11,11 +11,15 @@
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
       <bib:AbbreviatedTitle>Flavigny</bib:AbbreviatedTitle>
+      <dct:isPartOf>urn:cts:formulae:ko2</dct:isPartOf>
+      <dct:isPartOf>urn:cts:formulae:p3</dct:isPartOf>
    </structured-metadata>
    <members>
       <collection path="./form1_010/__capitains__.xml"
          identifier="urn:cts:formulae:flavigny.form1_010"/>
       <collection path="./form041/__capitains__.xml"
          identifier="urn:cts:formulae:flavigny.form041"/>
+      <collection path="./2_capitula/__capitains__.xml"
+         identifier="urn:cts:formulae:flavigny.2_capitula"/>
    </members>
 </collection>

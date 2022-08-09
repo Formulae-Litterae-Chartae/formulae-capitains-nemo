@@ -18,7 +18,7 @@ Endtag:
 Datum Plus-Minus: 
 Exklusiv: False
 Ausstellungsort: 
-Corpora: Angers - Markulf - Rätien - Salzburg - St. Gallen
+Korpora: Angers - Markulf - Rätien - Salzburg - St. Gallen
 
 --------------
 Suchergebnisse

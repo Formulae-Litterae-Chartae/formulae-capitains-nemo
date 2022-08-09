@@ -3,18 +3,17 @@
     overflow: scroll;
 }
 
-.mv-rows{
-    border-right: 1px solid black;
-    border-left: 1px solid black;
+.card.mv-rows{
+    border: none;
     overflow: scroll;
     float: Left;
     padding-left: 0px;
     padding-right: 0px;
     padding-top: 0px;
-    padding-down: 0px;
+    padding-bottom: 0px;
     max-height: 80vh;
     width: 15%;
-    max-width: 200;
+    scrollbar-width: thin;
 }
 
 .mv-card-header{
@@ -28,4 +27,13 @@
 .title{
     margin-left: auto;
     margin-right: auto;
+}
+
+.mssColumnHide,.mssColumnShow{
+    border: none;
+    background: #f3f3f3;
+}
+
+.ms-col{
+    border-right: 1px solid rgba(0,0,0,.125);
 }
