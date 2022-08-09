@@ -27,10 +27,6 @@
     {% elif 'manuscript_collection' in collections.parent_ids %}
     <h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zum Handschriftenvergleich') }}</a></h5>
     {% endif %}
-    {% if collections.current.id == 'urn:cts:formulae:fu2' %}
-    <br>
-    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
-    {% endif %}
     {% if collections.current.containing_collections %}
     <div class="row">
         <div class="col-auto"><h5>{{ _('Im Handschriftenkontext von:') }}</h5></div>
@@ -38,6 +34,14 @@
         <div class="col-auto"><h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=urn) }}" id="{{ urn|replace(':', '-') }}-ms-link" data-toggle="tooltip" data-placement="top" data-container="#{{ urn|replace(':', '-') }}-ms-link" title="{{ title }}">{{ siglum }}</a></h5></div>
         {% endfor %}
     </div>
+    {% endif %}
+    {% if collections.current.id == 'urn:cts:formulae:fu2' %}
+    <br>
+    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
+    {% elif collections.current.id == 'urn:cts:formulae:flavigny' %}
+    {% include "main::flavigny_info.html" %}
+    {% elif collections.current.id == 'urn:cts:formulae:tours_ueberarbeitung' %}
+    {% include "main::tours_ueberarbeitung_info.html" %}
     {% endif %}
 </header>
 </div>
@@ -55,7 +59,7 @@
         {% endfor %}
     {% else %}
         {% if collections.current.id == 'urn:cts:formulae:flavigny' %}
-        <h5>{{ _('Gemeinsames Material') }}</h5>
+        <h5>Capitulationes</h5>
         {% endif %}
         {% if 'non_display_collection' in collections.parent_ids %}
             {% for number, values in collections.readable.items() %}
@@ -63,11 +67,16 @@
             {% endfor %}
         {% else %}
         {% for number, values in collections.readable.items() %}
-            {% if number == '2_0' %}
-            <h5 class="mt-1">{{ _('Material aus') }} P<span class="manuscript-number">3</span></h5>
-            {% elif number == '3_0' %}
-            <h5 class="mt-1">{{ _('Material aus') }} Ko<span class="manuscript-number">2</span></h5>
-            {% elif 'Capitulatio' in values['name'] or values['name'] == "Ergänzungen 1,1" %}
+            {% if collections.current.id == 'urn:cts:formulae:flavigny' %}
+                {% if number == '1_001' %}
+                <h5>{{ _('Gemeinsames Material') }}</h5>
+                {% elif number == "2_001" %}
+                <h5 class="mt-1">{{ _('Material aus') }} P<span class="manuscript-number">3</span></h5>
+                {% elif number == '3_001' %}
+                <h5 class="mt-1">{{ _('Material aus') }} Ko<span class="manuscript-number">2</span></h5>
+                {% endif %}
+            {% endif %}
+            {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzungen 1,1" %}
             <br>
             {% endif %}
             <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{% if '_' in values['name']%} {{values['title']}}{% else %}{{values['name']|replace('(', '')|replace(')', '')}}{% endif %}{% else %}{{values['name']}}{% endif %}</a>

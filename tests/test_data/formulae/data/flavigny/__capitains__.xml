@@ -19,5 +19,7 @@
          identifier="urn:cts:formulae:flavigny.form1_010"/>
       <collection path="./form041/__capitains__.xml"
          identifier="urn:cts:formulae:flavigny.form041"/>
+      <collection path="./2_capitula/__capitains__.xml"
+         identifier="urn:cts:formulae:flavigny.2_capitula"/>
    </members>
 </collection>

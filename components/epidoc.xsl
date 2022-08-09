@@ -51,17 +51,17 @@
                 <xsl:element name="span">
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
                     <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
-                        <xsl:if test="contains(parent::t:seg/@rend, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
-                        <xsl:if test="contains(parent::t:seg/@type, 'italic')"><xsl:text> font-italic</xsl:text></xsl:if>
-                        <xsl:if test="contains(parent::t:seg/@type, 'platzhalter')"><xsl:text> platzhalter</xsl:text></xsl:if>
-                        <xsl:if test="contains(parent::t:seg/@type, 'latin-word')"><xsl:text> latin-word</xsl:text></xsl:if>
+                        <xsl:if test="ancestor::t:seg[contains(@rend, 'italic')]"><xsl:text> font-italic</xsl:text></xsl:if>
+                        <xsl:if test="ancestor::t:seg[contains(@type, 'italic')]"><xsl:text> font-italic</xsl:text></xsl:if>
+                        <xsl:if test="ancestor::t:seg[contains(@type, 'platzhalter')]"><xsl:text> platzhalter</xsl:text></xsl:if>
+                        <xsl:if test="ancestor::t:seg[contains(@type, 'latin-word')]"><xsl:text> latin-word</xsl:text></xsl:if>
                         <xsl:if test="@type='latin-word'"><xsl:text> latin-word</xsl:text></xsl:if>
-                        <xsl:if test="contains(parent::t:seg/@type, 'small-caps')"><xsl:text> small-caps</xsl:text></xsl:if>
-                        <xsl:if test="contains(parent::t:seg/@type, 'line-through')"><xsl:text> line-through</xsl:text></xsl:if>
-                        <xsl:if test="contains(parent::t:seg/@type, 'superscript')"><xsl:text> superscript</xsl:text></xsl:if>
-                        <xsl:if test="contains(parent::t:seg/@type, 'subscript')"><xsl:text> subscript</xsl:text></xsl:if>
-                        <xsl:if test="contains(parent::t:seg/@type, 'smaller-text')"><xsl:text> smaller-text</xsl:text></xsl:if>
-                        <xsl:if test="parent::t:label"> formulae-label</xsl:if>
+                        <xsl:if test="ancestor::t:seg[contains(@type, 'small-caps')]"><xsl:text> small-caps</xsl:text></xsl:if>
+                        <xsl:if test="ancestor::t:seg[contains(@type, 'line-through')]"><xsl:text> line-through</xsl:text></xsl:if>
+                        <xsl:if test="ancestor::t:seg[contains(@type, 'superscript')]"><xsl:text> superscript</xsl:text></xsl:if>
+                        <xsl:if test="ancestor::t:seg[contains(@type, 'subscript')]"><xsl:text> subscript</xsl:text></xsl:if>
+                        <xsl:if test="ancestor::t:seg[contains(@type, 'smaller-text')]"><xsl:text> smaller-text</xsl:text></xsl:if>
+                        <xsl:if test="ancestor::t:label"> formulae-label</xsl:if>
                         </xsl:attribute>
                     <xsl:if test="@lemma">
                         <xsl:attribute name="lemma"><xsl:value-of select="@lemma"/></xsl:attribute>
@@ -75,7 +75,7 @@
                         <xsl:attribute name="role">button</xsl:attribute>
                         <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
                     </xsl:if>
-                    <xsl:if test="contains(parent::t:seg/@type, 'latin-word')">
+                    <xsl:if test="ancestor::t:seg[contains(@type, 'latin-word')]">
                         <xsl:attribute name="lang"><xsl:text>la</xsl:text></xsl:attribute>
                     </xsl:if>
                     <xsl:if test="current()[@type]">

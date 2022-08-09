@@ -2,7 +2,7 @@ from config import Config
 from MyCapytain.resolvers.capitains.local import XmlCapitainsLocalResolver
 from formulae import create_app, db, mail
 from formulae.nemo import NemoFormulae
-from formulae.models import User
+from formulae.models import User, load_user
 from formulae.search.Search import advanced_query_index, build_sort_list, \
     suggest_word_search, PRE_TAGS, POST_TAGS
 from formulae.search import Search
@@ -341,7 +341,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
-            c.get('/corpus_m/urn:cts:formulae:flavigny', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:flavigny_paris', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             # self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
@@ -623,22 +623,22 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://iiifviewer.universiteitleiden.nl/?manifest=https://digitalcollections.universiteitleiden.nl/iiif_manifest/item:1610701/manifest')
-            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['urn:cts:formulae:tours.0_capitula'])
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Tours Capitulatio'])
             c.get('/texts/manifest:urn:cts:formulae:v6.28v29r.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://digi.vatlib.it/view/MSS_Reg.lat.612/0060')
-            self.assertCountEqual(d[0]['collections']['current']['transcribed_edition'], ['urn:cts:formulae:marculf.form2_011', 'urn:cts:formulae:tours.0_capitula'])
+            self.assertCountEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf II,11', 'Tours Capitulatio'])
             c.get('/texts/manifest:urn:cts:formulae:ko2.69r70v.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'http://www5.kb.dk/en/nb/samling/hs/index.html')
-            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['urn:cts:formulae:marculf.form2_011'])
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf II,11'])
             c.get('/texts/manifest:urn:cts:formulae:ka1.113va114va.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['lib_link'], 'https://i3f.vls.io/?collection=i3fblbk&id=https://digital.blb-karlsruhe.de/i3f/v20/20141/manifest')
-            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf II,3'])
+            self.assertEqual(d[0]['collections']['current']['transcribed_edition'], ['Marculf II,11'])
             c.get('/texts/manifest:urn:cts:formulae:p16.4v.lat001/passage/1', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             d = self.get_context_variable('objects')
@@ -786,7 +786,7 @@ class TestIndividualRoutes(Formulae_Testing):
                              'Text should be changed for non-project members.')
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
-            c.get('/corpus_m/urn:cts:formulae:flavigny', follow_redirects=True)
+            c.get('/corpus_m/urn:cts:formulae:flavigny_paris', follow_redirects=True)
             self.assertIn(_('Diese Sammlung ist nicht öffentlich zugänglich.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
@@ -1601,13 +1601,14 @@ class TestFunctions(Formulae_Testing):
                                     'edition_name': 'P<span class="manuscript-number">3</span>',
                                     'full_edition_name': 'Paris BNF 2123',
                                     'titles':
-                                        ['Marculf II,11', 'Flavigny 10'],
+                                        ['Marculf II,11', 'Flavigny Pa Capitulatio', 'Flavigny 10'],
                                     'links':
-                                        [['urn:cts:formulae:marculf.form2_011', 'urn:cts:formulae:flavigny.form1_010'],
-                                         ['urn:cts:formulae:p3.105va106rb.lat001', 'urn:cts:formulae:p3.128vb129rb.lat001']],
-                                    'ms_images': [False, False],
-                                    'regesten': ['Übertragung einer Ortschaft gegen Pflege', ''],
+                                        [['urn:cts:formulae:marculf.form2_011', 'urn:cts:formulae:flavigny.2_capitula', 'urn:cts:formulae:flavigny.form1_010'],
+                                         ['urn:cts:formulae:p3.105va106rb.lat001', 'urn:cts:formulae:p3.106rb108ra.lat001', 'urn:cts:formulae:p3.128vb129rb.lat001']],
+                                    'ms_images': [False, False, False],
+                                    'regesten': ['Übertragung einer Ortschaft gegen Pflege', '', ''],
                                     'folia': ['[fol.105<span class="verso-recto">va</span>-fol.106<span class="verso-recto">rb</span>]',
+                                              '[fol.106<span class="verso-recto">rb</span>-fol.108<span class="verso-recto">ra</span>]',
                                               '[fol.128<span class="verso-recto">vb</span>-fol.129<span class="verso-recto">rb</span>]']},
                                    {'name': 'ko2',
                                     'edition_name': 'Ko<span class="manuscript-number">2</span>',
@@ -1732,7 +1733,7 @@ class TestFunctions(Formulae_Testing):
             self.assertEqual(data['objects'][0]['next_version'], None)
             data = self.nemo.r_multipassage('urn:cts:formulae:p3.105va106rb.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
-            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:p3.128vb129rb.lat001')
+            self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:p3.106rb108ra.lat001')
             data = self.nemo.r_multipassage('urn:cts:formulae:marculf.form000.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], None)
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:marculf.form003.lat001')
@@ -1908,6 +1909,13 @@ class TestFunctions(Formulae_Testing):
                           'urn:cts:formulae:tours.0_capitula.deu001',
                           'urn:cts:formulae:tours.0_capitula.lat001',
                           'urn:cts:formulae:wa1.226r226v.lat001'])
+
+    def test_load_user(self):
+        """ Ensure that load_user function returns the correct user"""
+        u = load_user(1)
+        self.assertEqual(u.username, 'project.member')
+        u = load_user(2)
+        self.assertEqual(u.username, 'not.project')
 
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""
