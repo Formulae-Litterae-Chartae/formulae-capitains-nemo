@@ -1,6 +1,6 @@
 [
   {
-    "took": 93,
+    "took": 53,
     "timed_out": false,
     "_shards": {
       "total": 64,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0291.lat001",
           "_score": null,
           "_source": {

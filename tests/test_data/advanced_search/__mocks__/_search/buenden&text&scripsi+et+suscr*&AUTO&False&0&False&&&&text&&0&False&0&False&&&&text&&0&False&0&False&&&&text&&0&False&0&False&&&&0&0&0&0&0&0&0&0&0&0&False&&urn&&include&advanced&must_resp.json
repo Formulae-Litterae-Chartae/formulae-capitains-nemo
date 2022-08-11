@@ -1,6 +1,6 @@
 [
   {
-    "took": 8,
+    "took": 11,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v7",
+          "_index": "buenden_v21",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -311,14 +311,14 @@
             "min_date": "0769-04-20",
             "max_date": "0813-04-20",
             "days": [
-              "Lent",
-              "Easter",
-              "Sunday",
-              "Friday",
-              "Tuesday",
-              "Thursday",
               "Wednesday",
+              "Easter",
+              "Tuesday",
               "Monday",
+              "Sunday",
+              "Lent",
+              "Friday",
+              "Thursday",
               "Saturday"
             ],
             "sort_prefix": 1
@@ -334,7 +334,7 @@
           ]
         },
         {
-          "_index": "buenden_v7",
+          "_index": "buenden_v21",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
           "_score": null,
           "_source": {
@@ -383,7 +383,7 @@
           ]
         },
         {
-          "_index": "buenden_v7",
+          "_index": "buenden_v21",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -606,14 +606,14 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
-              "Lent",
-              "Monday",
+              "Wednesday",
               "Easter",
+              "Tuesday",
+              "Monday",
               "Sunday",
+              "Lent",
               "Friday",
               "Thursday",
-              "Wednesday",
-              "Tuesday",
               "Saturday"
             ],
             "sort_prefix": 1
@@ -629,7 +629,7 @@
           ]
         },
         {
-          "_index": "buenden_v7",
+          "_index": "buenden_v21",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
           "_score": null,
           "_source": {
