@@ -1,6 +1,6 @@
 [
   {
-    "took": 181,
+    "took": 106,
     "timed_out": false,
     "_shards": {
       "total": 64,
@@ -10,13 +10,13 @@
     },
     "hits": {
       "total": {
-        "value": 22,
+        "value": 24,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v7",
+          "_index": "andecavensis_v21",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v7",
+          "_index": "andecavensis_v21",
           "_id": "urn:cts:formulae:andecavensis.form010.lat001",
           "_score": null,
           "_source": {
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v7",
+          "_index": "andecavensis_v21",
           "_id": "urn:cts:formulae:andecavensis.form029.lat001",
           "_score": null,
           "_source": {
@@ -109,7 +109,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v7",
+          "_index": "andecavensis_v21",
           "_id": "urn:cts:formulae:andecavensis.form046.lat001",
           "_score": null,
           "_source": {
@@ -140,7 +140,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v7",
+          "_index": "andecavensis_v21",
           "_id": "urn:cts:formulae:andecavensis.form047.lat001",
           "_score": null,
           "_source": {
@@ -171,7 +171,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_006.lat001",
           "_score": null,
           "_source": {
@@ -202,7 +202,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_015.lat001",
           "_score": null,
           "_source": {
@@ -233,7 +233,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_024.lat001",
           "_score": null,
           "_source": {
@@ -264,7 +264,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_035.lat001",
           "_score": null,
           "_source": {
@@ -295,7 +295,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form2_023.lat001",
           "_score": null,
           "_source": {
@@ -326,7 +326,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form2_037.lat001",
           "_score": null,
           "_source": {
@@ -357,7 +357,7 @@
           ]
         },
         {
-          "_index": "tours_v4",
+          "_index": "tours_v18",
           "_id": "urn:cts:formulae:tours.form001.lat001",
           "_score": null,
           "_source": {
@@ -388,7 +388,7 @@
           ]
         },
         {
-          "_index": "tours_v4",
+          "_index": "tours_v18",
           "_id": "urn:cts:formulae:tours.form003.lat001",
           "_score": null,
           "_source": {
@@ -419,7 +419,7 @@
           ]
         },
         {
-          "_index": "tours_v4",
+          "_index": "tours_v18",
           "_id": "urn:cts:formulae:tours.form040_a.lat001",
           "_score": null,
           "_source": {
@@ -450,7 +450,69 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v7",
+          "_index": "flavigny_v12",
+          "_id": "urn:cts:formulae:flavigny.form1_001.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Flavigny Pa+Ko 1",
+            "keywords": "",
+            "urn": "urn:cts:formulae:flavigny.form1_001.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "flavigny",
+            "forgery": false,
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:flavigny.form1_001.lat001"
+          ]
+        },
+        {
+          "_index": "flavigny_v12",
+          "_id": "urn:cts:formulae:flavigny.form1_009.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Flavigny Pa+Ko 9",
+            "keywords": "",
+            "urn": "urn:cts:formulae:flavigny.form1_009.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "flavigny",
+            "forgery": false,
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:flavigny.form1_009.lat001"
+          ]
+        },
+        {
+          "_index": "marmoutier_dunois_v21",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0139.lat001",
           "_score": null,
           "_source": {
@@ -493,7 +555,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v7",
+          "_index": "marmoutier_dunois_v21",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0192.lat001",
           "_score": null,
           "_source": {
@@ -536,7 +598,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v7",
+          "_index": "marmoutier_dunois_v21",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0208.lat001",
           "_score": null,
           "_source": {
@@ -579,7 +641,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v7",
+          "_index": "marmoutier_dunois_v21",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0213.lat001",
           "_score": null,
           "_source": {
@@ -622,7 +684,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v7",
+          "_index": "marmoutier_dunois_v21",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0236.lat001",
           "_score": null,
           "_source": {
@@ -665,7 +727,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v7",
+          "_index": "marmoutier_dunois_v21",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0238.lat001",
           "_score": null,
           "_source": {
@@ -708,7 +770,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_appendix_v7",
+          "_index": "marmoutier_vendomois_appendix_v21",
           "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0001.lat001",
           "_score": null,
           "_source": {
@@ -751,7 +813,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v4",
+          "_index": "telma_marmoutier_v18",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud4785.lat001",
           "_score": null,
           "_source": {
