@@ -1,6 +1,6 @@
 [
   {
-    "took": 14,
+    "took": 29,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
           "_score": null,
           "_ignored": [
@@ -86,7 +86,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0002.lat001",
           "_score": null,
           "_ignored": [
@@ -152,7 +152,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0003.lat001",
           "_score": null,
           "_source": {
@@ -212,7 +212,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0007.lat001",
           "_score": null,
           "_ignored": [
@@ -283,7 +283,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0008.lat001",
           "_score": null,
           "_source": {
@@ -347,7 +347,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0009.lat001",
           "_score": null,
           "_source": {
@@ -444,12 +444,12 @@
             "min_date": "0789-05-16",
             "max_date": "0800-05-16",
             "days": [
+              "Wednesday",
+              "Tuesday",
+              "Monday",
               "Sunday",
               "Friday",
-              "Tuesday",
               "Thursday",
-              "Wednesday",
-              "Monday",
               "Saturday"
             ],
             "sort_prefix": 1,
@@ -481,7 +481,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0011.lat001",
           "_score": null,
           "_ignored": [
@@ -554,7 +554,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0013.lat001",
           "_score": null,
           "_ignored": [
@@ -621,7 +621,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0014.lat001",
           "_score": null,
           "_ignored": [
@@ -695,7 +695,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0017.lat001",
           "_score": null,
           "_source": {
@@ -760,7 +760,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0021.lat001",
           "_score": null,
           "_ignored": [
@@ -834,7 +834,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0022.lat001",
           "_score": null,
           "_ignored": [
@@ -902,7 +902,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0024.lat001",
           "_score": null,
           "_source": {
@@ -933,8 +933,8 @@
             "min_date": "0829-03-16",
             "max_date": "0829-03-16",
             "days": [
-              "Lent",
-              "Tuesday"
+              "Tuesday",
+              "Lent"
             ],
             "sort_prefix": 1,
             "Arenga": "Nihil sibi quispiam cernitur minuendo, que sibi econtra recipit in augmentum",
@@ -968,7 +968,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0025.lat001",
           "_score": null,
           "_ignored": [
@@ -1035,7 +1035,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0026.lat001",
           "_score": null,
           "_ignored": [
@@ -1101,7 +1101,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0028.lat001",
           "_score": null,
           "_source": {
@@ -1161,7 +1161,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0029.lat001",
           "_score": null,
           "_ignored": [
@@ -1232,7 +1232,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0030.lat001",
           "_score": null,
           "_ignored": [
@@ -1266,8 +1266,8 @@
             "min_date": "0808-03-28",
             "max_date": "0808-03-28",
             "days": [
-              "Lent",
-              "Tuesday"
+              "Tuesday",
+              "Lent"
             ],
             "sort_prefix": 1,
             "Narratio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Mihhaelis archangeli in loco nuncupante Maninseo, ubi preest venerabilis Hildipaldus archiepiscopus et sacri palacii capellanus ... constat me non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro animae meae remedium seu pro eterna retribucione",
@@ -1303,7 +1303,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0031.lat001",
           "_score": null,
           "_ignored": [
@@ -1375,7 +1375,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0032.lat001",
           "_score": null,
           "_source": {
@@ -1437,7 +1437,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0033.lat001",
           "_score": null,
           "_source": {
@@ -1499,7 +1499,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0034.lat001",
           "_score": null,
           "_ignored": [
@@ -2020,11 +2020,11 @@
             "min_date": "0748-05-07",
             "max_date": "0829-05-07",
             "days": [
+              "Wednesday",
+              "Tuesday",
               "Monday",
               "Sunday",
               "Friday",
-              "Tuesday",
-              "Wednesday",
               "Thursday",
               "Saturday"
             ],
@@ -2062,7 +2062,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0036.lat001",
           "_score": null,
           "_ignored": [
@@ -2116,7 +2116,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0038.lat001",
           "_score": null,
           "_ignored": [
@@ -2187,7 +2187,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0039.lat001",
           "_score": null,
           "_source": {
@@ -2242,7 +2242,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0044.lat001",
           "_score": null,
           "_source": {
@@ -2306,7 +2306,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0045.lat001",
           "_score": null,
           "_ignored": [
@@ -2371,7 +2371,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0047.lat001",
           "_score": null,
           "_ignored": [
@@ -2442,7 +2442,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0048.lat001",
           "_score": null,
           "_source": {
@@ -2502,7 +2502,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
           "_score": null,
           "_source": {
@@ -2567,7 +2567,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0051.lat001",
           "_score": null,
           "_source": {
@@ -2629,7 +2629,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0052.lat001",
           "_score": null,
           "_source": {
@@ -2693,7 +2693,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0054.lat001",
           "_score": null,
           "_source": {
@@ -2757,7 +2757,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0056.lat001",
           "_score": null,
           "_source": {
@@ -2819,7 +2819,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0057.lat001",
           "_score": null,
           "_source": {
@@ -2888,7 +2888,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0059.lat001",
           "_score": null,
           "_source": {
@@ -2950,7 +2950,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0063.lat001",
           "_score": null,
           "_ignored": [
@@ -3016,7 +3016,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0064.lat001",
           "_score": null,
           "_ignored": [
@@ -3051,8 +3051,8 @@
             "min_date": "0827-04-14",
             "max_date": "0827-04-14",
             "days": [
-              "Lent",
-              "Sunday"
+              "Sunday",
+              "Lent"
             ],
             "sort_prefix": 1,
             "Arenga": "Latores legum sanxerunt, ut, qui de iure propriae alicui aliquid tradere volverit, hoc coram plures testibus per scripturarum seriem firmiter faciat obblicare, ut in evum et inconvulsum valeat perdurare",
@@ -3090,7 +3090,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0067.lat001",
           "_score": null,
           "_ignored": [
@@ -3155,7 +3155,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0068.lat001",
           "_score": null,
           "_ignored": [
@@ -3226,7 +3226,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0069.lat001",
           "_score": null,
           "_ignored": [
@@ -3307,7 +3307,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
           "_score": null,
           "_ignored": [
@@ -3380,7 +3380,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0071.lat001",
           "_score": null,
           "_source": {
@@ -3449,7 +3449,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0072.lat001",
           "_score": null,
           "_ignored": [
@@ -3521,7 +3521,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0073.lat001",
           "_score": null,
           "_ignored": [
@@ -3595,7 +3595,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0075.lat001",
           "_score": null,
           "_ignored": [
@@ -3662,7 +3662,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0078.lat001",
           "_score": null,
           "_source": {
@@ -3724,7 +3724,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0079.lat001",
           "_score": null,
           "_source": {
@@ -3786,7 +3786,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0080.lat001",
           "_score": null,
           "_ignored": [
@@ -3865,7 +3865,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0085.lat001",
           "_score": null,
           "_ignored": [
@@ -3933,7 +3933,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0086.lat001",
           "_score": null,
           "_ignored": [
@@ -3968,8 +3968,8 @@
             "min_date": "0824-04-19",
             "max_date": "0824-04-19",
             "days": [
-              "Lent",
-              "Tuesday"
+              "Tuesday",
+              "Lent"
             ],
             "sort_prefix": 1,
             "Invocatio-oder-Inscriptio": "Domino inlustri et in Christo patri Lantperhto abbati de monasterio, quod dicitur Lunalaco, una cum turma plurima monachorum ibidem consistencium atque deo serviencium, ubi reliquias sancti Michahelis archangeli ibidem haberi noscuntur",
@@ -4005,7 +4005,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0087.lat001",
           "_score": null,
           "_ignored": [
@@ -4072,7 +4072,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0088.lat001",
           "_score": null,
           "_ignored": [
@@ -4145,7 +4145,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0089.lat001",
           "_score": null,
           "_ignored": [
@@ -4224,7 +4224,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0091.lat001",
           "_score": null,
           "_source": {
@@ -4293,7 +4293,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0092.lat001",
           "_score": null,
           "_source": {
@@ -4361,7 +4361,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0095.lat001",
           "_score": null,
           "_ignored": [
@@ -4430,7 +4430,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
           "_score": null,
           "_ignored": [
@@ -4879,12 +4879,12 @@
             "min_date": "0766-07-25",
             "max_date": "0800-08-06",
             "days": [
+              "Wednesday",
+              "Tuesday",
+              "Monday",
               "Sunday",
               "Friday",
-              "Tuesday",
               "Thursday",
-              "Wednesday",
-              "Monday",
               "Saturday"
             ],
             "sort_prefix": 1,
@@ -4925,7 +4925,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0098.lat001",
           "_score": null,
           "_ignored": [
@@ -5001,7 +5001,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
           "_ignored": [
@@ -5074,7 +5074,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0104.lat001",
           "_score": null,
           "_ignored": [
@@ -5109,8 +5109,8 @@
             "min_date": "0822-06-01",
             "max_date": "0822-06-01",
             "days": [
-              "Sunday",
-              "Pentecost"
+              "Pentecost",
+              "Sunday"
             ],
             "sort_prefix": 1,
             "Arenga": "Latores legum sanxerunt, ut, qui de iure proprie [aliquid ad loca sanctorum] condonare volverit, hoc coram plures testibus faciat oblicare",
@@ -5141,7 +5141,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0107.lat001",
           "_score": null,
           "_source": {
@@ -5196,7 +5196,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0110.lat001",
           "_score": null,
           "_ignored": [
@@ -5260,7 +5260,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0112.lat001",
           "_score": null,
           "_ignored": [
@@ -5294,8 +5294,8 @@
             "min_date": "0803-03-21",
             "max_date": "0803-03-21",
             "days": [
-              "Lent",
-              "Tuesday"
+              "Tuesday",
+              "Lent"
             ],
             "sort_prefix": 1,
             "Narratio": "Sacrosancto ac venerabili monasterio, quod est constructum in honore sancti Michahelis in loco nuncupante Maninseo, ubi preest sanctus ac venerabilis Hiltipaldus archiepiscopus et sacri palatii capellanus ... constat mae non imaginario iure nec nulli cogentes imperium sed propria spontanea voluntate pro animae maeae et pro filiis meis",
@@ -5333,7 +5333,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0114.lat001",
           "_score": null,
           "_ignored": [
@@ -5404,7 +5404,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0116.lat001",
           "_score": null,
           "_ignored": [
@@ -5469,7 +5469,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
           "_score": null,
           "_ignored": [
@@ -5539,7 +5539,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0119.lat001",
           "_score": null,
           "_source": {
@@ -5744,12 +5744,12 @@
             "min_date": "0787-09-30",
             "max_date": "0816-09-30",
             "days": [
+              "Wednesday",
+              "Tuesday",
               "Monday",
               "Sunday",
               "Friday",
               "Thursday",
-              "Wednesday",
-              "Tuesday",
               "Saturday"
             ],
             "sort_prefix": 1,
@@ -5781,7 +5781,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0121.lat001",
           "_score": null,
           "_ignored": [
@@ -5856,7 +5856,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0123.lat001",
           "_score": null,
           "_ignored": [
@@ -5929,7 +5929,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0124.lat001",
           "_score": null,
           "_source": {
@@ -6134,12 +6134,12 @@
             "min_date": "0787-11-29",
             "max_date": "0816-11-29",
             "days": [
+              "Wednesday",
+              "Tuesday",
               "Monday",
               "Sunday",
               "Friday",
               "Thursday",
-              "Wednesday",
-              "Tuesday",
               "Saturday"
             ],
             "sort_prefix": 1,
@@ -6173,7 +6173,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0126.lat001",
           "_score": null,
           "_ignored": [
@@ -6240,7 +6240,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
           "_score": null,
           "_ignored": [
@@ -6307,7 +6307,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0130.lat001",
           "_score": null,
           "_ignored": [
@@ -6365,7 +6365,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0133.lat001",
           "_score": null,
           "_source": {
@@ -6427,7 +6427,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
           "_score": null,
           "_ignored": [
@@ -6500,7 +6500,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0135.lat001",
           "_score": null,
           "_ignored": [

@@ -951,9 +951,10 @@ class NemoFormulae(Nemo):
                                     r[par]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
                                     regest = [Markup(readable_form.metadata.get_single(DC.description))]
                                     short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
-                    if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
-                        if len(regest) == 2:
-                            regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
+                    # The following lines are to deal with the Pancarte Noire double regests
+                    # if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
+                        # if len(regest) == 2:
+                        #    regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
 
                     r[par].update({"short_regest": short_regest,
                                    "regest": regest,
@@ -1334,8 +1335,9 @@ class NemoFormulae(Nemo):
             flash('{}, {}'.format(metadata.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
-        if objectId in self.closed_texts['closed'] and self.check_project_team() is False:
-            passage = '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.'))
+        # The following is to deal with the Pancarte Noire double regests
+        # if objectId in self.closed_texts['closed'] and self.check_project_team() is False:
+        #     passage = '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.'))
         secondary_language = 'de'
         all_langs = [str(x) for x in metadata.metadata.get(DC.language, lang=None)]
         if len(all_langs) > 0:
@@ -1375,9 +1377,10 @@ class NemoFormulae(Nemo):
             linked_md = self.resolver.getMetadata(str(resource))
             linked_resources.append((linked_md.id, str(linked_md.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang)))
         regest = [Markup(metadata.metadata.get_single(DC.description))] if 'formulae_collection' in metadata.ancestors else [Markup(x) for x in str(metadata.metadata.get_single(DC.description)).split('***')]
-        if self.check_project_team() is False and (metadata.id in self.closed_texts['half_closed'] or metadata.id in self.closed_texts['closed']):
-            if len(regest) == 2:
-                regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
+        # The following lines are to deal with the Pancarte Noire double regests
+        # if self.check_project_team() is False and (metadata.id in self.closed_texts['half_closed'] or metadata.id in self.closed_texts['closed']):
+        #     if len(regest) == 2:
+        #         regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
         transcribed_edition = []
 
         for mss_ed in metadata.metadata.get(DCTERMS.isVersionOf):

@@ -193,10 +193,10 @@
       "number_of_fragments": 0,
       "fields": {
         "text": {},
+        "Poenformel": {},
         "Corroboratio": {
           "no_match_size": 1000
-        },
-        "Poenformel": {}
+        }
       },
       "pre_tags": [
         "</small><strong>"
@@ -320,8 +320,8 @@
       "number_of_fragments": 0,
       "fields": {
         "text": {},
-        "Corroboratio": {},
-        "Poenformel": {}
+        "Poenformel": {},
+        "Corroboratio": {}
       },
       "pre_tags": [
         "</small><strong>"
@@ -419,9 +419,9 @@
       "number_of_fragments": 0,
       "fields": {
         "text": {},
-        "Corroboratio": {},
         "Poenformel": {},
-        "regest": {}
+        "regest": {},
+        "Corroboratio": {}
       },
       "pre_tags": [
         "</small><strong>"
