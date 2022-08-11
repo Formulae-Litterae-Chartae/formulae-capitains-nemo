@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0001.lat001",
           "_score": null,
           "_ignored": [

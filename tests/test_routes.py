@@ -350,6 +350,7 @@ class TestIndividualRoutes(Formulae_Testing):
             p = re.compile('<h5>Notitia Arnonis: </h5>.+<h5>Codex Odalberti Vorrede: </h5>.+<h5>Codex Odalberti 1: </h5>',
                            re.DOTALL)
             self.assertRegex(r.get_data(as_text=True), p)
+            """
             c.get('/corpus/urn:cts:formulae:pancarte_noir_internal', follow_redirects=True)
             d = self.get_context_variable('collections')
             self.assertCountEqual(d['readable']['0019']['regest'],
@@ -364,6 +365,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(self.get_context_variable('objects')[0]['text_passage'],
                              '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.')),
                              'Text should be changed for anonymous users.')
+            """
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertIn('text-section no-copy', r.get_data(as_text=True))
@@ -661,7 +663,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                rdflib.term.Literal('Paris BNF 2123', lang='deu'),
                                'urn:cts:formulae:p3')],
                              'The IDs of the MSS that contain a formulae collection should be correctly passed to the template.')
-            c.get('/corpus/urn:cts:formulae:pancarte_noir_internal', follow_redirects=True)
+            """c.get('/corpus/urn:cts:formulae:pancarte_noir_internal', follow_redirects=True)
             d = self.get_context_variable('collections')
             self.assertCountEqual(d['readable']['0019']['regest'],
                                   ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
@@ -671,7 +673,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['description'],
                              ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
                                    'KÖLZER: Some regest.'],
-                             'Regest should not be changed for project members.')
+                             'Regest should not be changed for project members.')"""
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             c.get('/viewer/urn:cts:formulae:andecavensis.form001?view=0&embedded=True', follow_redirects=True)
@@ -770,6 +772,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::salzburg_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertIn('main::elex_collection.html', [x[0].name for x in self.templates])
+            """
             c.get('/corpus/urn:cts:formulae:pancarte_noir_internal', follow_redirects=True)
             d = self.get_context_variable('collections')
             self.assertCountEqual(d['readable']['0019']['regest'],
@@ -784,6 +787,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(self.get_context_variable('objects')[0]['text_passage'],
                              '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.')),
                              'Text should be changed for non-project members.')
+            """
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:flavigny_paris', follow_redirects=True)
@@ -7521,9 +7525,6 @@ class TestES(Formulae_Testing):
             "doc_count": 163
           },
           "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
-            "doc_count": 50
-          },
-          "<b>Touraine</b>: Pancarte Noire": {
             "doc_count": 50
           },
           "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {

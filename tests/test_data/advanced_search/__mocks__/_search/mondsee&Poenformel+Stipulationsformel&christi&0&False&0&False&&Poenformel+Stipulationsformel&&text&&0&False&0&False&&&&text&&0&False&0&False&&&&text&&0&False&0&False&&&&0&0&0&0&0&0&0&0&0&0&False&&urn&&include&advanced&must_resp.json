@@ -1,6 +1,6 @@
 [
   {
-    "took": 4,
+    "took": 3,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0128.lat001",
           "_score": null,
           "_ignored": [
@@ -83,7 +83,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0134.lat001",
           "_score": null,
           "_ignored": [

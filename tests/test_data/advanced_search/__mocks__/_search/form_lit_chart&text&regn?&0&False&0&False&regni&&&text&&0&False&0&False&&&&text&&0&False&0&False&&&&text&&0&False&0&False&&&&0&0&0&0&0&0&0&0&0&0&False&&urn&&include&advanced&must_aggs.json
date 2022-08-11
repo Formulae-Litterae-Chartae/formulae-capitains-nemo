@@ -2,7 +2,7 @@
   "aggregations": {
     "all_docs": {
       "meta": {},
-      "doc_count": 14413,
+      "doc_count": 14324,
       "forgeries": {
         "doc_count": 162
       },
@@ -183,14 +183,14 @@
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
             "doc_count": 184
           },
-          "<b>Touraine</b>: Pancarte Noire": {
-            "doc_count": 93
-          },
           "<b>Touraine</b>: Saint-Julien de Tours": {
             "doc_count": 157
           },
           "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
             "doc_count": 15
+          },
+          "<b>Touraine</b>: Tours-Überarbeitung": {
+            "doc_count": 4
           },
           "<b>Touraine</b>: Un acte faux de Marmoutier": {
             "doc_count": 1
@@ -233,7 +233,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 164
+            "doc_count": 163
           },
           {
             "key": "700-799",
@@ -241,7 +241,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4479
+            "doc_count": 4470
           },
           {
             "key": "800-899",
@@ -249,7 +249,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3691
+            "doc_count": 3632
           },
           {
             "key": "900-999",
@@ -257,18 +257,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 3015
+            "doc_count": 2996
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 2078
+            "doc_count": 2073
           }
         ]
       },
       "no_date": {
-        "doc_count": 812
+        "doc_count": 816
       }
     },
     "forgeries": {
@@ -451,13 +451,13 @@
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
           "doc_count": 0
         },
-        "<b>Touraine</b>: Pancarte Noire": {
-          "doc_count": 19
-        },
         "<b>Touraine</b>: Saint-Julien de Tours": {
           "doc_count": 1
         },
         "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Tours-Überarbeitung": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Un acte faux de Marmoutier": {
@@ -509,7 +509,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 44
+          "doc_count": 39
         },
         {
           "key": "800-899",
@@ -517,7 +517,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 105
+          "doc_count": 92
         },
         {
           "key": "900-999",
@@ -525,7 +525,7 @@
           "from_as_string": "0900",
           "to": -30641760000000.0,
           "to_as_string": "0999",
-          "doc_count": 29
+          "doc_count": 28
         },
         {
           "key": ">1000",
