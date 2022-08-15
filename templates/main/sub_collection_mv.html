@@ -1,5 +1,5 @@
 {% extends "main::container.html" %}
-{% block title %}Formulae - Litterae - Chartae: {{collections.current.label|striptags}} {{ _('Überlieferungsübersicht') }}{% endblock %}
+{% block title %}Formulae - Litterae - Chartae: {{collections.current.label|striptags}} {% if "manuscript_collection" in collections.parent_ids %}({{ collections.current.short_title|safe }}) {{ _('Handschriftenvergleich') }}{% else %}{{ _('Überlieferungsübersicht') }}{% endif %}{% endblock %}
 
 {% if not prev_texts %}
 {% set prev_texts = '' %}
@@ -23,9 +23,22 @@
 <div class="col">
 <header>
     <h1>
-    {{collections.current.label|striptags}}
+    {{collections.current.label|striptags}}{% if "manuscript_collection" in collections.parent_ids %} ({{ collections.current.short_title|safe }}){% endif %}
     </h1>
     <h5><a class="internal-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=collections.current.id) }}">{{ _('Zur Korpusübersicht') }}</a></h5>
+    <h5 id="show-regest-control"><a class="internal-link" href="#">{{ _('Regesten anzeigen') }}</a></h5>
+    <h5 id="hide-regest-control" class="d-none"><a class="internal-link" href="#">{{ _('Regesten verstecken') }}</a></h5>
+    <h5 id="hide-column-list">{{ _('Folgende Spalten verstecken') }}:
+    {% for values in collections.readable.transcriptions %}
+    <a id="ms-col-hide-{{ values['edition_name']|striptags }}" href="#ms-col-hide-{{ values['edition_name']|striptags }}" data-sibling="#ms-col-show-{{ values['edition_name']|striptags }}" class="mssColumnHide internal-link mx-2" title="{{ _('Verstecke') }} {{ values['edition_name']|striptags }} ({{values['full_edition_name']}})" data-toggle="tooltip" data-placement="top" data-container="#ms-col-hide-{{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true">{{values['edition_name']|safe}}</a>
+    {% endfor %}
+    </h5>
+    <h5 id="show-column-list" class="d-none">
+    {{ _('Folgende Spalten anzeigen') }}:
+    {% for values in collections.readable.transcriptions %}
+    <a id="ms-col-show-{{ values['edition_name']|striptags }}" href="#ms-col-show-{{ values['edition_name']|striptags }}" data-sibling="#ms-col-hide-{{ values['edition_name']|striptags }}" class="mssColumnShow d-none internal-link mx-2" title="{{ _('Zeige') }} {{ values['edition_name']|striptags }} ({{values['full_edition_name']}})" data-toggle="tooltip" data-placement="top" data-container="ms-col-show-{{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true">{{values['edition_name']|safe}}</a>
+    {% endfor %}
+    </h5>
 </header>
 </div>
 </div>
@@ -48,22 +61,20 @@
 {% macro build_column(type_dict) %}
     {% for values in type_dict %}
     <div id="ms-col-{{loop.index}}" class="card mv-rows">
-        <span class="mssColumnHide text-center" title="{{ _('Verstecke') }} {{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true"><img src="{{url_for('InstanceNemo.static', filename='images/close_window.png')}}" alt="{{ _('Diese Spalte verstecken') }}"></span>
-        <span class="mssColumnShow d-none" title="{{ _('Zeige') }} {{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true"><img src="{{url_for('InstanceNemo.static', filename='images/add_window.png')}}" alt="{{ _('Diese Spalte zeigen') }}"></span>
         <div class="card-header mv-card-header text-center ms-col-{{loop.index}} ms-col">
             <h5 id="full-{{values['edition_name']|striptags}}" data-toggle="tooltip" data-placement="top" data-container="#full-{{values['edition_name']|striptags}}" title="{{values['full_edition_name']}}" data-html="true">{{values['edition_name']|safe}}</h5>
         </div>
         <ul class="list-group list-group-flush ms-col-{{loop.index}} ms-col">
         {% for name in values['links'][0]%}
             <li class="list-group-item card search-hit transcription" formula="{{ values['titles'][loop.index-1]|replace(',', '-') }}">
-                {% if values['titles'][loop.index-1] %}<h5{% if 'folia' in values and values['folia'][loop.index0] %} class="mb-0"{% endif %}{% if values['links'][1][loop.index0] in manuscript_notes %} id="{{ values['edition_name']|striptags + '-' + loop.index0|string }}" data-toggle="tooltip" data-placement="top" data-container="#{{ values['edition_name']|striptags + '-' + loop.index0|string }}" title="{{ manuscript_notes[values['links'][1][loop.index0]]}}"{% endif %}>{{ values['titles'][loop.index-1]|safe }}{% if values['links'][1][loop.index0] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</h5>{% endif %}
+                {% if values['titles'][loop.index-1] %}<div class="small font-weight-bold"{% if 'folia' in values and values['folia'][loop.index0] %} class="mb-0"{% endif %}{% if values['links'][1][loop.index0] in manuscript_notes %} id="{{ values['edition_name']|striptags + '-' + loop.index0|string }}" data-toggle="tooltip" data-placement="top" data-container="#{{ values['edition_name']|striptags + '-' + loop.index0|string }}" title="{{ manuscript_notes[values['links'][1][loop.index0]]}}"{% endif %}>{{ values['titles'][loop.index-1]|safe }}{% if values['links'][1][loop.index0] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</h5>{% endif %}
                 {% if 'folia' in values and values['folia'][loop.index0] %}
-                <div class="card-text">
+                <div class="card-text small">
                     {{ values['folia'][loop.index0]|safe }}
                 </div>
                 {% endif %}
                 {% if 'regesten' in values and values['regesten'][loop.index0] %}
-                <div class="small">
+                <div class="small ms-regesten d-none">
                     {{ values['regesten'][loop.index0]|safe }}
                 </div>
                 {% endif %}

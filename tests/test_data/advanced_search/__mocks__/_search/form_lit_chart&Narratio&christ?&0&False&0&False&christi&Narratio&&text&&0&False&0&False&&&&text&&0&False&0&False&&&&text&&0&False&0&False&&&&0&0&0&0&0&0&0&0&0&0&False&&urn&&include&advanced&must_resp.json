@@ -1,6 +1,6 @@
 [
   {
-    "took": 69,
+    "took": 71,
     "timed_out": false,
     "_shards": {
       "total": 64,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0013.lat001",
           "_score": null,
           "_ignored": [
@@ -80,7 +80,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0049.lat001",
           "_score": null,
           "_source": {
@@ -142,7 +142,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
           "_score": null,
           "_ignored": [
@@ -212,7 +212,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0085.lat001",
           "_score": null,
           "_ignored": [
@@ -277,7 +277,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0087.lat001",
           "_score": null,
           "_ignored": [
@@ -341,7 +341,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0096.lat001",
           "_score": null,
           "_ignored": [
@@ -790,12 +790,12 @@
             "min_date": "0766-07-25",
             "max_date": "0800-08-06",
             "days": [
+              "Wednesday",
+              "Tuesday",
+              "Monday",
               "Sunday",
               "Friday",
-              "Tuesday",
               "Thursday",
-              "Wednesday",
-              "Monday",
               "Saturday"
             ],
             "sort_prefix": 1,
@@ -833,7 +833,7 @@
           ]
         },
         {
-          "_index": "mondsee_v7",
+          "_index": "mondsee_v21",
           "_id": "urn:cts:formulae:mondsee.rath0118.lat001",
           "_score": null,
           "_ignored": [

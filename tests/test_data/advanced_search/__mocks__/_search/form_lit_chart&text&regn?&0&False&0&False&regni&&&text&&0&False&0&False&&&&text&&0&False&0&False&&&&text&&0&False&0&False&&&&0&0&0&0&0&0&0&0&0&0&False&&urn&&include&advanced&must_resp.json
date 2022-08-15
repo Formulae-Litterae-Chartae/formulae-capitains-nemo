@@ -1,6 +1,6 @@
 [
   {
-    "took": 482,
+    "took": 208,
     "timed_out": false,
     "_shards": {
       "total": 64,
@@ -10,13 +10,13 @@
     },
     "hits": {
       "total": {
-        "value": 241,
+        "value": 222,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_002.lat001",
           "_score": null,
           "_source": {
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_003.lat001",
           "_score": null,
           "_source": {
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_004.lat001",
           "_score": null,
           "_source": {
@@ -109,7 +109,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_032.lat001",
           "_score": null,
           "_source": {
@@ -140,7 +140,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_033.lat001",
           "_score": null,
           "_source": {
@@ -171,7 +171,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_034.lat001",
           "_score": null,
           "_source": {
@@ -202,7 +202,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_036.lat001",
           "_score": null,
           "_source": {
@@ -233,7 +233,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_039.lat001",
           "_score": null,
           "_source": {
@@ -264,7 +264,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form1_040.lat001",
           "_score": null,
           "_source": {
@@ -295,7 +295,7 @@
           ]
         },
         {
-          "_index": "marculf_v7",
+          "_index": "marculf_v21",
           "_id": "urn:cts:formulae:marculf.form3_3_001.lat001",
           "_score": null,
           "_source": {
@@ -326,7 +326,7 @@
           ]
         },
         {
-          "_index": "anjou_archives_v7",
+          "_index": "anjou_archives_v21",
           "_id": "urn:cts:formulae:anjou_archives.marchegay_bessiaco_0001.lat001",
           "_score": null,
           "_source": {
@@ -357,7 +357,7 @@
           ]
         },
         {
-          "_index": "anjou_comtes_chroniques_v7",
+          "_index": "anjou_comtes_chroniques_v21",
           "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0003.lat001",
           "_score": null,
           "_source": {
@@ -403,7 +403,7 @@
           ]
         },
         {
-          "_index": "anjou_comtes_chroniques_v7",
+          "_index": "anjou_comtes_chroniques_v21",
           "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0004.lat001",
           "_score": null,
           "_source": {
@@ -449,7 +449,7 @@
           ]
         },
         {
-          "_index": "anjou_comtes_chroniques_v7",
+          "_index": "anjou_comtes_chroniques_v21",
           "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0007.lat001",
           "_score": null,
           "_source": {
@@ -496,7 +496,7 @@
           ]
         },
         {
-          "_index": "anjou_comtes_chroniques_v7",
+          "_index": "anjou_comtes_chroniques_v21",
           "_id": "urn:cts:formulae:anjou_comtes_chroniques.mabille0009.lat001",
           "_score": null,
           "_source": {
@@ -542,7 +542,7 @@
           ]
         },
         {
-          "_index": "buenden_v7",
+          "_index": "buenden_v21",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
           "_score": null,
           "_source": {
@@ -588,7 +588,7 @@
           ]
         },
         {
-          "_index": "buenden_v7",
+          "_index": "buenden_v21",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
           "_score": null,
           "_source": {
@@ -631,7 +631,7 @@
           ]
         },
         {
-          "_index": "buenden_v7",
+          "_index": "buenden_v21",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0046.lat001",
           "_score": null,
           "_source": {
@@ -673,7 +673,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_cxv_v7",
+          "_index": "chartae_latinae_cxv_v21",
           "_id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0014.lat001",
           "_score": null,
           "_source": {
@@ -716,7 +716,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_cxv_v7",
+          "_index": "chartae_latinae_cxv_v21",
           "_id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0031.lat001",
           "_score": null,
           "_source": {
@@ -759,7 +759,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_cxvi_v7",
+          "_index": "chartae_latinae_cxvi_v21",
           "_id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0018.lat001",
           "_score": null,
           "_source": {
@@ -790,8 +790,8 @@
             "min_date": "0888-03-19",
             "max_date": "0888-03-19",
             "days": [
-              "Lent",
-              "Tuesday"
+              "Tuesday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -806,7 +806,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_cxvi_v7",
+          "_index": "chartae_latinae_cxvi_v21",
           "_id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0019.lat001",
           "_score": null,
           "_source": {
@@ -849,7 +849,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_cxvi_v7",
+          "_index": "chartae_latinae_cxvi_v21",
           "_id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0022.lat001",
           "_score": null,
           "_source": {
@@ -892,7 +892,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xii_v7",
+          "_index": "chartae_latinae_xii_v21",
           "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0533.lat001",
           "_score": null,
           "_source": {
@@ -938,7 +938,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xlvi_v7",
+          "_index": "chartae_latinae_xlvi_v19",
           "_id": "urn:cts:formulae:chartae_latinae_xlvi.dorandi1400.lat001",
           "_score": null,
           "_source": {
@@ -984,7 +984,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xlvii_v7",
+          "_index": "chartae_latinae_xlvii_v20",
           "_id": "urn:cts:formulae:chartae_latinae_xlvii.dorandi1463.lat001",
           "_score": null,
           "_source": {
@@ -1030,7 +1030,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xlvii_v7",
+          "_index": "chartae_latinae_xlvii_v20",
           "_id": "urn:cts:formulae:chartae_latinae_xlvii.dorandi1464.lat001",
           "_score": null,
           "_source": {
@@ -1073,7 +1073,7 @@
           ]
         },
         {
-          "_index": "echternach_v7",
+          "_index": "echternach_v21",
           "_id": "urn:cts:formulae:echternach.wampach0004.lat001",
           "_score": null,
           "_source": {
@@ -1116,7 +1116,7 @@
           ]
         },
         {
-          "_index": "eudes_v7",
+          "_index": "eudes_v21",
           "_id": "urn:cts:formulae:eudes.lex0010.lat001",
           "_score": null,
           "_source": {
@@ -1159,14 +1159,14 @@
           ]
         },
         {
-          "_index": "flavigny_v4",
+          "_index": "flavigny_v12",
           "_id": "urn:cts:formulae:flavigny.form1_008.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
             "regest": "regest text",
-            "title": "Flavigny 8",
+            "title": "Flavigny Pa+Ko 8",
             "keywords": "",
             "urn": "urn:cts:formulae:flavigny.form1_008.lat001",
             "date_string": " ",
@@ -1190,14 +1190,14 @@
           ]
         },
         {
-          "_index": "flavigny_v4",
+          "_index": "flavigny_v12",
           "_id": "urn:cts:formulae:flavigny.form2_010.lat001",
           "_score": null,
           "_source": {
             "text": "some real text",
             "lemmas": "lemma text",
             "regest": "regest text",
-            "title": "Flavigny (Paris) 10",
+            "title": "Flavigny Pa 10",
             "keywords": "",
             "urn": "urn:cts:formulae:flavigny.form2_010.lat001",
             "date_string": " ",
@@ -1221,7 +1221,7 @@
           ]
         },
         {
-          "_index": "freising_v7",
+          "_index": "freising_v21",
           "_id": "urn:cts:formulae:freising.bitterauf0012.lat001",
           "_score": null,
           "_source": {
@@ -1282,11 +1282,11 @@
             "min_date": "0758-03-15",
             "max_date": "0763-03-15",
             "days": [
-              "Lent",
+              "Wednesday",
+              "Tuesday",
               "Monday",
               "Sunday",
-              "Tuesday",
-              "Wednesday",
+              "Lent",
               "Thursday",
               "Saturday"
             ],
@@ -1303,7 +1303,7 @@
           ]
         },
         {
-          "_index": "freising_v7",
+          "_index": "freising_v21",
           "_id": "urn:cts:formulae:freising.bitterauf0127.lat001",
           "_score": null,
           "_source": {
@@ -1349,7 +1349,7 @@
           ]
         },
         {
-          "_index": "freising_v7",
+          "_index": "freising_v21",
           "_id": "urn:cts:formulae:freising.bitterauf0386.lat001",
           "_score": null,
           "_source": {
@@ -1395,7 +1395,7 @@
           ]
         },
         {
-          "_index": "freising_v7",
+          "_index": "freising_v21",
           "_id": "urn:cts:formulae:freising.bitterauf0392.lat001",
           "_score": null,
           "_source": {
@@ -1441,7 +1441,7 @@
           ]
         },
         {
-          "_index": "freising_v7",
+          "_index": "freising_v21",
           "_id": "urn:cts:formulae:freising.bitterauf0446.lat001",
           "_score": null,
           "_source": {
@@ -1472,8 +1472,8 @@
             "min_date": "0821-03-10",
             "max_date": "0821-03-10",
             "days": [
-              "Lent",
-              "Sunday"
+              "Sunday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -1488,7 +1488,7 @@
           ]
         },
         {
-          "_index": "freising_v7",
+          "_index": "freising_v21",
           "_id": "urn:cts:formulae:freising.bitterauf0522.lat001",
           "_score": null,
           "_source": {
@@ -1534,7 +1534,7 @@
           ]
         },
         {
-          "_index": "freising_v7",
+          "_index": "freising_v21",
           "_id": "urn:cts:formulae:freising.bitterauf0594.lat001",
           "_score": null,
           "_source": {
@@ -1580,7 +1580,7 @@
           ]
         },
         {
-          "_index": "freising_v7",
+          "_index": "freising_v21",
           "_id": "urn:cts:formulae:freising.bitterauf0895.lat001",
           "_score": null,
           "_source": {
@@ -1677,11 +1677,11 @@
             "min_date": "0864-09-12",
             "max_date": "0875-09-12",
             "days": [
+              "Wednesday",
+              "Tuesday",
               "Monday",
               "Sunday",
               "Friday",
-              "Tuesday",
-              "Wednesday",
               "Thursday",
               "Saturday"
             ],
@@ -1698,7 +1698,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v7",
+          "_index": "fulda_stengel_v21",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0004.lat001",
           "_score": null,
           "_source": {
@@ -1741,7 +1741,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v7",
+          "_index": "fulda_stengel_v21",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0004.lat002",
           "_score": null,
           "_source": {
@@ -1784,7 +1784,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v7",
+          "_index": "fulda_stengel_v21",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0006.lat001",
           "_score": null,
           "_source": {
@@ -1815,8 +1815,8 @@
             "min_date": "0747-03-12",
             "max_date": "0747-03-12",
             "days": [
-              "Lent",
-              "Sunday"
+              "Sunday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -1831,7 +1831,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v7",
+          "_index": "fulda_stengel_v21",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0020.lat001",
           "_score": null,
           "_source": {
@@ -1874,7 +1874,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v7",
+          "_index": "fulda_stengel_v21",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0057.lat002",
           "_score": null,
           "_source": {
@@ -1920,7 +1920,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v7",
+          "_index": "fulda_stengel_v21",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0167.lat001",
           "_score": null,
           "_source": {
@@ -1987,11 +1987,11 @@
             "min_date": "0780-09-25",
             "max_date": "0786-09-25",
             "days": [
+              "Wednesday",
+              "Tuesday",
               "Monday",
               "Sunday",
               "Thursday",
-              "Wednesday",
-              "Tuesday",
               "Saturday"
             ],
             "sort_prefix": 1
@@ -2007,7 +2007,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v7",
+          "_index": "fulda_stengel_v21",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0173.lat004",
           "_score": null,
           "_source": {
@@ -2038,7 +2038,7 @@
           ]
         },
         {
-          "_index": "gorze_v7",
+          "_index": "gorze_v21",
           "_id": "urn:cts:formulae:gorze.dherbomez0090.lat001",
           "_score": null,
           "_source": {
@@ -2081,7 +2081,7 @@
           ]
         },
         {
-          "_index": "gorze_v7",
+          "_index": "gorze_v21",
           "_id": "urn:cts:formulae:gorze.dherbomez0092.lat001",
           "_score": null,
           "_source": {
@@ -2127,7 +2127,7 @@
           ]
         },
         {
-          "_index": "gorze_v7",
+          "_index": "gorze_v21",
           "_id": "urn:cts:formulae:gorze.dherbomez0111.lat001",
           "_score": null,
           "_source": {
@@ -2173,7 +2173,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v7",
+          "_index": "hersfeld_v21",
           "_id": "urn:cts:formulae:hersfeld.weirich0005.lat001",
           "_score": null,
           "_source": {
@@ -2219,7 +2219,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v7",
+          "_index": "hersfeld_v21",
           "_id": "urn:cts:formulae:hersfeld.weirich0006.lat001",
           "_score": null,
           "_source": {
@@ -2265,7 +2265,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v7",
+          "_index": "hersfeld_v21",
           "_id": "urn:cts:formulae:hersfeld.weirich0041.lat001",
           "_score": null,
           "_source": {
@@ -2312,7 +2312,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v7",
+          "_index": "hersfeld_v21",
           "_id": "urn:cts:formulae:hersfeld.weirich0042.lat001",
           "_score": null,
           "_source": {
@@ -2358,7 +2358,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v7",
+          "_index": "hersfeld_v21",
           "_id": "urn:cts:formulae:hersfeld.weirich0059.lat001",
           "_score": null,
           "_source": {
@@ -2401,7 +2401,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v7",
+          "_index": "hersfeld_v21",
           "_id": "urn:cts:formulae:hersfeld.weirich0074.lat001",
           "_score": null,
           "_source": {
@@ -2447,7 +2447,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v7",
+          "_index": "hersfeld_v21",
           "_id": "urn:cts:formulae:hersfeld.weirich0108.lat001",
           "_score": null,
           "_source": {
@@ -2490,7 +2490,7 @@
           ]
         },
         {
-          "_index": "katalonien_v7",
+          "_index": "katalonien_v21",
           "_id": "urn:cts:formulae:katalonien.vinyals_elnaesglésiaeulàlia_0004.lat001",
           "_score": null,
           "_source": {
@@ -2536,7 +2536,7 @@
           ]
         },
         {
-          "_index": "katalonien_v7",
+          "_index": "katalonien_v21",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0069.lat001",
           "_score": null,
           "_source": {
@@ -2577,7 +2577,7 @@
           ]
         },
         {
-          "_index": "katalonien_v7",
+          "_index": "katalonien_v21",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0319.lat001",
           "_score": null,
           "_source": {
@@ -2623,7 +2623,7 @@
           ]
         },
         {
-          "_index": "katalonien_v7",
+          "_index": "katalonien_v21",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0685.lat001",
           "_score": null,
           "_source": {
@@ -2665,7 +2665,7 @@
           ]
         },
         {
-          "_index": "katalonien_v7",
+          "_index": "katalonien_v21",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0788.lat001",
           "_score": null,
           "_source": {
@@ -2711,7 +2711,7 @@
           ]
         },
         {
-          "_index": "katalonien_v7",
+          "_index": "katalonien_v21",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1248.lat001",
           "_score": null,
           "_source": {
@@ -2758,7 +2758,7 @@
           ]
         },
         {
-          "_index": "katalonien_v7",
+          "_index": "katalonien_v21",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1723.lat001",
           "_score": null,
           "_source": {
@@ -2801,7 +2801,7 @@
           ]
         },
         {
-          "_index": "katalonien_v7",
+          "_index": "katalonien_v21",
           "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0032.lat001",
           "_score": null,
           "_source": {
@@ -2847,7 +2847,7 @@
           ]
         },
         {
-          "_index": "katalonien_v7",
+          "_index": "katalonien_v21",
           "_id": "urn:cts:formulae:katalonien.vinyals_santjoanjoan_0001.lat001",
           "_score": null,
           "_source": {
@@ -2893,7 +2893,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v7",
+          "_index": "langobardisch_v21",
           "_id": "urn:cts:formulae:langobardisch.bruehl0001.lat001",
           "_score": null,
           "_source": {
@@ -2939,7 +2939,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v7",
+          "_index": "langobardisch_v21",
           "_id": "urn:cts:formulae:langobardisch.bruehl0003.lat001",
           "_score": null,
           "_source": {
@@ -2992,7 +2992,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v7",
+          "_index": "langobardisch_v21",
           "_id": "urn:cts:formulae:langobardisch.bruehl0026.lat001",
           "_score": null,
           "_source": {
@@ -3038,7 +3038,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v7",
+          "_index": "langobardisch_v21",
           "_id": "urn:cts:formulae:langobardisch.bruehl0026.lat002",
           "_score": null,
           "_source": {
@@ -3084,7 +3084,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v7",
+          "_index": "langobardisch_v21",
           "_id": "urn:cts:formulae:langobardisch.bruehl0026.lat003",
           "_score": null,
           "_source": {
@@ -3130,7 +3130,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v7",
+          "_index": "langobardisch_v21",
           "_id": "urn:cts:formulae:langobardisch.bruehl0032.lat001",
           "_score": null,
           "_source": {
@@ -3176,7 +3176,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0020.lat001",
           "_score": null,
           "_source": {
@@ -3219,7 +3219,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0041.lat001",
           "_score": null,
           "_source": {
@@ -3250,7 +3250,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0054.lat001",
           "_score": null,
           "_source": {
@@ -3297,7 +3297,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0077.lat001",
           "_score": null,
           "_source": {
@@ -3328,7 +3328,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0100.lat001",
           "_score": null,
           "_source": {
@@ -3359,7 +3359,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0132.lat001",
           "_score": null,
           "_source": {
@@ -3405,7 +3405,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0146.lat001",
           "_score": null,
           "_source": {
@@ -3436,7 +3436,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0182.lat001",
           "_score": null,
           "_source": {
@@ -3467,7 +3467,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0186.lat001",
           "_score": null,
           "_source": {
@@ -3498,7 +3498,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0215.lat001",
           "_score": null,
           "_source": {
@@ -3529,7 +3529,7 @@
           ]
         },
         {
-          "_index": "lorsch_v7",
+          "_index": "lorsch_v21",
           "_id": "urn:cts:formulae:lorsch.gloeckner0229.lat001",
           "_score": null,
           "_source": {
@@ -3560,7 +3560,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v7",
+          "_index": "marmoutier_dunois_v21",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0041.lat001",
           "_score": null,
           "_source": {
@@ -3591,7 +3591,7 @@
           ]
         },
         {
-          "_index": "marmoutier_pour_le_perche_v7",
+          "_index": "marmoutier_pour_le_perche_v21",
           "_id": "urn:cts:formulae:marmoutier_pour_le_perche.barret0014.lat001",
           "_score": null,
           "_source": {
@@ -3634,7 +3634,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v7",
+          "_index": "marmoutier_serfs_v21",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0001.lat001",
           "_score": null,
           "_source": {
@@ -3677,7 +3677,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v7",
+          "_index": "marmoutier_serfs_v21",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0038app.lat001",
           "_score": null,
           "_source": {
@@ -3720,7 +3720,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
           "_score": null,
           "_source": {
@@ -3763,7 +3763,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0004.lat001",
           "_score": null,
           "_source": {
@@ -3806,7 +3806,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0005.lat001",
           "_score": null,
           "_source": {
@@ -3849,7 +3849,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0015.lat001",
           "_score": null,
           "_source": {
@@ -3896,7 +3896,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0026.lat001",
           "_score": null,
           "_source": {
@@ -3942,7 +3942,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0027.lat001",
           "_score": null,
           "_source": {
@@ -3988,7 +3988,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0033.lat001",
           "_score": null,
           "_source": {
@@ -4031,7 +4031,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0034.lat001",
           "_score": null,
           "_source": {
@@ -4074,7 +4074,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
           "_score": null,
           "_source": {
@@ -4105,8 +4105,8 @@
             "min_date": "0630-04-08",
             "max_date": "0630-04-08",
             "days": [
-              "Easter",
-              "Sunday"
+              "Sunday",
+              "Easter"
             ],
             "sort_prefix": 1
           },
@@ -4121,7 +4121,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0040.lat001",
           "_score": null,
           "_source": {
@@ -4164,7 +4164,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0042.lat001",
           "_score": null,
           "_source": {
@@ -4211,7 +4211,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0043.lat001",
           "_score": null,
           "_source": {
@@ -4257,7 +4257,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0049.lat001",
           "_score": null,
           "_source": {
@@ -4303,7 +4303,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0060.lat001",
           "_score": null,
           "_source": {
@@ -4346,7 +4346,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0061.lat001",
           "_score": null,
           "_source": {
@@ -4392,7 +4392,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0082.lat001",
           "_score": null,
           "_source": {
@@ -4435,7 +4435,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0085.lat001",
           "_score": null,
           "_source": {
@@ -4481,7 +4481,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0105.lat001",
           "_score": null,
           "_source": {
@@ -4524,7 +4524,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0123.lat001",
           "_score": null,
           "_source": {
@@ -4567,7 +4567,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v7",
+          "_index": "merowinger1_v21",
           "_id": "urn:cts:formulae:merowinger1.koelzer0148.lat001",
           "_score": null,
           "_source": {
@@ -4610,7 +4610,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v7",
+          "_index": "mittelrheinisch_v21",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0095.lat001",
           "_score": null,
           "_source": {
@@ -4656,7 +4656,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v7",
+          "_index": "mittelrheinisch_v21",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0163.lat001",
           "_score": null,
           "_source": {
@@ -4699,7 +4699,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v7",
+          "_index": "mittelrheinisch_v21",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0205.lat001",
           "_score": null,
           "_source": {
@@ -4745,7 +4745,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v7",
+          "_index": "mittelrheinisch_v21",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0206.lat001",
           "_score": null,
           "_source": {
@@ -4776,8 +4776,8 @@
             "min_date": "0960-04-08",
             "max_date": "0960-04-08",
             "days": [
-              "Lent",
-              "Sunday"
+              "Sunday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -4792,7 +4792,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v7",
+          "_index": "mittelrheinisch_v21",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0210.lat001",
           "_score": null,
           "_source": {
@@ -4835,960 +4835,7 @@
           ]
         },
         {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0002.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 2",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0002.lat001",
-            "date_string": "MABILLE:Vers l’an 800<br>HAURÉAU:800",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0800-01-01",
-                "lte": "0810-12-31"
-              },
-              {
-                "gte": "0800-01-01",
-                "lte": "0800-12-31"
-              }
-            ],
-            "all_dates": [
-              "0800-01-01",
-              "0810-12-31",
-              "0800-01-01",
-              "0800-12-31"
-            ],
-            "min_date": "0800-01-01",
-            "max_date": "0810-12-31",
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0002.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0004.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 4",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0004.lat001",
-            "date_string": "MABILLE:816<br>HAURÉAU:816",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0816-01-01",
-                "lte": "0816-12-31"
-              }
-            ],
-            "all_dates": [
-              "0816-01-01",
-              "0816-12-31"
-            ],
-            "min_date": "0816-01-01",
-            "max_date": "0816-12-31",
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0004.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0013.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 13",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0013.lat001",
-            "date_string": "MABILLE:849 05 01<br>HAURÉAU:848",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0848-01-01",
-                "lte": "0848-12-31"
-              }
-            ],
-            "specific_date": [
-              {
-                "year": 849,
-                "month": 5,
-                "day": 1
-              }
-            ],
-            "all_dates": [
-              "0848-01-01",
-              "0848-12-31",
-              "0849-05-01"
-            ],
-            "min_date": "0848-01-01",
-            "max_date": "0849-05-01",
-            "days": [
-              "Wednesday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0013.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0014.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 14",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0014.lat001",
-            "date_string": "MABILLE:862 04 23<br>BOUQUET:862",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0862-01-01",
-                "lte": "0862-12-31"
-              }
-            ],
-            "specific_date": [
-              {
-                "year": 862,
-                "month": 4,
-                "day": 23
-              }
-            ],
-            "all_dates": [
-              "0862-01-01",
-              "0862-12-31",
-              "0862-04-23"
-            ],
-            "min_date": "0862-01-01",
-            "max_date": "0862-12-31",
-            "days": [
-              "Thursday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0014.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0018.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 18",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0018.lat001",
-            "date_string": "MABILLE:774 05 10 oder 777 05 10",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "specific_date": [
-              {
-                "year": 774,
-                "month": 5,
-                "day": 10
-              },
-              {
-                "year": 777,
-                "month": 5,
-                "day": 10
-              }
-            ],
-            "all_dates": [
-              "0774-05-10",
-              "0777-05-10"
-            ],
-            "min_date": "0774-05-10",
-            "max_date": "0777-05-10",
-            "days": [
-              "Tuesday",
-              "Saturday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0018.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0021.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 21",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0021.lat001",
-            "date_string": "MABILLE:845 12 27<br>BOUQUET:845",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0845-01-01",
-                "lte": "0845-12-31"
-              }
-            ],
-            "specific_date": [
-              {
-                "year": 845,
-                "month": 12,
-                "day": 27
-              }
-            ],
-            "all_dates": [
-              "0845-01-01",
-              "0845-12-31",
-              "0845-12-27"
-            ],
-            "min_date": "0845-01-01",
-            "max_date": "0845-12-31",
-            "days": [
-              "Sunday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0021.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0041.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 41",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0041.lat001",
-            "date_string": "MABILLE:845 01 05<br>TESSIER:844 01 05 oder 845 01 05",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "specific_date": [
-              {
-                "year": 845,
-                "month": 1,
-                "day": 5
-              },
-              {
-                "year": 844,
-                "month": 1,
-                "day": 5
-              }
-            ],
-            "all_dates": [
-              "0845-01-05",
-              "0844-01-05"
-            ],
-            "min_date": "0844-01-05",
-            "max_date": "0845-01-05",
-            "days": [
-              "Monday",
-              "Saturday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0041.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0047.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 47",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0047.lat001",
-            "date_string": "MABILLE:845 01 05<br>TESSIER:844 01 05845 01 05",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "specific_date": [
-              {
-                "year": 845,
-                "month": 1,
-                "day": 5
-              },
-              {
-                "year": 844,
-                "month": 1,
-                "day": 5
-              }
-            ],
-            "all_dates": [
-              "0845-01-05",
-              "0844-01-05"
-            ],
-            "min_date": "0844-01-05",
-            "max_date": "0845-01-05",
-            "days": [
-              "Monday",
-              "Saturday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0047.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0054.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 54",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0054.lat001",
-            "date_string": "MABILLE:813<br>HAURÉAU:813",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0813-01-01",
-                "lte": "0813-12-31"
-              }
-            ],
-            "all_dates": [
-              "0813-01-01",
-              "0813-12-31"
-            ],
-            "min_date": "0813-01-01",
-            "max_date": "0813-12-31",
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0054.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0055.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 55",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0055.lat001",
-            "date_string": "MABILLE:897 03 27<br>BOUQUET/DELISLE:895",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0895-01-01",
-                "lte": "0895-12-31"
-              }
-            ],
-            "specific_date": [
-              {
-                "year": 897,
-                "month": 3,
-                "day": 27
-              }
-            ],
-            "all_dates": [
-              "0895-01-01",
-              "0895-12-31",
-              "0897-03-27"
-            ],
-            "min_date": "0895-01-01",
-            "max_date": "0897-03-27",
-            "days": [
-              "Easter",
-              "Sunday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0055.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0066.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 66",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0066.lat001",
-            "date_string": "MABILLE:845 12 27<br>TESSIER:845 12 27",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "specific_date": [
-              {
-                "year": 845,
-                "month": 12,
-                "day": 27
-              }
-            ],
-            "all_dates": [
-              "0845-12-27"
-            ],
-            "min_date": "0845-12-27",
-            "max_date": "0845-12-27",
-            "days": [
-              "Sunday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0066.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0079.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 79",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0079.lat001",
-            "date_string": "MABILLE:774 05 10<br>MÜHLBACHER:775 05 10",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "specific_date": [
-              {
-                "year": 774,
-                "month": 5,
-                "day": 10
-              },
-              {
-                "year": 775,
-                "month": 5,
-                "day": 10
-              }
-            ],
-            "all_dates": [
-              "0774-05-10",
-              "0775-05-10"
-            ],
-            "min_date": "0774-05-10",
-            "max_date": "0775-05-10",
-            "days": [
-              "Wednesday",
-              "Tuesday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0079.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0089.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 89",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0089.lat001",
-            "date_string": "MABILLE:782 04<br>MÜHLBACHER:782 04",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0782-04-01",
-                "lte": "0782-04-30"
-              }
-            ],
-            "all_dates": [
-              "0782-04-01",
-              "0782-04-30"
-            ],
-            "min_date": "0782-04-01",
-            "max_date": "0782-04-30",
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0089.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0100.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 100",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0100.lat001",
-            "date_string": "MABILLE:849 06 21<br>BOUQUET:849",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0849-01-01",
-                "lte": "0849-12-31"
-              }
-            ],
-            "specific_date": [
-              {
-                "year": 849,
-                "month": 6,
-                "day": 21
-              }
-            ],
-            "all_dates": [
-              "0849-01-01",
-              "0849-12-31",
-              "0849-06-21"
-            ],
-            "min_date": "0849-01-01",
-            "max_date": "0849-12-31",
-            "days": [
-              "Friday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0100.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0112.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 112",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0112.lat001",
-            "date_string": "MABILLE:895 11 10<br>HERVAULT:996",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0996-01-01",
-                "lte": "0996-12-31"
-              }
-            ],
-            "specific_date": [
-              {
-                "year": 895,
-                "month": 11,
-                "day": 10
-              }
-            ],
-            "all_dates": [
-              "0996-01-01",
-              "0996-12-31",
-              "0895-11-10"
-            ],
-            "min_date": "0895-11-10",
-            "max_date": "0996-12-31",
-            "days": [
-              "Monday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0112.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0115.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 115",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0115.lat001",
-            "date_string": "MABILLE:896 02 15",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "specific_date": [
-              {
-                "year": 896,
-                "month": 2,
-                "day": 15
-              }
-            ],
-            "all_dates": [
-              "0896-02-15"
-            ],
-            "min_date": "0896-02-15",
-            "max_date": "0896-02-15",
-            "days": [
-              "Sunday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0115.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0130.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 130",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0130.lat001",
-            "date_string": "MABILLE:996 09 26<br>HERVAULT:996",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0996-01-01",
-                "lte": "0996-12-31"
-              }
-            ],
-            "specific_date": [
-              {
-                "year": 996,
-                "month": 9,
-                "day": 26
-              }
-            ],
-            "all_dates": [
-              "0996-01-01",
-              "0996-12-31",
-              "0996-09-26"
-            ],
-            "min_date": "0996-01-01",
-            "max_date": "0996-12-31",
-            "days": [
-              "Saturday"
-            ],
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0130.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0133.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 133",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0133.lat001",
-            "date_string": "MABILLE:720<br>HERVAULT:720",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0720-01-01",
-                "lte": "0720-12-31"
-              }
-            ],
-            "all_dates": [
-              "0720-01-01",
-              "0720-12-31"
-            ],
-            "min_date": "0720-01-01",
-            "max_date": "0720-12-31",
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0133.lat001"
-          ]
-        },
-        {
-          "_index": "pancarte_noir_internal_v3",
-          "_id": "urn:cts:formulae:pancarte_noir_internal.mabille0134.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 134",
-            "keywords": "",
-            "urn": "urn:cts:formulae:pancarte_noir_internal.mabille0134.lat001",
-            "date_string": "MABILLE:786 06<br>HAURÉAU:786",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "pancarte_noir_internal",
-            "forgery": false,
-            "dating": [
-              {
-                "gte": "0786-06-01",
-                "lte": "0786-06-30"
-              },
-              {
-                "gte": "0786-01-01",
-                "lte": "0786-12-31"
-              }
-            ],
-            "all_dates": [
-              "0786-06-01",
-              "0786-06-30",
-              "0786-01-01",
-              "0786-12-31"
-            ],
-            "min_date": "0786-01-01",
-            "max_date": "0786-12-31",
-            "sort_prefix": 1
-          },
-          "highlight": {
-            "text": [
-              "text"
-            ]
-          },
-          "sort": [
-            1,
-            "urn:cts:formulae:pancarte_noir_internal.mabille0134.lat001"
-          ]
-        },
-        {
-          "_index": "papsturkunden_frankreich_v7",
+          "_index": "papsturkunden_frankreich_v21",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0039.lat001",
           "_score": null,
           "_source": {
@@ -5831,7 +4878,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v7",
+          "_index": "papsturkunden_frankreich_v21",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0186.lat001",
           "_score": null,
           "_source": {
@@ -5874,7 +4921,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v7",
+          "_index": "papsturkunden_frankreich_v21",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0256.lat001",
           "_score": null,
           "_source": {
@@ -5917,7 +4964,7 @@
           ]
         },
         {
-          "_index": "passau_v7",
+          "_index": "passau_v21",
           "_id": "urn:cts:formulae:passau.heuwieser0046.lat001",
           "_score": null,
           "_source": {
@@ -5963,7 +5010,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0005.lat001",
           "_score": null,
           "_source": {
@@ -5994,7 +5041,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0009.lat001",
           "_score": null,
           "_source": {
@@ -6040,7 +5087,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0010.lat001",
           "_score": null,
           "_source": {
@@ -6086,7 +5133,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0016.lat001",
           "_score": null,
           "_source": {
@@ -6132,7 +5179,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0018.lat001",
           "_score": null,
           "_source": {
@@ -6178,7 +5225,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0019.lat001",
           "_score": null,
           "_source": {
@@ -6209,7 +5256,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0025.lat001",
           "_score": null,
           "_source": {
@@ -6255,7 +5302,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0026.lat001",
           "_score": null,
           "_source": {
@@ -6301,7 +5348,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0027.lat001",
           "_score": null,
           "_source": {
@@ -6347,7 +5394,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0031.lat001",
           "_score": null,
           "_source": {
@@ -6393,7 +5440,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0032.lat001",
           "_score": null,
           "_source": {
@@ -6436,7 +5483,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0035.lat001",
           "_score": null,
           "_source": {
@@ -6467,8 +5514,8 @@
             "min_date": "0757-04-03",
             "max_date": "0757-04-03",
             "days": [
-              "Lent",
-              "Sunday"
+              "Sunday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -6483,7 +5530,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0036.lat001",
           "_score": null,
           "_source": {
@@ -6529,7 +5576,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v7",
+          "_index": "pippin_3_v21",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0040.lat001",
           "_score": null,
           "_source": {
@@ -6560,7 +5607,7 @@
           ]
         },
         {
-          "_index": "raetien_v7",
+          "_index": "raetien_v21",
           "_id": "urn:cts:formulae:raetien.erhart0001.lat001",
           "_score": null,
           "_source": {
@@ -6606,7 +5653,7 @@
           ]
         },
         {
-          "_index": "raetien_v7",
+          "_index": "raetien_v21",
           "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
           "_score": null,
           "_source": {
@@ -6652,7 +5699,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0001.lat001",
           "_score": null,
           "_source": {
@@ -6695,7 +5742,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0006.lat001",
           "_score": null,
           "_source": {
@@ -6741,7 +5788,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0013.lat001",
           "_score": null,
           "_source": {
@@ -6787,7 +5834,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0018.lat001",
           "_score": null,
           "_source": {
@@ -6833,7 +5880,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0020.lat001",
           "_score": null,
           "_source": {
@@ -6879,7 +5926,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0022.lat001",
           "_score": null,
           "_source": {
@@ -6925,7 +5972,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0023.lat001",
           "_score": null,
           "_source": {
@@ -6968,7 +6015,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0024.lat001",
           "_score": null,
           "_source": {
@@ -7014,7 +6061,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0025.lat001",
           "_score": null,
           "_source": {
@@ -7060,7 +6107,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0035.lat001",
           "_score": null,
           "_source": {
@@ -7106,7 +6153,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0036.lat001",
           "_score": null,
           "_source": {
@@ -7149,7 +6196,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0037.lat001",
           "_score": null,
           "_source": {
@@ -7202,7 +6249,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0041.lat001",
           "_score": null,
           "_source": {
@@ -7248,7 +6295,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0050.lat001",
           "_score": null,
           "_source": {
@@ -7294,7 +6341,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0054.lat001",
           "_score": null,
           "_source": {
@@ -7331,8 +6378,8 @@
             "min_date": "0863-05-18",
             "max_date": "0864-05-18",
             "days": [
-              "Thursday",
-              "Tuesday"
+              "Tuesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -7347,7 +6394,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0062.lat001",
           "_score": null,
           "_source": {
@@ -7393,7 +6440,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0069.lat001",
           "_score": null,
           "_source": {
@@ -7439,7 +6486,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0070.lat001",
           "_score": null,
           "_source": {
@@ -7482,7 +6529,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0071.lat001",
           "_score": null,
           "_source": {
@@ -7525,7 +6572,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0072.lat001",
           "_score": null,
           "_source": {
@@ -7568,7 +6615,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0075.lat001",
           "_score": null,
           "_source": {
@@ -7611,7 +6658,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0076.lat001",
           "_score": null,
           "_source": {
@@ -7657,7 +6704,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0077.lat001",
           "_score": null,
           "_source": {
@@ -7709,7 +6756,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0078.lat001",
           "_score": null,
           "_source": {
@@ -7756,7 +6803,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0079.lat001",
           "_score": null,
           "_source": {
@@ -7803,7 +6850,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0083.lat001",
           "_score": null,
           "_source": {
@@ -7850,7 +6897,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0097.lat001",
           "_score": null,
           "_source": {
@@ -8475,13 +7522,13 @@
             "min_date": "0800-02-09",
             "max_date": "0899-02-09",
             "days": [
-              "Lent",
-              "Monday",
-              "Sunday",
-              "Friday",
-              "Thursday",
               "Wednesday",
               "Tuesday",
+              "Monday",
+              "Sunday",
+              "Lent",
+              "Friday",
+              "Thursday",
               "Saturday"
             ],
             "sort_prefix": 1
@@ -8497,7 +7544,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0098.lat001",
           "_score": null,
           "_source": {
@@ -8543,7 +7590,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0100.lat001",
           "_score": null,
           "_source": {
@@ -8595,7 +7642,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0102.lat001",
           "_score": null,
           "_source": {
@@ -8641,7 +7688,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0113.lat001",
           "_score": null,
           "_source": {
@@ -8687,7 +7734,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0114.lat001",
           "_score": null,
           "_source": {
@@ -8739,7 +7786,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0117.lat001",
           "_score": null,
           "_source": {
@@ -8785,7 +7832,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0119.lat001",
           "_score": null,
           "_source": {
@@ -8816,7 +7863,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0122.lat001",
           "_score": null,
           "_source": {
@@ -8859,7 +7906,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0123.lat001",
           "_score": null,
           "_source": {
@@ -8905,7 +7952,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0129.lat001",
           "_score": null,
           "_source": {
@@ -8948,7 +7995,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0137.lat001",
           "_score": null,
           "_source": {
@@ -8994,7 +8041,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0154.lat001",
           "_score": null,
           "_source": {
@@ -9040,7 +8087,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0159.lat001",
           "_score": null,
           "_source": {
@@ -9086,7 +8133,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0174.lat001",
           "_score": null,
           "_source": {
@@ -9133,7 +8180,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0176.lat001",
           "_score": null,
           "_source": {
@@ -9179,7 +8226,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0177.lat001",
           "_score": null,
           "_source": {
@@ -9222,7 +8269,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0178.lat001",
           "_score": null,
           "_source": {
@@ -9268,7 +8315,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0179.lat001",
           "_score": null,
           "_source": {
@@ -9311,7 +8358,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0183.lat001",
           "_score": null,
           "_source": {
@@ -9354,7 +8401,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0189.lat001",
           "_score": null,
           "_source": {
@@ -9397,7 +8444,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0190.lat001",
           "_score": null,
           "_source": {
@@ -9443,7 +8490,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0194.lat001",
           "_score": null,
           "_source": {
@@ -9489,7 +8536,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0201.lat001",
           "_score": null,
           "_source": {
@@ -9520,8 +8567,8 @@
             "min_date": "0879-03-08",
             "max_date": "0879-03-08",
             "days": [
-              "Lent",
-              "Sunday"
+              "Sunday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -9536,7 +8583,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0204.lat001",
           "_score": null,
           "_source": {
@@ -9582,7 +8629,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0216.lat001",
           "_score": null,
           "_source": {
@@ -9628,7 +8675,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0217.lat001",
           "_score": null,
           "_source": {
@@ -9671,7 +8718,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0221.lat001",
           "_score": null,
           "_source": {
@@ -9717,7 +8764,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0224.lat001",
           "_score": null,
           "_source": {
@@ -9767,8 +8814,8 @@
             "max_date": "0871-02-03",
             "days": [
               "Friday",
-              "Thursday",
               "Tuesday",
+              "Thursday",
               "Saturday"
             ],
             "sort_prefix": 1
@@ -9784,7 +8831,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0225.lat001",
           "_score": null,
           "_source": {
@@ -9830,7 +8877,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0235.lat001",
           "_score": null,
           "_source": {
@@ -9876,7 +8923,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0238.lat001",
           "_score": null,
           "_source": {
@@ -9922,7 +8969,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0239.lat001",
           "_score": null,
           "_source": {
@@ -9968,7 +9015,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0241.lat001",
           "_score": null,
           "_source": {
@@ -10014,7 +9061,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0244.lat001",
           "_score": null,
           "_source": {
@@ -10060,7 +9107,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0258.lat001",
           "_score": null,
           "_source": {
@@ -10106,7 +9153,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0263.lat001",
           "_score": null,
           "_source": {
@@ -10152,7 +9199,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0269.lat001",
           "_score": null,
           "_source": {
@@ -10198,7 +9245,7 @@
           ]
         },
         {
-          "_index": "redon_v7",
+          "_index": "redon_v21",
           "_id": "urn:cts:formulae:redon.courson0282.lat001",
           "_score": null,
           "_source": {
@@ -10244,7 +9291,7 @@
           ]
         },
         {
-          "_index": "rheinisch_v7",
+          "_index": "rheinisch_v21",
           "_id": "urn:cts:formulae:rheinisch.wisplinghoff0069.lat001",
           "_score": null,
           "_source": {
@@ -10290,7 +9337,7 @@
           ]
         },
         {
-          "_index": "rheinisch_v7",
+          "_index": "rheinisch_v21",
           "_id": "urn:cts:formulae:rheinisch.wisplinghoff0299.lat001",
           "_score": null,
           "_source": {
@@ -10333,7 +9380,7 @@
           ]
         },
         {
-          "_index": "saint_bénigne_v7",
+          "_index": "saint_bénigne_v21",
           "_id": "urn:cts:formulae:saint_bénigne.maurice0026.lat001",
           "_score": null,
           "_source": {
@@ -10376,7 +9423,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v7",
+          "_index": "schaeftlarn_v21",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0018.lat001",
           "_score": null,
           "_source": {
@@ -10419,7 +9466,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v7",
+          "_index": "schaeftlarn_v21",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0020.lat001",
           "_score": null,
           "_source": {
@@ -10450,8 +9497,8 @@
             "min_date": "0806-03-29",
             "max_date": "0806-03-29",
             "days": [
-              "Lent",
-              "Sunday"
+              "Sunday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -10466,7 +9513,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v7",
+          "_index": "schaeftlarn_v21",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0021.lat001",
           "_score": null,
           "_source": {
@@ -10512,7 +9559,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0003.lat001",
           "_score": null,
           "_source": {
@@ -10567,10 +9614,10 @@
             "min_date": "0716-01-16",
             "max_date": "0720-01-16",
             "days": [
+              "Tuesday",
               "Monday",
               "Sunday",
               "Thursday",
-              "Tuesday",
               "Saturday"
             ],
             "sort_prefix": 1
@@ -10586,7 +9633,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0008.lat001",
           "_score": null,
           "_source": {
@@ -10632,7 +9679,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
           "_score": null,
           "_source": {
@@ -10678,7 +9725,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0262.lat001",
           "_score": null,
           "_source": {
@@ -10724,7 +9771,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0426.lat001",
           "_score": null,
           "_source": {
@@ -10770,7 +9817,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0493.lat001",
           "_score": null,
           "_source": {
@@ -10836,7 +9883,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0494.lat001",
           "_score": null,
           "_source": {
@@ -10882,7 +9929,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0573.lat001",
           "_score": null,
           "_source": {
@@ -10928,7 +9975,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0591.lat001",
           "_score": null,
           "_source": {
@@ -10974,7 +10021,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0664.lat001",
           "_score": null,
           "_source": {
@@ -11020,7 +10067,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0683.lat001",
           "_score": null,
           "_source": {
@@ -11066,7 +10113,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0685.lat001",
           "_score": null,
           "_source": {
@@ -11112,7 +10159,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0733.lat001",
           "_score": null,
           "_source": {
@@ -11159,7 +10206,7 @@
           ]
         },
         {
-          "_index": "stgallen_v7",
+          "_index": "stgallen_v21",
           "_id": "urn:cts:formulae:stgallen.wartmann0778.lat001",
           "_score": null,
           "_source": {
@@ -11206,7 +10253,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v4",
+          "_index": "telma_marmoutier_v18",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3187.lat001",
           "_score": null,
           "_source": {
@@ -11249,7 +10296,7 @@
           ]
         },
         {
-          "_index": "tours_st_julien_denis_v7",
+          "_index": "tours_st_julien_denis_v21",
           "_id": "urn:cts:formulae:tours_st_julien_denis.denis0005.lat001",
           "_score": null,
           "_source": {
@@ -11292,7 +10339,7 @@
           ]
         },
         {
-          "_index": "tours_st_julien_fragments_v7",
+          "_index": "tours_st_julien_fragments_v21",
           "_id": "urn:cts:formulae:tours_st_julien_fragments.grandmaison0005.lat001",
           "_score": null,
           "_source": {
@@ -11335,7 +10382,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v7",
+          "_index": "weissenburg_v21",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0005.lat001",
           "_score": null,
           "_source": {
@@ -11381,7 +10428,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v7",
+          "_index": "weissenburg_v21",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
           "_score": null,
           "_source": {
@@ -11427,7 +10474,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v7",
+          "_index": "weissenburg_v21",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0203.lat001",
           "_score": null,
           "_source": {

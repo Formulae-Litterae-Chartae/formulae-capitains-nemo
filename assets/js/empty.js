@@ -671,20 +671,36 @@ $(document).ready(function () {
         var containerWidth = container.width();
         controlledColumn.addClass('d-none');
         container.toggleClass('card');
-        container.width( containerWidth );
-        container.attr('origWidth', containerWidth);
-        container.animate({width: 16});
+        $( '#show-column-list' ).removeClass('d-none');
         $( this ).addClass('d-none');
-        $( this ).siblings('.mssColumnShow').removeClass('d-none');
+        $( $( this ).attr('data-sibling') ).removeClass('d-none');
+        if ( $('.mssColumnHide.d-none').length == $('.mssColumnHide').length ) {
+            $( '#hide-column-list' ).addClass('d-none');
+        }
     })
     
     $('.mssColumnShow').click(function() {
         var controlledColumn = $('.' + $( this ).attr('aria-controls') );
         var container = $( '#' + $( this ).attr('aria-controls') );
-        var containerWidth = container.attr('origWidth');
         controlledColumn.removeClass('d-none');
-        container.animate({width: containerWidth}, function() {container.toggleClass('card');} );
+        container.toggleClass('card');
+        $( '#hide-column-list' ).removeClass('d-none');
         $( this ).addClass('d-none');
-        $( this ).siblings('.mssColumnHide').removeClass('d-none');
+        $( $( this ).attr('data-sibling') ).removeClass('d-none');
+        if ( $('.mssColumnShow.d-none').length == $('.mssColumnShow').length ) {
+            $( '#show-column-list' ).addClass('d-none');
+        }
+    })
+    
+    $('#show-regest-control').click(function() {
+        $('.ms-regesten').removeClass('d-none');
+        $( this ).addClass('d-none');
+        $('#hide-regest-control').removeClass('d-none');
+    })
+    
+    $('#hide-regest-control').click(function() {
+        $('.ms-regesten').addClass('d-none');
+        $( this ).addClass('d-none');
+        $('#show-regest-control').removeClass('d-none');
     })
 })
