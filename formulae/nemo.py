@@ -1686,19 +1686,28 @@ class NemoFormulae(Nemo):
         """
         videos = {_('Suche'):
                       {_('01 - Die Einfache Suche'):
-                           {'video': 'videos/einfache_suche.mp4',
+                           {'video': 'videos/einfache_suche_de.mp4',
                             'subtitles': (('de', 'Deutsch', 'videos/einfache_suche_de.vtt'),
                                           ('en', 'English', 'videos/einfache_suche_en.vtt'))},
                        _('02 - Suchergebnisse herunterladen'):
-                           {'video': 'videos/suchergebnisse_herunterladen.mp4',
+                           {'video': 'videos/suchergebnisse_herunterladen_de.mp4',
                             'subtitles': (('de', 'Deutsch', 'videos/suchergebnisse_herunterladen_de.vtt'),
                                           ('en', 'English', 'videos/suchergebnisse_herunterladen_en.vtt'))},
                        _('03 - Suchergebnisse in ihrem Benutzerkonto speichern'):
-                           {'video': 'videos/suchergebnisse_speichern.mp4',
+                           {'video': 'videos/suchergebnisse_speichern_de.mp4',
                             'subtitles': (('de', 'Deutsch', 'videos/suchergebnisse_speichern_de.vtt'),
                                           ('en', 'English', 'videos/suchergebnisse_speichern_en.vtt'))}
                        }
                   }
+        # Load transcripts from .txt files
+        for v in videos.values():
+            for v1 in v.values():
+                v1['transcripts'] = []
+                for code, language, path in v1['subtitles']:
+                    transcript_filename = os.path.join(self.static_folder, path.replace('.vtt', '.txt'))
+                    if os.path.isfile(transcript_filename):
+                        with open(transcript_filename) as f:
+                            v1['transcripts'].append((language, f.read()))
         return {"template": "main::videos.html", 'videos': videos}
 
     def extract_notes(self, text: str) -> str:

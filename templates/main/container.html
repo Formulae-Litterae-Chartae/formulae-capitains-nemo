@@ -1,4 +1,5 @@
 {% import 'bootstrap/wtf.html' as wtf %}
+{% import "main::video_transcripts.html" as video_transcripts %}
 
 <!DOCTYPE html>
 <html lang="{{ get_locale() }}">
@@ -78,6 +79,7 @@
             </div>
         </div>
         </div>
+        {% include "main::video_modal.html" %}
     {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
     <div class="row pb-0">
