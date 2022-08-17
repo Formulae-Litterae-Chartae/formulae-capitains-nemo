@@ -1,4 +1,5 @@
 {% import 'bootstrap/wtf.html' as wtf %}
+{% import "main::video_transcripts.html" as video_transcripts %}
 
 <!DOCTYPE html>
 <html lang="{{ get_locale() }}">
@@ -78,30 +79,7 @@
             </div>
         </div>
         </div>
-        <div class="modal video-modal" id="simpleSearchVideoModal" tabindex="-1" aria-labelledby="simpleSearchVideoModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="simpleSearchVideoModalLabel">{{ _('Die Einfache Suche') }}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video controls src="{{ url_for('InstanceNemo.static', filename='videos/einfache_suche.mp4') }}" >
-                            <track label="Deutsch" kind="subtitles" srclang="de" src="{{ url_for('InstanceNemo.static', filename='videos/einfache_suche_de.vtt') }}">
-                            {{ _('Ihr Browser kann keine eingebetteten Videos zeigen.') }}
-                        </video>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-                </div>
-            </div>
-        </div>
+        {% include "main::video_modal.html" %}
     {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
     <div class="row pb-0">

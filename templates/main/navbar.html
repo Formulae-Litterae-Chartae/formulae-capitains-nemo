@@ -18,9 +18,11 @@
                         <a class="dropdown-item" href="{{ url_for('auth.r_user', username=current_user.username) }}" id="profile-link" data-toggle="tooltip" data-container="#profile-link">{{ _('Benutzerprofil ändern') }}</a>
                         {% if g.save_page_form %}
                         <!-- Button trigger modal -->
-                        <a class="dropdown-item" role="button" data-toggle="modal" data-target="#savePageModal">
+                        <span class="dropdown-item"><a role="button" data-toggle="modal" data-target="#savePageModal">
                         {{ _('Diese Seite speichern') }}
-                        </a>
+                        </a><a type="button" role="button" class="btn btn-link py-0 pr-0 pl-1" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ _('Suchergebnisse speichern') }}" data-videosource="{{ url_for('InstanceNemo.static', filename='videos/suchergebnisse_speichern_de.mp4') }}" data-transcriptde="{{ video_transcripts.suchergebnisse_speichern_de }}" data-transcripten="{{ video_transcripts.suchergebnisse_speichern_en }}" data-videolanguage="de">
+                <i class="fas fa-question-circle"></i>
+            </a></span>
                         {% endif %}
                         <a class="dropdown-item" href="{{ url_for('auth.r_saved_pages') }}">{{ _('Gespeicherte Seiten') }}</a>
                         <a class="dropdown-item" href="{{ url_for('auth.r_logout') }}">{{ _('Ausloggen') }}</a>
