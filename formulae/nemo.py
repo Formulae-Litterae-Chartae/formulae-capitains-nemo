@@ -97,6 +97,7 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['anjou',
                         'chartae_latinae',
                         'fulda',
+                        'other_formulae',
                         'rheinland',
                         'touraine',
                         'urn:cts:formulae:andecavensis',
@@ -113,6 +114,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:echternach',
                         'urn:cts:formulae:eudes',
                         'urn:cts:formulae:flavigny',
+                        'urn:cts:formulae:formulae_marculfinae',
                         'urn:cts:formulae:freising',
                         'urn:cts:formulae:fu2',
                         'urn:cts:formulae:fulda_dronke',
@@ -201,7 +203,7 @@ class NemoFormulae(Nemo):
                               "urn:cts:formulae:marmoutier_vendomois_appendix",
                               "urn:cts:formulae:marmoutier_dunois",
                               "urn:cts:formulae:anjou_archives",
-                              "display_flavigny_formulae"]
+                              "other_formulae"]
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
                         "eng": _l("Englisch"), "cat": _l("Katalanisch"), "ita": _l("Italienisch")}
@@ -849,7 +851,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in a given collection
         """
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
-        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|display_flavigny_formulae', objectId)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae', objectId)
         direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
         if self.check_project_team() is False:
             if not from_four_level_collection:
@@ -1199,7 +1201,7 @@ class NemoFormulae(Nemo):
         members = self.make_members(collection, lang=lang)
         for m in members:
             m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'
-        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae', objectId)
         if self.check_project_team() is False:
             if not from_four_level_collection:
                 members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
