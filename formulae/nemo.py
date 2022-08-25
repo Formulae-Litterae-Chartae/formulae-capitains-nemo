@@ -97,6 +97,7 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['anjou',
                         'chartae_latinae',
                         'fulda',
+                        'other_formulae',
                         'rheinland',
                         'touraine',
                         'urn:cts:formulae:andecavensis',
@@ -113,6 +114,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:echternach',
                         'urn:cts:formulae:eudes',
                         'urn:cts:formulae:flavigny',
+                        'urn:cts:formulae:formulae_marculfinae',
                         'urn:cts:formulae:freising',
                         'urn:cts:formulae:fu2',
                         'urn:cts:formulae:fulda_dronke',
@@ -201,7 +203,7 @@ class NemoFormulae(Nemo):
                               "urn:cts:formulae:marmoutier_vendomois_appendix",
                               "urn:cts:formulae:marmoutier_dunois",
                               "urn:cts:formulae:anjou_archives",
-                              "display_flavigny_formulae"]
+                              "other_formulae"]
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
                         "eng": _l("Englisch"), "cat": _l("Katalanisch"), "ita": _l("Italienisch")}
@@ -482,7 +484,10 @@ class NemoFormulae(Nemo):
                             par += '-' + par_parts.group(2)
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
-                    form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
+                    if collection == "urn:cts:formulae:formulae_marculfinae":
+                        form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if re.search(r'marculfinae|marculf|salzburg', x)][0]
+                    else:
+                        form_num = [x for x in self.resolver.id_to_coll[list(m.parent)[0]].parent if collection in x][0]
                     par = re.sub(r'.*?(\d+\w*)\Z', r'\1', form_num)
                     if 'marculf' in form_num:
                         if 'capitula' in form_num:
@@ -849,7 +854,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in a given collection
         """
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
-        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|display_flavigny_formulae', objectId)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae', objectId)
         direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
         if self.check_project_team() is False:
             if not from_four_level_collection:
@@ -859,7 +864,7 @@ class NemoFormulae(Nemo):
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
         if not from_four_level_collection and 'defaultTic' not in direct_parents and direct_parents != ['display_collection']:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
-        if len(data['collections']['members']) == 1:
+        if len(data['collections']['members']) == 1 and objectId != 'other_formulae':
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         for m in data['collections']['members']:
             m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'
@@ -963,6 +968,30 @@ class NemoFormulae(Nemo):
                                    'name': work_name,
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
                                    'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or '')})
+
+        for k, v in collection.children.items():
+            if not v.children:
+                replacement_data = [str(v.metadata.get_single(DCTERMS.isPartOf) or ''),
+                                    str(v.metadata.get_single(DCTERMS.isReplacedBy) or '')]
+                if all(replacement_data):
+                    par = re.sub(r'.*?(\d+\w*)\Z', r'\1', k)
+                    replacement_md = self.resolver.getMetadata(replacement_data[-1])
+                    regest = [Markup(replacement_md.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(replacement_md.metadata.get_single(DC.description)).split('***')]
+                    short_regest = str(replacement_md.metadata.get_single(DCTERMS.abstract)) or ''
+                    replacement_par = re.sub(r'.*?(\d+\w*)\Z', r'\1', list(replacement_md.parent)[0])
+                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                              "short_regest": short_regest,
+                              "regest": regest,
+                              "dating": '',
+                              "ausstellungsort": '',
+                              'name': v.metadata.get_single(DC.title),
+                              'title': v.metadata.get_single(DC.title),
+                              'transcribed_edition': [],
+                              'parent_id': '',
+                              'alt_link': url_for('InstanceNemo.r_corpus', objectId=replacement_data[0]) + '#N' + replacement_par,
+                              'alt_title': Markup(replacement_md.metadata.get_single(DC.title) or '').replace(' (lat)', '')}
+        r = OrderedDict(sorted(r.items()))
+
         for k in r.keys():
             r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
                                                                key=lambda x: int(x[2][1])),
@@ -1199,7 +1228,7 @@ class NemoFormulae(Nemo):
         members = self.make_members(collection, lang=lang)
         for m in members:
             m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'
-        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae', objectId)
         if self.check_project_team() is False:
             if not from_four_level_collection:
                 members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]

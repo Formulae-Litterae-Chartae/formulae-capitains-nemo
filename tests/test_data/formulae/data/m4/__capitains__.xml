@@ -13,6 +13,8 @@
       <bib:AbbreviatedTitle>M&lt;span class="manuscript-number"&gt;4&lt;/span&gt;</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
+      <collection path="./33r/__capitains__.xml"
+         identifier="urn:cts:formulae:m4.33r"/>
       <collection path="./60v61v/__capitains__.xml"
                   identifier="urn:cts:formulae:m4.60v61v"/>
    </members>

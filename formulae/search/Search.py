@@ -40,6 +40,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Echternach</b>: Echternach': {'match': {'collection': 'echternach'}},
                                       '<b>E-Lexikon</b>': {'match': {'collection': 'elexicon'}},
                                       '<b>Flavigny</b>: Flavigny': {'match': {'collection': 'flavigny'}},
+                                      '<b>Formulae Marculfinae</b>: Formulae Marculfinae': {'match': {'collection': 'formulae_marculfinae'}},
                                       '<b>Freising</b>: Freising': {'match': {'collection': 'freising'}},
                                       '<b>Fulda</b>: Fulda (Dronke)': {'match': {'collection': 'fulda_dronke'}},
                                       '<b>Fulda</b>: Fulda (Stengel)': {'match': {'collection': 'fulda_stengel'}},

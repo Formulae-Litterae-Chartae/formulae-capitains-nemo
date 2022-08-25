@@ -555,6 +555,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             re_sub_coll = re.compile(r'\[Edition\].+\[Deutsche Übersetzung\].+Transkription/Manuskriptbild', re.DOTALL)
             self.assertRegex(r.get_data(as_text=True), re_sub_coll)
+            r = c.get('/corpus/urn:cts:formulae:formulae_marculfinae', follow_redirects=True)
+            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
+            c_v = self.get_context_variable('collections')
+            self.assertEqual(c_v['readable']['008']['alt_title'], 'Marculf II,11')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertNotIn('text-section no-copy', r.get_data(as_text=True))
@@ -1635,12 +1639,16 @@ class TestFunctions(Formulae_Testing):
                                               '[fol.155<span class="verso-recto">v</span>-fol.156<span class="verso-recto">r</span>(2)]']},
                                    {'name': 'm4',
                                     'edition_name': 'M<span class="manuscript-number">4</span>',
-                                    'full_edition_name': 'München BSB clm 4650', 'titles': ['Tours Capitulatio'],
-                                    'links': [['urn:cts:formulae:tours.0_capitula'],
-                                              ['urn:cts:formulae:m4.60v61v.lat001']],
-                                    'ms_images': [True],
-                                    'regesten': [''],
-                                    'folia': ['[fol.60<span class="verso-recto">v</span>-fol.61<span class="verso-recto">v</span>]']},
+                                    'full_edition_name': 'München BSB clm 4650', 'titles': ['Formula Marculfina aevi Karolini 1 [Salzburger Formelmaterial]',
+                                                                                            'Tours Capitulatio'],
+                                    'links': [['urn:cts:formulae:formulae_marculfinae.form001',
+                                               'urn:cts:formulae:tours.0_capitula'],
+                                              ['urn:cts:formulae:m4.33r.lat001',
+                                               'urn:cts:formulae:m4.60v61v.lat001']],
+                                    'ms_images': [False, True],
+                                    'regesten': ['', ''],
+                                    'folia': ['[fol.33<span class="verso-recto">r</span>]',
+                                              '[fol.60<span class="verso-recto">v</span>-fol.61<span class="verso-recto">v</span>]']},
                                    {'name': 'p12',
                                     'edition_name': 'P<span class="manuscript-number">12</span>',
                                     'full_edition_name': 'Paris BNF 4627',
@@ -7418,6 +7426,9 @@ class TestES(Formulae_Testing):
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 152
+          },
+          "<b>Formulae Marculfinae</b>: Formulae Marculfinae": {
+            "doc_count": 0
           },
           "<b>Freising</b>: Freising": {
             "doc_count": 1383
