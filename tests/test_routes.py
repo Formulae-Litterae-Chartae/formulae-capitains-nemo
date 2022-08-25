@@ -555,6 +555,10 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             re_sub_coll = re.compile(r'\[Edition\].+\[Deutsche Übersetzung\].+Transkription/Manuskriptbild', re.DOTALL)
             self.assertRegex(r.get_data(as_text=True), re_sub_coll)
+            r = c.get('/corpus/urn:cts:formulae:formulae_marculfinae', follow_redirects=True)
+            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
+            c_v = self.get_context_variable('collections')
+            self.assertEqual(c_v['readable']['008']['alt_title'], 'Marculf II,11')
             c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertNotIn('text-section no-copy', r.get_data(as_text=True))
@@ -7418,6 +7422,9 @@ class TestES(Formulae_Testing):
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 152
+          },
+          "<b>Formulae Marculfinae</b>: Formulae Marculfinae": {
+            "doc_count": 0
           },
           "<b>Freising</b>: Freising": {
             "doc_count": 1383

@@ -117,10 +117,16 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1525.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1985.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2197.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2848.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3187.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3515.lat001"
@@ -1938,6 +1944,9 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud0029.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud0623.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud0629.lat001"
   },
   {
@@ -1950,6 +1959,9 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1422.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1425.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1434.lat001"
   },
   {
@@ -1959,7 +1971,19 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1439.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1444.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1446.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1458.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1461.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1462.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1467.lat001"
@@ -1968,19 +1992,67 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1478.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1479.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1480.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1485.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1488.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1493.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1498.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1573.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1926.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1972.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1973.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1974.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1975.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1979.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1980.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1981.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1986.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2182.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2184.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2185.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2187.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2188.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2199.lat001"
@@ -1992,10 +2064,34 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2227.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2237.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2240.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2241.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2268.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2270.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2272.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2274.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2275.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2291.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2294.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2617.lat001"
@@ -2007,10 +2103,37 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2799.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2802.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2803.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2806.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2807.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2808.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2826.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2831.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2836.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2849.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2851.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2868.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2869.lat001"
@@ -2037,6 +2160,9 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3151.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3153.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3154.lat001"
   },
   {
@@ -2052,10 +2178,19 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3165.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3166.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3167.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3169.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3172.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3173.lat001"
@@ -2076,7 +2211,16 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3205.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3212.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3215.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3217.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3222.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3228.lat001"
@@ -2100,25 +2244,64 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3516.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3517.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3519.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3526.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3537.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3542.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3577.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3588.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3592.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3593.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3595.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3602.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3603.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3604.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3605.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3606.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3609.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4434.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4541.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4542.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4566.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4656.lat001"
@@ -2137,6 +2320,12 @@
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4884.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4936.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4954.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4966.lat001"
