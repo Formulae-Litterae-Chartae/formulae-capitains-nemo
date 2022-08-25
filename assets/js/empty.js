@@ -735,4 +735,9 @@ $(document).ready(function () {
         });
         deutschVideoLink.toggleClass('d-none');
     })
+    
+    var locationHash = window.location.hash;
+    if ( locationHash ) {
+        $('.corpus-nrs[href="' + locationHash + '"]').click();
+    };
 })
