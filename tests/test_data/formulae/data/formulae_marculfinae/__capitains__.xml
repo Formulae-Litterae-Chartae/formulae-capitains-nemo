@@ -13,6 +13,8 @@
       <bib:AbbreviatedTitle>"Formulae Marculfinae aevi Karolini"</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
+      <collection path="./form001/__capitains__.xml"
+         identifier="urn:cts:formulae:formulae_marculfinae.form001"/>
       <collection path="./form008/__capitains__.xml"
          identifier="urn:cts:formulae:formulae_marculfinae.form008"/>
    </members>
