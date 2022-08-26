@@ -34,7 +34,7 @@
     {% endfor %}
     </h5>
     <h5 id="show-column-list" class="d-none">
-    {{ _('Folgende Spalten anzeigen') }}:
+    <span class="show-more">{{ _('Folgende Spalten anzeigen') }}:</span>
     {% for values in collections.readable.transcriptions %}
     <a id="ms-col-show-{{ values['edition_name']|striptags }}" href="#ms-col-show-{{ values['edition_name']|striptags }}" data-sibling="#ms-col-hide-{{ values['edition_name']|striptags }}" class="mssColumnShow d-none internal-link mx-2" title="{{ _('Zeige') }} {{ values['edition_name']|striptags }} ({{values['full_edition_name']}})" data-toggle="tooltip" data-placement="top" data-container="ms-col-show-{{ values['edition_name']|striptags }}" aria-controls="ms-col-{{loop.index}}" data-html="true">{{values['edition_name']|safe}}</a>
     {% endfor %}
