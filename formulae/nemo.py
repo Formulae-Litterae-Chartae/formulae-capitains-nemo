@@ -203,7 +203,8 @@ class NemoFormulae(Nemo):
                               "urn:cts:formulae:marmoutier_vendomois_appendix",
                               "urn:cts:formulae:marmoutier_dunois",
                               "urn:cts:formulae:anjou_archives",
-                              "other_formulae"]
+                              "other_formulae",
+                              "langobarden"]
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
                         "eng": _l("Englisch"), "cat": _l("Katalanisch"), "ita": _l("Italienisch")}
@@ -854,7 +855,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in a given collection
         """
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
-        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae', objectId)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae|langobarden', objectId)
         direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
         if self.check_project_team() is False:
             if not from_four_level_collection:
