@@ -32,7 +32,7 @@ from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
 from collections import defaultdict, OrderedDict
 from random import randint
 import roman
-from glob import glob
+from itertools import zip_longest
 
 
 class NemoFormulae(Nemo):
@@ -1483,6 +1483,7 @@ class NemoFormulae(Nemo):
         view = 1
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": {}}
         subrefers = subreferences.split('+')
+        all_parent_colls = list()
         if len(subrefers) != len(ids):
             abort(404)
         for i, id in enumerate(ids):
@@ -1500,6 +1501,11 @@ class NemoFormulae(Nemo):
                 d = self.r_passage(id, subref, lang=lang)
                 d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'])
                 del d['template']
+                parent_colls = defaultdict(list)
+                for parent_coll in d['collections']['parents']:
+                    if 'cts:textgroup' in parent_coll['subtype']:
+                        parent_colls[len(parent_coll['ancestors'])].append(parent_coll)
+                all_parent_colls.append([v for k, v in sorted(parent_colls.items())])
                 translations[id] = []
                 for x in d.pop('translations', None):
                     if x[0].id not in ids and x not in translations[id]:
@@ -1584,6 +1590,8 @@ class NemoFormulae(Nemo):
                         filtered_transcriptions.append(x)
                 d['transcriptions'] = filtered_transcriptions
                 passage_data['objects'].append(d)
+        breadcrumb_colls = zip_longest(*all_parent_colls)
+        print(list(breadcrumb_colls))
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         passage_data['translation'] = translations
