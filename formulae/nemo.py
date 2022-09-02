@@ -97,6 +97,8 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['anjou',
                         'chartae_latinae',
                         'fulda',
+                        'herrscher_urkunden',
+                        'langobarden',
                         'other_formulae',
                         'rheinland',
                         'touraine',
@@ -859,9 +861,8 @@ class NemoFormulae(Nemo):
         from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae|langobarden', objectId)
         direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
         if self.check_project_team() is False:
-            if not from_four_level_collection:
-                data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
-            elif set(self.restricted_four_level_collections).intersection([p['id'] for p in data['collections']['parents']] + [objectId]):
+            data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
+            if set(self.restricted_four_level_collections).intersection([p['id'] for p in data['collections']['parents']] + [objectId]):
                 data['collections']['members'] = []
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
         if not from_four_level_collection and 'defaultTic' not in direct_parents and direct_parents != ['display_collection']:
