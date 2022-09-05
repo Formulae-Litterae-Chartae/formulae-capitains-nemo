@@ -1503,10 +1503,13 @@ class NemoFormulae(Nemo):
                 d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'])
                 del d['template']
                 parent_colls = defaultdict(list)
-                for parent_coll in d['collections']['parents']:
-                    if 'cts:textgroup' in parent_coll['subtype']:
-                        parent_colls[len(parent_coll['ancestors'])].append(parent_coll)
-                all_parent_colls.append([v for k, v in sorted(parent_colls.items())])
+                parent_textgroups = [x for x in d['collections']['parents'] if 'cts:textgroup' in x['subtype']]
+                parent_ids = {x['id'] for x in parent_textgroups}
+                for parent_coll in parent_textgroups:
+                    parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
+                print(parent_colls)
+                all_parent_colls.append([(x['id'], x['short_title']) for k, v in sorted(parent_colls.items()) for x in v])
+                print(all_parent_colls)
                 translations[id] = []
                 for x in d.pop('translations', None):
                     if x[0].id not in ids and x not in translations[id]:
@@ -1591,8 +1594,7 @@ class NemoFormulae(Nemo):
                         filtered_transcriptions.append(x)
                 d['transcriptions'] = filtered_transcriptions
                 passage_data['objects'].append(d)
-        breadcrumb_colls = zip_longest(*all_parent_colls)
-        print(list(breadcrumb_colls))
+        passage_data['breadcrumb_colls'] = [set(x) for x in zip_longest(*all_parent_colls)]
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         passage_data['translation'] = translations

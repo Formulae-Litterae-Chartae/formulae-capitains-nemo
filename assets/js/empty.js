@@ -6,7 +6,6 @@ var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
 
 
-
 // This is to deal with the 500 error when flask_babel tries to interpret locale = 'none'
 if (navigator.language == 'none') {
     var request = new XMLHttpRequest();

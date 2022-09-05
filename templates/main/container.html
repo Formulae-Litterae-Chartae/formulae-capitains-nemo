@@ -80,6 +80,16 @@
         </div>
         </div>
         {% include "main::video_modal.html" %}
+    {% if breadcrumb_colls %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="internal-link" href="{{ url_for('InstanceNemo.r_index') }}">Home</a></li>
+            {% for coll_tuple in breadcrumb_colls %}
+            <li class="breadcrumb-item">{% for coll_info in coll_tuple if coll_info %}{% if not loop.last %}//{% endif %}<a class="internal-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=coll_info[0]) }}">{{ coll_info[1]|safe }}</a>{% endfor %}</li>
+            {% endfor %}
+        </ol>
+    </nav>
+    {% endif %}
     {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
     <div class="row pb-0">

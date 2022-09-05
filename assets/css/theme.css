@@ -1159,3 +1159,6 @@ img.disabled {
 ::-webkit-scrollbar-thumb {
     background: #bfbfbf;
 }
+
+
+$breadcrumb-divider: quote(">");
