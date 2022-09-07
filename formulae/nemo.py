@@ -880,10 +880,11 @@ class NemoFormulae(Nemo):
             data['collections']['members'] = sorted(data['collections']['members'], key=lambda x: x['label'])
         all_parent_colls = list()
         parent_colls = defaultdict(list)
-        parent_textgroups = [x for x in current_parents if 'cts:textgroup' in x['subtype']]
-        parent_ids = {x['id'] for x in parent_textgroups}
-        for parent_coll in parent_textgroups:
-            parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
+        # Since r_collection is only used for the top-level collections, the following lines are not needed
+        # parent_textgroups = [x for x in current_parents if 'cts:textgroup' in x['subtype']]
+        # parent_ids = {x['id'] for x in parent_textgroups}
+        # for parent_coll in parent_textgroups:
+        #     parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
         all_parent_colls.append([(x['id'], str(x['short_title'])) for k, v in sorted(parent_colls.items()) for x in v] + [(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
         data['breadcrumb_colls'] = [all_parent_colls]
         return data
@@ -1202,10 +1203,11 @@ class NemoFormulae(Nemo):
 
         all_parent_colls = list()
         parent_colls = defaultdict(list)
-        parent_textgroups = [x for x in current_parents if 'cts:textgroup' in x['subtype']]
-        parent_ids = {x['id'] for x in parent_textgroups}
-        for parent_coll in parent_textgroups:
-            parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
+        # Since corpus_mv is only used for the top-level formulae collections, the following lines are not needed
+        # parent_textgroups = [x for x in current_parents if 'cts:textgroup' in x['subtype']]
+        # parent_ids = {x['id'] for x in parent_textgroups}
+        # for parent_coll in parent_textgroups:
+        #     parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
         all_parent_colls.append([(x['id'], str(x['short_title'])) for k, v in sorted(parent_colls.items()) for x in v] + [(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
 
         return_value = {
