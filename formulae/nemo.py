@@ -1363,6 +1363,8 @@ class NemoFormulae(Nemo):
         identifier = obj.id
         manuscript_id = identifier.split(':')[-1].split('.')[0]
         parts = re.search(r'(\D+)?(\d+)?', manuscript_id).groups('0')
+        if identifier == 'other_formulae':
+            return 'zzz', 1000
         return parts[0], int(parts[1])
 
     def get_transcriptions(self, obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
