@@ -32,7 +32,7 @@ from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
 from collections import defaultdict, OrderedDict
 from random import randint
 import roman
-from glob import glob
+from itertools import zip_longest
 
 
 class NemoFormulae(Nemo):
@@ -857,9 +857,11 @@ class NemoFormulae(Nemo):
         :param lang: Language in which to show the collection's metadata
         :return: Template and collections contained in a given collection
         """
+        collection = self.resolver.getMetadata(objectId)
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae|langobarden', objectId)
         direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
+        current_parents = self.make_parents(collection, lang=lang)
         if self.check_project_team() is False:
             data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
             if set(self.restricted_four_level_collections).intersection([p['id'] for p in data['collections']['parents']] + [objectId]):
@@ -876,6 +878,15 @@ class NemoFormulae(Nemo):
             data['collections']['members'] = sorted(data['collections']['members'], key=lambda x: roman.fromRoman(str(self.resolver.getMetadata(x['id']).metadata.get_single(self.BIBO.AbbreviatedTitle)).split()[-1]))
         else:
             data['collections']['members'] = sorted(data['collections']['members'], key=lambda x: x['label'])
+        all_parent_colls = list()
+        parent_colls = defaultdict(list)
+        # Since r_collection is only used for the top-level collections, the following lines are not needed
+        # parent_textgroups = [x for x in current_parents if 'cts:textgroup' in x['subtype']]
+        # parent_ids = {x['id'] for x in parent_textgroups}
+        # for parent_coll in parent_textgroups:
+        #     parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
+        all_parent_colls.append([(x['id'], str(x['short_title'])) for k, v in sorted(parent_colls.items()) for x in v] + [(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
+        data['breadcrumb_colls'] = [all_parent_colls]
         return data
 
     def r_corpus(self, objectId: str, lang: str = None) -> Dict[str, Any]:
@@ -1006,6 +1017,18 @@ class NemoFormulae(Nemo):
             else:
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
 
+        all_parent_colls = list()
+        parent_colls = defaultdict(list)
+        parent_textgroups = [x for x in current_parents if 'cts:textgroup' in x['subtype']]
+        parent_ids = {x['id'] for x in parent_textgroups}
+        for parent_coll in parent_textgroups:
+            parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
+        for k, v in sorted(parent_colls.items()):
+            if v:
+                all_parent_colls.append([(x['id'], str(x['short_title'])) for x in v])
+        all_parent_colls.append([(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
+
+
         return_value = {
             "template": template,
             "collections": {
@@ -1024,7 +1047,8 @@ class NemoFormulae(Nemo):
                 "first_letters": set([x[0] for x in r.keys()])
             },
             "form": form,
-            'manuscript_notes': self.manuscript_notes
+            'manuscript_notes': self.manuscript_notes,
+            'breadcrumb_colls': [all_parent_colls]
         }
         return return_value
 
@@ -1177,6 +1201,15 @@ class NemoFormulae(Nemo):
 
         current_parents = self.make_parents(collection, lang=lang)
 
+        all_parent_colls = list()
+        parent_colls = defaultdict(list)
+        # Since corpus_mv is only used for the top-level formulae collections, the following lines are not needed
+        # parent_textgroups = [x for x in current_parents if 'cts:textgroup' in x['subtype']]
+        # parent_ids = {x['id'] for x in parent_textgroups}
+        # for parent_coll in parent_textgroups:
+        #     parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
+        all_parent_colls.append([(x['id'], str(x['short_title'])) for k, v in sorted(parent_colls.items()) for x in v] + [(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
+
         return_value = {
             "template": template,
             "collections": {
@@ -1192,7 +1225,8 @@ class NemoFormulae(Nemo):
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
             },
-            'manuscript_notes': self.manuscript_notes
+            'manuscript_notes': self.manuscript_notes,
+            'breadcrumb_colls': [all_parent_colls]
         }
         return return_value
 
@@ -1485,6 +1519,7 @@ class NemoFormulae(Nemo):
         view = 1
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": {}}
         subrefers = subreferences.split('+')
+        all_parent_colls = list()
         if len(subrefers) != len(ids):
             abort(404)
         for i, id in enumerate(ids):
@@ -1502,6 +1537,19 @@ class NemoFormulae(Nemo):
                 d = self.r_passage(id, subref, lang=lang)
                 d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'])
                 del d['template']
+                parent_colls = defaultdict(list)
+                parent_colls[99] = [(id, str(d['collections']['current']['label'].replace('<br>', ' ')))]
+                parent_textgroups = [x for x in d['collections']['parents'] if 'cts:textgroup' in x['subtype']]
+                for parent_coll in parent_textgroups:
+                    grandparent_depths = list()
+                    for grandparent in parent_coll['ancestors'].values():
+                        start_number = 0
+                        if 'cts:textgroup' in grandparent.subtype:
+                            start_number = 1
+                        grandparent_depths.append(len([x for x in self.make_parents(grandparent) if 'cts:textgroup' in x['subtype']]) + start_number)
+                    max_grandparent_depth = max(grandparent_depths)
+                    parent_colls[max_grandparent_depth].append((parent_coll['id'], str(parent_coll['short_title'])))
+                all_parent_colls.append([v for k, v in sorted(parent_colls.items())])
                 translations[id] = []
                 for x in d.pop('translations', None):
                     if x[0].id not in ids and x not in translations[id]:
@@ -1586,6 +1634,7 @@ class NemoFormulae(Nemo):
                         filtered_transcriptions.append(x)
                 d['transcriptions'] = filtered_transcriptions
                 passage_data['objects'].append(d)
+        passage_data['breadcrumb_colls'] = all_parent_colls
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         passage_data['translation'] = translations

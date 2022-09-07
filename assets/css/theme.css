@@ -1159,3 +1159,17 @@ img.disabled {
 ::-webkit-scrollbar-thumb {
     background: #bfbfbf;
 }
+
+.breadcrumb-item.first-breadcrumb + .breadcrumb-item.first-breadcrumb::before {
+	display: inline-block;
+	padding-right: .5rem;
+	color: black;
+	content: "→";
+}
+
+.breadcrumb-item.next-breadcrumb + .breadcrumb-item.first-breadcrumb::before {
+	display: inline-block;
+	padding-right: .5rem;
+	color: black;
+	content: "⤷";
+}

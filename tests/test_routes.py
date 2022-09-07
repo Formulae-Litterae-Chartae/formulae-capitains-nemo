@@ -263,8 +263,10 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/collections', follow_redirects=True)
             self.assertIn('main::collection.html', [x[0].name for x in self.templates])
             c.get('/collections/formulae_collection', follow_redirects=True)
+            self.assertEqual(self.get_context_variable('breadcrumb_colls'), [[[('formulae_collection', 'Formulae')]]])
             self.assertIn('main::sub_collections.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:andecavensis', follow_redirects=True)
+            self.assertEqual(self.get_context_variable('breadcrumb_colls'), [[[('urn:cts:formulae:andecavensis', 'Angers')]]])
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             r = c.get('/corpus/urn:cts:formulae:andecavensis', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
@@ -276,6 +278,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::salzburg_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
+            self.assertEqual(self.get_context_variable('breadcrumb_colls'), [[[('urn:cts:formulae:fu2', 'Fu<span class="manuscript-number">2</span>')]]])
             c.get('/collections/urn:cts:formulae:ko2', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             r = c.get('/collections/urn:cts:formulae:katalonien', follow_redirects=True)
@@ -290,6 +293,11 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(data['collections']['members'], [])
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            self.assertEqual(self.get_context_variable('breadcrumb_colls'),
+                             [[[('urn:cts:formulae:stgallen', 'Urkundenbuch St. Gallen')],
+                               [('urn:cts:formulae:stgallen.wartmann0001.lat001', 'Urkundenbuch der Abtei Sanct Gallen (Ed. Wartmann) Nr. 1')]],
+                              [[('urn:cts:formulae:salzburg', 'Salzburger Urkundenbuch')],
+                               [('urn:cts:formulae:salzburg.hauthaler-a0001.lat001', 'Salzburger Urkundenbuch (Ed. Hauthaler); Codex A Nummer 1')]]])
             # Check for backwards compatibility of URLs
             c.get('/texts/urn:cts:formulae:stgallen.wartmann0001.lat001+urn:cts:formulae:salzburg.hauthaler-a0001.lat001/passage/1+first', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
@@ -571,6 +579,9 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             r = c.get('/texts/urn:cts:formulae:marculf.form000.lat001+urn:cts:formulae:p3.105va106rb.lat001/passage/all+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
+            self.assertCountEqual(self.get_context_variable('breadcrumb_colls')[1][0],
+                             [('urn:cts:formulae:marculf', 'Marculf'),
+                              ('urn:cts:formulae:p3', 'P<span class="manuscript-number">3</span>')])
             d = self.get_context_variable('objects')
             self.assertEqual(d[0]['collections']['current']['mss_eds'],
                              ['P<span class="subscript smaller-text">12</span>, P<span class="subscript smaller-text">3</span><span class="verso-recto"> </span>',
