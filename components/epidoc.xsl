@@ -74,6 +74,9 @@
                         <xsl:attribute name="tabindex">0</xsl:attribute>
                         <xsl:attribute name="role">button</xsl:attribute>
                         <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
+                        <xsl:attribute name="data-toggle">modal</xsl:attribute>
+                        <xsl:attribute name="data-target">#lexicon-modal</xsl:attribute>
+                        <xsl:attribute name="data-dismiss">modal</xsl:attribute>
                     </xsl:if>
                     <xsl:if test="ancestor::t:seg[contains(@type, 'latin-word')]">
                         <xsl:attribute name="lang"><xsl:text>la</xsl:text></xsl:attribute>
