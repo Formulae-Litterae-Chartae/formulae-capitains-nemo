@@ -143,11 +143,11 @@ $(document).ready(function(){
     
     $('span.w.lexicon').on({
         click: function() {
-            showLexEntry($( this ));
+            lexModal.modal('show', $( this ));
         },
         keydown: function(event) {
             if (event.key == "Enter" || event.key == " ") {
-                showLexEntry($( this ));
+                lexModal.modal('show', $( this ));
             }
             $( this ).tooltip('hide');
         },
@@ -191,6 +191,30 @@ $(document).ready(function(){
         $(this).css({
             'height': maxHeight - minusHeight
         })
+    })
+    
+    
+    lexModal.on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var lemma = button.data('lexicon'); // Extract info from data-* attributes
+        var request = new XMLHttpRequest();
+        var message = lexModal.attr('message');
+        var subdomain = '';
+        if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+            subdomain = '/dev'
+        }
+        request.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    lexModal.html(this.responseText);
+                    lexModal.modal('show', button);
+                } else {
+                    alert(message + lemma)
+                }
+            }
+        };
+        request.open('GET', subdomain + '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
+        request.send()
     })
 })
 
@@ -317,27 +341,6 @@ function showNotes(c) {
     };
 }
 
-function showLexEntry(word) {
-        var lemma = word.attr('data-lexicon');
-        var request = new XMLHttpRequest();
-        var message = lexModal.attr('message');
-        var subdomain = '';
-        if (window.location.host == 'tools.formulae.uni-hamburg.de') {
-            subdomain = '/dev'
-        }
-        request.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                if (this.status == 200) {
-                    lexModal.html(this.responseText);
-                    lexModal.modal('show');
-                } else {
-                    alert(message + lemma)
-                }
-            }
-        };
-        request.open('GET', subdomain + '/lexicon/urn:cts:formulae:elexicon.' + lemma + '.deu001', true);
-        request.send()
-    }
     
 function closeLexEntry() {
     lexModal.modal('hide');
