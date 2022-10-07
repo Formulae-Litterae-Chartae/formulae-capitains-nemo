@@ -22,7 +22,7 @@
     <h1>
     {{collections.current.label|striptags}}{% if "manuscript_collection" in collections.parent_ids %} ({{ collections.current.short_title|safe }}){% endif %}
     </h1>
-    {% if 'formulae_collection' in collections.parent_ids %}
+    {% if 'formulae_collection' in collections.parent_ids and 'formulae_marculfinae' not in collections.current.id %}
     <h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a></h5>
     {% elif 'manuscript_collection' in collections.parent_ids %}
     <h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zum Handschriftenvergleich') }}</a></h5>
