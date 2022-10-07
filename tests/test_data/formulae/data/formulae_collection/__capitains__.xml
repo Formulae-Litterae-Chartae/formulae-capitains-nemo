@@ -13,10 +13,14 @@
     <dc:title xml:lang="eng">Formulae</dc:title>
     <dc:title xml:lang="fre">Formulae</dc:title>
     <dc:type>collected_collection</dc:type>
+    <structured-metadata>
+        <bib:AbbreviatedTitle>Formulae</bib:AbbreviatedTitle>
+    </structured-metadata>
     <members>
         <collection identifier="urn:cts:formulae:andecavensis" path="../andecavensis/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:marculf" path="../marculf/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:flavigny" path="../flavigny/__capitains__.xml"/>
+        <collection identifier="urn:cts:formulae:formulae_marculfinae" path="../formulae_marculfinae/__capitains__.xml"/>
         <collection identifier="urn:cts:formulae:tours" path="../tours/__capitains__.xml"/>
     </members>
 </collection>

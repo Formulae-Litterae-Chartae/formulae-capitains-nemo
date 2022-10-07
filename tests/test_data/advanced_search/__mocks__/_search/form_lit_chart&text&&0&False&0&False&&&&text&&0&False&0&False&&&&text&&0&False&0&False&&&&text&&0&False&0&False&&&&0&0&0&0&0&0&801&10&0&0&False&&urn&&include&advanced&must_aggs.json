@@ -2,7 +2,7 @@
   "aggregations": {
     "all_docs": {
       "meta": {},
-      "doc_count": 14324,
+      "doc_count": 14334,
       "forgeries": {
         "doc_count": 162
       },
@@ -56,6 +56,9 @@
           },
           "<b>Flavigny</b>: Flavigny": {
             "doc_count": 38
+          },
+          "<b>Formulae Marculfinae</b>: Formulae Marculfinae": {
+            "doc_count": 10
           },
           "<b>Freising</b>: Freising": {
             "doc_count": 1383
@@ -268,7 +271,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 816
+        "doc_count": 826
       }
     },
     "forgeries": {
@@ -323,6 +326,9 @@
           "doc_count": 111
         },
         "<b>Flavigny</b>: Flavigny": {
+          "doc_count": 0
+        },
+        "<b>Formulae Marculfinae</b>: Formulae Marculfinae": {
           "doc_count": 0
         },
         "<b>Freising</b>: Freising": {

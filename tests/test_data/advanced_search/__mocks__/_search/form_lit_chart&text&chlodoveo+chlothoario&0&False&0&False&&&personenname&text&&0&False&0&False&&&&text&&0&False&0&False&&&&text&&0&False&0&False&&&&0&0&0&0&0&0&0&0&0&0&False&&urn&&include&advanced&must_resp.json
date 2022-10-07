@@ -1,10 +1,10 @@
 [
   {
-    "took": 91,
+    "took": 74,
     "timed_out": false,
     "_shards": {
-      "total": 64,
-      "successful": 64,
+      "total": 65,
+      "successful": 65,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v21",
+          "_index": "andecavensis_v23",
           "_id": "urn:cts:formulae:andecavensis.computus.lat001",
           "_score": null,
           "_source": {

@@ -1,0 +1,37 @@
+
+<div class="modal video-modal" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="videoModalLabel">{{ _('Die Einfache Suche') }}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col text-center">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#video-transcript" aria-expanded="false" aria-controls="video-transcript">{{ _('Videotranskript zeigen') }}</button>
+                </div>
+                <div class="col text-center">
+                    <a type="button" role="button" class="btn btn-link english-video-link d-none" data-toggle="modal" data-target="#videoModal" data-modallabel="" data-videosource="" data-transcriptde="" data-transcripten="" data-videolanguage="en" data-dismiss="modal">Show in English</a>
+                    <a type="button" role="button" class="btn btn-link deutsch-video-link" data-toggle="modal" data-target="#videoModal" data-modallabel="" data-videosource="" data-transcriptde="" data-transcripten="" data-videolanguage="de" data-dismiss="modal">Auf Deutsch zeigen</a>
+                </div>
+            </div>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls src="" >
+                    <track label="Deutsch" kind="subtitles" srclang="de" src="">
+                    {{ _('Ihr Browser kann keine eingebetteten Videos zeigen.') }}
+                </video>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="collapse multi-collapse" id="video-transcript">
+                <div class="card card-body transcript-text">
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

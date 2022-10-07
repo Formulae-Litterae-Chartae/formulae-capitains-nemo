@@ -484,7 +484,7 @@ span[lemma$="platzhalter"] {
     line-height: 1.2rem;
 }
 
-span[class="book-title"] {
+span[class="book-title"],.show-more {
     font-weight: bold;
 }
 
@@ -1158,4 +1158,18 @@ img.disabled {
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
     background: #bfbfbf;
+}
+
+.breadcrumb-item.first-breadcrumb + .breadcrumb-item.first-breadcrumb::before {
+	display: inline-block;
+	padding-right: .5rem;
+	color: black;
+	content: "→";
+}
+
+.breadcrumb-item.next-breadcrumb + .breadcrumb-item.first-breadcrumb::before {
+	display: inline-block;
+	padding-right: .5rem;
+	color: black;
+	content: "⤷";
 }

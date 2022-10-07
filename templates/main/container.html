@@ -1,4 +1,5 @@
 {% import 'bootstrap/wtf.html' as wtf %}
+{% import "main::video_transcripts.html" as video_transcripts %}
 
 <!DOCTYPE html>
 <html lang="{{ get_locale() }}">
@@ -78,6 +79,24 @@
             </div>
         </div>
         </div>
+        {% include "main::video_modal.html" %}
+    {% if breadcrumb_colls %}
+    <nav aria-label="breadcrumb">
+        {% for breadcrumb_coll in breadcrumb_colls %}
+            {% set loop_first = loop.first %}
+            <ol class="breadcrumb py-0 my-0">
+                <li class="breadcrumb-item{% if not loop_first %} invisible next-breadcrumb{% else %} first-breadcrumb{% endif %}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_index') }}">Home</a></li>
+                {% for coll_level in breadcrumb_coll %}
+                    {% if not loop.last %}
+                    <li class="breadcrumb-item first-breadcrumb">{% for coll_info in coll_level if coll_info %}{% if not loop.first %}/{% endif %}<a class="internal-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=coll_info[0]) }}">{{ coll_info[1]|safe }}</a>{% endfor %}</li>
+                    {% else %}
+                    <li class="breadcrumb-item first-breadcrumb active" aria-current="page"><span>{{ coll_level[0][1]|safe }}</span></li>
+                    {% endif %}
+                {% endfor %}
+            </ol>
+        {% endfor %}
+    </nav>
+    {% endif %}
     {% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
     <div class="row pb-0">

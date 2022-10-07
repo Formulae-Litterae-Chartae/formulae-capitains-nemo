@@ -6,7 +6,6 @@ var textSearchTimeout = null;
 var searchLemmas = document.getElementById('lemma_search');
 
 
-
 // This is to deal with the 500 error when flask_babel tries to interpret locale = 'none'
 if (navigator.language == 'none') {
     var request = new XMLHttpRequest();
@@ -703,4 +702,41 @@ $(document).ready(function () {
         $( this ).addClass('d-none');
         $('#show-regest-control').removeClass('d-none');
     })
+    
+    $('#videoModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var modalLabel = button.data('modallabel') // Extract info from data-* attributes
+        var videoSource = button.data('videosource');
+        var subtitleSource = videoSource.replace('mp4', 'vtt');
+        var videoLanguage = button.data('videolanguage');
+        var transcript = button.data('transcript' + videoLanguage);
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('video').attr('src', videoSource);
+        modal.find('track').attr('src', subtitleSource);
+        modal.find('.modal-title').text(modalLabel);
+        modal.find('.transcript-text').text(transcript);
+        var englishVideoLink = modal.find('.english-video-link');
+        englishVideoLink.attr({
+            "data-modallabel": modalLabel, 
+            "data-videosource": videoSource,
+            "data-transcriptde": button.data('transcriptde'),
+            "data-transcripten": button.data('transcripten')
+        });
+        englishVideoLink.toggleClass('d-none');
+        var deutschVideoLink = modal.find('.deutsch-video-link');
+        deutschVideoLink.attr({
+            "data-modallabel": modalLabel, 
+            "data-videosource": videoSource,
+            "data-transcriptde": button.data('transcriptde'),
+            "data-transcripten": button.data('transcripten')
+        });
+        deutschVideoLink.toggleClass('d-none');
+    })
+    
+    var locationHash = window.location.hash;
+    if ( locationHash ) {
+        $('.corpus-nrs[href="' + locationHash + '"]').click();
+    };
 })

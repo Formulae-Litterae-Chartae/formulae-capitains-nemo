@@ -1,6 +1,6 @@
 [
   {
-    "took": 3,
+    "took": 1,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v21",
+          "_index": "buenden_v23",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
           "_score": null,
           "_source": {

@@ -7,6 +7,7 @@
         <h1 class="text-center">{{ _('Videos') }}</h3>
     </header>
     {% for category, video_information in videos|dictsort %}
+    {% set outer_index = loop.index %}
     <div class="row">
         <div class="col-auto">
             <h3>{{ category }}</h3>
@@ -14,18 +15,37 @@
     </div>
     <div class="row row-cols-3">
         {% for title, files in video_information|dictsort %}
+        {% set inner_index = loop.index %}
         <div class="col">
             <h5 class="text-center">{{ title }}</h5>
+            {% if files['transcripts'] %}
+            <div class="row">
+            {% for transcript_lang, transcript_text in files['transcripts'] %}
+                <div class="col text-center">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ transcript_lang }}-{{ outer_index }}-{{ inner_index }}-transcript" aria-expanded="false" aria-controls="{{ transcript_lang }}-{{ outer_index }}-{{ inner_index }}-transcript">{{ _('Videotranskript auf ') + transcript_lang }}</button>
+                </div>
+            {% endfor %}
+            </div>
+            {% endif %}
             <div class="embed-responsive embed-responsive-16by9">
-                <video controls src="{{ url_for('InstanceNemo.static', filename=files['video']) }}" >
+                <video controls src="{{ url_for('InstanceNemo.static', filename=files['video']) }}">
                     {% if files['subtitles'] %}
                         {% for language, label, filename in files['subtitles'] %}
                         <track label="{{ label }}" kind="subtitles" srclang="{{ language }}" src="{{ url_for('InstanceNemo.static', filename=filename) }}"{% if language == 'de' %} default{% endif %}>
                         {% endfor %}
                     {% endif %}
-                    {{ _('Ihr Browser kann keine eingebetteten Videos zeigen.') }}
+                    {{ _('Ihr Browser kann keine eingebetteten Videos zeigen. Link zu ') }}<a href="{{ url_for('InstanceNemo.static', filename=filename) }}" target="_blank">Video</a>.
                 </video>
             </div>
+            {% if files['transcripts'] %}
+            {% for transcript_lang, transcript_text in files['transcripts'] %}
+                    <div class="collapse multi-collapse" id="{{ transcript_lang }}-{{ outer_index }}-{{ inner_index }}-transcript">
+                        <div class="card card-body">
+                            {{ transcript_text }}
+                        </div>
+                    </div>
+            {% endfor %}
+            {% endif %}
         </div>
         {% endfor %}
     </div>

@@ -22,14 +22,14 @@
     <h1>
     {{collections.current.label|striptags}}{% if "manuscript_collection" in collections.parent_ids %} ({{ collections.current.short_title|safe }}){% endif %}
     </h1>
-    {% if 'formulae_collection' in collections.parent_ids %}
+    {% if 'formulae_collection' in collections.parent_ids and 'formulae_marculfinae' not in collections.current.id %}
     <h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zur Überlieferungsübersicht') }}</a></h5>
     {% elif 'manuscript_collection' in collections.parent_ids %}
     <h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus_mv', objectId=collections.current.id) }}">{{ _('Zum Handschriftenvergleich') }}</a></h5>
     {% endif %}
     {% if collections.current.containing_collections %}
     <div class="row">
-        <div class="col-auto"><h5>{{ _('Im Handschriftenkontext von:') }}</h5></div>
+        <div class="col-auto"><h5 class="show-more">{{ _('Anzeige im Handschriftenkontext von:') }}</h5></div>
         {% for siglum, title, urn in collections.current.containing_collections %}
         <div class="col-auto"><h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=urn) }}" id="{{ urn|replace(':', '-') }}-ms-link" data-toggle="tooltip" data-placement="top" data-container="#{{ urn|replace(':', '-') }}-ms-link" title="{{ title }}">{{ siglum }}</a></h5></div>
         {% endfor %}
@@ -42,6 +42,8 @@
     {% include "main::flavigny_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:tours_ueberarbeitung' %}
     {% include "main::tours_ueberarbeitung_info.html" %}
+    {% elif collections.current.id == 'urn:cts:formulae:formulae_marculfinae' %}
+    {% include "main::marculfinae_info.html" %}
     {% endif %}
 </header>
 </div>
@@ -89,7 +91,7 @@
             {% for number, values in collections.readable.items() %}
                 <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if collections.current.id != "urn:cts:formulae:flavigny" %}:{% endif %} {% if values['transcribed_edition'] %}<span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5>
+                        <h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['transcribed_edition'] %}: <span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5>
                         <span>
                             {% if 'formulae_collection' in collections.parent_ids or 'manuscript_collection' in collections.parent_ids %}
                                 {% if values['versions']['editions']|length > 1 %}
@@ -153,6 +155,7 @@
                             {% endif %}
                         </span>
                         </div>
+                        {% if 'alt_link' in values %}<p class="mb-1 short-regest"><a href="{{ values['alt_link'] }}" class="internal-link">-> {{ values['alt_title'] }}</a></p>{% endif %}
                         {% if current_user.project_team or collections.current.open_regesten %}
                             {% if not current_user.project_team and 'formulae_collection' in collections.parent_ids %}
                                 {% set copy_class = ' no-copy' %}
