@@ -97,6 +97,7 @@ class NemoFormulae(Nemo):
     OPEN_COLLECTIONS = ['anjou',
                         'chartae_latinae',
                         'fulda',
+                        'other_formulae',
                         'rheinland',
                         'touraine',
                         'urn:cts:formulae:andecavensis',
@@ -201,6 +202,7 @@ class NemoFormulae(Nemo):
                               "urn:cts:formulae:marmoutier_vendomois_appendix",
                               "urn:cts:formulae:marmoutier_dunois",
                               "urn:cts:formulae:anjou_archives",
+                              "other_formulae",
                               "display_flavigny_formulae"]
 
     LANGUAGE_MAPPING = {"lat": _l('Latein'), "deu": _l("Deutsch"), "fre": _l("Französisch"),
@@ -849,7 +851,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in a given collection
         """
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
-        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|display_flavigny_formulae', objectId)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae|display_flavigny_formulae', objectId)
         direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
         if self.check_project_team() is False:
             if not from_four_level_collection:
@@ -859,7 +861,7 @@ class NemoFormulae(Nemo):
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
         if not from_four_level_collection and 'defaultTic' not in direct_parents and direct_parents != ['display_collection']:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
-        if len(data['collections']['members']) == 1:
+        if len(data['collections']['members']) == 1 and objectId != 'other_formulae':
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         for m in data['collections']['members']:
             m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'
@@ -1199,7 +1201,7 @@ class NemoFormulae(Nemo):
         members = self.make_members(collection, lang=lang)
         for m in members:
             m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'
-        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives', objectId)
+        from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae', objectId)
         if self.check_project_team() is False:
             if not from_four_level_collection:
                 members = [x for x in members if x['id'] in self.OPEN_COLLECTIONS]
@@ -1297,6 +1299,8 @@ class NemoFormulae(Nemo):
         identifier = obj.id
         manuscript_id = identifier.split(':')[-1].split('.')[0]
         parts = re.search(r'(\D+)?(\d+)?', manuscript_id).groups('0')
+        if identifier == 'other_formulae':
+            return 'zzz', 1000
         return parts[0], int(parts[1])
 
     def get_transcriptions(self, obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
