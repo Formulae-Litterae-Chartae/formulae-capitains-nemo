@@ -247,7 +247,7 @@ def r_results():
 def r_advanced_search():
     def sort_collections(t):
         sort_key = t[0]
-        if ": Chartae Latinae" in t[0]:
+        if ": Chartae Latinae " in t[0]:
             key_parts = sort_key.split()
             key_parts[-1] = '{:04}'.format(roman.fromRoman(key_parts[-1]))
             sort_key = ' '.join(key_parts)
