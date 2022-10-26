@@ -46,7 +46,7 @@
         </xsl:if> -->     
         <xsl:param name="wTag"/>
         <xsl:choose>
-            <xsl:when test="following-sibling::*[1][self::t:note[@place='right']//*[starts-with(text(), '[fol')]] and not($wTag)"></xsl:when>
+            <xsl:when test="following-sibling::*[1][self::t:note[@place='right']//*[starts-with(text(), '[fol')]] and not($wTag) and contains(., '|')"></xsl:when>
             <xsl:otherwise>
                 <xsl:element name="span">
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
