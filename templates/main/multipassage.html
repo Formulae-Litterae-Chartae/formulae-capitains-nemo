@@ -12,10 +12,10 @@
 <div class="col-12 justify-content-center px-0">
     <div class="text-center">
         <div class="row pt-0 pb-0 mx-0">
-            {% if object.collections.parents[-1]['id'] == 'formulae_collection' %}
+            {% if 'formulae_collection' in object.collections.parent_ids %}
             {% set prev_obj = _('Vorherige Formel') %}
             {% set next_obj = _('Nächste Formel') %}
-            {% elif object.collections.parents[-1]['id'] == 'lexicon_entries' %}
+            {% elif 'lexicon_entries' in object.collections.parent_ids %}
             {% set prev_obj = _('Vorheriger Eintrag') %}
             {% set next_obj = _('Nächster Eintrag') %}
             {% else %}
