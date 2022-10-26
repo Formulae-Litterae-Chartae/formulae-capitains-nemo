@@ -45,9 +45,6 @@
             <xsl:text> </xsl:text>
         </xsl:if> -->     
         <xsl:param name="wTag"/>
-        <xsl:choose>
-            <xsl:when test="following-sibling::*[1][self::t:note[@place='right']//*[starts-with(text(), '[fol')]] and not($wTag)"></xsl:when>
-            <xsl:otherwise>
                 <xsl:element name="span">
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
                     <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
@@ -93,8 +90,8 @@
                     </xsl:if>
                     <xsl:apply-templates/>
                 </xsl:element>
-            </xsl:otherwise>
-        </xsl:choose>
+            
+        
     </xsl:template>
     
     <xsl:template match="t:pc">
