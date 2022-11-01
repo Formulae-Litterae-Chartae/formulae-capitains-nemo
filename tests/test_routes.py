@@ -1426,6 +1426,7 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertNotIn('id="header-urn-cts-formulae-elexicon-abbas-deu001"',
                              r.get_data(as_text=True), 'No note card should be rendered for elex.')
 
+
 class TestFunctions(Formulae_Testing):
     def test_NemoFormulae_get_first_passage(self):
         """ Make sure that the first passage of a text is correctly returned"""
@@ -1939,6 +1940,15 @@ class TestFunctions(Formulae_Testing):
         self.assertEqual(u.username, 'project.member')
         u = load_user(2)
         self.assertEqual(u.username, 'not.project')
+
+    def test_epidoc_transform(self):
+        """ Ensure that the transformation of epidoc to HTML works correctly"""
+        # Ensure that w tags around folio breaks are represented correctly
+        obj_id = "urn:cts:formulae:andecavensis.form004.lat001"
+        xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
+        html_input = self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id)
+        html_etree = etree.fromstring(html_input)
+        self.assertEqual(xml.xpath('//tei:w/text()', namespaces={'tei': 'http://www.tei-c.org/ns/1.0'}), html_etree.xpath('//span[@class="w"]/text()'))
 
     # def test_load_term_vectors(self):
     #     """ Ensure that the json mapping file is correctly loaded."""
