@@ -39,7 +39,7 @@
       <body>
          <div type="edition" xml:lang="lat" n="urn:cts:formulae:andecavensis.form004.lat001">
             <div type="textpart" subtype="formula" n="1">
-               <p xml:space="preserve"><w>Some</w> <w>Text</w></p></div>
+               <p xml:space="preserve"><w>Some</w> <w>Text</w>, |<note type="n1" place="right"><p xml:space="preserve">‌<seg type="italic;">[fol. 48</seg><seg type="italic;superscript;smaller-text;">r</seg><seg type="italic;">]</seg></p></note> <w>with</w> <w>fo|lio</w><note type="n1" place="right"><p xml:space="preserve">‌<seg type="italic;">[fol. 48</seg><seg type="italic;superscript;smaller-text;">r</seg><seg type="italic;">]</seg></p></note> <w>breaks</w>.|<note type="n1" place="right"><p xml:space="preserve">‌<seg type="italic;">[fol. 48</seg><seg type="italic;superscript;smaller-text;">r</seg><seg type="italic;">]</seg></p></note></p></div>
          </div>
       </body>
    </text>
