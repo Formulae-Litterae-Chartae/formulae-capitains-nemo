@@ -78,8 +78,24 @@
                 </div>
             {% endif %}
         {% else %}
+            {% if object.all_prev_versions %}
+                <div class="dropdown">
+                    <a class="btn internal-link" href="#" role="button" id="prev-texts-dropdown-{{ index }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fast-backward"></i></a>
+                    <div class="dropdown-menu sibling-texts-menu" aria-labelledby="prev-texts-dropdown-{{ index }}">
+                    {% for next_obj_id in object.all_prev_versions %}
+                    {% set all_texts = all_texts|replace_indexed_item(index - 1, next_obj_id[0]) %}
+                    {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
+                        <a class="internal-link dropdown-item py-0" id="prev-texts-link-{{ index }}-{{ loop.index }}" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">- {{ next_obj_id[1] }}</a>
+                    {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                    {% endfor %}
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
             {% if object.prev_version %}
-                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version) %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.prev_version[0]) %}
                 {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
                     <a class="internal-link relative-position" id="prev-text-link-{{ index }}" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ prev_obj }}" data-toggle="tooltip" data-container="#prev-text-link-{{ index }}"><i class="fas fa-step-backward"></i></a>
@@ -131,13 +147,29 @@
                 </div>
             {% endif %}
             {% if object.next_version %}
-                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version) %}
+                {% set all_texts = all_texts|replace_indexed_item(index - 1, object.next_version[0]) %}
                 {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                 <div class="col-1">
                     <a class="internal-link relative-position" id="next-text-link-{{ index }}" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}" title="{{ next_obj }}" data-toggle="tooltip" data-container="#next-text-link-{{ index }}"><i class="fas fa-step-forward"></i></a>
                 </div>
                 {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
                 {% else %}
+                <div class="col-1">
+                </div>
+            {% endif %}
+            {% if object.all_next_versions %}
+                <div class="dropdown">
+                    <a class="btn internal-link" href="#" role="button" id="next-texts-dropdown-{{ index }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fast-forward"></i></a>
+                    <div class="dropdown-menu sibling-texts-menu" aria-labelledby="next-texts-dropdown-{{ index }}">
+                    {% for next_obj_id in object.all_next_versions %}
+                    {% set all_texts = all_texts|replace_indexed_item(index - 1, next_obj_id[0]) %}
+                    {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
+                        <a class="internal-link dropdown-item py-0" id="next-texts-link-{{ index }}-{{ loop.index }}" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">- {{ next_obj_id[1] }}</a>
+                    {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                    {% endfor %}
+                    </div>
+                </div>
+            {% else %}
                 <div class="col-1">
                 </div>
             {% endif %}
