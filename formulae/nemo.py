@@ -1334,7 +1334,7 @@ class NemoFormulae(Nemo):
             for gp in grandparents:
                 for x in self.all_texts[gp]:
                     if x[2].subtype & text.subtype and re.search(r'{}\d\d\d\Z'.format(language), x[1][0]):
-                        text_label = str(self.make_parents(x[2])[0]['label'])
+                        text_label = Markup(self.make_parents(x[2])[0]['label'])
                         sibling_texts.append((x[1][0], text_label))
         else:
             sibling_texts = []
@@ -1342,7 +1342,7 @@ class NemoFormulae(Nemo):
                 if gp in self.all_texts:
                     for x in self.all_texts[gp]:
                         if x[1][0].split('.')[-1] == id_parts[-1]:
-                            text_label = str(self.make_parents(x[2])[0]['label'])
+                            text_label = Markup(self.make_parents(x[2])[0]['label'])
                             sibling_texts.append((x[1][0], text_label))
         orig_index = sibling_texts.index((objectId, str(self.make_parents(text)[0]['label'])))
         return {'prev_version': sibling_texts[orig_index - 1][0] if orig_index > 0 else None,
