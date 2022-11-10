@@ -772,6 +772,14 @@ h1 .manuscript-number {
     overflow: auto;
 }
 
+.dropdown-menu.sibling-texts-menu {
+    height: auto;
+    width: auto;
+    max-height: 20.5em;
+    overflow: auto;
+    z-index: 1010;
+}
+
 @keyframes text-focus {
     from {background-color: lightgrey;}
     to {background-color: initial;}

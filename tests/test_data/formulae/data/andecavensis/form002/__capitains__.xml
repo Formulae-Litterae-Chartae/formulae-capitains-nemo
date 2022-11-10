@@ -8,7 +8,7 @@
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
    <identifier>urn:cts:formulae:andecavensis.form002</identifier>
    <parent>urn:cts:formulae:andecavensis</parent>
-   <dc:title xml:lang="deu">Angers 2</dc:title>
+   <dc:title xml:lang="deu">2</dc:title>
    <dc:type>cts:work</dc:type>
    <members>
       <collection path="../../fu2/139r139v/__capitains__.xml"

@@ -1317,11 +1317,11 @@ class NemoFormulae(Nemo):
         first, _ = reffs[0]
         return str(first)
 
-    def get_prev_next_texts(self, objectId: str) -> Tuple[str, str]:
+    def get_prev_next_texts(self, objectId: str) -> Dict[str, Union[str, list]]:
         """ Get the previous and next texts in a collection
 
         :param objectId: the ID of the current object
-        :return: the IDs of the previous and next text in the same collection
+        :return: the IDs of the previous and next text in the same collection and lists of all previous and next texts
         """
         id_parts = objectId.split('.')
         text = self.resolver.getMetadata(objectId)
@@ -1330,17 +1330,25 @@ class NemoFormulae(Nemo):
             grandparents.update(self.resolver.getMetadata(x).parent)
         if text.subtype & {'cts:translation', 'cts:edition'}:
             language = re.search(r'(\w\w\w)\d\d\d\Z', objectId).group(1)
-            sibling_texts = [x[1][0] for gp in grandparents
-                             for x in self.all_texts[gp]
-                             if x[2].subtype & text.subtype and re.search(r'{}\d\d\d\Z'.format(language), x[1][0])]
+            sibling_texts = []
+            for gp in grandparents:
+                for x in self.all_texts[gp]:
+                    if x[2].subtype & text.subtype and re.search(r'{}\d\d\d\Z'.format(language), x[1][0]):
+                        text_label = str(self.make_parents(x[2])[0]['label'])
+                        sibling_texts.append((x[1][0], text_label))
         else:
             sibling_texts = []
             for gp in grandparents:
                 if gp in self.all_texts:
-                    sibling_texts += [x[1][0] for x in self.all_texts[gp] if x[1][0].split('.')[-1] == id_parts[-1]]
-        orig_index = sibling_texts.index(objectId)
-        return sibling_texts[orig_index - 1] if orig_index > 0 else None, \
-               sibling_texts[orig_index + 1] if orig_index + 1 < len(sibling_texts) else None
+                    for x in self.all_texts[gp]:
+                        if x[1][0].split('.')[-1] == id_parts[-1]:
+                            text_label = str(self.make_parents(x[2])[0]['label'])
+                            sibling_texts.append((x[1][0], text_label))
+        orig_index = sibling_texts.index((objectId, str(self.make_parents(text)[0]['label'])))
+        return {'prev_version': sibling_texts[orig_index - 1][0] if orig_index > 0 else None,
+                'next_version': sibling_texts[orig_index + 1][0] if orig_index + 1 < len(sibling_texts) else None,
+                'all_prev_versions': sibling_texts[:orig_index] if orig_index > 0 else None,
+                'all_next_versions': sibling_texts[orig_index + 1:] if orig_index + 1 < len(sibling_texts) else None}
 
     @staticmethod
     def get_readable_siblings(obj: XmlCapitainsReadableMetadata) -> List[XmlCapitainsReadableMetadata]:
@@ -1537,7 +1545,7 @@ class NemoFormulae(Nemo):
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
-                d['prev_version'], d['next_version'] = self.get_prev_next_texts(d['objectId'])
+                d.update(self.get_prev_next_texts(d['objectId']))
                 del d['template']
                 parent_colls = defaultdict(list)
                 parent_colls[99] = [(id, str(d['collections']['current']['label'].replace('<br>', ' ')))]

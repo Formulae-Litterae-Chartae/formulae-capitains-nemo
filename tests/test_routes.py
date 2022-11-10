@@ -607,10 +607,10 @@ class TestIndividualRoutes(Formulae_Testing):
             # Make sure that a text that has no edition will throw an error
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003/passage/1', follow_redirects=True)
             self.assertIn("errors::unknown_collection.html", [x[0].name for x in self.templates])
-            self.assertIn('Angers 3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
+            self.assertIn('3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
             r = c.get('/viewer/urn:cts:formulae:andecavensis.form003', follow_redirects=True)
             self.assertIn("errors::unknown_collection.html", [x[0].name for x in self.templates])
-            self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
+            self.assertIn('3' + _(' hat keine Edition.'), r.get_data(as_text=True))
             # c.get('/viewer/urn:cts:formulae:andecavensis.form001.fu2', follow_redirects=True)
             # self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.fu2/passage/1+all', follow_redirects=True)
@@ -1743,6 +1743,12 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form002.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:andecavensis.form001.lat001')
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form004.lat001')
+            self.assertEqual(data['objects'][0]['all_prev_versions'], [('urn:cts:formulae:andecavensis.form000.lat001', '[Titel]'),
+                                                                       ('urn:cts:formulae:andecavensis.form001.lat001', '1')])
+            self.assertEqual(data['objects'][0]['all_next_versions'], [('urn:cts:formulae:andecavensis.form004.lat001', '4'),
+                                                                       ('urn:cts:formulae:andecavensis.form005.lat001', '5'),
+                                                                       ('urn:cts:formulae:andecavensis.computus.lat001',
+                                                                        'Angers Weltzeitalter und computus')])
             data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form002.deu001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:andecavensis.form001.deu001')
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form003.deu001')
