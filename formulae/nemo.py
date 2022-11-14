@@ -1912,9 +1912,9 @@ class NemoFormulae(Nemo):
                 c_text = ''
                 if isinstance(c, etree._Element):
                     c_class = c.get('class')
-                    c_text = c.text if c.text else ''
+                    c_text = c.text.replace('<', '&lt;').replace('>', '&gt;') if c.text else ''
                 if isinstance(c, etree._ElementUnicodeResult):
-                    p += c
+                    p += c.replace('<', '&lt;').replace('>', '&gt;')
                 elif c_class and 'w' in c_class.split():
                     opening_tag = ''
                     closing_tag = ''
@@ -1939,7 +1939,7 @@ class NemoFormulae(Nemo):
                     p += '<sup>{}</sup>'.format(note_num)
                 elif c_class and c.xpath('self::span[contains(@class, "right-note-tooltip")]|./a[@class="note"]'):
                     if c.xpath('self::span[contains(@class, "right-note-tooltip")]'):
-                        text_to_add = ''.join(c.xpath('./text()'))
+                        text_to_add = ''.join(c.xpath('./text()')).replace('<', '&lt;').replace('>', '&gt;')
                         p += text_to_add
                     p += '<sup>{}</sup>'.format(hist_note_num)
                     hist_note_num += 1
