@@ -907,8 +907,8 @@ class NemoFormulae(Nemo):
         form = None
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
-        elif 'salzburg' in objectId:
-            template = "main::salzburg_collection.html"
+        # elif 'salzburg' in objectId:
+        #     template = "main::salzburg_collection.html"
         elif objectId in self.FOUR_LEVEL_COLLECTIONS:
             return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
         for par, metadata, m in self.all_texts[collection.id]:

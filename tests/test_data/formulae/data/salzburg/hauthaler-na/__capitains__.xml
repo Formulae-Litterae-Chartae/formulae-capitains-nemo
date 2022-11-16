@@ -8,7 +8,7 @@
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
    <identifier>urn:cts:formulae:salzburg.hauthaler-na</identifier>
    <parent>urn:cts:formulae:salzburg</parent>
-   <dc:title xml:lang="deu">Salzburger Urkundenbuch (Ed. Hauthaler); Notitia Arnonis</dc:title>
+   <dc:title xml:lang="deu">Notitia Arnonis</dc:title>
    <dc:type>cts:work</dc:type>
    <members>
       <collection readable="true" path="./salzburg.hauthaler-na.lat001.xml">
