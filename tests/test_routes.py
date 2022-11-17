@@ -275,7 +275,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
-            self.assertIn('main::salzburg_collection.html', [x[0].name for x in self.templates])
+            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/collections/urn:cts:formulae:fu2', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('breadcrumb_colls'), [[[('urn:cts:formulae:fu2', 'Fu<span class="manuscript-number">2</span>')]]])
@@ -355,7 +355,7 @@ class TestIndividualRoutes(Formulae_Testing):
             # self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             # Make sure the Salzburg collection is ordered correctly
             r = c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
-            p = re.compile('<h5>Notitia Arnonis: </h5>.+<h5>Codex Odalberti Vorrede: </h5>.+<h5>Codex Odalberti 1: </h5>',
+            p = re.compile('<h5>Notitia Arnonis</h5>.+<h5>Codex Odalberti, Vorrede</h5>.+<h5>Codex Odalberti, Nummer 1</h5>',
                            re.DOTALL)
             self.assertRegex(r.get_data(as_text=True), p)
             """
@@ -509,7 +509,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:katalonien.vinyals_albanyamonestirpere', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
-            self.assertIn('main::salzburg_collection.html', [x[0].name for x in self.templates])
+            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertIn('main::elex_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:marculf', follow_redirects=True)
@@ -607,10 +607,10 @@ class TestIndividualRoutes(Formulae_Testing):
             # Make sure that a text that has no edition will throw an error
             r = c.get('/texts/urn:cts:formulae:andecavensis.form003/passage/1', follow_redirects=True)
             self.assertIn("errors::unknown_collection.html", [x[0].name for x in self.templates])
-            self.assertIn('Angers 3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
+            self.assertIn('3.1' + _(' hat keine Edition.'), r.get_data(as_text=True))
             r = c.get('/viewer/urn:cts:formulae:andecavensis.form003', follow_redirects=True)
             self.assertIn("errors::unknown_collection.html", [x[0].name for x in self.templates])
-            self.assertIn('Angers 3' + _(' hat keine Edition.'), r.get_data(as_text=True))
+            self.assertIn('3' + _(' hat keine Edition.'), r.get_data(as_text=True))
             # c.get('/viewer/urn:cts:formulae:andecavensis.form001.fu2', follow_redirects=True)
             # self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             c.get('/texts/urn:cts:formulae:andecavensis.form002.lat001+manifest:urn:cts:formulae:andecavensis.form002.fu2/passage/1+all', follow_redirects=True)
@@ -784,7 +784,7 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/corpus/urn:cts:formulae:stgallen', follow_redirects=True)
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:salzburg', follow_redirects=True)
-            self.assertIn('main::salzburg_collection.html', [x[0].name for x in self.templates])
+            self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertIn('main::elex_collection.html', [x[0].name for x in self.templates])
             """
@@ -1712,7 +1712,7 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_corpus('urn:cts:formulae:elexicon')
             self.assertEqual(data['template'], "main::elex_collection.html", "Elexicon should use elex template")
             data = self.nemo.r_corpus('urn:cts:formulae:salzburg')
-            self.assertEqual(data['template'], "main::salzburg_collection.html", "Salzburg should use salzburg template")
+            self.assertEqual(data['template'], "main::sub_collection.html", "Salzburg should use salzburg template")
 
     def test_get_prev_next_text(self):
         """ Make sure that the previous text and next text in a corpus are correctly returned"""
@@ -1743,6 +1743,12 @@ class TestFunctions(Formulae_Testing):
             data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form002.lat001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:andecavensis.form001.lat001')
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form004.lat001')
+            self.assertEqual(data['objects'][0]['all_prev_versions'], [('urn:cts:formulae:andecavensis.form000.lat001', '[Titel]'),
+                                                                       ('urn:cts:formulae:andecavensis.form001.lat001', '1')])
+            self.assertEqual(data['objects'][0]['all_next_versions'], [('urn:cts:formulae:andecavensis.form004.lat001', '4'),
+                                                                       ('urn:cts:formulae:andecavensis.form005.lat001', '5'),
+                                                                       ('urn:cts:formulae:andecavensis.computus.lat001',
+                                                                        'Angers Weltzeitalter und computus')])
             data = self.nemo.r_multipassage('urn:cts:formulae:andecavensis.form002.deu001', '1')
             self.assertEqual(data['objects'][0]['prev_version'], 'urn:cts:formulae:andecavensis.form001.deu001')
             self.assertEqual(data['objects'][0]['next_version'], 'urn:cts:formulae:andecavensis.form003.deu001')
