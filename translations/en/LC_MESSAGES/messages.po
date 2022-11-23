@@ -1562,7 +1562,7 @@ msgstr "About the Project"
 
 #: templates/main/navbar.html:23
 msgid "Suchergebnisse speichern"
-msgstr "Save search results?"
+msgstr "Save search results"
 
 #: templates/main/navbar.html:28
 msgid "Ausloggen"
