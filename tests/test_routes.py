@@ -467,7 +467,9 @@ class TestIndividualRoutes(Formulae_Testing):
                    follow_redirects=True, headers={'Referer': 'https://www.google.com'})
             self.assertIn(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'), [x[0] for x in self.flashed_messages])
             self.assertEqual(r.request.path, '/auth/login')
-            c.get('/videos', follow_redirects=True)
+            c.get('/videos/en', follow_redirects=True)
+            self.assertIn('main::videos.html', [x[0].name for x in self.templates])
+            c.get('/videos/de', follow_redirects=True)
             self.assertIn('main::videos.html', [x[0].name for x in self.templates])
 
     def test_authorized_project_member(self):
