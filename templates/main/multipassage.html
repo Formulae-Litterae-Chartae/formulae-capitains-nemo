@@ -12,15 +12,26 @@
 <div class="col-12 justify-content-center px-0">
     <div class="text-center">
         <div class="row pt-0 pb-0 mx-0">
-            {% if 'formulae_collection' in object.collections.parent_ids %}
+            {% if 'manuscript_collection' in object.collections.parent_ids %}
+            {% set prev_obj = _('Vorherige Transkription') %}
+            {% set next_obj = _('Nächste Transkription') %}
+            {% set prev_objs = _('Vorherige Transkriptionen') %}
+            {% set next_objs = _('Folgende Transkriptionen') %}
+            {% elif 'formulae_collection' in object.collections.parent_ids %}
             {% set prev_obj = _('Vorherige Formel') %}
             {% set next_obj = _('Nächste Formel') %}
+            {% set prev_objs = _('Vorherige Formeln') %}
+            {% set next_objs = _('Folgende Formeln') %}
             {% elif 'lexicon_entries' in object.collections.parent_ids %}
             {% set prev_obj = _('Vorheriger Eintrag') %}
             {% set next_obj = _('Nächster Eintrag') %}
+            {% set prev_objs = _('Vorherige Einträge') %}
+            {% set next_objs = _('Folgende Einträge') %}
             {% else %}
             {% set prev_obj = _('Vorherige Urkunde') %}
             {% set next_obj = _('Nächste Urkunde') %}
+            {% set prev_objs = _('Vorherige Urkunden') %}
+            {% set next_objs = _('Folgende Urkunden') %}
             {% endif %}
         </div>
         <div class="row py-1 align-items-center mx-0">
@@ -80,13 +91,21 @@
         {% else %}
             {% if object.all_prev_versions %}
                 <div class="dropdown">
-                    <a class="btn internal-link" href="#" role="button" id="prev-texts-dropdown-{{ index }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fast-backward"></i></a>
+                    <a class="btn internal-link" href="#" role="button" id="prev-texts-dropdown-{{ index }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{prev_objs}}"><i class="fas fa-backward"></i></a>
                     <div class="dropdown-menu sibling-texts-menu" aria-labelledby="prev-texts-dropdown-{{ index }}">
                     {% for next_obj_id in object.all_prev_versions %}
-                    {% set all_texts = all_texts|replace_indexed_item(index - 1, next_obj_id[0]) %}
-                    {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
+                        {% if 'elexicon' in object.objectId %}
+                        {% set all_texts = all_texts|replace_indexed_item(index - 1, next_obj_id[0]) %}
+                        {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
                         <a class="internal-link dropdown-item py-0" id="prev-texts-link-{{ index }}-{{ loop.index }}" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">- {{ next_obj_id[1] }}</a>
-                    {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                        {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                        {% else %}
+                        {% set x = all_texts.append(next_obj_id[0]) %}
+                        {% set y =  all_reffs.append('all') %}
+                        <a class="internal-link dropdown-item py-0" id="prev-texts-link-{{ index }}-{{ loop.index }}" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+'))}}">- {{ next_obj_id[1] }}</a>
+                        {% set x = all_texts.remove(next_obj_id[0]) %}
+                        {% set y = all_reffs.remove('all') %}
+                        {% endif %}
                     {% endfor %}
                     </div>
                 </div>
@@ -159,13 +178,21 @@
             {% endif %}
             {% if object.all_next_versions %}
                 <div class="dropleft">
-                    <a class="btn internal-link" href="#" role="button" id="next-texts-dropdown-{{ index }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-flip="false"><i class="fas fa-fast-forward"></i></a>
+                    <a class="btn internal-link" href="#" role="button" id="next-texts-dropdown-{{ index }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-flip="false" title="{{next_objs}}"><i class="fas fa-forward"></i></a>
                     <div class="dropdown-menu sibling-texts-menu" aria-labelledby="next-texts-dropdown-{{ index }}">
                     {% for next_obj_id in object.all_next_versions %}
-                    {% set all_texts = all_texts|replace_indexed_item(index - 1, next_obj_id[0]) %}
-                    {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
-                        <a class="internal-link dropdown-item py-0" id="next-texts-link-{{ index }}-{{ loop.index }}" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">- {{ next_obj_id[1] }}</a>
-                    {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                        {% if 'elexicon' in object.objectId %}
+                        {% set all_texts = all_texts|replace_indexed_item(index - 1, next_obj_id[0]) %}
+                        {% set all_reffs = all_reffs|replace_indexed_item(index - 1, 'all') %}
+                        <a class="internal-link dropdown-item py-0" id="prev-texts-link-{{ index }}-{{ loop.index }}" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+')) }}">- {{ next_obj_id[1] }}</a>
+                        {% set all_texts = all_texts|replace_indexed_item(index - 1, object.objectId) %}
+                        {% else %}
+                        {% set x = all_texts.append(next_obj_id[0]) %}
+                        {% set y =  all_reffs.append('all') %}
+                        <a class="internal-link dropdown-item py-0" id="prev-texts-link-{{ index }}-{{ loop.index }}" href="{{url_for('InstanceNemo.r_multipassage', objectIds=all_texts|join_list_values('+'), subreferences=all_reffs|join_list_values('+'))}}">- {{ next_obj_id[1] }}</a>
+                        {% set x = all_texts.remove(next_obj_id[0]) %}
+                        {% set y = all_reffs.remove('all') %}
+                        {% endif %}
                     {% endfor %}
                     </div>
                 </div>

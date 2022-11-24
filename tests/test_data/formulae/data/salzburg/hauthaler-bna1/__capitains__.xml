@@ -8,7 +8,7 @@
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
    <identifier>urn:cts:formulae:salzburg.hauthaler-bna1</identifier>
    <parent>urn:cts:formulae:salzburg</parent>
-   <dc:title xml:lang="deu">Salzburger Urkundenbuch (Ed. Hauthaler); Breves Notitiae Anhang, Nummer 1</dc:title>
+   <dc:title xml:lang="deu">Breves Notitiae Anhang, Nummer 1</dc:title>
    <dc:type>cts:work</dc:type>
    <members>
       <collection readable="true" path="./salzburg.hauthaler-bna1.lat001.xml">

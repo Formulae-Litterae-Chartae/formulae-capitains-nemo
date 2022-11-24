@@ -606,6 +606,23 @@ $(document).ready(function () {
         });
     })
     
+    if (window.location.hash) {
+        var hash = window.location.hash;
+        var t = $(hash + '.title-id');
+        var t_parent = t.parent();
+        var navbarHeight = $('#mainNavbar').height();
+        var letterPos = $('#elex-letters').height();
+        var targetOffset = letterPos + 25 + navbarHeight;
+        $('html, body').animate({
+            scrollTop: t.offset().top - targetOffset
+        }, 500, function() {
+            t_parent.addClass('flash-grey')
+            setTimeout(function() {
+                t_parent.removeClass('flash-grey');
+            }, 4000);
+        });
+    }
+    
     $('.corpus-nrs').click(function() {
         var t = $(this).attr('href');
         var navbarHeight = $('#mainNavbar').height();
