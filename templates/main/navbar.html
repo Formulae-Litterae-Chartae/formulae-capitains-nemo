@@ -20,7 +20,8 @@
                         <!-- Button trigger modal -->
                         <span class="dropdown-item"><a role="button" data-toggle="modal" data-target="#savePageModal">
                         {{ _('Diese Seite speichern') }}
-                        </a><a type="button" role="button" class="btn btn-link py-0 pr-0 pl-1" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ _('Suchergebnisse speichern') }}" data-videosource="{{ url_for('InstanceNemo.static', filename='videos/suchergebnisse_speichern_de.mp4') }}" data-transcriptde="{{ video_transcripts.suchergebnisse_speichern_de }}" data-transcripten="{{ video_transcripts.suchergebnisse_speichern_en }}" data-videolanguage="de">
+                        </a>
+                        <a type="button" role="button" class="btn btn-link py-0 pr-0 pl-1" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ _('Suchergebnisse speichern') }}" data-videosource="{{ url_for('InstanceNemo.static', filename='videos/suchergebnisse_speichern_') }}" data-transcriptde="{{ video_transcripts.suchergebnisse_speichern_de }}" data-transcripten="{{ video_transcripts.suchergebnisse_speichern_en }}" data-videolanguage="{% if lang == 'eng' %}en{% else %}de{% endif %}">
                 <i class="fas fa-question-circle"></i>
             </a></span>
                         {% endif %}
@@ -78,6 +79,9 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="{{ url_for('InstanceNemo.r_feedback') }}">{{ _('Feedback') }}</a>
+            </li>
+            <li class="nav-item">
+                <span class="navbar-text pl-2">{{ _('Videos') }}<span class="small"> (<a class="active" href="{{url_for('InstanceNemo.r_videos', v_lang='de')}}">de</a> | <a class="active" href="{{url_for('InstanceNemo.r_videos', v_lang='en')}}">en</a>)</span></span>
             </li>
         </ul>
         {% include "search::search_box.html" %}

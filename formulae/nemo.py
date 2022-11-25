@@ -59,7 +59,7 @@ class NemoFormulae(Nemo):
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"]),
         ("/manuscript_desc/siglen", "r_man_siglen", ["GET"]),
         ("/accessibility_statement", "r_accessibility_statement", ["GET"]),
-        ("/videos", "r_videos", ["GET"])
+        ("/videos/<v_lang>", "r_videos", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1769,25 +1769,23 @@ class NemoFormulae(Nemo):
         """
         return {"template": "main::accessibility_statement.html"}
 
-    def r_videos(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+    def r_videos(self, v_lang: str = 'de') -> Dict[str, Union[str, List[Tuple[str]]]]:
         """ Route for videos
 
         :return: Video template with video and subtitle filenames
         :rtype: {str: str, str: list(tuple(str))}
         """
+        lang_str_dict = {'de': 'Deutsch', 'en': 'English'}
         videos = {_('Suche'):
                       {_('01 - Die Einfache Suche'):
-                           {'video': 'videos/einfache_suche_de.mp4',
-                            'subtitles': (('de', 'Deutsch', 'videos/einfache_suche_de.vtt'),
-                                          ('en', 'English', 'videos/einfache_suche_en.vtt'))},
+                           {'video': 'videos/einfache_suche_{}.mp4'.format(v_lang),
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/einfache_suche_{}.vtt'.format(v_lang))]},
                        _('02 - Suchergebnisse herunterladen'):
-                           {'video': 'videos/suchergebnisse_herunterladen_de.mp4',
-                            'subtitles': (('de', 'Deutsch', 'videos/suchergebnisse_herunterladen_de.vtt'),
-                                          ('en', 'English', 'videos/suchergebnisse_herunterladen_en.vtt'))},
+                           {'video': 'videos/suchergebnisse_herunterladen_{}.mp4'.format(v_lang),
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/suchergebnisse_herunterladen_{}.vtt'.format(v_lang))]},
                        _('03 - Suchergebnisse in ihrem Benutzerkonto speichern'):
-                           {'video': 'videos/suchergebnisse_speichern_de.mp4',
-                            'subtitles': (('de', 'Deutsch', 'videos/suchergebnisse_speichern_de.vtt'),
-                                          ('en', 'English', 'videos/suchergebnisse_speichern_en.vtt'))}
+                           {'video': 'videos/suchergebnisse_speichern_{}.mp4'.format(v_lang),
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/suchergebnisse_speichern_{}.vtt'.format(v_lang))]}
                        }
                   }
         # Load transcripts from .txt files

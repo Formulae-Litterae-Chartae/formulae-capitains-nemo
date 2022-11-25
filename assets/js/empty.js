@@ -724,32 +724,47 @@ $(document).ready(function () {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var modalLabel = button.data('modallabel') // Extract info from data-* attributes
         var videoSource = button.data('videosource');
-        var subtitleSource = videoSource.replace('mp4', 'vtt');
         var videoLanguage = button.data('videolanguage');
+        var subtitleSource = videoSource + videoLanguage + '.vtt';
         var transcript = button.data('transcript' + videoLanguage);
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
         var modal = $(this)
-        modal.find('video').attr('src', videoSource);
-        modal.find('track').attr('src', subtitleSource);
+        modal.find('video').attr('src', videoSource + videoLanguage + '.mp4');
+        var trackElement = modal.find('track');
+        trackElement.attr('src', subtitleSource);
+        trackElement.attr('srclang', videoLanguage);
+        if ( videoLanguage == 'en' ) {
+            trackElement.attr('label', 'English');
+        } else {
+            trackElement.attr('label', 'Deutsch');
+        }
         modal.find('.modal-title').text(modalLabel);
         modal.find('.transcript-text').text(transcript);
         var englishVideoLink = modal.find('.english-video-link');
+        var deutschVideoLink = modal.find('.deutsch-video-link');
         englishVideoLink.attr({
             "data-modallabel": modalLabel, 
             "data-videosource": videoSource,
             "data-transcriptde": button.data('transcriptde'),
-            "data-transcripten": button.data('transcripten')
+            "data-transcripten": button.data('transcripten'),
+            "data-videolanguage": 'en'
         });
-        englishVideoLink.toggleClass('d-none');
-        var deutschVideoLink = modal.find('.deutsch-video-link');
+        if ( videoLanguage == 'en' ) {
+            englishVideoLink.addClass('d-none');
+            deutschVideoLink.removeClass('d-none');
+        };
         deutschVideoLink.attr({
             "data-modallabel": modalLabel, 
             "data-videosource": videoSource,
             "data-transcriptde": button.data('transcriptde'),
-            "data-transcripten": button.data('transcripten')
+            "data-transcripten": button.data('transcripten'),
+            "data-videolanguage": 'de'
         });
-        deutschVideoLink.toggleClass('d-none');
+        if ( videoLanguage == 'de' ) {
+            deutschVideoLink.addClass('d-none');
+            englishVideoLink.removeClass('d-none');
+        };
     })
     
     var locationHash = window.location.hash;

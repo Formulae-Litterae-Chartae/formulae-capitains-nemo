@@ -31,7 +31,7 @@
                 <video controls src="{{ url_for('InstanceNemo.static', filename=files['video']) }}">
                     {% if files['subtitles'] %}
                         {% for language, label, filename in files['subtitles'] %}
-                        <track label="{{ label }}" kind="subtitles" srclang="{{ language }}" src="{{ url_for('InstanceNemo.static', filename=filename) }}"{% if language == 'de' %} default{% endif %}>
+                        <track label="{{ label }}" kind="subtitles" srclang="{{ language }}" src="{{ url_for('InstanceNemo.static', filename=filename) }}" default>
                         {% endfor %}
                     {% endif %}
                     {{ _('Ihr Browser kann keine eingebetteten Videos zeigen. Link zu ') }}<a href="{{ url_for('InstanceNemo.static', filename=filename) }}" target="_blank">Video</a>.
