@@ -46,7 +46,7 @@
         </xsl:if> -->     
         <xsl:param name="wTag"/>
         <xsl:choose>
-            <xsl:when test="following-sibling::*[1][self::t:note[@place='right']//*[starts-with(text(), '[fol')]] and not($wTag) and contains(., '|')"></xsl:when>
+            <xsl:when test="following-sibling::node()[1][self::t:note[@place='right']//*[starts-with(text(), '[fol')]] and not($wTag)"></xsl:when>
             <xsl:otherwise>
                 <xsl:element name="span">
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
@@ -327,7 +327,7 @@
             </xsl:choose>
         </xsl:param>
         <xsl:choose>
-            <xsl:when test="@place='right' and .//*[starts-with(text(), '[fol')]">
+            <xsl:when test="@place='right' and .//*[starts-with(normalize-space(text()), '[fol')]">
                 <xsl:element name="span">
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
                     <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
