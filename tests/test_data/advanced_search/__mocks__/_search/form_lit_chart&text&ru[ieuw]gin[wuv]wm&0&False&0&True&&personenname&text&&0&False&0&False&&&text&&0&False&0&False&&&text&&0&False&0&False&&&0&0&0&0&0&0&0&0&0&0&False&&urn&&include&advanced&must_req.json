@@ -14,7 +14,7 @@
                           "match": {
                             "regexp": {
                               "text": {
-                                "value": "c(w|uu|vu|uv|vv)hr[ijij]s[ij]t([uv]|w|uu|vu|uv|vv|[w])[ij][uv]",
+                                "value": "r[uv]([ijeuv]|w|uu|vu|uv|vv|[w])g[ij]n(w|w|uu|vu|uv|vv|[uv])(w|uu|vu|uv|vv)m",
                                 "flags": "ALL",
                                 "case_insensitive": true
                               }

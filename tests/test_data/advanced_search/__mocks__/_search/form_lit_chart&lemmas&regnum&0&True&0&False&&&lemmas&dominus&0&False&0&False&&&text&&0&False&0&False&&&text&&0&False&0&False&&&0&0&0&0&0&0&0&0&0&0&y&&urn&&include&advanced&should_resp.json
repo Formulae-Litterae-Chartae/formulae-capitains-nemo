@@ -1,6 +1,6 @@
 [
   {
-    "took": 57,
+    "took": 78,
     "timed_out": false,
     "_shards": {
       "total": 66,
@@ -1710,7 +1710,7 @@
     }
   },
   {
-    "took": 519,
+    "took": 650,
     "timed_out": false,
     "_shards": {
       "total": 66,

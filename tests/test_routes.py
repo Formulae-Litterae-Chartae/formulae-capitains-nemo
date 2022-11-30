@@ -6009,7 +6009,7 @@ class TestES(Formulae_Testing):
                                                                        ('bool_operator', 'must')]),
                  'test_regex_text': OrderedDict([("corpus", "form_lit_chart"),
                                                  ("search_field_1", "text"),
-                                                 ("q_1", 'ru[ieu]gin[wuv]wm'),
+                                                 ("q_1", 'ru[ieuw]gin[wuv]wm'),
                                                  ("fuzziness_1", "0"),
                                                  ("in_order_1", "False"),
                                                  ("slop_1", "0"),
@@ -9762,7 +9762,7 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['text']['value'],
-                         'r[uv][ijeuv]g[ij]n(w|w|uu|vu|uv|vv|[uv])(w|uu|vu|uv|vv)m')
+                         'r[uv]([ijeuv]|w|uu|vu|uv|vv|[w])g[ij]n(w|w|uu|vu|uv|vv|[uv])(w|uu|vu|uv|vv)m')
 
     # @patch.object(Elasticsearch, "search")
     # def test_regex_parts(self, mock_search):
