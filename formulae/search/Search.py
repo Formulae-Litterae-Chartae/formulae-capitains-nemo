@@ -567,11 +567,11 @@ def advanced_query_index(corpus: list = None,
         # I may need to run each query separately and then bring the results together so that I can do things like
         # proper name searches.
         for query_key, query_vals in query_dict.items():
-            if not any([query_vals['q'], query_vals['proper_name'], query_vals['formulaic_parts']]):
+            if not any([query_vals['q'], query_vals['proper_name']]):  # , query_vals['formulaic_parts']]):
                 continue
             search_part_template = deepcopy(base_body_template)
-            if query_vals['formulaic_parts'] != '':
-                query_vals['search_field'] = query_vals['formulaic_parts'].split('+')
+            # if query_vals['formulaic_parts'] != '':
+            #     query_vals['search_field'] = query_vals['formulaic_parts'].split('+')
 
             if isinstance(query_vals['search_field'], list):
                 search_highlight.update(query_vals['search_field'])
@@ -774,11 +774,11 @@ def advanced_query_index(corpus: list = None,
                     bool_clauses.append({'bool': {'must': regest_clauses}})
                     search_part_template['highlight']['fields'].update({'regest': {}})
                 search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
-            elif query_vals['formulaic_parts']:
-                bool_clauses = [{'exists': {'field': x}} for x in query_vals['formulaic_parts'].split('+')]
-                for form_part in query_vals['formulaic_parts'].split('+'):
-                    search_part_template['highlight']['fields'][form_part]['no_match_size'] = 1000
-                search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
+            # elif query_vals['formulaic_parts']:
+            #     bool_clauses = [{'exists': {'field': x}} for x in query_vals['formulaic_parts'].split('+')]
+            #     for form_part in query_vals['formulaic_parts'].split('+'):
+            #         search_part_template['highlight']['fields'][form_part]['no_match_size'] = 1000
+            #     search_part_template['query']['bool']['must'].append({'bool': {'should': bool_clauses, 'minimum_should_match': 1}})
 
             searched_templates.append(search_part_template)
 
@@ -878,7 +878,7 @@ def advanced_query_index(corpus: list = None,
                           "slop",
                           "regex_search",
                           "exclude_q",
-                          "formulaic_parts",
+                          # "formulaic_parts",
                           "proper_name"):
                 d_vals.append(str('+'.join(query_dict[k][s_arg]) if isinstance(query_dict[k][s_arg], list) else query_dict[k][s_arg]).replace(' ', '+'))
             q.append('&'.join(d_vals))

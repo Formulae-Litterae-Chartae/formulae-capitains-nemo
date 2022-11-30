@@ -1,0 +1,70 @@
+[
+  {
+    "took": 4,
+    "timed_out": false,
+    "_shards": {
+      "total": 1,
+      "successful": 1,
+      "skipped": 0,
+      "failed": 0
+    },
+    "hits": {
+      "total": {
+        "value": 1,
+        "relation": "eq"
+      },
+      "max_score": null,
+      "hits": [
+        {
+          "_index": "buenden_v35",
+          "_id": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+          "_score": null,
+          "_source": {
+            "text": "In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
+            "lemmas": "",
+            "regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
+            "title": "Bündner Urkundenbuch (Ed. Meyer-Marthaler/Perret) Nr. 25",
+            "keywords": "",
+            "urn": "urn:cts:formulae:buenden.meyer-marthaler0025.lat001",
+            "date_string": "769–800 [814]",
+            "comp_ort": " ",
+            "autocomplete": "In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, anathema sit et peccatum in se recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi.",
+            "autocomplete_lemmas": "",
+            "autocomplete_regest": "Ovilio von Trimmis schenkt zu seinem und seiner Gattin Theoderia Seelenheil der Kirche St. Carpophorus einen Weingarten.",
+            "orig_comp_ort": " ",
+            "collection": "buenden",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "0769",
+                "lte": "0800-12-31"
+              }
+            ],
+            "specific_date": [
+              {
+                "year": 814
+              }
+            ],
+            "all_dates": [
+              "0769",
+              "0800-12-31",
+              "0814"
+            ],
+            "min_date": "0769",
+            "max_date": "0814",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "text": [
+              "In Christi nomine. Do ego Ouilio de vico Tremune ad ecclesiam sancti Carpofori pro remedio anime meae vel coniugis meae Theoderiae, hoc est vinea cui vocabulum est ad Oraturium ex integra, confinat da una parte in sancti Carpofori et da alia in monicorum de Fabarias et ipsam vineam de presenti tradimus ad iamdictam ecclesiam sancti Carpofori. Et si quis eam exinde alienare voluerit, </small><strong>anathema</strong><small> </small><strong>sit</strong><small> </small><strong>et</strong><small> </small><strong>peccatum</strong><small> </small><strong>in</strong><small> </small><strong>se</strong><small> recipiat et quod repetit nihil obtineat effectum, sed cartula ista maneat inconvulsa. Signum Ouilionis et coniuge sue Theoderia, qui hanc cartula fieri rogaverunt testes. Signum Pauliniani testes. Signum Iuliani de Tremune testes. Signum Claudiani clerici de vico Uaze testes. Ego Orsacius licit indignus presbiteri ad vice Pettonis presbiteri scripsi et suscripsi."
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:buenden.meyer-marthaler0025.lat001"
+          ]
+        }
+      ]
+    }
+  }
+]
