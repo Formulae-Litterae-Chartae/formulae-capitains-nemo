@@ -47,8 +47,8 @@ def build_search_args(search_args: dict) -> dict:
         search_args['search_field_2'] = 'regest'
     if search_args.get('exclude_q', ''):
         search_args['exclude_q_1'] = search_args['exclude_q'].lower()
-    if 'formulaic_parts' in search_args:
-        search_args['formulaic_parts_1'] = search_args.get('formulaic_parts', '')
+    # if 'formulaic_parts' in search_args:
+    #     search_args['formulaic_parts_1'] = search_args.get('formulaic_parts', '')
     if 'regex_search' in search_args:
         regex_search = search_args.get('regex_search')
         search_args['regex_search_1'] = 'False'
@@ -61,7 +61,8 @@ def build_search_args(search_args: dict) -> dict:
             search_args['proper_name_1'] = search_args.get('proper_name', '')
 
     for arg, value in search_args.items():
-        if ('formulaic_parts' in arg or 'proper_name' in arg) and value:
+        # if ('formulaic_parts' in arg or 'proper_name' in arg) and value:
+        if 'proper_name' in arg and value:
             if isinstance(value, list):
                 search_args[arg] = '+'.join(value)
         elif 'regex_search' in arg:
@@ -86,7 +87,7 @@ def make_query_dict(search_args: dict = None) -> dict:
     query_val_keys = [("in_order", 'False'),
                       ("regex_search", False),
                       ("proper_name", ''),
-                      ("formulaic_parts", ''),
+                      # ("formulaic_parts", ''),
                       ("slop", 0),
                       ("fuzziness", 0),
                       ("search_field", 'text'),
@@ -148,8 +149,8 @@ def r_results():
         corps = corpus
     g.corpora = [(CORP_MAP[x], x) for x in corps]
     g.form_parts = []
-    if request.args.get('formulaic_parts'):
-        g.form_parts = [(x, FORM_PARTS[x]) for x in request.args.get('formulaic_parts', '').split('+')]
+    # if request.args.get('formulaic_parts'):
+    #     g.form_parts = [(x, FORM_PARTS[x]) for x in request.args.get('formulaic_parts', '').split('+')]
     special_days = request.args.get('special_days')
     if special_days:
         special_days = special_days.split('+')
@@ -163,7 +164,7 @@ def r_results():
     query_val_keys = [("in_order", 'False'),
                       ("regex_search", False),
                       ("proper_name", ''),
-                      ("formulaic_parts", ''),
+                      # ("formulaic_parts", ''),
                       ("slop", 0),
                       ("fuzziness", 0),
                       ("search_field", 'text'),
@@ -302,7 +303,7 @@ def r_advanced_search():
     form_data = deepcopy(form.data)
     if 'q' in request.args:
         form_data['q_1'] = request.args.get('q', '').lower()
-        for form_arg in ['regex_search', 'fuzziness', 'slop', 'in_order', 'formulaic_parts', 'proper_name', 'exclude_q']:
+        for form_arg in ['regex_search', 'fuzziness', 'slop', 'in_order', 'proper_name', 'exclude_q']:  # ,'formulaic_parts']:
             form_data[form_arg + '_1'] = request.args.get(form_arg, '')
         form_data['lemma_search'] = request.args.get('lemma_search', 'False')
     data_present = [x for x in form_data if form_data[x] and form_data[x] != 'none' and x not in ignored_fields]
@@ -337,7 +338,7 @@ def word_search_suggester(qSource: str):
     query_val_keys = [("in_order", 'False'),
                       ("regex_search", False),
                       ("proper_name", ''),
-                      ("formulaic_parts", ''),
+                      # ("formulaic_parts", ''),
                       ("slop", 0),
                       ("fuzziness", 0),
                       ("search_field", 'text'),
@@ -398,17 +399,17 @@ def download_search_results(download_id: str) -> Response:
                               ('fuzziness', _('Unschärfegrad')),
                               ('slop', _('Suchradius')),
                               ('in_order', _('Wortreihenfolge beachten?')),
-                              ('formulaic_parts', _('Urkundenteile')),
+                              # ('formulaic_parts', _('Urkundenteile')),
                               ('proper_name', _('Eigenname'))]
         search_value_dict = {'False': _('Nein'), 'True': _('Ja'), False: _('Nein'), True: _('Ja')}
         query_dict = make_query_dict(build_search_args(session['previous_search_args']))
         for k, v in query_dict.items():
-            if v['q'] or v['formulaic_parts']:
+            if v['q']:  # or v['formulaic_parts']:
                 arg_list.append('<b>{}</b>:'.format(k.replace('q_', _('Suchterminus '))))
                 for query_arg, s in query_dict_mapping:
                     value = v[query_arg]
-                    if query_arg in ['formulaic_parts', 'proper_name']:
-                        value = ' - '.join([x.title() for x in re.split(r'\+|\s+', value)])
+                    # if query_arg in ['formulaic_parts', 'proper_name']:
+                    #     value = ' - '.join([x.title() for x in re.split(r'\+|\s+', value)])
                     arg_list.append('- <b>{}</b>: {}'.format(s, value if value != '0' else ''))
         for arg, s in search_arg_mapping:
             value = ''
