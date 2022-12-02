@@ -16,8 +16,8 @@
     <div class="row row-cols-3">
         {% for title, files in video_information|dictsort %}
         {% set inner_index = loop.index %}
-        <div class="col">
-            <h5 class="text-center">{{ title }}</h5>
+        <div class="col video-col border">
+            <h4 class="text-center">{{ title }}</h4>
             {% if files['transcripts'] %}
             <div class="row">
             {% for transcript_lang, transcript_text in files['transcripts'] %}
