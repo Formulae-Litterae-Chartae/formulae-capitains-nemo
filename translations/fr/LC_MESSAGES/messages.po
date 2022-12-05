@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-11-23 11:07+0100\n"
+"POT-Creation-Date: 2022-12-05 10:44+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -64,12 +64,12 @@ msgstr ""
 #: formulae/nemo.py:869 formulae/nemo.py:1018 formulae/nemo.py:1200
 #: formulae/nemo.py:1274 tests/test_routes.py:285 tests/test_routes.py:309
 #: tests/test_routes.py:323 tests/test_routes.py:340 tests/test_routes.py:343
-#: tests/test_routes.py:353 tests/test_routes.py:782 tests/test_routes.py:809
-#: tests/test_routes.py:814 tests/test_routes.py:845 tests/test_routes.py:848
+#: tests/test_routes.py:353 tests/test_routes.py:784 tests/test_routes.py:811
+#: tests/test_routes.py:816 tests/test_routes.py:847 tests/test_routes.py:850
 msgid "Diese Sammlung ist nicht öffentlich zugänglich."
 msgstr ""
 
-#: formulae/nemo.py:1016 tests/test_routes.py:346 tests/test_routes.py:851
+#: formulae/nemo.py:1016 tests/test_routes.py:346 tests/test_routes.py:853
 msgid ""
 "Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte "
 "gegebenenfalls die Homepage der Bibliothek."
@@ -87,12 +87,12 @@ msgstr ""
 msgid "Übersetzung"
 msgstr ""
 
-#: formulae/nemo.py:1197 tests/test_routes.py:522
+#: formulae/nemo.py:1197 tests/test_routes.py:524
 msgid "Diese View ist nur für Formelsammlungen verfuegbar"
 msgstr ""
 
-#: formulae/nemo.py:1402 formulae/viewer/routes.py:18 tests/test_routes.py:610
-#: tests/test_routes.py:613
+#: formulae/nemo.py:1402 formulae/viewer/routes.py:18 tests/test_routes.py:612
+#: tests/test_routes.py:615
 msgid " hat keine Edition."
 msgstr ""
 
@@ -101,18 +101,18 @@ msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr "Aucun résultat trouvé. Le texte complet est affiché."
 
 #: formulae/nemo.py:1649 tests/test_routes.py:387 tests/test_routes.py:390
-#: tests/test_routes.py:393 tests/test_routes.py:592 tests/test_routes.py:857
+#: tests/test_routes.py:393 tests/test_routes.py:594 tests/test_routes.py:859
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr "Au moins un texte que vous souhaitez afficher n'est pas disponible."
 
-#: formulae/nemo.py:1778 formulae/search/forms.py:44
-#: formulae/search/forms.py:63 formulae/search/forms.py:81
-#: formulae/search/forms.py:99 formulae/search/forms.py:117
-#: formulae/search/routes.py:241 templates/main/container.html:185
+#: formulae/nemo.py:1779 formulae/search/forms.py:44
+#: formulae/search/forms.py:63 formulae/search/forms.py:80
+#: formulae/search/forms.py:97 formulae/search/forms.py:114
+#: formulae/search/routes.py:242 templates/main/container.html:185
 msgid "Suche"
 msgstr "Recherche"
 
-#: formulae/nemo.py:1779
+#: formulae/nemo.py:1780
 msgid "01 - Die Einfache Suche"
 msgstr ""
 
@@ -120,23 +120,47 @@ msgstr ""
 msgid "02 - Suchergebnisse herunterladen"
 msgstr ""
 
-#: formulae/nemo.py:1787
+#: formulae/nemo.py:1786
 msgid "03 - Suchergebnisse in ihrem Benutzerkonto speichern"
 msgstr ""
 
-#: formulae/nemo.py:1835 tests/test_routes.py:431
+#: formulae/nemo.py:1790
+msgid "Die Leseansicht"
+msgstr ""
+
+#: formulae/nemo.py:1791
+msgid "01 - Eine neue Version hinzufügen"
+msgstr ""
+
+#: formulae/nemo.py:1794
+msgid "02 - Einen Text von der selben Sammlung hinzufügen"
+msgstr ""
+
+#: formulae/nemo.py:1797
+msgid "03 - Einen Text von einer anderen Sammlung hinzufügen"
+msgstr ""
+
+#: formulae/nemo.py:1800
+msgid "04 - Einen dritten Text hinzufügen"
+msgstr ""
+
+#: formulae/nemo.py:1803
+msgid "05 - Die Leseansicht ändern"
+msgstr ""
+
+#: formulae/nemo.py:1850 tests/test_routes.py:431
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr ""
 
-#: formulae/nemo.py:1844
+#: formulae/nemo.py:1859
 msgid "Heruntergeladen: "
 msgstr ""
 
-#: formulae/auth/email.py:9 tests/test_routes.py:2211
+#: formulae/auth/email.py:9 tests/test_routes.py:2213
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Réinitialiser le mot de passe"
 
-#: formulae/auth/email.py:18 tests/test_routes.py:2225
+#: formulae/auth/email.py:18 tests/test_routes.py:2227
 msgid "[Formulae - Litterae - Chartae] Emailadresse ändern"
 msgstr ""
 
@@ -220,11 +244,11 @@ msgstr "Langue par défault"
 msgid "Anmelden"
 msgstr "Identification"
 
-#: formulae/auth/forms.py:60 tests/test_routes.py:2129
+#: formulae/auth/forms.py:60 tests/test_routes.py:2131
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Veuillez choisir un autre nom d'utilisateur."
 
-#: formulae/auth/forms.py:65 tests/test_routes.py:2131
+#: formulae/auth/forms.py:65 tests/test_routes.py:2133
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Veuillez choisir une autre adresse e-mail."
 
@@ -246,20 +270,20 @@ msgid "Seite speichern"
 msgstr ""
 
 #: formulae/auth/routes.py:20 formulae/auth/routes.py:156
-#: tests/test_routes.py:546 tests/test_routes.py:769 tests/test_routes.py:772
-#: tests/test_routes.py:841
+#: tests/test_routes.py:548 tests/test_routes.py:771 tests/test_routes.py:774
+#: tests/test_routes.py:843
 msgid "Sie sind schon eingeloggt."
 msgstr "Vous êtes déjà connecté(e)."
 
-#: formulae/auth/routes.py:26 tests/test_routes.py:2157
+#: formulae/auth/routes.py:26 tests/test_routes.py:2159
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Nom d'utilisateur ou mot de passe invalide."
 
-#: formulae/auth/routes.py:59 tests/test_routes.py:2331
+#: formulae/auth/routes.py:59 tests/test_routes.py:2333
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "Ceci n'est pas votre mot de passe actuel."
 
-#: formulae/auth/routes.py:64 tests/test_routes.py:2317
+#: formulae/auth/routes.py:64 tests/test_routes.py:2319
 msgid "Sie haben Ihr Passwort erfolgreich geändert."
 msgstr "Vous avez réussi à changer votre mot de passe."
 
@@ -267,7 +291,7 @@ msgstr "Vous avez réussi à changer votre mot de passe."
 msgid "Sie haben Ihre Benutzersprache erfolgreich geändert."
 msgstr "Vous avez réussi à changer la langue par défault."
 
-#: formulae/auth/routes.py:76 tests/test_routes.py:2231
+#: formulae/auth/routes.py:76 tests/test_routes.py:2233
 msgid ""
 "Ein Link zur Bestätigung dieser Änderung wurde an Ihre neue Emailadresse "
 "zugeschickt"
@@ -278,7 +302,7 @@ msgid "Benutzerprofil ändern"
 msgstr "Changer le profil d’utilisateur"
 
 #: formulae/auth/routes.py:93 formulae/auth/routes.py:113
-#: tests/test_routes.py:765 tests/test_routes.py:2265
+#: tests/test_routes.py:767 tests/test_routes.py:2267
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
 msgstr "Vous êtes déjà connecté(e). Vous pouvez changer votre mot de passe ici."
 
@@ -286,8 +310,8 @@ msgstr "Vous êtes déjà connecté(e). Vous pouvez changer votre mot de passe i
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Vous avez réussi à réinitialiser votre mot de passe."
 
-#: formulae/auth/routes.py:120 tests/test_routes.py:2217
-#: tests/test_routes.py:2242
+#: formulae/auth/routes.py:120 tests/test_routes.py:2219
+#: tests/test_routes.py:2244
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
@@ -295,24 +319,24 @@ msgstr ""
 "L'instruction pour réinitialiser votre mot de passe vous a été envoyée "
 "par e-mail"
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:2289
+#: formulae/auth/routes.py:137 tests/test_routes.py:2291
 msgid "Der Token ist nicht gültig. Versuchen Sie es erneut."
 msgstr ""
 
-#: formulae/auth/routes.py:140 tests/test_routes.py:2286
+#: formulae/auth/routes.py:140 tests/test_routes.py:2288
 msgid "Ihre Emailaddresse wurde nicht geändert. Versuchen Sie es erneut."
 msgstr ""
 
-#: formulae/auth/routes.py:145 tests/test_routes.py:2282
+#: formulae/auth/routes.py:145 tests/test_routes.py:2284
 msgid "Ihr Email wurde erfolgreich geändert. Sie lautet jetzt"
 msgstr ""
 
-#: formulae/auth/routes.py:166 tests/test_routes.py:2198
+#: formulae/auth/routes.py:166 tests/test_routes.py:2200
 msgid "Sie sind nun registriert."
 msgstr "Vous êtes désormais enregistré(e)."
 
-#: formulae/auth/routes.py:183 tests/test_routes.py:736
-#: tests/test_routes.py:890
+#: formulae/auth/routes.py:183 tests/test_routes.py:738
+#: tests/test_routes.py:892
 msgid "Diese URL ist nicht Teil der Werkstatt."
 msgstr ""
 
@@ -320,7 +344,7 @@ msgstr ""
 msgid "Seite gespeichert."
 msgstr ""
 
-#: formulae/auth/routes.py:208 templates/main/navbar.html:27
+#: formulae/auth/routes.py:208 templates/main/navbar.html:28
 msgid "Gespeicherte Seiten"
 msgstr ""
 
@@ -333,12 +357,12 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "L'URL cherchée n'a pas éte trouvée."
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:10047
+#: tests/test_routes.py:10049
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "Une erreur inattendue s'est produite."
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:10048
+#: tests/test_routes.py:10050
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
@@ -358,8 +382,8 @@ msgstr ""
 msgid "Text nicht zugänglich."
 msgstr ""
 
-#: formulae/search/Search.py:588 tests/test_routes.py:9047
-#: tests/test_routes.py:9060
+#: formulae/search/Search.py:588 tests/test_routes.py:9049
+#: tests/test_routes.py:9062
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -415,27 +439,27 @@ msgstr ""
 msgid "Eschatokoll"
 msgstr ""
 
-#: formulae/search/forms.py:45 formulae/search/forms.py:135
-#: formulae/search/routes.py:395 templates/search/documentation.html:12
+#: formulae/search/forms.py:45 formulae/search/forms.py:131
+#: formulae/search/routes.py:396 templates/search/documentation.html:12
 #: templates/search/part_results.html:64 templates/search/search.html:75
 msgid "Korpora"
 msgstr ""
 
-#: formulae/search/forms.py:45 formulae/search/forms.py:136
+#: formulae/search/forms.py:45 formulae/search/forms.py:132
 #: templates/main/multipassage.html:280 templates/main/multipassage.html:425
-#: templates/main/multipassage.html:607 templates/main/navbar.html:34
+#: templates/main/multipassage.html:607 templates/main/navbar.html:35
 #: templates/main/sub_collections.html:16
 msgid "Formeln"
 msgstr "Formules"
 
-#: formulae/search/forms.py:45 formulae/search/forms.py:135
+#: formulae/search/forms.py:45 formulae/search/forms.py:131
 msgid "Urkunden"
 msgstr "Chartes"
 
-#: formulae/search/forms.py:46 formulae/search/forms.py:137
+#: formulae/search/forms.py:46 formulae/search/forms.py:133
 #: templates/main/elex_collection.html:16 templates/main/multipassage.html:281
 #: templates/main/multipassage.html:426 templates/main/multipassage.html:608
-#: templates/main/navbar.html:48 templates/search/advanced_search.html:51
+#: templates/main/navbar.html:49 templates/search/advanced_search.html:51
 msgid "Lexikon"
 msgstr "Lexique"
 
@@ -450,394 +474,384 @@ msgstr ""
 msgid "Lemma"
 msgstr "Lemmes"
 
-#: formulae/search/forms.py:64 formulae/search/forms.py:82
-#: formulae/search/forms.py:100 formulae/search/forms.py:118
+#: formulae/search/forms.py:64 formulae/search/forms.py:81
+#: formulae/search/forms.py:98 formulae/search/forms.py:115
 msgid "RegEx"
 msgstr ""
 
-#: formulae/search/forms.py:65 formulae/search/forms.py:83
-#: formulae/search/forms.py:101 formulae/search/forms.py:119
-#: formulae/search/routes.py:398 templates/search/documentation.html:22
+#: formulae/search/forms.py:65 formulae/search/forms.py:82
+#: formulae/search/forms.py:99 formulae/search/forms.py:116
+#: formulae/search/routes.py:399 templates/search/documentation.html:22
 msgid "Unschärfegrad"
 msgstr "Niveau de flou"
 
-#: formulae/search/forms.py:66 formulae/search/forms.py:84
-#: formulae/search/forms.py:102 formulae/search/forms.py:120
+#: formulae/search/forms.py:66 formulae/search/forms.py:83
+#: formulae/search/forms.py:100 formulae/search/forms.py:117
 msgid "AUTO"
 msgstr "AUTO"
 
-#: formulae/search/forms.py:68 formulae/search/forms.py:86
-#: formulae/search/forms.py:104 formulae/search/forms.py:122
-#: formulae/search/routes.py:399 templates/search/documentation.html:24
+#: formulae/search/forms.py:68 formulae/search/forms.py:85
+#: formulae/search/forms.py:102 formulae/search/forms.py:119
+#: formulae/search/routes.py:400 templates/search/documentation.html:24
 msgid "Suchradius"
 msgstr "Étendue de la recherche"
 
-#: formulae/search/forms.py:69 formulae/search/forms.py:87
-#: formulae/search/forms.py:105 formulae/search/forms.py:123
+#: formulae/search/forms.py:69 formulae/search/forms.py:86
+#: formulae/search/forms.py:103 formulae/search/forms.py:120
 #, fuzzy
 msgid "Wortreihenfolge?"
 msgstr "Ordre des mots"
 
-#: formulae/search/forms.py:70 formulae/search/forms.py:88
-#: formulae/search/forms.py:106 formulae/search/forms.py:124
-#: formulae/search/routes.py:397
+#: formulae/search/forms.py:70 formulae/search/forms.py:87
+#: formulae/search/forms.py:104 formulae/search/forms.py:121
+#: formulae/search/routes.py:398
 #, fuzzy
 msgid "Suchfeld"
 msgstr "Recherche"
 
-#: formulae/search/forms.py:70 formulae/search/forms.py:88
-#: formulae/search/forms.py:106 formulae/search/forms.py:124
+#: formulae/search/forms.py:70 formulae/search/forms.py:87
+#: formulae/search/forms.py:104 formulae/search/forms.py:121
 #: templates/search/part_results.html:92 templates/search/search.html:157
 #: templates/search/search.html:160
 msgid "Text"
 msgstr ""
 
-#: formulae/search/forms.py:71 formulae/search/forms.py:89
-#: formulae/search/forms.py:107 formulae/search/forms.py:125
+#: formulae/search/forms.py:71 formulae/search/forms.py:88
+#: formulae/search/forms.py:105 formulae/search/forms.py:122
 #, fuzzy
 msgid "Lemmata"
 msgstr "Lemmes"
 
-#: formulae/search/forms.py:72 formulae/search/forms.py:90
-#: formulae/search/forms.py:108 formulae/search/forms.py:126
+#: formulae/search/forms.py:72 formulae/search/forms.py:89
+#: formulae/search/forms.py:106 formulae/search/forms.py:123
 #: templates/main/regest_collapse.html:5 templates/main/regest_collapse.html:8
 msgid "Regest"
 msgstr "Regeste"
 
-#: formulae/search/forms.py:75 formulae/search/forms.py:93
-#: formulae/search/forms.py:111 formulae/search/forms.py:129
-msgid "Urkundenbestandteile durchsuchen"
-msgstr ""
-
-#: formulae/search/forms.py:77 formulae/search/forms.py:95
-#: formulae/search/forms.py:113 formulae/search/forms.py:131
+#: formulae/search/forms.py:76 formulae/search/forms.py:93
+#: formulae/search/forms.py:110 formulae/search/forms.py:127
 msgid "Eigennamensuche"
 msgstr ""
 
-#: formulae/search/forms.py:77 formulae/search/forms.py:95
-#: formulae/search/forms.py:113 formulae/search/forms.py:131
+#: formulae/search/forms.py:76 formulae/search/forms.py:93
+#: formulae/search/forms.py:110 formulae/search/forms.py:127
 msgid "Personenname"
 msgstr ""
 
-#: formulae/search/forms.py:78 formulae/search/forms.py:96
-#: formulae/search/forms.py:114 formulae/search/forms.py:132
+#: formulae/search/forms.py:77 formulae/search/forms.py:94
+#: formulae/search/forms.py:111 formulae/search/forms.py:128
 msgid "Ortsname"
 msgstr ""
 
-#: formulae/search/forms.py:80 formulae/search/forms.py:98
-#: formulae/search/forms.py:116 formulae/search/forms.py:134
+#: formulae/search/forms.py:79 formulae/search/forms.py:96
+#: formulae/search/forms.py:113 formulae/search/forms.py:130
 msgid "Ausschlusskriterium"
 msgstr ""
 
-#: formulae/search/forms.py:135 templates/main/container.html:186
+#: formulae/search/forms.py:131 templates/main/container.html:186
 #: templates/search/advanced_search.html:20
 msgid "Alle"
 msgstr "Tous"
 
-#: formulae/search/forms.py:138 formulae/search/forms.py:149
-#: formulae/search/forms.py:161 formulae/search/routes.py:382
+#: formulae/search/forms.py:134 formulae/search/forms.py:145
+#: formulae/search/forms.py:157 formulae/search/routes.py:383
 msgid "Jahr"
 msgstr "Année"
 
-#: formulae/search/forms.py:139 formulae/search/forms.py:150
-#: formulae/search/forms.py:163 tests/test_routes.py:1334
+#: formulae/search/forms.py:135 formulae/search/forms.py:146
+#: formulae/search/forms.py:159 tests/test_routes.py:1336
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "L'année doit se situer entre 500 et 1000."
 
-#: formulae/search/forms.py:141 formulae/search/forms.py:152
-#: formulae/search/forms.py:165 formulae/search/routes.py:383
+#: formulae/search/forms.py:137 formulae/search/forms.py:148
+#: formulae/search/forms.py:161 formulae/search/routes.py:384
 msgid "Monat"
 msgstr "Mois"
 
-#: formulae/search/forms.py:141 formulae/search/forms.py:152
-#: formulae/search/forms.py:165
+#: formulae/search/forms.py:137 formulae/search/forms.py:148
+#: formulae/search/forms.py:161
 msgid "Jan"
 msgstr "Jan"
 
-#: formulae/search/forms.py:141 formulae/search/forms.py:152
-#: formulae/search/forms.py:165
+#: formulae/search/forms.py:137 formulae/search/forms.py:148
+#: formulae/search/forms.py:161
 msgid "Feb"
 msgstr "Fév"
 
-#: formulae/search/forms.py:141 formulae/search/forms.py:152
-#: formulae/search/forms.py:165
+#: formulae/search/forms.py:137 formulae/search/forms.py:148
+#: formulae/search/forms.py:161
 msgid "Mär"
 msgstr "Mar"
 
-#: formulae/search/forms.py:142 formulae/search/forms.py:153
-#: formulae/search/forms.py:166
+#: formulae/search/forms.py:138 formulae/search/forms.py:149
+#: formulae/search/forms.py:162
 msgid "Apr"
 msgstr "Avr"
 
-#: formulae/search/forms.py:142 formulae/search/forms.py:153
-#: formulae/search/forms.py:166
+#: formulae/search/forms.py:138 formulae/search/forms.py:149
+#: formulae/search/forms.py:162
 msgid "Mai"
 msgstr "Mai"
 
-#: formulae/search/forms.py:142 formulae/search/forms.py:153
-#: formulae/search/forms.py:166
+#: formulae/search/forms.py:138 formulae/search/forms.py:149
+#: formulae/search/forms.py:162
 msgid "Jun"
 msgstr "Jun"
 
-#: formulae/search/forms.py:143 formulae/search/forms.py:154
-#: formulae/search/forms.py:167
+#: formulae/search/forms.py:139 formulae/search/forms.py:150
+#: formulae/search/forms.py:163
 msgid "Jul"
 msgstr "Jul"
 
-#: formulae/search/forms.py:143 formulae/search/forms.py:154
-#: formulae/search/forms.py:167
+#: formulae/search/forms.py:139 formulae/search/forms.py:150
+#: formulae/search/forms.py:163
 msgid "Aug"
 msgstr "Aoû"
 
-#: formulae/search/forms.py:143 formulae/search/forms.py:154
-#: formulae/search/forms.py:167
+#: formulae/search/forms.py:139 formulae/search/forms.py:150
+#: formulae/search/forms.py:163
 msgid "Sep"
 msgstr "Sep"
 
-#: formulae/search/forms.py:144 formulae/search/forms.py:155
-#: formulae/search/forms.py:168
+#: formulae/search/forms.py:140 formulae/search/forms.py:151
+#: formulae/search/forms.py:164
 msgid "Okt"
 msgstr "Oct"
 
-#: formulae/search/forms.py:144 formulae/search/forms.py:155
-#: formulae/search/forms.py:168
+#: formulae/search/forms.py:140 formulae/search/forms.py:151
+#: formulae/search/forms.py:164
 msgid "Nov"
 msgstr "Nov"
 
-#: formulae/search/forms.py:144 formulae/search/forms.py:155
-#: formulae/search/forms.py:168
+#: formulae/search/forms.py:140 formulae/search/forms.py:151
+#: formulae/search/forms.py:164
 msgid "Dez"
 msgstr "Déc"
 
-#: formulae/search/forms.py:146 formulae/search/forms.py:157
-#: formulae/search/forms.py:170 formulae/search/routes.py:384
+#: formulae/search/forms.py:142 formulae/search/forms.py:153
+#: formulae/search/forms.py:166 formulae/search/routes.py:385
 msgid "Tag"
 msgstr "Jour"
 
-#: formulae/search/forms.py:147 formulae/search/forms.py:159
-#: formulae/search/forms.py:171
+#: formulae/search/forms.py:143 formulae/search/forms.py:155
+#: formulae/search/forms.py:167
 msgid "Das Datum muss zwischen 1 und 31 liegen"
 msgstr "La date doit se situer entre 1 et 31."
 
-#: formulae/search/forms.py:173 formulae/search/routes.py:391
+#: formulae/search/forms.py:169 formulae/search/routes.py:392
 #: templates/search/documentation.html:32
 msgid "Datum Plus-Minus"
 msgstr "Date à plus-ou-moins "
 
-#: formulae/search/forms.py:175 templates/search/advanced_search.html:570
+#: formulae/search/forms.py:171 templates/search/advanced_search.html:542
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
 msgstr "Le plus-ou-moins doit se situer entre 0 et 100 ans."
 
-#: formulae/search/forms.py:177 formulae/search/routes.py:392
-#: templates/search/advanced_search.html:456
+#: formulae/search/forms.py:173 formulae/search/routes.py:393
+#: templates/search/advanced_search.html:428
 #: templates/search/documentation.html:36
 msgid "Exklusiv"
 msgstr "Exclusif"
 
-#: formulae/search/forms.py:178 formulae/search/routes.py:393
+#: formulae/search/forms.py:174 formulae/search/routes.py:394
 #: templates/main/salzburg_collection.html:7
 #: templates/main/sub_collection.html:7 templates/search/search.html:164
 msgid "Ausstellungsort"
 msgstr "Lieu d'exposition"
 
-#: formulae/search/forms.py:179
+#: formulae/search/forms.py:175
 msgid "Nach bestimmten Tagen suchen"
 msgstr "chercher des jours spécifiques"
 
-#: formulae/search/forms.py:180 formulae/search/routes.py:372
-#: templates/search/advanced_search.html:518
+#: formulae/search/forms.py:176 formulae/search/routes.py:373
+#: templates/search/advanced_search.html:490
 msgid "Ostern"
 msgstr "Pâques"
 
-#: formulae/search/forms.py:181 formulae/search/routes.py:373
-#: templates/search/advanced_search.html:526
+#: formulae/search/forms.py:177 formulae/search/routes.py:374
+#: templates/search/advanced_search.html:498
 msgid "Fastenzeit"
 msgstr "Carême"
 
-#: formulae/search/forms.py:182 formulae/search/routes.py:374
-#: templates/search/advanced_search.html:522
+#: formulae/search/forms.py:178 formulae/search/routes.py:375
+#: templates/search/advanced_search.html:494
 msgid "Pfingsten"
 msgstr "Pentecôte"
 
-#: formulae/search/forms.py:183 templates/search/advanced_search.html:557
+#: formulae/search/forms.py:179 templates/search/advanced_search.html:529
 msgid "So"
 msgstr "Dim"
 
-#: formulae/search/forms.py:184 templates/search/advanced_search.html:533
+#: formulae/search/forms.py:180 templates/search/advanced_search.html:505
 msgid "Mo"
 msgstr "Lun"
 
-#: formulae/search/forms.py:185 templates/search/advanced_search.html:537
+#: formulae/search/forms.py:181 templates/search/advanced_search.html:509
 msgid "Di"
 msgstr "Mar"
 
-#: formulae/search/forms.py:186 templates/search/advanced_search.html:541
+#: formulae/search/forms.py:182 templates/search/advanced_search.html:513
 msgid "Mi"
 msgstr "Mer"
 
-#: formulae/search/forms.py:187 templates/search/advanced_search.html:545
+#: formulae/search/forms.py:183 templates/search/advanced_search.html:517
 msgid "Do"
 msgstr "Jeu"
 
-#: formulae/search/forms.py:188 templates/search/advanced_search.html:549
+#: formulae/search/forms.py:184 templates/search/advanced_search.html:521
 msgid "Fr"
 msgstr "Ven"
 
-#: formulae/search/forms.py:189 templates/search/advanced_search.html:553
+#: formulae/search/forms.py:185 templates/search/advanced_search.html:525
 msgid "Sa"
 msgstr "Sam"
 
-#: formulae/search/forms.py:190
+#: formulae/search/forms.py:186
 msgid "Fälschungen"
 msgstr ""
 
-#: formulae/search/forms.py:192
+#: formulae/search/forms.py:188
 msgid "alle Dokumente"
 msgstr ""
 
-#: formulae/search/forms.py:193
+#: formulae/search/forms.py:189
 msgid "ohne Fälschungen"
 msgstr ""
 
-#: formulae/search/forms.py:194
+#: formulae/search/forms.py:190
 msgid "nur Fälschungen"
 msgstr ""
 
-#: formulae/search/forms.py:196
+#: formulae/search/forms.py:192
 msgid "Boolesche Operator"
 msgstr ""
 
-#: formulae/search/forms.py:197
+#: formulae/search/forms.py:193
 #, fuzzy
 msgid "UND"
 msgstr "Jun"
 
-#: formulae/search/forms.py:197
+#: formulae/search/forms.py:193
 msgid "ODER"
 msgstr ""
 
-#: formulae/search/forms.py:200 templates/main/elex_collection.html:26
+#: formulae/search/forms.py:196 templates/main/elex_collection.html:26
 msgid "Suche Durchführen"
 msgstr ""
 
-#: formulae/search/routes.py:118 tests/test_routes.py:2081
-#: tests/test_routes.py:9122
+#: formulae/search/routes.py:119 tests/test_routes.py:2083
+#: tests/test_routes.py:9124
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\")."
 msgstr ""
 
-#: formulae/search/routes.py:118 tests/test_routes.py:9123
+#: formulae/search/routes.py:119 tests/test_routes.py:9125
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr "Les résultats pour \"Formules\" et \"Chartes\" sont affichés ici. "
 
-#: formulae/search/routes.py:121 tests/test_routes.py:9133
+#: formulae/search/routes.py:122 tests/test_routes.py:9135
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr "La recherche facile nécessite seulement un mot de recherche."
 
-#: formulae/search/routes.py:315 tests/test_routes.py:1337
+#: formulae/search/routes.py:316 tests/test_routes.py:1339
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Veuillez remplir au moins un champ."
 
-#: formulae/search/routes.py:365 tests/test_routes.py:9392
+#: formulae/search/routes.py:366 tests/test_routes.py:9394
 msgid "Keine Suchergebnisse zum Herunterladen."
 msgstr ""
 
-#: formulae/search/routes.py:375
+#: formulae/search/routes.py:376
 msgid "Sonntag"
 msgstr ""
 
-#: formulae/search/routes.py:376
+#: formulae/search/routes.py:377
 msgid "Montag"
 msgstr ""
 
-#: formulae/search/routes.py:377
+#: formulae/search/routes.py:378
 msgid "Dienstag"
 msgstr ""
 
-#: formulae/search/routes.py:378
+#: formulae/search/routes.py:379
 msgid "Mittwoch"
 msgstr ""
 
-#: formulae/search/routes.py:379
+#: formulae/search/routes.py:380
 msgid "Donnerstag"
 msgstr ""
 
-#: formulae/search/routes.py:380
+#: formulae/search/routes.py:381
 msgid "Freitag"
 msgstr ""
 
-#: formulae/search/routes.py:381
+#: formulae/search/routes.py:382
 msgid "Samstag"
 msgstr ""
 
-#: formulae/search/routes.py:385
+#: formulae/search/routes.py:386
 msgid "Anfangsjahr"
 msgstr ""
 
-#: formulae/search/routes.py:386
+#: formulae/search/routes.py:387
 msgid "Anfangsmonat"
 msgstr ""
 
-#: formulae/search/routes.py:387
+#: formulae/search/routes.py:388
 msgid "Anfangstag"
 msgstr ""
 
-#: formulae/search/routes.py:388
+#: formulae/search/routes.py:389
 msgid "Endjahr"
 msgstr ""
 
-#: formulae/search/routes.py:389
+#: formulae/search/routes.py:390
 msgid "Endmonat"
 msgstr ""
 
-#: formulae/search/routes.py:390
+#: formulae/search/routes.py:391
 msgid "Endtag"
 msgstr ""
 
-#: formulae/search/routes.py:394
+#: formulae/search/routes.py:395
 msgid "Besondere Tage"
 msgstr ""
 
-#: formulae/search/routes.py:396
+#: formulae/search/routes.py:397
 msgid "Suchbegriff"
 msgstr ""
 
-#: formulae/search/routes.py:400
+#: formulae/search/routes.py:401
 msgid "Wortreihenfolge beachten?"
 msgstr "Garder l’ordre des mots ?"
 
-#: formulae/search/routes.py:401 templates/search/part_results.html:65
-#: templates/search/search.html:76
-msgid "Urkundenteile"
-msgstr ""
-
-#: formulae/search/routes.py:402
+#: formulae/search/routes.py:403
 msgid "Eigenname"
 msgstr ""
 
-#: formulae/search/routes.py:403
+#: formulae/search/routes.py:404
 msgid "Nein"
 msgstr ""
 
-#: formulae/search/routes.py:403
+#: formulae/search/routes.py:404
 msgid "Ja"
 msgstr ""
 
-#: formulae/search/routes.py:407
+#: formulae/search/routes.py:408
 #, fuzzy
 msgid "Suchterminus "
 msgstr "Étendue de la recherche"
 
-#: formulae/search/routes.py:434
+#: formulae/search/routes.py:435
 msgid "Aus dem Regest"
 msgstr ""
 
-#: formulae/search/routes.py:444
+#: formulae/search/routes.py:445
 msgid "Suchparameter"
 msgstr ""
 
-#: formulae/search/routes.py:447 templates/search/part_results.html:2
+#: formulae/search/routes.py:448 templates/search/part_results.html:2
 #: templates/search/part_results.html:10 templates/search/part_results.html:44
 #: templates/search/part_results.html:89 templates/search/search.html:2
 #: templates/search/search.html:52 templates/search/search.html:153
@@ -845,7 +859,7 @@ msgid "Suchergebnisse"
 msgstr "Résultats de la recherche"
 
 #: formulae/viewer/routes.py:29 tests/test_routes.py:425
-#: tests/test_routes.py:867
+#: tests/test_routes.py:869
 msgid "Diese Formelsammlung ist noch nicht frei zugänglich."
 msgstr ""
 
@@ -874,7 +888,7 @@ msgid "Keine gespeicherte Seiten"
 msgstr ""
 
 #: templates/email/reset_email.html:1 templates/email/reset_password.html:1
-#: tests/test_routes.py:2213 tests/test_routes.py:2227
+#: tests/test_routes.py:2215 tests/test_routes.py:2229
 msgid "Sehr geehrte(r)"
 msgstr "Cher/Chère"
 
@@ -955,7 +969,7 @@ msgstr "Retour"
 msgid "Erklärung zur Barrierefreiheit"
 msgstr ""
 
-#: templates/main/bibliography.html:6 templates/main/navbar.html:77
+#: templates/main/bibliography.html:6 templates/main/navbar.html:78
 msgid "Bibliographie"
 msgstr "Bibliographie"
 
@@ -1072,7 +1086,7 @@ msgid "letzter Aufruf:"
 msgstr "Dernier appel"
 
 #: templates/main/feedback.html:2 templates/main/feedback.html:7
-#: templates/main/navbar.html:80 templates/main/videos.html:2
+#: templates/main/navbar.html:81 templates/main/videos.html:2
 msgid "Feedback"
 msgstr ""
 
@@ -1547,17 +1561,17 @@ msgstr ""
 msgid "Über das Projekt"
 msgstr "A propos"
 
-#: templates/main/navbar.html:23
+#: templates/main/navbar.html:24
 #, fuzzy
 msgid "Suchergebnisse speichern"
 msgstr "Résultats de la recherche"
 
-#: templates/main/navbar.html:28
+#: templates/main/navbar.html:29
 #, fuzzy
 msgid "Ausloggen"
 msgstr "Déconnexion"
 
-#: templates/main/navbar.html:41 templates/main/navbar.html:58
+#: templates/main/navbar.html:42 templates/main/navbar.html:59
 #: templates/main/sub_collections.html:39
 #: templates/main/sub_collections.html:51
 #: templates/main/sub_collections.html:63
@@ -1566,16 +1580,20 @@ msgstr "Déconnexion"
 msgid "Dieses Korpus ist lemmatisiert"
 msgstr ""
 
-#: templates/main/navbar.html:51 templates/main/sub_collections.html:18
+#: templates/main/navbar.html:52 templates/main/sub_collections.html:18
 msgid "Urkunden + Briefe"
 msgstr ""
 
-#: templates/main/navbar.html:65
+#: templates/main/navbar.html:66
 msgid "Manuskripte"
 msgstr ""
 
-#: templates/main/navbar.html:67
+#: templates/main/navbar.html:68
 msgid "Liste aller Formelhandschriften"
+msgstr ""
+
+#: templates/main/navbar.html:84 templates/main/videos.html:7
+msgid "Videos"
 msgstr ""
 
 #: templates/main/no_copy_modal.html:6
@@ -1771,12 +1789,13 @@ msgstr ""
 msgid "Videotranskript zeigen"
 msgstr ""
 
+#: templates/main/video_modal.html:23
+#, fuzzy
+msgid "Ein"
+msgstr "Latin"
+
 #: templates/main/video_modal.html:24
 msgid "Ihr Browser kann keine eingebetteten Videos zeigen."
-msgstr ""
-
-#: templates/main/videos.html:7
-msgid "Videos"
 msgstr ""
 
 #: templates/main/videos.html:25
@@ -1818,159 +1837,152 @@ msgid "Hilfe für Wortsuche"
 msgstr ""
 
 #: templates/search/advanced_search.html:77
-#: templates/search/advanced_search.html:166
-#: templates/search/advanced_search.html:249
-#: templates/search/advanced_search.html:332 templates/search/lemma_list.html:2
+#: templates/search/advanced_search.html:159
+#: templates/search/advanced_search.html:235
+#: templates/search/advanced_search.html:311 templates/search/lemma_list.html:2
 #: templates/search/lemma_list.html:8
 msgid "Liste der suchbaren Lemmata"
 msgstr ""
 
 #: templates/search/advanced_search.html:83
-#: templates/search/advanced_search.html:172
-#: templates/search/advanced_search.html:255
-#: templates/search/advanced_search.html:338
+#: templates/search/advanced_search.html:165
+#: templates/search/advanced_search.html:241
+#: templates/search/advanced_search.html:317
 msgid "Suchoptionen"
 msgstr ""
 
 #: templates/search/advanced_search.html:84
-#: templates/search/advanced_search.html:173
-#: templates/search/advanced_search.html:256
-#: templates/search/advanced_search.html:339
+#: templates/search/advanced_search.html:166
+#: templates/search/advanced_search.html:242
+#: templates/search/advanced_search.html:318
 msgid "Die Suchoptionen für diese Suchmaske ändern."
 msgstr ""
 
 #: templates/search/advanced_search.html:88
-#: templates/search/advanced_search.html:177
-#: templates/search/advanced_search.html:260
-#: templates/search/advanced_search.html:343
+#: templates/search/advanced_search.html:170
+#: templates/search/advanced_search.html:246
+#: templates/search/advanced_search.html:322
 msgid "Die Reihenfolge der Wörter beibehalten"
 msgstr "Conserver l'ordre"
 
 #: templates/search/advanced_search.html:91
-#: templates/search/advanced_search.html:180
-#: templates/search/advanced_search.html:263
-#: templates/search/advanced_search.html:346
+#: templates/search/advanced_search.html:173
+#: templates/search/advanced_search.html:249
+#: templates/search/advanced_search.html:325
 msgid "Reguläre Ausdrücke (regular expressions) benutzen"
 msgstr ""
 
 #: templates/search/advanced_search.html:93
-#: templates/search/advanced_search.html:182
-#: templates/search/advanced_search.html:265
-#: templates/search/advanced_search.html:348
+#: templates/search/advanced_search.html:175
+#: templates/search/advanced_search.html:251
+#: templates/search/advanced_search.html:327
 msgid "Hilfe für regulärer Ausdruck-Suche"
 msgstr ""
 
 #: templates/search/advanced_search.html:111
-#: templates/search/advanced_search.html:200
-#: templates/search/advanced_search.html:283
-#: templates/search/advanced_search.html:366
+#: templates/search/advanced_search.html:193
+#: templates/search/advanced_search.html:269
+#: templates/search/advanced_search.html:345
 msgid "Ein Wort oder Wortmuster aus der Suche ausschließen"
 msgstr ""
 
 #: templates/search/advanced_search.html:119
-#: templates/search/advanced_search.html:208
-#: templates/search/advanced_search.html:291
-#: templates/search/advanced_search.html:374
+#: templates/search/advanced_search.html:201
+#: templates/search/advanced_search.html:277
+#: templates/search/advanced_search.html:353
 msgid "Wörter"
 msgstr "Mots"
 
-#: templates/search/advanced_search.html:128
-#: templates/search/advanced_search.html:216
-#: templates/search/advanced_search.html:299
-#: templates/search/advanced_search.html:382
-msgid "&lt;Strg&gt; halten, um mehrere Teile zu wählen."
-msgstr ""
-
-#: templates/search/advanced_search.html:137
-#: templates/search/advanced_search.html:225
-#: templates/search/advanced_search.html:308
+#: templates/search/advanced_search.html:130
+#: templates/search/advanced_search.html:211
+#: templates/search/advanced_search.html:287
 msgid "Eine weitere Suchmaske einblenden"
 msgstr ""
 
-#: templates/search/advanced_search.html:137
-#: templates/search/advanced_search.html:225
-#: templates/search/advanced_search.html:308
+#: templates/search/advanced_search.html:130
+#: templates/search/advanced_search.html:211
+#: templates/search/advanced_search.html:287
 #, fuzzy
 msgid "Diese Suchmaske ausblenden"
 msgstr "Modifier la recherche"
 
-#: templates/search/advanced_search.html:407
+#: templates/search/advanced_search.html:379
 #: templates/search/documentation.html:26
 msgid "Ausstellungsortsuche"
 msgstr "Recherche du lieu d'exposition"
 
-#: templates/search/advanced_search.html:407
+#: templates/search/advanced_search.html:379
 msgid "Ausstellungsortsucheingabe zeigen"
 msgstr ""
 
-#: templates/search/advanced_search.html:410
+#: templates/search/advanced_search.html:382
 msgid "Anfangsbuchstaben"
 msgstr "Première lettre"
 
-#: templates/search/advanced_search.html:410
+#: templates/search/advanced_search.html:382
 msgid "Hilfe für Anfangsbuchstabeneingabe"
 msgstr ""
 
-#: templates/search/advanced_search.html:417
+#: templates/search/advanced_search.html:389
 msgid " Formular Zurücksetzen"
 msgstr ""
 
-#: templates/search/advanced_search.html:421
+#: templates/search/advanced_search.html:393
 #: templates/search/documentation.html:28
 msgid "Datumssuche"
 msgstr "Recherche par date"
 
-#: templates/search/advanced_search.html:421
+#: templates/search/advanced_search.html:393
 msgid "Hilfe für Datumssuche"
 msgstr ""
 
-#: templates/search/advanced_search.html:422
+#: templates/search/advanced_search.html:394
 #: templates/search/documentation.html:30
 msgid "Nach einem bestimmten Datum suchen"
 msgstr "Rechercher une date précise"
 
-#: templates/search/advanced_search.html:422
+#: templates/search/advanced_search.html:394
 msgid "Eingabe für die bestimmte Datumssuchen zeigen"
 msgstr ""
 
-#: templates/search/advanced_search.html:451
+#: templates/search/advanced_search.html:423
 msgid "Jahr(e)"
 msgstr "an(s)"
 
-#: templates/search/advanced_search.html:454
+#: templates/search/advanced_search.html:426
 #: templates/search/documentation.html:34
 msgid "Nach einer Datumsspanne suchen"
 msgstr "Rechercher dans un laps de temps"
 
-#: templates/search/advanced_search.html:454
+#: templates/search/advanced_search.html:426
 msgid "Eingabe für die Datumsspannesuche zeigen"
 msgstr ""
 
-#: templates/search/advanced_search.html:456
+#: templates/search/advanced_search.html:428
 msgid "Hilfe für exklusive Datumsspannesuche"
 msgstr ""
 
-#: templates/search/advanced_search.html:459
+#: templates/search/advanced_search.html:431
 msgid "Von"
 msgstr "A partir de"
 
-#: templates/search/advanced_search.html:486
+#: templates/search/advanced_search.html:458
 msgid "Bis"
 msgstr "Jusqu’à"
 
-#: templates/search/advanced_search.html:513
+#: templates/search/advanced_search.html:485
 msgid "Eingabe für die bestimmte Tagessuche zeigen"
 msgstr ""
 
-#: templates/search/advanced_search.html:515
+#: templates/search/advanced_search.html:487
 msgid "Bewegliche Kirchenfeste"
 msgstr "Fêtes lithurgiques mobiles"
 
-#: templates/search/advanced_search.html:530
+#: templates/search/advanced_search.html:502
 msgid "Wochentage"
 msgstr "Jours ouvrables"
 
-#: templates/search/advanced_search.html:571
+#: templates/search/advanced_search.html:543
 msgid "Der Suchradius muss eine positive ganze Zahl sein"
 msgstr ""
 
@@ -2360,6 +2372,10 @@ msgstr ""
 msgid "Zeig Alle Resultate"
 msgstr "Afficher tous les résultats"
 
+#: templates/search/part_results.html:65 templates/search/search.html:76
+msgid "Urkundenteile"
+msgstr ""
+
 #: templates/search/part_results.html:81 templates/search/search.html:98
 msgid "Los!"
 msgstr "Allez!"
@@ -2466,11 +2482,11 @@ msgstr ""
 msgid "Zur Seite der erweiterten Suche"
 msgstr ""
 
-#: tests/test_routes.py:2082 tests/test_routes.py:2091
+#: tests/test_routes.py:2084 tests/test_routes.py:2093
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' n'est pas valable pour ce champ de recherche."
 
-#: tests/test_routes.py:2090 tests/test_routes.py:9133
+#: tests/test_routes.py:2092 tests/test_routes.py:9135
 msgid "Dieses Feld wird benötigt."
 msgstr "Ce champ est nécessaire."
 
@@ -4038,5 +4054,11 @@ msgstr "Ce champ est nécessaire."
 #~ msgstr ""
 
 #~ msgid "Im Handschriftenkontext von:"
+#~ msgstr ""
+
+#~ msgid "Urkundenbestandteile durchsuchen"
+#~ msgstr ""
+
+#~ msgid "&lt;Strg&gt; halten, um mehrere Teile zu wählen."
 #~ msgstr ""
 
