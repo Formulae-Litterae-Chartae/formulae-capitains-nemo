@@ -8,12 +8,12 @@
     </header>
     {% for category, video_information in videos|dictsort %}
     {% set outer_index = loop.index %}
-    <div class="row">
+    <div class="row ">
         <div class="col-auto">
-            <h3>{{ category }}</h3>
+            <h2>{{ category }}</h2>
         </div>
     </div>
-    <div class="row row-cols-3">
+    <div class="row row-cols-3 pb-5">
         {% for title, files in video_information|dictsort %}
         {% set inner_index = loop.index %}
         <div class="col video-col border">
