@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-05 10:44+0100\n"
+"POT-Creation-Date: 2022-12-05 11:01+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -152,7 +152,7 @@ msgstr "04 - Add a third text"
 
 #: formulae/nemo.py:1803
 msgid "05 - Die Leseansicht ändern"
-msgstr "05 - The the reading layout"
+msgstr "05 - Change the reading layout"
 
 #: formulae/nemo.py:1850 tests/test_routes.py:431
 msgid "Das PDF für diesen Text ist nicht zugänglich."
