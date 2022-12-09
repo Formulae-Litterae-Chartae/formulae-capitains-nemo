@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-05 11:01+0100\n"
+"POT-Creation-Date: 2022-12-06 11:41+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -129,30 +129,34 @@ msgid "Die Leseansicht"
 msgstr ""
 
 #: formulae/nemo.py:1791
-msgid "01 - Eine neue Version hinzufügen"
+msgid "01 - Über die Leseansicht"
 msgstr ""
 
 #: formulae/nemo.py:1794
-msgid "02 - Einen Text von der selben Sammlung hinzufügen"
+msgid "02 - Eine neue Version hinzufügen"
 msgstr ""
 
 #: formulae/nemo.py:1797
-msgid "03 - Einen Text von einer anderen Sammlung hinzufügen"
+msgid "03 - Einen Text von der selben Sammlung hinzufügen"
 msgstr ""
 
 #: formulae/nemo.py:1800
-msgid "04 - Einen dritten Text hinzufügen"
+msgid "04 - Einen Text von einer anderen Sammlung hinzufügen"
 msgstr ""
 
 #: formulae/nemo.py:1803
-msgid "05 - Die Leseansicht ändern"
+msgid "05 - Einen dritten Text hinzufügen"
 msgstr ""
 
-#: formulae/nemo.py:1850 tests/test_routes.py:431
+#: formulae/nemo.py:1806
+msgid "06 - Die Leseansicht ändern"
+msgstr ""
+
+#: formulae/nemo.py:1853 tests/test_routes.py:431
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr ""
 
-#: formulae/nemo.py:1859
+#: formulae/nemo.py:1862
 msgid "Heruntergeladen: "
 msgstr ""
 
@@ -4060,5 +4064,20 @@ msgstr "Ce champ est nécessaire."
 #~ msgstr ""
 
 #~ msgid "&lt;Strg&gt; halten, um mehrere Teile zu wählen."
+#~ msgstr ""
+
+#~ msgid "01 - Eine neue Version hinzufügen"
+#~ msgstr ""
+
+#~ msgid "02 - Einen Text von der selben Sammlung hinzufügen"
+#~ msgstr ""
+
+#~ msgid "03 - Einen Text von einer anderen Sammlung hinzufügen"
+#~ msgstr ""
+
+#~ msgid "04 - Einen dritten Text hinzufügen"
+#~ msgstr ""
+
+#~ msgid "05 - Die Leseansicht ändern"
 #~ msgstr ""
 

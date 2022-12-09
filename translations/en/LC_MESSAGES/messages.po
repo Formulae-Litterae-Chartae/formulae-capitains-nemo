@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-05 11:01+0100\n"
+"POT-Creation-Date: 2022-12-06 11:41+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -135,30 +135,34 @@ msgid "Die Leseansicht"
 msgstr "The Reading Page"
 
 #: formulae/nemo.py:1791
-msgid "01 - Eine neue Version hinzufügen"
-msgstr "01 - Add a new version of the same text"
+msgid "01 - Über die Leseansicht"
+msgstr "01 - About the reading page"
 
 #: formulae/nemo.py:1794
-msgid "02 - Einen Text von der selben Sammlung hinzufügen"
-msgstr "02 - Add a text from the same collection"
+msgid "02 - Eine neue Version hinzufügen"
+msgstr "02 - Add a new version of the same text"
 
 #: formulae/nemo.py:1797
-msgid "03 - Einen Text von einer anderen Sammlung hinzufügen"
-msgstr "03 - Add a text from a different collection"
+msgid "03 - Einen Text von der selben Sammlung hinzufügen"
+msgstr "03 - Add a text from the same collection"
 
 #: formulae/nemo.py:1800
-msgid "04 - Einen dritten Text hinzufügen"
-msgstr "04 - Add a third text"
+msgid "04 - Einen Text von einer anderen Sammlung hinzufügen"
+msgstr "04 - Add a text from a different collection"
 
 #: formulae/nemo.py:1803
-msgid "05 - Die Leseansicht ändern"
-msgstr "05 - Change the reading layout"
+msgid "05 - Einen dritten Text hinzufügen"
+msgstr "05 - Add a third text"
 
-#: formulae/nemo.py:1850 tests/test_routes.py:431
+#: formulae/nemo.py:1806
+msgid "06 - Die Leseansicht ändern"
+msgstr "06 - Change the reading layout"
+
+#: formulae/nemo.py:1853 tests/test_routes.py:431
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr "The PDF for this text is not available."
 
-#: formulae/nemo.py:1859
+#: formulae/nemo.py:1862
 msgid "Heruntergeladen: "
 msgstr "Downloaded: "
 

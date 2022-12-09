@@ -1788,21 +1788,24 @@ class NemoFormulae(Nemo):
                             'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/suchergebnisse_speichern_{}.vtt')]}
                        },
                   _('Die Leseansicht'):
-                      {_('01 - Eine neue Version hinzufügen'):
+                      {_('01 - Über die Leseansicht'):
+                           {'video': 'videos/reading_page_',
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/reading_page_{}.vtt'.format(v_lang))]},
+                       _('02 - Eine neue Version hinzufügen'):
                            {'video': 'videos/add_another_version_',
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_another_version_{}.vtt')]},
-                       _('02 - Einen Text von der selben Sammlung hinzufügen'):
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_another_version_{}.vtt'.format(v_lang))]},
+                       _('03 - Einen Text von der selben Sammlung hinzufügen'):
                            {'video': 'videos/add_from_same_collection_',
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_same_collection_{}.vtt')]},
-                       _('03 - Einen Text von einer anderen Sammlung hinzufügen'):
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_same_collection_{}.vtt'.format(v_lang))]},
+                       _('04 - Einen Text von einer anderen Sammlung hinzufügen'):
                            {'video': 'videos/add_from_other_collection_',
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_other_collection_{}.vtt')]},
-                       _('04 - Einen dritten Text hinzufügen'):
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_other_collection_{}.vtt'.format(v_lang))]},
+                       _('05 - Einen dritten Text hinzufügen'):
                            {'video': 'videos/add_third_text_',
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_third_text_{}.vtt')]},
-                       _('05 - Die Leseansicht ändern'):
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_third_text_{}.vtt'.format(v_lang))]},
+                       _('06 - Die Leseansicht ändern'):
                            {'video': 'videos/adjust_reading_view_',
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/adjust_reading_view_{}.vtt')]}
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/adjust_reading_view_{}.vtt'.format(v_lang))]}
                        }
                   }
         # Load transcripts from .txt files
