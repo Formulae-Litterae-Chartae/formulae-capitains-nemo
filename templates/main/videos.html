@@ -15,6 +15,9 @@
     </div>
     <div class="row row-cols-3 pb-5">
         {% for title, files in video_information|dictsort %}
+        <a type="button" role="button" class="btn btn-link" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="{% if lang == 'eng' %}en{% else %}de{% endif %}">
+                <i class="fas fa-question-circle text-white"></i>
+            </a>
         {% set inner_index = loop.index %}
         <div class="col video-col border">
             <h4 class="text-center">{{ title }}</h4>

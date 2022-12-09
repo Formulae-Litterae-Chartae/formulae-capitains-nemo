@@ -1778,42 +1778,42 @@ class NemoFormulae(Nemo):
         lang_str_dict = {'de': 'Deutsch', 'en': 'English'}
         videos = {_('Suche'):
                       {_('01 - Die Einfache Suche'):
-                           {'video': 'videos/einfache_suche_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/einfache_suche_{}.vtt'.format(v_lang))]},
+                           {'video': 'videos/einfache_suche_',
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/einfache_suche_{}.vtt')]},
                        _('02 - Suchergebnisse herunterladen'):
-                           {'video': 'videos/suchergebnisse_herunterladen_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/suchergebnisse_herunterladen_{}.vtt'.format(v_lang))]},
+                           {'video': 'videos/suchergebnisse_herunterladen_',
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/suchergebnisse_herunterladen_{}.vtt')]},
                        _('03 - Suchergebnisse in ihrem Benutzerkonto speichern'):
-                           {'video': 'videos/suchergebnisse_speichern_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/suchergebnisse_speichern_{}.vtt'.format(v_lang))]}
+                           {'video': 'videos/suchergebnisse_speichern_',
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/suchergebnisse_speichern_{}.vtt')]}
                        },
                   _('Die Leseansicht'):
                       {_('01 - Eine neue Version hinzufügen'):
-                           {'video': 'videos/add_another_version_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_another_version_{}.vtt'.format(v_lang))]},
+                           {'video': 'videos/add_another_version_',
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_another_version_{}.vtt')]},
                        _('02 - Einen Text von der selben Sammlung hinzufügen'):
-                           {'video': 'videos/add_from_same_collection_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_same_collection_{}.vtt'.format(v_lang))]},
+                           {'video': 'videos/add_from_same_collection_',
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_same_collection_{}.vtt')]},
                        _('03 - Einen Text von einer anderen Sammlung hinzufügen'):
-                           {'video': 'videos/add_from_other_collection_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_other_collection_{}.vtt'.format(v_lang))]},
+                           {'video': 'videos/add_from_other_collection_',
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_other_collection_{}.vtt')]},
                        _('04 - Einen dritten Text hinzufügen'):
-                           {'video': 'videos/add_third_text_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_third_text_{}.vtt'.format(v_lang))]},
+                           {'video': 'videos/add_third_text_',
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_third_text_{}.vtt')]},
                        _('05 - Die Leseansicht ändern'):
-                           {'video': 'videos/adjust_reading_view_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/adjust_reading_view_{}.vtt'.format(v_lang))]}
+                           {'video': 'videos/adjust_reading_view_',
+                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/adjust_reading_view_{}.vtt')]}
                        }
                   }
         # Load transcripts from .txt files
         for v in videos.values():
             for v1 in v.values():
-                v1['transcripts'] = []
-                for code, language, path in v1['subtitles']:
-                    transcript_filename = os.path.join(self.static_folder, path.replace('.vtt', '.txt'))
+                v1['transcripts'] = {'en': '', 'de': ''}
+                for language in ('en', 'de'):
+                    transcript_filename = os.path.join(self.static_folder, v1['video'] + language + '.txt')
                     if os.path.isfile(transcript_filename):
                         with open(transcript_filename) as f:
-                            v1['transcripts'].append((language, f.read()))
+                            v1['transcripts'][language] = f.read()
         return {"template": "main::videos.html", 'videos': videos}
 
     def extract_notes(self, text: str) -> str:
