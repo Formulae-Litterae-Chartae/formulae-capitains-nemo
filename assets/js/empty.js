@@ -726,7 +726,6 @@ $(document).ready(function () {
         var videoSource = button.data('videosource');
         var videoLanguage = button.data('videolanguage');
         var subtitleSource = videoSource + videoLanguage + '.vtt';
-        var transcript = button.data('transcript' + videoLanguage);
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
         var modal = $(this)
@@ -740,31 +739,67 @@ $(document).ready(function () {
             trackElement.attr('label', 'Deutsch');
         }
         modal.find('.modal-title').text(modalLabel);
+        var englishVideoLink = modal.find('.english-video-link');
+        var deutschVideoLink = modal.find('.deutsch-video-link');
+        if ( button.data('transcript')) {
+            var transcript = button.data('transcript');
+            modal.find('#secondLanguageLink').addClass('d-none');
+        } else {
+            var transcript = button.data('transcript' + videoLanguage);
+            modal.find('#secondLanguageLink').removeClass('d-none');
+            englishVideoLink.attr({
+                "data-modallabel": modalLabel, 
+                "data-videosource": videoSource,
+                "data-transcriptde": button.data('transcriptde'),
+                "data-transcripten": button.data('transcripten'),
+                "data-videolanguage": 'en'
+            });
+            if ( videoLanguage == 'en' ) {
+                englishVideoLink.addClass('d-none');
+                deutschVideoLink.removeClass('d-none');
+            };
+            deutschVideoLink.attr({
+                "data-modallabel": modalLabel, 
+                "data-videosource": videoSource,
+                "data-transcriptde": button.data('transcriptde'),
+                "data-transcripten": button.data('transcripten'),
+                "data-videolanguage": 'de'
+            });
+            if ( videoLanguage == 'de' ) {
+                deutschVideoLink.addClass('d-none');
+                englishVideoLink.removeClass('d-none');
+            };
+        }
         modal.find('.transcript-text').text(transcript);
+    })
+    
+    $('#videoModal').on('hide.bs.modal', function (event) {
+        // Remove all the information from the modal targets
+        var modal = $(this)
+        var videoElement = modal.find('video');
+        var trackElement = modal.find('track');
+        videoElement.attr('src', '');
+        trackElement.attr('src', '');
+        trackElement.attr('srclang', '');
+        trackElement.attr('label', '');
+        modal.find('.modal-title').text('');
+        modal.find('.transcript-text').text('');
         var englishVideoLink = modal.find('.english-video-link');
         var deutschVideoLink = modal.find('.deutsch-video-link');
         englishVideoLink.attr({
-            "data-modallabel": modalLabel, 
-            "data-videosource": videoSource,
-            "data-transcriptde": button.data('transcriptde'),
-            "data-transcripten": button.data('transcripten'),
+            "data-modallabel": '', 
+            "data-videosource": '',
+            "data-transcriptde": '',
+            "data-transcripten": '',
             "data-videolanguage": 'en'
         });
-        if ( videoLanguage == 'en' ) {
-            englishVideoLink.addClass('d-none');
-            deutschVideoLink.removeClass('d-none');
-        };
         deutschVideoLink.attr({
-            "data-modallabel": modalLabel, 
-            "data-videosource": videoSource,
-            "data-transcriptde": button.data('transcriptde'),
-            "data-transcripten": button.data('transcripten'),
+            "data-modallabel": '', 
+            "data-videosource": '',
+            "data-transcriptde": '',
+            "data-transcripten": '',
             "data-videolanguage": 'de'
         });
-        if ( videoLanguage == 'de' ) {
-            deutschVideoLink.addClass('d-none');
-            englishVideoLink.removeClass('d-none');
-        };
     })
     
     var locationHash = window.location.hash;

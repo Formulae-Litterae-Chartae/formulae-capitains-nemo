@@ -1,57 +1,33 @@
 {% extends "main::container.html" %}
-{% block title %}Formulae - Litterae - Chartae: {{ _('Feedback') }}{% endblock %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Tutorials') }}{% endblock %}
 
 {%block article%}
 <div class="container-fluid">
     <header>
-        <h1 class="text-center">{{ _('Videos') }}</h3>
+        <h1 class="text-center">{{ _('Videotutorials') }}</h3>
     </header>
-    {% for category, video_information in videos|dictsort %}
-    {% set outer_index = loop.index %}
-    <div class="row ">
-        <div class="col-auto">
-            <h2>{{ category }}</h2>
-        </div>
-    </div>
-    <div class="row row-cols-3 pb-5">
-        {% for title, files in video_information|dictsort %}
-        <a type="button" role="button" class="btn btn-link" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="{% if lang == 'eng' %}en{% else %}de{% endif %}">
-                <i class="fas fa-question-circle text-white"></i>
-            </a>
-        {% set inner_index = loop.index %}
-        <div class="col video-col border">
-            <h4 class="text-center">{{ title }}</h4>
-            {% if files['transcripts'] %}
-            <div class="row">
-            {% for transcript_lang, transcript_text in files['transcripts'] %}
-                <div class="col text-center">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#{{ transcript_lang }}-{{ outer_index }}-{{ inner_index }}-transcript" aria-expanded="false" aria-controls="{{ transcript_lang }}-{{ outer_index }}-{{ inner_index }}-transcript">{{ _('Videotranskript auf ') + transcript_lang }}</button>
-                </div>
-            {% endfor %}
-            </div>
-            {% endif %}
-            <div class="embed-responsive embed-responsive-16by9">
-                <video controls src="{{ url_for('InstanceNemo.static', filename=files['video']) }}">
-                    {% if files['subtitles'] %}
-                        {% for language, label, filename in files['subtitles'] %}
-                        <track label="{{ label }}" kind="subtitles" srclang="{{ language }}" src="{{ url_for('InstanceNemo.static', filename=filename) }}" default>
-                        {% endfor %}
-                    {% endif %}
-                    {{ _('Ihr Browser kann keine eingebetteten Videos zeigen. Link zu ') }}<a href="{{ url_for('InstanceNemo.static', filename=filename) }}" target="_blank">Video</a>.
-                </video>
-            </div>
-            {% if files['transcripts'] %}
-            {% for transcript_lang, transcript_text in files['transcripts'] %}
-                    <div class="collapse multi-collapse" id="{{ transcript_lang }}-{{ outer_index }}-{{ inner_index }}-transcript">
-                        <div class="card card-body">
-                            {{ transcript_text }}
-                        </div>
+        <div class="row justify-content-center">
+        {% for category, video_information in videos|dictsort %}
+            <div class="col-2">
+                <div class="card">
+                    <div class="card-header" id="video-category-{{category[0]|string}}">
+                    <h2 class="mb-0">
+                        {{ category[1] }}
+                    </h2>
                     </div>
-            {% endfor %}
-            {% endif %}
-        </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                        {% for title, files in video_information|dictsort %}
+                            <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcript="{{ files['transcripts'][video_language] }}" data-videolanguage="{{ video_language }}">
+                                    {{ title[1] }}
+                                </a></li>
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
-    </div>
-    {% endfor %}
+        </div>
+    
 </div>
 {%endblock%}

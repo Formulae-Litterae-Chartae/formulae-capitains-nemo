@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-06 11:41+0100\n"
+"POT-Creation-Date: 2022-12-12 11:49+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -112,45 +112,48 @@ msgstr "Au moins un texte que vous souhaitez afficher n'est pas disponible."
 msgid "Suche"
 msgstr "Recherche"
 
-#: formulae/nemo.py:1780
-msgid "01 - Die Einfache Suche"
+#: formulae/nemo.py:1780 templates/main/video_modal.html:6
+msgid "Die Einfache Suche"
 msgstr ""
 
 #: formulae/nemo.py:1783
-msgid "02 - Suchergebnisse herunterladen"
-msgstr ""
+#, fuzzy
+msgid "Aktuelle Suchergebnisse herunterladen"
+msgstr "Aucun résultat trouvé pour"
 
 #: formulae/nemo.py:1786
-msgid "03 - Suchergebnisse in ihrem Benutzerkonto speichern"
-msgstr ""
+#, fuzzy
+msgid "Suchergebnisse in ihrem Benutzerkonto speichern"
+msgstr "Résultats de la recherche"
 
 #: formulae/nemo.py:1790
 msgid "Die Leseansicht"
 msgstr ""
 
 #: formulae/nemo.py:1791
-msgid "01 - Über die Leseansicht"
+msgid "Über die Leseansicht"
 msgstr ""
 
 #: formulae/nemo.py:1794
-msgid "02 - Eine neue Version hinzufügen"
+msgid "Übersetzung, Transkription oder Manuskriptbild anzeigen"
 msgstr ""
 
 #: formulae/nemo.py:1797
-msgid "03 - Einen Text von der selben Sammlung hinzufügen"
+msgid "Einen anderen Text von der selben Sammlung anzeigen"
 msgstr ""
 
 #: formulae/nemo.py:1800
-msgid "04 - Einen Text von einer anderen Sammlung hinzufügen"
+msgid "Einen Text von einer anderen Sammlung anzeigen"
 msgstr ""
 
 #: formulae/nemo.py:1803
-msgid "05 - Einen dritten Text hinzufügen"
+msgid "Einen dritten Text anzeigen"
 msgstr ""
 
 #: formulae/nemo.py:1806
-msgid "06 - Die Leseansicht ändern"
-msgstr ""
+#, fuzzy
+msgid "Die Leseansicht ändern"
+msgstr "Modifier la recherche"
 
 #: formulae/nemo.py:1853 tests/test_routes.py:431
 msgid "Das PDF für diesen Text ist nicht zugänglich."
@@ -1090,7 +1093,7 @@ msgid "letzter Aufruf:"
 msgstr "Dernier appel"
 
 #: templates/main/feedback.html:2 templates/main/feedback.html:7
-#: templates/main/navbar.html:81 templates/main/videos.html:2
+#: templates/main/navbar.html:81
 msgid "Feedback"
 msgstr ""
 
@@ -1596,8 +1599,8 @@ msgstr ""
 msgid "Liste aller Formelhandschriften"
 msgstr ""
 
-#: templates/main/navbar.html:84 templates/main/videos.html:7
-msgid "Videos"
+#: templates/main/navbar.html:84 templates/main/videos.html:2
+msgid "Tutorials"
 msgstr ""
 
 #: templates/main/no_copy_modal.html:6
@@ -1785,10 +1788,6 @@ msgstr ""
 msgid "Mit einer anderen Version vergleichen"
 msgstr "Comparer avec une autre version"
 
-#: templates/main/video_modal.html:6
-msgid "Die Einfache Suche"
-msgstr ""
-
 #: templates/main/video_modal.html:14
 msgid "Videotranskript zeigen"
 msgstr ""
@@ -1802,12 +1801,8 @@ msgstr "Latin"
 msgid "Ihr Browser kann keine eingebetteten Videos zeigen."
 msgstr ""
 
-#: templates/main/videos.html:25
-msgid "Videotranskript auf "
-msgstr ""
-
-#: templates/main/videos.html:37
-msgid "Ihr Browser kann keine eingebetteten Videos zeigen. Link zu "
+#: templates/main/videos.html:7
+msgid "Videotutorials"
 msgstr ""
 
 #: templates/search/advanced_search.html:2
@@ -4079,5 +4074,41 @@ msgstr "Ce champ est nécessaire."
 #~ msgstr ""
 
 #~ msgid "05 - Die Leseansicht ändern"
+#~ msgstr ""
+
+#~ msgid "01 - Die Einfache Suche"
+#~ msgstr ""
+
+#~ msgid "02 - Suchergebnisse herunterladen"
+#~ msgstr ""
+
+#~ msgid "03 - Suchergebnisse in ihrem Benutzerkonto speichern"
+#~ msgstr ""
+
+#~ msgid "01 - Über die Leseansicht"
+#~ msgstr ""
+
+#~ msgid "02 - Eine neue Version hinzufügen"
+#~ msgstr ""
+
+#~ msgid "03 - Einen Text von der selben Sammlung hinzufügen"
+#~ msgstr ""
+
+#~ msgid "04 - Einen Text von einer anderen Sammlung hinzufügen"
+#~ msgstr ""
+
+#~ msgid "05 - Einen dritten Text hinzufügen"
+#~ msgstr ""
+
+#~ msgid "06 - Die Leseansicht ändern"
+#~ msgstr ""
+
+#~ msgid "Videotranskript auf "
+#~ msgstr ""
+
+#~ msgid "Ihr Browser kann keine eingebetteten Videos zeigen. Link zu "
+#~ msgstr ""
+
+#~ msgid "Videos"
 #~ msgstr ""
 
