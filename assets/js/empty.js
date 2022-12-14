@@ -729,15 +729,27 @@ $(document).ready(function () {
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
         var modal = $(this)
-        modal.find('video').attr('src', videoSource + videoLanguage + '.mp4');
-        var trackElement = modal.find('track');
-        trackElement.attr('src', subtitleSource);
-        trackElement.attr('srclang', videoLanguage);
+        var videoContainer = modal.find('#modalVideoContainer');
+        var videoMessage = videoContainer.data('message');
+        var trackElement = $('<track></track>');
+        trackElement.attr({
+            src: subtitleSource,
+            srclang: videoLanguage,
+            id: "videoModalTrack",
+            label: "On",
+            kind: "subtitles"});
+        var videoElement = $("<video></video>>");
+        videoElement.attr({
+            controls: '',
+            src: videoSource + videoLanguage + '.mp4',
+            id: "modalVideo"});
         if ( videoLanguage == 'en' ) {
             trackElement.attr('label', 'English');
         } else {
             trackElement.attr('label', 'Deutsch');
         }
+        videoElement.append(trackElement, videoMessage);
+        videoContainer.append(videoElement);
         modal.find('.modal-title').text(modalLabel);
         var englishVideoLink = modal.find('.english-video-link');
         var deutschVideoLink = modal.find('.deutsch-video-link');
@@ -774,32 +786,10 @@ $(document).ready(function () {
     })
     
     $('#videoModal').on('hide.bs.modal', function (event) {
-        // Remove all the information from the modal targets
-        var modal = $(this)
+        // Here I can just remove the video element
+        var modal = $(this);
         var videoElement = modal.find('video');
-        var trackElement = modal.find('track');
-        videoElement.attr('src', '');
-        trackElement.attr('src', '');
-        trackElement.attr('srclang', '');
-        trackElement.attr('label', '');
-        modal.find('.modal-title').text('');
-        modal.find('.transcript-text').text('');
-        var englishVideoLink = modal.find('.english-video-link');
-        var deutschVideoLink = modal.find('.deutsch-video-link');
-        englishVideoLink.attr({
-            "data-modallabel": '', 
-            "data-videosource": '',
-            "data-transcriptde": '',
-            "data-transcripten": '',
-            "data-videolanguage": 'en'
-        });
-        deutschVideoLink.attr({
-            "data-modallabel": '', 
-            "data-videosource": '',
-            "data-transcriptde": '',
-            "data-transcripten": '',
-            "data-videolanguage": 'de'
-        });
+        videoElement.remove();
     })
     
     var locationHash = window.location.hash;

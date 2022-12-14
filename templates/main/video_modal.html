@@ -18,11 +18,7 @@
                     <a type="button" role="button" class="btn btn-link deutsch-video-link" data-toggle="modal" data-target="#videoModal" data-modallabel="" data-videosource="" data-transcriptde="" data-transcripten="" data-videolanguage="de" data-dismiss="modal">Auf Deutsch zeigen</a>
                 </div>
             </div>
-            <div class="embed-responsive embed-responsive-16by9">
-                <video controls src="" >
-                    <track label="{{ _('Ein') }}" kind="subtitles" srclang="" src="">
-                    {{ _('Ihr Browser kann keine eingebetteten Videos zeigen.') }}
-                </video>
+            <div class="embed-responsive embed-responsive-16by9" id="modalVideoContainer" data-message="{{ _('Ihr Browser kann keine eingebetteten Videos zeigen.') }}">
             </div>
         </div>
         <div class="modal-footer">
