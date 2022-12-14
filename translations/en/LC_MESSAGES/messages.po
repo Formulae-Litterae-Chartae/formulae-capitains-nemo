@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-06 11:41+0100\n"
+"POT-Creation-Date: 2022-12-12 11:49+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -118,45 +118,45 @@ msgstr ""
 msgid "Suche"
 msgstr "Search"
 
-#: formulae/nemo.py:1780
-msgid "01 - Die Einfache Suche"
-msgstr "01 - The Simple Search"
+#: formulae/nemo.py:1780 templates/main/video_modal.html:6
+msgid "Die Einfache Suche"
+msgstr "The Simple Search"
 
 #: formulae/nemo.py:1783
-msgid "02 - Suchergebnisse herunterladen"
-msgstr "02 - Downloading Search Results"
+msgid "Aktuelle Suchergebnisse herunterladen"
+msgstr "Downloading Search Results"
 
 #: formulae/nemo.py:1786
-msgid "03 - Suchergebnisse in ihrem Benutzerkonto speichern"
-msgstr "03 - Saving Search Results to Your User Account"
+msgid "Suchergebnisse in ihrem Benutzerkonto speichern"
+msgstr "Saving Search Results to Your User Account"
 
 #: formulae/nemo.py:1790
 msgid "Die Leseansicht"
 msgstr "The Reading Page"
 
 #: formulae/nemo.py:1791
-msgid "01 - Über die Leseansicht"
-msgstr "01 - About the reading page"
+msgid "Über die Leseansicht"
+msgstr "About the reading page"
 
 #: formulae/nemo.py:1794
-msgid "02 - Eine neue Version hinzufügen"
-msgstr "02 - Add a new version of the same text"
+msgid "Übersetzung, Transkription oder Manuskriptbild anzeigen"
+msgstr "Show a translation, transcription or manuscript image"
 
 #: formulae/nemo.py:1797
-msgid "03 - Einen Text von der selben Sammlung hinzufügen"
-msgstr "03 - Add a text from the same collection"
+msgid "Einen anderen Text von der selben Sammlung anzeigen"
+msgstr "Show another text from the same collection"
 
 #: formulae/nemo.py:1800
-msgid "04 - Einen Text von einer anderen Sammlung hinzufügen"
-msgstr "04 - Add a text from a different collection"
+msgid "Einen Text von einer anderen Sammlung anzeigen"
+msgstr "Show a text from a different collection"
 
 #: formulae/nemo.py:1803
-msgid "05 - Einen dritten Text hinzufügen"
-msgstr "05 - Add a third text"
+msgid "Einen dritten Text anzeigen"
+msgstr "Show a third text"
 
 #: formulae/nemo.py:1806
-msgid "06 - Die Leseansicht ändern"
-msgstr "06 - Change the reading layout"
+msgid "Die Leseansicht ändern"
+msgstr "Change the reading layout"
 
 #: formulae/nemo.py:1853 tests/test_routes.py:431
 msgid "Das PDF für diesen Text ist nicht zugänglich."
@@ -559,7 +559,7 @@ msgstr "All"
 #: formulae/search/forms.py:134 formulae/search/forms.py:145
 #: formulae/search/forms.py:157 formulae/search/routes.py:383
 msgid "Jahr"
-msgstr "Year"
+msgstr "Year\"Downloading Search Result"
 
 #: formulae/search/forms.py:135 formulae/search/forms.py:146
 #: formulae/search/forms.py:159 tests/test_routes.py:1336
@@ -1093,7 +1093,7 @@ msgid "letzter Aufruf:"
 msgstr "Accessed on:"
 
 #: templates/main/feedback.html:2 templates/main/feedback.html:7
-#: templates/main/navbar.html:81 templates/main/videos.html:2
+#: templates/main/navbar.html:81
 msgid "Feedback"
 msgstr ""
 
@@ -1607,8 +1607,8 @@ msgstr "Manuscripts"
 msgid "Liste aller Formelhandschriften"
 msgstr "List of all Formulae Manuscripts"
 
-#: templates/main/navbar.html:84 templates/main/videos.html:7
-msgid "Videos"
+#: templates/main/navbar.html:84 templates/main/videos.html:2
+msgid "Tutorials"
 msgstr ""
 
 #: templates/main/no_copy_modal.html:6
@@ -1797,10 +1797,6 @@ msgstr "Hide all"
 msgid "Mit einer anderen Version vergleichen"
 msgstr "Compare with another version"
 
-#: templates/main/video_modal.html:6
-msgid "Die Einfache Suche"
-msgstr "The Simple Search"
-
 #: templates/main/video_modal.html:14
 msgid "Videotranskript zeigen"
 msgstr "Show video transcript"
@@ -1813,13 +1809,9 @@ msgstr "On"
 msgid "Ihr Browser kann keine eingebetteten Videos zeigen."
 msgstr "Your browser cannot play embedded videos."
 
-#: templates/main/videos.html:25
-msgid "Videotranskript auf "
-msgstr "Video transcript in "
-
-#: templates/main/videos.html:37
-msgid "Ihr Browser kann keine eingebetteten Videos zeigen. Link zu "
-msgstr "Your browser cannot play embedded videos. Link to "
+#: templates/main/videos.html:7
+msgid "Videotutorials"
+msgstr "Video Tutorials"
 
 #: templates/search/advanced_search.html:2
 #: templates/search/advanced_search.html:10 templates/search/search_box.html:27
@@ -4612,4 +4604,25 @@ msgstr "This is a required field."
 
 #~ msgid "&lt;Strg&gt; halten, um mehrere Teile zu wählen."
 #~ msgstr "Hold &lt;Ctrl&gt; to select multiple parts"
+
+#~ msgid "01 - Die Einfache Suche"
+#~ msgstr "01 - The Simple Search"
+
+#~ msgid "02 - Suchergebnisse herunterladen"
+#~ msgstr "02 - Downloading Search Results"
+
+#~ msgid "02 - Eine neue Version hinzufügen"
+#~ msgstr "02 - Add a new version of the same text"
+
+#~ msgid "Videotranskript auf "
+#~ msgstr "Video transcript in "
+
+#~ msgid "Ihr Browser kann keine eingebetteten Videos zeigen. Link zu "
+#~ msgstr "Your browser cannot play embedded videos. Link to "
+
+#~ msgid "Jan\"Downloading Search Result"
+#~ msgstr ""
+
+#~ msgid "Videos"
+#~ msgstr ""
 
