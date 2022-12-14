@@ -3,16 +3,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-12 11:49+0100\n"
+"POT-Creation-Date: 2022-12-14 12:04+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.1\n"
+"Generated-By: Babel 2.10.3\n"
 
 #: formulae/__init__.py:21 tests/test_routes.py:256 tests/test_routes.py:460
 #: tests/test_routes.py:464 tests/test_routes.py:468
@@ -47,15 +47,62 @@ msgstr "Catalan"
 msgid "Italienisch"
 msgstr "Italian"
 
-#: formulae/nemo.py:475 formulae/nemo.py:531 formulae/nemo.py:952
+#: formulae/nemo.py:232 formulae/search/forms.py:44 formulae/search/forms.py:63
+#: formulae/search/forms.py:80 formulae/search/forms.py:97
+#: formulae/search/forms.py:114 formulae/search/routes.py:242
+#: templates/main/container.html:185
+msgid "Suche"
+msgstr "Search"
+
+#: formulae/nemo.py:233 templates/main/video_modal.html:6
+msgid "Die Einfache Suche"
+msgstr "The Simple Search"
+
+#: formulae/nemo.py:235
+msgid "Aktuelle Suchergebnisse herunterladen"
+msgstr "Downloading Search Results"
+
+#: formulae/nemo.py:237
+msgid "Suchergebnisse in ihrem Benutzerkonto speichern"
+msgstr "Saving Search Results to Your User Account"
+
+#: formulae/nemo.py:240
+msgid "Die Leseansicht"
+msgstr "The Reading Page"
+
+#: formulae/nemo.py:241
+msgid "Über die Leseansicht"
+msgstr "About the reading page"
+
+#: formulae/nemo.py:243
+msgid "Übersetzung, Transkription oder Manuskriptbild anzeigen"
+msgstr "Show a translation, transcription or manuscript image"
+
+#: formulae/nemo.py:245
+msgid "Einen anderen Text von der selben Sammlung anzeigen"
+msgstr "Show another text from the same collection"
+
+#: formulae/nemo.py:247
+msgid "Einen Text von einer anderen Sammlung anzeigen"
+msgstr "Show a text from a different collection"
+
+#: formulae/nemo.py:249
+msgid "Einen dritten Text anzeigen"
+msgstr "Show a third text"
+
+#: formulae/nemo.py:251
+msgid "Die Leseansicht ändern"
+msgstr "Change the reading layout"
+
+#: formulae/nemo.py:509 formulae/nemo.py:565 formulae/nemo.py:986
 msgid "(Titel)"
 msgstr "(Title)"
 
-#: formulae/nemo.py:508 formulae/nemo.py:533
+#: formulae/nemo.py:542 formulae/nemo.py:567
 msgid "(Prolog)"
 msgstr "(Prologue)"
 
-#: formulae/nemo.py:703
+#: formulae/nemo.py:737
 msgid ""
 "Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt "
 "wird, dann laden Sie die Seite neu."
@@ -63,15 +110,15 @@ msgstr ""
 "Reading direction changed. You may need to refresh the page in your "
 "browser."
 
-#: formulae/nemo.py:869 formulae/nemo.py:1018 formulae/nemo.py:1200
-#: formulae/nemo.py:1274 tests/test_routes.py:285 tests/test_routes.py:309
+#: formulae/nemo.py:903 formulae/nemo.py:1052 formulae/nemo.py:1234
+#: formulae/nemo.py:1308 tests/test_routes.py:285 tests/test_routes.py:309
 #: tests/test_routes.py:323 tests/test_routes.py:340 tests/test_routes.py:343
 #: tests/test_routes.py:353 tests/test_routes.py:784 tests/test_routes.py:811
 #: tests/test_routes.py:816 tests/test_routes.py:847 tests/test_routes.py:850
 msgid "Diese Sammlung ist nicht öffentlich zugänglich."
 msgstr "This collection is not publicly available."
 
-#: formulae/nemo.py:1016 tests/test_routes.py:346 tests/test_routes.py:853
+#: formulae/nemo.py:1050 tests/test_routes.py:346 tests/test_routes.py:853
 msgid ""
 "Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte "
 "gegebenenfalls die Homepage der Bibliothek."
@@ -79,90 +126,43 @@ msgstr ""
 "You may be able to view the images of this manuscript at the library's "
 "home page."
 
-#: formulae/nemo.py:1064 templates/main/multipassage.html:240
+#: formulae/nemo.py:1098 templates/main/multipassage.html:240
 #: templates/main/multipassage.html:384 templates/main/multipassage.html:566
 #: templates/main/sub_collection.html:136 templates/search/part_results.html:94
 #: templates/search/search.html:165
 msgid "Edition"
 msgstr ""
 
-#: formulae/nemo.py:1064 templates/main/multipassage.html:245
+#: formulae/nemo.py:1098 templates/main/multipassage.html:245
 #: templates/main/multipassage.html:389 templates/main/multipassage.html:571
 msgid "Übersetzung"
 msgstr "Translation"
 
-#: formulae/nemo.py:1197 tests/test_routes.py:524
+#: formulae/nemo.py:1231 tests/test_routes.py:524
 msgid "Diese View ist nur für Formelsammlungen verfuegbar"
 msgstr "This view is only available for formula collections."
 
-#: formulae/nemo.py:1402 formulae/viewer/routes.py:18 tests/test_routes.py:612
+#: formulae/nemo.py:1436 formulae/viewer/routes.py:18 tests/test_routes.py:612
 #: tests/test_routes.py:615
 msgid " hat keine Edition."
 msgstr " does not have an Edition."
 
-#: formulae/nemo.py:1411
+#: formulae/nemo.py:1445
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:1649 tests/test_routes.py:387 tests/test_routes.py:390
+#: formulae/nemo.py:1683 tests/test_routes.py:387 tests/test_routes.py:390
 #: tests/test_routes.py:393 tests/test_routes.py:594 tests/test_routes.py:859
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
 "at this point"
 
-#: formulae/nemo.py:1779 formulae/search/forms.py:44
-#: formulae/search/forms.py:63 formulae/search/forms.py:80
-#: formulae/search/forms.py:97 formulae/search/forms.py:114
-#: formulae/search/routes.py:242 templates/main/container.html:185
-msgid "Suche"
-msgstr "Search"
-
-#: formulae/nemo.py:1780 templates/main/video_modal.html:6
-msgid "Die Einfache Suche"
-msgstr "The Simple Search"
-
-#: formulae/nemo.py:1783
-msgid "Aktuelle Suchergebnisse herunterladen"
-msgstr "Downloading Search Results"
-
-#: formulae/nemo.py:1786
-msgid "Suchergebnisse in ihrem Benutzerkonto speichern"
-msgstr "Saving Search Results to Your User Account"
-
-#: formulae/nemo.py:1790
-msgid "Die Leseansicht"
-msgstr "The Reading Page"
-
-#: formulae/nemo.py:1791
-msgid "Über die Leseansicht"
-msgstr "About the reading page"
-
-#: formulae/nemo.py:1794
-msgid "Übersetzung, Transkription oder Manuskriptbild anzeigen"
-msgstr "Show a translation, transcription or manuscript image"
-
-#: formulae/nemo.py:1797
-msgid "Einen anderen Text von der selben Sammlung anzeigen"
-msgstr "Show another text from the same collection"
-
-#: formulae/nemo.py:1800
-msgid "Einen Text von einer anderen Sammlung anzeigen"
-msgstr "Show a text from a different collection"
-
-#: formulae/nemo.py:1803
-msgid "Einen dritten Text anzeigen"
-msgstr "Show a third text"
-
-#: formulae/nemo.py:1806
-msgid "Die Leseansicht ändern"
-msgstr "Change the reading layout"
-
-#: formulae/nemo.py:1853 tests/test_routes.py:431
+#: formulae/nemo.py:1845 tests/test_routes.py:431
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr "The PDF for this text is not available."
 
-#: formulae/nemo.py:1862
+#: formulae/nemo.py:1854
 msgid "Heruntergeladen: "
 msgstr "Downloaded: "
 
@@ -1801,11 +1801,7 @@ msgstr "Compare with another version"
 msgid "Videotranskript zeigen"
 msgstr "Show video transcript"
 
-#: templates/main/video_modal.html:23
-msgid "Ein"
-msgstr "On"
-
-#: templates/main/video_modal.html:24
+#: templates/main/video_modal.html:21
 msgid "Ihr Browser kann keine eingebetteten Videos zeigen."
 msgstr "Your browser cannot play embedded videos."
 
@@ -4625,4 +4621,7 @@ msgstr "This is a required field."
 
 #~ msgid "Videos"
 #~ msgstr ""
+
+#~ msgid "Ein"
+#~ msgstr "On"
 
