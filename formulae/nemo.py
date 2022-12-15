@@ -229,26 +229,26 @@ class NemoFormulae(Nemo):
                              'IX': 'a09',
                              'X': 'a10'}
 
-    VIDEOS = {(1, _('Suche')):
-                  {(1, _('Die Einfache Suche')):
+    VIDEOS = {(1, _l('Suche')):
+                  {(1, _l('Die Einfache Suche')):
                        {'video': 'videos/einfache_suche_'},
-                   (2, _('Aktuelle Suchergebnisse herunterladen')):
+                   (2, _l('Aktuelle Suchergebnisse herunterladen')):
                        {'video': 'videos/suchergebnisse_herunterladen_'},
-                   (3, _('Suchergebnisse in ihrem Benutzerkonto speichern')):
+                   (3, _l('Suchergebnisse in ihrem Benutzerkonto speichern')):
                        {'video': 'videos/suchergebnisse_speichern_'},
                    },
-              (2, _('Die Leseansicht')):
-                  {(1, _('Über die Leseansicht')):
+              (2, _l('Die Leseansicht')):
+                  {(1, _l('Über die Leseansicht')):
                        {'video': 'videos/reading_page_'},
-                   (2, _('Übersetzung, Transkription oder Manuskriptbild anzeigen')):
+                   (2, _l('Übersetzung, Transkription oder Manuskriptbild anzeigen')):
                        {'video': 'videos/add_another_version_'},
-                   (3, _('Einen anderen Text von der selben Sammlung anzeigen')):
+                   (3, _l('Einen anderen Text von der selben Sammlung anzeigen')):
                        {'video': 'videos/add_from_same_collection_'},
-                   (4, _('Einen Text von einer anderen Sammlung anzeigen')):
+                   (4, _l('Einen Text von einer anderen Sammlung anzeigen')):
                        {'video': 'videos/add_from_other_collection_'},
-                   (5, _('Einen dritten Text anzeigen')):
+                   (5, _l('Einen dritten Text anzeigen')):
                        {'video': 'videos/add_third_text_'},
-                   (6, _('Die Leseansicht ändern')):
+                   (6, _l('Die Leseansicht ändern')):
                        {'video': 'videos/adjust_reading_view_'},
                    }
               }
