@@ -4,7 +4,7 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="videoModalLabel">{{ _('Die Einfache Suche') }}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="videoModalClose">
             <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -13,16 +13,12 @@
                 <div class="col text-center">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#video-transcript" aria-expanded="false" aria-controls="video-transcript">{{ _('Videotranskript zeigen') }}</button>
                 </div>
-                <div class="col text-center">
+                <div class="col text-center" id="secondLanguageLink">
                     <a type="button" role="button" class="btn btn-link english-video-link d-none" data-toggle="modal" data-target="#videoModal" data-modallabel="" data-videosource="" data-transcriptde="" data-transcripten="" data-videolanguage="en" data-dismiss="modal">Show in English</a>
                     <a type="button" role="button" class="btn btn-link deutsch-video-link" data-toggle="modal" data-target="#videoModal" data-modallabel="" data-videosource="" data-transcriptde="" data-transcripten="" data-videolanguage="de" data-dismiss="modal">Auf Deutsch zeigen</a>
                 </div>
             </div>
-            <div class="embed-responsive embed-responsive-16by9">
-                <video controls src="" >
-                    <track label="{{ _('Ein') }}" kind="subtitles" srclang="" src="">
-                    {{ _('Ihr Browser kann keine eingebetteten Videos zeigen.') }}
-                </video>
+            <div class="embed-responsive embed-responsive-16by9" id="modalVideoContainer" data-message="{{ _('Ihr Browser kann keine eingebetteten Videos zeigen.') }}">
             </div>
         </div>
         <div class="modal-footer">

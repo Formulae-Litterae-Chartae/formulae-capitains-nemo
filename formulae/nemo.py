@@ -27,7 +27,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from copy import copy
+from copy import copy, deepcopy
 from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
 from collections import defaultdict, OrderedDict
 from random import randint
@@ -229,6 +229,30 @@ class NemoFormulae(Nemo):
                              'IX': 'a09',
                              'X': 'a10'}
 
+    VIDEOS = {(1, _('Suche')):
+                  {(1, _('Die Einfache Suche')):
+                       {'video': 'videos/einfache_suche_'},
+                   (2, _('Aktuelle Suchergebnisse herunterladen')):
+                       {'video': 'videos/suchergebnisse_herunterladen_'},
+                   (3, _('Suchergebnisse in ihrem Benutzerkonto speichern')):
+                       {'video': 'videos/suchergebnisse_speichern_'},
+                   },
+              (2, _('Die Leseansicht')):
+                  {(1, _('Über die Leseansicht')):
+                       {'video': 'videos/reading_page_'},
+                   (2, _('Übersetzung, Transkription oder Manuskriptbild anzeigen')):
+                       {'video': 'videos/add_another_version_'},
+                   (3, _('Einen anderen Text von der selben Sammlung anzeigen')):
+                       {'video': 'videos/add_from_same_collection_'},
+                   (4, _('Einen Text von einer anderen Sammlung anzeigen')):
+                       {'video': 'videos/add_from_other_collection_'},
+                   (5, _('Einen dritten Text anzeigen')):
+                       {'video': 'videos/add_third_text_'},
+                   (6, _('Die Leseansicht ändern')):
+                       {'video': 'videos/adjust_reading_view_'},
+                   }
+              }
+
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
             self.pdf_folder = kwargs["pdf_folder"]
@@ -257,6 +281,16 @@ class NemoFormulae(Nemo):
         self.closed_texts = self.make_closed_texts()
         # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
+
+        # Load transcripts from .txt files
+        for v in self.VIDEOS.values():
+            for v1 in v.values():
+                v1['transcripts'] = {'en': '', 'de': ''}
+                for language in ('en', 'de'):
+                    transcript_filename = os.path.join(self.static_folder, v1['video'] + language + '.txt')
+                    if os.path.isfile(transcript_filename):
+                        with open(transcript_filename) as f:
+                            v1['transcripts'][language] = f.read()
 
     def make_closed_texts(self) -> dict:
         """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
@@ -1775,49 +1809,7 @@ class NemoFormulae(Nemo):
         :return: Video template with video and subtitle filenames
         :rtype: {str: str, str: list(tuple(str))}
         """
-        lang_str_dict = {'de': 'Deutsch', 'en': 'English'}
-        videos = {_('Suche'):
-                      {_('01 - Die Einfache Suche'):
-                           {'video': 'videos/einfache_suche_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/einfache_suche_{}.vtt'.format(v_lang))]},
-                       _('02 - Suchergebnisse herunterladen'):
-                           {'video': 'videos/suchergebnisse_herunterladen_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/suchergebnisse_herunterladen_{}.vtt'.format(v_lang))]},
-                       _('03 - Suchergebnisse in ihrem Benutzerkonto speichern'):
-                           {'video': 'videos/suchergebnisse_speichern_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/suchergebnisse_speichern_{}.vtt'.format(v_lang))]}
-                       },
-                  _('Die Leseansicht'):
-                      {_('01 - Über die Leseansicht'):
-                           {'video': 'videos/reading_page_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/reading_page_{}.vtt'.format(v_lang))]},
-                       _('02 - Eine neue Version hinzufügen'):
-                           {'video': 'videos/add_another_version_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_another_version_{}.vtt'.format(v_lang))]},
-                       _('03 - Einen Text von der selben Sammlung hinzufügen'):
-                           {'video': 'videos/add_from_same_collection_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_same_collection_{}.vtt'.format(v_lang))]},
-                       _('04 - Einen Text von einer anderen Sammlung hinzufügen'):
-                           {'video': 'videos/add_from_other_collection_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_from_other_collection_{}.vtt'.format(v_lang))]},
-                       _('05 - Einen dritten Text hinzufügen'):
-                           {'video': 'videos/add_third_text_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/add_third_text_{}.vtt'.format(v_lang))]},
-                       _('06 - Die Leseansicht ändern'):
-                           {'video': 'videos/adjust_reading_view_{}.mp4'.format(v_lang),
-                            'subtitles': [(v_lang, lang_str_dict[v_lang], 'videos/adjust_reading_view_{}.vtt'.format(v_lang))]}
-                       }
-                  }
-        # Load transcripts from .txt files
-        for v in videos.values():
-            for v1 in v.values():
-                v1['transcripts'] = []
-                for code, language, path in v1['subtitles']:
-                    transcript_filename = os.path.join(self.static_folder, path.replace('.vtt', '.txt'))
-                    if os.path.isfile(transcript_filename):
-                        with open(transcript_filename) as f:
-                            v1['transcripts'].append((language, f.read()))
-        return {"template": "main::videos.html", 'videos': videos}
+        return {"template": "main::videos.html", 'videos': self.VIDEOS, "video_language": v_lang}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
