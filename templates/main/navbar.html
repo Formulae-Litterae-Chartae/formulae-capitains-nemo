@@ -81,7 +81,16 @@
                 <a class="nav-link active" href="{{ url_for('InstanceNemo.r_feedback') }}">{{ _('Feedback') }}</a>
             </li>
             <li class="nav-item">
-                <span class="navbar-text pl-2">{{ _('Tutorials') }}<span class="small"> (<a class="active" href="{{url_for('InstanceNemo.r_videos', v_lang='de')}}">de</a> | <a class="active" href="{{url_for('InstanceNemo.r_videos', v_lang='en')}}">en</a>)</span></span>
+                <span class="navbar-text px-2">{{ _('Tutorials') }}<span class="small"> (<a class="active" href="{{url_for('InstanceNemo.r_videos', v_lang='de')}}">de</a> | <a class="active" href="{{url_for('InstanceNemo.r_videos', v_lang='en')}}">en</a>)</span></span>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" role="button" id="usefulLinksDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Nützliche Links') }}</a>
+                <div class="dropdown-menu" aria-labelledby="usefulLinksDropdown">
+                    <a class="dropdown-item" href="https://www.dmgh.de/" target="_blank">Digitale Monumenta Germaniae Historica (dmgh)</a>
+                    <a class="dropdown-item" href="https://woerterbuchnetz.de/?sigle=MLW#0" target="_blank">Mittellateinisches Wörterbuch (a-c)</a>
+                    <a class="dropdown-item" href="http://ducange.enc.sorbonne.fr/" target="_blank">Glossarium mediae et infimae latinitatis (DuCange)</a>
+                    <a class="dropdown-item" href="https://www.die-bibel.de/bibeln/online-bibeln/lesen/LU17/GEN.1/1.-Mose-1" target="_blank">Die Bibel Online (Deutsche Bibelgesellschaft)</a>
+                </div>
             </li>
         </ul>
         {% include "search::search_box.html" %}
