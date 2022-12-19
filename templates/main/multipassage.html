@@ -340,7 +340,7 @@
                         {% for title, files in videos|dictsort %}
                         {% if lang != 'eng' and files['transcripts']['de'] == '' %} 
                             <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }} (nur auf Englisch)" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="en">
-                                    {{ title[1] }} (nur auf Englisch)
+                                    - {{ title[1] }} (nur auf Englisch)
                                 </a></li>
                         {% else %}
                             <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="{% if lang == 'eng' or files['transcripts']['de'] == '' %}en{% else %}de{% endif %}">
@@ -362,7 +362,7 @@
                         {% for title, files in videos|dictsort %}
                         {% if lang != 'eng' and files['transcripts']['de'] == '' %}
                             <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }} (nur auf Englisch)" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="en">
-                                    {{ title[1] }} (nur auf Englisch)
+                                    - {{ title[1] }} (nur auf Englisch)
                                 </a></li>
                         {% else %}
                         <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="{% if lang == 'eng' or files['transcripts']['de'] == '' %}en{% else %}de{% endif %}">
