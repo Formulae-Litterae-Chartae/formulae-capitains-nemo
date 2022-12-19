@@ -1682,6 +1682,7 @@ class NemoFormulae(Nemo):
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         passage_data['translation'] = translations
+        passage_data['videos'] = [v for k, v in self.VIDEOS.items() if 2 in k][0]
         return passage_data
 
     @staticmethod

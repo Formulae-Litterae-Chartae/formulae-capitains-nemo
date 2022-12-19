@@ -756,6 +756,9 @@ $(document).ready(function () {
         if ( button.data('transcript')) {
             var transcript = button.data('transcript');
             modal.find('#secondLanguageLink').addClass('d-none');
+        } else if ( button.data('transcriptde') == '' ) {
+            var transcript = button.data('transcripten');
+            modal.find('#secondLanguageLink').addClass('d-none');
         } else {
             var transcript = button.data('transcript' + videoLanguage);
             modal.find('#secondLanguageLink').removeClass('d-none');

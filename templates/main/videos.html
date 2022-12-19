@@ -18,9 +18,15 @@
                     <div class="card-body">
                         <ul class="list-unstyled">
                         {% for title, files in video_information|dictsort %}
+                        {% if files['transcripts'][video_language] == '' %}
+                            <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }} (nur auf Englisch)" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcript="{{ files['transcripts']['en'] }}" data-videolanguage="en">
+                                    {{ title[1] }} (nur auf Englisch)
+                                </a></li>
+                        {% else %}
                             <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcript="{{ files['transcripts'][video_language] }}" data-videolanguage="{{ video_language }}">
                                     {{ title[1] }}
                                 </a></li>
+                        {% endif %}
                         {% endfor %}
                         </ul>
                     </div>
