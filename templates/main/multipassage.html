@@ -320,9 +320,9 @@
             </div>
         </div>
     </div>
-        {% if objects|length > 1 %}
         <div class="row py-0 justify-content-center">
-            <div class="col-auto text-center">
+            {% if objects|length > 1 %}
+            <div class="col-6 text-right px-0 mt-1">
                 <a href="#" class="reading-format-setter" id="text-column-link" title="{{ _('Texte nebeneinander zeigen.') }}" value="columns" {% if session['reading_format'] != 'columns' %}{% else %}hidden{% endif %} data-toggle="tooltip" data-container="#text-column-link"><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/reading_format_columns.png')}}" alt="{{ _('Texte nebeneinander') }}"></a>
                 <a href="#" class="reading-format-setter" id="text-row-link" title="{{ _('Texte übereinander zeigen.') }}" value="rows" {% if session['reading_format'] != 'rows' %}{% else %}hidden{% endif %} data-toggle="tooltip" data-container="#text-row-link"><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/reading_format_rows.png')}}" alt="{{ _('Texte übereinander') }}"></a>
                 {% if session['reading_format'] == 'rows' %}
@@ -330,8 +330,51 @@
                 <a href="#" id="min-rows-image" title="{{ _('Alle Texte in original Größe anzeigen.') }}" data-toggle="tooltip" data-container="#min-rows-image"><img class="img-fluid reading-format-image scroll-control-image" src="{{url_for('InstanceNemo.static', filename='images/minimize_reading_rows.png')}}" alt="{{ _('Texte in original Größe') }}"></a>
                 {% endif %}
             </div>
+            <div class="col-6 px-0">
+                <button class="reading-help-toggle btn btn-link p-0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <h2 class="mb-0"><span id="readingTutorialDropdown" data-toggle="tooltip" data-container="#readingTutorialDropdown" title="{{ _('Videotutorials') }}"><i class="fas fa-question-circle scroll-control-image"></i></span></h2>
+                </button>
+                <div class="dropdown-menu reading-help-dropdown">
+                    <ul class="list-unstyled">
+                        <li class="text-center"><b>{{ _('Videotutorials') }}</b></li>
+                        {% for title, files in videos|dictsort %}
+                        {% if lang != 'eng' and files['transcripts']['de'] == '' %} 
+                            <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }} (nur auf Englisch)" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="en">
+                                    {{ title[1] }} (nur auf Englisch)
+                                </a></li>
+                        {% else %}
+                            <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="{% if lang == 'eng' or files['transcripts']['de'] == '' %}en{% else %}de{% endif %}">
+                                    - {{ title[1] }}
+                                </a></li>
+                        {% endif %}
+                        {% endfor %}
+                        </ul>
+                </div>
+            </div>
+            {% else %}
+            <div class="col text-center">
+                <button class="reading-help-toggle btn btn-link p-0" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <h2 class="mb-0"><span id="readingTutorialDropdown" data-toggle="tooltip" data-container="#readingTutorialDropdown" title="{{ _('Videotutorials') }}"><i class="fas fa-question-circle"></i></span></h2>
+                </button>
+                <div class="dropdown-menu reading-help-dropdown">
+                    <ul class="list-unstyled">
+                        <li class="text-center"><b>{{ _('Videotutorials') }}</b></li>
+                        {% for title, files in videos|dictsort %}
+                        {% if lang != 'eng' and files['transcripts']['de'] == '' %}
+                            <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }} (nur auf Englisch)" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="en">
+                                    {{ title[1] }} (nur auf Englisch)
+                                </a></li>
+                        {% else %}
+                        <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="{% if lang == 'eng' or files['transcripts']['de'] == '' %}en{% else %}de{% endif %}">
+                                - {{ title[1] }}
+                            </a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
     {% if session['reading_format'] == 'rows' %}
 
         {% for text in objects %}
