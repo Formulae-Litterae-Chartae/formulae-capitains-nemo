@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-12-14 12:04+0100\n"
+"POT-Creation-Date: 2022-12-21 14:21+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -127,14 +127,14 @@ msgstr ""
 "home page."
 
 #: formulae/nemo.py:1098 templates/main/multipassage.html:240
-#: templates/main/multipassage.html:384 templates/main/multipassage.html:566
+#: templates/main/multipassage.html:427 templates/main/multipassage.html:609
 #: templates/main/sub_collection.html:136 templates/search/part_results.html:94
 #: templates/search/search.html:165
 msgid "Edition"
 msgstr ""
 
 #: formulae/nemo.py:1098 templates/main/multipassage.html:245
-#: templates/main/multipassage.html:389 templates/main/multipassage.html:571
+#: templates/main/multipassage.html:432 templates/main/multipassage.html:614
 msgid "Übersetzung"
 msgstr "Translation"
 
@@ -158,11 +158,11 @@ msgstr ""
 "One or more of the texts that you are trying to display is not available "
 "at this point"
 
-#: formulae/nemo.py:1845 tests/test_routes.py:431
+#: formulae/nemo.py:1846 tests/test_routes.py:431
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr "The PDF for this text is not available."
 
-#: formulae/nemo.py:1854
+#: formulae/nemo.py:1855
 msgid "Heruntergeladen: "
 msgstr "Downloaded: "
 
@@ -450,8 +450,8 @@ msgid "Korpora"
 msgstr "Corpora"
 
 #: formulae/search/forms.py:45 formulae/search/forms.py:132
-#: templates/main/multipassage.html:280 templates/main/multipassage.html:425
-#: templates/main/multipassage.html:607 templates/main/navbar.html:35
+#: templates/main/multipassage.html:280 templates/main/multipassage.html:468
+#: templates/main/multipassage.html:650 templates/main/navbar.html:35
 #: templates/main/sub_collections.html:16
 msgid "Formeln"
 msgstr "Formulae"
@@ -462,7 +462,7 @@ msgstr "Charters"
 
 #: formulae/search/forms.py:46 formulae/search/forms.py:133
 #: templates/main/elex_collection.html:16 templates/main/multipassage.html:281
-#: templates/main/multipassage.html:426 templates/main/multipassage.html:608
+#: templates/main/multipassage.html:469 templates/main/multipassage.html:651
 #: templates/main/navbar.html:49 templates/search/advanced_search.html:51
 msgid "Lexikon"
 msgstr "Lexicon"
@@ -1422,13 +1422,13 @@ msgstr "Next search result"
 msgid "Eine Spalte hinzufügen"
 msgstr "Add a column"
 
-#: templates/main/multipassage.html:223 templates/main/multipassage.html:367
-#: templates/main/multipassage.html:376 templates/main/multipassage.html:525
-#: templates/main/multipassage.html:541
+#: templates/main/multipassage.html:223 templates/main/multipassage.html:410
+#: templates/main/multipassage.html:419 templates/main/multipassage.html:568
+#: templates/main/multipassage.html:584
 msgid "Manuskriptbilder"
 msgstr "Manuscript Images"
 
-#: templates/main/multipassage.html:226 templates/main/multipassage.html:530
+#: templates/main/multipassage.html:226 templates/main/multipassage.html:573
 msgid "Diese Manuskriptbilder können nicht gezeigt werden"
 msgstr "The manuscript images cannot be shown."
 
@@ -1440,23 +1440,23 @@ msgstr "Edition, Translation, Transcription"
 msgid "Transkription"
 msgstr "Transcription"
 
-#: templates/main/multipassage.html:256 templates/main/multipassage.html:395
-#: templates/main/multipassage.html:577
+#: templates/main/multipassage.html:256 templates/main/multipassage.html:438
+#: templates/main/multipassage.html:620
 msgid "Texte mit diesem Lemma"
 msgstr "Texts that contain this lemma"
 
-#: templates/main/multipassage.html:272 templates/main/multipassage.html:418
-#: templates/main/multipassage.html:600
+#: templates/main/multipassage.html:272 templates/main/multipassage.html:461
+#: templates/main/multipassage.html:643
 msgid "Verwandte Texte"
 msgstr "Related texts"
 
-#: templates/main/multipassage.html:279 templates/main/multipassage.html:414
-#: templates/main/multipassage.html:596
+#: templates/main/multipassage.html:279 templates/main/multipassage.html:457
+#: templates/main/multipassage.html:639
 msgid "Weitere Texte"
 msgstr "More texts"
 
-#: templates/main/multipassage.html:282 templates/main/multipassage.html:427
-#: templates/main/multipassage.html:609
+#: templates/main/multipassage.html:282 templates/main/multipassage.html:470
+#: templates/main/multipassage.html:652
 msgid "Urkunden und Briefe"
 msgstr "Charters and Letters"
 
@@ -1508,49 +1508,55 @@ msgstr "Return all texts to their original size."
 msgid "Texte in original Größe"
 msgstr "Texts in original size"
 
-#: templates/main/multipassage.html:367 templates/main/multipassage.html:376
-#: templates/main/multipassage.html:525
+#: templates/main/multipassage.html:335 templates/main/multipassage.html:339
+#: templates/main/multipassage.html:357 templates/main/multipassage.html:361
+#: templates/main/videos.html:7
+msgid "Videotutorials"
+msgstr "Video Tutorials"
+
+#: templates/main/multipassage.html:410 templates/main/multipassage.html:419
+#: templates/main/multipassage.html:568
 msgid "Manuskriptbilder hinzufügen"
 msgstr "Add Manuscript Images"
 
-#: templates/main/multipassage.html:384 templates/main/multipassage.html:566
+#: templates/main/multipassage.html:427 templates/main/multipassage.html:609
 msgid "Edition hinzufügen"
 msgstr "Add the edition"
 
-#: templates/main/multipassage.html:389 templates/main/multipassage.html:571
+#: templates/main/multipassage.html:432 templates/main/multipassage.html:614
 msgid "Übersetzung hinzufügen"
 msgstr "Add the translation"
 
-#: templates/main/multipassage.html:414 templates/main/multipassage.html:596
+#: templates/main/multipassage.html:457 templates/main/multipassage.html:639
 msgid "Weitere Texte hinzufügen"
 msgstr "Add another text"
 
-#: templates/main/multipassage.html:435 templates/main/multipassage.html:617
+#: templates/main/multipassage.html:478 templates/main/multipassage.html:660
 msgid "Urkundenteile zeigen"
 msgstr "Show charter parts"
 
-#: templates/main/multipassage.html:438 templates/main/multipassage.html:620
+#: templates/main/multipassage.html:481 templates/main/multipassage.html:663
 msgid "Dieses Menü bewegen"
 msgstr "Move this menu"
 
-#: templates/main/multipassage.html:442 templates/main/multipassage.html:624
+#: templates/main/multipassage.html:485 templates/main/multipassage.html:667
 #: templates/main/text_container.html:59
 msgid "Alle zeigen"
 msgstr "Show all"
 
-#: templates/main/multipassage.html:451
+#: templates/main/multipassage.html:494
 msgid "Maximieren"
 msgstr "Maximize"
 
-#: templates/main/multipassage.html:454
+#: templates/main/multipassage.html:497
 msgid "Original Größe"
 msgstr "Original Size"
 
-#: templates/main/multipassage.html:459 templates/main/multipassage.html:633
+#: templates/main/multipassage.html:502 templates/main/multipassage.html:676
 msgid "Spalte ausblenden"
 msgstr "Remove column"
 
-#: templates/main/multipassage.html:485 templates/main/multipassage.html:660
+#: templates/main/multipassage.html:528 templates/main/multipassage.html:703
 msgid ""
 "Aus technischen bzw. rechtlichen Gründen können keine Manuskriptbilder "
 "gezeigt werden"
@@ -1558,19 +1564,19 @@ msgstr ""
 "The images for this manuscript cannot be shown for technical or legal "
 "reasons"
 
-#: templates/main/multipassage.html:485 templates/main/multipassage.html:660
+#: templates/main/multipassage.html:528 templates/main/multipassage.html:703
 msgid "Keine Bilder"
 msgstr "No images"
 
-#: templates/main/multipassage.html:541
+#: templates/main/multipassage.html:584
 msgid "Die Manuskriptbilder können nicht gezeigt werden"
 msgstr "The manuscript images cannot be shown."
 
-#: templates/main/multipassage.html:549 templates/main/multipassage.html:558
+#: templates/main/multipassage.html:592 templates/main/multipassage.html:601
 msgid "Transkriptionen hinzufügen"
 msgstr "Add a Transcription"
 
-#: templates/main/multipassage.html:549 templates/main/multipassage.html:558
+#: templates/main/multipassage.html:592 templates/main/multipassage.html:601
 msgid "Transkriptionen"
 msgstr "Transcriptions"
 
@@ -1610,6 +1616,10 @@ msgstr "List of all Formulae Manuscripts"
 #: templates/main/navbar.html:84 templates/main/videos.html:2
 msgid "Tutorials"
 msgstr ""
+
+#: templates/main/navbar.html:87
+msgid "Nützliche Links"
+msgstr "Helpful Links"
 
 #: templates/main/no_copy_modal.html:6
 msgid ""
@@ -1804,10 +1814,6 @@ msgstr "Show video transcript"
 #: templates/main/video_modal.html:21
 msgid "Ihr Browser kann keine eingebetteten Videos zeigen."
 msgstr "Your browser cannot play embedded videos."
-
-#: templates/main/videos.html:7
-msgid "Videotutorials"
-msgstr "Video Tutorials"
 
 #: templates/search/advanced_search.html:2
 #: templates/search/advanced_search.html:10 templates/search/search_box.html:27
