@@ -81,7 +81,7 @@
                 <a class="nav-link active" href="{{ url_for('InstanceNemo.r_feedback') }}">{{ _('Feedback') }}</a>
             </li>
             <li class="nav-item">
-                <span class="navbar-text px-2">{{ _('Tutorials') }}<span class="small"> (<a class="active" href="{{url_for('InstanceNemo.r_videos', v_lang='de')}}">de</a> | <a class="active" href="{{url_for('InstanceNemo.r_videos', v_lang='en')}}">en</a>)</span></span>
+                <a class="nav-link active" href="{{url_for('InstanceNemo.r_videos')}}">{{ _('Tutorials') }}</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" role="button" id="usefulLinksDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Links') }}</a>

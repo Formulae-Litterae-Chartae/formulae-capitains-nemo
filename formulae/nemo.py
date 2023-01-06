@@ -59,7 +59,7 @@ class NemoFormulae(Nemo):
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"]),
         ("/manuscript_desc/siglen", "r_man_siglen", ["GET"]),
         ("/accessibility_statement", "r_accessibility_statement", ["GET"]),
-        ("/videos/<v_lang>", "r_videos", ["GET"])
+        ("/videos", "r_videos", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1804,13 +1804,13 @@ class NemoFormulae(Nemo):
         """
         return {"template": "main::accessibility_statement.html"}
 
-    def r_videos(self, v_lang: str = 'de') -> Dict[str, Union[str, List[Tuple[str]]]]:
+    def r_videos(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
         """ Route for videos
 
         :return: Video template with video and subtitle filenames
         :rtype: {str: str, str: list(tuple(str))}
         """
-        return {"template": "main::videos.html", 'videos': self.VIDEOS, "video_language": v_lang}
+        return {"template": "main::videos.html", 'videos': self.VIDEOS}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
