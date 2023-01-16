@@ -1945,7 +1945,7 @@ class NemoFormulae(Nemo):
                         opening_tag += '<sub>'
                         closing_tag = '</sub>' + closing_tag
                     p += opening_tag + c_text + closing_tag
-                elif c.xpath('./a[@type="a1"]'):
+                elif c.xpath('./a[@type="a1"]') or c.xpath('./a[@type="n1"]'):
                     note_num = c.xpath('./a[@class="note"]')[0].text
                     p += '<sup>{}</sup>'.format(note_num)
                 elif c_class and c.xpath('self::span[contains(@class, "right-note-tooltip")]|./a[@class="note"]'):
