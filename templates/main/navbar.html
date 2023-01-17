@@ -20,7 +20,8 @@
                         <!-- Button trigger modal -->
                         <span class="dropdown-item"><a role="button" data-toggle="modal" data-target="#savePageModal">
                         {{ _('Diese Seite speichern') }}
-                        </a><a type="button" role="button" class="btn btn-link py-0 pr-0 pl-1" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ _('Suchergebnisse speichern') }}" data-videosource="{{ url_for('InstanceNemo.static', filename='videos/suchergebnisse_speichern_de.mp4') }}" data-transcriptde="{{ video_transcripts.suchergebnisse_speichern_de }}" data-transcripten="{{ video_transcripts.suchergebnisse_speichern_en }}" data-videolanguage="de">
+                        </a>
+                        <a type="button" role="button" class="btn btn-link py-0 pr-0 pl-1" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ _('Suchergebnisse speichern') }}" data-videosource="{{ url_for('InstanceNemo.static', filename='videos/suchergebnisse_speichern_') }}" data-transcriptde="{{ video_transcripts.suchergebnisse_speichern_de }}" data-transcripten="{{ video_transcripts.suchergebnisse_speichern_en }}" data-videolanguage="{% if lang == 'eng' %}en{% else %}de{% endif %}">
                 <i class="fas fa-question-circle"></i>
             </a></span>
                         {% endif %}
@@ -29,6 +30,18 @@
                     </div>
                 </li>
             {% endif %}
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" role="button" id="manuscriptDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Manuskripte') }}</a>
+                <div class="dropdown-menu" aria-labelledby="manuscriptDropdown">
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_man_siglen')}}">{{ _("Liste aller Formelhandschriften") }}</a>
+                    <div class="dropdown-divider"></div>
+                    {% for coll in g.sub_colls['manuscript_collection'] %}
+                    {% if current_user.project_team or coll.id in g.open_collections %}
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}">{{ coll['label']|safe }} ({{ coll['short_title']|safe }})</a>
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" role="button" id="formulaeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Formeln') }}</a>
@@ -44,9 +57,6 @@
                     {% endfor %}
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="{{url_for('InstanceNemo.r_collection', objectId='lexicon_entries', )}}">{{ _('Lexikon') }}</a>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Urkunden + Briefe') }}</a>
                 <div class="dropdown-menu" aria-labelledby="charterDropdown">
@@ -61,23 +71,31 @@
                     {% endfor %}
                 </div>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" role="button" id="manuscriptDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Manuskripte') }}</a>
-                <div class="dropdown-menu" aria-labelledby="manuscriptDropdown">
-                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_man_siglen')}}">{{ _("Liste aller Formelhandschriften") }}</a>
-                    <div class="dropdown-divider"></div>
-                    {% for coll in g.sub_colls['manuscript_collection'] %}
-                    {% if current_user.project_team or coll.id in g.open_collections %}
-                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}">{{ coll['label']|safe }} ({{ coll['short_title']|safe }})</a>
-                    {% endif %}
-                    {% endfor %}
-                </div>
+            <li class="nav-item">
+                <a class="nav-link active" href="{{url_for('InstanceNemo.r_collection', objectId='lexicon_entries', )}}">{{ _('Lexikon') }}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="{{ url_for('InstanceNemo.r_bibliography') }}">{{ _('Bibliographie') }}</a>
             </li>
+            <!--<li class="nav-item">
+                <a class="nav-link active" href="{{url_for('InstanceNemo.r_videos')}}">{{ _('Tutorials') }}</a>
+            </li>-->
             <li class="nav-item">
                 <a class="nav-link active" href="{{ url_for('InstanceNemo.r_feedback') }}">{{ _('Feedback') }}</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active" role="button" id="usefulLinksDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Links') }}</a>
+                <div class="dropdown-menu" aria-labelledby="usefulLinksDropdown">
+                    <a class="dropdown-item" href="https://www.die-bibel.de/bibeln/online-bibeln/lesen/VUL/GEN.1/LIBER-GENESIS-1" target="_blank">Die Bibel Online (Deutsche Bibelgesellschaft) ↗</a>
+                    <a class="dropdown-item" href="http://ducange.enc.sorbonne.fr/" target="_blank">Glossarium mediae et infimae latinitatis (DuCange) ↗</a>
+                    <a class="dropdown-item" href="https://www.dmgh.de/" target="_blank">Digitale Monumenta Germaniae Historica (dmgh) ↗</a>
+                    
+                    <span class="dropdown-item">Mittellateinisches Wörterbuch</span>
+                    <ul>
+                    <li><a class="dropdown-item" href="https://woerterbuchnetz.de/?sigle=MLW#0" target="_blank">Online Wörterbuch ↗</a></li>
+                    <li><a class="dropdown-item" href="https://mlw.badw.de/mlw-digital/mlw-open-access.html" target="_blank">Herunterladbare PDFs ↗</a></li>
+                    </ul>
+                </div>
             </li>
         </ul>
         {% include "search::search_box.html" %}
