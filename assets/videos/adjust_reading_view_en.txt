@@ -1,0 +1,6 @@
+You can do several things to change the how the reading view looks.
+You can make the footnote columns in the margins smaller or larger, depending on whether you want to focus on the text or the footnotes.
+Or if you would prefer to read the texts one on top of the other instead of side-by-side, you can click on the row icon above the texts.
+You can click this icon to expand all texts to show the whole text and this icon to bring all text windows back to their original size, where you may have to scroll to read the whole text.
+And then you can click on the column symbol to return to the side-by-side view.
+And, as always, to close one of these texts, simply click on the X symbol in the upper right-hand corner.

@@ -59,7 +59,7 @@
     <div class="row search-subtitle-row">
         <div class="col-auto mr-auto search-subtitle"><a class="internal-link" href="{{ url_for('search.r_advanced_search') }}{% if previous_search_args %}?{% for arg, val in previous_search_args.items() %}{% if arg != 'submit' %}{{arg}}={% if val=='False' %}{% elif arg=='corpus' %}{{val}}{% else %}{{ val }}{% endif %}{% if not loop.last %}&{% endif %}{% endif %}{% endfor %}{% endif %}">{{ _('Diese Suche ändern') }}</a></h5></div>
         <div class="col-auto mr-auto search-subtitle"><a class="internal-link" href="#" id="searchDownload">{{ _('Suchergebnisse herunterladen') }} <span id="searchDownloadProgress" role="status">...</span></a>
-            <a type="button" role="button" class="btn btn-link" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ _('Suchergebnisse herunterladen') }}" data-videosource="{{ url_for('InstanceNemo.static', filename='videos/suchergebnisse_herunterladen_de.mp4') }}" data-transcriptde="{{ video_transcripts.suchergebnisse_herunterladen_de }}" data-transcripten="{{ video_transcripts.suchergebnisse_herunterladen_en }}" data-videolanguage="de">
+            <a type="button" role="button" class="btn btn-link" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ _('Suchergebnisse herunterladen') }}" data-videosource="{{ url_for('InstanceNemo.static', filename='videos/suchergebnisse_herunterladen_') }}" data-transcriptde="{{ video_transcripts.suchergebnisse_herunterladen_de }}" data-transcripten="{{ video_transcripts.suchergebnisse_herunterladen_en }}" data-videolanguage="{% if lang == 'eng' %}en{% else %}de{% endif %}">
                 <i class="fas fa-question-circle"></i>
             </a>
         </div>

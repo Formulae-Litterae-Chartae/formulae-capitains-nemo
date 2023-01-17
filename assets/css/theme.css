@@ -1181,3 +1181,8 @@ img.disabled {
 	color: black;
 	content: "⤷";
 }
+
+.video-col {
+    padding-bottom: 24px;
+    padding-top: 24px;
+}

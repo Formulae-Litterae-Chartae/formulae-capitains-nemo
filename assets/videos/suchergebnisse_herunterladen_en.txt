@@ -1,1 +1,1 @@
-To save the search results on your computer, click "Download these search results". A PDF will then be created that contains the search parameters and the search results. You can now save this file on your computer.
+To save the search results to your computer, click "Download these search results". A PDF will then be created that contains the search parameters and the search results. You can now save this file on your computer.

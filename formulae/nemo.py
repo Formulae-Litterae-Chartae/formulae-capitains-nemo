@@ -27,7 +27,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from copy import copy
+from copy import copy, deepcopy
 from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
 from collections import defaultdict, OrderedDict
 from random import randint
@@ -229,6 +229,30 @@ class NemoFormulae(Nemo):
                              'IX': 'a09',
                              'X': 'a10'}
 
+    VIDEOS = {(1, _l('Suche')):
+                  {(1, _l('Die Einfache Suche')):
+                       {'video': 'videos/einfache_suche_'},
+                   (2, _l('Aktuelle Suchergebnisse herunterladen')):
+                       {'video': 'videos/suchergebnisse_herunterladen_'},
+                   (3, _l('Suchergebnisse in ihrem Benutzerkonto speichern')):
+                       {'video': 'videos/suchergebnisse_speichern_'},
+                   },
+              (2, _l('Die Leseansicht')):
+                  {(1, _l('Über die Leseansicht')):
+                       {'video': 'videos/reading_page_'},
+                   (2, _l('Übersetzung, Transkription oder Manuskriptbild anzeigen')):
+                       {'video': 'videos/add_another_version_'},
+                   (3, _l('Einen anderen Text von der selben Sammlung anzeigen')):
+                       {'video': 'videos/add_from_same_collection_'},
+                   (4, _l('Einen Text von einer anderen Sammlung anzeigen')):
+                       {'video': 'videos/add_from_other_collection_'},
+                   (5, _l('Einen dritten Text anzeigen')):
+                       {'video': 'videos/add_third_text_'},
+                   (6, _l('Die Leseansicht ändern')):
+                       {'video': 'videos/adjust_reading_view_'},
+                   }
+              }
+
     def __init__(self, *args, **kwargs):
         if "pdf_folder" in kwargs:
             self.pdf_folder = kwargs["pdf_folder"]
@@ -257,6 +281,16 @@ class NemoFormulae(Nemo):
         self.closed_texts = self.make_closed_texts()
         # self.term_vectors = self.make_termvectors()
         self.restricted_four_level_collections = [x for x in self.FOUR_LEVEL_COLLECTIONS if x not in self.OPEN_COLLECTIONS]
+
+        # Load transcripts from .txt files
+        for v in self.VIDEOS.values():
+            for v1 in v.values():
+                v1['transcripts'] = {'en': '', 'de': ''}
+                for language in ('en', 'de'):
+                    transcript_filename = os.path.join(self.static_folder, v1['video'] + language + '.txt')
+                    if os.path.isfile(transcript_filename):
+                        with open(transcript_filename) as f:
+                            v1['transcripts'][language] = f.read()
 
     def make_closed_texts(self) -> dict:
         """ Ingests an existing JSON file that contains notes about specific manuscript transcriptions"""
@@ -1648,6 +1682,7 @@ class NemoFormulae(Nemo):
         if len(ids) > len(passage_data['objects']):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         passage_data['translation'] = translations
+        passage_data['videos'] = [v for k, v in self.VIDEOS.items() if 2 in k][0]
         return passage_data
 
     @staticmethod
@@ -1775,31 +1810,7 @@ class NemoFormulae(Nemo):
         :return: Video template with video and subtitle filenames
         :rtype: {str: str, str: list(tuple(str))}
         """
-        videos = {_('Suche'):
-                      {_('01 - Die Einfache Suche'):
-                           {'video': 'videos/einfache_suche_de.mp4',
-                            'subtitles': (('de', 'Deutsch', 'videos/einfache_suche_de.vtt'),
-                                          ('en', 'English', 'videos/einfache_suche_en.vtt'))},
-                       _('02 - Suchergebnisse herunterladen'):
-                           {'video': 'videos/suchergebnisse_herunterladen_de.mp4',
-                            'subtitles': (('de', 'Deutsch', 'videos/suchergebnisse_herunterladen_de.vtt'),
-                                          ('en', 'English', 'videos/suchergebnisse_herunterladen_en.vtt'))},
-                       _('03 - Suchergebnisse in ihrem Benutzerkonto speichern'):
-                           {'video': 'videos/suchergebnisse_speichern_de.mp4',
-                            'subtitles': (('de', 'Deutsch', 'videos/suchergebnisse_speichern_de.vtt'),
-                                          ('en', 'English', 'videos/suchergebnisse_speichern_en.vtt'))}
-                       }
-                  }
-        # Load transcripts from .txt files
-        for v in videos.values():
-            for v1 in v.values():
-                v1['transcripts'] = []
-                for code, language, path in v1['subtitles']:
-                    transcript_filename = os.path.join(self.static_folder, path.replace('.vtt', '.txt'))
-                    if os.path.isfile(transcript_filename):
-                        with open(transcript_filename) as f:
-                            v1['transcripts'].append((language, f.read()))
-        return {"template": "main::videos.html", 'videos': videos}
+        return {"template": "main::videos.html", 'videos': self.VIDEOS}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
@@ -1934,7 +1945,7 @@ class NemoFormulae(Nemo):
                         opening_tag += '<sub>'
                         closing_tag = '</sub>' + closing_tag
                     p += opening_tag + c_text + closing_tag
-                elif c.xpath('./a[@type="a1"]'):
+                elif c.xpath('./a[@type="a1"]') or c.xpath('./a[@type="n1"]'):
                     note_num = c.xpath('./a[@class="note"]')[0].text
                     p += '<sup>{}</sup>'.format(note_num)
                 elif c_class and c.xpath('self::span[contains(@class, "right-note-tooltip")]|./a[@class="note"]'):

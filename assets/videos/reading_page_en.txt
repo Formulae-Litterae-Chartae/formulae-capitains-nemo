@@ -1,0 +1,10 @@
+On the Werkstatt's reading page, you can of course read a text from top to bottom. 
+But there is more information here for those who are interested. 
+For instance, if you wish to read one of the footnotes, you can click on the superscript number or letter, in this case "g", and that footnote will highlighted here in the margin.
+You may also see words that are underlined with a wavy line. 
+These represent words for which we have an E-Lexicon article.
+If you click on one of the words, for instance "regnum", the E-Lexicon article for that word will open in a pop-out window, allowing you to read it without leaving the page with the original text. 
+In this text, you may see other words that are underlined in the same way.
+If you click on one of these words, for instance "populus", the current E-Lexicon article will close and a new one will open in the same window.
+If you wish to read the article along with the original text, you can click on "Read this entry in the parallel view" to see both texts side-by-side.
+You can then close one of these texts by clicking on the X symbol in the upper right-hand corner of that text.
