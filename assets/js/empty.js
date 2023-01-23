@@ -625,7 +625,7 @@ $(document).ready(function () {
     
     $('.corpus-nrs').click(function() {
         var t = $(this).attr('href');
-        var navbarHeight = $('#mainNavbar').height();
+        var navbarHeight = $('#fullNavbar').height();
         var bodyHeight = $('body').height();
         if ( $(t).offset().top > bodyHeight ) {
             $('html, body').animate( {
