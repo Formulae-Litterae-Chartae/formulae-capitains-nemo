@@ -24,5 +24,5 @@ rdflib<6.0.0
 redis>=3.5.3
 reportlab>=3.5.67
 roman>=3.3
-SQLAlchemy>=1.4.15
+SQLAlchemy>=1.4.15, <2.0.0
 WTForms<3.0.0
