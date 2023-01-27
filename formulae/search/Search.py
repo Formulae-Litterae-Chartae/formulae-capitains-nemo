@@ -50,6 +50,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Herrscherurkunden</b>: Arnulfinger': {'match': {'collection': 'arnulfinger'}},
                                       '<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo I': {'match': {'collection': 'langobardisch_1'}},
                                       '<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1': {'match': {'collection': 'langobardisch'}},
+                                      '<b>Herrscherurkunden</b>: Lothar I. und II.': {'match': {'collection': 'lothar_2'}},
                                       '<b>Herrscherurkunden</b>: Ludwig II.': {'match': {'collection': 'ludwig_2'}},
                                       '<b>Herrscherurkunden</b>: Merowinger': {'match': {'collection': 'merowinger1'}},
                                       '<b>Herrscherurkunden</b>: Pippin III': {'match': {'collection': 'pippin_3'}},
