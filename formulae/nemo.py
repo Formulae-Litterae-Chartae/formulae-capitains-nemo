@@ -130,6 +130,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:le1',
                         'urn:cts:formulae:le3',
                         'urn:cts:formulae:lorsch',
+                        'urn:cts:formulae:lothar_2',
                         'urn:cts:formulae:ludwig_2',
                         'urn:cts:formulae:luzern',
                         'urn:cts:formulae:m4',
@@ -190,6 +191,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:fulda_stengel',
                              # 'urn:cts:formulae:langobardisch', # needs correction
                              'urn:cts:formulae:lorsch',
+                             'urn:cts:formulae:lothar_2',
                              'urn:cts:formulae:ludwig_2',
                              'urn:cts:formulae:mondsee',
                              'urn:cts:formulae:papsturkunden_frankreich',
