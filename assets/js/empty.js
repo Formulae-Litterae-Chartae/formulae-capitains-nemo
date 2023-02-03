@@ -590,7 +590,7 @@ $(document).ready(function () {
     
     $('.bibl-letter,.elex-letter').click(function() {
         var t = $(this).attr('href');
-        var navbarHeight = $('#mainNavbar').height();
+        var navbarHeight = $('#fullNavbar').height();
         var letterPos = $('#elex-letters').height();
         var targetOffset = letterPos + 25;
         if ( t.includes('-A') || t.includes('-nr') ) {
@@ -610,7 +610,7 @@ $(document).ready(function () {
         var hash = window.location.hash;
         var t = $(hash + '.title-id');
         var t_parent = t.parent();
-        var navbarHeight = $('#mainNavbar').height();
+        var navbarHeight = $('#fullNavbar').height();
         var letterPos = $('#elex-letters').height();
         var targetOffset = letterPos + 25 + navbarHeight;
         $('html, body').animate({
@@ -625,7 +625,7 @@ $(document).ready(function () {
     
     $('.corpus-nrs').click(function() {
         var t = $(this).attr('href');
-        var navbarHeight = $('#mainNavbar').height();
+        var navbarHeight = $('#fullNavbar').height();
         var bodyHeight = $('body').height();
         if ( $(t).offset().top > bodyHeight ) {
             $('html, body').animate( {
