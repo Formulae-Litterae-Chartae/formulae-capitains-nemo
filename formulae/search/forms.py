@@ -72,8 +72,7 @@ class AdvancedSearchForm(SearchForm):
                                                         ("regest", _('Regest'))],
                                default='text')
 
-    formulaic_parts_1 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
-                                          choices=[(k, v) for k, v in FORM_PARTS.items()])
+    #formulaic_parts_1 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'), choices=[(k, v) for k, v in FORM_PARTS.items()])
     proper_name_1 = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
                                                                        ('ortsname', _l('Ortsname'))])
 
@@ -90,8 +89,7 @@ class AdvancedSearchForm(SearchForm):
                                                         ("regest", _('Regest'))],
                                default='text')
 
-    formulaic_parts_2 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
-                                          choices=[(k, v) for k, v in FORM_PARTS.items()])
+    # formulaic_parts_2 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'), choices=[(k, v) for k, v in FORM_PARTS.items()])
     proper_name_2 = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
                                                                        ('ortsname', _l('Ortsname'))])
 
@@ -108,8 +106,7 @@ class AdvancedSearchForm(SearchForm):
                                                         ("regest", _('Regest'))],
                                default='text')
 
-    formulaic_parts_3 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
-                                          choices=[(k, v) for k, v in FORM_PARTS.items()])
+    # formulaic_parts_3 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'), choices=[(k, v) for k, v in FORM_PARTS.items()])
     proper_name_3 = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
                                                                        ('ortsname', _l('Ortsname'))])
 
@@ -126,8 +123,7 @@ class AdvancedSearchForm(SearchForm):
                                                         ("regest", _('Regest'))],
                                default='text')
 
-    formulaic_parts_4 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'),
-                                          choices=[(k, v) for k, v in FORM_PARTS.items()])
+    # formulaic_parts_4 = SelectMultipleField(_l('Urkundenbestandteile durchsuchen'), choices=[(k, v) for k, v in FORM_PARTS.items()])
     proper_name_4 = SelectMultipleField(_l('Eigennamensuche'),  choices=[('personenname', _l('Personenname')),
                                                                        ('ortsname', _l('Ortsname'))])
 

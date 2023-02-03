@@ -10,7 +10,7 @@
 {% else %}
 {% set coll_route = 'InstanceNemo.r_add_text_collection' %}
 {% endif %}
-        <div class="col-3">
+        <div class="col-lg-3 col">
         <header>
             <h1>
             {{ _('Lexikon') }}
@@ -20,7 +20,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="mb-2 col-3">
+        <div class="mb-2 col-lg-3 col">
             <label class="sr-only" for="elexicon-search-box">{{ _('Lexikon durchsuchen') }}</label>
             <form class="form-inline">
                 <input class="form-control" type="text" placeholder="{{ _('Lexikon durchsuchen') }}" id="elexicon-search-box" list="elexicon-search-datalist" default="{{ _('Lexikon durchsuchen') }}" autocomplete="off"> <a id="elexSearchButton" type="submit" class="btn btn-primary disabled" role="button" href="{{ url_for('search.r_results', corpus='elexicon', source='simple') }}">{{ _('Suche Durchführen') }}</a>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-3">
+        <div class="col-lg-3 col-md-6 col">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                 {% for coll, values in collections.readable|dictsort %}
@@ -62,7 +62,7 @@
 {% block additionalscript %}
 <script>
 $(window).scroll(function(){
-    var navbarHeight = $('#mainNavbar').height();
+    var navbarHeight = $('#fullNavbar').height();
     var letterPos = $('#elex-letters').offset();
     var bodyHeight = $('body').height();
     $('#elex-letters').css('top', Math.min(Math.max(bodyHeight + navbarHeight - letterPos.top, 0), navbarHeight + 20));

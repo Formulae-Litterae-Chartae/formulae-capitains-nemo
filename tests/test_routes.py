@@ -937,7 +937,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                                                                  'in_order': 'False',
                                                                                  'regex_search': False,
                                                                                  'proper_name': '',
-                                                                                 'formulaic_parts': '',
+                                                                                 # 'formulaic_parts': '',
                                                                                  'slop': '0',
                                                                                  'fuzziness': '0',
                                                                                  'search_field':
@@ -955,7 +955,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
                                            old_search=False, source='advanced', search_id='1234', forgeries='include',
                                            query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': False,
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'proper_name': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'text',
                                                                'exclude_q': ''}},
                                            bool_operator='must')
@@ -969,19 +969,19 @@ class TestIndividualRoutes(Formulae_Testing):
                                            composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
                                            old_search=False, source='advanced', search_id='1234', forgeries='include',
                                            query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'proper_name': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'text',
                                                                'exclude_q': ''},
                                                        'q_2': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'proper_name': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'text',
                                                                'exclude_q': ''},
                                                        'q_3': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'proper_name': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'text',
                                                                'exclude_q': ''},
                                                        'q_4': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'proper_name': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'text',
                                                                'exclude_q': ''}},
                                            bool_operator='must')
@@ -996,67 +996,67 @@ class TestIndividualRoutes(Formulae_Testing):
                                            composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
                                            old_search=False, source='advanced', search_id='1234', forgeries='include',
                                            query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'proper_name': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'lemmas',
                                                                'exclude_q': ''},
                                                        'q_2': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'proper_name': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'text',
                                                                'exclude_q': ''},
                                                        'q_3': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'proper_name': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'text',
                                                                'exclude_q': ''},
                                                        'q_4': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
+                                                               'proper_name': '', 'slop': '0',
                                                                'fuzziness': '0', 'search_field': 'text',
                                                                'exclude_q': ''}},
                                            bool_operator='must')
 
-            c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
-                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&exclude_q=&search_id=1234&'
-                  'formulaic_parts=Poenformel%20Stipulationsformel&submit=True', follow_redirects=True)
-            mock_search.assert_called_with(per_page=10000, page=1, year=600, month=1, day=31, year_start=600,
-                                           month_start=12, day_start=12, year_end=700, month_end=1, day_end=12,
-                                           date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
-                                           composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
-                                           old_search=False, source='advanced', search_id='1234', forgeries='include',
-                                           query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '',
-                                                               'formulaic_parts': 'Poenformel Stipulationsformel',
-                                                               'slop': '0',
-                                                               'fuzziness': '0', 'search_field': 'lemmas',
-                                                               'exclude_q': ''},
-                                                       'q_2': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
-                                                               'fuzziness': '0', 'search_field': 'text',
-                                                               'exclude_q': ''},
-                                                       'q_3': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
-                                                               'fuzziness': '0', 'search_field': 'text',
-                                                               'exclude_q': ''},
-                                                       'q_4': {'q': '', 'in_order': 'False', 'regex_search': 'False',
-                                                               'proper_name': '', 'formulaic_parts': '', 'slop': '0',
-                                                               'fuzziness': '0', 'search_field': 'text',
-                                                               'exclude_q': ''}},
-                                           bool_operator='must')
+            # c.get('/search/advanced_search?corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
+            #       'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+            #       'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&exclude_q=&search_id=1234&'
+            #       'formulaic_parts=Poenformel%20Stipulationsformel&submit=True', follow_redirects=True)
+            # mock_search.assert_called_with(per_page=10000, page=1, year=600, month=1, day=31, year_start=600,
+            #                                month_start=12, day_start=12, year_end=700, month_end=1, day_end=12,
+            #                                date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
+            #                                composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
+            #                                old_search=False, source='advanced', search_id='1234', forgeries='include',
+            #                                query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+            #                                                    'proper_name': '',
+            #                                                    'formulaic_parts': 'Poenformel Stipulationsformel',
+            #                                                    'slop': '0',
+            #                                                    'fuzziness': '0', 'search_field': 'lemmas',
+            #                                                    'exclude_q': ''},
+            #                                            'q_2': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+            #                                                    'proper_name': '', 'slop': '0',
+            #                                                    'fuzziness': '0', 'search_field': 'text',
+            #                                                    'exclude_q': ''},
+            #                                            'q_3': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+            #                                                    'proper_name': '', 'slop': '0',
+            #                                                    'fuzziness': '0', 'search_field': 'text',
+            #                                                    'exclude_q': ''},
+            #                                            'q_4': {'q': '', 'in_order': 'False', 'regex_search': 'False',
+            #                                                    'proper_name': '', 'slop': '0',
+            #                                                    'fuzziness': '0', 'search_field': 'text',
+            #                                                    'exclude_q': ''}},
+            #                                bool_operator='must')
 
-            c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
-                  'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
-                  'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&exclude_q=&search_id=1234&'
-                  'formulaic_parts=Poenformel%2BStipulationsformel&page=2&submit=True&per_page=10000', follow_redirects=True)
-            mock_search.assert_called_with(per_page=10000, page=1, year=600, month=1, day=31, year_start=600,
-                                           month_start=12, day_start=12, year_end=700, month_end=1, day_end=12,
-                                           date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
-                                           composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
-                                           old_search=False, source='advanced', search_id='1234', forgeries='include',
-                                           query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': False,
-                                                               'proper_name': '',
-                                                               'formulaic_parts': 'Poenformel+Stipulationsformel',
-                                                               'slop': '0', 'fuzziness': '0', 'search_field': 'lemmas',
-                                                               'exclude_q': ''}},
-                                           bool_operator='must')
+            # c.get('/search/results?source=advanced&corpus=formulae&q=&fuzziness=0&slop=0&lemma_search=y&'
+            #       'year=600&month=1&day=31&year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&'
+            #       'day_end=12&date_plus_minus=0&regest_q=&special_days=Easter%20Tuesday&exclude_q=&search_id=1234&'
+            #       'formulaic_parts=Poenformel%2BStipulationsformel&page=2&submit=True&per_page=10000', follow_redirects=True)
+            # mock_search.assert_called_with(per_page=10000, page=1, year=600, month=1, day=31, year_start=600,
+            #                                month_start=12, day_start=12, year_end=700, month_end=1, day_end=12,
+            #                                date_plus_minus=0, corpus=['formulae'], exclusive_date_range='False',
+            #                                composition_place='', sort='urn', special_days=['Easter', 'Tuesday'],
+            #                                old_search=False, source='advanced', search_id='1234', forgeries='include',
+            #                                query_dict={'q_1': {'q': '', 'in_order': 'False', 'regex_search': False,
+            #                                                    'proper_name': '',
+            #                                                    'formulaic_parts': 'Poenformel+Stipulationsformel',
+            #                                                    'slop': '0', 'fuzziness': '0', 'search_field': 'lemmas',
+            #                                                    'exclude_q': ''}},
+            #                                bool_operator='must')
 
             self.assertIn('search::search.html', [x[0].name for x in self.templates])
             # Check searched_lems return values
@@ -1144,7 +1144,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            source='simple', search_id='1234', forgeries='include',
                                            query_dict={'q_1':
                                                            {'q': 'regnum', 'in_order': 'False', 'regex_search': False,
-                                                            'proper_name': '', 'formulaic_parts': '', 'slop': 0,
+                                                            'proper_name': '', 'slop': 0,
                                                             'fuzziness': 0, 'search_field': 'text', 'exclude_q': ''}},
                                            bool_operator='must')
 
@@ -1157,7 +1157,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                            search_id='1234', forgeries='include',
                                            query_dict={'q_1':
                                                            {'q': 'regnum', 'in_order': 'False', 'regex_search': False,
-                                                            'proper_name': '', 'formulaic_parts': '', 'slop': 0,
+                                                            'proper_name': '', 'slop': 0,
                                                             'fuzziness': 0, 'search_field': 'text', 'exclude_q': ''}},
                                            bool_operator='must')
 
@@ -1358,7 +1358,7 @@ class TestIndividualRoutes(Formulae_Testing):
                                                          'in_order': 'False',
                                                          'regex_search': False,
                                                          'proper_name': '',
-                                                         'formulaic_parts': '',
+                                                         # 'formulaic_parts': '',
                                                          'slop': 0, 'fuzziness': 0,
                                                          'search_field': 'autocomplete_lemmas',
                                                          'exclude_q': ''}
@@ -2342,7 +2342,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_1", "0"),
                                                                   ("regex_search_1", 'False'),
                                                                   ("exclude_q_1", ""),
-                                                                  ("formulaic_parts_1", ""),
+
                                                                   ("proper_name_1", ""),
                                                                   ("search_field_2", "text"),
                                                                   ("q_2", ''),
@@ -2351,7 +2351,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_2", "0"),
                                                                   ("regex_search_2", 'False'),
                                                                   ("exclude_q_2", ""),
-                                                                  ("formulaic_parts_2", ""),
+
                                                                   ("proper_name_2", ""),
                                                                   ("search_field_3", "text"),
                                                                   ("q_3", ''),
@@ -2360,7 +2360,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_3", "0"),
                                                                   ("regex_search_3", 'False'),
                                                                   ("exclude_q_3", ""),
-                                                                  ("formulaic_parts_3", ""),
+
                                                                   ("proper_name_3", ""),
                                                                   ("search_field_4", "text"),
                                                                   ("q_4", ''),
@@ -2369,7 +2369,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_4", "0"),
                                                                   ("regex_search_4", 'False'),
                                                                   ("exclude_q_4", ""),
-                                                                  ("formulaic_parts_4", ""),
+
                                                                   ("proper_name_4", ""),
                                                                   ("year", 0),
                                                                   ("month", 0),
@@ -2396,7 +2396,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_1", "0"),
                                                                    ("regex_search_1", 'False'),
                                                                    ("exclude_q_1", ""),
-                                                                   ("formulaic_parts_1", ""),
+
                                                                    ("proper_name_1", ""),
                                                                    ("search_field_2", "text"),
                                                                    ("q_2", ''),
@@ -2405,7 +2405,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_2", "0"),
                                                                    ("regex_search_2", 'False'),
                                                                    ("exclude_q_2", ""),
-                                                                   ("formulaic_parts_2", ""),
+
                                                                    ("proper_name_2", ""),
                                                                    ("search_field_3", "text"),
                                                                    ("q_3", ''),
@@ -2414,7 +2414,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_3", "0"),
                                                                    ("regex_search_3", 'False'),
                                                                    ("exclude_q_3", ""),
-                                                                   ("formulaic_parts_3", ""),
+
                                                                    ("proper_name_3", ""),
                                                                    ("search_field_4", "text"),
                                                                    ("q_4", ''),
@@ -2423,7 +2423,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_4", "0"),
                                                                    ("regex_search_4", 'False'),
                                                                    ("exclude_q_4", ""),
-                                                                   ("formulaic_parts_4", ""),
+
                                                                    ("proper_name_4", ""),
                                                                    ("year", 0),
                                                                    ("month", 0),
@@ -2450,7 +2450,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_1", "0"),
                                                                        ("regex_search_1", 'False'),
                                                                        ("exclude_q_1", ""),
-                                                                       ("formulaic_parts_1", ""),
+
                                                                        ("proper_name_1", ""),
                                                                        ("search_field_2", "text"),
                                                                        ("q_2", ''),
@@ -2459,7 +2459,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_2", "0"),
                                                                        ("regex_search_2", 'False'),
                                                                        ("exclude_q_2", ""),
-                                                                       ("formulaic_parts_2", ""),
+
                                                                        ("proper_name_2", ""),
                                                                        ("search_field_3", "text"),
                                                                        ("q_3", ''),
@@ -2468,7 +2468,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_3", "0"),
                                                                        ("regex_search_3", 'False'),
                                                                        ("exclude_q_3", ""),
-                                                                       ("formulaic_parts_3", ""),
+
                                                                        ("proper_name_3", ""),
                                                                        ("search_field_4", "text"),
                                                                        ("q_4", ''),
@@ -2477,7 +2477,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_4", "0"),
                                                                        ("regex_search_4", 'False'),
                                                                        ("exclude_q_4", ""),
-                                                                       ("formulaic_parts_4", ""),
+
                                                                        ("proper_name_4", ""),
                                                                        ("year", 0),
                                                                        ("month", 0),
@@ -2504,7 +2504,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_1", "0"),
                                                                   ("regex_search_1", 'False'),
                                                                   ("exclude_q_1", ""),
-                                                                  ("formulaic_parts_1", ""),
+
                                                                   ("proper_name_1", ""),
                                                                   ("search_field_2", "text"),
                                                                   ("q_2", ''),
@@ -2513,7 +2513,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_2", "0"),
                                                                   ("regex_search_2", 'False'),
                                                                   ("exclude_q_2", ""),
-                                                                  ("formulaic_parts_2", ""),
+
                                                                   ("proper_name_2", ""),
                                                                   ("search_field_3", "text"),
                                                                   ("q_3", ''),
@@ -2522,7 +2522,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_3", "0"),
                                                                   ("regex_search_3", 'False'),
                                                                   ("exclude_q_3", ""),
-                                                                  ("formulaic_parts_3", ""),
+
                                                                   ("proper_name_3", ""),
                                                                   ("search_field_4", "text"),
                                                                   ("q_4", ''),
@@ -2531,7 +2531,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_4", "0"),
                                                                   ("regex_search_4", 'False'),
                                                                   ("exclude_q_4", ""),
-                                                                  ("formulaic_parts_4", ""),
+
                                                                   ("proper_name_4", ""),
                                                                   ("year", 0),
                                                                   ("month", 0),
@@ -2558,7 +2558,7 @@ class TestES(Formulae_Testing):
                                                                                       ("slop_1", "0"),
                                                                                       ("regex_search_1", 'False'),
                                                                                       ("exclude_q_1", ""),
-                                                                                      ("formulaic_parts_1", ""),
+
                                                                                       ("proper_name_1", ""),
                                                                                       ("search_field_2", "text"),
                                                                                       ("q_2", ''),
@@ -2567,7 +2567,7 @@ class TestES(Formulae_Testing):
                                                                                       ("slop_2", "0"),
                                                                                       ("regex_search_2", 'False'),
                                                                                       ("exclude_q_2", ""),
-                                                                                      ("formulaic_parts_2", ""),
+
                                                                                       ("proper_name_2", ""),
                                                                                       ("search_field_3", "text"),
                                                                                       ("q_3", ''),
@@ -2576,7 +2576,7 @@ class TestES(Formulae_Testing):
                                                                                       ("slop_3", "0"),
                                                                                       ("regex_search_3", 'False'),
                                                                                       ("exclude_q_3", ""),
-                                                                                      ("formulaic_parts_3", ""),
+
                                                                                       ("proper_name_3", ""),
                                                                                       ("search_field_4", "text"),
                                                                                       ("q_4", ''),
@@ -2585,7 +2585,7 @@ class TestES(Formulae_Testing):
                                                                                       ("slop_4", "0"),
                                                                                       ("regex_search_4", 'False'),
                                                                                       ("exclude_q_4", ""),
-                                                                                      ("formulaic_parts_4", ""),
+
                                                                                       ("proper_name_4", ""),
                                                                                       ("year", 0),
                                                                                       ("month", 0),
@@ -2612,7 +2612,7 @@ class TestES(Formulae_Testing):
                                                                                            ("slop_1", "0"),
                                                                                            ("regex_search_1", 'False'),
                                                                                            ("exclude_q_1", ""),
-                                                                                           ("formulaic_parts_1", ""),
+
                                                                                            ("proper_name_1", ""),
                                                                                            ("search_field_2", "text"),
                                                                                            ("q_2", ''),
@@ -2621,7 +2621,7 @@ class TestES(Formulae_Testing):
                                                                                            ("slop_2", "0"),
                                                                                            ("regex_search_2", 'False'),
                                                                                            ("exclude_q_2", ""),
-                                                                                           ("formulaic_parts_2", ""),
+
                                                                                            ("proper_name_2", ""),
                                                                                            ("search_field_3", "text"),
                                                                                            ("q_3", ''),
@@ -2630,7 +2630,7 @@ class TestES(Formulae_Testing):
                                                                                            ("slop_3", "0"),
                                                                                            ("regex_search_3", 'False'),
                                                                                            ("exclude_q_3", ""),
-                                                                                           ("formulaic_parts_3", ""),
+
                                                                                            ("proper_name_3", ""),
                                                                                            ("search_field_4", "text"),
                                                                                            ("q_4", ''),
@@ -2639,7 +2639,7 @@ class TestES(Formulae_Testing):
                                                                                            ("slop_4", "0"),
                                                                                            ("regex_search_4", 'False'),
                                                                                            ("exclude_q_4", ""),
-                                                                                           ("formulaic_parts_4", ""),
+
                                                                                            ("proper_name_4", ""),
                                                                                            ("year", 0),
                                                                                            ("month", 0),
@@ -2666,7 +2666,7 @@ class TestES(Formulae_Testing):
                                                                         ("slop_1", "0"),
                                                                         ("regex_search_1", 'False'),
                                                                         ("exclude_q_1", ""),
-                                                                        ("formulaic_parts_1", ""),
+
                                                                         ("proper_name_1", ""),
                                                                         ("search_field_2", "text"),
                                                                         ("q_2", ''),
@@ -2675,7 +2675,7 @@ class TestES(Formulae_Testing):
                                                                         ("slop_2", "0"),
                                                                         ("regex_search_2", 'False'),
                                                                         ("exclude_q_2", ""),
-                                                                        ("formulaic_parts_2", ""),
+
                                                                         ("proper_name_2", ""),
                                                                         ("search_field_3", "text"),
                                                                         ("q_3", ''),
@@ -2684,7 +2684,7 @@ class TestES(Formulae_Testing):
                                                                         ("slop_3", "0"),
                                                                         ("regex_search_3", 'False'),
                                                                         ("exclude_q_3", ""),
-                                                                        ("formulaic_parts_3", ""),
+
                                                                         ("proper_name_3", ""),
                                                                         ("search_field_4", "text"),
                                                                         ("q_4", ''),
@@ -2693,7 +2693,7 @@ class TestES(Formulae_Testing):
                                                                         ("slop_4", "0"),
                                                                         ("regex_search_4", 'False'),
                                                                         ("exclude_q_4", ""),
-                                                                        ("formulaic_parts_4", ""),
+
                                                                         ("proper_name_4", ""),
                                                                         ("year", 0),
                                                                         ("month", 0),
@@ -2720,7 +2720,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_1", "0"),
                                                                       ("regex_search_1", 'False'),
                                                                       ("exclude_q_1", ""),
-                                                                      ("formulaic_parts_1", ""),
+
                                                                       ("proper_name_1", ""),
                                                                       ("search_field_2", "text"),
                                                                       ("q_2", ''),
@@ -2729,7 +2729,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_2", "0"),
                                                                       ("regex_search_2", 'False'),
                                                                       ("exclude_q_2", ""),
-                                                                      ("formulaic_parts_2", ""),
+
                                                                       ("proper_name_2", ""),
                                                                       ("search_field_3", "text"),
                                                                       ("q_3", ''),
@@ -2738,7 +2738,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_3", "0"),
                                                                       ("regex_search_3", 'False'),
                                                                       ("exclude_q_3", ""),
-                                                                      ("formulaic_parts_3", ""),
+
                                                                       ("proper_name_3", ""),
                                                                       ("search_field_4", "text"),
                                                                       ("q_4", ''),
@@ -2747,7 +2747,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_4", "0"),
                                                                       ("regex_search_4", 'False'),
                                                                       ("exclude_q_4", ""),
-                                                                      ("formulaic_parts_4", ""),
+
                                                                       ("proper_name_4", ""),
                                                                       ("year", 0),
                                                                       ("month", 0),
@@ -2774,7 +2774,7 @@ class TestES(Formulae_Testing):
                                                                                   ("slop_1", "0"),
                                                                                   ("regex_search_1", 'False'),
                                                                                   ("exclude_q_1", ""),
-                                                                                  ("formulaic_parts_1", ""),
+
                                                                                   ("proper_name_1", ""),
                                                                                   ("search_field_2", "text"),
                                                                                   ("q_2", ''),
@@ -2783,7 +2783,7 @@ class TestES(Formulae_Testing):
                                                                                   ("slop_2", "0"),
                                                                                   ("regex_search_2", 'False'),
                                                                                   ("exclude_q_2", ""),
-                                                                                  ("formulaic_parts_2", ""),
+
                                                                                   ("proper_name_2", ""),
                                                                                   ("search_field_3", "text"),
                                                                                   ("q_3", ''),
@@ -2792,7 +2792,7 @@ class TestES(Formulae_Testing):
                                                                                   ("slop_3", "0"),
                                                                                   ("regex_search_3", 'False'),
                                                                                   ("exclude_q_3", ""),
-                                                                                  ("formulaic_parts_3", ""),
+
                                                                                   ("proper_name_3", ""),
                                                                                   ("search_field_4", "text"),
                                                                                   ("q_4", ''),
@@ -2801,7 +2801,7 @@ class TestES(Formulae_Testing):
                                                                                   ("slop_4", "0"),
                                                                                   ("regex_search_4", 'False'),
                                                                                   ("exclude_q_4", ""),
-                                                                                  ("formulaic_parts_4", ""),
+
                                                                                   ("proper_name_4", ""),
                                                                                   ("year", 0),
                                                                                   ("month", 0),
@@ -2828,7 +2828,7 @@ class TestES(Formulae_Testing):
                                                                                 ("slop_1", "0"),
                                                                                 ("regex_search_1", 'False'),
                                                                                 ("exclude_q_1", ""),
-                                                                                ("formulaic_parts_1", ""),
+
                                                                                 ("proper_name_1", ""),
                                                                                 ("search_field_2", "text"),
                                                                                 ("q_2", ''),
@@ -2837,7 +2837,7 @@ class TestES(Formulae_Testing):
                                                                                 ("slop_2", "0"),
                                                                                 ("regex_search_2", 'False'),
                                                                                 ("exclude_q_2", ""),
-                                                                                ("formulaic_parts_2", ""),
+
                                                                                 ("proper_name_2", ""),
                                                                                 ("search_field_3", "text"),
                                                                                 ("q_3", ''),
@@ -2846,7 +2846,7 @@ class TestES(Formulae_Testing):
                                                                                 ("slop_3", "0"),
                                                                                 ("regex_search_3", 'False'),
                                                                                 ("exclude_q_3", ""),
-                                                                                ("formulaic_parts_3", ""),
+
                                                                                 ("proper_name_3", ""),
                                                                                 ("search_field_4", "text"),
                                                                                 ("q_4", ''),
@@ -2855,7 +2855,7 @@ class TestES(Formulae_Testing):
                                                                                 ("slop_4", "0"),
                                                                                 ("regex_search_4", 'False'),
                                                                                 ("exclude_q_4", ""),
-                                                                                ("formulaic_parts_4", ""),
+
                                                                                 ("proper_name_4", ""),
                                                                                 ("year", 0),
                                                                                 ("month", 0),
@@ -2882,7 +2882,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_1", "0"),
                                                          ("regex_search_1", 'False'),
                                                          ("exclude_q_1", ""),
-                                                         ("formulaic_parts_1", ""),
+
                                                          ("proper_name_1", ""),
                                                          ("search_field_2", "text"),
                                                          ("q_2", ''),
@@ -2891,7 +2891,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_2", "0"),
                                                          ("regex_search_2", 'False'),
                                                          ("exclude_q_2", ""),
-                                                         ("formulaic_parts_2", ""),
+
                                                          ("proper_name_2", ""),
                                                          ("search_field_3", "text"),
                                                          ("q_3", ''),
@@ -2900,7 +2900,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_3", "0"),
                                                          ("regex_search_3", 'False'),
                                                          ("exclude_q_3", ""),
-                                                         ("formulaic_parts_3", ""),
+
                                                          ("proper_name_3", ""),
                                                          ("search_field_4", "text"),
                                                          ("q_4", ''),
@@ -2909,7 +2909,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_4", "0"),
                                                          ("regex_search_4", 'False'),
                                                          ("exclude_q_4", ""),
-                                                         ("formulaic_parts_4", ""),
+
                                                          ("proper_name_4", ""),
                                                          ("year", 800),
                                                          ("month", 10),
@@ -2936,7 +2936,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_1", "0"),
                                                                    ("regex_search_1", 'False'),
                                                                    ("exclude_q_1", ""),
-                                                                   ("formulaic_parts_1", ""),
+
                                                                    ("proper_name_1", ""),
                                                                    ("search_field_2", "text"),
                                                                    ("q_2", ''),
@@ -2945,7 +2945,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_2", "0"),
                                                                    ("regex_search_2", 'False'),
                                                                    ("exclude_q_2", ""),
-                                                                   ("formulaic_parts_2", ""),
+
                                                                    ("proper_name_2", ""),
                                                                    ("search_field_3", "text"),
                                                                    ("q_3", ''),
@@ -2954,7 +2954,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_3", "0"),
                                                                    ("regex_search_3", 'False'),
                                                                    ("exclude_q_3", ""),
-                                                                   ("formulaic_parts_3", ""),
+
                                                                    ("proper_name_3", ""),
                                                                    ("search_field_4", "text"),
                                                                    ("q_4", ''),
@@ -2963,7 +2963,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_4", "0"),
                                                                    ("regex_search_4", 'False'),
                                                                    ("exclude_q_4", ""),
-                                                                   ("formulaic_parts_4", ""),
+
                                                                    ("proper_name_4", ""),
                                                                    ("year", 800),
                                                                    ("month", 0),
@@ -2990,7 +2990,7 @@ class TestES(Formulae_Testing):
                                                              ("slop_1", "0"),
                                                              ("regex_search_1", 'False'),
                                                              ("exclude_q_1", ""),
-                                                             ("formulaic_parts_1", ""),
+
                                                              ("proper_name_1", ""),
                                                              ("search_field_2", "text"),
                                                              ("q_2", ''),
@@ -2999,7 +2999,7 @@ class TestES(Formulae_Testing):
                                                              ("slop_2", "0"),
                                                              ("regex_search_2", 'False'),
                                                              ("exclude_q_2", ""),
-                                                             ("formulaic_parts_2", ""),
+
                                                              ("proper_name_2", ""),
                                                              ("search_field_3", "text"),
                                                              ("q_3", ''),
@@ -3008,7 +3008,7 @@ class TestES(Formulae_Testing):
                                                              ("slop_3", "0"),
                                                              ("regex_search_3", 'False'),
                                                              ("exclude_q_3", ""),
-                                                             ("formulaic_parts_3", ""),
+
                                                              ("proper_name_3", ""),
                                                              ("search_field_4", "text"),
                                                              ("q_4", ''),
@@ -3017,7 +3017,7 @@ class TestES(Formulae_Testing):
                                                              ("slop_4", "0"),
                                                              ("regex_search_4", 'False'),
                                                              ("exclude_q_4", ""),
-                                                             ("formulaic_parts_4", ""),
+
                                                              ("proper_name_4", ""),
                                                              ("year", 800),
                                                              ("month", 10),
@@ -3044,7 +3044,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_1", "0"),
                                                                   ("regex_search_1", 'False'),
                                                                   ("exclude_q_1", ""),
-                                                                  ("formulaic_parts_1", ""),
+
                                                                   ("proper_name_1", ""),
                                                                   ("search_field_2", "text"),
                                                                   ("q_2", ''),
@@ -3053,7 +3053,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_2", "0"),
                                                                   ("regex_search_2", 'False'),
                                                                   ("exclude_q_2", ""),
-                                                                  ("formulaic_parts_2", ""),
+
                                                                   ("proper_name_2", ""),
                                                                   ("search_field_3", "text"),
                                                                   ("q_3", ''),
@@ -3062,7 +3062,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_3", "0"),
                                                                   ("regex_search_3", 'False'),
                                                                   ("exclude_q_3", ""),
-                                                                  ("formulaic_parts_3", ""),
+
                                                                   ("proper_name_3", ""),
                                                                   ("search_field_4", "text"),
                                                                   ("q_4", ''),
@@ -3071,7 +3071,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_4", "0"),
                                                                   ("regex_search_4", 'False'),
                                                                   ("exclude_q_4", ""),
-                                                                  ("formulaic_parts_4", ""),
+
                                                                   ("proper_name_4", ""),
                                                                   ("year", 0),
                                                                   ("month", 0),
@@ -3098,7 +3098,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_1", "0"),
                                                                             ("regex_search_1", 'False'),
                                                                             ("exclude_q_1", ""),
-                                                                            ("formulaic_parts_1", ""),
+
                                                                             ("proper_name_1", ""),
                                                                             ("search_field_2", "text"),
                                                                             ("q_2", ''),
@@ -3107,7 +3107,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_2", "0"),
                                                                             ("regex_search_2", 'False'),
                                                                             ("exclude_q_2", ""),
-                                                                            ("formulaic_parts_2", ""),
+
                                                                             ("proper_name_2", ""),
                                                                             ("search_field_3", "text"),
                                                                             ("q_3", ''),
@@ -3116,7 +3116,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_3", "0"),
                                                                             ("regex_search_3", 'False'),
                                                                             ("exclude_q_3", ""),
-                                                                            ("formulaic_parts_3", ""),
+
                                                                             ("proper_name_3", ""),
                                                                             ("search_field_4", "text"),
                                                                             ("q_4", ''),
@@ -3125,7 +3125,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_4", "0"),
                                                                             ("regex_search_4", 'False'),
                                                                             ("exclude_q_4", ""),
-                                                                            ("formulaic_parts_4", ""),
+
                                                                             ("proper_name_4", ""),
                                                                             ("year", 0),
                                                                             ("month", 0),
@@ -3152,7 +3152,7 @@ class TestES(Formulae_Testing):
                                                                                      ("slop_1", "0"),
                                                                                      ("regex_search_1", 'False'),
                                                                                      ("exclude_q_1", ""),
-                                                                                     ("formulaic_parts_1", ""),
+
                                                                                      ("proper_name_1", ""),
                                                                                      ("search_field_2", "text"),
                                                                                      ("q_2", ''),
@@ -3161,7 +3161,7 @@ class TestES(Formulae_Testing):
                                                                                      ("slop_2", "0"),
                                                                                      ("regex_search_2", 'False'),
                                                                                      ("exclude_q_2", ""),
-                                                                                     ("formulaic_parts_2", ""),
+
                                                                                      ("proper_name_2", ""),
                                                                                      ("search_field_3", "text"),
                                                                                      ("q_3", ''),
@@ -3170,7 +3170,7 @@ class TestES(Formulae_Testing):
                                                                                      ("slop_3", "0"),
                                                                                      ("regex_search_3", 'False'),
                                                                                      ("exclude_q_3", ""),
-                                                                                     ("formulaic_parts_3", ""),
+
                                                                                      ("proper_name_3", ""),
                                                                                      ("search_field_4", "text"),
                                                                                      ("q_4", ''),
@@ -3179,7 +3179,7 @@ class TestES(Formulae_Testing):
                                                                                      ("slop_4", "0"),
                                                                                      ("regex_search_4", 'False'),
                                                                                      ("exclude_q_4", ""),
-                                                                                     ("formulaic_parts_4", ""),
+
                                                                                      ("proper_name_4", ""),
                                                                                      ("year", 0),
                                                                                      ("month", 0),
@@ -3206,7 +3206,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_1", "0"),
                                                           ("regex_search_1", 'False'),
                                                           ("exclude_q_1", ""),
-                                                          ("formulaic_parts_1", ""),
+
                                                           ("proper_name_1", ""),
                                                           ("search_field_2", "text"),
                                                           ("q_2", ''),
@@ -3215,7 +3215,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_2", "0"),
                                                           ("regex_search_2", 'False'),
                                                           ("exclude_q_2", ""),
-                                                          ("formulaic_parts_2", ""),
+
                                                           ("proper_name_2", ""),
                                                           ("search_field_3", "text"),
                                                           ("q_3", ''),
@@ -3224,7 +3224,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_3", "0"),
                                                           ("regex_search_3", 'False'),
                                                           ("exclude_q_3", ""),
-                                                          ("formulaic_parts_3", ""),
+
                                                           ("proper_name_3", ""),
                                                           ("search_field_4", "text"),
                                                           ("q_4", ''),
@@ -3233,7 +3233,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_4", "0"),
                                                           ("regex_search_4", 'False'),
                                                           ("exclude_q_4", ""),
-                                                          ("formulaic_parts_4", ""),
+
                                                           ("proper_name_4", ""),
                                                           ("year", 0),
                                                           ("month", 0),
@@ -3260,7 +3260,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_1", "0"),
                                                                 ("regex_search_1", 'False'),
                                                                 ("exclude_q_1", ""),
-                                                                ("formulaic_parts_1", ""),
+
                                                                 ("proper_name_1", ""),
                                                                 ("search_field_2", "text"),
                                                                 ("q_2", ''),
@@ -3269,7 +3269,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_2", "0"),
                                                                 ("regex_search_2", 'False'),
                                                                 ("exclude_q_2", ""),
-                                                                ("formulaic_parts_2", ""),
+
                                                                 ("proper_name_2", ""),
                                                                 ("search_field_3", "text"),
                                                                 ("q_3", ''),
@@ -3278,7 +3278,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_3", "0"),
                                                                 ("regex_search_3", 'False'),
                                                                 ("exclude_q_3", ""),
-                                                                ("formulaic_parts_3", ""),
+
                                                                 ("proper_name_3", ""),
                                                                 ("search_field_4", "text"),
                                                                 ("q_4", ''),
@@ -3287,7 +3287,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_4", "0"),
                                                                 ("regex_search_4", 'False'),
                                                                 ("exclude_q_4", ""),
-                                                                ("formulaic_parts_4", ""),
+
                                                                 ("proper_name_4", ""),
                                                                 ("year", 0),
                                                                 ("month", 0),
@@ -3314,7 +3314,7 @@ class TestES(Formulae_Testing):
                                                             ("slop_1", "0"),
                                                             ("regex_search_1", 'False'),
                                                             ("exclude_q_1", ""),
-                                                            ("formulaic_parts_1", ""),
+
                                                             ("proper_name_1", ""),
                                                             ("search_field_2", "text"),
                                                             ("q_2", ''),
@@ -3323,7 +3323,7 @@ class TestES(Formulae_Testing):
                                                             ("slop_2", "0"),
                                                             ("regex_search_2", 'False'),
                                                             ("exclude_q_2", ""),
-                                                            ("formulaic_parts_2", ""),
+
                                                             ("proper_name_2", ""),
                                                             ("search_field_3", "text"),
                                                             ("q_3", ''),
@@ -3332,7 +3332,7 @@ class TestES(Formulae_Testing):
                                                             ("slop_3", "0"),
                                                             ("regex_search_3", 'False'),
                                                             ("exclude_q_3", ""),
-                                                            ("formulaic_parts_3", ""),
+
                                                             ("proper_name_3", ""),
                                                             ("search_field_4", "text"),
                                                             ("q_4", ''),
@@ -3341,7 +3341,7 @@ class TestES(Formulae_Testing):
                                                             ("slop_4", "0"),
                                                             ("regex_search_4", 'False'),
                                                             ("exclude_q_4", ""),
-                                                            ("formulaic_parts_4", ""),
+
                                                             ("proper_name_4", ""),
                                                             ("year", 0),
                                                             ("month", 0),
@@ -3368,7 +3368,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_1", "0"),
                                                           ("regex_search_1", 'False'),
                                                           ("exclude_q_1", ""),
-                                                          ("formulaic_parts_1", ""),
+
                                                           ("proper_name_1", ""),
                                                           ("search_field_2", "text"),
                                                           ("q_2", ''),
@@ -3377,7 +3377,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_2", "0"),
                                                           ("regex_search_2", 'False'),
                                                           ("exclude_q_2", ""),
-                                                          ("formulaic_parts_2", ""),
+
                                                           ("proper_name_2", ""),
                                                           ("search_field_3", "text"),
                                                           ("q_3", ''),
@@ -3386,7 +3386,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_3", "0"),
                                                           ("regex_search_3", 'False'),
                                                           ("exclude_q_3", ""),
-                                                          ("formulaic_parts_3", ""),
+
                                                           ("proper_name_3", ""),
                                                           ("search_field_4", "text"),
                                                           ("q_4", ''),
@@ -3395,7 +3395,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_4", "0"),
                                                           ("regex_search_4", 'False'),
                                                           ("exclude_q_4", ""),
-                                                          ("formulaic_parts_4", ""),
+
                                                           ("proper_name_4", ""),
                                                           ("year", 0),
                                                           ("month", 0),
@@ -3422,7 +3422,7 @@ class TestES(Formulae_Testing):
                                                              ("slop_1", "0"),
                                                              ("regex_search_1", 'False'),
                                                              ("exclude_q_1", ""),
-                                                             ("formulaic_parts_1", ""),
+
                                                              ("proper_name_1", ""),
                                                              ("search_field_2", "text"),
                                                              ("q_2", ''),
@@ -3431,7 +3431,7 @@ class TestES(Formulae_Testing):
                                                              ("slop_2", "0"),
                                                              ("regex_search_2", 'False'),
                                                              ("exclude_q_2", ""),
-                                                             ("formulaic_parts_2", ""),
+
                                                              ("proper_name_2", ""),
                                                              ("search_field_3", "text"),
                                                              ("q_3", ''),
@@ -3440,7 +3440,7 @@ class TestES(Formulae_Testing):
                                                              ("slop_3", "0"),
                                                              ("regex_search_3", 'False'),
                                                              ("exclude_q_3", ""),
-                                                             ("formulaic_parts_3", ""),
+
                                                              ("proper_name_3", ""),
                                                              ("search_field_4", "text"),
                                                              ("q_4", ''),
@@ -3449,7 +3449,7 @@ class TestES(Formulae_Testing):
                                                              ("slop_4", "0"),
                                                              ("regex_search_4", 'False'),
                                                              ("exclude_q_4", ""),
-                                                             ("formulaic_parts_4", ""),
+
                                                              ("proper_name_4", ""),
                                                              ("year", 0),
                                                              ("month", 0),
@@ -3476,7 +3476,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_1", "0"),
                                                                       ("regex_search_1", 'False'),
                                                                       ("exclude_q_1", ""),
-                                                                      ("formulaic_parts_1", ""),
+
                                                                       ("proper_name_1", ""),
                                                                       ("search_field_2", "regest"),
                                                                       ("q_2", 'schenk*'),
@@ -3485,7 +3485,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_2", "0"),
                                                                       ("regex_search_2", 'False'),
                                                                       ("exclude_q_2", ""),
-                                                                      ("formulaic_parts_2", ""),
+
                                                                       ("proper_name_2", ""),
                                                                       ("search_field_3", "text"),
                                                                       ("q_3", ''),
@@ -3494,7 +3494,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_3", "0"),
                                                                       ("regex_search_3", 'False'),
                                                                       ("exclude_q_3", ""),
-                                                                      ("formulaic_parts_3", ""),
+
                                                                       ("proper_name_3", ""),
                                                                       ("search_field_4", "text"),
                                                                       ("q_4", ''),
@@ -3503,7 +3503,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_4", "0"),
                                                                       ("regex_search_4", 'False'),
                                                                       ("exclude_q_4", ""),
-                                                                      ("formulaic_parts_4", ""),
+
                                                                       ("proper_name_4", ""),
                                                                       ("year", 0),
                                                                       ("month", 0),
@@ -3530,7 +3530,7 @@ class TestES(Formulae_Testing):
                                                                            ("slop_1", "0"),
                                                                            ("regex_search_1", 'False'),
                                                                            ("exclude_q_1", ""),
-                                                                           ("formulaic_parts_1", ""),
+
                                                                            ("proper_name_1", ""),
                                                                            ("search_field_2", "text"),
                                                                            ("q_2", ''),
@@ -3539,7 +3539,7 @@ class TestES(Formulae_Testing):
                                                                            ("slop_2", "0"),
                                                                            ("regex_search_2", 'False'),
                                                                            ("exclude_q_2", ""),
-                                                                           ("formulaic_parts_2", ""),
+
                                                                            ("proper_name_2", ""),
                                                                            ("search_field_3", "text"),
                                                                            ("q_3", ''),
@@ -3548,7 +3548,7 @@ class TestES(Formulae_Testing):
                                                                            ("slop_3", "0"),
                                                                            ("regex_search_3", 'False'),
                                                                            ("exclude_q_3", ""),
-                                                                           ("formulaic_parts_3", ""),
+
                                                                            ("proper_name_3", ""),
                                                                            ("search_field_4", "text"),
                                                                            ("q_4", ''),
@@ -3557,7 +3557,7 @@ class TestES(Formulae_Testing):
                                                                            ("slop_4", "0"),
                                                                            ("regex_search_4", 'False'),
                                                                            ("exclude_q_4", ""),
-                                                                           ("formulaic_parts_4", ""),
+
                                                                            ("proper_name_4", ""),
                                                                            ("year", 0),
                                                                            ("month", 0),
@@ -3584,7 +3584,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_1", "0"),
                                                                       ("regex_search_1", 'False'),
                                                                       ("exclude_q_1", ""),
-                                                                      ("formulaic_parts_1", ""),
+
                                                                       ("proper_name_1", ""),
                                                                       ("search_field_2", "text"),
                                                                       ("q_2", ''),
@@ -3593,7 +3593,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_2", "0"),
                                                                       ("regex_search_2", 'False'),
                                                                       ("exclude_q_2", ""),
-                                                                      ("formulaic_parts_2", ""),
+
                                                                       ("proper_name_2", ""),
                                                                       ("search_field_3", "text"),
                                                                       ("q_3", ''),
@@ -3602,7 +3602,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_3", "0"),
                                                                       ("regex_search_3", 'False'),
                                                                       ("exclude_q_3", ""),
-                                                                      ("formulaic_parts_3", ""),
+
                                                                       ("proper_name_3", ""),
                                                                       ("search_field_4", "text"),
                                                                       ("q_4", ''),
@@ -3611,7 +3611,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_4", "0"),
                                                                       ("regex_search_4", 'False'),
                                                                       ("exclude_q_4", ""),
-                                                                      ("formulaic_parts_4", ""),
+
                                                                       ("proper_name_4", ""),
                                                                       ("year", 0),
                                                                       ("month", 0),
@@ -3638,7 +3638,7 @@ class TestES(Formulae_Testing):
                                                        ("slop_1", "0"),
                                                        ("regex_search_1", 'False'),
                                                        ("exclude_q_1", ""),
-                                                       ("formulaic_parts_1", ""),
+
                                                        ("proper_name_1", ""),
                                                        ("search_field_2", "text"),
                                                        ("q_2", ''),
@@ -3647,7 +3647,7 @@ class TestES(Formulae_Testing):
                                                        ("slop_2", "0"),
                                                        ("regex_search_2", 'False'),
                                                        ("exclude_q_2", ""),
-                                                       ("formulaic_parts_2", ""),
+
                                                        ("proper_name_2", ""),
                                                        ("search_field_3", "text"),
                                                        ("q_3", ''),
@@ -3656,7 +3656,7 @@ class TestES(Formulae_Testing):
                                                        ("slop_3", "0"),
                                                        ("regex_search_3", 'False'),
                                                        ("exclude_q_3", ""),
-                                                       ("formulaic_parts_3", ""),
+
                                                        ("proper_name_3", ""),
                                                        ("search_field_4", "text"),
                                                        ("q_4", ''),
@@ -3665,7 +3665,7 @@ class TestES(Formulae_Testing):
                                                        ("slop_4", "0"),
                                                        ("regex_search_4", 'False'),
                                                        ("exclude_q_4", ""),
-                                                       ("formulaic_parts_4", ""),
+
                                                        ("proper_name_4", ""),
                                                        ("year", 0),
                                                        ("month", 0),
@@ -3692,7 +3692,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_1", "0"),
                                                          ("regex_search_1", 'False'),
                                                          ("exclude_q_1", ""),
-                                                         ("formulaic_parts_1", ""),
+
                                                          ("proper_name_1", ""),
                                                          ("search_field_2", "text"),
                                                          ("q_2", ''),
@@ -3701,7 +3701,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_2", "0"),
                                                          ("regex_search_2", 'False'),
                                                          ("exclude_q_2", ""),
-                                                         ("formulaic_parts_2", ""),
+
                                                          ("proper_name_2", ""),
                                                          ("search_field_3", "text"),
                                                          ("q_3", ''),
@@ -3710,7 +3710,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_3", "0"),
                                                          ("regex_search_3", 'False'),
                                                          ("exclude_q_3", ""),
-                                                         ("formulaic_parts_3", ""),
+
                                                          ("proper_name_3", ""),
                                                          ("search_field_4", "text"),
                                                          ("q_4", ''),
@@ -3719,7 +3719,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_4", "0"),
                                                          ("regex_search_4", 'False'),
                                                          ("exclude_q_4", ""),
-                                                         ("formulaic_parts_4", ""),
+
                                                          ("proper_name_4", ""),
                                                          ("year", 0),
                                                          ("month", 0),
@@ -3746,7 +3746,7 @@ class TestES(Formulae_Testing):
                                                                ("slop_1", "0"),
                                                                ("regex_search_1", 'False'),
                                                                ("exclude_q_1", ""),
-                                                               ("formulaic_parts_1", ""),
+
                                                                ("proper_name_1", ""),
                                                                ("search_field_2", "text"),
                                                                ("q_2", ''),
@@ -3755,7 +3755,7 @@ class TestES(Formulae_Testing):
                                                                ("slop_2", "0"),
                                                                ("regex_search_2", 'False'),
                                                                ("exclude_q_2", ""),
-                                                               ("formulaic_parts_2", ""),
+
                                                                ("proper_name_2", ""),
                                                                ("search_field_3", "text"),
                                                                ("q_3", ''),
@@ -3764,7 +3764,7 @@ class TestES(Formulae_Testing):
                                                                ("slop_3", "0"),
                                                                ("regex_search_3", 'False'),
                                                                ("exclude_q_3", ""),
-                                                               ("formulaic_parts_3", ""),
+
                                                                ("proper_name_3", ""),
                                                                ("search_field_4", "text"),
                                                                ("q_4", ''),
@@ -3773,7 +3773,7 @@ class TestES(Formulae_Testing):
                                                                ("slop_4", "0"),
                                                                ("regex_search_4", 'False'),
                                                                ("exclude_q_4", ""),
-                                                               ("formulaic_parts_4", ""),
+
                                                                ("proper_name_4", ""),
                                                                ("year", 0),
                                                                ("month", 0),
@@ -3800,7 +3800,7 @@ class TestES(Formulae_Testing):
                                                               ("slop_1", "0"),
                                                               ("regex_search_1", 'False'),
                                                               ("exclude_q_1", ""),
-                                                              ("formulaic_parts_1", ""),
+
                                                               ("proper_name_1", ""),
                                                               ("search_field_2", "text"),
                                                               ("q_2", ''),
@@ -3809,7 +3809,7 @@ class TestES(Formulae_Testing):
                                                               ("slop_2", "0"),
                                                               ("regex_search_2", 'False'),
                                                               ("exclude_q_2", ""),
-                                                              ("formulaic_parts_2", ""),
+
                                                               ("proper_name_2", ""),
                                                               ("search_field_3", "text"),
                                                               ("q_3", ''),
@@ -3818,7 +3818,7 @@ class TestES(Formulae_Testing):
                                                               ("slop_3", "0"),
                                                               ("regex_search_3", 'False'),
                                                               ("exclude_q_3", ""),
-                                                              ("formulaic_parts_3", ""),
+
                                                               ("proper_name_3", ""),
                                                               ("search_field_4", "text"),
                                                               ("q_4", ''),
@@ -3827,7 +3827,7 @@ class TestES(Formulae_Testing):
                                                               ("slop_4", "0"),
                                                               ("regex_search_4", 'False'),
                                                               ("exclude_q_4", ""),
-                                                              ("formulaic_parts_4", ""),
+
                                                               ("proper_name_4", ""),
                                                               ("year", 0),
                                                               ("month", 0),
@@ -3854,7 +3854,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_1", "0"),
                                                                 ("regex_search_1", 'False'),
                                                                 ("exclude_q_1", ""),
-                                                                ("formulaic_parts_1", ""),
+
                                                                 ("proper_name_1", ""),
                                                                 ("search_field_2", "text"),
                                                                 ("q_2", ''),
@@ -3863,7 +3863,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_2", "0"),
                                                                 ("regex_search_2", 'False'),
                                                                 ("exclude_q_2", ""),
-                                                                ("formulaic_parts_2", ""),
+
                                                                 ("proper_name_2", ""),
                                                                 ("search_field_3", "text"),
                                                                 ("q_3", ''),
@@ -3872,7 +3872,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_3", "0"),
                                                                 ("regex_search_3", 'False'),
                                                                 ("exclude_q_3", ""),
-                                                                ("formulaic_parts_3", ""),
+
                                                                 ("proper_name_3", ""),
                                                                 ("search_field_4", "text"),
                                                                 ("q_4", ''),
@@ -3881,7 +3881,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_4", "0"),
                                                                 ("regex_search_4", 'False'),
                                                                 ("exclude_q_4", ""),
-                                                                ("formulaic_parts_4", ""),
+
                                                                 ("proper_name_4", ""),
                                                                 ("year", 0),
                                                                 ("month", 0),
@@ -3908,7 +3908,7 @@ class TestES(Formulae_Testing):
                                                                ("slop_1", "0"),
                                                                ("regex_search_1", 'False'),
                                                                ("exclude_q_1", ""),
-                                                               ("formulaic_parts_1", ""),
+
                                                                ("proper_name_1", ""),
                                                                ("search_field_2", "text"),
                                                                ("q_2", ''),
@@ -3917,7 +3917,7 @@ class TestES(Formulae_Testing):
                                                                ("slop_2", "0"),
                                                                ("regex_search_2", 'False'),
                                                                ("exclude_q_2", ""),
-                                                               ("formulaic_parts_2", ""),
+
                                                                ("proper_name_2", ""),
                                                                ("search_field_3", "text"),
                                                                ("q_3", ''),
@@ -3926,7 +3926,7 @@ class TestES(Formulae_Testing):
                                                                ("slop_3", "0"),
                                                                ("regex_search_3", 'False'),
                                                                ("exclude_q_3", ""),
-                                                               ("formulaic_parts_3", ""),
+
                                                                ("proper_name_3", ""),
                                                                ("search_field_4", "text"),
                                                                ("q_4", ''),
@@ -3935,7 +3935,7 @@ class TestES(Formulae_Testing):
                                                                ("slop_4", "0"),
                                                                ("regex_search_4", 'False'),
                                                                ("exclude_q_4", ""),
-                                                               ("formulaic_parts_4", ""),
+
                                                                ("proper_name_4", ""),
                                                                ("year", 0),
                                                                ("month", 0),
@@ -3962,7 +3962,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_1", "0"),
                                                                           ("regex_search_1", 'False'),
                                                                           ("exclude_q_1", ""),
-                                                                          ("formulaic_parts_1", ""),
+
                                                                           ("proper_name_1", ""),
                                                                           ("search_field_2", "text"),
                                                                           ("q_2", ''),
@@ -3971,7 +3971,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_2", "0"),
                                                                           ("regex_search_2", 'False'),
                                                                           ("exclude_q_2", ""),
-                                                                          ("formulaic_parts_2", ""),
+
                                                                           ("proper_name_2", ""),
                                                                           ("search_field_3", "text"),
                                                                           ("q_3", ''),
@@ -3980,7 +3980,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_3", "0"),
                                                                           ("regex_search_3", 'False'),
                                                                           ("exclude_q_3", ""),
-                                                                          ("formulaic_parts_3", ""),
+
                                                                           ("proper_name_3", ""),
                                                                           ("search_field_4", "text"),
                                                                           ("q_4", ''),
@@ -3989,7 +3989,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_4", "0"),
                                                                           ("regex_search_4", 'False'),
                                                                           ("exclude_q_4", ""),
-                                                                          ("formulaic_parts_4", ""),
+
                                                                           ("proper_name_4", ""),
                                                                           ("year", 0),
                                                                           ("month", 0),
@@ -4016,7 +4016,7 @@ class TestES(Formulae_Testing):
                                                                         ("slop_1", "0"),
                                                                         ("regex_search_1", 'False'),
                                                                         ("exclude_q_1", ""),
-                                                                        ("formulaic_parts_1", ""),
+
                                                                         ("proper_name_1", ""),
                                                                         ("search_field_2", "text"),
                                                                         ("q_2", ''),
@@ -4025,7 +4025,7 @@ class TestES(Formulae_Testing):
                                                                         ("slop_2", "0"),
                                                                         ("regex_search_2", 'False'),
                                                                         ("exclude_q_2", ""),
-                                                                        ("formulaic_parts_2", ""),
+
                                                                         ("proper_name_2", ""),
                                                                         ("search_field_3", "text"),
                                                                         ("q_3", ''),
@@ -4034,7 +4034,7 @@ class TestES(Formulae_Testing):
                                                                         ("slop_3", "0"),
                                                                         ("regex_search_3", 'False'),
                                                                         ("exclude_q_3", ""),
-                                                                        ("formulaic_parts_3", ""),
+
                                                                         ("proper_name_3", ""),
                                                                         ("search_field_4", "text"),
                                                                         ("q_4", ''),
@@ -4043,7 +4043,7 @@ class TestES(Formulae_Testing):
                                                                         ("slop_4", "0"),
                                                                         ("regex_search_4", 'False'),
                                                                         ("exclude_q_4", ""),
-                                                                        ("formulaic_parts_4", ""),
+
                                                                         ("proper_name_4", ""),
                                                                         ("year", 0),
                                                                         ("month", 0),
@@ -4070,7 +4070,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_1", "0"),
                                                                  ("regex_search_1", 'False'),
                                                                  ("exclude_q_1", ""),
-                                                                 ("formulaic_parts_1", ""),
+
                                                                  ("proper_name_1", ""),
                                                                  ("search_field_2", "text"),
                                                                  ("q_2", ''),
@@ -4079,7 +4079,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_2", "0"),
                                                                  ("regex_search_2", 'False'),
                                                                  ("exclude_q_2", ""),
-                                                                 ("formulaic_parts_2", ""),
+
                                                                  ("proper_name_2", ""),
                                                                  ("search_field_3", "text"),
                                                                  ("q_3", ''),
@@ -4088,7 +4088,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_3", "0"),
                                                                  ("regex_search_3", 'False'),
                                                                  ("exclude_q_3", ""),
-                                                                 ("formulaic_parts_3", ""),
+
                                                                  ("proper_name_3", ""),
                                                                  ("search_field_4", "text"),
                                                                  ("q_4", ''),
@@ -4097,7 +4097,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_4", "0"),
                                                                  ("regex_search_4", 'False'),
                                                                  ("exclude_q_4", ""),
-                                                                 ("formulaic_parts_4", ""),
+
                                                                  ("proper_name_4", ""),
                                                                  ("year", 0),
                                                                  ("month", 0),
@@ -4124,7 +4124,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_1", "0"),
                                                                       ("regex_search_1", 'False'),
                                                                       ("exclude_q_1", ""),
-                                                                      ("formulaic_parts_1", ""),
+
                                                                       ("proper_name_1", ""),
                                                                       ("search_field_2", "text"),
                                                                       ("q_2", ''),
@@ -4133,7 +4133,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_2", "0"),
                                                                       ("regex_search_2", 'False'),
                                                                       ("exclude_q_2", ""),
-                                                                      ("formulaic_parts_2", ""),
+
                                                                       ("proper_name_2", ""),
                                                                       ("search_field_3", "text"),
                                                                       ("q_3", ''),
@@ -4142,7 +4142,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_3", "0"),
                                                                       ("regex_search_3", 'False'),
                                                                       ("exclude_q_3", ""),
-                                                                      ("formulaic_parts_3", ""),
+
                                                                       ("proper_name_3", ""),
                                                                       ("search_field_4", "text"),
                                                                       ("q_4", ''),
@@ -4151,7 +4151,7 @@ class TestES(Formulae_Testing):
                                                                       ("slop_4", "0"),
                                                                       ("regex_search_4", 'False'),
                                                                       ("exclude_q_4", ""),
-                                                                      ("formulaic_parts_4", ""),
+
                                                                       ("proper_name_4", ""),
                                                                       ("year", 0),
                                                                       ("month", 0),
@@ -4178,7 +4178,7 @@ class TestES(Formulae_Testing):
                                                                                 ("slop_1", "0"),
                                                                                 ("regex_search_1", 'False'),
                                                                                 ("exclude_q_1", ""),
-                                                                                ("formulaic_parts_1", ""),
+
                                                                                 ("proper_name_1", ""),
                                                                                 ("search_field_2", "autocomplete_regest"),
                                                                                 ("q_2", 'tau'),
@@ -4187,7 +4187,7 @@ class TestES(Formulae_Testing):
                                                                                 ('slop_2', '0'),
                                                                                 ("regex_search_2", 'False'),
                                                                                 ("exclude_q_2", ""),
-                                                                                ("formulaic_parts_2", ""),
+
                                                                                 ("proper_name_2", ""),
                                                                                 ("search_field_3", "text"),
                                                                                 ("q_3", ''),
@@ -4196,7 +4196,7 @@ class TestES(Formulae_Testing):
                                                                                 ("slop_3", "0"),
                                                                                 ("regex_search_3", 'False'),
                                                                                 ("exclude_q_3", ""),
-                                                                                ("formulaic_parts_3", ""),
+
                                                                                 ("proper_name_3", ""),
                                                                                 ("search_field_4", "text"),
                                                                                 ("q_4", ''),
@@ -4205,7 +4205,7 @@ class TestES(Formulae_Testing):
                                                                                 ("slop_4", "0"),
                                                                                 ("regex_search_4", 'False'),
                                                                                 ("exclude_q_4", ""),
-                                                                                ("formulaic_parts_4", ""),
+
                                                                                 ("proper_name_4", ""),
                                                                                 ("year", 0),
                                                                                 ("month", 0),
@@ -4232,7 +4232,7 @@ class TestES(Formulae_Testing):
                                                     ("slop_1", "0"),
                                                     ("regex_search_1", 'False'),
                                                     ("exclude_q_1", ""),
-                                                    ("formulaic_parts_1", ""),
+
                                                     ("proper_name_1", ""),
                                                     ("search_field_2", "text"),
                                                     ("q_2", ''),
@@ -4241,7 +4241,7 @@ class TestES(Formulae_Testing):
                                                     ("slop_2", "0"),
                                                     ("regex_search_2", 'False'),
                                                     ("exclude_q_2", ""),
-                                                    ("formulaic_parts_2", ""),
+
                                                     ("proper_name_2", ""),
                                                     ("search_field_3", "text"),
                                                     ("q_3", ''),
@@ -4250,7 +4250,7 @@ class TestES(Formulae_Testing):
                                                     ("slop_3", "0"),
                                                     ("regex_search_3", 'False'),
                                                     ("exclude_q_3", ""),
-                                                    ("formulaic_parts_3", ""),
+
                                                     ("proper_name_3", ""),
                                                     ("search_field_4", "text"),
                                                     ("q_4", ''),
@@ -4259,7 +4259,7 @@ class TestES(Formulae_Testing):
                                                     ("slop_4", "0"),
                                                     ("regex_search_4", 'False'),
                                                     ("exclude_q_4", ""),
-                                                    ("formulaic_parts_4", ""),
+
                                                     ("proper_name_4", ""),
                                                     ("year", 0),
                                                     ("month", 0),
@@ -4286,7 +4286,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_1", "0"),
                                                                    ("regex_search_1", 'False'),
                                                                    ("exclude_q_1", ""),
-                                                                   ("formulaic_parts_1", ""),
+
                                                                    ("proper_name_1", ""),
                                                                    ("search_field_2", "text"),
                                                                    ("q_2", ''),
@@ -4295,7 +4295,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_2", "0"),
                                                                    ("regex_search_2", 'False'),
                                                                    ("exclude_q_2", ""),
-                                                                   ("formulaic_parts_2", ""),
+
                                                                    ("proper_name_2", ""),
                                                                    ("search_field_3", "text"),
                                                                    ("q_3", ''),
@@ -4304,7 +4304,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_3", "0"),
                                                                    ("regex_search_3", 'False'),
                                                                    ("exclude_q_3", ""),
-                                                                   ("formulaic_parts_3", ""),
+
                                                                    ("proper_name_3", ""),
                                                                    ("search_field_4", "text"),
                                                                    ("q_4", ''),
@@ -4313,7 +4313,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_4", "0"),
                                                                    ("regex_search_4", 'False'),
                                                                    ("exclude_q_4", ""),
-                                                                   ("formulaic_parts_4", ""),
+
                                                                    ("proper_name_4", ""),
                                                                    ("year", 0),
                                                                    ("month", 0),
@@ -4340,7 +4340,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_1", "0"),
                                                                             ("regex_search_1", 'False'),
                                                                             ("exclude_q_1", ""),
-                                                                            ("formulaic_parts_1", ""),
+
                                                                             ("proper_name_1", ""),
                                                                             ("search_field_2", "text"),
                                                                             ("q_2", ''),
@@ -4349,7 +4349,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_2", "0"),
                                                                             ("regex_search_2", 'False'),
                                                                             ("exclude_q_2", ""),
-                                                                            ("formulaic_parts_2", ""),
+
                                                                             ("proper_name_2", ""),
                                                                             ("search_field_3", "text"),
                                                                             ("q_3", ''),
@@ -4358,7 +4358,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_3", "0"),
                                                                             ("regex_search_3", 'False'),
                                                                             ("exclude_q_3", ""),
-                                                                            ("formulaic_parts_3", ""),
+
                                                                             ("proper_name_3", ""),
                                                                             ("search_field_4", "text"),
                                                                             ("q_4", ''),
@@ -4367,7 +4367,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_4", "0"),
                                                                             ("regex_search_4", 'False'),
                                                                             ("exclude_q_4", ""),
-                                                                            ("formulaic_parts_4", ""),
+
                                                                             ("proper_name_4", ""),
                                                                             ("year", 0),
                                                                             ("month", 0),
@@ -4394,7 +4394,7 @@ class TestES(Formulae_Testing):
                                                               ("slop_1", "0"),
                                                               ("regex_search_1", 'False'),
                                                               ("exclude_q_1", ""),
-                                                              ("formulaic_parts_1", ""),
+
                                                               ("proper_name_1", ""),
                                                               ("search_field_2", "text"),
                                                               ("q_2", ''),
@@ -4403,7 +4403,7 @@ class TestES(Formulae_Testing):
                                                               ("slop_2", "0"),
                                                               ("regex_search_2", 'False'),
                                                               ("exclude_q_2", ""),
-                                                              ("formulaic_parts_2", ""),
+
                                                               ("proper_name_2", ""),
                                                               ("search_field_3", "text"),
                                                               ("q_3", ''),
@@ -4412,7 +4412,7 @@ class TestES(Formulae_Testing):
                                                               ("slop_3", "0"),
                                                               ("regex_search_3", 'False'),
                                                               ("exclude_q_3", ""),
-                                                              ("formulaic_parts_3", ""),
+
                                                               ("proper_name_3", ""),
                                                               ("search_field_4", "text"),
                                                               ("q_4", ''),
@@ -4421,7 +4421,7 @@ class TestES(Formulae_Testing):
                                                               ("slop_4", "0"),
                                                               ("regex_search_4", 'False'),
                                                               ("exclude_q_4", ""),
-                                                              ("formulaic_parts_4", ""),
+
                                                               ("proper_name_4", ""),
                                                               ("year", 0),
                                                               ("month", 0),
@@ -4448,7 +4448,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_1", "0"),
                                                                      ("regex_search_1", 'False'),
                                                                      ("exclude_q_1", ""),
-                                                                     ("formulaic_parts_1", ""),
+
                                                                      ("proper_name_1", ""),
                                                                      ("search_field_2", "text"),
                                                                      ("q_2", ''),
@@ -4457,7 +4457,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_2", "0"),
                                                                      ("regex_search_2", 'False'),
                                                                      ("exclude_q_2", ""),
-                                                                     ("formulaic_parts_2", ""),
+
                                                                      ("proper_name_2", ""),
                                                                      ("search_field_3", "text"),
                                                                      ("q_3", ''),
@@ -4466,7 +4466,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_3", "0"),
                                                                      ("regex_search_3", 'False'),
                                                                      ("exclude_q_3", ""),
-                                                                     ("formulaic_parts_3", ""),
+
                                                                      ("proper_name_3", ""),
                                                                      ("search_field_4", "text"),
                                                                      ("q_4", ''),
@@ -4475,7 +4475,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_4", "0"),
                                                                      ("regex_search_4", 'False'),
                                                                      ("exclude_q_4", ""),
-                                                                     ("formulaic_parts_4", ""),
+
                                                                      ("proper_name_4", ""),
                                                                      ("year", 0),
                                                                      ("month", 0),
@@ -4501,7 +4501,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_1", "0"),
                                                       ("regex_search_1", 'False'),
                                                       ("exclude_q_1", ""),
-                                                      ("formulaic_parts_1", ""),
+
                                                       ("proper_name_1", ""),
                                                       ("search_field_2", "text"),
                                                       ("q_2", ''),
@@ -4510,7 +4510,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_2", "0"),
                                                       ("regex_search_2", 'False'),
                                                       ("exclude_q_2", ""),
-                                                      ("formulaic_parts_2", ""),
+
                                                       ("proper_name_2", ""),
                                                       ("search_field_3", "text"),
                                                       ("q_3", ''),
@@ -4519,7 +4519,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_3", "0"),
                                                       ("regex_search_3", 'False'),
                                                       ("exclude_q_3", ""),
-                                                      ("formulaic_parts_3", ""),
+
                                                       ("proper_name_3", ""),
                                                       ("search_field_4", "text"),
                                                       ("q_4", ''),
@@ -4528,7 +4528,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_4", "0"),
                                                       ("regex_search_4", 'False'),
                                                       ("exclude_q_4", ""),
-                                                      ("formulaic_parts_4", ""),
+
                                                       ("proper_name_4", ""),
                                                       ("year", 0),
                                                       ("month", 0),
@@ -4555,7 +4555,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_1", "0"),
                                                                    ("regex_search_1", 'False'),
                                                                    ("exclude_q_1", ""),
-                                                                   ("formulaic_parts_1", ""),
+
                                                                    ("proper_name_1", ""),
                                                                    ("search_field_2", "text"),
                                                                    ("q_2", ''),
@@ -4564,7 +4564,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_2", "0"),
                                                                    ("regex_search_2", 'False'),
                                                                    ("exclude_q_2", ""),
-                                                                   ("formulaic_parts_2", ""),
+
                                                                    ("proper_name_2", ""),
                                                                    ("search_field_3", "text"),
                                                                    ("q_3", ''),
@@ -4573,7 +4573,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_3", "0"),
                                                                    ("regex_search_3", 'False'),
                                                                    ("exclude_q_3", ""),
-                                                                   ("formulaic_parts_3", ""),
+
                                                                    ("proper_name_3", ""),
                                                                    ("search_field_4", "text"),
                                                                    ("q_4", ''),
@@ -4582,7 +4582,7 @@ class TestES(Formulae_Testing):
                                                                    ("slop_4", "0"),
                                                                    ("regex_search_4", 'False'),
                                                                    ("exclude_q_4", ""),
-                                                                   ("formulaic_parts_4", ""),
+
                                                                    ("proper_name_4", ""),
                                                                    ("year", 0),
                                                                    ("month", 0),
@@ -4609,7 +4609,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_1", "0"),
                                                                  ("regex_search_1", 'False'),
                                                                  ("exclude_q_1", ""),
-                                                                 ("formulaic_parts_1", ""),
+
                                                                  ("proper_name_1", ""),
                                                                  ("search_field_2", "text"),
                                                                  ("q_2", ''),
@@ -4618,7 +4618,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_2", "0"),
                                                                  ("regex_search_2", 'False'),
                                                                  ("exclude_q_2", ""),
-                                                                 ("formulaic_parts_2", ""),
+
                                                                  ("proper_name_2", ""),
                                                                  ("search_field_3", "text"),
                                                                  ("q_3", ''),
@@ -4627,7 +4627,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_3", "0"),
                                                                  ("regex_search_3", 'False'),
                                                                  ("exclude_q_3", ""),
-                                                                 ("formulaic_parts_3", ""),
+
                                                                  ("proper_name_3", ""),
                                                                  ("search_field_4", "text"),
                                                                  ("q_4", ''),
@@ -4636,7 +4636,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_4", "0"),
                                                                  ("regex_search_4", 'False'),
                                                                  ("exclude_q_4", ""),
-                                                                 ("formulaic_parts_4", ""),
+
                                                                  ("proper_name_4", ""),
                                                                  ("year", 0),
                                                                  ("month", 0),
@@ -4663,7 +4663,7 @@ class TestES(Formulae_Testing):
                                                                              ("slop_1", "0"),
                                                                              ("regex_search_1", 'False'),
                                                                              ("exclude_q_1", ""),
-                                                                             ("formulaic_parts_1", ""),
+
                                                                              ("proper_name_1", ""),
                                                                              ("search_field_2", "text"),
                                                                              ("q_2", ''),
@@ -4672,7 +4672,7 @@ class TestES(Formulae_Testing):
                                                                              ("slop_2", "0"),
                                                                              ("regex_search_2", 'False'),
                                                                              ("exclude_q_2", ""),
-                                                                             ("formulaic_parts_2", ""),
+
                                                                              ("proper_name_2", ""),
                                                                              ("search_field_3", "text"),
                                                                              ("q_3", ''),
@@ -4681,7 +4681,7 @@ class TestES(Formulae_Testing):
                                                                              ("slop_3", "0"),
                                                                              ("regex_search_3", 'False'),
                                                                              ("exclude_q_3", ""),
-                                                                             ("formulaic_parts_3", ""),
+
                                                                              ("proper_name_3", ""),
                                                                              ("search_field_4", "text"),
                                                                              ("q_4", ''),
@@ -4690,7 +4690,7 @@ class TestES(Formulae_Testing):
                                                                              ("slop_4", "0"),
                                                                              ("regex_search_4", 'False'),
                                                                              ("exclude_q_4", ""),
-                                                                             ("formulaic_parts_4", ""),
+
                                                                              ("proper_name_4", ""),
                                                                              ("year", 0),
                                                                              ("month", 0),
@@ -4717,7 +4717,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_1", "0"),
                                                          ("regex_search_1", 'False'),
                                                          ("exclude_q_1", ""),
-                                                         ("formulaic_parts_1", ""),
+
                                                          ("proper_name_1", "personenname"),
                                                          ("search_field_2", "text"),
                                                          ("q_2", ''),
@@ -4726,7 +4726,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_2", "0"),
                                                          ("regex_search_2", 'False'),
                                                          ("exclude_q_2", ""),
-                                                         ("formulaic_parts_2", ""),
+
                                                          ("proper_name_2", ""),
                                                          ("search_field_3", "text"),
                                                          ("q_3", ''),
@@ -4735,7 +4735,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_3", "0"),
                                                          ("regex_search_3", 'False'),
                                                          ("exclude_q_3", ""),
-                                                         ("formulaic_parts_3", ""),
+
                                                          ("proper_name_3", ""),
                                                          ("search_field_4", "text"),
                                                          ("q_4", ''),
@@ -4744,7 +4744,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_4", "0"),
                                                          ("regex_search_4", 'False'),
                                                          ("exclude_q_4", ""),
-                                                         ("formulaic_parts_4", ""),
+
                                                          ("proper_name_4", ""),
                                                          ("year", 0),
                                                          ("month", 0),
@@ -4771,7 +4771,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_1", "0"),
                                                                      ("regex_search_1", 'False'),
                                                                      ("exclude_q_1", ""),
-                                                                     ("formulaic_parts_1", ""),
+
                                                                      ("proper_name_1", ""),
                                                                      ("search_field_2", "text"),
                                                                      ("q_2", ''),
@@ -4780,7 +4780,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_2", "0"),
                                                                      ("regex_search_2", 'False'),
                                                                      ("exclude_q_2", ""),
-                                                                     ("formulaic_parts_2", ""),
+
                                                                      ("proper_name_2", ""),
                                                                      ("search_field_3", "text"),
                                                                      ("q_3", ''),
@@ -4789,7 +4789,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_3", "0"),
                                                                      ("regex_search_3", 'False'),
                                                                      ("exclude_q_3", ""),
-                                                                     ("formulaic_parts_3", ""),
+
                                                                      ("proper_name_3", ""),
                                                                      ("search_field_4", "text"),
                                                                      ("q_4", ''),
@@ -4798,7 +4798,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_4", "0"),
                                                                      ("regex_search_4", 'False'),
                                                                      ("exclude_q_4", ""),
-                                                                     ("formulaic_parts_4", ""),
+
                                                                      ("proper_name_4", ""),
                                                                      ("year", 0),
                                                                      ("month", 0),
@@ -4825,7 +4825,7 @@ class TestES(Formulae_Testing):
                                                                               ("slop_1", "0"),
                                                                               ("regex_search_1", 'False'),
                                                                               ("exclude_q_1", ""),
-                                                                              ("formulaic_parts_1", ""),
+
                                                                               ("proper_name_1", ""),
                                                                               ("search_field_2", "text"),
                                                                               ("q_2", ''),
@@ -4834,7 +4834,7 @@ class TestES(Formulae_Testing):
                                                                               ("slop_2", "0"),
                                                                               ("regex_search_2", 'False'),
                                                                               ("exclude_q_2", ""),
-                                                                              ("formulaic_parts_2", ""),
+
                                                                               ("proper_name_2", ""),
                                                                               ("search_field_3", "text"),
                                                                               ("q_3", ''),
@@ -4843,7 +4843,7 @@ class TestES(Formulae_Testing):
                                                                               ("slop_3", "0"),
                                                                               ("regex_search_3", 'False'),
                                                                               ("exclude_q_3", ""),
-                                                                              ("formulaic_parts_3", ""),
+
                                                                               ("proper_name_3", ""),
                                                                               ("search_field_4", "text"),
                                                                               ("q_4", ''),
@@ -4852,7 +4852,7 @@ class TestES(Formulae_Testing):
                                                                               ("slop_4", "0"),
                                                                               ("regex_search_4", 'False'),
                                                                               ("exclude_q_4", ""),
-                                                                              ("formulaic_parts_4", ""),
+
                                                                               ("proper_name_4", ""),
                                                                               ("year", 0),
                                                                               ("month", 0),
@@ -4879,7 +4879,7 @@ class TestES(Formulae_Testing):
                                                                     ("slop_1", "0"),
                                                                     ("regex_search_1", 'False'),
                                                                     ("exclude_q_1", ""),
-                                                                    ("formulaic_parts_1", ""),
+
                                                                     ("proper_name_1", ""),
                                                                     ("search_field_2", "text"),
                                                                     ("q_2", ''),
@@ -4888,7 +4888,7 @@ class TestES(Formulae_Testing):
                                                                     ("slop_2", "0"),
                                                                     ("regex_search_2", 'False'),
                                                                     ("exclude_q_2", ""),
-                                                                    ("formulaic_parts_2", ""),
+
                                                                     ("proper_name_2", ""),
                                                                     ("search_field_3", "text"),
                                                                     ("q_3", ''),
@@ -4897,7 +4897,7 @@ class TestES(Formulae_Testing):
                                                                     ("slop_3", "0"),
                                                                     ("regex_search_3", 'False'),
                                                                     ("exclude_q_3", ""),
-                                                                    ("formulaic_parts_3", ""),
+
                                                                     ("proper_name_3", ""),
                                                                     ("search_field_4", "text"),
                                                                     ("q_4", ''),
@@ -4906,7 +4906,7 @@ class TestES(Formulae_Testing):
                                                                     ("slop_4", "0"),
                                                                     ("regex_search_4", 'False'),
                                                                     ("exclude_q_4", ""),
-                                                                    ("formulaic_parts_4", ""),
+
                                                                     ("proper_name_4", ""),
                                                                     ("year", 0),
                                                                     ("month", 0),
@@ -4933,7 +4933,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_1", "0"),
                                                                             ("regex_search_1", 'False'),
                                                                             ("exclude_q_1", ""),
-                                                                            ("formulaic_parts_1", ""),
+
                                                                             ("proper_name_1", ""),
                                                                             ("search_field_2", "text"),
                                                                             ("q_2", ''),
@@ -4942,7 +4942,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_2", "0"),
                                                                             ("regex_search_2", 'False'),
                                                                             ("exclude_q_2", ""),
-                                                                            ("formulaic_parts_2", ""),
+
                                                                             ("proper_name_2", ""),
                                                                             ("search_field_3", "text"),
                                                                             ("q_3", ''),
@@ -4951,7 +4951,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_3", "0"),
                                                                             ("regex_search_3", 'False'),
                                                                             ("exclude_q_3", ""),
-                                                                            ("formulaic_parts_3", ""),
+
                                                                             ("proper_name_3", ""),
                                                                             ("search_field_4", "text"),
                                                                             ("q_4", ''),
@@ -4960,7 +4960,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_4", "0"),
                                                                             ("regex_search_4", 'False'),
                                                                             ("exclude_q_4", ""),
-                                                                            ("formulaic_parts_4", ""),
+
                                                                             ("proper_name_4", ""),
                                                                             ("year", 0),
                                                                             ("month", 0),
@@ -4987,7 +4987,7 @@ class TestES(Formulae_Testing):
                                                                                   ("slop_1", "0"),
                                                                                   ("regex_search_1", 'False'),
                                                                                   ("exclude_q_1", ""),
-                                                                                  ("formulaic_parts_1", ""),
+
                                                                                   ("proper_name_1", ""),
                                                                                   ("search_field_2", "text"),
                                                                                   ("q_2", ''),
@@ -4996,7 +4996,7 @@ class TestES(Formulae_Testing):
                                                                                   ("slop_2", "0"),
                                                                                   ("regex_search_2", 'False'),
                                                                                   ("exclude_q_2", ""),
-                                                                                  ("formulaic_parts_2", ""),
+
                                                                                   ("proper_name_2", ""),
                                                                                   ("search_field_3", "text"),
                                                                                   ("q_3", ''),
@@ -5005,7 +5005,7 @@ class TestES(Formulae_Testing):
                                                                                   ("slop_3", "0"),
                                                                                   ("regex_search_3", 'False'),
                                                                                   ("exclude_q_3", ""),
-                                                                                  ("formulaic_parts_3", ""),
+
                                                                                   ("proper_name_3", ""),
                                                                                   ("search_field_4", "text"),
                                                                                   ("q_4", ''),
@@ -5014,7 +5014,7 @@ class TestES(Formulae_Testing):
                                                                                   ("slop_4", "0"),
                                                                                   ("regex_search_4", 'False'),
                                                                                   ("exclude_q_4", ""),
-                                                                                  ("formulaic_parts_4", ""),
+
                                                                                   ("proper_name_4", ""),
                                                                                   ("year", 0),
                                                                                   ("month", 0),
@@ -5041,7 +5041,7 @@ class TestES(Formulae_Testing):
                                                                              ("slop_1", "0"),
                                                                              ("regex_search_1", 'False'),
                                                                              ("exclude_q_1", ""),
-                                                                             ("formulaic_parts_1", ""),
+
                                                                              ("proper_name_1", ""),
                                                                              ("search_field_2", "text"),
                                                                              ("q_2", ''),
@@ -5050,7 +5050,7 @@ class TestES(Formulae_Testing):
                                                                              ("slop_2", "0"),
                                                                              ("regex_search_2", 'False'),
                                                                              ("exclude_q_2", ""),
-                                                                             ("formulaic_parts_2", ""),
+
                                                                              ("proper_name_2", ""),
                                                                              ("search_field_3", "text"),
                                                                              ("q_3", ''),
@@ -5059,7 +5059,7 @@ class TestES(Formulae_Testing):
                                                                              ("slop_3", "0"),
                                                                              ("regex_search_3", 'False'),
                                                                              ("exclude_q_3", ""),
-                                                                             ("formulaic_parts_3", ""),
+
                                                                              ("proper_name_3", ""),
                                                                              ("search_field_4", "text"),
                                                                              ("q_4", ''),
@@ -5068,7 +5068,7 @@ class TestES(Formulae_Testing):
                                                                              ("slop_4", "0"),
                                                                              ("regex_search_4", 'False'),
                                                                              ("exclude_q_4", ""),
-                                                                             ("formulaic_parts_4", ""),
+
                                                                              ("proper_name_4", ""),
                                                                              ("year", 0),
                                                                              ("month", 0),
@@ -5095,7 +5095,7 @@ class TestES(Formulae_Testing):
                                                                                           ("slop_1", "0"),
                                                                                           ("regex_search_1", 'False'),
                                                                                           ("exclude_q_1", ""),
-                                                                                          ("formulaic_parts_1", ""),
+
                                                                                           ("proper_name_1", ""),
                                                                                           ("search_field_2", "text"),
                                                                                           ("q_2", ''),
@@ -5104,7 +5104,7 @@ class TestES(Formulae_Testing):
                                                                                           ("slop_2", "0"),
                                                                                           ("regex_search_2", 'False'),
                                                                                           ("exclude_q_2", ""),
-                                                                                          ("formulaic_parts_2", ""),
+
                                                                                           ("proper_name_2", ""),
                                                                                           ("search_field_3", "text"),
                                                                                           ("q_3", ''),
@@ -5113,7 +5113,7 @@ class TestES(Formulae_Testing):
                                                                                           ("slop_3", "0"),
                                                                                           ("regex_search_3", 'False'),
                                                                                           ("exclude_q_3", ""),
-                                                                                          ("formulaic_parts_3", ""),
+
                                                                                           ("proper_name_3", ""),
                                                                                           ("search_field_4", "text"),
                                                                                           ("q_4", ''),
@@ -5122,7 +5122,7 @@ class TestES(Formulae_Testing):
                                                                                           ("slop_4", "0"),
                                                                                           ("regex_search_4", 'False'),
                                                                                           ("exclude_q_4", ""),
-                                                                                          ("formulaic_parts_4", ""),
+
                                                                                           ("proper_name_4", ""),
                                                                                           ("year", 0),
                                                                                           ("month", 0),
@@ -5141,330 +5141,330 @@ class TestES(Formulae_Testing):
                                                                                           ("forgeries", "include"),
                                                                                           ('source', 'advanced'),
                                                                                           ('bool_operator', 'must')]),
-                 'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
-                                                                 ("search_field_1", "text"),
-                                                                 ("q_1", 'tempore'),
-                                                                 ("fuzziness_1", "0"),
-                                                                 ("in_order_1", "False"),
-                                                                 ("slop_1", "0"),
-                                                                 ("regex_search_1", 'False'),
-                                                                 ("exclude_q_1", ""),
-                                                                 ("formulaic_parts_1", "Stipulationsformel"),
-                                                                 ("proper_name_1", ""),
-                                                                 ("search_field_2", "text"),
-                                                                 ("q_2", ''),
-                                                                 ("fuzziness_2", "0"),
-                                                                 ("in_order_2", "False"),
-                                                                 ("slop_2", "0"),
-                                                                 ("regex_search_2", 'False'),
-                                                                 ("exclude_q_2", ""),
-                                                                 ("formulaic_parts_2", ""),
-                                                                 ("proper_name_2", ""),
-                                                                 ("search_field_3", "text"),
-                                                                 ("q_3", ''),
-                                                                 ("fuzziness_3", "0"),
-                                                                 ("in_order_3", "False"),
-                                                                 ("slop_3", "0"),
-                                                                 ("regex_search_3", 'False'),
-                                                                 ("exclude_q_3", ""),
-                                                                 ("formulaic_parts_3", ""),
-                                                                 ("proper_name_3", ""),
-                                                                 ("search_field_4", "text"),
-                                                                 ("q_4", ''),
-                                                                 ("fuzziness_4", "0"),
-                                                                 ("in_order_4", "False"),
-                                                                 ("slop_4", "0"),
-                                                                 ("regex_search_4", 'False'),
-                                                                 ("exclude_q_4", ""),
-                                                                 ("formulaic_parts_4", ""),
-                                                                 ("proper_name_4", ""),
-                                                                 ("year", 0),
-                                                                 ("month", 0),
-                                                                 ("day", 0),
-                                                                 ("year_start", 0),
-                                                                 ("month_start", 0),
-                                                                 ("day_start", 0),
-                                                                 ("year_end", 0),
-                                                                 ("month_end", 0),
-                                                                 ("day_end", 0),
-                                                                 ('date_plus_minus', 0),
-                                                                 ('exclusive_date_range', 'False'),
-                                                                 ("composition_place", ''),
-                                                                 ('sort', 'urn'),
-                                                                 ('special_days', ''),
-                                                                 ("forgeries", "include"),
-                                                                 ('source', 'advanced'),
-                                                                 ('bool_operator', 'must')]),
-                 'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
-                                                                               ("search_field_1", "text"),
-                                                                               ("q_1", 'temp?re'),
-                                                                               ("fuzziness_1", "0"),
-                                                                               ("in_order_1", "False"),
-                                                                               ("slop_1", "0"),
-                                                                               ("regex_search_1", 'False'),
-                                                                               ("exclude_q_1", ""),
-                                                                               ("formulaic_parts_1", "Stipulationsformel"),
-                                                                               ("proper_name_1", ""),
-                                                                               ("search_field_2", "text"),
-                                                                               ("q_2", ''),
-                                                                               ("fuzziness_2", "0"),
-                                                                               ("in_order_2", "False"),
-                                                                               ("slop_2", "0"),
-                                                                               ("regex_search_2", 'False'),
-                                                                               ("exclude_q_2", ""),
-                                                                               ("formulaic_parts_2", ""),
-                                                                               ("proper_name_2", ""),
-                                                                               ("search_field_3", "text"),
-                                                                               ("q_3", ''),
-                                                                               ("fuzziness_3", "0"),
-                                                                               ("in_order_3", "False"),
-                                                                               ("slop_3", "0"),
-                                                                               ("regex_search_3", 'False'),
-                                                                               ("exclude_q_3", ""),
-                                                                               ("formulaic_parts_3", ""),
-                                                                               ("proper_name_3", ""),
-                                                                               ("search_field_4", "text"),
-                                                                               ("q_4", ''),
-                                                                               ("fuzziness_4", "0"),
-                                                                               ("in_order_4", "False"),
-                                                                               ("slop_4", "0"),
-                                                                               ("regex_search_4", 'False'),
-                                                                               ("exclude_q_4", ""),
-                                                                               ("formulaic_parts_4", ""),
-                                                                               ("proper_name_4", ""),
-                                                                               ("year", 0),
-                                                                               ("month", 0),
-                                                                               ("day", 0),
-                                                                               ("year_start", 0),
-                                                                               ("month_start", 0),
-                                                                               ("day_start", 0),
-                                                                               ("year_end", 0),
-                                                                               ("month_end", 0),
-                                                                               ("day_end", 0),
-                                                                               ('date_plus_minus', 0),
-                                                                               ('exclusive_date_range', 'False'),
-                                                                               ("composition_place", ''),
-                                                                               ('sort', 'urn'),
-                                                                               ('special_days', ''),
-                                                                               ("forgeries", "include"),
-                                                                               ('source', 'advanced'),
-                                                                               ('bool_operator', 'must')]),
-                 'test_single_charter_part_search_with_wildcard_v_u': OrderedDict([("corpus", "mondsee"),
-                                                                                   ("search_field_1", "text"),
-                                                                                   ("q_1", 'christ*+vener?bili'),
-                                                                                   ("fuzziness_1", "0"),
-                                                                                   ("in_order_1", "False"),
-                                                                                   ("slop_1", "0"),
-                                                                                   ("regex_search_1", 'False'),
-                                                                                   ("exclude_q_1", ""),
-                                                                                   ("formulaic_parts_1", "Narratio"),
-                                                                                   ("proper_name_1", ""),
-                                                                                   ("search_field_2", "text"),
-                                                                                   ("q_2", ''),
-                                                                                   ("fuzziness_2", "0"),
-                                                                                   ("in_order_2", "False"),
-                                                                                   ("slop_2", "0"),
-                                                                                   ("regex_search_2", 'False'),
-                                                                                   ("exclude_q_2", ""),
-                                                                                   ("formulaic_parts_2", ""),
-                                                                                   ("proper_name_2", ""),
-                                                                                   ("search_field_3", "text"),
-                                                                                   ("q_3", ''),
-                                                                                   ("fuzziness_3", "0"),
-                                                                                   ("in_order_3", "False"),
-                                                                                   ("slop_3", "0"),
-                                                                                   ("regex_search_3", 'False'),
-                                                                                   ("exclude_q_3", ""),
-                                                                                   ("formulaic_parts_3", ""),
-                                                                                   ("proper_name_3", ""),
-                                                                                   ("search_field_4", "text"),
-                                                                                   ("q_4", ''),
-                                                                                   ("fuzziness_4", "0"),
-                                                                                   ("in_order_4", "False"),
-                                                                                   ("slop_4", "0"),
-                                                                                   ("regex_search_4", 'False'),
-                                                                                   ("exclude_q_4", ""),
-                                                                                   ("formulaic_parts_4", ""),
-                                                                                   ("proper_name_4", ""),
-                                                                                   ("year", 0),
-                                                                                   ("month", 0),
-                                                                                   ("day", 0),
-                                                                                   ("year_start", 0),
-                                                                                   ("month_start", 0),
-                                                                                   ("day_start", 0),
-                                                                                   ("year_end", 0),
-                                                                                   ("month_end", 0),
-                                                                                   ("day_end", 0),
-                                                                                   ('date_plus_minus', 0),
-                                                                                   ('exclusive_date_range', 'False'),
-                                                                                   ("composition_place", ''),
-                                                                                   ('sort', 'urn'),
-                                                                                   ('special_days', ''),
-                                                                                   ("forgeries", "include"),
-                                                                                   ('source', 'advanced'),
-                                                                                   ('bool_operator', 'must')]),
-                 'test_multi_charter_part_search': OrderedDict([("corpus", "mondsee"),
-                                                                ("search_field_1", "text"),
-                                                                ("q_1", 'christi'),
-                                                                ("fuzziness_1", "0"),
-                                                                ("in_order_1", "False"),
-                                                                ("slop_1", "0"),
-                                                                ("regex_search_1", 'False'),
-                                                                ("exclude_q_1", ""),
-                                                                ("formulaic_parts_1", "Poenformel%2BStipulationsformel"),
-                                                                ("proper_name_1", ""),
-                                                                ("search_field_2", "text"),
-                                                                ("q_2", ''),
-                                                                ("fuzziness_2", "0"),
-                                                                ("in_order_2", "False"),
-                                                                ("slop_2", "0"),
-                                                                ("regex_search_2", 'False'),
-                                                                ("exclude_q_2", ""),
-                                                                ("formulaic_parts_2", ""),
-                                                                ("proper_name_2", ""),
-                                                                ("search_field_3", "text"),
-                                                                ("q_3", ''),
-                                                                ("fuzziness_3", "0"),
-                                                                ("in_order_3", "False"),
-                                                                ("slop_3", "0"),
-                                                                ("regex_search_3", 'False'),
-                                                                ("exclude_q_3", ""),
-                                                                ("formulaic_parts_3", ""),
-                                                                ("proper_name_3", ""),
-                                                                ("search_field_4", "text"),
-                                                                ("q_4", ''),
-                                                                ("fuzziness_4", "0"),
-                                                                ("in_order_4", "False"),
-                                                                ("slop_4", "0"),
-                                                                ("regex_search_4", 'False'),
-                                                                ("exclude_q_4", ""),
-                                                                ("formulaic_parts_4", ""),
-                                                                ("proper_name_4", ""),
-                                                                ("year", 0),
-                                                                ("month", 0),
-                                                                ("day", 0),
-                                                                ("year_start", 0),
-                                                                ("month_start", 0),
-                                                                ("day_start", 0),
-                                                                ("year_end", 0),
-                                                                ("month_end", 0),
-                                                                ("day_end", 0),
-                                                                ('date_plus_minus', 0),
-                                                                ('exclusive_date_range', 'False'),
-                                                                ("composition_place", ''),
-                                                                ('sort', 'urn'),
-                                                                ('special_days', ''),
-                                                                ("forgeries", "include"),
-                                                                ('source', 'advanced'),
-                                                                ('bool_operator', 'must')]),
-                 'test_charter_part_search_no_q': OrderedDict([("corpus", "mondsee"),
-                                                               ("search_field_1", "text"),
-                                                               ("q_1", ''),
-                                                               ("fuzziness_1", "0"),
-                                                               ("in_order_1", "False"),
-                                                               ("slop_1", "0"),
-                                                               ("regex_search_1", 'False'),
-                                                               ("exclude_q_1", ""),
-                                                               ("formulaic_parts_1", "Poenformel%2BStipulationsformel"),
-                                                               ("proper_name_1", ""),
-                                                               ("search_field_2", "text"),
-                                                               ("q_2", ''),
-                                                               ("fuzziness_2", "0"),
-                                                               ("in_order_2", "False"),
-                                                               ("slop_2", "0"),
-                                                               ("regex_search_2", 'False'),
-                                                               ("exclude_q_2", ""),
-                                                               ("formulaic_parts_2", ""),
-                                                               ("proper_name_2", ""),
-                                                               ("search_field_3", "text"),
-                                                               ("q_3", ''),
-                                                               ("fuzziness_3", "0"),
-                                                               ("in_order_3", "False"),
-                                                               ("slop_3", "0"),
-                                                               ("regex_search_3", 'False'),
-                                                               ("exclude_q_3", ""),
-                                                               ("formulaic_parts_3", ""),
-                                                               ("proper_name_3", ""),
-                                                               ("search_field_4", "text"),
-                                                               ("q_4", ''),
-                                                               ("fuzziness_4", "0"),
-                                                               ("in_order_4", "False"),
-                                                               ("slop_4", "0"),
-                                                               ("regex_search_4", 'False'),
-                                                               ("exclude_q_4", ""),
-                                                               ("formulaic_parts_4", ""),
-                                                               ("proper_name_4", ""),
-                                                               ("year", 0),
-                                                               ("month", 0),
-                                                               ("day", 0),
-                                                               ("year_start", 0),
-                                                               ("month_start", 0),
-                                                               ("day_start", 0),
-                                                               ("year_end", 0),
-                                                               ("month_end", 0),
-                                                               ("day_end", 0),
-                                                               ('date_plus_minus', 0),
-                                                               ('exclusive_date_range', 'False'),
-                                                               ("composition_place", ''),
-                                                               ('sort', 'urn'),
-                                                               ('special_days', ''),
-                                                               ("forgeries", "include"),
-                                                               ('source', 'advanced'),
-                                                               ('bool_operator', 'must')]),
-                 'test_fuzzy_charter_part_search': OrderedDict([("corpus", "mondsee"),
-                                                                ("search_field_1", "text"),
-                                                                ("q_1", 'in+loco+qui+nuncupatur'),
-                                                                ("fuzziness_1", "AUTO"),
-                                                                ("in_order_1", "False"),
-                                                                ("slop_1", "0"),
-                                                                ("regex_search_1", 'False'),
-                                                                ("exclude_q_1", ""),
-                                                                ("formulaic_parts_1", "Narratio"),
-                                                                ("proper_name_1", ""),
-                                                                ("search_field_2", "text"),
-                                                                ("q_2", ''),
-                                                                ("fuzziness_2", "0"),
-                                                                ("in_order_2", "False"),
-                                                                ("slop_2", "0"),
-                                                                ("regex_search_2", 'False'),
-                                                                ("exclude_q_2", ""),
-                                                                ("formulaic_parts_2", ""),
-                                                                ("proper_name_2", ""),
-                                                                ("search_field_3", "text"),
-                                                                ("q_3", ''),
-                                                                ("fuzziness_3", "0"),
-                                                                ("in_order_3", "False"),
-                                                                ("slop_3", "0"),
-                                                                ("regex_search_3", 'False'),
-                                                                ("exclude_q_3", ""),
-                                                                ("formulaic_parts_3", ""),
-                                                                ("proper_name_3", ""),
-                                                                ("search_field_4", "text"),
-                                                                ("q_4", ''),
-                                                                ("fuzziness_4", "0"),
-                                                                ("in_order_4", "False"),
-                                                                ("slop_4", "0"),
-                                                                ("regex_search_4", 'False'),
-                                                                ("exclude_q_4", ""),
-                                                                ("formulaic_parts_4", ""),
-                                                                ("proper_name_4", ""),
-                                                                ("year", 0),
-                                                                ("month", 0),
-                                                                ("day", 0),
-                                                                ("year_start", 0),
-                                                                ("month_start", 0),
-                                                                ("day_start", 0),
-                                                                ("year_end", 0),
-                                                                ("month_end", 0),
-                                                                ("day_end", 0),
-                                                                ('date_plus_minus', 0),
-                                                                ('exclusive_date_range', 'False'),
-                                                                ("composition_place", ''),
-                                                                ('sort', 'urn'),
-                                                                ('special_days', ''),
-                                                                ("forgeries", "include"),
-                                                                ('source', 'advanced'),
-                                                                ('bool_operator', 'must')]),
+                 # 'test_single_charter_part_search': OrderedDict([("corpus", "mondsee"),
+                 #                                                 ("search_field_1", "text"),
+                 #                                                 ("q_1", 'tempore'),
+                 #                                                 ("fuzziness_1", "0"),
+                 #                                                 ("in_order_1", "False"),
+                 #                                                 ("slop_1", "0"),
+                 #                                                 ("regex_search_1", 'False'),
+                 #                                                 ("exclude_q_1", ""),
+                 #
+                 #                                                 ("proper_name_1", ""),
+                 #                                                 ("search_field_2", "text"),
+                 #                                                 ("q_2", ''),
+                 #                                                 ("fuzziness_2", "0"),
+                 #                                                 ("in_order_2", "False"),
+                 #                                                 ("slop_2", "0"),
+                 #                                                 ("regex_search_2", 'False'),
+                 #                                                 ("exclude_q_2", ""),
+                 #
+                 #                                                 ("proper_name_2", ""),
+                 #                                                 ("search_field_3", "text"),
+                 #                                                 ("q_3", ''),
+                 #                                                 ("fuzziness_3", "0"),
+                 #                                                 ("in_order_3", "False"),
+                 #                                                 ("slop_3", "0"),
+                 #                                                 ("regex_search_3", 'False'),
+                 #                                                 ("exclude_q_3", ""),
+                 #
+                 #                                                 ("proper_name_3", ""),
+                 #                                                 ("search_field_4", "text"),
+                 #                                                 ("q_4", ''),
+                 #                                                 ("fuzziness_4", "0"),
+                 #                                                 ("in_order_4", "False"),
+                 #                                                 ("slop_4", "0"),
+                 #                                                 ("regex_search_4", 'False'),
+                 #                                                 ("exclude_q_4", ""),
+                 #
+                 #                                                 ("proper_name_4", ""),
+                 #                                                 ("year", 0),
+                 #                                                 ("month", 0),
+                 #                                                 ("day", 0),
+                 #                                                 ("year_start", 0),
+                 #                                                 ("month_start", 0),
+                 #                                                 ("day_start", 0),
+                 #                                                 ("year_end", 0),
+                 #                                                 ("month_end", 0),
+                 #                                                 ("day_end", 0),
+                 #                                                 ('date_plus_minus', 0),
+                 #                                                 ('exclusive_date_range', 'False'),
+                 #                                                 ("composition_place", ''),
+                 #                                                 ('sort', 'urn'),
+                 #                                                 ('special_days', ''),
+                 #                                                 ("forgeries", "include"),
+                 #                                                 ('source', 'advanced'),
+                 #                                                 ('bool_operator', 'must')]),
+                 # 'test_single_charter_part_search_with_wildcard': OrderedDict([("corpus", "mondsee"),
+                 #                                                               ("search_field_1", "text"),
+                 #                                                               ("q_1", 'temp?re'),
+                 #                                                               ("fuzziness_1", "0"),
+                 #                                                               ("in_order_1", "False"),
+                 #                                                               ("slop_1", "0"),
+                 #                                                               ("regex_search_1", 'False'),
+                 #                                                               ("exclude_q_1", ""),
+                 #
+                 #                                                               ("proper_name_1", ""),
+                 #                                                               ("search_field_2", "text"),
+                 #                                                               ("q_2", ''),
+                 #                                                               ("fuzziness_2", "0"),
+                 #                                                               ("in_order_2", "False"),
+                 #                                                               ("slop_2", "0"),
+                 #                                                               ("regex_search_2", 'False'),
+                 #                                                               ("exclude_q_2", ""),
+                 #
+                 #                                                               ("proper_name_2", ""),
+                 #                                                               ("search_field_3", "text"),
+                 #                                                               ("q_3", ''),
+                 #                                                               ("fuzziness_3", "0"),
+                 #                                                               ("in_order_3", "False"),
+                 #                                                               ("slop_3", "0"),
+                 #                                                               ("regex_search_3", 'False'),
+                 #                                                               ("exclude_q_3", ""),
+                 #
+                 #                                                               ("proper_name_3", ""),
+                 #                                                               ("search_field_4", "text"),
+                 #                                                               ("q_4", ''),
+                 #                                                               ("fuzziness_4", "0"),
+                 #                                                               ("in_order_4", "False"),
+                 #                                                               ("slop_4", "0"),
+                 #                                                               ("regex_search_4", 'False'),
+                 #                                                               ("exclude_q_4", ""),
+                 #
+                 #                                                               ("proper_name_4", ""),
+                 #                                                               ("year", 0),
+                 #                                                               ("month", 0),
+                 #                                                               ("day", 0),
+                 #                                                               ("year_start", 0),
+                 #                                                               ("month_start", 0),
+                 #                                                               ("day_start", 0),
+                 #                                                               ("year_end", 0),
+                 #                                                               ("month_end", 0),
+                 #                                                               ("day_end", 0),
+                 #                                                               ('date_plus_minus', 0),
+                 #                                                               ('exclusive_date_range', 'False'),
+                 #                                                               ("composition_place", ''),
+                 #                                                               ('sort', 'urn'),
+                 #                                                               ('special_days', ''),
+                 #                                                               ("forgeries", "include"),
+                 #                                                               ('source', 'advanced'),
+                 #                                                               ('bool_operator', 'must')]),
+                 # 'test_single_charter_part_search_with_wildcard_v_u': OrderedDict([("corpus", "mondsee"),
+                 #                                                                   ("search_field_1", "text"),
+                 #                                                                   ("q_1", 'christ*+vener?bili'),
+                 #                                                                   ("fuzziness_1", "0"),
+                 #                                                                   ("in_order_1", "False"),
+                 #                                                                   ("slop_1", "0"),
+                 #                                                                   ("regex_search_1", 'False'),
+                 #                                                                   ("exclude_q_1", ""),
+                 #
+                 #                                                                   ("proper_name_1", ""),
+                 #                                                                   ("search_field_2", "text"),
+                 #                                                                   ("q_2", ''),
+                 #                                                                   ("fuzziness_2", "0"),
+                 #                                                                   ("in_order_2", "False"),
+                 #                                                                   ("slop_2", "0"),
+                 #                                                                   ("regex_search_2", 'False'),
+                 #                                                                   ("exclude_q_2", ""),
+                 #
+                 #                                                                   ("proper_name_2", ""),
+                 #                                                                   ("search_field_3", "text"),
+                 #                                                                   ("q_3", ''),
+                 #                                                                   ("fuzziness_3", "0"),
+                 #                                                                   ("in_order_3", "False"),
+                 #                                                                   ("slop_3", "0"),
+                 #                                                                   ("regex_search_3", 'False'),
+                 #                                                                   ("exclude_q_3", ""),
+                 #
+                 #                                                                   ("proper_name_3", ""),
+                 #                                                                   ("search_field_4", "text"),
+                 #                                                                   ("q_4", ''),
+                 #                                                                   ("fuzziness_4", "0"),
+                 #                                                                   ("in_order_4", "False"),
+                 #                                                                   ("slop_4", "0"),
+                 #                                                                   ("regex_search_4", 'False'),
+                 #                                                                   ("exclude_q_4", ""),
+                 #
+                 #                                                                   ("proper_name_4", ""),
+                 #                                                                   ("year", 0),
+                 #                                                                   ("month", 0),
+                 #                                                                   ("day", 0),
+                 #                                                                   ("year_start", 0),
+                 #                                                                   ("month_start", 0),
+                 #                                                                   ("day_start", 0),
+                 #                                                                   ("year_end", 0),
+                 #                                                                   ("month_end", 0),
+                 #                                                                   ("day_end", 0),
+                 #                                                                   ('date_plus_minus', 0),
+                 #                                                                   ('exclusive_date_range', 'False'),
+                 #                                                                   ("composition_place", ''),
+                 #                                                                   ('sort', 'urn'),
+                 #                                                                   ('special_days', ''),
+                 #                                                                   ("forgeries", "include"),
+                 #                                                                   ('source', 'advanced'),
+                 #                                                                   ('bool_operator', 'must')]),
+                 # 'test_multi_charter_part_search': OrderedDict([("corpus", "mondsee"),
+                 #                                                ("search_field_1", "text"),
+                 #                                                ("q_1", 'christi'),
+                 #                                                ("fuzziness_1", "0"),
+                 #                                                ("in_order_1", "False"),
+                 #                                                ("slop_1", "0"),
+                 #                                                ("regex_search_1", 'False'),
+                 #                                                ("exclude_q_1", ""),
+                 #
+                 #                                                ("proper_name_1", ""),
+                 #                                                ("search_field_2", "text"),
+                 #                                                ("q_2", ''),
+                 #                                                ("fuzziness_2", "0"),
+                 #                                                ("in_order_2", "False"),
+                 #                                                ("slop_2", "0"),
+                 #                                                ("regex_search_2", 'False'),
+                 #                                                ("exclude_q_2", ""),
+                 #
+                 #                                                ("proper_name_2", ""),
+                 #                                                ("search_field_3", "text"),
+                 #                                                ("q_3", ''),
+                 #                                                ("fuzziness_3", "0"),
+                 #                                                ("in_order_3", "False"),
+                 #                                                ("slop_3", "0"),
+                 #                                                ("regex_search_3", 'False'),
+                 #                                                ("exclude_q_3", ""),
+                 #
+                 #                                                ("proper_name_3", ""),
+                 #                                                ("search_field_4", "text"),
+                 #                                                ("q_4", ''),
+                 #                                                ("fuzziness_4", "0"),
+                 #                                                ("in_order_4", "False"),
+                 #                                                ("slop_4", "0"),
+                 #                                                ("regex_search_4", 'False'),
+                 #                                                ("exclude_q_4", ""),
+                 #
+                 #                                                ("proper_name_4", ""),
+                 #                                                ("year", 0),
+                 #                                                ("month", 0),
+                 #                                                ("day", 0),
+                 #                                                ("year_start", 0),
+                 #                                                ("month_start", 0),
+                 #                                                ("day_start", 0),
+                 #                                                ("year_end", 0),
+                 #                                                ("month_end", 0),
+                 #                                                ("day_end", 0),
+                 #                                                ('date_plus_minus', 0),
+                 #                                                ('exclusive_date_range', 'False'),
+                 #                                                ("composition_place", ''),
+                 #                                                ('sort', 'urn'),
+                 #                                                ('special_days', ''),
+                 #                                                ("forgeries", "include"),
+                 #                                                ('source', 'advanced'),
+                 #                                                ('bool_operator', 'must')]),
+                 # 'test_charter_part_search_no_q': OrderedDict([("corpus", "mondsee"),
+                 #                                               ("search_field_1", "text"),
+                 #                                               ("q_1", ''),
+                 #                                               ("fuzziness_1", "0"),
+                 #                                               ("in_order_1", "False"),
+                 #                                               ("slop_1", "0"),
+                 #                                               ("regex_search_1", 'False'),
+                 #                                               ("exclude_q_1", ""),
+                 #
+                 #                                               ("proper_name_1", ""),
+                 #                                               ("search_field_2", "text"),
+                 #                                               ("q_2", ''),
+                 #                                               ("fuzziness_2", "0"),
+                 #                                               ("in_order_2", "False"),
+                 #                                               ("slop_2", "0"),
+                 #                                               ("regex_search_2", 'False'),
+                 #                                               ("exclude_q_2", ""),
+                 #
+                 #                                               ("proper_name_2", ""),
+                 #                                               ("search_field_3", "text"),
+                 #                                               ("q_3", ''),
+                 #                                               ("fuzziness_3", "0"),
+                 #                                               ("in_order_3", "False"),
+                 #                                               ("slop_3", "0"),
+                 #                                               ("regex_search_3", 'False'),
+                 #                                               ("exclude_q_3", ""),
+                 #
+                 #                                               ("proper_name_3", ""),
+                 #                                               ("search_field_4", "text"),
+                 #                                               ("q_4", ''),
+                 #                                               ("fuzziness_4", "0"),
+                 #                                               ("in_order_4", "False"),
+                 #                                               ("slop_4", "0"),
+                 #                                               ("regex_search_4", 'False'),
+                 #                                               ("exclude_q_4", ""),
+                 #
+                 #                                               ("proper_name_4", ""),
+                 #                                               ("year", 0),
+                 #                                               ("month", 0),
+                 #                                               ("day", 0),
+                 #                                               ("year_start", 0),
+                 #                                               ("month_start", 0),
+                 #                                               ("day_start", 0),
+                 #                                               ("year_end", 0),
+                 #                                               ("month_end", 0),
+                 #                                               ("day_end", 0),
+                 #                                               ('date_plus_minus', 0),
+                 #                                               ('exclusive_date_range', 'False'),
+                 #                                               ("composition_place", ''),
+                 #                                               ('sort', 'urn'),
+                 #                                               ('special_days', ''),
+                 #                                               ("forgeries", "include"),
+                 #                                               ('source', 'advanced'),
+                 #                                               ('bool_operator', 'must')]),
+                 # 'test_fuzzy_charter_part_search': OrderedDict([("corpus", "mondsee"),
+                 #                                                ("search_field_1", "text"),
+                 #                                                ("q_1", 'in+loco+qui+nuncupatur'),
+                 #                                                ("fuzziness_1", "AUTO"),
+                 #                                                ("in_order_1", "False"),
+                 #                                                ("slop_1", "0"),
+                 #                                                ("regex_search_1", 'False'),
+                 #                                                ("exclude_q_1", ""),
+                 #
+                 #                                                ("proper_name_1", ""),
+                 #                                                ("search_field_2", "text"),
+                 #                                                ("q_2", ''),
+                 #                                                ("fuzziness_2", "0"),
+                 #                                                ("in_order_2", "False"),
+                 #                                                ("slop_2", "0"),
+                 #                                                ("regex_search_2", 'False'),
+                 #                                                ("exclude_q_2", ""),
+                 #
+                 #                                                ("proper_name_2", ""),
+                 #                                                ("search_field_3", "text"),
+                 #                                                ("q_3", ''),
+                 #                                                ("fuzziness_3", "0"),
+                 #                                                ("in_order_3", "False"),
+                 #                                                ("slop_3", "0"),
+                 #                                                ("regex_search_3", 'False'),
+                 #                                                ("exclude_q_3", ""),
+                 #
+                 #                                                ("proper_name_3", ""),
+                 #                                                ("search_field_4", "text"),
+                 #                                                ("q_4", ''),
+                 #                                                ("fuzziness_4", "0"),
+                 #                                                ("in_order_4", "False"),
+                 #                                                ("slop_4", "0"),
+                 #                                                ("regex_search_4", 'False'),
+                 #                                                ("exclude_q_4", ""),
+                 #
+                 #                                                ("proper_name_4", ""),
+                 #                                                ("year", 0),
+                 #                                                ("month", 0),
+                 #                                                ("day", 0),
+                 #                                                ("year_start", 0),
+                 #                                                ("month_start", 0),
+                 #                                                ("day_start", 0),
+                 #                                                ("year_end", 0),
+                 #                                                ("month_end", 0),
+                 #                                                ("day_end", 0),
+                 #                                                ('date_plus_minus', 0),
+                 #                                                ('exclusive_date_range', 'False'),
+                 #                                                ("composition_place", ''),
+                 #                                                ('sort', 'urn'),
+                 #                                                ('special_days', ''),
+                 #                                                ("forgeries", "include"),
+                 #                                                ('source', 'advanced'),
+                 #                                                ('bool_operator', 'must')]),
                  'test_fuzzy_v_to_u_search': OrderedDict([("corpus", "mondsee"),
                                                           ("search_field_1", "text"),
                                                           ("q_1", 'in+loco+qui+nuncupatur'),
@@ -5473,7 +5473,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_1", "0"),
                                                           ("regex_search_1", 'False'),
                                                           ("exclude_q_1", ""),
-                                                          ("formulaic_parts_1", ""),
+
                                                           ("proper_name_1", ""),
                                                           ("search_field_2", "text"),
                                                           ("q_2", ''),
@@ -5482,7 +5482,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_2", "0"),
                                                           ("regex_search_2", 'False'),
                                                           ("exclude_q_2", ""),
-                                                          ("formulaic_parts_2", ""),
+
                                                           ("proper_name_2", ""),
                                                           ("search_field_3", "text"),
                                                           ("q_3", ''),
@@ -5491,7 +5491,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_3", "0"),
                                                           ("regex_search_3", 'False'),
                                                           ("exclude_q_3", ""),
-                                                          ("formulaic_parts_3", ""),
+
                                                           ("proper_name_3", ""),
                                                           ("search_field_4", "text"),
                                                           ("q_4", ''),
@@ -5500,7 +5500,7 @@ class TestES(Formulae_Testing):
                                                           ("slop_4", "0"),
                                                           ("regex_search_4", 'False'),
                                                           ("exclude_q_4", ""),
-                                                          ("formulaic_parts_4", ""),
+
                                                           ("proper_name_4", ""),
                                                           ("year", 0),
                                                           ("month", 0),
@@ -5527,7 +5527,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_1", "0"),
                                                                           ("regex_search_1", 'False'),
                                                                           ("exclude_q_1", ""),
-                                                                          ("formulaic_parts_1", ""),
+
                                                                           ("proper_name_1", ""),
                                                                           ("search_field_2", "text"),
                                                                           ("q_2", ''),
@@ -5536,7 +5536,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_2", "0"),
                                                                           ("regex_search_2", 'False'),
                                                                           ("exclude_q_2", ""),
-                                                                          ("formulaic_parts_2", ""),
+
                                                                           ("proper_name_2", ""),
                                                                           ("search_field_3", "text"),
                                                                           ("q_3", ''),
@@ -5545,7 +5545,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_3", "0"),
                                                                           ("regex_search_3", 'False'),
                                                                           ("exclude_q_3", ""),
-                                                                          ("formulaic_parts_3", ""),
+
                                                                           ("proper_name_3", ""),
                                                                           ("search_field_4", "text"),
                                                                           ("q_4", ''),
@@ -5554,7 +5554,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_4", "0"),
                                                                           ("regex_search_4", 'False'),
                                                                           ("exclude_q_4", ""),
-                                                                          ("formulaic_parts_4", ""),
+
                                                                           ("proper_name_4", ""),
                                                                           ("year", 0),
                                                                           ("month", 0),
@@ -5581,7 +5581,7 @@ class TestES(Formulae_Testing):
                                                                            ("slop_1", "0"),
                                                                            ("regex_search_1", 'False'),
                                                                            ("exclude_q_1", ""),
-                                                                           ("formulaic_parts_1", ""),
+
                                                                            ("proper_name_1", ""),
                                                                            ("search_field_2", "text"),
                                                                            ("q_2", ''),
@@ -5590,7 +5590,7 @@ class TestES(Formulae_Testing):
                                                                            ("slop_2", "0"),
                                                                            ("regex_search_2", 'False'),
                                                                            ("exclude_q_2", ""),
-                                                                           ("formulaic_parts_2", ""),
+
                                                                            ("proper_name_2", ""),
                                                                            ("search_field_3", "text"),
                                                                            ("q_3", ''),
@@ -5599,7 +5599,7 @@ class TestES(Formulae_Testing):
                                                                            ("slop_3", "0"),
                                                                            ("regex_search_3", 'False'),
                                                                            ("exclude_q_3", ""),
-                                                                           ("formulaic_parts_3", ""),
+
                                                                            ("proper_name_3", ""),
                                                                            ("search_field_4", "text"),
                                                                            ("q_4", ''),
@@ -5608,7 +5608,7 @@ class TestES(Formulae_Testing):
                                                                            ("slop_4", "0"),
                                                                            ("regex_search_4", 'False'),
                                                                            ("exclude_q_4", ""),
-                                                                           ("formulaic_parts_4", ""),
+
                                                                            ("proper_name_4", ""),
                                                                            ("year", 0),
                                                                            ("month", 0),
@@ -5635,7 +5635,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_1", "0"),
                                                       ("regex_search_1", 'False'),
                                                       ("exclude_q_1", ""),
-                                                      ("formulaic_parts_1", ""),
+
                                                       ("proper_name_1", ""),
                                                       ("search_field_2", "text"),
                                                       ("q_2", ''),
@@ -5644,7 +5644,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_2", "0"),
                                                       ("regex_search_2", 'False'),
                                                       ("exclude_q_2", ""),
-                                                      ("formulaic_parts_2", ""),
+
                                                       ("proper_name_2", ""),
                                                       ("search_field_3", "text"),
                                                       ("q_3", ''),
@@ -5653,7 +5653,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_3", "0"),
                                                       ("regex_search_3", 'False'),
                                                       ("exclude_q_3", ""),
-                                                      ("formulaic_parts_3", ""),
+
                                                       ("proper_name_3", ""),
                                                       ("search_field_4", "text"),
                                                       ("q_4", ''),
@@ -5662,7 +5662,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_4", "0"),
                                                       ("regex_search_4", 'False'),
                                                       ("exclude_q_4", ""),
-                                                      ("formulaic_parts_4", ""),
+
                                                       ("proper_name_4", ""),
                                                       ("year", 0),
                                                       ("month", 0),
@@ -5689,7 +5689,7 @@ class TestES(Formulae_Testing):
                                                    ("slop_1", "0"),
                                                    ("regex_search_1", 'False'),
                                                    ("exclude_q_1", ""),
-                                                   ("formulaic_parts_1", ""),
+
                                                    ("proper_name_1", ""),
                                                    ("search_field_2", "text"),
                                                    ("q_2", ''),
@@ -5698,7 +5698,7 @@ class TestES(Formulae_Testing):
                                                    ("slop_2", "0"),
                                                    ("regex_search_2", 'False'),
                                                    ("exclude_q_2", ""),
-                                                   ("formulaic_parts_2", ""),
+
                                                    ("proper_name_2", ""),
                                                    ("search_field_3", "text"),
                                                    ("q_3", ''),
@@ -5707,7 +5707,7 @@ class TestES(Formulae_Testing):
                                                    ("slop_3", "0"),
                                                    ("regex_search_3", 'False'),
                                                    ("exclude_q_3", ""),
-                                                   ("formulaic_parts_3", ""),
+
                                                    ("proper_name_3", ""),
                                                    ("search_field_4", "text"),
                                                    ("q_4", ''),
@@ -5716,7 +5716,7 @@ class TestES(Formulae_Testing):
                                                    ("slop_4", "0"),
                                                    ("regex_search_4", 'False'),
                                                    ("exclude_q_4", ""),
-                                                   ("formulaic_parts_4", ""),
+
                                                    ("proper_name_4", ""),
                                                    ("year", 0),
                                                    ("month", 0),
@@ -5743,7 +5743,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_1", "0"),
                                                                           ("regex_search_1", 'False'),
                                                                           ("exclude_q_1", ""),
-                                                                          ("formulaic_parts_1", ""),
+
                                                                           ("proper_name_1", "personenname"),
                                                                           ("search_field_2", "text"),
                                                                           ("q_2", ''),
@@ -5752,7 +5752,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_2", "0"),
                                                                           ("regex_search_2", 'False'),
                                                                           ("exclude_q_2", ""),
-                                                                          ("formulaic_parts_2", ""),
+
                                                                           ("proper_name_2", ""),
                                                                           ("search_field_3", "text"),
                                                                           ("q_3", ''),
@@ -5761,7 +5761,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_3", "0"),
                                                                           ("regex_search_3", 'False'),
                                                                           ("exclude_q_3", ""),
-                                                                          ("formulaic_parts_3", ""),
+
                                                                           ("proper_name_3", ""),
                                                                           ("search_field_4", "text"),
                                                                           ("q_4", ''),
@@ -5770,7 +5770,7 @@ class TestES(Formulae_Testing):
                                                                           ("slop_4", "0"),
                                                                           ("regex_search_4", 'False'),
                                                                           ("exclude_q_4", ""),
-                                                                          ("formulaic_parts_4", ""),
+
                                                                           ("proper_name_4", ""),
                                                                           ("year", 0),
                                                                           ("month", 0),
@@ -5797,7 +5797,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_1", "0"),
                                                                      ("regex_search_1", 'False'),
                                                                      ("exclude_q_1", ""),
-                                                                     ("formulaic_parts_1", ""),
+
                                                                      ("proper_name_1", "personenname"),
                                                                      ("search_field_2", "text"),
                                                                      ("q_2", ''),
@@ -5806,7 +5806,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_2", "0"),
                                                                      ("regex_search_2", 'False'),
                                                                      ("exclude_q_2", ""),
-                                                                     ("formulaic_parts_2", ""),
+
                                                                      ("proper_name_2", ""),
                                                                      ("search_field_3", "text"),
                                                                      ("q_3", ''),
@@ -5815,7 +5815,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_3", "0"),
                                                                      ("regex_search_3", 'False'),
                                                                      ("exclude_q_3", ""),
-                                                                     ("formulaic_parts_3", ""),
+
                                                                      ("proper_name_3", ""),
                                                                      ("search_field_4", "text"),
                                                                      ("q_4", ''),
@@ -5824,7 +5824,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_4", "0"),
                                                                      ("regex_search_4", 'False'),
                                                                      ("exclude_q_4", ""),
-                                                                     ("formulaic_parts_4", ""),
+
                                                                      ("proper_name_4", ""),
                                                                      ("year", 0),
                                                                      ("month", 0),
@@ -5851,7 +5851,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_1", "0"),
                                                                        ("regex_search_1", 'False'),
                                                                        ("exclude_q_1", ""),
-                                                                       ("formulaic_parts_1", ""),
+
                                                                        ("proper_name_1", "personenname"),
                                                                        ("search_field_2", "text"),
                                                                        ("q_2", ''),
@@ -5860,7 +5860,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_2", "0"),
                                                                        ("regex_search_2", 'False'),
                                                                        ("exclude_q_2", ""),
-                                                                       ("formulaic_parts_2", ""),
+
                                                                        ("proper_name_2", ""),
                                                                        ("search_field_3", "text"),
                                                                        ("q_3", ''),
@@ -5869,7 +5869,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_3", "0"),
                                                                        ("regex_search_3", 'False'),
                                                                        ("exclude_q_3", ""),
-                                                                       ("formulaic_parts_3", ""),
+
                                                                        ("proper_name_3", ""),
                                                                        ("search_field_4", "text"),
                                                                        ("q_4", ''),
@@ -5878,7 +5878,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_4", "0"),
                                                                        ("regex_search_4", 'False'),
                                                                        ("exclude_q_4", ""),
-                                                                       ("formulaic_parts_4", ""),
+
                                                                        ("proper_name_4", ""),
                                                                        ("year", 0),
                                                                        ("month", 0),
@@ -5905,7 +5905,7 @@ class TestES(Formulae_Testing):
                                                                          ("slop_1", "0"),
                                                                          ("regex_search_1", 'False'),
                                                                          ("exclude_q_1", ""),
-                                                                         ("formulaic_parts_1", ""),
+
                                                                          ("proper_name_1", "personenname"),
                                                                          ("search_field_2", "text"),
                                                                          ("q_2", ''),
@@ -5914,7 +5914,7 @@ class TestES(Formulae_Testing):
                                                                          ("slop_2", "0"),
                                                                          ("regex_search_2", 'False'),
                                                                          ("exclude_q_2", ""),
-                                                                         ("formulaic_parts_2", ""),
+
                                                                          ("proper_name_2", ""),
                                                                          ("search_field_3", "text"),
                                                                          ("q_3", ''),
@@ -5923,7 +5923,7 @@ class TestES(Formulae_Testing):
                                                                          ("slop_3", "0"),
                                                                          ("regex_search_3", 'False'),
                                                                          ("exclude_q_3", ""),
-                                                                         ("formulaic_parts_3", ""),
+
                                                                          ("proper_name_3", ""),
                                                                          ("search_field_4", "text"),
                                                                          ("q_4", ''),
@@ -5932,7 +5932,7 @@ class TestES(Formulae_Testing):
                                                                          ("slop_4", "0"),
                                                                          ("regex_search_4", 'False'),
                                                                          ("exclude_q_4", ""),
-                                                                         ("formulaic_parts_4", ""),
+
                                                                          ("proper_name_4", ""),
                                                                          ("year", 0),
                                                                          ("month", 0),
@@ -5959,7 +5959,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_1", "0"),
                                                                        ("regex_search_1", 'False'),
                                                                        ("exclude_q_1", ""),
-                                                                       ("formulaic_parts_1", ""),
+
                                                                        ("proper_name_1", "personenname"),
                                                                        ("search_field_2", "text"),
                                                                        ("q_2", ''),
@@ -5968,7 +5968,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_2", "0"),
                                                                        ("regex_search_2", 'False'),
                                                                        ("exclude_q_2", ""),
-                                                                       ("formulaic_parts_2", ""),
+
                                                                        ("proper_name_2", ""),
                                                                        ("search_field_3", "text"),
                                                                        ("q_3", ''),
@@ -5977,7 +5977,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_3", "0"),
                                                                        ("regex_search_3", 'False'),
                                                                        ("exclude_q_3", ""),
-                                                                       ("formulaic_parts_3", ""),
+
                                                                        ("proper_name_3", ""),
                                                                        ("search_field_4", "text"),
                                                                        ("q_4", ''),
@@ -5986,7 +5986,7 @@ class TestES(Formulae_Testing):
                                                                        ("slop_4", "0"),
                                                                        ("regex_search_4", 'False'),
                                                                        ("exclude_q_4", ""),
-                                                                       ("formulaic_parts_4", ""),
+
                                                                        ("proper_name_4", ""),
                                                                        ("year", 0),
                                                                        ("month", 0),
@@ -6007,13 +6007,13 @@ class TestES(Formulae_Testing):
                                                                        ('bool_operator', 'must')]),
                  'test_regex_text': OrderedDict([("corpus", "form_lit_chart"),
                                                  ("search_field_1", "text"),
-                                                 ("q_1", 'ru[ieu]gin[wuv]wm'),
+                                                 ("q_1", 'ru[ieuw]gin[wuv]wm'),
                                                  ("fuzziness_1", "0"),
                                                  ("in_order_1", "False"),
                                                  ("slop_1", "0"),
                                                  ("regex_search_1", 'True'),
                                                  ("exclude_q_1", ""),
-                                                 ("formulaic_parts_1", ""),
+
                                                  ("proper_name_1", "personenname"),
                                                  ("search_field_2", "text"),
                                                  ("q_2", ''),
@@ -6022,7 +6022,7 @@ class TestES(Formulae_Testing):
                                                  ("slop_2", "0"),
                                                  ("regex_search_2", 'False'),
                                                  ("exclude_q_2", ""),
-                                                 ("formulaic_parts_2", ""),
+
                                                  ("proper_name_2", ""),
                                                  ("search_field_3", "text"),
                                                  ("q_3", ''),
@@ -6031,7 +6031,7 @@ class TestES(Formulae_Testing):
                                                  ("slop_3", "0"),
                                                  ("regex_search_3", 'False'),
                                                  ("exclude_q_3", ""),
-                                                 ("formulaic_parts_3", ""),
+
                                                  ("proper_name_3", ""),
                                                  ("search_field_4", "text"),
                                                  ("q_4", ''),
@@ -6040,7 +6040,7 @@ class TestES(Formulae_Testing):
                                                  ("slop_4", "0"),
                                                  ("regex_search_4", 'False'),
                                                  ("exclude_q_4", ""),
-                                                 ("formulaic_parts_4", ""),
+
                                                  ("proper_name_4", ""),
                                                  ("year", 0),
                                                  ("month", 0),
@@ -6059,114 +6059,114 @@ class TestES(Formulae_Testing):
                                                  ("forgeries", "include"),
                                                  ('source', 'advanced'),
                                                  ('bool_operator', 'must')]),
-                 'test_regex_parts': OrderedDict([("corpus", "mondsee"),
-                                                  ("search_field_1", "text"),
-                                                  ("q_1", 'cwhr[ij]sjt[uvw]iu'),
-                                                  ("fuzziness_1", "0"),
-                                                  ("in_order_1", "False"),
-                                                  ("slop_1", "0"),
-                                                  ("regex_search_1", 'True'),
-                                                  ("exclude_q_1", ""),
-                                                  ("formulaic_parts_1", "Narratio"),
-                                                  ("proper_name_1", "personenname"),
-                                                  ("search_field_2", "text"),
-                                                  ("q_2", ''),
-                                                  ("fuzziness_2", "0"),
-                                                  ("in_order_2", "False"),
-                                                  ("slop_2", "0"),
-                                                  ("regex_search_2", 'False'),
-                                                  ("exclude_q_2", ""),
-                                                  ("formulaic_parts_2", ""),
-                                                  ("proper_name_2", ""),
-                                                  ("search_field_3", "text"),
-                                                  ("q_3", ''),
-                                                  ("fuzziness_3", "0"),
-                                                  ("in_order_3", "False"),
-                                                  ("slop_3", "0"),
-                                                  ("regex_search_3", 'False'),
-                                                  ("exclude_q_3", ""),
-                                                  ("formulaic_parts_3", ""),
-                                                  ("proper_name_3", ""),
-                                                  ("search_field_4", "text"),
-                                                  ("q_4", ''),
-                                                  ("fuzziness_4", "0"),
-                                                  ("in_order_4", "False"),
-                                                  ("slop_4", "0"),
-                                                  ("regex_search_4", 'False'),
-                                                  ("exclude_q_4", ""),
-                                                  ("formulaic_parts_4", ""),
-                                                  ("proper_name_4", ""),
-                                                  ("year", 0),
-                                                  ("month", 0),
-                                                  ("day", 0),
-                                                  ("year_start", 0),
-                                                  ("month_start", 0),
-                                                  ("day_start", 0),
-                                                  ("year_end", 0),
-                                                  ("month_end", 0),
-                                                  ("day_end", 0),
-                                                  ('date_plus_minus', 0),
-                                                  ('exclusive_date_range', 'False'),
-                                                  ("composition_place", ''),
-                                                  ('sort', 'urn'),
-                                                  ('special_days', ''),
-                                                  ("forgeries", "include"),
-                                                  ('source', 'advanced'),
-                                                  ('bool_operator', 'must')]),
-                 'test_regex_parts_no_uv_replacement': OrderedDict([("corpus", "mondsee"),
-                                                                    ("search_field_1", "text"),
-                                                                    ("q_1", 'dos'),
-                                                                    ("fuzziness_1", "0"),
-                                                                    ("in_order_1", "False"),
-                                                                    ("slop_1", "0"),
-                                                                    ("regex_search_1", 'True'),
-                                                                    ("exclude_q_1", ""),
-                                                                    ("formulaic_parts_1", "Narratio"),
-                                                                    ("proper_name_1", "personenname"),
-                                                                    ("search_field_2", "text"),
-                                                                    ("q_2", ''),
-                                                                    ("fuzziness_2", "0"),
-                                                                    ("in_order_2", "False"),
-                                                                    ("slop_2", "0"),
-                                                                    ("regex_search_2", 'False'),
-                                                                    ("exclude_q_2", ""),
-                                                                    ("formulaic_parts_2", ""),
-                                                                    ("proper_name_2", ""),
-                                                                    ("search_field_3", "text"),
-                                                                    ("q_3", ''),
-                                                                    ("fuzziness_3", "0"),
-                                                                    ("in_order_3", "False"),
-                                                                    ("slop_3", "0"),
-                                                                    ("regex_search_3", 'False'),
-                                                                    ("exclude_q_3", ""),
-                                                                    ("formulaic_parts_3", ""),
-                                                                    ("proper_name_3", ""),
-                                                                    ("search_field_4", "text"),
-                                                                    ("q_4", ''),
-                                                                    ("fuzziness_4", "0"),
-                                                                    ("in_order_4", "False"),
-                                                                    ("slop_4", "0"),
-                                                                    ("regex_search_4", 'False'),
-                                                                    ("exclude_q_4", ""),
-                                                                    ("formulaic_parts_4", ""),
-                                                                    ("proper_name_4", ""),
-                                                                    ("year", 0),
-                                                                    ("month", 0),
-                                                                    ("day", 0),
-                                                                    ("year_start", 0),
-                                                                    ("month_start", 0),
-                                                                    ("day_start", 0),
-                                                                    ("year_end", 0),
-                                                                    ("month_end", 0),
-                                                                    ("day_end", 0),
-                                                                    ('date_plus_minus', 0),
-                                                                    ('exclusive_date_range', 'False'),
-                                                                    ("composition_place", ''),
-                                                                    ('sort', 'urn'),
-                                                                    ('special_days', ''),
-                                                                    ("forgeries", "include"),
-                                                                    ('source', 'advanced'),
-                                                                    ('bool_operator', 'must')]),
+                 # 'test_regex_parts': OrderedDict([("corpus", "mondsee"),
+                 #                                  ("search_field_1", "text"),
+                 #                                  ("q_1", 'cwhr[ij]sjt[uvw]iu'),
+                 #                                  ("fuzziness_1", "0"),
+                 #                                  ("in_order_1", "False"),
+                 #                                  ("slop_1", "0"),
+                 #                                  ("regex_search_1", 'True'),
+                 #                                  ("exclude_q_1", ""),
+                 #
+                 #                                  ("proper_name_1", "personenname"),
+                 #                                  ("search_field_2", "text"),
+                 #                                  ("q_2", ''),
+                 #                                  ("fuzziness_2", "0"),
+                 #                                  ("in_order_2", "False"),
+                 #                                  ("slop_2", "0"),
+                 #                                  ("regex_search_2", 'False'),
+                 #                                  ("exclude_q_2", ""),
+                 #
+                 #                                  ("proper_name_2", ""),
+                 #                                  ("search_field_3", "text"),
+                 #                                  ("q_3", ''),
+                 #                                  ("fuzziness_3", "0"),
+                 #                                  ("in_order_3", "False"),
+                 #                                  ("slop_3", "0"),
+                 #                                  ("regex_search_3", 'False'),
+                 #                                  ("exclude_q_3", ""),
+                 #
+                 #                                  ("proper_name_3", ""),
+                 #                                  ("search_field_4", "text"),
+                 #                                  ("q_4", ''),
+                 #                                  ("fuzziness_4", "0"),
+                 #                                  ("in_order_4", "False"),
+                 #                                  ("slop_4", "0"),
+                 #                                  ("regex_search_4", 'False'),
+                 #                                  ("exclude_q_4", ""),
+                 #
+                 #                                  ("proper_name_4", ""),
+                 #                                  ("year", 0),
+                 #                                  ("month", 0),
+                 #                                  ("day", 0),
+                 #                                  ("year_start", 0),
+                 #                                  ("month_start", 0),
+                 #                                  ("day_start", 0),
+                 #                                  ("year_end", 0),
+                 #                                  ("month_end", 0),
+                 #                                  ("day_end", 0),
+                 #                                  ('date_plus_minus', 0),
+                 #                                  ('exclusive_date_range', 'False'),
+                 #                                  ("composition_place", ''),
+                 #                                  ('sort', 'urn'),
+                 #                                  ('special_days', ''),
+                 #                                  ("forgeries", "include"),
+                 #                                  ('source', 'advanced'),
+                 #                                  ('bool_operator', 'must')]),
+                 # 'test_regex_parts_no_uv_replacement': OrderedDict([("corpus", "mondsee"),
+                 #                                                    ("search_field_1", "text"),
+                 #                                                    ("q_1", 'dos'),
+                 #                                                    ("fuzziness_1", "0"),
+                 #                                                    ("in_order_1", "False"),
+                 #                                                    ("slop_1", "0"),
+                 #                                                    ("regex_search_1", 'True'),
+                 #                                                    ("exclude_q_1", ""),
+                 #
+                 #                                                    ("proper_name_1", "personenname"),
+                 #                                                    ("search_field_2", "text"),
+                 #                                                    ("q_2", ''),
+                 #                                                    ("fuzziness_2", "0"),
+                 #                                                    ("in_order_2", "False"),
+                 #                                                    ("slop_2", "0"),
+                 #                                                    ("regex_search_2", 'False'),
+                 #                                                    ("exclude_q_2", ""),
+                 #
+                 #                                                    ("proper_name_2", ""),
+                 #                                                    ("search_field_3", "text"),
+                 #                                                    ("q_3", ''),
+                 #                                                    ("fuzziness_3", "0"),
+                 #                                                    ("in_order_3", "False"),
+                 #                                                    ("slop_3", "0"),
+                 #                                                    ("regex_search_3", 'False'),
+                 #                                                    ("exclude_q_3", ""),
+                 #
+                 #                                                    ("proper_name_3", ""),
+                 #                                                    ("search_field_4", "text"),
+                 #                                                    ("q_4", ''),
+                 #                                                    ("fuzziness_4", "0"),
+                 #                                                    ("in_order_4", "False"),
+                 #                                                    ("slop_4", "0"),
+                 #                                                    ("regex_search_4", 'False'),
+                 #                                                    ("exclude_q_4", ""),
+                 #
+                 #                                                    ("proper_name_4", ""),
+                 #                                                    ("year", 0),
+                 #                                                    ("month", 0),
+                 #                                                    ("day", 0),
+                 #                                                    ("year_start", 0),
+                 #                                                    ("month_start", 0),
+                 #                                                    ("day_start", 0),
+                 #                                                    ("year_end", 0),
+                 #                                                    ("month_end", 0),
+                 #                                                    ("day_end", 0),
+                 #                                                    ('date_plus_minus', 0),
+                 #                                                    ('exclusive_date_range', 'False'),
+                 #                                                    ("composition_place", ''),
+                 #                                                    ('sort', 'urn'),
+                 #                                                    ('special_days', ''),
+                 #                                                    ("forgeries", "include"),
+                 #                                                    ('source', 'advanced'),
+                 #                                                    ('bool_operator', 'must')]),
                  'test_exclude_q': OrderedDict([("corpus", "form_lit_chart"),
                                                 ("search_field_1", "text"),
                                                 ("q_1", 'regn?'),
@@ -6175,7 +6175,7 @@ class TestES(Formulae_Testing):
                                                 ("slop_1", "0"),
                                                 ("regex_search_1", 'False'),
                                                 ("exclude_q_1", "regni"),
-                                                ("formulaic_parts_1", ""),
+
                                                 ("proper_name_1", ""),
                                                 ("search_field_2", "text"),
                                                 ("q_2", ''),
@@ -6184,7 +6184,7 @@ class TestES(Formulae_Testing):
                                                 ("slop_2", "0"),
                                                 ("regex_search_2", 'False'),
                                                 ("exclude_q_2", ""),
-                                                ("formulaic_parts_2", ""),
+
                                                 ("proper_name_2", ""),
                                                 ("search_field_3", "text"),
                                                 ("q_3", ''),
@@ -6193,7 +6193,7 @@ class TestES(Formulae_Testing):
                                                 ("slop_3", "0"),
                                                 ("regex_search_3", 'False'),
                                                 ("exclude_q_3", ""),
-                                                ("formulaic_parts_3", ""),
+
                                                 ("proper_name_3", ""),
                                                 ("search_field_4", "text"),
                                                 ("q_4", ''),
@@ -6202,7 +6202,7 @@ class TestES(Formulae_Testing):
                                                 ("slop_4", "0"),
                                                 ("regex_search_4", 'False'),
                                                 ("exclude_q_4", ""),
-                                                ("formulaic_parts_4", ""),
+
                                                 ("proper_name_4", ""),
                                                 ("year", 0),
                                                 ("month", 0),
@@ -6229,7 +6229,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_1", "0"),
                                                       ("regex_search_1", 'False'),
                                                       ("exclude_q_1", "christi"),
-                                                      ("formulaic_parts_1", "Narratio"),
+
                                                       ("proper_name_1", ""),
                                                       ("search_field_2", "text"),
                                                       ("q_2", ''),
@@ -6238,7 +6238,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_2", "0"),
                                                       ("regex_search_2", 'False'),
                                                       ("exclude_q_2", ""),
-                                                      ("formulaic_parts_2", ""),
+
                                                       ("proper_name_2", ""),
                                                       ("search_field_3", "text"),
                                                       ("q_3", ''),
@@ -6247,7 +6247,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_3", "0"),
                                                       ("regex_search_3", 'False'),
                                                       ("exclude_q_3", ""),
-                                                      ("formulaic_parts_3", ""),
+
                                                       ("proper_name_3", ""),
                                                       ("search_field_4", "text"),
                                                       ("q_4", ''),
@@ -6256,7 +6256,7 @@ class TestES(Formulae_Testing):
                                                       ("slop_4", "0"),
                                                       ("regex_search_4", 'False'),
                                                       ("exclude_q_4", ""),
-                                                      ("formulaic_parts_4", ""),
+
                                                       ("proper_name_4", ""),
                                                       ("year", 0),
                                                       ("month", 0),
@@ -6283,7 +6283,7 @@ class TestES(Formulae_Testing):
                                                   ("slop_1", "0"),
                                                   ("regex_search_1", 'False'),
                                                   ("exclude_q_1", ""),
-                                                  ("formulaic_parts_1", ""),
+
                                                   ("proper_name_1", ""),
                                                   ("search_field_2", "text"),
                                                   ("q_2", ''),
@@ -6292,7 +6292,7 @@ class TestES(Formulae_Testing):
                                                   ("slop_2", "0"),
                                                   ("regex_search_2", 'False'),
                                                   ("exclude_q_2", ""),
-                                                  ("formulaic_parts_2", ""),
+
                                                   ("proper_name_2", ""),
                                                   ("search_field_3", "text"),
                                                   ("q_3", ''),
@@ -6301,7 +6301,7 @@ class TestES(Formulae_Testing):
                                                   ("slop_3", "0"),
                                                   ("regex_search_3", 'False'),
                                                   ("exclude_q_3", ""),
-                                                  ("formulaic_parts_3", ""),
+
                                                   ("proper_name_3", ""),
                                                   ("search_field_4", "text"),
                                                   ("q_4", ''),
@@ -6310,7 +6310,7 @@ class TestES(Formulae_Testing):
                                                   ("slop_4", "0"),
                                                   ("regex_search_4", 'False'),
                                                   ("exclude_q_4", ""),
-                                                  ("formulaic_parts_4", ""),
+
                                                   ("proper_name_4", ""),
                                                   ("year", 0),
                                                   ("month", 0),
@@ -6337,7 +6337,7 @@ class TestES(Formulae_Testing):
                                                         ("slop_1", "0"),
                                                         ("regex_search_1", 'False'),
                                                         ("exclude_q_1", ""),
-                                                        ("formulaic_parts_1", ""),
+
                                                         ("proper_name_1", ""),
                                                         ("search_field_2", "text"),
                                                         ("q_2", ''),
@@ -6346,7 +6346,7 @@ class TestES(Formulae_Testing):
                                                         ("slop_2", "0"),
                                                         ("regex_search_2", 'False'),
                                                         ("exclude_q_2", ""),
-                                                        ("formulaic_parts_2", ""),
+
                                                         ("proper_name_2", ""),
                                                         ("search_field_3", "text"),
                                                         ("q_3", ''),
@@ -6355,7 +6355,7 @@ class TestES(Formulae_Testing):
                                                         ("slop_3", "0"),
                                                         ("regex_search_3", 'False'),
                                                         ("exclude_q_3", ""),
-                                                        ("formulaic_parts_3", ""),
+
                                                         ("proper_name_3", ""),
                                                         ("search_field_4", "text"),
                                                         ("q_4", ''),
@@ -6364,7 +6364,7 @@ class TestES(Formulae_Testing):
                                                         ("slop_4", "0"),
                                                         ("regex_search_4", 'False'),
                                                         ("exclude_q_4", ""),
-                                                        ("formulaic_parts_4", ""),
+
                                                         ("proper_name_4", ""),
                                                         ("year", 0),
                                                         ("month", 0),
@@ -6391,7 +6391,7 @@ class TestES(Formulae_Testing):
                                                            ("slop_1", "0"),
                                                            ("regex_search_1", 'False'),
                                                            ("exclude_q_1", ""),
-                                                           ("formulaic_parts_1", ""),
+
                                                            ("proper_name_1", ""),
                                                            ("search_field_2", "text"),
                                                            ("q_2", ''),
@@ -6400,7 +6400,7 @@ class TestES(Formulae_Testing):
                                                            ("slop_2", "0"),
                                                            ("regex_search_2", 'False'),
                                                            ("exclude_q_2", ""),
-                                                           ("formulaic_parts_2", ""),
+
                                                            ("proper_name_2", ""),
                                                            ("search_field_3", "text"),
                                                            ("q_3", ''),
@@ -6409,7 +6409,7 @@ class TestES(Formulae_Testing):
                                                            ("slop_3", "0"),
                                                            ("regex_search_3", 'False'),
                                                            ("exclude_q_3", ""),
-                                                           ("formulaic_parts_3", ""),
+
                                                            ("proper_name_3", ""),
                                                            ("search_field_4", "text"),
                                                            ("q_4", ''),
@@ -6418,7 +6418,7 @@ class TestES(Formulae_Testing):
                                                            ("slop_4", "0"),
                                                            ("regex_search_4", 'False'),
                                                            ("exclude_q_4", ""),
-                                                           ("formulaic_parts_4", ""),
+
                                                            ("proper_name_4", ""),
                                                            ("year", 0),
                                                            ("month", 0),
@@ -6445,7 +6445,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_1", "0"),
                                                                  ("regex_search_1", 'False'),
                                                                  ("exclude_q_1", ""),
-                                                                 ("formulaic_parts_1", ""),
+
                                                                  ("proper_name_1", ""),
                                                                  ("search_field_2", "text"),
                                                                  ("q_2", ''),
@@ -6454,7 +6454,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_2", "0"),
                                                                  ("regex_search_2", 'False'),
                                                                  ("exclude_q_2", ""),
-                                                                 ("formulaic_parts_2", ""),
+
                                                                  ("proper_name_2", ""),
                                                                  ("search_field_3", "text"),
                                                                  ("q_3", ''),
@@ -6463,7 +6463,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_3", "0"),
                                                                  ("regex_search_3", 'False'),
                                                                  ("exclude_q_3", ""),
-                                                                 ("formulaic_parts_3", ""),
+
                                                                  ("proper_name_3", ""),
                                                                  ("search_field_4", "text"),
                                                                  ("q_4", ''),
@@ -6472,7 +6472,7 @@ class TestES(Formulae_Testing):
                                                                  ("slop_4", "0"),
                                                                  ("regex_search_4", 'False'),
                                                                  ("exclude_q_4", ""),
-                                                                 ("formulaic_parts_4", ""),
+
                                                                  ("proper_name_4", ""),
                                                                  ("year", 0),
                                                                  ("month", 0),
@@ -6499,7 +6499,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_1", "0"),
                                                          ("regex_search_1", 'False'),
                                                          ("exclude_q_1", ""),
-                                                         ("formulaic_parts_1", ""),
+
                                                          ("proper_name_1", ""),
                                                          ("search_field_2", "text"),
                                                          ("q_2", ''),
@@ -6508,7 +6508,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_2", "0"),
                                                          ("regex_search_2", 'False'),
                                                          ("exclude_q_2", ""),
-                                                         ("formulaic_parts_2", ""),
+
                                                          ("proper_name_2", ""),
                                                          ("search_field_3", "text"),
                                                          ("q_3", ''),
@@ -6517,7 +6517,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_3", "0"),
                                                          ("regex_search_3", 'False'),
                                                          ("exclude_q_3", ""),
-                                                         ("formulaic_parts_3", ""),
+
                                                          ("proper_name_3", ""),
                                                          ("search_field_4", "text"),
                                                          ("q_4", ''),
@@ -6526,7 +6526,7 @@ class TestES(Formulae_Testing):
                                                          ("slop_4", "0"),
                                                          ("regex_search_4", 'False'),
                                                          ("exclude_q_4", ""),
-                                                         ("formulaic_parts_4", ""),
+
                                                          ("proper_name_4", ""),
                                                          ("year", 0),
                                                          ("month", 0),
@@ -6553,7 +6553,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_1", "0"),
                                                                   ("regex_search_1", 'False'),
                                                                   ("exclude_q_1", ""),
-                                                                  ("formulaic_parts_1", ""),
+
                                                                   ("proper_name_1", ""),
                                                                   ("search_field_2", "text"),
                                                                   ("q_2", ''),
@@ -6562,7 +6562,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_2", "0"),
                                                                   ("regex_search_2", 'False'),
                                                                   ("exclude_q_2", ""),
-                                                                  ("formulaic_parts_2", ""),
+
                                                                   ("proper_name_2", ""),
                                                                   ("search_field_3", "text"),
                                                                   ("q_3", ''),
@@ -6571,7 +6571,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_3", "0"),
                                                                   ("regex_search_3", 'False'),
                                                                   ("exclude_q_3", ""),
-                                                                  ("formulaic_parts_3", ""),
+
                                                                   ("proper_name_3", ""),
                                                                   ("search_field_4", "text"),
                                                                   ("q_4", ''),
@@ -6580,7 +6580,7 @@ class TestES(Formulae_Testing):
                                                                   ("slop_4", "0"),
                                                                   ("regex_search_4", 'False'),
                                                                   ("exclude_q_4", ""),
-                                                                  ("formulaic_parts_4", ""),
+
                                                                   ("proper_name_4", ""),
                                                                   ("year", 0),
                                                                   ("month", 0),
@@ -6607,7 +6607,7 @@ class TestES(Formulae_Testing):
                                                                     ("slop_1", "0"),
                                                                     ("regex_search_1", 'False'),
                                                                     ("exclude_q_1", ""),
-                                                                    ("formulaic_parts_1", ""),
+
                                                                     ("proper_name_1", ""),
                                                                     ("search_field_2", "text"),
                                                                     ("q_2", ''),
@@ -6616,7 +6616,7 @@ class TestES(Formulae_Testing):
                                                                     ("slop_2", "0"),
                                                                     ("regex_search_2", 'False'),
                                                                     ("exclude_q_2", ""),
-                                                                    ("formulaic_parts_2", ""),
+
                                                                     ("proper_name_2", ""),
                                                                     ("search_field_3", "text"),
                                                                     ("q_3", ''),
@@ -6625,7 +6625,7 @@ class TestES(Formulae_Testing):
                                                                     ("slop_3", "0"),
                                                                     ("regex_search_3", 'False'),
                                                                     ("exclude_q_3", ""),
-                                                                    ("formulaic_parts_3", ""),
+
                                                                     ("proper_name_3", ""),
                                                                     ("search_field_4", "text"),
                                                                     ("q_4", ''),
@@ -6634,7 +6634,7 @@ class TestES(Formulae_Testing):
                                                                     ("slop_4", "0"),
                                                                     ("regex_search_4", 'False'),
                                                                     ("exclude_q_4", ""),
-                                                                    ("formulaic_parts_4", ""),
+
                                                                     ("proper_name_4", ""),
                                                                     ("year", 0),
                                                                     ("month", 0),
@@ -6661,7 +6661,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_1", "0"),
                                                                 ("regex_search_1", 'False'),
                                                                 ("exclude_q_1", ""),
-                                                                ("formulaic_parts_1", ""),
+
                                                                 ("proper_name_1", ""),
                                                                 ("search_field_2", "text"),
                                                                 ("q_2", ''),
@@ -6670,7 +6670,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_2", "0"),
                                                                 ("regex_search_2", 'False'),
                                                                 ("exclude_q_2", ""),
-                                                                ("formulaic_parts_2", ""),
+
                                                                 ("proper_name_2", ""),
                                                                 ("search_field_3", "text"),
                                                                 ("q_3", ''),
@@ -6679,7 +6679,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_3", "0"),
                                                                 ("regex_search_3", 'False'),
                                                                 ("exclude_q_3", ""),
-                                                                ("formulaic_parts_3", ""),
+
                                                                 ("proper_name_3", ""),
                                                                 ("search_field_4", "text"),
                                                                 ("q_4", ''),
@@ -6688,7 +6688,7 @@ class TestES(Formulae_Testing):
                                                                 ("slop_4", "0"),
                                                                 ("regex_search_4", 'False'),
                                                                 ("exclude_q_4", ""),
-                                                                ("formulaic_parts_4", ""),
+
                                                                 ("proper_name_4", ""),
                                                                 ("year", 0),
                                                                 ("month", 0),
@@ -6715,7 +6715,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_1", "0"),
                                                                      ("regex_search_1", 'False'),
                                                                      ("exclude_q_1", ""),
-                                                                     ("formulaic_parts_1", ""),
+
                                                                      ("proper_name_1", ""),
                                                                      ("search_field_2", "text"),
                                                                      ("q_2", ''),
@@ -6724,7 +6724,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_2", "0"),
                                                                      ("regex_search_2", 'False'),
                                                                      ("exclude_q_2", ""),
-                                                                     ("formulaic_parts_2", ""),
+
                                                                      ("proper_name_2", ""),
                                                                      ("search_field_3", "text"),
                                                                      ("q_3", ''),
@@ -6733,7 +6733,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_3", "0"),
                                                                      ("regex_search_3", 'False'),
                                                                      ("exclude_q_3", ""),
-                                                                     ("formulaic_parts_3", ""),
+
                                                                      ("proper_name_3", ""),
                                                                      ("search_field_4", "text"),
                                                                      ("q_4", ''),
@@ -6742,7 +6742,7 @@ class TestES(Formulae_Testing):
                                                                      ("slop_4", "0"),
                                                                      ("regex_search_4", 'False'),
                                                                      ("exclude_q_4", ""),
-                                                                     ("formulaic_parts_4", ""),
+
                                                                      ("proper_name_4", ""),
                                                                      ("year", 0),
                                                                      ("month", 0),
@@ -6769,7 +6769,7 @@ class TestES(Formulae_Testing):
                                                                               ("slop_1", "0"),
                                                                               ("regex_search_1", 'False'),
                                                                               ("exclude_q_1", ""),
-                                                                              ("formulaic_parts_1", ""),
+
                                                                               ("proper_name_1", ""),
                                                                               ("search_field_2", "text"),
                                                                               ("q_2", ''),
@@ -6778,7 +6778,7 @@ class TestES(Formulae_Testing):
                                                                               ("slop_2", "0"),
                                                                               ("regex_search_2", 'False'),
                                                                               ("exclude_q_2", ""),
-                                                                              ("formulaic_parts_2", ""),
+
                                                                               ("proper_name_2", ""),
                                                                               ("search_field_3", "text"),
                                                                               ("q_3", ''),
@@ -6787,7 +6787,7 @@ class TestES(Formulae_Testing):
                                                                               ("slop_3", "0"),
                                                                               ("regex_search_3", 'False'),
                                                                               ("exclude_q_3", ""),
-                                                                              ("formulaic_parts_3", ""),
+
                                                                               ("proper_name_3", ""),
                                                                               ("search_field_4", "text"),
                                                                               ("q_4", ''),
@@ -6796,7 +6796,7 @@ class TestES(Formulae_Testing):
                                                                               ("slop_4", "0"),
                                                                               ("regex_search_4", 'False'),
                                                                               ("exclude_q_4", ""),
-                                                                              ("formulaic_parts_4", ""),
+
                                                                               ("proper_name_4", ""),
                                                                               ("year", 0),
                                                                               ("month", 0),
@@ -6823,7 +6823,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_1", "0"),
                                                                             ("regex_search_1", 'False'),
                                                                             ("exclude_q_1", ""),
-                                                                            ("formulaic_parts_1", ""),
+
                                                                             ("proper_name_1", ""),
                                                                             ("search_field_2", "text"),
                                                                             ("q_2", ''),
@@ -6832,7 +6832,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_2", "0"),
                                                                             ("regex_search_2", 'False'),
                                                                             ("exclude_q_2", ""),
-                                                                            ("formulaic_parts_2", ""),
+
                                                                             ("proper_name_2", ""),
                                                                             ("search_field_3", "text"),
                                                                             ("q_3", ''),
@@ -6841,7 +6841,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_3", "0"),
                                                                             ("regex_search_3", 'False'),
                                                                             ("exclude_q_3", ""),
-                                                                            ("formulaic_parts_3", ""),
+
                                                                             ("proper_name_3", ""),
                                                                             ("search_field_4", "text"),
                                                                             ("q_4", ''),
@@ -6850,7 +6850,7 @@ class TestES(Formulae_Testing):
                                                                             ("slop_4", "0"),
                                                                             ("regex_search_4", 'False'),
                                                                             ("exclude_q_4", ""),
-                                                                            ("formulaic_parts_4", ""),
+
                                                                             ("proper_name_4", ""),
                                                                             ("year", 0),
                                                                             ("month", 0),
@@ -6877,7 +6877,7 @@ class TestES(Formulae_Testing):
                                                         ("slop_1", "0"),
                                                         ("regex_search_1", 'False'),
                                                         ("exclude_q_1", ""),
-                                                        ("formulaic_parts_1", "Poenformel"),
+
                                                         ("proper_name_1", ""),
                                                         ("search_field_2", "text"),
                                                         ("q_2", ''),
@@ -6886,7 +6886,7 @@ class TestES(Formulae_Testing):
                                                         ("slop_2", "0"),
                                                         ("regex_search_2", 'True'),
                                                         ("exclude_q_2", ""),
-                                                        ("formulaic_parts_2", "Corroboratio"),
+
                                                         ("proper_name_2", ""),
                                                         ("search_field_3", "text"),
                                                         ("q_3", 'regni+domni'),
@@ -6895,7 +6895,7 @@ class TestES(Formulae_Testing):
                                                         ("slop_3", "3"),
                                                         ("regex_search_3", 'False'),
                                                         ("exclude_q_3", ""),
-                                                        ("formulaic_parts_3", ""),
+
                                                         ("proper_name_3", ""),
                                                         ("search_field_4", "regest"),
                                                         ("q_4", 'schenkt'),
@@ -6904,7 +6904,7 @@ class TestES(Formulae_Testing):
                                                         ("slop_4", "0"),
                                                         ("regex_search_4", 'False'),
                                                         ("exclude_q_4", ""),
-                                                        ("formulaic_parts_4", ""),
+
                                                         ("proper_name_4", ""),
                                                         ("year", 803),
                                                         ("month", 9),
@@ -6931,7 +6931,7 @@ class TestES(Formulae_Testing):
                                                     ("slop_1", "0"),
                                                     ("regex_search_1", 'False'),
                                                     ("exclude_q_1", ""),
-                                                    ("formulaic_parts_1", ""),
+
                                                     ("proper_name_1", ""),
                                                     ("search_field_2", "lemmas"),
                                                     ("q_2", 'dominus'),
@@ -6940,7 +6940,7 @@ class TestES(Formulae_Testing):
                                                     ("slop_2", "0"),
                                                     ("regex_search_2", 'False'),
                                                     ("exclude_q_2", ""),
-                                                    ("formulaic_parts_2", ""),
+
                                                     ("proper_name_2", ""),
                                                     ("search_field_3", "text"),
                                                     ("q_3", ''),
@@ -6949,7 +6949,7 @@ class TestES(Formulae_Testing):
                                                     ("slop_3", "0"),
                                                     ("regex_search_3", 'False'),
                                                     ("exclude_q_3", ""),
-                                                    ("formulaic_parts_3", ""),
+
                                                     ("proper_name_3", ""),
                                                     ("search_field_4", "text"),
                                                     ("q_4", ''),
@@ -6958,7 +6958,7 @@ class TestES(Formulae_Testing):
                                                     ("slop_4", "0"),
                                                     ("regex_search_4", 'False'),
                                                     ("exclude_q_4", ""),
-                                                    ("formulaic_parts_4", ""),
+
                                                     ("proper_name_4", ""),
                                                     ("year", 0),
                                                     ("month", 0),
@@ -6985,7 +6985,7 @@ class TestES(Formulae_Testing):
                                                   ("slop_1", "0"),
                                                   ("regex_search_1", 'False'),
                                                   ("exclude_q_1", ""),
-                                                  ("formulaic_parts_1", ""),
+
                                                   ("proper_name_1", ""),
                                                   ("search_field_2", "lemmas"),
                                                   ("q_2", 'dominus'),
@@ -6994,7 +6994,7 @@ class TestES(Formulae_Testing):
                                                   ("slop_2", "0"),
                                                   ("regex_search_2", 'False'),
                                                   ("exclude_q_2", ""),
-                                                  ("formulaic_parts_2", ""),
+
                                                   ("proper_name_2", ""),
                                                   ("search_field_3", "text"),
                                                   ("q_3", ''),
@@ -7003,7 +7003,7 @@ class TestES(Formulae_Testing):
                                                   ("slop_3", "0"),
                                                   ("regex_search_3", 'False'),
                                                   ("exclude_q_3", ""),
-                                                  ("formulaic_parts_3", ""),
+
                                                   ("proper_name_3", ""),
                                                   ("search_field_4", "text"),
                                                   ("q_4", ''),
@@ -7012,7 +7012,7 @@ class TestES(Formulae_Testing):
                                                   ("slop_4", "0"),
                                                   ("regex_search_4", 'False'),
                                                   ("exclude_q_4", ""),
-                                                  ("formulaic_parts_4", ""),
+
                                                   ("proper_name_4", ""),
                                                   ("year", 0),
                                                   ("month", 0),
@@ -7055,7 +7055,7 @@ class TestES(Formulae_Testing):
 ('special_days', ''),
 ("regest_q", ''),
                                  ("regest_field", "regest"),
-("formulaic_parts", ""),
+
 ("proper_name", ""),
 ("forgeries", "include"),
 ("regex_search", 'False'),
@@ -7083,7 +7083,7 @@ class TestES(Formulae_Testing):
 ('special_days', ''),
 ("regest_q", ''),
                                  ("regest_field", "regest"),
-("formulaic_parts", ""),
+
 ("proper_name", ""),
 ("forgeries", "include"),
 ("regex_search", 'False'),
@@ -7111,7 +7111,7 @@ class TestES(Formulae_Testing):
                                                                   ('special_days', ''),
 ("regest_q", ''),
                                                                   ("regest_field", "regest"),
-("formulaic_parts", ""),
+
                                                                   ("proper_name", ""),
 ("forgeries", "include"),
 ("regex_search", 'False'),
@@ -7139,7 +7139,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', ''),
 ("regest_q", ''),
                                  ("regest_field", "regest"),
-("formulaic_parts", ""),
+
 ("proper_name", ""),
 ("forgeries", "include"),
 ("regex_search", 'False'),
@@ -7167,7 +7167,7 @@ class TestES(Formulae_Testing):
                                                                 ('special_days', ''),
                                                                 ("regest_q", ''),
                                                                 ("regest_field", "regest"),
-                                                                ("formulaic_parts", ""),
+
                                                                 ("proper_name", ""),
                                                                 ("forgeries", "include"),
                                                                 ("regex_search", 'False'),
@@ -7195,7 +7195,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', ''),
 ("regest_q", ''),
                                  ("regest_field", "regest"),
-("formulaic_parts", ""),
+
 ("proper_name", ""),
 ("forgeries", "include"),
 ("regex_search", 'False'),
@@ -7223,7 +7223,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', ''),
 ("regest_q", 'schenk*'),
                                  ("regest_field", "regest"),
-("formulaic_parts", ""),
+
 ("proper_name", ""),
 ("forgeries", "include"),
 ("regex_search", 'False'),
@@ -7251,7 +7251,7 @@ class TestES(Formulae_Testing):
                                  ('special_days', ''),
 ("regest_q", ''),
                                  ("regest_field", "regest"),
-("formulaic_parts", ""),
+
 ("proper_name", ""),
 ("forgeries", "include"),
 ("regex_search", 'False'),
@@ -7784,8 +7784,8 @@ class TestES(Formulae_Testing):
 
     def build_file_name(self, fake_args):
         for arg in fake_args:
-            if 'formulaic_parts' in arg and fake_args[arg] != '':
-                fake_args['search_field_{}'.format(arg.split('_')[-1])] = fake_args[arg]
+            # if 'formulaic_parts' in arg and fake_args[arg] != '':
+            #     fake_args['search_field_{}'.format(arg.split('_')[-1])] = fake_args[arg]
             if 'proper_name' in arg and fake_args[arg] != '' and fake_args['q_{}'.format(arg.split('_')[-1])] == '':
                 fake_args['search_field_{}'.format(arg.split('_')[-1])] = 'lemmas'
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()]).replace('/', '-')
@@ -9202,15 +9202,15 @@ class TestES(Formulae_Testing):
         self.search_response = cycle(fake.load_response())
         self.search_aggs = fake.load_aggs()
         expected = ['abba für Vater Mönch Vermutlich bereits in apostolischer',
-                    'Abbas abbatissa Abt',
-                    'abbas im ägyptischen Mönchtum im 4 Jahrhundert zur',
-                    'abbas seit dem 5 Jahrhundert im lateinischen Westen im',
-                    'abbas wörtlich „Vater“ nach Vorbild der antiken',
-                    'abbas zurück wurde dessen Stellvertreter und fand in',
-                    'Abbates finden sich dabei nicht nur als',
-                    'Abbatiat Die Wahrnehmung des materiellen Wertes der',
-                    'Abbatiat oder Bischofsamt In der Folgezeit scheint sich',
-                    'Abbatiaten durch Laien Kleriker Kanoniker und Bischöfe']
+ 'Abbas abbatissa Abt',
+ 'abbas im ägyptischen Mönchtum im 4 Jahrhundert zur',
+ 'abbas seit dem 5 Jahrhundert im lateinischen Westen im',
+ 'abbas wörtlich „Vater“ nach Vorbild der antiken',
+ 'abbas zurück wurde dessen Stellvertreter und fand in',
+ 'Abbates finden sich dabei nicht nur als',
+ 'Abbatiat Die notwendige Zustimmung der Mönche zu',
+ 'Abbatiat Die Wahrnehmung des materiellen Wertes der',
+ 'Abbatiat oder Bischofsamt In der Folgezeit scheint sich']
         mock_search.side_effect = self.search_side_effect
         test_args['qSource'] = 'q_1'
         test_args['query_dict'] = make_query_dict(test_args)
@@ -9460,50 +9460,50 @@ class TestES(Formulae_Testing):
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_regest).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
-            test_args = copy(self.TEST_ARGS['test_multi_charter_part_search'])
-            test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
-            fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
-            resp = fake.load_response()
-            self.search_response = cycle(resp)
-            self.search_aggs = fake.load_aggs()
-            mock_search.side_effect = self.search_side_effect
-            test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-            test_args['special_days'] = [test_args['special_days']]
-            url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_multi_charter_part_search'].items()])
-            c.get('/search/results?source=advanced&' + url_params)
-            r = c.get('/search/download/1')
-            if recreate:
-                with open('tests/test_data/advanced_search/downloaded_search_with_parts.pdf', mode='wb') as f:
-                    f.write(r.get_data())
-            self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_parts).group(0),
-                             re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
-
-            test_args = copy(self.TEST_ARGS['test_charter_part_search_no_q'])
-            test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
-            fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
-            resp = fake.load_response()
-            self.search_response = cycle(resp)
-            self.search_aggs = fake.load_aggs()
-            for single_response in resp:
-                for h in single_response['hits']['hits']:
-                    if 'highlight' in h and 'regest' in h['highlight']:
-                        del h['highlight']['regest']
-            mock_search.side_effect = self.search_side_effect
-            test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-            test_args['special_days'] = [test_args['special_days']]
-            url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_charter_part_search_no_q'].items()])
-            c.get('/search/results?source=advanced&' + url_params)
-            r = c.get('/search/download/1')
-            if recreate:
-                with open('tests/test_data/advanced_search/downloaded_search_with_parts_no_q.pdf', mode='wb') as f:
-                    f.write(r.get_data())
-            self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_parts_no_q).group(0),
-                             re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
+            # test_args = copy(self.TEST_ARGS['test_multi_charter_part_search'])
+            # # test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+            # fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+            # resp = fake.load_response()
+            # self.search_response = cycle(resp)
+            # self.search_aggs = fake.load_aggs()
+            # mock_search.side_effect = self.search_side_effect
+            # test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+            # test_args['special_days'] = [test_args['special_days']]
+            # url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_multi_charter_part_search'].items()])
+            # c.get('/search/results?source=advanced&' + url_params)
+            # r = c.get('/search/download/1')
+            # if recreate:
+            #     with open('tests/test_data/advanced_search/downloaded_search_with_parts.pdf', mode='wb') as f:
+            #         f.write(r.get_data())
+            # self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_parts).group(0),
+            #                  re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
+            #
+            # test_args = copy(self.TEST_ARGS['test_charter_part_search_no_q'])
+            # # test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+            # fake = FakeElasticsearch(self.build_file_name(test_args).replace('%2B', '+'), 'advanced_search')
+            # resp = fake.load_response()
+            # self.search_response = cycle(resp)
+            # self.search_aggs = fake.load_aggs()
+            # for single_response in resp:
+            #     for h in single_response['hits']['hits']:
+            #         if 'highlight' in h and 'regest' in h['highlight']:
+            #             del h['highlight']['regest']
+            # mock_search.side_effect = self.search_side_effect
+            # test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+            # test_args['special_days'] = [test_args['special_days']]
+            # url_params = '&'.join(['{}={}'.format(k, v) for k, v in self.TEST_ARGS['test_charter_part_search_no_q'].items()])
+            # c.get('/search/results?source=advanced&' + url_params)
+            # r = c.get('/search/download/1')
+            # if recreate:
+            #     with open('tests/test_data/advanced_search/downloaded_search_with_parts_no_q.pdf', mode='wb') as f:
+            #         f.write(r.get_data())
+            # self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_parts_no_q).group(0),
+            #                  re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
             test_args = copy(self.TEST_ARGS['test_four_query_params'])
             name_args = copy(test_args)
-            name_args['search_field_1'] = name_args['formulaic_parts_1']
-            name_args['search_field_2'] = name_args['formulaic_parts_2']
+            # name_args['search_field_1'] = name_args['formulaic_parts_1']
+            # name_args['search_field_2'] = name_args['formulaic_parts_2']
             fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
             body = fake.load_request()
             self.search_response = cycle(fake.load_response())
@@ -9528,128 +9528,128 @@ class TestES(Formulae_Testing):
             self.assertEqual(re.search(b'>>\nstream\n.*?>endstream', expected_four_params_proper_names).group(0),
                              re.search(b'>>\nstream\n.*?>endstream', r.get_data()).group(0))
 
-    @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_single_charter_part_search(self, mock_highlight, mock_search):
-        test_args = copy(self.TEST_ARGS['test_single_charter_part_search'])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = self.search_side_effect
-        mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+    # @patch.object(Elasticsearch, "search")
+    # @patch.object(Search, 'lem_highlight_to_text')
+    # def test_single_charter_part_search(self, mock_highlight, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_single_charter_part_search'])
+    #     fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     ids = fake.load_ids()
+    #     mock_search.side_effect = self.search_side_effect
+    #     mock_highlight.side_effect = self.highlight_side_effect
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
-    @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_single_charter_part_search_with_wildcard(self, mock_highlight, mock_search):
-        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = self.search_side_effect
-        mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+    # @patch.object(Elasticsearch, "search")
+    # @patch.object(Search, 'lem_highlight_to_text')
+    # def test_single_charter_part_search_with_wildcard(self, mock_highlight, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
+    #     fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     ids = fake.load_ids()
+    #     mock_search.side_effect = self.search_side_effect
+    #     mock_highlight.side_effect = self.highlight_side_effect
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
-    @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_multi_charter_part_search(self, mock_highlight, mock_search):
-        test_args = copy(self.TEST_ARGS['test_multi_charter_part_search'])
-        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
-        name_args = copy(test_args)
-        name_args['search_field_1'] = name_args['formulaic_parts_1']
-        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = self.search_side_effect
-        mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
+    # @patch.object(Elasticsearch, "search")
+    # @patch.object(Search, 'lem_highlight_to_text')
+    # def test_multi_charter_part_search(self, mock_highlight, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_multi_charter_part_search'])
+    #     # test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+    #     name_args = copy(test_args)
+    #     # name_args['search_field_1'] = name_args['formulaic_parts_1']
+    #     fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     ids = fake.load_ids()
+    #     mock_search.side_effect = self.search_side_effect
+    #     mock_highlight.side_effect = self.highlight_side_effect
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
-    @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_single_charter_part_search_with_wildcard(self, mock_highlight, mock_search):
-        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
-        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
-        name_args = copy(test_args)
-        name_args['search_field_1'] = name_args['formulaic_parts_1']
-        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = self.search_side_effect
-        mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
-
-    @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_single_charter_part_search_with_wildcard_v_u(self, mock_highlight, mock_search):
-        test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard_v_u'])
-        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
-        name_args = copy(test_args)
-        name_args['search_field_1'] = name_args['formulaic_parts_1']
-        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = self.search_side_effect
-        mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
-
-    @patch.object(Elasticsearch, "search")
-    @patch.object(Elasticsearch, "mtermvectors")
-    @patch("formulae.search.Search.check_open_texts")
-    def test_fuzzy_charter_part_search(self, mock_open_texts, mock_vectors, mock_search):
-        test_args = copy(self.TEST_ARGS['test_fuzzy_charter_part_search'])
-        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
-        name_args = copy(test_args)
-        name_args['search_field_1'] = name_args['formulaic_parts_1']
-        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = self.search_side_effect
-        mock_vectors.side_effect = self.vector_side_effect
-        mock_open_texts.return_value = True, True
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['q_1'] = test_args['q_1'].replace('+', ' ')
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    # @patch.object(Elasticsearch, "search")
+    # @patch.object(Search, 'lem_highlight_to_text')
+    # def test_single_charter_part_search_with_wildcard(self, mock_highlight, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard'])
+    #     test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+    #     name_args = copy(test_args)
+    #     name_args['search_field_1'] = name_args['formulaic_parts_1']
+    #     fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     ids = fake.load_ids()
+    #     mock_search.side_effect = self.search_side_effect
+    #     mock_highlight.side_effect = self.highlight_side_effect
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
+    #
+    # @patch.object(Elasticsearch, "search")
+    # @patch.object(Search, 'lem_highlight_to_text')
+    # def test_single_charter_part_search_with_wildcard_v_u(self, mock_highlight, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_single_charter_part_search_with_wildcard_v_u'])
+    #     test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+    #     name_args = copy(test_args)
+    #     name_args['search_field_1'] = name_args['formulaic_parts_1']
+    #     fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     ids = fake.load_ids()
+    #     mock_search.side_effect = self.search_side_effect
+    #     mock_highlight.side_effect = self.highlight_side_effect
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
+    #
+    # @patch.object(Elasticsearch, "search")
+    # @patch.object(Elasticsearch, "mtermvectors")
+    # @patch("formulae.search.Search.check_open_texts")
+    # def test_fuzzy_charter_part_search(self, mock_open_texts, mock_vectors, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_fuzzy_charter_part_search'])
+    #     test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+    #     name_args = copy(test_args)
+    #     name_args['search_field_1'] = name_args['formulaic_parts_1']
+    #     fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     ids = fake.load_ids()
+    #     mock_search.side_effect = self.search_side_effect
+    #     mock_vectors.side_effect = self.vector_side_effect
+    #     mock_open_texts.return_value = True, True
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['q_1'] = test_args['q_1'].replace('+', ' ')
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, 'lem_highlight_to_text')
@@ -9670,45 +9670,45 @@ class TestES(Formulae_Testing):
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
-    @patch.object(Elasticsearch, "search")
-    @patch.object(Elasticsearch, "mtermvectors")
-    @patch("formulae.search.Search.check_open_texts")
-    def test_charter_part_search_no_q(self, mock_open_texts, mock_vectors, mock_search):
-        test_args = copy(self.TEST_ARGS['test_charter_part_search_no_q'])
-        test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
-        name_args = copy(test_args)
-        name_args['search_field_1'] = name_args['formulaic_parts_1']
-        fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        ids = fake.load_ids()
-        mock_search.side_effect = self.search_side_effect
-        mock_vectors.side_effect = self.vector_side_effect
-        mock_open_texts.return_value = True, True
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
-        self.assertEqual(ids, [{"id": x['id']} for x in actual])
-        sents = [{'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum esse non credo, aut ego ipse aut ulla opposita persona, quod fieri non credo, contra hanc donationem venire aut eam infringere temptaverit, inprimis in iram dei incurrat, et a liminibus aecclesiae extraneus efficiatur, et sit culpabilis in fisco auri uncias duo et argenti pondera quinque, et effectum, quod inchoavit, obtinere non valeat')]},
-                 {'sents': [Markup('<strong>Stipulationsformel:</strong> Et haec traditio a nobis facta omni tempore firma et stabilis permaneat')]},
-                 {'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod fieri non credo, aut ego ipse aut ullus de hereditaribus meis contra hanc donationem facere volverit, inprimis iram dei et sancti Michahelis et omnium sanctorum eius incurrere pertimescat'),
-                            Markup('<strong>Stipulationsformel:</strong> et haec carta a me facta omni tempore firma permaneat, stipulatione subnixa')]},
-                 {'sents': [Markup('<strong>Poenformel:</strong> Et si quis ex eis vel de successoribus eorum de ipsis commutationibus quicquam inmutare vellet, ipsam rem, quam pro concanbio accepit, ammittat, et quod repetit, nihil evindicet'),
-                            Markup('<strong>Stipulationsformel:</strong> sed presentes commutationes inter eos et successores eorum omni tempore firmae permaneant')]},
-                 {'sents': [Markup('<strong>Stipulationsformel:</strong> sed in evum et inconvulsum valeat permanere')]},
-                 {'sents': [Markup('<strong>Stipulationsformel:</strong> et haec donacio a mae facta omni tempore firma et stabilis permaneat, stipulacione subnixa')]},
-                 {'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum esse non credo, si ego ipse aut ullus [de heredibus] aut proheredibus meis, quislibet ulla opposita persona, qui contra hanc donacionem venire conaverit aut eam infrangere temptaverit'),
-                            Markup('<strong>Stipulationsformel:</strong> et quod repetit, ullum umquam tempore vindicare [non] valeat, sed presens tradicio omni tempore firma permaneat cum stipulacione subnixa')]},
-                 {'sents': [Markup('<strong>Poenformel:</strong> Si quis autem contra hanc cartam tradicionis, quelibet opposita persona, contraire volverit, iram dei omnipotentis incurrat, et causam [habeat] cum beato Mihhaelo archangelo et partem cum Iuda traditore'),
-                            Markup('<strong>Stipulationsformel:</strong> et carta haec nihilominus firma permaneat')]},
-                 {'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum esse non credo, aut ego ipse aut ullus de heredibus seu proheredibus meis, quislibet ulla opposita persona, qui contra hanc tradicionem venire conaverit aut eam infrangere temptaverit'),
-                            Markup('<strong>Stipulationsformel:</strong> et quod repetit, nullatenus evindicare valeat, sed presens tradicio omni tempore firma permaneat cum stipulacione subnixa')]},
-                 {'sents': [Markup('<strong>Poenformel:</strong> ut nullus obtineat ei effectum hoc mutare vel refragare'),
-                            Markup('<strong>Stipulationsformel:</strong> sed presens ista tradicio stabilis in evum permaneat')]}]
-        self.assertEqual(sents, [{"sents": x['sents']} for x in actual[:10]])
+    # @patch.object(Elasticsearch, "search")
+    # @patch.object(Elasticsearch, "mtermvectors")
+    # @patch("formulae.search.Search.check_open_texts")
+    # def test_charter_part_search_no_q(self, mock_open_texts, mock_vectors, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_charter_part_search_no_q'])
+    #     # test_args['formulaic_parts_1'] = test_args['formulaic_parts_1'].replace('%2B', '+')
+    #     name_args = copy(test_args)
+    #     # name_args['search_field_1'] = name_args['formulaic_parts_1']
+    #     fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     ids = fake.load_ids()
+    #     mock_search.side_effect = self.search_side_effect
+    #     mock_vectors.side_effect = self.vector_side_effect
+    #     mock_open_texts.return_value = True, True
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
+    #     sents = [{'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum esse non credo, aut ego ipse aut ulla opposita persona, quod fieri non credo, contra hanc donationem venire aut eam infringere temptaverit, inprimis in iram dei incurrat, et a liminibus aecclesiae extraneus efficiatur, et sit culpabilis in fisco auri uncias duo et argenti pondera quinque, et effectum, quod inchoavit, obtinere non valeat')]},
+    #              {'sents': [Markup('<strong>Stipulationsformel:</strong> Et haec traditio a nobis facta omni tempore firma et stabilis permaneat')]},
+    #              {'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod fieri non credo, aut ego ipse aut ullus de hereditaribus meis contra hanc donationem facere volverit, inprimis iram dei et sancti Michahelis et omnium sanctorum eius incurrere pertimescat'),
+    #                         Markup('<strong>Stipulationsformel:</strong> et haec carta a me facta omni tempore firma permaneat, stipulatione subnixa')]},
+    #              {'sents': [Markup('<strong>Poenformel:</strong> Et si quis ex eis vel de successoribus eorum de ipsis commutationibus quicquam inmutare vellet, ipsam rem, quam pro concanbio accepit, ammittat, et quod repetit, nihil evindicet'),
+    #                         Markup('<strong>Stipulationsformel:</strong> sed presentes commutationes inter eos et successores eorum omni tempore firmae permaneant')]},
+    #              {'sents': [Markup('<strong>Stipulationsformel:</strong> sed in evum et inconvulsum valeat permanere')]},
+    #              {'sents': [Markup('<strong>Stipulationsformel:</strong> et haec donacio a mae facta omni tempore firma et stabilis permaneat, stipulacione subnixa')]},
+    #              {'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum esse non credo, si ego ipse aut ullus [de heredibus] aut proheredibus meis, quislibet ulla opposita persona, qui contra hanc donacionem venire conaverit aut eam infrangere temptaverit'),
+    #                         Markup('<strong>Stipulationsformel:</strong> et quod repetit, ullum umquam tempore vindicare [non] valeat, sed presens tradicio omni tempore firma permaneat cum stipulacione subnixa')]},
+    #              {'sents': [Markup('<strong>Poenformel:</strong> Si quis autem contra hanc cartam tradicionis, quelibet opposita persona, contraire volverit, iram dei omnipotentis incurrat, et causam [habeat] cum beato Mihhaelo archangelo et partem cum Iuda traditore'),
+    #                         Markup('<strong>Stipulationsformel:</strong> et carta haec nihilominus firma permaneat')]},
+    #              {'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum esse non credo, aut ego ipse aut ullus de heredibus seu proheredibus meis, quislibet ulla opposita persona, qui contra hanc tradicionem venire conaverit aut eam infrangere temptaverit'),
+    #                         Markup('<strong>Stipulationsformel:</strong> et quod repetit, nullatenus evindicare valeat, sed presens tradicio omni tempore firma permaneat cum stipulacione subnixa')]},
+    #              {'sents': [Markup('<strong>Poenformel:</strong> ut nullus obtineat ei effectum hoc mutare vel refragare'),
+    #                         Markup('<strong>Stipulationsformel:</strong> sed presens ista tradicio stabilis in evum permaneat')]}]
+    #     self.assertEqual(sents, [{"sents": x['sents']} for x in actual[:10]])
 
     @patch.object(Elasticsearch, "search")
     def test_forgery_only(self, mock_search):
@@ -9760,39 +9760,40 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['text']['value'],
-                         'r[uv][ijeuv]g[ij]n(w|w|uu|vu|uv|vv|[uv])(w|uu|vu|uv|vv)m')
+                         'r[uv]([ijeuv]|w|uu|vu|uv|vv|[w])g[ij]n(w|w|uu|vu|uv|vv|[uv])(w|uu|vu|uv|vv)m')
 
-    @patch.object(Elasticsearch, "search")
-    def test_regex_parts(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_regex_parts'])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
-        self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['Narratio']['value'],
-                         'c(w|uu|vu|uv|vv)hr[ijij]s[ij]t([uv]|w|uu|vu|uv|vv|[w])[ij][uv]')
+    # @patch.object(Elasticsearch, "search")
+    # def test_regex_parts(self, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_regex_parts'])
+    #     fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     mock_search.side_effect = self.search_side_effect
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    #     print(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp'])
+    #     self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['Narratio']['value'],
+    #                      'c(w|uu|vu|uv|vv)hr[ijij]s[ij]t([uv]|w|uu|vu|uv|vv|[w])[ij][uv]')
 
-    @patch.object(Elasticsearch, "search")
-    def test_regex_parts_no_uv_replacement(self, mock_search):
-        test_args = copy(self.TEST_ARGS['test_regex_parts_no_uv_replacement'])
-        fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        mock_search.side_effect = self.search_side_effect
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
-        self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['Narratio']['value'],
-                         'dos')
+    # @patch.object(Elasticsearch, "search")
+    # def test_regex_parts_no_uv_replacement(self, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_regex_parts_no_uv_replacement'])
+    #     fake = FakeElasticsearch(self.build_file_name(test_args), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     mock_search.side_effect = self.search_side_effect
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    #     self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['Narratio']['value'],
+    #                      'dos')
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, 'lem_highlight_to_text')
@@ -9810,23 +9811,23 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
 
-    @patch.object(Elasticsearch, "search")
-    @patch.object(Search, 'lem_highlight_to_text')
-    def test_exclude_q_parts(self, mock_highlight, mock_search):
-        test_args = copy(self.TEST_ARGS['test_exclude_q_parts'])
-        name_args = copy(test_args)
-        name_args['search_field_1'] = name_args['formulaic_parts_1']
-        fake = FakeElasticsearch(self.build_file_name(name_args), 'advanced_search')
-        body = fake.load_request()
-        self.search_response = cycle(fake.load_response())
-        self.search_aggs = fake.load_aggs()
-        mock_search.side_effect = self.search_side_effect
-        mock_highlight.side_effect = self.highlight_side_effect
-        test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
-        test_args['query_dict'] = make_query_dict(test_args)
-        actual, _, _, _ = advanced_query_index(**test_args)
-        for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
+    # @patch.object(Elasticsearch, "search")
+    # @patch.object(Search, 'lem_highlight_to_text')
+    # def test_exclude_q_parts(self, mock_highlight, mock_search):
+    #     test_args = copy(self.TEST_ARGS['test_exclude_q_parts'])
+    #     name_args = copy(test_args)
+    #     name_args['search_field_1'] = name_args['formulaic_parts_1']
+    #     fake = FakeElasticsearch(self.build_file_name(name_args), 'advanced_search')
+    #     body = fake.load_request()
+    #     self.search_response = cycle(fake.load_response())
+    #     self.search_aggs = fake.load_aggs()
+    #     mock_search.side_effect = self.search_side_effect
+    #     mock_highlight.side_effect = self.highlight_side_effect
+    #     test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
+    #     test_args['query_dict'] = make_query_dict(test_args)
+    #     actual, _, _, _ = advanced_query_index(**test_args)
+    #     for b in body:
+    #         mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
 
     @patch.object(Elasticsearch, "search")
     def test_elex_search(self, mock_search):
@@ -9949,8 +9950,8 @@ class TestES(Formulae_Testing):
     def test_four_query_params(self, mock_open_texts, mock_vectors, mock_search):
         test_args = copy(self.TEST_ARGS['test_four_query_params'])
         name_args = copy(test_args)
-        name_args['search_field_1'] = name_args['formulaic_parts_1']
-        name_args['search_field_2'] = name_args['formulaic_parts_2']
+        # name_args['search_field_1'] = name_args['formulaic_parts_1']
+        # name_args['search_field_2'] = name_args['formulaic_parts_2']
         fake = FakeElasticsearch(self.build_file_name(name_args).replace('%2B', '+'), 'advanced_search')
         body = fake.load_request()
         self.search_response = cycle(fake.load_response())
@@ -9967,9 +9968,8 @@ class TestES(Formulae_Testing):
         for b in body:
             mock_search.assert_any_call(index=test_args['corpus'], doc_type="", body=b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
-        sents = [{'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum </small><strong>esse</strong><small> </small><strong>non</strong><small> </small><strong>credo</strong><small>, si ego ipse aut ullus de heredibus'),
-            Markup('<strong>Corroboratio:</strong> Et testes ad roborandum secundum lege Bauuariorum; dedit'),
-            Markup('Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI </small><strong>regni</strong><small> </small><strong>domni</strong><small> nostri Karoli gloriosissime regis et imperii eius III Et testes ')]}]
+        sents = [{'sents': [Markup('die nomine transcedo atque transfundo Si quis vero, quod futurum </small><strong>esse</strong><small> </small><strong>non</strong><small> </small><strong>credo</strong><small>, si ego ipse aut ullus de heredibus vel proheredibus meis '),
+                            Markup('Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI </small><strong>regni</strong><small> </small><strong>domni</strong><small> nostri Karoli gloriosissime regis et imperii eius III Et testes ')]}]
         regest_sents = [{'regest_sents': [Markup('Heripald, Sohn des verstorbenen Atto, </small><strong>schenkt</strong><small> dem Kloster, dessen Vorsteher')]}]
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
         self.assertEqual(regest_sents, [{"regest_sents": x['regest_sents']} for x in actual])

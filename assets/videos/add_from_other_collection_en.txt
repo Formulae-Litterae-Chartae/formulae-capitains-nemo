@@ -1,0 +1,5 @@
+You can add a text from another collection by clicking on "More texts" and following the trail to the text that you want.
+In this case, we want to open the formula Tours 44 next to Marculf II,35.
+So we click on "Formulae", then "Formelsammlung aus Tours", then "[Edition]" by Tours 44.
+Now we can compare the texts of Marculf II,35 with Tours 44.
+And, as always, to close one of these texts, simply click on the X symbol in the upper right-hand corner.

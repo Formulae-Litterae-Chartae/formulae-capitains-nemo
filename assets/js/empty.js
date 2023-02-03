@@ -590,7 +590,7 @@ $(document).ready(function () {
     
     $('.bibl-letter,.elex-letter').click(function() {
         var t = $(this).attr('href');
-        var navbarHeight = $('#mainNavbar').height();
+        var navbarHeight = $('#fullNavbar').height();
         var letterPos = $('#elex-letters').height();
         var targetOffset = letterPos + 25;
         if ( t.includes('-A') || t.includes('-nr') ) {
@@ -610,7 +610,7 @@ $(document).ready(function () {
         var hash = window.location.hash;
         var t = $(hash + '.title-id');
         var t_parent = t.parent();
-        var navbarHeight = $('#mainNavbar').height();
+        var navbarHeight = $('#fullNavbar').height();
         var letterPos = $('#elex-letters').height();
         var targetOffset = letterPos + 25 + navbarHeight;
         $('html, body').animate({
@@ -625,7 +625,7 @@ $(document).ready(function () {
     
     $('.corpus-nrs').click(function() {
         var t = $(this).attr('href');
-        var navbarHeight = $('#mainNavbar').height();
+        var navbarHeight = $('#fullNavbar').height();
         var bodyHeight = $('body').height();
         if ( $(t).offset().top > bodyHeight ) {
             $('html, body').animate( {
@@ -724,32 +724,75 @@ $(document).ready(function () {
         var button = $(event.relatedTarget) // Button that triggered the modal
         var modalLabel = button.data('modallabel') // Extract info from data-* attributes
         var videoSource = button.data('videosource');
-        var subtitleSource = videoSource.replace('mp4', 'vtt');
         var videoLanguage = button.data('videolanguage');
-        var transcript = button.data('transcript' + videoLanguage);
+        var subtitleSource = videoSource + videoLanguage + '.vtt';
         // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
         // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
         var modal = $(this)
-        modal.find('video').attr('src', videoSource);
-        modal.find('track').attr('src', subtitleSource);
+        var videoContainer = modal.find('#modalVideoContainer');
+        var videoMessage = videoContainer.data('message');
+        var trackElement = $('<track></track>');
+        trackElement.attr({
+            src: subtitleSource,
+            srclang: videoLanguage,
+            id: "videoModalTrack",
+            label: "On",
+            kind: "subtitles"});
+        var videoElement = $("<video></video>>");
+        videoElement.attr({
+            controls: '',
+            src: videoSource + videoLanguage + '.mp4',
+            id: "modalVideo"});
+        if ( videoLanguage == 'en' ) {
+            trackElement.attr('label', 'English');
+        } else {
+            trackElement.attr('label', 'Deutsch');
+        }
+        videoElement.append(trackElement, videoMessage);
+        videoContainer.append(videoElement);
         modal.find('.modal-title').text(modalLabel);
-        modal.find('.transcript-text').text(transcript);
         var englishVideoLink = modal.find('.english-video-link');
-        englishVideoLink.attr({
-            "data-modallabel": modalLabel, 
-            "data-videosource": videoSource,
-            "data-transcriptde": button.data('transcriptde'),
-            "data-transcripten": button.data('transcripten')
-        });
-        englishVideoLink.toggleClass('d-none');
         var deutschVideoLink = modal.find('.deutsch-video-link');
-        deutschVideoLink.attr({
-            "data-modallabel": modalLabel, 
-            "data-videosource": videoSource,
-            "data-transcriptde": button.data('transcriptde'),
-            "data-transcripten": button.data('transcripten')
-        });
-        deutschVideoLink.toggleClass('d-none');
+        if ( button.data('transcript')) {
+            var transcript = button.data('transcript');
+            modal.find('#secondLanguageLink').addClass('d-none');
+        } else if ( button.data('transcriptde') == '' ) {
+            var transcript = button.data('transcripten');
+            modal.find('#secondLanguageLink').addClass('d-none');
+        } else {
+            var transcript = button.data('transcript' + videoLanguage);
+            modal.find('#secondLanguageLink').removeClass('d-none');
+            englishVideoLink.attr({
+                "data-modallabel": modalLabel, 
+                "data-videosource": videoSource,
+                "data-transcriptde": button.data('transcriptde'),
+                "data-transcripten": button.data('transcripten'),
+                "data-videolanguage": 'en'
+            });
+            if ( videoLanguage == 'en' ) {
+                englishVideoLink.addClass('d-none');
+                deutschVideoLink.removeClass('d-none');
+            };
+            deutschVideoLink.attr({
+                "data-modallabel": modalLabel, 
+                "data-videosource": videoSource,
+                "data-transcriptde": button.data('transcriptde'),
+                "data-transcripten": button.data('transcripten'),
+                "data-videolanguage": 'de'
+            });
+            if ( videoLanguage == 'de' ) {
+                deutschVideoLink.addClass('d-none');
+                englishVideoLink.removeClass('d-none');
+            };
+        }
+        modal.find('.transcript-text').text(transcript);
+    })
+    
+    $('#videoModal').on('hide.bs.modal', function (event) {
+        // Here I can just remove the video element
+        var modal = $(this);
+        var videoElement = modal.find('video');
+        videoElement.remove();
     })
     
     var locationHash = window.location.hash;

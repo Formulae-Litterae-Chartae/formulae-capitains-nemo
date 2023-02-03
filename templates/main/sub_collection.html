@@ -45,6 +45,9 @@
     {% include "main::tours_ueberarbeitung_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:formulae_marculfinae' %}
     {% include "main::marculfinae_info.html" %}
+    {% elif collections.current.id == 'urn:cts:formulae:ka1' %}
+    <br>
+    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='karlsruhe_blb_aug') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
     {% endif %}
 </header>
 </div>
@@ -115,13 +118,13 @@
                 {% set number = number[0] %}
                 {% endif %}
                 <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['transcribed_edition'] %}: <span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5>
-                        <span>
+                    <div class="row justify-content-between">
+                        <div class="col-3"><h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['transcribed_edition'] %}: <span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5></div>
+                        <div class="col text-right">
                             {% if 'formulae_collection' in collections.parent_ids or 'manuscript_collection' in collections.parent_ids %}
                                 {% if values['versions']['editions']|length > 1 %}
                                 <div class="btn-group">
-                                    <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-link dropdown-toggle p-0 py-md-1 px-md-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ _('Editionen') }}
                                     </button>
                                     <div class="dropdown-menu transcription-dropdown">
@@ -137,9 +140,10 @@
                                     </a>
                                 {% endfor %}
                                 {% endif %}
+                                <div class="w-100 d-block d-md-none"></div>
                                 {% if values['versions']['translations']|length > 1 %}
                                 <div class="btn-group">
-                                    <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <button class="btn btn-link dropdown-toggle p-0 py-md-1 px-md-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ _('Deutsche Übersetzungen') }}
                                     </button>
                                     <div class="dropdown-menu transcription-dropdown">
@@ -150,12 +154,13 @@
                                 </div>
                                 {% else %}
                                 {% for urn, lang, version, source in values['versions']['translations']|sort %}
-                                    <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ _('Deutsche Übersetzung') }}]</a>
+                                    <a class="card-link ml-md-3" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">[{{ _('Deutsche Übersetzung') }}]</a>
                                 {% endfor %}
                                 {% endif %}
+                                <div class="w-100 d-block d-md-none"></div>
                                 {% if values['versions']['transcriptions'] %}
                                     <div class="btn-group">
-                                        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button class="btn btn-link dropdown-toggle p-0 py-md-1 px-md-2" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         {% if values['versions']['transcriptions']|length > 1 %}
                                         {{ _('Transkriptionen/Manuskriptbilder') }}
                                         {% else %}
@@ -178,7 +183,7 @@
                                     <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{% if values['versions']['editions']|length > 1 %}{{_('Version') + ' ' + loop.index|string}}{% else %}{{ _('Lesen') }}{% endif %}</a>
                                 {% endfor %}
                             {% endif %}
-                        </span>
+                        </div>
                         </div>
                         {% if 'alt_link' in values %}<p class="mb-1 short-regest"><a href="{{ values['alt_link'] }}" class="internal-link">-> {{ values['alt_title'] }}</a></p>{% endif %}
                         {% if current_user.project_team or collections.current.open_regesten %}
