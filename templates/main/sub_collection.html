@@ -45,6 +45,9 @@
     {% include "main::tours_ueberarbeitung_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:formulae_marculfinae' %}
     {% include "main::marculfinae_info.html" %}
+    {% elif collections.current.id == 'urn:cts:formulae:ka1' %}
+    <br>
+    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='karlsruhe_blb_aug') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
     {% endif %}
 </header>
 </div>
