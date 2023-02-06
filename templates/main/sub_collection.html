@@ -120,6 +120,7 @@
                 <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column">
                     <div class="row justify-content-between">
                         <div class="col-3"><h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['transcribed_edition'] %}: <span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5></div>
+                        {% if values['deperditum'] == 'None' %}
                         <div class="col text-right">
                             {% if 'formulae_collection' in collections.parent_ids or 'manuscript_collection' in collections.parent_ids %}
                                 {% if values['versions']['editions']|length > 1 %}
@@ -204,6 +205,15 @@
                             {{ make_dates(values) }}
                             <p class="mb-0"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
                         {% endif %}
+                    {% else %}
+                        <div class="col-9 text-right"></div>
+                        </div>
+                        {% if current_user.project_team or collections.current.open_regesten %}
+                            <p class="mb-0 text-right"><a class="internal-link" href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
+                        {% else %}
+                            <p class="mb-0"><a href="#top"><small>{{ _('Zurück zum Seitenanfang') }}</small></a></p>
+                        {% endif %}
+                    {% endif %}
                 </li>
             {% endfor %}
             </ul>

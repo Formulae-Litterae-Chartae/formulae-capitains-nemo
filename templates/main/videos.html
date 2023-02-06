@@ -7,32 +7,36 @@
         <h1 class="text-center">{{ _('Videotutorials') }}</h3>
     </header>
         <div class="row justify-content-center">
-        {% for category, video_information in videos|dictsort %}
-            <div class="col-2">
-                <div class="card">
-                    <div class="card-header" id="video-category-{{category[0]|string}}">
-                    <h3 class="mb-0">
-                        {{ category[1] }}
-                    </h3>
+            <div class="col-12 col-sm-10 col-md-8 col-lg-4 col-xl-3">
+                <div class="accordion" id="videoAccordion">
+                {% for category, video_information in videos|dictsort %}
+                    <div class="card">
+                        <h3 class="card-header" id="video-category-{{category[0]|string}}">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#video-collapse-{{category[0]|string}}" aria-expanded="true" aria-controls="video-collapse-{{category[0]|string}}">
+                            <h4>{{ category[1] }}</h4>
+                            </button>
+                        </h3>
+                        <div id="video-collapse-{{category[0]|string}}" class="collapse" aria-labelledby="video-category-{{category[0]|string}}" data-parent="#videoAccordion">
+                            <div class="card-body">
+                                <ul class="list-unstyled">
+                                {% for title, files in video_information|dictsort %}
+                                {% if lang != 'eng' and files['transcripts']['de'] == '' %}
+                                    <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }} (nur auf Englisch)" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcript="{{ files['transcripts']['en'] }}" data-videolanguage="en">
+                                            {{ title[1] }} (nur auf Englisch)
+                                        </a></li>
+                                {% else %}
+                                    <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="{% if lang == 'eng' %}en{% else %}de{% endif %}">
+                                            {{ title[1] }}
+                                        </a></li>
+                                {% endif %}
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul class="list-unstyled">
-                        {% for title, files in video_information|dictsort %}
-                        {% if lang != 'eng' and files['transcripts']['de'] == '' %}
-                            <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }} (nur auf Englisch)" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcript="{{ files['transcripts']['en'] }}" data-videolanguage="en">
-                                    {{ title[1] }} (nur auf Englisch)
-                                </a></li>
-                        {% else %}
-                            <li><a type="button" role="button" class="btn btn-link text-left" data-toggle="modal" data-target="#videoModal" data-modallabel="{{ title[1] }}" data-videosource="{{ url_for('InstanceNemo.static', filename=files['video']) }}" data-transcriptde="{{ files['transcripts']['de'] }}" data-transcripten="{{ files['transcripts']['en'] }}" data-videolanguage="{% if lang == 'eng' %}en{% else %}de{% endif %}">
-                                    {{ title[1] }}
-                                </a></li>
-                        {% endif %}
-                        {% endfor %}
-                        </ul>
-                    </div>
+                {% endfor %}
                 </div>
             </div>
-        {% endfor %}
         </div>
     
 </div>
