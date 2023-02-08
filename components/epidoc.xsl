@@ -495,6 +495,10 @@
         </xsl:element>
     </xsl:template>
     
+    <xsl:template match="t:seg[@type='deperditum']">
+        <span class="foreign-text h5"><xsl:apply-templates/></span>
+    </xsl:template>
+    
     <xsl:template match="t:list">
         <ul class="list-unstyled">
             <xsl:apply-templates/>
