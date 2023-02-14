@@ -1474,7 +1474,8 @@ class NemoFormulae(Nemo):
                 cits[i] = Markup(Markup(cit))
             if ref[0] not in request.url:
                 try:
-                    inRefs.append([self.resolver.getMetadata(ref[0]), cits])
+                    in_ref_coll = self.resolver.getMetadata(ref[0])
+                    inRefs.append([(in_ref_coll.id, Markup(in_ref_coll.get_label())), cits])
                 except UnknownCollection:
                     inRefs.append(ref[0])
         translations = [(m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '')
