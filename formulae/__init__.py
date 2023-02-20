@@ -66,7 +66,7 @@ def create_app(config_class=Config):
     login.init_app(app)
     mail.init_app(app)
     bootstrap.init_app(app)
-    babel.init_app(app)
+    babel.init_app(app, locale_selector=get_locale)
     sess.init_app(app)
     app.redis = Redis.from_url(app.config['REDIS_URL'])
 
@@ -94,7 +94,6 @@ def create_app(config_class=Config):
     return app
 
 
-@babel.localeselector
 def get_locale():
     if current_user.is_authenticated and current_user.default_locale:
         return current_user.default_locale
