@@ -4,7 +4,7 @@ from flask_babel import lazy_gettext as _l
 from flask_babel import _
 from wtforms import StringField, BooleanField, SelectMultipleField, SelectField, SubmitField, HiddenField, RadioField
 from wtforms.validators import DataRequired, ValidationError, NumberRange
-from wtforms.fields.html5 import IntegerField
+from wtforms.fields import IntegerField
 from wtforms.widgets import CheckboxInput
 from collections import OrderedDict
 from random import randint
