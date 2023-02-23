@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from flask_babel import lazy_gettext as _l
 from flask_babel import _
 from wtforms import StringField, BooleanField, SelectMultipleField, SelectField, SubmitField, HiddenField, RadioField
-from wtforms.validators import DataRequired, ValidationError, NumberRange
+from wtforms.validators import ValidationError, DataRequired
 from wtforms.fields import IntegerField
 from wtforms.widgets import CheckboxInput
 from collections import OrderedDict
@@ -42,11 +42,10 @@ def validate_optional_number_range(minimum: int = -1, maximum: int = -1, message
 
 class SearchForm(FlaskForm):
     q_1 = StringField(_l('Suche'), validators=[DataRequired()])
-    corpus = SelectMultipleField(_l('Korpora'), choices=[('formulae', _l('Formeln')), ('chartae', _l('Urkunden')),
+    corpus = SelectMultipleField(_l('Korpora'), choices=[('formulae', _l('Formeln')),
+                                                         ('chartae', _l('Urkunden')),
                                                          ('elexicon', _l('Lexikon'))],
-                                 option_widget=CheckboxInput(),
-                                 validators=[DataRequired(
-                                     message=_l('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden" oder "Lexikon").'))]
+                                 option_widget=CheckboxInput()
                                  )
     lemma_search = BooleanField(_l('Lemma'))
     simple_search_id = HiddenField(validators=[validate_optional_number_range(1, 10000)], default=randint(1, 10000))
@@ -60,7 +59,7 @@ class SearchForm(FlaskForm):
 
 
 class AdvancedSearchForm(SearchForm):
-    q_1 = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
+    q_1 = StringField(_l('Suche'), default='')  # query string is not DataRequired here since someone might want to search on other criteria
     regex_search_1 = BooleanField(_l('RegEx'))
     fuzziness_1 = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
@@ -77,7 +76,7 @@ class AdvancedSearchForm(SearchForm):
                                                                        ('ortsname', _l('Ortsname'))])
 
     exclude_q_1 = StringField(_l('Ausschlusskriterium'))
-    q_2 = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
+    q_2 = StringField(_l('Suche'), default='')  # query string is not DataRequired here since someone might want to search on other criteria
     regex_search_2 = BooleanField(_l('RegEx'))
     fuzziness_2 = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
@@ -94,7 +93,7 @@ class AdvancedSearchForm(SearchForm):
                                                                        ('ortsname', _l('Ortsname'))])
 
     exclude_q_2 = StringField(_l('Ausschlusskriterium'))
-    q_3 = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
+    q_3 = StringField(_l('Suche'), default='')  # query string is not DataRequired here since someone might want to search on other criteria
     regex_search_3 = BooleanField(_l('RegEx'))
     fuzziness_3 = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],
@@ -111,7 +110,7 @@ class AdvancedSearchForm(SearchForm):
                                                                        ('ortsname', _l('Ortsname'))])
 
     exclude_q_3 = StringField(_l('Ausschlusskriterium'))
-    q_4 = StringField(_l('Suche'))  # query string is not DataRequired here since someone might want to search on other criteria
+    q_4 = StringField(_l('Suche'), default='')  # query string is not DataRequired here since someone might want to search on other criteria
     regex_search_4 = BooleanField(_l('RegEx'))
     fuzziness_4 = SelectField(_l("Unschärfegrad"),
                             choices=[("0", '0'), ("1", "1"), ("2", '2'), ('AUTO', _('AUTO'))],

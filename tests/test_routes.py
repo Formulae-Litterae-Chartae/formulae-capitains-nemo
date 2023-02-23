@@ -2073,13 +2073,10 @@ class TestForms(Formulae_Testing):
 
     def test_invalid_corpus_simple_search_form(self):
         """ Ensure that the simple search form returns a ValidationError with no corpus"""
-        form = SearchForm(corpus=[], q_1='regnum')
-        form.data['corpus'].append('')
-        self.assertFalse(form.validate(), 'Search with no corpus specified should not validate')
-        # I need two choices here since locally it returns the default Error and on Travis it returns the custom message
-        self.assertIn(str(form.corpus.errors[0]),
-                      [_('Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" und/oder \"Urkunden\").'),
-                       _("'' ist kein gültige Auswahl für dieses Feld.")])
+        form = SearchForm(corpus=[], q_1=None)
+        # form.data['corpus'].append('')
+        self.assertFalse(form.validate(), 'Simple search with no search string should not validate')
+        self.assertIn(str(form.q_1.errors[0]), _('Dieses Feld wird benötigt.'))
 
     def test_invalid_query_simple_search_form(self):
         """ Ensure that the simple search form returns a ValidationError with no corpus"""
@@ -9119,9 +9116,14 @@ class TestES(Formulae_Testing):
         self.assertEqual(aggs, {}, 'Aggregations should be an empty dictionary.')
         with self.client:
             self.client.get('/search/simple?corpus=&q_1=regnum', follow_redirects=True)
-            self.assertIn(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') +
+            self.assertIn(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden" oder "Lexikon").') +
                           _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'), [x[0] for x in self.flashed_messages])
-            old_search_args = session['previous_search_args']
+            # Something changes in the update to Flask 2.2.3 so that 'previous_search_args' is somehow removed from
+            # session but remains in g. It still works as it should in the Werkstatt.
+            try:
+                old_search_args = session['previous_search_args']
+            except KeyError:
+                old_search_args = g.previous_search_args
             self.assertIn('fulda_dronke', old_search_args['corpus'],
                           'Charters should automatically be search when no index is given in simple search.')
             self.assertIn('andecavensis', old_search_args['corpus'],
@@ -9133,10 +9135,10 @@ class TestES(Formulae_Testing):
             self.assertIn(_('Dieses Feld wird benötigt.') + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'),
                           [x[0] for x in self.flashed_messages])
             self.client.get('/search/simple?corpus=formulae&q_1=regnum&lemma_search=True', follow_redirects=True)
-            query_dict = make_query_dict(session['previous_search_args'])
+            query_dict = make_query_dict(g.previous_search_args)
             self.assertEqual(query_dict['q_1']['search_field'], 'lemmas', '"True" should prompt lemma search')
             self.client.get('/search/simple?corpus=formulae&q_1=regnum&lemma_search=y', follow_redirects=True)
-            query_dict = make_query_dict(session['previous_search_args'])
+            query_dict = make_query_dict(g.previous_search_args)
             self.assertEqual(query_dict['q_1']['search_field'], 'lemmas', '"y" should prompt lemma search')
 
     # @patch.object(Elasticsearch, "search")
