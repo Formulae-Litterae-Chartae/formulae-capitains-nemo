@@ -15183,6 +15183,156 @@
     "id": "urn:cts:formulae:lorsch.gloeckner4462.lat001"
   },
   {
+    "id": "urn:cts:formulae:lothar_2.schieffer0001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0014.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0015.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0018.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0032.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0033.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0035.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0036.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0037.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0038.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0039.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0040.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0041.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0042.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0043.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0045.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0046.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0048.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0049.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:lothar_2.schieffer0050.lat001"
+  },
+  {
     "id": "urn:cts:formulae:ludwig_2.wanner0001.lat001"
   },
   {
@@ -19179,7 +19329,10 @@
     "id": "urn:cts:formulae:mondsee.rath0051.lat001"
   },
   {
-    "id": "urn:cts:formulae:mondsee.rath0052.lat001"
+    "id": "urn:cts:formulae:mondsee.rath0052a.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mondsee.rath0052b.lat001"
   },
   {
     "id": "urn:cts:formulae:mondsee.rath0053.lat001"
@@ -19254,7 +19407,10 @@
     "id": "urn:cts:formulae:mondsee.rath0079.lat001"
   },
   {
-    "id": "urn:cts:formulae:mondsee.rath0080.lat001"
+    "id": "urn:cts:formulae:mondsee.rath0080a.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:mondsee.rath0080b.lat001"
   },
   {
     "id": "urn:cts:formulae:mondsee.rath0081.lat001"
@@ -19291,9 +19447,6 @@
   },
   {
     "id": "urn:cts:formulae:mondsee.rath0094.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:mondsee.rath0096.lat001"
   },
   {
     "id": "urn:cts:formulae:mondsee.rath0097.lat001"
@@ -19342,9 +19495,6 @@
   },
   {
     "id": "urn:cts:formulae:mondsee.rath0117.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:mondsee.rath0118.lat001"
   },
   {
     "id": "urn:cts:formulae:mondsee.rath0119.lat001"

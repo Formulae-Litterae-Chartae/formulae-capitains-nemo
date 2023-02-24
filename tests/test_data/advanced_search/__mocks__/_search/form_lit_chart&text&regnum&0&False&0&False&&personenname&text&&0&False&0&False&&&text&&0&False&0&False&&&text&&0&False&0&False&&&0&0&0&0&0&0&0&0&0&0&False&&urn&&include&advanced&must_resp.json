@@ -1,22 +1,22 @@
 [
   {
-    "took": 356,
+    "took": 227,
     "timed_out": false,
     "_shards": {
-      "total": 66,
-      "successful": 66,
+      "total": 67,
+      "successful": 67,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 263,
+        "value": 264,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.computus.lat001",
           "_score": null,
           "_source": {
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form034.lat001",
           "_score": null,
           "_source": {
@@ -109,7 +109,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form1_001.lat001",
           "_score": null,
           "_source": {
@@ -140,7 +140,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form1_002.lat001",
           "_score": null,
           "_source": {
@@ -171,7 +171,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form1_016.lat001",
           "_score": null,
           "_source": {
@@ -202,7 +202,7 @@
           ]
         },
         {
-          "_index": "buenden_v35",
+          "_index": "buenden_v46",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -498,14 +498,14 @@
             "max_date": "0813-04-20",
             "days": [
               "Easter",
+              "Wednesday",
               "Saturday",
               "Monday",
+              "Tuesday",
               "Sunday",
-              "Friday",
-              "Wednesday",
-              "Thursday",
               "Lent",
-              "Tuesday"
+              "Thursday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -520,7 +520,7 @@
           ]
         },
         {
-          "_index": "buenden_v35",
+          "_index": "buenden_v46",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -744,14 +744,14 @@
             "max_date": "0813-03-31",
             "days": [
               "Easter",
+              "Wednesday",
               "Saturday",
               "Monday",
+              "Tuesday",
               "Sunday",
-              "Friday",
-              "Thursday",
-              "Wednesday",
               "Lent",
-              "Tuesday"
+              "Thursday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -766,7 +766,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_cxv_v35",
+          "_index": "chartae_latinae_cxv_v46",
           "_id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0038.lat001",
           "_score": null,
           "_source": {
@@ -809,7 +809,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_cxvi_v35",
+          "_index": "chartae_latinae_cxvi_v46",
           "_id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0014d.lat001",
           "_score": null,
           "_source": {
@@ -840,8 +840,8 @@
             "min_date": "0800-04-11",
             "max_date": "0800-04-11",
             "days": [
-              "Lent",
-              "Saturday"
+              "Saturday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -856,7 +856,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xii_v35",
+          "_index": "chartae_latinae_xii_v46",
           "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0529.lat001",
           "_score": null,
           "_source": {
@@ -899,7 +899,7 @@
           ]
         },
         {
-          "_index": "echternach_v35",
+          "_index": "echternach_v46",
           "_id": "urn:cts:formulae:echternach.wampach0170.lat001",
           "_score": null,
           "_source": {
@@ -942,7 +942,7 @@
           ]
         },
         {
-          "_index": "eudes_v35",
+          "_index": "eudes_v46",
           "_id": "urn:cts:formulae:eudes.lex0018.lat001",
           "_score": null,
           "_source": {
@@ -985,7 +985,7 @@
           ]
         },
         {
-          "_index": "eudes_v35",
+          "_index": "eudes_v46",
           "_id": "urn:cts:formulae:eudes.lex0029.lat001",
           "_score": null,
           "_source": {
@@ -1028,7 +1028,7 @@
           ]
         },
         {
-          "_index": "flavigny_v26",
+          "_index": "flavigny_v37",
           "_id": "urn:cts:formulae:flavigny.form1_006.lat001",
           "_score": null,
           "_source": {
@@ -1059,7 +1059,7 @@
           ]
         },
         {
-          "_index": "flavigny_v26",
+          "_index": "flavigny_v37",
           "_id": "urn:cts:formulae:flavigny.form1_008.lat001",
           "_score": null,
           "_source": {
@@ -1090,7 +1090,7 @@
           ]
         },
         {
-          "_index": "flavigny_v26",
+          "_index": "flavigny_v37",
           "_id": "urn:cts:formulae:flavigny.form2_001.lat001",
           "_score": null,
           "_source": {
@@ -1121,7 +1121,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0035.lat001",
           "_score": null,
           "_source": {
@@ -1162,7 +1162,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0106.lat001",
           "_score": null,
           "_source": {
@@ -1203,7 +1203,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0344.lat001",
           "_score": null,
           "_source": {
@@ -1249,7 +1249,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0355.lat001",
           "_score": null,
           "_source": {
@@ -1295,7 +1295,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0365.lat001",
           "_score": null,
           "_source": {
@@ -1341,7 +1341,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0394.lat001",
           "_score": null,
           "_source": {
@@ -1388,7 +1388,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0396.lat001",
           "_score": null,
           "_source": {
@@ -1434,7 +1434,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0397.lat001",
           "_score": null,
           "_source": {
@@ -1477,9 +1477,9 @@
             "min_date": "0818-04-18",
             "max_date": "0819-12-30",
             "days": [
-              "Monday",
+              "Sunday",
               "Friday",
-              "Sunday"
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -1494,7 +1494,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0400.lat001",
           "_score": null,
           "_source": {
@@ -1551,7 +1551,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0401.lat001",
           "_score": null,
           "_source": {
@@ -1597,7 +1597,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0409.lat001",
           "_score": null,
           "_source": {
@@ -1644,7 +1644,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0412.lat001",
           "_score": null,
           "_source": {
@@ -1690,7 +1690,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0414.lat001",
           "_score": null,
           "_source": {
@@ -1736,7 +1736,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0415.lat001",
           "_score": null,
           "_source": {
@@ -1782,7 +1782,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0419.lat001",
           "_score": null,
           "_source": {
@@ -1828,7 +1828,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0426.lat001",
           "_score": null,
           "_source": {
@@ -1874,7 +1874,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0427.lat001",
           "_score": null,
           "_source": {
@@ -1920,7 +1920,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0439.lat001",
           "_score": null,
           "_source": {
@@ -1966,7 +1966,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0459.lat001",
           "_score": null,
           "_source": {
@@ -2012,7 +2012,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0460.lat001",
           "_score": null,
           "_source": {
@@ -2043,8 +2043,8 @@
             "min_date": "0822-03-01",
             "max_date": "0822-03-01",
             "days": [
-              "Lent",
-              "Saturday"
+              "Saturday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -2059,7 +2059,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0472.lat001",
           "_score": null,
           "_source": {
@@ -2105,7 +2105,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0489.lat001",
           "_score": null,
           "_source": {
@@ -2151,7 +2151,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0493.lat001",
           "_score": null,
           "_source": {
@@ -2197,7 +2197,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0608.lat001",
           "_score": null,
           "_source": {
@@ -2228,8 +2228,8 @@
             "min_date": "0835-04-13",
             "max_date": "0835-04-13",
             "days": [
-              "Lent",
-              "Tuesday"
+              "Tuesday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -2244,7 +2244,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0785.lat001",
           "_score": null,
           "_source": {
@@ -2290,7 +2290,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v35",
+          "_index": "fulda_stengel_v46",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0034.lat001",
           "_score": null,
           "_source": {
@@ -2333,7 +2333,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v35",
+          "_index": "fulda_stengel_v46",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0067.lat001",
           "_score": null,
           "_source": {
@@ -2379,7 +2379,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v35",
+          "_index": "fulda_stengel_v46",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0067.lat002",
           "_score": null,
           "_source": {
@@ -2425,7 +2425,7 @@
           ]
         },
         {
-          "_index": "gorze_v35",
+          "_index": "gorze_v46",
           "_id": "urn:cts:formulae:gorze.dherbomez0088.lat001",
           "_score": null,
           "_source": {
@@ -2468,7 +2468,7 @@
           ]
         },
         {
-          "_index": "gorze_v35",
+          "_index": "gorze_v46",
           "_id": "urn:cts:formulae:gorze.dherbomez0090.lat001",
           "_score": null,
           "_source": {
@@ -2511,7 +2511,7 @@
           ]
         },
         {
-          "_index": "gorze_v35",
+          "_index": "gorze_v46",
           "_id": "urn:cts:formulae:gorze.dherbomez0100.lat001",
           "_score": null,
           "_source": {
@@ -2557,7 +2557,7 @@
           ]
         },
         {
-          "_index": "gorze_v35",
+          "_index": "gorze_v46",
           "_id": "urn:cts:formulae:gorze.dherbomez0105.lat001",
           "_score": null,
           "_source": {
@@ -2600,7 +2600,7 @@
           ]
         },
         {
-          "_index": "gorze_v35",
+          "_index": "gorze_v46",
           "_id": "urn:cts:formulae:gorze.dherbomez0106.lat001",
           "_score": null,
           "_source": {
@@ -2643,7 +2643,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v35",
+          "_index": "hersfeld_v46",
           "_id": "urn:cts:formulae:hersfeld.weirich0016.lat001",
           "_score": null,
           "_source": {
@@ -2689,7 +2689,7 @@
           ]
         },
         {
-          "_index": "katalonien_v35",
+          "_index": "katalonien_v46",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0207.lat001",
           "_score": null,
           "_source": {
@@ -2730,7 +2730,7 @@
           ]
         },
         {
-          "_index": "katalonien_v35",
+          "_index": "katalonien_v46",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0309.lat001",
           "_score": null,
           "_source": {
@@ -2812,7 +2812,7 @@
           ]
         },
         {
-          "_index": "katalonien_v35",
+          "_index": "katalonien_v46",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdepallarsiribagora_0311.lat001",
           "_score": null,
           "_source": {
@@ -2894,7 +2894,7 @@
           ]
         },
         {
-          "_index": "katalonien_v35",
+          "_index": "katalonien_v46",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0455.lat001",
           "_score": null,
           "_source": {
@@ -2940,7 +2940,7 @@
           ]
         },
         {
-          "_index": "katalonien_v35",
+          "_index": "katalonien_v46",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0535.lat001",
           "_score": null,
           "_source": {
@@ -2986,7 +2986,7 @@
           ]
         },
         {
-          "_index": "katalonien_v35",
+          "_index": "katalonien_v46",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0621.lat001",
           "_score": null,
           "_source": {
@@ -3032,7 +3032,7 @@
           ]
         },
         {
-          "_index": "katalonien_v35",
+          "_index": "katalonien_v46",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1080.lat001",
           "_score": null,
           "_source": {
@@ -3075,7 +3075,7 @@
           ]
         },
         {
-          "_index": "katalonien_v35",
+          "_index": "katalonien_v46",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1705.lat001",
           "_score": null,
           "_source": {
@@ -3121,7 +3121,7 @@
           ]
         },
         {
-          "_index": "katalonien_v35",
+          "_index": "katalonien_v46",
           "_id": "urn:cts:formulae:katalonien.vinyals_preceptesperaparticulars_0026.lat001",
           "_score": null,
           "_source": {
@@ -3152,8 +3152,8 @@
             "min_date": "0869-02-28",
             "max_date": "0869-02-28",
             "days": [
-              "Monday",
-              "Lent"
+              "Lent",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -3168,7 +3168,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v35",
+          "_index": "langobardisch_v46",
           "_id": "urn:cts:formulae:langobardisch.bruehl0009.lat001",
           "_score": null,
           "_source": {
@@ -3199,8 +3199,8 @@
             "min_date": "0713-04-02",
             "max_date": "0713-04-02",
             "days": [
-              "Lent",
-              "Sunday"
+              "Sunday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -3215,7 +3215,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v35",
+          "_index": "langobardisch_v46",
           "_id": "urn:cts:formulae:langobardisch.bruehl0011.lat001",
           "_score": null,
           "_source": {
@@ -3261,7 +3261,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v35",
+          "_index": "langobardisch_v46",
           "_id": "urn:cts:formulae:langobardisch.bruehl0033.lat001",
           "_score": null,
           "_source": {
@@ -3307,7 +3307,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0016.lat001",
           "_score": null,
           "_source": {
@@ -3350,7 +3350,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0018.lat001",
           "_score": null,
           "_source": {
@@ -3396,7 +3396,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0027.lat001",
           "_score": null,
           "_source": {
@@ -3439,7 +3439,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0030.lat001",
           "_score": null,
           "_source": {
@@ -3482,7 +3482,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0031.lat001",
           "_score": null,
           "_source": {
@@ -3525,7 +3525,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0034.lat001",
           "_score": null,
           "_source": {
@@ -3568,7 +3568,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0035.lat001",
           "_score": null,
           "_source": {
@@ -3611,7 +3611,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0042.lat001",
           "_score": null,
           "_source": {
@@ -3654,7 +3654,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0051.lat001",
           "_score": null,
           "_source": {
@@ -3697,7 +3697,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0058.lat001",
           "_score": null,
           "_source": {
@@ -3740,7 +3740,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0062.lat001",
           "_score": null,
           "_source": {
@@ -3783,7 +3783,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0063.lat001",
           "_score": null,
           "_source": {
@@ -3826,7 +3826,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0065.lat001",
           "_score": null,
           "_source": {
@@ -3869,7 +3869,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0068.lat001",
           "_score": null,
           "_source": {
@@ -3912,7 +3912,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0069.lat001",
           "_score": null,
           "_source": {
@@ -3958,7 +3958,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0074.lat001",
           "_score": null,
           "_source": {
@@ -4001,7 +4001,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0077.lat001",
           "_score": null,
           "_source": {
@@ -4044,7 +4044,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0080.lat001",
           "_score": null,
           "_source": {
@@ -4087,7 +4087,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0083.lat001",
           "_score": null,
           "_source": {
@@ -4133,7 +4133,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0084.lat001",
           "_score": null,
           "_source": {
@@ -4176,7 +4176,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0085.lat001",
           "_score": null,
           "_source": {
@@ -4222,7 +4222,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0087.lat001",
           "_score": null,
           "_source": {
@@ -4268,7 +4268,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0088.lat001",
           "_score": null,
           "_source": {
@@ -4311,7 +4311,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0090.lat001",
           "_score": null,
           "_source": {
@@ -4357,7 +4357,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0091.lat001",
           "_score": null,
           "_source": {
@@ -4400,7 +4400,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0095.lat001",
           "_score": null,
           "_source": {
@@ -4437,9 +4437,9 @@
             "min_date": "0748-04-09",
             "max_date": "0748-04-10",
             "days": [
-              "Wednesday",
+              "Tuesday",
               "Lent",
-              "Tuesday"
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -4454,7 +4454,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0096.lat001",
           "_score": null,
           "_source": {
@@ -4500,7 +4500,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0104.lat001",
           "_score": null,
           "_source": {
@@ -4543,7 +4543,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0105.lat001",
           "_score": null,
           "_source": {
@@ -4586,7 +4586,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0106.lat001",
           "_score": null,
           "_source": {
@@ -4629,7 +4629,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0111.lat001",
           "_score": null,
           "_source": {
@@ -4672,7 +4672,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0113.lat001",
           "_score": null,
           "_source": {
@@ -4715,7 +4715,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0117.lat001",
           "_score": null,
           "_source": {
@@ -4758,7 +4758,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0123.lat001",
           "_score": null,
           "_source": {
@@ -4804,7 +4804,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0041.lat001",
           "_score": null,
           "_source": {
@@ -4835,7 +4835,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0077.lat001",
           "_score": null,
           "_source": {
@@ -4866,7 +4866,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0100.lat001",
           "_score": null,
           "_source": {
@@ -4897,7 +4897,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0106.lat001",
           "_score": null,
           "_source": {
@@ -4928,7 +4928,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0111.lat001",
           "_score": null,
           "_source": {
@@ -4959,7 +4959,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0146.lat001",
           "_score": null,
           "_source": {
@@ -4990,7 +4990,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0214.lat001",
           "_score": null,
           "_source": {
@@ -5021,7 +5021,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0217.lat001",
           "_score": null,
           "_source": {
@@ -5052,7 +5052,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0238.lat001",
           "_score": null,
           "_source": {
@@ -5083,7 +5083,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1019.lat001",
           "_score": null,
           "_source": {
@@ -5129,7 +5129,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
           "_score": null,
           "_source": {
@@ -5175,7 +5175,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
           "_score": null,
           "_source": {
@@ -5221,7 +5221,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3823.lat001",
           "_score": null,
           "_source": {
@@ -5252,7 +5252,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3824.lat001",
           "_score": null,
           "_source": {
@@ -5283,7 +5283,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4099.lat001",
           "_score": null,
           "_source": {
@@ -5329,7 +5329,53 @@
           ]
         },
         {
-          "_index": "ludwig_2_v35",
+          "_index": "lothar_2_v7",
+          "_id": "urn:cts:formulae:lothar_2.schieffer0007.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Die Urkunden Lothars I. und Lothars II. (Ed. Schieffer) Nr. 7",
+            "keywords": "",
+            "urn": "urn:cts:formulae:lothar_2.schieffer0007.lat001",
+            "date_string": "858 01 02",
+            "comp_ort": "Prüm",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": "Prüm",
+            "collection": "lothar_2",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 858,
+                "month": 1,
+                "day": 2
+              }
+            ],
+            "all_dates": [
+              "0858-01-02"
+            ],
+            "min_date": "0858-01-02",
+            "max_date": "0858-01-02",
+            "days": [
+              "Sunday"
+            ],
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "text": [
+              "text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:lothar_2.schieffer0007.lat001"
+          ]
+        },
+        {
+          "_index": "ludwig_2_v46",
           "_id": "urn:cts:formulae:ludwig_2.wanner0082.lat001",
           "_score": null,
           "_source": {
@@ -5372,7 +5418,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v35",
+          "_index": "marmoutier_blésois_v46",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0008.lat001",
           "_score": null,
           "_source": {
@@ -5415,7 +5461,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v35",
+          "_index": "marmoutier_blésois_v46",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0013.lat001",
           "_score": null,
           "_source": {
@@ -5458,7 +5504,7 @@
           ]
         },
         {
-          "_index": "marmoutier_blésois_v35",
+          "_index": "marmoutier_blésois_v46",
           "_id": "urn:cts:formulae:marmoutier_blésois.métais0068.lat001",
           "_score": null,
           "_source": {
@@ -5507,7 +5553,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0162.lat001",
           "_score": null,
           "_source": {
@@ -5550,7 +5596,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0077.lat001",
           "_score": null,
           "_source": {
@@ -5593,7 +5639,7 @@
           ]
         },
         {
-          "_index": "marmoutier_fougères_v35",
+          "_index": "marmoutier_fougères_v46",
           "_id": "urn:cts:formulae:marmoutier_fougères.mazel0001.lat001",
           "_score": null,
           "_source": {
@@ -5636,7 +5682,7 @@
           ]
         },
         {
-          "_index": "marmoutier_manceau_v35",
+          "_index": "marmoutier_manceau_v46",
           "_id": "urn:cts:formulae:marmoutier_manceau.laurain_sablé_0013.lat001",
           "_score": null,
           "_source": {
@@ -5679,7 +5725,7 @@
           ]
         },
         {
-          "_index": "marmoutier_manceau_v35",
+          "_index": "marmoutier_manceau_v46",
           "_id": "urn:cts:formulae:marmoutier_manceau.laurain_vivoin_0002.lat001",
           "_score": null,
           "_source": {
@@ -5722,7 +5768,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_v35",
+          "_index": "marmoutier_vendomois_v46",
           "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0062.lat001",
           "_score": null,
           "_source": {
@@ -5765,7 +5811,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_appendix_v35",
+          "_index": "marmoutier_vendomois_appendix_v46",
           "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0011.lat001",
           "_score": null,
           "_source": {
@@ -5808,7 +5854,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_appendix_v35",
+          "_index": "marmoutier_vendomois_appendix_v46",
           "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0015.lat001",
           "_score": null,
           "_source": {
@@ -5851,7 +5897,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0003.lat001",
           "_score": null,
           "_source": {
@@ -5894,7 +5940,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0012.lat001",
           "_score": null,
           "_source": {
@@ -5937,7 +5983,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0033.lat001",
           "_score": null,
           "_source": {
@@ -5980,7 +6026,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0049.lat001",
           "_score": null,
           "_source": {
@@ -6026,7 +6072,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0069.lat001",
           "_score": null,
           "_source": {
@@ -6057,8 +6103,8 @@
             "min_date": "0662-04-02",
             "max_date": "0662-04-02",
             "days": [
-              "Lent",
-              "Saturday"
+              "Saturday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -6073,7 +6119,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0087.lat001",
           "_score": null,
           "_source": {
@@ -6116,7 +6162,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0180.lat001",
           "_score": null,
           "_source": {
@@ -6162,7 +6208,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0191.lat001",
           "_score": null,
           "_source": {
@@ -6208,7 +6254,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0192.lat001",
           "_score": null,
           "_source": {
@@ -6257,7 +6303,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v35",
+          "_index": "mittelrheinisch_v46",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0135.lat001",
           "_score": null,
           "_source": {
@@ -6288,7 +6334,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v35",
+          "_index": "mittelrheinisch_v46",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0137.lat001",
           "_score": null,
           "_source": {
@@ -6331,7 +6377,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v35",
+          "_index": "mittelrheinisch_v46",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0167.lat001",
           "_score": null,
           "_source": {
@@ -6374,7 +6420,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v35",
+          "_index": "mittelrheinisch_v46",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0169.lat001",
           "_score": null,
           "_source": {
@@ -6417,7 +6463,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v35",
+          "_index": "mittelrheinisch_v46",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0171.lat001",
           "_score": null,
           "_source": {
@@ -6460,7 +6506,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v35",
+          "_index": "mittelrheinisch_v46",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0193.lat001",
           "_score": null,
           "_source": {
@@ -6506,7 +6552,7 @@
           ]
         },
         {
-          "_index": "mittelrheinisch_v35",
+          "_index": "mittelrheinisch_v46",
           "_id": "urn:cts:formulae:mittelrheinisch.beyer0220.lat001",
           "_score": null,
           "_source": {
@@ -6552,7 +6598,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0014.lat001",
           "_score": null,
           "_source": {
@@ -6595,7 +6641,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v35",
+          "_index": "pippin_3_v46",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0013.lat001",
           "_score": null,
           "_source": {
@@ -6638,7 +6684,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v35",
+          "_index": "pippin_3_v46",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0016.lat001",
           "_score": null,
           "_source": {
@@ -6684,7 +6730,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v35",
+          "_index": "pippin_3_v46",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0026.lat001",
           "_score": null,
           "_source": {
@@ -6730,7 +6776,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v35",
+          "_index": "pippin_3_v46",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0036.lat001",
           "_score": null,
           "_source": {
@@ -6776,7 +6822,7 @@
           ]
         },
         {
-          "_index": "pippin_3_v35",
+          "_index": "pippin_3_v46",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0040.lat001",
           "_score": null,
           "_source": {
@@ -6807,7 +6853,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0001.lat001",
           "_score": null,
           "_source": {
@@ -6853,7 +6899,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0002.lat001",
           "_score": null,
           "_source": {
@@ -6899,7 +6945,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
           "_source": {
@@ -6948,7 +6994,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
           "_source": {
@@ -6997,7 +7043,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0011.lat001",
           "_score": null,
           "_source": {
@@ -7043,7 +7089,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0012.lat001",
           "_score": null,
           "_source": {
@@ -7089,7 +7135,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0013.lat001",
           "_score": null,
           "_source": {
@@ -7135,7 +7181,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0014.lat001",
           "_score": null,
           "_source": {
@@ -7166,8 +7212,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Wednesday",
-              "Lent"
+              "Lent",
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -7182,7 +7228,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0016.lat001",
           "_score": null,
           "_source": {
@@ -7219,8 +7265,8 @@
             "min_date": "0820-05-07",
             "max_date": "0820-06-05",
             "days": [
-              "Monday",
-              "Tuesday"
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -7235,7 +7281,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0017.lat001",
           "_score": null,
           "_source": {
@@ -7281,7 +7327,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0018.lat001",
           "_score": null,
           "_source": {
@@ -7327,7 +7373,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0019.lat001",
           "_score": null,
           "_source": {
@@ -7373,7 +7419,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0020.lat001",
           "_score": null,
           "_source": {
@@ -7419,7 +7465,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0022.lat001",
           "_score": null,
           "_source": {
@@ -7474,11 +7520,11 @@
             "min_date": "0817-10-13",
             "max_date": "0821-10-13",
             "days": [
-              "Saturday",
-              "Sunday",
-              "Thursday",
               "Wednesday",
-              "Tuesday"
+              "Saturday",
+              "Tuesday",
+              "Sunday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -7493,7 +7539,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0023.lat001",
           "_score": null,
           "_source": {
@@ -7536,7 +7582,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0024.lat001",
           "_score": null,
           "_source": {
@@ -7582,7 +7628,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0025.lat001",
           "_score": null,
           "_source": {
@@ -7625,7 +7671,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0026.lat001",
           "_score": null,
           "_source": {
@@ -7668,7 +7714,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0027.lat001",
           "_score": null,
           "_source": {
@@ -7715,7 +7761,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0028.lat001",
           "_score": null,
           "_source": {
@@ -7762,7 +7808,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0031.lat001",
           "_score": null,
           "_source": {
@@ -7808,7 +7854,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0032.lat001",
           "_score": null,
           "_source": {
@@ -7854,7 +7900,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0033.lat001",
           "_score": null,
           "_source": {
@@ -7900,7 +7946,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0034.lat001",
           "_score": null,
           "_source": {
@@ -7946,7 +7992,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0038.lat001",
           "_score": null,
           "_source": {
@@ -7992,7 +8038,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0039.lat001",
           "_score": null,
           "_source": {
@@ -8038,7 +8084,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0040.lat001",
           "_score": null,
           "_source": {
@@ -8075,8 +8121,8 @@
             "min_date": "0844-06-11",
             "max_date": "0851-06-11",
             "days": [
-              "Wednesday",
-              "Thursday"
+              "Thursday",
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -8091,7 +8137,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0042.lat001",
           "_score": null,
           "_source": {
@@ -8128,8 +8174,8 @@
             "min_date": "0851-06-12",
             "max_date": "0858-06-12",
             "days": [
-              "Friday",
-              "Sunday"
+              "Sunday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -8144,7 +8190,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0043.lat001",
           "_score": null,
           "_source": {
@@ -8181,8 +8227,8 @@
             "min_date": "0852-12-30",
             "max_date": "0865-12-30",
             "days": [
-              "Friday",
-              "Sunday"
+              "Sunday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -8197,7 +8243,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
           "_score": null,
           "_source": {
@@ -8234,8 +8280,8 @@
             "min_date": "0858-02-12",
             "max_date": "0865-02-12",
             "days": [
-              "Monday",
-              "Saturday"
+              "Saturday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -8250,7 +8296,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0045.lat001",
           "_score": null,
           "_source": {
@@ -8296,7 +8342,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0046.lat001",
           "_score": null,
           "_source": {
@@ -8342,7 +8388,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0047.lat001",
           "_score": null,
           "_source": {
@@ -8388,7 +8434,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0048.lat001",
           "_score": null,
           "_source": {
@@ -8434,7 +8480,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0049.lat001",
           "_score": null,
           "_source": {
@@ -8465,8 +8511,8 @@
             "min_date": "0883-02-23",
             "max_date": "0883-02-23",
             "days": [
-              "Lent",
-              "Saturday"
+              "Saturday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -8481,7 +8527,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0050.lat001",
           "_score": null,
           "_source": {
@@ -8512,8 +8558,8 @@
             "min_date": "0883-02-23",
             "max_date": "0883-02-23",
             "days": [
-              "Lent",
-              "Saturday"
+              "Saturday",
+              "Lent"
             ],
             "sort_prefix": 1
           },
@@ -8528,7 +8574,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0051.lat001",
           "_score": null,
           "_source": {
@@ -8574,7 +8620,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0052.lat001",
           "_score": null,
           "_source": {
@@ -8620,7 +8666,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0053.lat001",
           "_score": null,
           "_source": {
@@ -8666,7 +8712,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0007.lat001",
           "_score": null,
           "_source": {
@@ -8712,7 +8758,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0008.lat001",
           "_score": null,
           "_source": {
@@ -8758,7 +8804,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0009.lat001",
           "_score": null,
           "_source": {
@@ -8801,7 +8847,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0011.lat001",
           "_score": null,
           "_source": {
@@ -8847,7 +8893,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0014.lat001",
           "_score": null,
           "_source": {
@@ -8890,7 +8936,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0079.lat001",
           "_score": null,
           "_source": {
@@ -8921,8 +8967,8 @@
             "min_date": "0863-03-15",
             "max_date": "0863-03-15",
             "days": [
-              "Monday",
-              "Lent"
+              "Lent",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -8937,7 +8983,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0243.lat001",
           "_score": null,
           "_source": {
@@ -8983,7 +9029,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0286.lat001",
           "_score": null,
           "_source": {
@@ -9026,7 +9072,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0290.lat001",
           "_score": null,
           "_source": {
@@ -9069,7 +9115,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0293.lat001",
           "_score": null,
           "_source": {
@@ -9112,7 +9158,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0294.lat001",
           "_score": null,
           "_source": {
@@ -9155,7 +9201,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0296.lat001",
           "_score": null,
           "_source": {
@@ -9198,7 +9244,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0299.lat001",
           "_score": null,
           "_source": {
@@ -9241,7 +9287,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0346.lat001",
           "_score": null,
           "_source": {
@@ -9284,7 +9330,7 @@
           ]
         },
         {
-          "_index": "redon_v35",
+          "_index": "redon_v46",
           "_id": "urn:cts:formulae:redon.courson0373.lat001",
           "_score": null,
           "_source": {
@@ -9327,7 +9373,7 @@
           ]
         },
         {
-          "_index": "regensburg_v35",
+          "_index": "regensburg_v46",
           "_id": "urn:cts:formulae:regensburg.wiedemann0021.lat001",
           "_score": null,
           "_source": {
@@ -9368,7 +9414,7 @@
           ]
         },
         {
-          "_index": "saint_bénigne_v35",
+          "_index": "saint_bénigne_v46",
           "_id": "urn:cts:formulae:saint_bénigne.maurice0005.lat001",
           "_score": null,
           "_source": {
@@ -9411,7 +9457,7 @@
           ]
         },
         {
-          "_index": "salzburg_v35",
+          "_index": "salzburg_v46",
           "_id": "urn:cts:formulae:salzburg.hauthaler-bn08.lat001",
           "_score": null,
           "_source": {
@@ -9442,7 +9488,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v35",
+          "_index": "schaeftlarn_v46",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0010.lat001",
           "_score": null,
           "_source": {
@@ -9483,7 +9529,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0008.lat001",
           "_score": null,
           "_source": {
@@ -9529,7 +9575,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0009.lat001",
           "_score": null,
           "_source": {
@@ -9575,7 +9621,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
           "_source": {
@@ -9621,7 +9667,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0072.lat001",
           "_score": null,
           "_source": {
@@ -9667,7 +9713,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0165.lat001",
           "_score": null,
           "_source": {
@@ -9714,7 +9760,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0173.lat001",
           "_score": null,
           "_source": {
@@ -9760,7 +9806,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0174.lat001",
           "_score": null,
           "_source": {
@@ -9806,7 +9852,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0180.lat001",
           "_score": null,
           "_source": {
@@ -9852,7 +9898,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0216.lat001",
           "_score": null,
           "_source": {
@@ -9895,7 +9941,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0224.lat001",
           "_score": null,
           "_source": {
@@ -9941,7 +9987,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0235.lat001",
           "_score": null,
           "_source": {
@@ -9987,7 +10033,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0243.lat001",
           "_score": null,
           "_source": {
@@ -10033,7 +10079,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0247.lat001",
           "_score": null,
           "_source": {
@@ -10064,8 +10110,8 @@
             "min_date": "0820-03-28",
             "max_date": "0820-03-28",
             "days": [
-              "Wednesday",
-              "Lent"
+              "Lent",
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -10080,7 +10126,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0250.lat001",
           "_score": null,
           "_source": {
@@ -10126,7 +10172,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0253.lat001",
           "_score": null,
           "_source": {
@@ -10172,7 +10218,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0255.lat001",
           "_score": null,
           "_source": {
@@ -10218,7 +10264,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0258.lat001",
           "_score": null,
           "_source": {
@@ -10264,7 +10310,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0259.lat001",
           "_score": null,
           "_source": {
@@ -10310,7 +10356,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0260.lat001",
           "_score": null,
           "_source": {
@@ -10356,7 +10402,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0262.lat001",
           "_score": null,
           "_source": {
@@ -10402,7 +10448,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0264.lat001",
           "_score": null,
           "_source": {
@@ -10449,7 +10495,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0265.lat001",
           "_score": null,
           "_source": {
@@ -10496,7 +10542,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0266.lat001",
           "_score": null,
           "_source": {
@@ -10543,7 +10589,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0270.lat001",
           "_score": null,
           "_source": {
@@ -10589,7 +10635,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0289.lat001",
           "_score": null,
           "_source": {
@@ -10635,7 +10681,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0290.lat001",
           "_score": null,
           "_source": {
@@ -10681,7 +10727,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0293.lat001",
           "_score": null,
           "_source": {
@@ -10727,7 +10773,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0296.lat001",
           "_score": null,
           "_source": {
@@ -10773,7 +10819,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0344.lat001",
           "_score": null,
           "_source": {
@@ -10819,7 +10865,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0353.lat001",
           "_score": null,
           "_source": {
@@ -10865,7 +10911,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0387.lat001",
           "_score": null,
           "_source": {
@@ -10911,7 +10957,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0391.lat001",
           "_score": null,
           "_source": {
@@ -10948,8 +10994,8 @@
             "min_date": "0844-06-11",
             "max_date": "0851-06-11",
             "days": [
-              "Wednesday",
-              "Thursday"
+              "Thursday",
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -10964,7 +11010,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0401.lat001",
           "_score": null,
           "_source": {
@@ -11017,7 +11063,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0407.lat001",
           "_score": null,
           "_source": {
@@ -11063,7 +11109,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0415.lat001",
           "_score": null,
           "_source": {
@@ -11100,8 +11146,8 @@
             "min_date": "0851-06-12",
             "max_date": "0858-06-12",
             "days": [
-              "Friday",
-              "Sunday"
+              "Sunday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -11116,7 +11162,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0421.lat001",
           "_score": null,
           "_source": {
@@ -11153,8 +11199,8 @@
             "min_date": "0852-12-30",
             "max_date": "0859-12-30",
             "days": [
-              "Friday",
-              "Saturday"
+              "Saturday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -11169,7 +11215,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0434.lat001",
           "_score": null,
           "_source": {
@@ -11215,7 +11261,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
           "_score": null,
           "_source": {
@@ -11252,8 +11298,8 @@
             "min_date": "0858-02-12",
             "max_date": "0865-02-12",
             "days": [
-              "Monday",
-              "Saturday"
+              "Saturday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -11268,7 +11314,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0501.lat001",
           "_score": null,
           "_source": {
@@ -11305,8 +11351,8 @@
             "min_date": "0864-05-15",
             "max_date": "0871-05-15",
             "days": [
-              "Monday",
-              "Tuesday"
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -11321,7 +11367,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0685.lat001",
           "_score": null,
           "_source": {
@@ -11367,7 +11413,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0705.lat001",
           "_score": null,
           "_source": {
@@ -11413,7 +11459,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0706.lat001",
           "_score": null,
           "_source": {
@@ -11459,7 +11505,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0734.lat001",
           "_score": null,
           "_source": {
@@ -11505,7 +11551,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1027.lat001",
           "_score": null,
           "_source": {
@@ -11548,7 +11594,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1433.lat001",
           "_score": null,
           "_source": {
@@ -11591,7 +11637,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1985.lat001",
           "_score": null,
           "_source": {
@@ -11634,7 +11680,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2178.lat001",
           "_score": null,
           "_source": {
@@ -11677,7 +11723,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2197.lat001",
           "_score": null,
           "_source": {
@@ -11720,7 +11766,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2282.lat001",
           "_score": null,
           "_source": {
@@ -11763,7 +11809,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2810.lat001",
           "_score": null,
           "_source": {
@@ -11806,7 +11852,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2848.lat001",
           "_score": null,
           "_source": {
@@ -11849,7 +11895,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3213.lat001",
           "_score": null,
           "_source": {
@@ -11892,7 +11938,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3515.lat001",
           "_score": null,
           "_source": {
@@ -11935,7 +11981,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3534.lat001",
           "_score": null,
           "_source": {
@@ -11978,7 +12024,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3574.lat001",
           "_score": null,
           "_source": {
@@ -12021,7 +12067,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud4448.lat001",
           "_score": null,
           "_source": {
@@ -12064,7 +12110,7 @@
           ]
         },
         {
-          "_index": "tours_st_julien_denis_v35",
+          "_index": "tours_st_julien_denis_v46",
           "_id": "urn:cts:formulae:tours_st_julien_denis.denis0030.lat001",
           "_score": null,
           "_source": {
@@ -12107,7 +12153,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0004.lat001",
           "_score": null,
           "_source": {
@@ -12153,7 +12199,7 @@
           ]
         },
         {
-          "_index": "zuerich_v35",
+          "_index": "zuerich_v46",
           "_id": "urn:cts:formulae:zuerich.escher0139.lat001",
           "_score": null,
           "_source": {

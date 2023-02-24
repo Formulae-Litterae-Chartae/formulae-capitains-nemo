@@ -1,22 +1,22 @@
 [
   {
-    "took": 104,
+    "took": 58,
     "timed_out": false,
     "_shards": {
-      "total": 66,
-      "successful": 66,
+      "total": 67,
+      "successful": 67,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 222,
+        "value": 223,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "chartae_latinae_cxv_v35",
+          "_index": "chartae_latinae_cxv_v46",
           "_id": "urn:cts:formulae:chartae_latinae_cxv.mersiowsky0009.lat001",
           "_score": null,
           "_source": {
@@ -57,7 +57,7 @@
           ]
         },
         {
-          "_index": "chartae_latinae_xii_v35",
+          "_index": "chartae_latinae_xii_v46",
           "_id": "urn:cts:formulae:chartae_latinae_xii.bruckner0536.lat001",
           "_score": null,
           "_source": {
@@ -98,7 +98,7 @@
           ]
         },
         {
-          "_index": "echternach_v35",
+          "_index": "echternach_v46",
           "_id": "urn:cts:formulae:echternach.wampach0011.lat001",
           "_score": null,
           "_source": {
@@ -139,7 +139,7 @@
           ]
         },
         {
-          "_index": "echternach_v35",
+          "_index": "echternach_v46",
           "_id": "urn:cts:formulae:echternach.wampach0028.lat001",
           "_score": null,
           "_source": {
@@ -180,7 +180,7 @@
           ]
         },
         {
-          "_index": "echternach_v35",
+          "_index": "echternach_v46",
           "_id": "urn:cts:formulae:echternach.wampach0034.lat001",
           "_score": null,
           "_source": {
@@ -221,7 +221,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0024.lat001",
           "_score": null,
           "_source": {
@@ -266,8 +266,8 @@
             "min_date": "0765",
             "max_date": "0767-12-31",
             "days": [
-              "Thursday",
-              "Tuesday"
+              "Tuesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -277,7 +277,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0050.lat001",
           "_score": null,
           "_source": {
@@ -318,7 +318,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0085.lat001",
           "_score": null,
           "_source": {
@@ -359,7 +359,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0120.lat001",
           "_score": null,
           "_source": {
@@ -400,7 +400,7 @@
           ]
         },
         {
-          "_index": "freising_v35",
+          "_index": "freising_v46",
           "_id": "urn:cts:formulae:freising.bitterauf0177.lat001",
           "_score": null,
           "_source": {
@@ -441,7 +441,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v35",
+          "_index": "fulda_stengel_v46",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0033.lat001",
           "_score": null,
           "_source": {
@@ -482,7 +482,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v35",
+          "_index": "fulda_stengel_v46",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0083.lat001",
           "_score": null,
           "_source": {
@@ -523,7 +523,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v35",
+          "_index": "fulda_stengel_v46",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0172.lat001",
           "_score": null,
           "_source": {
@@ -564,7 +564,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v35",
+          "_index": "fulda_stengel_v46",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0251.lat001",
           "_score": null,
           "_source": {
@@ -605,7 +605,7 @@
           ]
         },
         {
-          "_index": "fulda_stengel_v35",
+          "_index": "fulda_stengel_v46",
           "_id": "urn:cts:formulae:fulda_stengel.stengel0252.lat001",
           "_score": null,
           "_source": {
@@ -646,7 +646,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v35",
+          "_index": "hersfeld_v46",
           "_id": "urn:cts:formulae:hersfeld.weirich0003.lat001",
           "_score": null,
           "_source": {
@@ -687,7 +687,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v35",
+          "_index": "hersfeld_v46",
           "_id": "urn:cts:formulae:hersfeld.weirich0009.lat001",
           "_score": null,
           "_source": {
@@ -728,7 +728,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v35",
+          "_index": "hersfeld_v46",
           "_id": "urn:cts:formulae:hersfeld.weirich0010.lat001",
           "_score": null,
           "_source": {
@@ -769,7 +769,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v35",
+          "_index": "hersfeld_v46",
           "_id": "urn:cts:formulae:hersfeld.weirich0011.lat001",
           "_score": null,
           "_source": {
@@ -810,7 +810,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v35",
+          "_index": "langobardisch_v46",
           "_id": "urn:cts:formulae:langobardisch.bruehl0008.lat001",
           "_score": null,
           "_source": {
@@ -851,7 +851,7 @@
           ]
         },
         {
-          "_index": "langobardisch_v35",
+          "_index": "langobardisch_v46",
           "_id": "urn:cts:formulae:langobardisch.bruehl0013.lat001",
           "_score": null,
           "_source": {
@@ -892,7 +892,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0110.lat001",
           "_score": null,
           "_source": {
@@ -933,7 +933,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v11",
+          "_index": "langobardisch_1_v22",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0123.lat001",
           "_score": null,
           "_source": {
@@ -974,7 +974,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0287.lat001",
           "_score": null,
           "_source": {
@@ -1015,7 +1015,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0371.lat001",
           "_score": null,
           "_source": {
@@ -1056,7 +1056,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0372.lat001",
           "_score": null,
           "_source": {
@@ -1097,7 +1097,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0430.lat001",
           "_score": null,
           "_source": {
@@ -1138,7 +1138,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0455.lat001",
           "_score": null,
           "_source": {
@@ -1179,7 +1179,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0467.lat001",
           "_score": null,
           "_source": {
@@ -1220,7 +1220,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0512.lat001",
           "_score": null,
           "_source": {
@@ -1261,7 +1261,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0547.lat001",
           "_score": null,
           "_source": {
@@ -1302,7 +1302,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0575.lat001",
           "_score": null,
           "_source": {
@@ -1343,7 +1343,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0592.lat001",
           "_score": null,
           "_source": {
@@ -1384,7 +1384,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0628.lat001",
           "_score": null,
           "_source": {
@@ -1425,7 +1425,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0667.lat001",
           "_score": null,
           "_source": {
@@ -1466,7 +1466,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0712.lat001",
           "_score": null,
           "_source": {
@@ -1507,7 +1507,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0717.lat001",
           "_score": null,
           "_source": {
@@ -1548,7 +1548,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0721.lat001",
           "_score": null,
           "_source": {
@@ -1589,7 +1589,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0722.lat001",
           "_score": null,
           "_source": {
@@ -1630,7 +1630,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0726.lat001",
           "_score": null,
           "_source": {
@@ -1671,7 +1671,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0748.lat001",
           "_score": null,
           "_source": {
@@ -1712,7 +1712,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0750.lat001",
           "_score": null,
           "_source": {
@@ -1753,7 +1753,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0785.lat001",
           "_score": null,
           "_source": {
@@ -1794,7 +1794,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0859.lat001",
           "_score": null,
           "_source": {
@@ -1835,7 +1835,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0866.lat001",
           "_score": null,
           "_source": {
@@ -1876,7 +1876,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0897.lat001",
           "_score": null,
           "_source": {
@@ -1913,8 +1913,8 @@
             "min_date": "0784-10-25",
             "max_date": "0785-10-25",
             "days": [
-              "Monday",
-              "Tuesday"
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -1924,7 +1924,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1023.lat001",
           "_score": null,
           "_source": {
@@ -1965,7 +1965,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1042.lat001",
           "_score": null,
           "_source": {
@@ -2006,7 +2006,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1047.lat001",
           "_score": null,
           "_source": {
@@ -2049,9 +2049,9 @@
             "min_date": "0765-10-29",
             "max_date": "0767-10-29",
             "days": [
-              "Wednesday",
+              "Tuesday",
               "Thursday",
-              "Tuesday"
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -2061,7 +2061,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1058.lat001",
           "_score": null,
           "_source": {
@@ -2152,13 +2152,13 @@
             "min_date": "0793-10-15",
             "max_date": "0803-10-15",
             "days": [
+              "Wednesday",
               "Saturday",
               "Monday",
+              "Tuesday",
               "Sunday",
-              "Friday",
               "Thursday",
-              "Wednesday",
-              "Tuesday"
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -2168,7 +2168,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1107.lat001",
           "_score": null,
           "_source": {
@@ -2209,7 +2209,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1181.lat001",
           "_score": null,
           "_source": {
@@ -2250,7 +2250,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1187.lat001",
           "_score": null,
           "_source": {
@@ -2291,7 +2291,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1195.lat001",
           "_score": null,
           "_source": {
@@ -2332,7 +2332,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1199.lat001",
           "_score": null,
           "_source": {
@@ -2373,7 +2373,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1232.lat001",
           "_score": null,
           "_source": {
@@ -2414,7 +2414,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1260.lat001",
           "_score": null,
           "_source": {
@@ -2455,7 +2455,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1263.lat001",
           "_score": null,
           "_source": {
@@ -2496,7 +2496,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1264.lat001",
           "_score": null,
           "_source": {
@@ -2537,7 +2537,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1273.lat001",
           "_score": null,
           "_source": {
@@ -2580,9 +2580,9 @@
             "min_date": "0765-10-22",
             "max_date": "0767-10-22",
             "days": [
-              "Wednesday",
+              "Tuesday",
               "Thursday",
-              "Tuesday"
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -2592,7 +2592,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1275.lat001",
           "_score": null,
           "_source": {
@@ -2633,7 +2633,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1299.lat001",
           "_score": null,
           "_source": {
@@ -2674,7 +2674,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1347.lat001",
           "_score": null,
           "_source": {
@@ -2715,7 +2715,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1358.lat001",
           "_score": null,
           "_source": {
@@ -2756,7 +2756,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1379.lat001",
           "_score": null,
           "_source": {
@@ -2797,7 +2797,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1385.lat001",
           "_score": null,
           "_source": {
@@ -2838,7 +2838,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1512.lat001",
           "_score": null,
           "_source": {
@@ -2879,7 +2879,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1595.lat001",
           "_score": null,
           "_source": {
@@ -2920,7 +2920,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1600.lat001",
           "_score": null,
           "_source": {
@@ -2961,7 +2961,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1636.lat001",
           "_score": null,
           "_source": {
@@ -3002,7 +3002,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1663.lat001",
           "_score": null,
           "_source": {
@@ -3043,7 +3043,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1696.lat001",
           "_score": null,
           "_source": {
@@ -3084,7 +3084,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1714.lat001",
           "_score": null,
           "_source": {
@@ -3125,7 +3125,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1738.lat001",
           "_score": null,
           "_source": {
@@ -3166,7 +3166,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1748.lat001",
           "_score": null,
           "_source": {
@@ -3207,7 +3207,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1978.lat001",
           "_score": null,
           "_source": {
@@ -3248,7 +3248,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1979.lat001",
           "_score": null,
           "_source": {
@@ -3289,7 +3289,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2003.lat001",
           "_score": null,
           "_source": {
@@ -3332,9 +3332,9 @@
             "min_date": "0765-10-29",
             "max_date": "0767-10-29",
             "days": [
-              "Wednesday",
+              "Tuesday",
               "Thursday",
-              "Tuesday"
+              "Wednesday"
             ],
             "sort_prefix": 1
           },
@@ -3344,7 +3344,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2013.lat001",
           "_score": null,
           "_source": {
@@ -3391,7 +3391,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2019.lat001",
           "_score": null,
           "_source": {
@@ -3432,7 +3432,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2049.lat001",
           "_score": null,
           "_source": {
@@ -3473,7 +3473,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2051.lat001",
           "_score": null,
           "_source": {
@@ -3516,9 +3516,9 @@
             "min_date": "0765-10-13",
             "max_date": "0767-10-13",
             "days": [
-              "Monday",
               "Sunday",
-              "Tuesday"
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -3528,7 +3528,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2055.lat001",
           "_score": null,
           "_source": {
@@ -3569,7 +3569,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2063.lat001",
           "_score": null,
           "_source": {
@@ -3610,7 +3610,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2081.lat001",
           "_score": null,
           "_source": {
@@ -3651,7 +3651,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2152.lat001",
           "_score": null,
           "_source": {
@@ -3692,7 +3692,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2155.lat001",
           "_score": null,
           "_source": {
@@ -3733,7 +3733,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2162.lat001",
           "_score": null,
           "_source": {
@@ -3774,7 +3774,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2171.lat001",
           "_score": null,
           "_source": {
@@ -3815,7 +3815,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2194.lat001",
           "_score": null,
           "_source": {
@@ -3870,11 +3870,11 @@
             "min_date": "0779-10-31",
             "max_date": "0783-10-31",
             "days": [
-              "Sunday",
-              "Friday",
-              "Thursday",
               "Wednesday",
-              "Tuesday"
+              "Sunday",
+              "Tuesday",
+              "Thursday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -3884,7 +3884,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2197.lat001",
           "_score": null,
           "_source": {
@@ -3925,7 +3925,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2294.lat001",
           "_score": null,
           "_source": {
@@ -3966,7 +3966,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2321.lat001",
           "_score": null,
           "_source": {
@@ -4007,7 +4007,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2330.lat001",
           "_score": null,
           "_source": {
@@ -4048,7 +4048,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2349.lat001",
           "_score": null,
           "_source": {
@@ -4089,7 +4089,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2351.lat001",
           "_score": null,
           "_source": {
@@ -4130,7 +4130,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2354.lat001",
           "_score": null,
           "_source": {
@@ -4185,11 +4185,11 @@
             "min_date": "0779-10-13",
             "max_date": "0783-10-13",
             "days": [
-              "Saturday",
+              "Wednesday",
               "Monday",
               "Sunday",
-              "Friday",
-              "Wednesday"
+              "Saturday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -4199,7 +4199,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2468.lat001",
           "_score": null,
           "_source": {
@@ -4240,7 +4240,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2494.lat001",
           "_score": null,
           "_source": {
@@ -4281,7 +4281,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2495.lat001",
           "_score": null,
           "_source": {
@@ -4322,7 +4322,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2536.lat001",
           "_score": null,
           "_source": {
@@ -4363,7 +4363,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2545.lat001",
           "_score": null,
           "_source": {
@@ -4454,13 +4454,13 @@
             "min_date": "0768-10-30",
             "max_date": "0778-10-30",
             "days": [
-              "Saturday",
+              "Wednesday",
               "Monday",
               "Sunday",
-              "Friday",
+              "Tuesday",
+              "Saturday",
               "Thursday",
-              "Wednesday",
-              "Tuesday"
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -4470,7 +4470,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2554.lat001",
           "_score": null,
           "_source": {
@@ -4511,7 +4511,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2614.lat001",
           "_score": null,
           "_source": {
@@ -4552,7 +4552,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2698.lat001",
           "_score": null,
           "_source": {
@@ -4593,7 +4593,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2739.lat001",
           "_score": null,
           "_source": {
@@ -4634,7 +4634,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2836.lat001",
           "_score": null,
           "_source": {
@@ -4675,7 +4675,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2844.lat001",
           "_score": null,
           "_source": {
@@ -4716,7 +4716,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2856.lat001",
           "_score": null,
           "_source": {
@@ -4757,7 +4757,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2867.lat001",
           "_score": null,
           "_source": {
@@ -4798,7 +4798,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2873.lat001",
           "_score": null,
           "_source": {
@@ -4839,7 +4839,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2876.lat001",
           "_score": null,
           "_source": {
@@ -4880,7 +4880,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2900.lat001",
           "_score": null,
           "_source": {
@@ -4921,7 +4921,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2924.lat001",
           "_score": null,
           "_source": {
@@ -4962,7 +4962,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2962.lat001",
           "_score": null,
           "_source": {
@@ -5003,7 +5003,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2965.lat001",
           "_score": null,
           "_source": {
@@ -5044,7 +5044,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2966.lat001",
           "_score": null,
           "_source": {
@@ -5085,7 +5085,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2967.lat001",
           "_score": null,
           "_source": {
@@ -5126,7 +5126,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner2986.lat001",
           "_score": null,
           "_source": {
@@ -5167,7 +5167,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3043.lat001",
           "_score": null,
           "_source": {
@@ -5208,7 +5208,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3053.lat001",
           "_score": null,
           "_source": {
@@ -5249,7 +5249,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3055.lat001",
           "_score": null,
           "_source": {
@@ -5290,7 +5290,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3066.lat001",
           "_score": null,
           "_source": {
@@ -5331,7 +5331,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3073.lat001",
           "_score": null,
           "_source": {
@@ -5372,7 +5372,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3075.lat001",
           "_score": null,
           "_source": {
@@ -5409,8 +5409,8 @@
             "min_date": "0771-10-01",
             "max_date": "0772-10-01",
             "days": [
-              "Thursday",
-              "Tuesday"
+              "Tuesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -5420,7 +5420,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3082.lat001",
           "_score": null,
           "_source": {
@@ -5461,7 +5461,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3116.lat001",
           "_score": null,
           "_source": {
@@ -5502,7 +5502,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3145.lat001",
           "_score": null,
           "_source": {
@@ -5543,7 +5543,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3149.lat001",
           "_score": null,
           "_source": {
@@ -5584,7 +5584,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3157.lat001",
           "_score": null,
           "_source": {
@@ -5625,7 +5625,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3215.lat001",
           "_score": null,
           "_source": {
@@ -5666,7 +5666,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3226.lat001",
           "_score": null,
           "_source": {
@@ -5707,7 +5707,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3239.lat001",
           "_score": null,
           "_source": {
@@ -5748,7 +5748,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3282.lat001",
           "_score": null,
           "_source": {
@@ -5789,7 +5789,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3283.lat001",
           "_score": null,
           "_source": {
@@ -5830,7 +5830,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3287.lat001",
           "_score": null,
           "_source": {
@@ -5871,7 +5871,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3305.lat001",
           "_score": null,
           "_source": {
@@ -5912,7 +5912,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3308.lat001",
           "_score": null,
           "_source": {
@@ -5953,7 +5953,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3309.lat001",
           "_score": null,
           "_source": {
@@ -5994,7 +5994,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3312.lat001",
           "_score": null,
           "_source": {
@@ -6035,7 +6035,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3316.lat001",
           "_score": null,
           "_source": {
@@ -6076,7 +6076,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3317.lat001",
           "_score": null,
           "_source": {
@@ -6117,7 +6117,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3332.lat001",
           "_score": null,
           "_source": {
@@ -6158,7 +6158,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3348.lat001",
           "_score": null,
           "_source": {
@@ -6199,7 +6199,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3351.lat001",
           "_score": null,
           "_source": {
@@ -6240,7 +6240,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3357.lat001",
           "_score": null,
           "_source": {
@@ -6281,7 +6281,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3366.lat001",
           "_score": null,
           "_source": {
@@ -6322,7 +6322,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3370.lat001",
           "_score": null,
           "_source": {
@@ -6363,7 +6363,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3395.lat001",
           "_score": null,
           "_source": {
@@ -6404,7 +6404,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3405.lat001",
           "_score": null,
           "_source": {
@@ -6445,7 +6445,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3418.lat001",
           "_score": null,
           "_source": {
@@ -6486,7 +6486,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3451.lat001",
           "_score": null,
           "_source": {
@@ -6527,7 +6527,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3460.lat001",
           "_score": null,
           "_source": {
@@ -6584,9 +6584,9 @@
             "days": [
               "Saturday",
               "Monday",
+              "Tuesday",
               "Sunday",
-              "Thursday",
-              "Tuesday"
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -6596,7 +6596,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3461.lat001",
           "_score": null,
           "_source": {
@@ -6653,9 +6653,9 @@
             "days": [
               "Saturday",
               "Monday",
+              "Tuesday",
               "Sunday",
-              "Thursday",
-              "Tuesday"
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -6665,7 +6665,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3473.lat001",
           "_score": null,
           "_source": {
@@ -6706,7 +6706,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3494.lat001",
           "_score": null,
           "_source": {
@@ -6747,7 +6747,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3497.lat001",
           "_score": null,
           "_source": {
@@ -6788,7 +6788,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3547.lat001",
           "_score": null,
           "_source": {
@@ -6829,7 +6829,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3551.lat001",
           "_score": null,
           "_source": {
@@ -6870,7 +6870,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3572.lat001",
           "_score": null,
           "_source": {
@@ -6911,7 +6911,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3585.lat001",
           "_score": null,
           "_source": {
@@ -6952,7 +6952,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3595.lat001",
           "_score": null,
           "_source": {
@@ -6993,7 +6993,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3602.lat001",
           "_score": null,
           "_source": {
@@ -7034,7 +7034,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3615.lat001",
           "_score": null,
           "_source": {
@@ -7075,7 +7075,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3624.lat001",
           "_score": null,
           "_source": {
@@ -7116,7 +7116,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3638.lat001",
           "_score": null,
           "_source": {
@@ -7157,7 +7157,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3704.lat001",
           "_score": null,
           "_source": {
@@ -7198,7 +7198,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3719.lat001",
           "_score": null,
           "_source": {
@@ -7239,7 +7239,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3724.lat001",
           "_score": null,
           "_source": {
@@ -7280,7 +7280,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3739.lat001",
           "_score": null,
           "_source": {
@@ -7321,7 +7321,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3765.lat001",
           "_score": null,
           "_source": {
@@ -7362,7 +7362,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3843.lat001",
           "_score": null,
           "_source": {
@@ -7403,7 +7403,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3845.lat001",
           "_score": null,
           "_source": {
@@ -7444,7 +7444,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3849.lat001",
           "_score": null,
           "_source": {
@@ -7485,7 +7485,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3851.lat001",
           "_score": null,
           "_source": {
@@ -7526,7 +7526,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3853.lat001",
           "_score": null,
           "_source": {
@@ -7567,7 +7567,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3912.lat001",
           "_score": null,
           "_source": {
@@ -7608,7 +7608,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3929.lat001",
           "_score": null,
           "_source": {
@@ -7649,7 +7649,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner3965.lat001",
           "_score": null,
           "_source": {
@@ -7690,7 +7690,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4040.lat001",
           "_score": null,
           "_source": {
@@ -7731,7 +7731,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4046.lat001",
           "_score": null,
           "_source": {
@@ -7772,7 +7772,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4063.lat001",
           "_score": null,
           "_source": {
@@ -7813,7 +7813,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4173.lat001",
           "_score": null,
           "_source": {
@@ -7854,7 +7854,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4177.lat001",
           "_score": null,
           "_source": {
@@ -7895,7 +7895,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4185.lat001",
           "_score": null,
           "_source": {
@@ -7936,7 +7936,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4197.lat001",
           "_score": null,
           "_source": {
@@ -7973,8 +7973,8 @@
             "min_date": "0771-10-01",
             "max_date": "0772-10-01",
             "days": [
-              "Thursday",
-              "Tuesday"
+              "Tuesday",
+              "Thursday"
             ],
             "sort_prefix": 1
           },
@@ -7984,7 +7984,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4199.lat001",
           "_score": null,
           "_source": {
@@ -8025,7 +8025,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4227.lat001",
           "_score": null,
           "_source": {
@@ -8066,7 +8066,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4239.lat001",
           "_score": null,
           "_source": {
@@ -8107,7 +8107,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4243.lat001",
           "_score": null,
           "_source": {
@@ -8148,7 +8148,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4305.lat001",
           "_score": null,
           "_source": {
@@ -8189,7 +8189,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4343.lat001",
           "_score": null,
           "_source": {
@@ -8230,7 +8230,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4373.lat001",
           "_score": null,
           "_source": {
@@ -8271,7 +8271,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4425.lat001",
           "_score": null,
           "_source": {
@@ -8312,7 +8312,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner4433.lat001",
           "_score": null,
           "_source": {
@@ -8353,7 +8353,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0154.lat001",
           "_score": null,
           "_source": {
@@ -8390,8 +8390,8 @@
             "min_date": "0703-10-20",
             "max_date": "0704-10-20",
             "days": [
-              "Monday",
-              "Saturday"
+              "Saturday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -8401,7 +8401,234 @@
           ]
         },
         {
-          "_index": "pippin_3_v35",
+          "_index": "mondsee_v46",
+          "_id": "urn:cts:formulae:mondsee.rath0070.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 70",
+            "keywords": "",
+            "urn": "urn:cts:formulae:mondsee.rath0070.lat001",
+            "date_string": "(letztes Drittel 8. Jhd.?/ nach 770?) 10 12",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "mondsee",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 770,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 771,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 772,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 773,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 774,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 775,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 776,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 777,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 778,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 779,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 780,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 781,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 782,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 783,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 784,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 785,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 786,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 787,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 788,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 789,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 790,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 791,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 792,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 793,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 794,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 795,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 796,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 797,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 798,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 799,
+                "month": 10,
+                "day": 12
+              },
+              {
+                "year": 800,
+                "month": 10,
+                "day": 12
+              }
+            ],
+            "all_dates": [
+              "0770-10-12",
+              "0771-10-12",
+              "0772-10-12",
+              "0773-10-12",
+              "0774-10-12",
+              "0775-10-12",
+              "0776-10-12",
+              "0777-10-12",
+              "0778-10-12",
+              "0779-10-12",
+              "0780-10-12",
+              "0781-10-12",
+              "0782-10-12",
+              "0783-10-12",
+              "0784-10-12",
+              "0785-10-12",
+              "0786-10-12",
+              "0787-10-12",
+              "0788-10-12",
+              "0789-10-12",
+              "0790-10-12",
+              "0791-10-12",
+              "0792-10-12",
+              "0793-10-12",
+              "0794-10-12",
+              "0795-10-12",
+              "0796-10-12",
+              "0797-10-12",
+              "0798-10-12",
+              "0799-10-12",
+              "0800-10-12"
+            ],
+            "min_date": "0770-10-12",
+            "max_date": "0800-10-12",
+            "days": [
+              "Wednesday",
+              "Monday",
+              "Tuesday",
+              "Sunday",
+              "Saturday",
+              "Thursday",
+              "Friday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:mondsee.rath0070.lat001"
+          ]
+        },
+        {
+          "_index": "pippin_3_v46",
           "_id": "urn:cts:formulae:pippin_3.muehlbacher0012.lat001",
           "_score": null,
           "_source": {
@@ -8442,7 +8669,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v35",
+          "_index": "schaeftlarn_v46",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat001",
           "_score": null,
           "_source": {
@@ -8533,13 +8760,13 @@
             "min_date": "0790-10-09",
             "max_date": "0800-10-09",
             "days": [
-              "Saturday",
-              "Monday",
-              "Sunday",
-              "Friday",
-              "Thursday",
               "Wednesday",
-              "Tuesday"
+              "Monday",
+              "Tuesday",
+              "Sunday",
+              "Saturday",
+              "Thursday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -8549,7 +8776,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v35",
+          "_index": "schaeftlarn_v46",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat002",
           "_score": null,
           "_source": {
@@ -8640,13 +8867,13 @@
             "min_date": "0790-10-09",
             "max_date": "0800-10-09",
             "days": [
-              "Saturday",
-              "Monday",
-              "Sunday",
-              "Friday",
-              "Thursday",
               "Wednesday",
-              "Tuesday"
+              "Monday",
+              "Tuesday",
+              "Sunday",
+              "Saturday",
+              "Thursday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -8656,7 +8883,7 @@
           ]
         },
         {
-          "_index": "schaeftlarn_v35",
+          "_index": "schaeftlarn_v46",
           "_id": "urn:cts:formulae:schaeftlarn.weissthanner0012.lat003",
           "_score": null,
           "_source": {
@@ -8747,13 +8974,13 @@
             "min_date": "0790-10-09",
             "max_date": "0800-10-09",
             "days": [
-              "Saturday",
-              "Monday",
-              "Sunday",
-              "Friday",
-              "Thursday",
               "Wednesday",
-              "Tuesday"
+              "Monday",
+              "Tuesday",
+              "Sunday",
+              "Saturday",
+              "Thursday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -8763,7 +8990,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0019.lat001",
           "_score": null,
           "_source": {
@@ -8804,7 +9031,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0023.lat001",
           "_score": null,
           "_source": {
@@ -8845,7 +9072,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0037.lat001",
           "_score": null,
           "_source": {
@@ -8886,7 +9113,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0038.lat001",
           "_score": null,
           "_source": {
@@ -8927,7 +9154,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0050.lat001",
           "_score": null,
           "_source": {
@@ -8968,7 +9195,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0055.lat001",
           "_score": null,
           "_source": {
@@ -9009,7 +9236,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0067.lat001",
           "_score": null,
           "_source": {
@@ -9050,7 +9277,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0149.lat001",
           "_score": null,
           "_source": {
@@ -9091,7 +9318,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0157.lat001",
           "_score": null,
           "_source": {
@@ -9132,7 +9359,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0003.lat001",
           "_score": null,
           "_source": {
@@ -9173,7 +9400,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0059.lat001",
           "_score": null,
           "_source": {
@@ -9214,7 +9441,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0077.lat001",
           "_score": null,
           "_source": {
@@ -9255,7 +9482,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0110.lat001",
           "_score": null,
           "_source": {
@@ -9296,7 +9523,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0154.lat001",
           "_score": null,
           "_source": {
@@ -9337,7 +9564,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0186.lat001",
           "_score": null,
           "_source": {
@@ -9378,7 +9605,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0189.lat001",
           "_score": null,
           "_source": {
@@ -9419,7 +9646,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0230.lat001",
           "_score": null,
           "_source": {
@@ -9460,7 +9687,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0249.lat001",
           "_score": null,
           "_source": {
@@ -9501,7 +9728,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v35",
+          "_index": "weissenburg_v46",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0261.lat001",
           "_score": null,
           "_source": {
@@ -9542,7 +9769,7 @@
           ]
         },
         {
-          "_index": "werden_v35",
+          "_index": "werden_v46",
           "_id": "urn:cts:formulae:werden.block0004.lat001",
           "_score": null,
           "_source": {
@@ -9583,7 +9810,7 @@
           ]
         },
         {
-          "_index": "werden_v35",
+          "_index": "werden_v46",
           "_id": "urn:cts:formulae:werden.block0016.lat001",
           "_score": null,
           "_source": {
@@ -9624,7 +9851,7 @@
           ]
         },
         {
-          "_index": "werden_v35",
+          "_index": "werden_v46",
           "_id": "urn:cts:formulae:werden.block0017.lat001",
           "_score": null,
           "_source": {
@@ -9661,8 +9888,8 @@
             "min_date": "0798-10-09",
             "max_date": "0799-10-09",
             "days": [
-              "Wednesday",
-              "Tuesday"
+              "Tuesday",
+              "Wednesday"
             ],
             "sort_prefix": 1
           },

@@ -32,7 +32,6 @@ def create_app(config_class=Config):
     if app.config['ELASTICSEARCH_URL']:
         if app.config['ES_CLIENT_CERT'] or app.config['ES_CLIENT_KEY']:
             app.elasticsearch = Elasticsearch(app.config['ELASTICSEARCH_URL'],
-                                              use_ssl=True,
                                               verify_certs=True,
                                               client_cert=app.config['ES_CLIENT_CERT'],
                                               client_key=app.config['ES_CLIENT_KEY'])

@@ -109,7 +109,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "dominus_ortsname",
+                                "value": "domnusque",
                                 "fuzziness": "0"
                               }
                             }
@@ -149,47 +149,27 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "domnus",
-                                "fuzziness": "0"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "slop": "0",
-                    "in_order": false
-                  }
-                },
-                {
-                  "span_near": {
-                    "clauses": [
-                      {
-                        "span_multi": {
-                          "match": {
-                            "fuzzy": {
-                              "lemmas": {
-                                "value": "domnusque",
-                                "fuzziness": "0"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "slop": "0",
-                    "in_order": false
-                  }
-                },
-                {
-                  "span_near": {
-                    "clauses": [
-                      {
-                        "span_multi": {
-                          "match": {
-                            "fuzzy": {
-                              "lemmas": {
                                 "value": "dominicillus",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "domnus",
                                 "fuzziness": "0"
                               }
                             }
