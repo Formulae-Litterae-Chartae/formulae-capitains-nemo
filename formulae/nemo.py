@@ -1020,7 +1020,7 @@ class NemoFormulae(Nemo):
                                    'name': work_name,
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
                                    'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
-                                   'deperditum': str(m.metadata.get_single(self.BF.status))})
+                                   'deperditum': str(m.metadata.get_single(self.BF.status)) == 'deperditum'})
 
 
         for k, v in collection.children.items():
