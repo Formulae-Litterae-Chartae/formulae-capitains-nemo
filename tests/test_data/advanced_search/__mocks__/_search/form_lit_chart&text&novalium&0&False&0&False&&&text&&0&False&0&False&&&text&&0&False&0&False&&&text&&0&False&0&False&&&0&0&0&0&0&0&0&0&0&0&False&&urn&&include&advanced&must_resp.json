@@ -1,10 +1,10 @@
 [
   {
-    "took": 87,
+    "took": 77,
     "timed_out": false,
     "_shards": {
-      "total": 66,
-      "successful": 66,
+      "total": 67,
+      "successful": 67,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner0253.lat001",
           "_score": null,
           "_source": {
@@ -59,7 +59,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0215.lat001",
           "_score": null,
           "_source": {
@@ -102,7 +102,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0118.lat001",
           "_score": null,
           "_source": {
@@ -145,7 +145,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001",
           "_score": null,
           "_source": {
@@ -188,7 +188,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0133.lat001",
           "_score": null,
           "_source": {
@@ -231,7 +231,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0168.lat001",
           "_score": null,
           "_source": {
@@ -274,7 +274,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0175.lat001",
           "_score": null,
           "_source": {
@@ -317,7 +317,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0181.lat001",
           "_score": null,
           "_source": {
@@ -360,7 +360,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0197.lat001",
           "_score": null,
           "_source": {
@@ -403,7 +403,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0198.lat001",
           "_score": null,
           "_source": {
@@ -446,7 +446,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0216.lat001",
           "_score": null,
           "_source": {
@@ -489,7 +489,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0233.lat001",
           "_score": null,
           "_source": {
@@ -532,7 +532,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0236.lat001",
           "_score": null,
           "_source": {
@@ -575,7 +575,7 @@
           ]
         },
         {
-          "_index": "papsturkunden_frankreich_v35",
+          "_index": "papsturkunden_frankreich_v46",
           "_id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0246.lat001",
           "_score": null,
           "_source": {

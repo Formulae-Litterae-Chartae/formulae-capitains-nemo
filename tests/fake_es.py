@@ -69,6 +69,7 @@ class FakeElasticsearch(object):
                         if 'autocomplete_regest' in resp[i1]['hits']['hits'][i]['highlight']:
                             resp[i1]['hits']['hits'][i]['highlight']['autocomplete_regest'] = ['autocomplete regest text']
 
+        resp = [r_d.body if not isinstance(r_d, dict) else r_d for r_d in resp]
         with open(file_name, 'w') as f:
             json.dump(resp, f, indent=2, ensure_ascii=False)
 

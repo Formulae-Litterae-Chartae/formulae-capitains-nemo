@@ -1,6 +1,6 @@
 [
   {
-    "took": 0,
+    "took": 1,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "elexicon_v35",
+          "_index": "elexicon_v46",
           "_id": "urn:cts:formulae:elexicon.martyrarius.deu001",
           "_score": null,
           "_source": {

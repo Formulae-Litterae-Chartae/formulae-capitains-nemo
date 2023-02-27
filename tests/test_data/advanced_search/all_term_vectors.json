@@ -55671,13 +55671,18 @@
 			}
 		},
 		{
-			"_index": "mondsee_v4",
+			"_index": "mondsee_v46",
 			"_id": "urn:cts:formulae:mondsee.rath0099.lat001",
 			"_version": 1,
 			"found": true,
-			"took": 2,
+			"took": 19,
 			"term_vectors": {
 				"regest": {
+					"field_statistics": {
+						"sum_doc_freq": 3399,
+						"doc_count": 139,
+						"sum_ttf": 3753
+					},
 					"terms": {
 						"attergau": {
 							"term_freq": 1,
@@ -56017,14 +56022,19 @@
 					}
 				},
 				"text": {
+					"field_statistics": {
+						"sum_doc_freq": 16537,
+						"doc_count": 139,
+						"sum_ttf": 21634
+					},
 					"terms": {
 						"a": {
 							"term_freq": 1,
 							"tokens": [
 								{
 									"position": 123,
-									"start_offset": 841,
-									"end_offset": 842
+									"start_offset": 838,
+									"end_offset": 839
 								}
 							]
 						},
@@ -56043,28 +56053,28 @@
 							"tokens": [
 								{
 									"position": 52,
-									"start_offset": 345,
-									"end_offset": 347
+									"start_offset": 343,
+									"end_offset": 345
 								},
 								{
 									"position": 100,
-									"start_offset": 681,
-									"end_offset": 683
+									"start_offset": 677,
+									"end_offset": 679
 								},
 								{
 									"position": 112,
-									"start_offset": 757,
-									"end_offset": 759
+									"start_offset": 754,
+									"end_offset": 756
 								},
 								{
 									"position": 156,
-									"start_offset": 1081,
-									"end_offset": 1083
+									"start_offset": 1079,
+									"end_offset": 1081
 								},
 								{
 									"position": 279,
-									"start_offset": 1891,
-									"end_offset": 1893
+									"start_offset": 1892,
+									"end_offset": 1894
 								}
 							]
 						},
@@ -56073,8 +56083,8 @@
 							"tokens": [
 								{
 									"position": 148,
-									"start_offset": 1020,
-									"end_offset": 1031
+									"start_offset": 1018,
+									"end_offset": 1029
 								}
 							]
 						},
@@ -56083,8 +56093,8 @@
 							"tokens": [
 								{
 									"position": 131,
-									"start_offset": 894,
-									"end_offset": 900
+									"start_offset": 891,
+									"end_offset": 897
 								}
 							]
 						},
@@ -56093,8 +56103,8 @@
 							"tokens": [
 								{
 									"position": 147,
-									"start_offset": 1013,
-									"end_offset": 1018
+									"start_offset": 1011,
+									"end_offset": 1016
 								}
 							]
 						},
@@ -56103,8 +56113,8 @@
 							"tokens": [
 								{
 									"position": 44,
-									"start_offset": 294,
-									"end_offset": 300
+									"start_offset": 292,
+									"end_offset": 298
 								}
 							]
 						},
@@ -56123,8 +56133,8 @@
 							"tokens": [
 								{
 									"position": 150,
-									"start_offset": 1039,
-									"end_offset": 1048
+									"start_offset": 1037,
+									"end_offset": 1046
 								}
 							]
 						},
@@ -56133,8 +56143,8 @@
 							"tokens": [
 								{
 									"position": 149,
-									"start_offset": 1033,
-									"end_offset": 1038
+									"start_offset": 1031,
+									"end_offset": 1036
 								}
 							]
 						},
@@ -56143,8 +56153,8 @@
 							"tokens": [
 								{
 									"position": 67,
-									"start_offset": 448,
-									"end_offset": 462
+									"start_offset": 446,
+									"end_offset": 460
 								}
 							]
 						},
@@ -56163,8 +56173,8 @@
 							"tokens": [
 								{
 									"position": 92,
-									"start_offset": 627,
-									"end_offset": 636
+									"start_offset": 623,
+									"end_offset": 632
 								}
 							]
 						},
@@ -56173,13 +56183,13 @@
 							"tokens": [
 								{
 									"position": 121,
-									"start_offset": 824,
-									"end_offset": 829
+									"start_offset": 821,
+									"end_offset": 826
 								},
 								{
 									"position": 163,
-									"start_offset": 1126,
-									"end_offset": 1131
+									"start_offset": 1124,
+									"end_offset": 1129
 								}
 							]
 						},
@@ -56188,13 +56198,13 @@
 							"tokens": [
 								{
 									"position": 24,
-									"start_offset": 150,
-									"end_offset": 156
+									"start_offset": 151,
+									"end_offset": 157
 								},
 								{
 									"position": 50,
-									"start_offset": 330,
-									"end_offset": 336
+									"start_offset": 328,
+									"end_offset": 334
 								}
 							]
 						},
@@ -56213,23 +56223,23 @@
 							"tokens": [
 								{
 									"position": 176,
-									"start_offset": 1198,
-									"end_offset": 1201
+									"start_offset": 1197,
+									"end_offset": 1200
 								},
 								{
 									"position": 183,
-									"start_offset": 1243,
-									"end_offset": 1246
+									"start_offset": 1242,
+									"end_offset": 1245
 								},
 								{
 									"position": 185,
-									"start_offset": 1253,
-									"end_offset": 1256
+									"start_offset": 1252,
+									"end_offset": 1255
 								},
 								{
 									"position": 207,
-									"start_offset": 1398,
-									"end_offset": 1401
+									"start_offset": 1397,
+									"end_offset": 1400
 								}
 							]
 						},
@@ -56238,13 +56248,13 @@
 							"tokens": [
 								{
 									"position": 119,
-									"start_offset": 801,
-									"end_offset": 812
+									"start_offset": 798,
+									"end_offset": 809
 								},
 								{
 									"position": 283,
-									"start_offset": 1919,
-									"end_offset": 1930
+									"start_offset": 1920,
+									"end_offset": 1931
 								}
 							]
 						},
@@ -56263,8 +56273,8 @@
 							"tokens": [
 								{
 									"position": 78,
-									"start_offset": 536,
-									"end_offset": 545
+									"start_offset": 534,
+									"end_offset": 543
 								}
 							]
 						},
@@ -56283,8 +56293,8 @@
 							"tokens": [
 								{
 									"position": 143,
-									"start_offset": 980,
-									"end_offset": 986
+									"start_offset": 978,
+									"end_offset": 984
 								}
 							]
 						},
@@ -56293,8 +56303,8 @@
 							"tokens": [
 								{
 									"position": 27,
-									"start_offset": 174,
-									"end_offset": 178
+									"start_offset": 175,
+									"end_offset": 179
 								}
 							]
 						},
@@ -56303,8 +56313,8 @@
 							"tokens": [
 								{
 									"position": 184,
-									"start_offset": 1247,
-									"end_offset": 1252
+									"start_offset": 1246,
+									"end_offset": 1251
 								}
 							]
 						},
@@ -56323,8 +56333,8 @@
 							"tokens": [
 								{
 									"position": 26,
-									"start_offset": 165,
-									"end_offset": 173
+									"start_offset": 166,
+									"end_offset": 174
 								}
 							]
 						},
@@ -56333,8 +56343,8 @@
 							"tokens": [
 								{
 									"position": 129,
-									"start_offset": 879,
-									"end_offset": 889
+									"start_offset": 876,
+									"end_offset": 886
 								}
 							]
 						},
@@ -56363,8 +56373,8 @@
 							"tokens": [
 								{
 									"position": 192,
-									"start_offset": 1295,
-									"end_offset": 1301
+									"start_offset": 1294,
+									"end_offset": 1300
 								}
 							]
 						},
@@ -56373,8 +56383,8 @@
 							"tokens": [
 								{
 									"position": 172,
-									"start_offset": 1179,
-									"end_offset": 1184
+									"start_offset": 1178,
+									"end_offset": 1183
 								}
 							]
 						},
@@ -56388,8 +56398,8 @@
 								},
 								{
 									"position": 254,
-									"start_offset": 1728,
-									"end_offset": 1731
+									"start_offset": 1727,
+									"end_offset": 1730
 								}
 							]
 						},
@@ -56418,8 +56428,8 @@
 								},
 								{
 									"position": 178,
-									"start_offset": 1208,
-									"end_offset": 1210
+									"start_offset": 1207,
+									"end_offset": 1209
 								}
 							]
 						},
@@ -56428,8 +56438,8 @@
 							"tokens": [
 								{
 									"position": 151,
-									"start_offset": 1049,
-									"end_offset": 1059
+									"start_offset": 1047,
+									"end_offset": 1057
 								}
 							]
 						},
@@ -56448,18 +56458,23 @@
 							"tokens": [
 								{
 									"position": 79,
-									"start_offset": 546,
-									"end_offset": 554
+									"start_offset": 544,
+									"end_offset": 552
 								}
 							]
 						},
 						"dei": {
-							"term_freq": 1,
+							"term_freq": 2,
 							"tokens": [
 								{
 									"position": 20,
-									"start_offset": 123,
-									"end_offset": 126
+									"start_offset": 124,
+									"end_offset": 127
+								},
+								{
+									"position": 160,
+									"start_offset": 1103,
+									"end_offset": 1106
 								}
 							]
 						},
@@ -56468,13 +56483,13 @@
 							"tokens": [
 								{
 									"position": 63,
-									"start_offset": 414,
-									"end_offset": 421
+									"start_offset": 412,
+									"end_offset": 419
 								},
 								{
 									"position": 96,
-									"start_offset": 651,
-									"end_offset": 658
+									"start_offset": 647,
+									"end_offset": 654
 								}
 							]
 						},
@@ -56483,8 +56498,8 @@
 							"tokens": [
 								{
 									"position": 105,
-									"start_offset": 715,
-									"end_offset": 720
+									"start_offset": 711,
+									"end_offset": 716
 								}
 							]
 						},
@@ -56493,8 +56508,8 @@
 							"tokens": [
 								{
 									"position": 133,
-									"start_offset": 905,
-									"end_offset": 910
+									"start_offset": 902,
+									"end_offset": 907
 								}
 							]
 						},
@@ -56503,23 +56518,18 @@
 							"tokens": [
 								{
 									"position": 114,
-									"start_offset": 764,
-									"end_offset": 769
+									"start_offset": 761,
+									"end_offset": 766
 								}
 							]
 						},
 						"die": {
-							"term_freq": 2,
+							"term_freq": 1,
 							"tokens": [
 								{
 									"position": 124,
-									"start_offset": 843,
-									"end_offset": 846
-								},
-								{
-									"position": 160,
-									"start_offset": 1105,
-									"end_offset": 1108
+									"start_offset": 840,
+									"end_offset": 843
 								}
 							]
 						},
@@ -56528,8 +56538,8 @@
 							"tokens": [
 								{
 									"position": 41,
-									"start_offset": 274,
-									"end_offset": 282
+									"start_offset": 275,
+									"end_offset": 283
 								}
 							]
 						},
@@ -56548,8 +56558,8 @@
 							"tokens": [
 								{
 									"position": 36,
-									"start_offset": 237,
-									"end_offset": 244
+									"start_offset": 238,
+									"end_offset": 245
 								}
 							]
 						},
@@ -56568,8 +56578,8 @@
 							"tokens": [
 								{
 									"position": 80,
-									"start_offset": 555,
-									"end_offset": 565
+									"start_offset": 554,
+									"end_offset": 564
 								}
 							]
 						},
@@ -56588,8 +56598,8 @@
 							"tokens": [
 								{
 									"position": 208,
-									"start_offset": 1402,
-									"end_offset": 1405
+									"start_offset": 1401,
+									"end_offset": 1404
 								}
 							]
 						},
@@ -56598,8 +56608,8 @@
 							"tokens": [
 								{
 									"position": 53,
-									"start_offset": 348,
-									"end_offset": 357
+									"start_offset": 346,
+									"end_offset": 355
 								}
 							]
 						},
@@ -56608,18 +56618,18 @@
 							"tokens": [
 								{
 									"position": 18,
-									"start_offset": 116,
-									"end_offset": 119
+									"start_offset": 117,
+									"end_offset": 120
 								},
 								{
 									"position": 174,
-									"start_offset": 1189,
-									"end_offset": 1192
+									"start_offset": 1188,
+									"end_offset": 1191
 								},
 								{
 									"position": 196,
-									"start_offset": 1325,
-									"end_offset": 1328
+									"start_offset": 1324,
+									"end_offset": 1327
 								}
 							]
 						},
@@ -56648,8 +56658,8 @@
 							"tokens": [
 								{
 									"position": 187,
-									"start_offset": 1262,
-									"end_offset": 1268
+									"start_offset": 1261,
+									"end_offset": 1267
 								}
 							]
 						},
@@ -56658,18 +56668,18 @@
 							"tokens": [
 								{
 									"position": 69,
-									"start_offset": 470,
-									"end_offset": 474
+									"start_offset": 468,
+									"end_offset": 472
 								},
 								{
 									"position": 83,
-									"start_offset": 579,
-									"end_offset": 583
+									"start_offset": 578,
+									"end_offset": 582
 								},
 								{
 									"position": 170,
-									"start_offset": 1170,
-									"end_offset": 1174
+									"start_offset": 1169,
+									"end_offset": 1173
 								}
 							]
 						},
@@ -56678,8 +56688,8 @@
 							"tokens": [
 								{
 									"position": 86,
-									"start_offset": 597,
-									"end_offset": 600
+									"start_offset": 593,
+									"end_offset": 596
 								}
 							]
 						},
@@ -56688,23 +56698,23 @@
 							"tokens": [
 								{
 									"position": 42,
-									"start_offset": 287,
-									"end_offset": 289
+									"start_offset": 285,
+									"end_offset": 287
 								},
 								{
 									"position": 99,
-									"start_offset": 678,
-									"end_offset": 680
+									"start_offset": 674,
+									"end_offset": 676
 								},
 								{
 									"position": 153,
-									"start_offset": 1067,
-									"end_offset": 1069
+									"start_offset": 1065,
+									"end_offset": 1067
 								},
 								{
 									"position": 202,
-									"start_offset": 1363,
-									"end_offset": 1365
+									"start_offset": 1362,
+									"end_offset": 1364
 								},
 								{
 									"position": 224,
@@ -56713,13 +56723,13 @@
 								},
 								{
 									"position": 239,
-									"start_offset": 1624,
-									"end_offset": 1626
+									"start_offset": 1625,
+									"end_offset": 1627
 								},
 								{
 									"position": 251,
-									"start_offset": 1706,
-									"end_offset": 1708
+									"start_offset": 1705,
+									"end_offset": 1707
 								},
 								{
 									"position": 273,
@@ -56728,8 +56738,8 @@
 								},
 								{
 									"position": 277,
-									"start_offset": 1881,
-									"end_offset": 1883
+									"start_offset": 1882,
+									"end_offset": 1884
 								}
 							]
 						},
@@ -56738,8 +56748,8 @@
 							"tokens": [
 								{
 									"position": 31,
-									"start_offset": 203,
-									"end_offset": 209
+									"start_offset": 204,
+									"end_offset": 210
 								}
 							]
 						},
@@ -56748,8 +56758,8 @@
 							"tokens": [
 								{
 									"position": 242,
-									"start_offset": 1641,
-									"end_offset": 1651
+									"start_offset": 1642,
+									"end_offset": 1652
 								}
 							]
 						},
@@ -56758,8 +56768,8 @@
 							"tokens": [
 								{
 									"position": 154,
-									"start_offset": 1070,
-									"end_offset": 1072
+									"start_offset": 1068,
+									"end_offset": 1070
 								}
 							]
 						},
@@ -56768,8 +56778,8 @@
 							"tokens": [
 								{
 									"position": 189,
-									"start_offset": 1273,
-									"end_offset": 1281
+									"start_offset": 1272,
+									"end_offset": 1280
 								}
 							]
 						},
@@ -56778,8 +56788,8 @@
 							"tokens": [
 								{
 									"position": 139,
-									"start_offset": 951,
-									"end_offset": 959
+									"start_offset": 948,
+									"end_offset": 956
 								}
 							]
 						},
@@ -56788,8 +56798,8 @@
 							"tokens": [
 								{
 									"position": 200,
-									"start_offset": 1353,
-									"end_offset": 1358
+									"start_offset": 1352,
+									"end_offset": 1357
 								}
 							]
 						},
@@ -56798,8 +56808,8 @@
 							"tokens": [
 								{
 									"position": 23,
-									"start_offset": 143,
-									"end_offset": 149
+									"start_offset": 144,
+									"end_offset": 150
 								}
 							]
 						},
@@ -56808,8 +56818,8 @@
 							"tokens": [
 								{
 									"position": 250,
-									"start_offset": 1700,
-									"end_offset": 1705
+									"start_offset": 1699,
+									"end_offset": 1704
 								}
 							]
 						},
@@ -56818,8 +56828,8 @@
 							"tokens": [
 								{
 									"position": 203,
-									"start_offset": 1366,
-									"end_offset": 1373
+									"start_offset": 1365,
+									"end_offset": 1372
 								}
 							]
 						},
@@ -56838,8 +56848,8 @@
 							"tokens": [
 								{
 									"position": 29,
-									"start_offset": 186,
-									"end_offset": 198
+									"start_offset": 187,
+									"end_offset": 199
 								}
 							]
 						},
@@ -56858,8 +56868,8 @@
 							"tokens": [
 								{
 									"position": 39,
-									"start_offset": 259,
-									"end_offset": 265
+									"start_offset": 260,
+									"end_offset": 266
 								}
 							]
 						},
@@ -56868,8 +56878,8 @@
 							"tokens": [
 								{
 									"position": 169,
-									"start_offset": 1162,
-									"end_offset": 1169
+									"start_offset": 1161,
+									"end_offset": 1168
 								}
 							]
 						},
@@ -56888,8 +56898,8 @@
 							"tokens": [
 								{
 									"position": 138,
-									"start_offset": 943,
-									"end_offset": 950
+									"start_offset": 940,
+									"end_offset": 947
 								}
 							]
 						},
@@ -56898,8 +56908,8 @@
 							"tokens": [
 								{
 									"position": 126,
-									"start_offset": 856,
-									"end_offset": 863
+									"start_offset": 853,
+									"end_offset": 860
 								}
 							]
 						},
@@ -56908,8 +56918,8 @@
 							"tokens": [
 								{
 									"position": 109,
-									"start_offset": 736,
-									"end_offset": 742
+									"start_offset": 732,
+									"end_offset": 738
 								}
 							]
 						},
@@ -56918,8 +56928,8 @@
 							"tokens": [
 								{
 									"position": 193,
-									"start_offset": 1302,
-									"end_offset": 1306
+									"start_offset": 1301,
+									"end_offset": 1305
 								}
 							]
 						},
@@ -56928,8 +56938,8 @@
 							"tokens": [
 								{
 									"position": 179,
-									"start_offset": 1211,
-									"end_offset": 1220
+									"start_offset": 1210,
+									"end_offset": 1219
 								}
 							]
 						},
@@ -56938,8 +56948,8 @@
 							"tokens": [
 								{
 									"position": 22,
-									"start_offset": 134,
-									"end_offset": 142
+									"start_offset": 135,
+									"end_offset": 143
 								}
 							]
 						},
@@ -56948,8 +56958,8 @@
 							"tokens": [
 								{
 									"position": 66,
-									"start_offset": 436,
-									"end_offset": 447
+									"start_offset": 434,
+									"end_offset": 445
 								}
 							]
 						},
@@ -56958,8 +56968,8 @@
 							"tokens": [
 								{
 									"position": 85,
-									"start_offset": 593,
-									"end_offset": 596
+									"start_offset": 589,
+									"end_offset": 592
 								},
 								{
 									"position": 213,
@@ -56973,8 +56983,8 @@
 							"tokens": [
 								{
 									"position": 28,
-									"start_offset": 179,
-									"end_offset": 185
+									"start_offset": 180,
+									"end_offset": 186
 								}
 							]
 						},
@@ -56983,18 +56993,18 @@
 							"tokens": [
 								{
 									"position": 104,
-									"start_offset": 711,
-									"end_offset": 714
+									"start_offset": 707,
+									"end_offset": 710
 								},
 								{
 									"position": 113,
-									"start_offset": 760,
-									"end_offset": 763
+									"start_offset": 757,
+									"end_offset": 760
 								},
 								{
 									"position": 132,
-									"start_offset": 901,
-									"end_offset": 904
+									"start_offset": 898,
+									"end_offset": 901
 								}
 							]
 						},
@@ -57013,8 +57023,8 @@
 							"tokens": [
 								{
 									"position": 17,
-									"start_offset": 108,
-									"end_offset": 115
+									"start_offset": 109,
+									"end_offset": 116
 								}
 							]
 						},
@@ -57063,53 +57073,53 @@
 								},
 								{
 									"position": 19,
-									"start_offset": 120,
-									"end_offset": 122
+									"start_offset": 121,
+									"end_offset": 123
 								},
 								{
 									"position": 38,
-									"start_offset": 256,
-									"end_offset": 258
+									"start_offset": 257,
+									"end_offset": 259
 								},
 								{
 									"position": 57,
-									"start_offset": 382,
-									"end_offset": 384
+									"start_offset": 380,
+									"end_offset": 382
 								},
 								{
 									"position": 60,
-									"start_offset": 401,
-									"end_offset": 403
+									"start_offset": 399,
+									"end_offset": 401
 								},
 								{
 									"position": 81,
-									"start_offset": 566,
-									"end_offset": 568
+									"start_offset": 565,
+									"end_offset": 567
 								},
 								{
 									"position": 90,
-									"start_offset": 619,
-									"end_offset": 621
+									"start_offset": 615,
+									"end_offset": 617
 								},
 								{
 									"position": 93,
-									"start_offset": 637,
-									"end_offset": 639
+									"start_offset": 633,
+									"end_offset": 635
 								},
 								{
 									"position": 103,
-									"start_offset": 708,
-									"end_offset": 710
+									"start_offset": 704,
+									"end_offset": 706
 								},
 								{
 									"position": 135,
-									"start_offset": 922,
-									"end_offset": 924
+									"start_offset": 919,
+									"end_offset": 921
 								},
 								{
 									"position": 159,
-									"start_offset": 1102,
-									"end_offset": 1104
+									"start_offset": 1100,
+									"end_offset": 1102
 								},
 								{
 									"position": 258,
@@ -57133,8 +57143,8 @@
 							"tokens": [
 								{
 									"position": 209,
-									"start_offset": 1406,
-									"end_offset": 1416
+									"start_offset": 1405,
+									"end_offset": 1415
 								}
 							]
 						},
@@ -57153,8 +57163,8 @@
 							"tokens": [
 								{
 									"position": 101,
-									"start_offset": 684,
-									"end_offset": 692
+									"start_offset": 680,
+									"end_offset": 688
 								}
 							]
 						},
@@ -57173,8 +57183,8 @@
 							"tokens": [
 								{
 									"position": 175,
-									"start_offset": 1193,
-									"end_offset": 1197
+									"start_offset": 1192,
+									"end_offset": 1196
 								}
 							]
 						},
@@ -57193,8 +57203,8 @@
 							"tokens": [
 								{
 									"position": 157,
-									"start_offset": 1084,
-									"end_offset": 1089
+									"start_offset": 1082,
+									"end_offset": 1087
 								}
 							]
 						},
@@ -57203,8 +57213,8 @@
 							"tokens": [
 								{
 									"position": 246,
-									"start_offset": 1668,
-									"end_offset": 1672
+									"start_offset": 1669,
+									"end_offset": 1673
 								}
 							]
 						},
@@ -57233,13 +57243,13 @@
 							"tokens": [
 								{
 									"position": 118,
-									"start_offset": 796,
-									"end_offset": 800
+									"start_offset": 793,
+									"end_offset": 797
 								},
 								{
 									"position": 282,
-									"start_offset": 1914,
-									"end_offset": 1918
+									"start_offset": 1915,
+									"end_offset": 1919
 								}
 							]
 						},
@@ -57258,8 +57268,8 @@
 							"tokens": [
 								{
 									"position": 137,
-									"start_offset": 933,
-									"end_offset": 942
+									"start_offset": 930,
+									"end_offset": 939
 								}
 							]
 						},
@@ -57268,8 +57278,8 @@
 							"tokens": [
 								{
 									"position": 128,
-									"start_offset": 873,
-									"end_offset": 878
+									"start_offset": 870,
+									"end_offset": 875
 								}
 							]
 						},
@@ -57278,8 +57288,8 @@
 							"tokens": [
 								{
 									"position": 106,
-									"start_offset": 721,
-									"end_offset": 725
+									"start_offset": 717,
+									"end_offset": 721
 								}
 							]
 						},
@@ -57288,8 +57298,8 @@
 							"tokens": [
 								{
 									"position": 61,
-									"start_offset": 404,
-									"end_offset": 408
+									"start_offset": 402,
+									"end_offset": 406
 								}
 							]
 						},
@@ -57298,8 +57308,8 @@
 							"tokens": [
 								{
 									"position": 64,
-									"start_offset": 422,
-									"end_offset": 430
+									"start_offset": 420,
+									"end_offset": 428
 								}
 							]
 						},
@@ -57308,8 +57318,8 @@
 							"tokens": [
 								{
 									"position": 59,
-									"start_offset": 390,
-									"end_offset": 400
+									"start_offset": 388,
+									"end_offset": 398
 								}
 							]
 						},
@@ -57318,8 +57328,8 @@
 							"tokens": [
 								{
 									"position": 197,
-									"start_offset": 1329,
-									"end_offset": 1332
+									"start_offset": 1328,
+									"end_offset": 1331
 								}
 							]
 						},
@@ -57328,8 +57338,8 @@
 							"tokens": [
 								{
 									"position": 45,
-									"start_offset": 301,
-									"end_offset": 305
+									"start_offset": 299,
+									"end_offset": 303
 								}
 							]
 						},
@@ -57338,8 +57348,8 @@
 							"tokens": [
 								{
 									"position": 88,
-									"start_offset": 605,
-									"end_offset": 609
+									"start_offset": 601,
+									"end_offset": 605
 								}
 							]
 						},
@@ -57348,8 +57358,8 @@
 							"tokens": [
 								{
 									"position": 49,
-									"start_offset": 326,
-									"end_offset": 329
+									"start_offset": 324,
+									"end_offset": 327
 								}
 							]
 						},
@@ -57358,8 +57368,8 @@
 							"tokens": [
 								{
 									"position": 182,
-									"start_offset": 1238,
-									"end_offset": 1242
+									"start_offset": 1237,
+									"end_offset": 1241
 								}
 							]
 						},
@@ -57368,8 +57378,8 @@
 							"tokens": [
 								{
 									"position": 55,
-									"start_offset": 365,
-									"end_offset": 375
+									"start_offset": 363,
+									"end_offset": 373
 								}
 							]
 						},
@@ -57378,8 +57388,8 @@
 							"tokens": [
 								{
 									"position": 34,
-									"start_offset": 227,
-									"end_offset": 231
+									"start_offset": 228,
+									"end_offset": 232
 								}
 							]
 						},
@@ -57388,8 +57398,8 @@
 							"tokens": [
 								{
 									"position": 74,
-									"start_offset": 501,
-									"end_offset": 511
+									"start_offset": 499,
+									"end_offset": 509
 								}
 							]
 						},
@@ -57398,8 +57408,8 @@
 							"tokens": [
 								{
 									"position": 134,
-									"start_offset": 911,
-									"end_offset": 921
+									"start_offset": 908,
+									"end_offset": 918
 								}
 							]
 						},
@@ -57408,8 +57418,8 @@
 							"tokens": [
 								{
 									"position": 115,
-									"start_offset": 770,
-									"end_offset": 780
+									"start_offset": 767,
+									"end_offset": 777
 								},
 								{
 									"position": 260,
@@ -57423,8 +57433,8 @@
 							"tokens": [
 								{
 									"position": 158,
-									"start_offset": 1090,
-									"end_offset": 1101
+									"start_offset": 1088,
+									"end_offset": 1099
 								}
 							]
 						},
@@ -57433,13 +57443,13 @@
 							"tokens": [
 								{
 									"position": 21,
-									"start_offset": 127,
-									"end_offset": 133
+									"start_offset": 128,
+									"end_offset": 134
 								},
 								{
 									"position": 161,
-									"start_offset": 1109,
-									"end_offset": 1115
+									"start_offset": 1107,
+									"end_offset": 1113
 								}
 							]
 						},
@@ -57448,13 +57458,13 @@
 							"tokens": [
 								{
 									"position": 171,
-									"start_offset": 1175,
-									"end_offset": 1178
+									"start_offset": 1174,
+									"end_offset": 1177
 								},
 								{
 									"position": 243,
-									"start_offset": 1652,
-									"end_offset": 1655
+									"start_offset": 1653,
+									"end_offset": 1656
 								}
 							]
 						},
@@ -57463,8 +57473,8 @@
 							"tokens": [
 								{
 									"position": 72,
-									"start_offset": 487,
-									"end_offset": 492
+									"start_offset": 485,
+									"end_offset": 490
 								}
 							]
 						},
@@ -57483,8 +57493,8 @@
 							"tokens": [
 								{
 									"position": 152,
-									"start_offset": 1061,
-									"end_offset": 1066
+									"start_offset": 1059,
+									"end_offset": 1064
 								}
 							]
 						},
@@ -57493,13 +57503,13 @@
 							"tokens": [
 								{
 									"position": 136,
-									"start_offset": 925,
-									"end_offset": 932
+									"start_offset": 922,
+									"end_offset": 929
 								},
 								{
 									"position": 155,
-									"start_offset": 1073,
-									"end_offset": 1080
+									"start_offset": 1071,
+									"end_offset": 1078
 								}
 							]
 						},
@@ -57508,8 +57518,8 @@
 							"tokens": [
 								{
 									"position": 248,
-									"start_offset": 1684,
-									"end_offset": 1691
+									"start_offset": 1683,
+									"end_offset": 1690
 								}
 							]
 						},
@@ -57518,13 +57528,13 @@
 							"tokens": [
 								{
 									"position": 58,
-									"start_offset": 385,
-									"end_offset": 389
+									"start_offset": 383,
+									"end_offset": 387
 								},
 								{
 									"position": 91,
-									"start_offset": 622,
-									"end_offset": 626
+									"start_offset": 618,
+									"end_offset": 622
 								}
 							]
 						},
@@ -57533,8 +57543,8 @@
 							"tokens": [
 								{
 									"position": 146,
-									"start_offset": 1004,
-									"end_offset": 1011
+									"start_offset": 1002,
+									"end_offset": 1009
 								}
 							]
 						},
@@ -57543,8 +57553,8 @@
 							"tokens": [
 								{
 									"position": 48,
-									"start_offset": 319,
-									"end_offset": 325
+									"start_offset": 317,
+									"end_offset": 323
 								}
 							]
 						},
@@ -57553,8 +57563,8 @@
 							"tokens": [
 								{
 									"position": 253,
-									"start_offset": 1718,
-									"end_offset": 1727
+									"start_offset": 1717,
+									"end_offset": 1726
 								}
 							]
 						},
@@ -57563,8 +57573,8 @@
 							"tokens": [
 								{
 									"position": 82,
-									"start_offset": 569,
-									"end_offset": 578
+									"start_offset": 568,
+									"end_offset": 577
 								}
 							]
 						},
@@ -57573,8 +57583,8 @@
 							"tokens": [
 								{
 									"position": 190,
-									"start_offset": 1282,
-									"end_offset": 1289
+									"start_offset": 1281,
+									"end_offset": 1288
 								}
 							]
 						},
@@ -57583,8 +57593,8 @@
 							"tokens": [
 								{
 									"position": 35,
-									"start_offset": 232,
-									"end_offset": 236
+									"start_offset": 233,
+									"end_offset": 237
 								}
 							]
 						},
@@ -57593,8 +57603,8 @@
 							"tokens": [
 								{
 									"position": 73,
-									"start_offset": 493,
-									"end_offset": 500
+									"start_offset": 491,
+									"end_offset": 498
 								}
 							]
 						},
@@ -57613,8 +57623,8 @@
 							"tokens": [
 								{
 									"position": 111,
-									"start_offset": 747,
-									"end_offset": 756
+									"start_offset": 743,
+									"end_offset": 752
 								}
 							]
 						},
@@ -57633,8 +57643,8 @@
 							"tokens": [
 								{
 									"position": 144,
-									"start_offset": 988,
-									"end_offset": 994
+									"start_offset": 986,
+									"end_offset": 992
 								}
 							]
 						},
@@ -57653,8 +57663,8 @@
 							"tokens": [
 								{
 									"position": 125,
-									"start_offset": 847,
-									"end_offset": 855
+									"start_offset": 844,
+									"end_offset": 852
 								}
 							]
 						},
@@ -57663,13 +57673,13 @@
 							"tokens": [
 								{
 									"position": 43,
-									"start_offset": 290,
-									"end_offset": 293
+									"start_offset": 288,
+									"end_offset": 291
 								},
 								{
 									"position": 130,
-									"start_offset": 890,
-									"end_offset": 893
+									"start_offset": 887,
+									"end_offset": 890
 								}
 							]
 						},
@@ -57678,8 +57688,8 @@
 							"tokens": [
 								{
 									"position": 181,
-									"start_offset": 1225,
-									"end_offset": 1237
+									"start_offset": 1224,
+									"end_offset": 1236
 								}
 							]
 						},
@@ -57688,8 +57698,8 @@
 							"tokens": [
 								{
 									"position": 89,
-									"start_offset": 610,
-									"end_offset": 618
+									"start_offset": 606,
+									"end_offset": 614
 								}
 							]
 						},
@@ -57698,8 +57708,8 @@
 							"tokens": [
 								{
 									"position": 195,
-									"start_offset": 1320,
-									"end_offset": 1324
+									"start_offset": 1319,
+									"end_offset": 1323
 								}
 							]
 						},
@@ -57718,8 +57728,8 @@
 							"tokens": [
 								{
 									"position": 102,
-									"start_offset": 694,
-									"end_offset": 707
+									"start_offset": 690,
+									"end_offset": 703
 								}
 							]
 						},
@@ -57733,18 +57743,18 @@
 								},
 								{
 									"position": 62,
-									"start_offset": 410,
-									"end_offset": 413
+									"start_offset": 408,
+									"end_offset": 411
 								},
 								{
 									"position": 95,
-									"start_offset": 647,
-									"end_offset": 650
+									"start_offset": 643,
+									"end_offset": 646
 								},
 								{
 									"position": 191,
-									"start_offset": 1291,
-									"end_offset": 1294
+									"start_offset": 1290,
+									"end_offset": 1293
 								},
 								{
 									"position": 212,
@@ -57758,8 +57768,8 @@
 							"tokens": [
 								{
 									"position": 166,
-									"start_offset": 1146,
-									"end_offset": 1150
+									"start_offset": 1145,
+									"end_offset": 1149
 								}
 							]
 						},
@@ -57768,18 +57778,18 @@
 							"tokens": [
 								{
 									"position": 140,
-									"start_offset": 961,
-									"end_offset": 965
+									"start_offset": 958,
+									"end_offset": 962
 								},
 								{
 									"position": 168,
-									"start_offset": 1157,
-									"end_offset": 1161
+									"start_offset": 1156,
+									"end_offset": 1160
 								},
 								{
 									"position": 240,
-									"start_offset": 1627,
-									"end_offset": 1631
+									"start_offset": 1628,
+									"end_offset": 1632
 								}
 							]
 						},
@@ -57788,13 +57798,13 @@
 							"tokens": [
 								{
 									"position": 25,
-									"start_offset": 157,
-									"end_offset": 164
+									"start_offset": 158,
+									"end_offset": 165
 								},
 								{
 									"position": 51,
-									"start_offset": 337,
-									"end_offset": 344
+									"start_offset": 335,
+									"end_offset": 342
 								}
 							]
 						},
@@ -57813,8 +57823,8 @@
 							"tokens": [
 								{
 									"position": 68,
-									"start_offset": 463,
-									"end_offset": 469
+									"start_offset": 461,
+									"end_offset": 467
 								}
 							]
 						},
@@ -57843,8 +57853,8 @@
 							"tokens": [
 								{
 									"position": 76,
-									"start_offset": 521,
-									"end_offset": 528
+									"start_offset": 519,
+									"end_offset": 526
 								}
 							]
 						},
@@ -57853,8 +57863,8 @@
 							"tokens": [
 								{
 									"position": 46,
-									"start_offset": 306,
-									"end_offset": 314
+									"start_offset": 304,
+									"end_offset": 312
 								}
 							]
 						},
@@ -57863,8 +57873,8 @@
 							"tokens": [
 								{
 									"position": 37,
-									"start_offset": 245,
-									"end_offset": 255
+									"start_offset": 246,
+									"end_offset": 256
 								}
 							]
 						},
@@ -57878,8 +57888,8 @@
 								},
 								{
 									"position": 241,
-									"start_offset": 1632,
-									"end_offset": 1639
+									"start_offset": 1633,
+									"end_offset": 1640
 								}
 							]
 						},
@@ -57893,2517 +57903,18 @@
 								},
 								{
 									"position": 87,
-									"start_offset": 601,
-									"end_offset": 604
-								}
-							]
-						},
-						"retribucione": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 32,
-									"start_offset": 210,
-									"end_offset": 222
-								}
-							]
-						},
-						"roborandum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 280,
-									"start_offset": 1894,
-									"end_offset": 1904
-								}
-							]
-						},
-						"rogavi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 204,
-									"start_offset": 1374,
-									"end_offset": 1380
-								}
-							]
-						},
-						"sancti": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 54,
-									"start_offset": 358,
-									"end_offset": 364
-								},
-								{
-									"position": 77,
-									"start_offset": 529,
-									"end_offset": 535
-								}
-							]
-						},
-						"sceroluinga": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 97,
-									"start_offset": 659,
-									"end_offset": 670
-								}
-							]
-						},
-						"sceroluingon": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 2,
-									"start_offset": 8,
-									"end_offset": 20
-								}
-							]
-						},
-						"secula": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 8,
-									"start_offset": 47,
-									"end_offset": 53
-								}
-							]
-						},
-						"seculum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 40,
-									"start_offset": 266,
-									"end_offset": 273
-								}
-							]
-						},
-						"secundum": {
-							"term_freq": 3,
-							"tokens": [
-								{
-									"position": 75,
-									"start_offset": 512,
-									"end_offset": 520
-								},
-								{
-									"position": 117,
-									"start_offset": 787,
-									"end_offset": 795
-								},
-								{
-									"position": 281,
-									"start_offset": 1905,
-									"end_offset": 1913
-								}
-							]
-						},
-						"sed": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 245,
-									"start_offset": 1664,
-									"end_offset": 1667
-								}
-							]
-						},
-						"sempiterna": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 16,
-									"start_offset": 97,
-									"end_offset": 107
-								}
-							]
-						},
-						"septebr": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 264,
-									"start_offset": 1794,
-									"end_offset": 1801
-								}
-							]
-						},
-						"si": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 165,
-									"start_offset": 1143,
-									"end_offset": 1145
-								},
-								{
-									"position": 173,
-									"start_offset": 1186,
-									"end_offset": 1188
-								}
-							]
-						},
-						"sibi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 10,
-									"start_offset": 59,
-									"end_offset": 63
-								}
-							]
-						},
-						"silvis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 145,
-									"start_offset": 996,
-									"end_offset": 1002
-								}
-							]
-						},
-						"sitam": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 56,
-									"start_offset": 376,
-									"end_offset": 381
-								}
-							]
-						},
-						"socio": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 229,
-									"start_offset": 1560,
-									"end_offset": 1565
-								}
-							]
-						},
-						"spontanea": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 198,
-									"start_offset": 1333,
-									"end_offset": 1342
-								}
-							]
-						},
-						"stabilis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 252,
-									"start_offset": 1709,
-									"end_offset": 1717
-								}
-							]
-						},
-						"stipulacione": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 255,
-									"start_offset": 1732,
-									"end_offset": 1744
-								}
-							]
-						},
-						"subnixa": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 256,
-									"start_offset": 1745,
-									"end_offset": 1752
-								}
-							]
-						},
-						"sum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 108,
-									"start_offset": 732,
-									"end_offset": 735
-								}
-							]
-						},
-						"tam": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 142,
-									"start_offset": 976,
-									"end_offset": 979
-								}
-							]
-						},
-						"tantum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 216,
-									"start_offset": 1466,
-									"end_offset": 1472
-								}
-							]
-						},
-						"tempore": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 219,
-									"start_offset": 1487,
-									"end_offset": 1494
-								},
-								{
-									"position": 249,
-									"start_offset": 1692,
-									"end_offset": 1699
-								}
-							]
-						},
-						"temptaverit": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 210,
-									"start_offset": 1417,
-									"end_offset": 1428
-								}
-							]
-						},
-						"tenendi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 127,
-									"start_offset": 865,
-									"end_offset": 872
-								}
-							]
-						},
-						"testes": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 278,
-									"start_offset": 1884,
-									"end_offset": 1890
-								}
-							]
-						},
-						"totum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 98,
-									"start_offset": 672,
-									"end_offset": 677
-								}
-							]
-						},
-						"tradiciome": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 247,
-									"start_offset": 1673,
-									"end_offset": 1683
-								}
-							]
-						},
-						"traditio": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 221,
-									"start_offset": 1500,
-									"end_offset": 1508
-								}
-							]
-						},
-						"traditionem": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 194,
-									"start_offset": 1307,
-									"end_offset": 1318
-								}
-							]
-						},
-						"trado": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 116,
-									"start_offset": 781,
-									"end_offset": 786
-								}
-							]
-						},
-						"transcedo": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 120,
-									"start_offset": 814,
-									"end_offset": 823
-								},
-								{
-									"position": 162,
-									"start_offset": 1116,
-									"end_offset": 1125
-								}
-							]
-						},
-						"transfundo": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 122,
-									"start_offset": 830,
-									"end_offset": 840
-								},
-								{
-									"position": 164,
-									"start_offset": 1132,
-									"end_offset": 1142
-								}
-							]
-						},
-						"tunc": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 218,
-									"start_offset": 1482,
-									"end_offset": 1486
-								}
-							]
-						},
-						"ubi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 65,
-									"start_offset": 432,
-									"end_offset": 435
-								}
-							]
-						},
-						"ulla": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 186,
-									"start_offset": 1257,
-									"end_offset": 1261
-								}
-							]
-						},
-						"ullus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 177,
-									"start_offset": 1202,
-									"end_offset": 1207
-								}
-							]
-						},
-						"una": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 226,
-									"start_offset": 1539,
-									"end_offset": 1542
-								}
-							]
-						},
-						"ut": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 33,
-									"start_offset": 224,
-									"end_offset": 226
-								}
-							]
-						},
-						"valeat": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 244,
-									"start_offset": 1656,
-									"end_offset": 1662
-								}
-							]
-						},
-						"vel": {
-							"term_freq": 7,
-							"tokens": [
-								{
-									"position": 30,
-									"start_offset": 199,
-									"end_offset": 202
-								},
-								{
-									"position": 47,
-									"start_offset": 315,
-									"end_offset": 318
-								},
-								{
-									"position": 71,
-									"start_offset": 483,
-									"end_offset": 486
-								},
-								{
-									"position": 110,
-									"start_offset": 743,
-									"end_offset": 746
-								},
-								{
-									"position": 180,
-									"start_offset": 1221,
-									"end_offset": 1224
-								},
-								{
-									"position": 188,
-									"start_offset": 1269,
-									"end_offset": 1272
-								},
-								{
-									"position": 201,
-									"start_offset": 1359,
-									"end_offset": 1362
-								}
-							]
-						},
-						"venire": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 205,
-									"start_offset": 1382,
-									"end_offset": 1388
-								}
-							]
-						},
-						"vero": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 167,
-									"start_offset": 1151,
-									"end_offset": 1155
-								}
-							]
-						},
-						"vi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 236,
-									"start_offset": 1604,
-									"end_offset": 1606
-								}
-							]
-						},
-						"videtur": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 70,
-									"start_offset": 475,
-									"end_offset": 482
-								}
-							]
-						},
-						"viii": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 262,
-									"start_offset": 1785,
-									"end_offset": 1789
-								}
-							]
-						},
-						"villa": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 94,
-									"start_offset": 640,
-									"end_offset": 645
-								}
-							]
-						},
-						"visus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 107,
-									"start_offset": 726,
-									"end_offset": 731
-								}
-							]
-						},
-						"volo": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 84,
-									"start_offset": 587,
-									"end_offset": 591
-								}
-							]
-						},
-						"voluntate": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 199,
-									"start_offset": 1343,
-									"end_offset": 1352
-								}
-							]
-						},
-						"volverint": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 141,
-									"start_offset": 966,
-									"end_offset": 975
-								}
-							]
-						},
-						"volverit": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 206,
-									"start_offset": 1389,
-									"end_offset": 1397
-								}
-							]
-						},
-						"xxxvi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 266,
-									"start_offset": 1809,
-									"end_offset": 1814
-								}
-							]
-						}
-					}
-				},
-				"lemmas": {
-					"terms": {
-						"a": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 123,
-									"start_offset": 841,
-									"end_offset": 842
-								}
-							]
-						},
-						"actum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 257,
-									"start_offset": 1753,
-									"end_offset": 1758
-								}
-							]
-						},
-						"ad": {
-							"term_freq": 5,
-							"tokens": [
-								{
-									"position": 52,
-									"start_offset": 345,
-									"end_offset": 347
-								},
-								{
-									"position": 100,
-									"start_offset": 681,
-									"end_offset": 683
-								},
-								{
-									"position": 112,
-									"start_offset": 757,
-									"end_offset": 759
-								},
-								{
-									"position": 156,
-									"start_offset": 1081,
-									"end_offset": 1083
-								},
-								{
-									"position": 279,
-									"start_offset": 1891,
-									"end_offset": 1893
-								}
-							]
-						},
-						"adiacenciis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 148,
-									"start_offset": 1020,
-									"end_offset": 1031
-								}
-							]
-						},
-						"afectu": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 131,
-									"start_offset": 894,
-									"end_offset": 900
-								}
-							]
-						},
-						"agris": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 147,
-									"start_offset": 1013,
-									"end_offset": 1018
-								}
-							]
-						},
-						"animae": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 44,
-									"start_offset": 294,
-									"end_offset": 300
-								}
-							]
-						},
-						"anno": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 265,
-									"start_offset": 1804,
-									"end_offset": 1808
-								}
-							]
-						},
-						"aquarumve": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 150,
-									"start_offset": 1039,
-									"end_offset": 1048
-								}
-							]
-						},
-						"aquis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 149,
-									"start_offset": 1033,
-									"end_offset": 1038
-								}
-							]
-						},
-						"archiepiscopus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 67,
-									"start_offset": 448,
-									"end_offset": 462
-								}
-							]
-						},
-						"argenti": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 234,
-									"start_offset": 1589,
-									"end_offset": 1596
-								}
-							]
-						},
-						"atargauue": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 92,
-									"start_offset": 627,
-									"end_offset": 636
-								}
-							]
-						},
-						"atque": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 121,
-									"start_offset": 824,
-									"end_offset": 829
-								},
-								{
-									"position": 163,
-									"start_offset": 1126,
-									"end_offset": 1131
-								}
-							]
-						},
-						"attoni": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 24,
-									"start_offset": 150,
-									"end_offset": 156
-								},
-								{
-									"position": 50,
-									"start_offset": 330,
-									"end_offset": 336
-								}
-							]
-						},
-						"auri": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 231,
-									"start_offset": 1572,
-									"end_offset": 1576
-								}
-							]
-						},
-						"aut": {
-							"term_freq": 4,
-							"tokens": [
-								{
-									"position": 176,
-									"start_offset": 1198,
-									"end_offset": 1201
-								},
-								{
-									"position": 183,
-									"start_offset": 1243,
-									"end_offset": 1246
-								},
-								{
-									"position": 185,
-									"start_offset": 1253,
-									"end_offset": 1256
-								},
-								{
-									"position": 207,
-									"start_offset": 1398,
-									"end_offset": 1401
-								}
-							]
-						},
-						"bauuariorum": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 119,
-									"start_offset": 801,
-									"end_offset": 812
-								},
-								{
-									"position": 283,
-									"start_offset": 1919,
-									"end_offset": 1930
-								}
-							]
-						},
-						"bene": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 4,
-									"start_offset": 26,
-									"end_offset": 30
-								}
-							]
-						},
-						"benedicti": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 78,
-									"start_offset": 536,
-									"end_offset": 545
-								}
-							]
-						},
-						"caducis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 12,
-									"start_offset": 67,
-									"end_offset": 74
-								}
-							]
-						},
-						"campis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 143,
-									"start_offset": 980,
-									"end_offset": 986
-								}
-							]
-						},
-						"casu": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 27,
-									"start_offset": 174,
-									"end_offset": 178
-								}
-							]
-						},
-						"certe": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 184,
-									"start_offset": 1247,
-									"end_offset": 1252
-								}
-							]
-						},
-						"coactus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 237,
-									"start_offset": 1607,
-									"end_offset": 1614
-								}
-							]
-						},
-						"cogitans": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 26,
-									"start_offset": 165,
-									"end_offset": 173
-								}
-							]
-						},
-						"commutandi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 129,
-									"start_offset": 879,
-									"end_offset": 889
-								}
-							]
-						},
-						"conparat": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 14,
-									"start_offset": 81,
-									"end_offset": 89
-								}
-							]
-						},
-						"conponat": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 238,
-									"start_offset": 1615,
-									"end_offset": 1623
-								}
-							]
-						},
-						"contra": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 192,
-									"start_offset": 1295,
-									"end_offset": 1301
-								}
-							]
-						},
-						"credo": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 172,
-									"start_offset": 1179,
-									"end_offset": 1184
-								}
-							]
-						},
-						"cum": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 227,
-									"start_offset": 1543,
-									"end_offset": 1546
-								},
-								{
-									"position": 254,
-									"start_offset": 1728,
-									"end_offset": 1731
-								}
-							]
-						},
-						"datum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 261,
-									"start_offset": 1779,
-									"end_offset": 1784
-								}
-							]
-						},
-						"de": {
-							"term_freq": 3,
-							"tokens": [
-								{
-									"position": 1,
-									"start_offset": 5,
-									"end_offset": 7
-								},
-								{
-									"position": 11,
-									"start_offset": 64,
-									"end_offset": 66
-								},
-								{
-									"position": 178,
-									"start_offset": 1208,
-									"end_offset": 1210
-								}
-							]
-						},
-						"decursibus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 151,
-									"start_offset": 1049,
-									"end_offset": 1059
-								}
-							]
-						},
-						"dedit": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 284,
-									"start_offset": 1932,
-									"end_offset": 1937
-								}
-							]
-						},
-						"degentes": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 79,
-									"start_offset": 546,
-									"end_offset": 554
-								}
-							]
-						},
-						"dei": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 20,
-									"start_offset": 123,
-									"end_offset": 126
-								}
-							]
-						},
-						"dicitur": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 63,
-									"start_offset": 414,
-									"end_offset": 421
-								},
-								{
-									"position": 96,
-									"start_offset": 651,
-									"end_offset": 658
-								}
-							]
-						},
-						"dicta": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 105,
-									"start_offset": 715,
-									"end_offset": 720
-								}
-							]
-						},
-						"dicti": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 133,
-									"start_offset": 905,
-									"end_offset": 910
-								}
-							]
-						},
-						"dicto": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 114,
-									"start_offset": 764,
-									"end_offset": 769
-								}
-							]
-						},
-						"die": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 124,
-									"start_offset": 843,
-									"end_offset": 846
-								},
-								{
-									"position": 160,
-									"start_offset": 1105,
-									"end_offset": 1108
-								}
-							]
-						},
-						"dignetur": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 41,
-									"start_offset": 274,
-									"end_offset": 282
-								}
-							]
-						},
-						"distringente": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 228,
-									"start_offset": 1547,
-									"end_offset": 1559
-								}
-							]
-						},
-						"dominus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 36,
-									"start_offset": 237,
-									"end_offset": 244
-								}
-							]
-						},
-						"domni": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 268,
-									"start_offset": 1821,
-									"end_offset": 1826
-								}
-							]
-						},
-						"donatumque": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 80,
-									"start_offset": 555,
-									"end_offset": 565
-								}
-							]
-						},
-						"dupliciter": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 215,
-									"start_offset": 1455,
-									"end_offset": 1465
-								}
-							]
-						},
-						"eam": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 208,
-									"start_offset": 1402,
-									"end_offset": 1405
-								}
-							]
-						},
-						"ecclesiam": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 53,
-									"start_offset": 348,
-									"end_offset": 357
-								}
-							]
-						},
-						"ego": {
-							"term_freq": 3,
-							"tokens": [
-								{
-									"position": 18,
-									"start_offset": 116,
-									"end_offset": 119
-								},
-								{
-									"position": 174,
-									"start_offset": 1189,
-									"end_offset": 1192
-								},
-								{
-									"position": 196,
-									"start_offset": 1325,
-									"end_offset": 1328
-								}
-							]
-						},
-						"eius": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 275,
-									"start_offset": 1872,
-									"end_offset": 1876
-								}
-							]
-						},
-						"emeliorata": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 222,
-									"start_offset": 1509,
-									"end_offset": 1519
-								}
-							]
-						},
-						"emissa": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 187,
-									"start_offset": 1262,
-									"end_offset": 1268
-								}
-							]
-						},
-						"esse": {
-							"term_freq": 3,
-							"tokens": [
-								{
-									"position": 69,
-									"start_offset": 470,
-									"end_offset": 474
-								},
-								{
-									"position": 83,
-									"start_offset": 579,
-									"end_offset": 583
-								},
-								{
-									"position": 170,
-									"start_offset": 1170,
-									"end_offset": 1174
-								}
-							]
-						},
-						"est": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 86,
 									"start_offset": 597,
 									"end_offset": 600
 								}
 							]
 						},
-						"et": {
-							"term_freq": 9,
-							"tokens": [
-								{
-									"position": 42,
-									"start_offset": 287,
-									"end_offset": 289
-								},
-								{
-									"position": 99,
-									"start_offset": 678,
-									"end_offset": 680
-								},
-								{
-									"position": 153,
-									"start_offset": 1067,
-									"end_offset": 1069
-								},
-								{
-									"position": 202,
-									"start_offset": 1363,
-									"end_offset": 1365
-								},
-								{
-									"position": 224,
-									"start_offset": 1528,
-									"end_offset": 1530
-								},
-								{
-									"position": 239,
-									"start_offset": 1624,
-									"end_offset": 1626
-								},
-								{
-									"position": 251,
-									"start_offset": 1706,
-									"end_offset": 1708
-								},
-								{
-									"position": 273,
-									"start_offset": 1861,
-									"end_offset": 1863
-								},
-								{
-									"position": 277,
-									"start_offset": 1881,
-									"end_offset": 1883
-								}
-							]
-						},
-						"eterna": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 31,
-									"start_offset": 203,
-									"end_offset": 209
-								}
-							]
-						},
-						"evindicare": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 242,
-									"start_offset": 1641,
-									"end_offset": 1651
-								}
-							]
-						},
-						"ex": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 154,
-									"start_offset": 1070,
-									"end_offset": 1072
-								}
-							]
-						},
-						"extranea": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 189,
-									"start_offset": 1273,
-									"end_offset": 1281
-								}
-							]
-						},
-						"faciendi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 139,
-									"start_offset": 951,
-									"end_offset": 959
-								}
-							]
-						},
-						"fieri": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 200,
-									"start_offset": 1353,
-									"end_offset": 1358
-								}
-							]
-						},
-						"filius": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 23,
-									"start_offset": 143,
-									"end_offset": 149
-								}
-							]
-						},
-						"firma": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 250,
-									"start_offset": 1700,
-									"end_offset": 1705
-								}
-							]
-						},
-						"firmare": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 203,
-									"start_offset": 1366,
-									"end_offset": 1373
-								}
-							]
-						},
-						"fisco": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 230,
-									"start_offset": 1566,
-									"end_offset": 1571
-								}
-							]
-						},
-						"fragilitatis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 29,
-									"start_offset": 186,
-									"end_offset": 198
-								}
-							]
-						},
-						"fuerat": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 223,
-									"start_offset": 1520,
-									"end_offset": 1526
-								}
-							]
-						},
-						"futura": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 39,
-									"start_offset": 259,
-									"end_offset": 265
-								}
-							]
-						},
-						"futurum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 169,
-									"start_offset": 1162,
-									"end_offset": 1169
-								}
-							]
-						},
-						"gloriosissime": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 271,
-									"start_offset": 1841,
-									"end_offset": 1854
-								}
-							]
-						},
-						"habeant": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 138,
-									"start_offset": 943,
-									"end_offset": 950
-								}
-							]
-						},
-						"habendi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 126,
-									"start_offset": 856,
-									"end_offset": 863
-								}
-							]
-						},
-						"habere": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 109,
-									"start_offset": 736,
-									"end_offset": 742
-								}
-							]
-						},
-						"hanc": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 193,
-									"start_offset": 1302,
-									"end_offset": 1306
-								}
-							]
-						},
-						"heredibus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 179,
-									"start_offset": 1211,
-									"end_offset": 1220
-								}
-							]
-						},
-						"heripald": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 22,
-									"start_offset": 134,
-									"end_offset": 142
-								}
-							]
-						},
-						"hiltipaldus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 66,
-									"start_offset": 436,
-									"end_offset": 447
-								}
-							]
-						},
-						"hoc": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 85,
-									"start_offset": 593,
-									"end_offset": 596
-								},
-								{
-									"position": 213,
-									"start_offset": 1442,
-									"end_offset": 1445
-								}
-							]
-						},
-						"humani": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 28,
-									"start_offset": 179,
-									"end_offset": 185
-								}
-							]
-						},
-						"iam": {
-							"term_freq": 3,
-							"tokens": [
-								{
-									"position": 104,
-									"start_offset": 711,
-									"end_offset": 714
-								},
-								{
-									"position": 113,
-									"start_offset": 760,
-									"end_offset": 763
-								},
-								{
-									"position": 132,
-									"start_offset": 901,
-									"end_offset": 904
-								}
-							]
-						},
-						"id": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 263,
-									"start_offset": 1790,
-									"end_offset": 1792
-								}
-							]
-						},
-						"ideoque": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 17,
-									"start_offset": 108,
-									"end_offset": 115
-								}
-							]
-						},
-						"iii": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 233,
-									"start_offset": 1584,
-									"end_offset": 1587
-								},
-								{
-									"position": 276,
-									"start_offset": 1877,
-									"end_offset": 1880
-								}
-							]
-						},
-						"ille": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 3,
-									"start_offset": 21,
-									"end_offset": 25
-								}
-							]
-						},
-						"imperii": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 274,
-									"start_offset": 1864,
-									"end_offset": 1871
-								}
-							]
-						},
-						"in": {
-							"term_freq": 12,
-							"tokens": [
-								{
-									"position": 7,
-									"start_offset": 44,
-									"end_offset": 46
-								},
-								{
-									"position": 19,
-									"start_offset": 120,
-									"end_offset": 122
-								},
-								{
-									"position": 38,
-									"start_offset": 256,
-									"end_offset": 258
-								},
-								{
-									"position": 57,
-									"start_offset": 382,
-									"end_offset": 384
-								},
-								{
-									"position": 60,
-									"start_offset": 401,
-									"end_offset": 403
-								},
-								{
-									"position": 81,
-									"start_offset": 566,
-									"end_offset": 568
-								},
-								{
-									"position": 90,
-									"start_offset": 619,
-									"end_offset": 621
-								},
-								{
-									"position": 93,
-									"start_offset": 637,
-									"end_offset": 639
-								},
-								{
-									"position": 103,
-									"start_offset": 708,
-									"end_offset": 710
-								},
-								{
-									"position": 135,
-									"start_offset": 922,
-									"end_offset": 924
-								},
-								{
-									"position": 159,
-									"start_offset": 1102,
-									"end_offset": 1104
-								},
-								{
-									"position": 258,
-									"start_offset": 1759,
-									"end_offset": 1761
-								}
-							]
-						},
-						"inferat": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 211,
-									"start_offset": 1429,
-									"end_offset": 1436
-								}
-							]
-						},
-						"infrangere": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 209,
-									"start_offset": 1406,
-									"end_offset": 1416
-								}
-							]
-						},
-						"insuper": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 225,
-									"start_offset": 1531,
-									"end_offset": 1538
-								}
-							]
-						},
-						"integrum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 101,
-									"start_offset": 684,
-									"end_offset": 692
-								}
-							]
-						},
-						"ipsa": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 220,
-									"start_offset": 1495,
-									"end_offset": 1499
-								}
-							]
-						},
-						"ipse": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 175,
-									"start_offset": 1193,
-									"end_offset": 1197
-								}
-							]
-						},
-						"ipso": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 259,
-									"start_offset": 1762,
-									"end_offset": 1766
-								}
-							]
-						},
-						"ipsum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 157,
-									"start_offset": 1084,
-									"end_offset": 1089
-								}
-							]
-						},
-						"ista": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 246,
-									"start_offset": 1668,
-									"end_offset": 1672
-								}
-							]
-						},
-						"item": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 0,
-									"start_offset": 0,
-									"end_offset": 4
-								}
-							]
-						},
-						"karoli": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 270,
-									"start_offset": 1834,
-									"end_offset": 1840
-								}
-							]
-						},
-						"lege": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 118,
-									"start_offset": 796,
-									"end_offset": 800
-								},
-								{
-									"position": 282,
-									"start_offset": 1914,
-									"end_offset": 1918
-								}
-							]
-						},
-						"libras": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 232,
-									"start_offset": 1577,
-									"end_offset": 1583
-								}
-							]
-						},
-						"licenciam": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 137,
-									"start_offset": 933,
-									"end_offset": 942
-								}
-							]
-						},
-						"licet": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 128,
-									"start_offset": 873,
-									"end_offset": 878
-								}
-							]
-						},
-						"loca": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 106,
-									"start_offset": 721,
-									"end_offset": 725
-								}
-							]
-						},
-						"loco": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 61,
-									"start_offset": 404,
-									"end_offset": 408
-								}
-							]
-						},
-						"maninseo": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 64,
-									"start_offset": 422,
-									"end_offset": 430
-								}
-							]
-						},
-						"matahgauue": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 59,
-									"start_offset": 390,
-									"end_offset": 400
-								}
-							]
-						},
-						"mea": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 197,
-									"start_offset": 1329,
-									"end_offset": 1332
-								}
-							]
-						},
-						"meae": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 45,
-									"start_offset": 301,
-									"end_offset": 305
-								}
-							]
-						},
-						"meas": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 88,
-									"start_offset": 605,
-									"end_offset": 609
-								}
-							]
-						},
-						"mei": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 49,
-									"start_offset": 326,
-									"end_offset": 329
-								}
-							]
-						},
-						"meis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 182,
-									"start_offset": 1238,
-									"end_offset": 1242
-								}
-							]
-						},
-						"michahelis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 55,
-									"start_offset": 365,
-									"end_offset": 375
-								}
-							]
-						},
-						"mihi": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 34,
-									"start_offset": 227,
-									"end_offset": 231
-								}
-							]
-						},
-						"monachorum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 74,
-									"start_offset": 501,
-									"end_offset": 511
-								}
-							]
-						},
-						"monasterii": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 134,
-									"start_offset": 911,
-									"end_offset": 921
-								}
-							]
-						},
-						"monasterio": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 115,
-									"start_offset": 770,
-									"end_offset": 780
-								},
-								{
-									"position": 260,
-									"start_offset": 1767,
-									"end_offset": 1777
-								}
-							]
-						},
-						"monasterium": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 158,
-									"start_offset": 1090,
-									"end_offset": 1101
-								}
-							]
-						},
-						"nomine": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 21,
-									"start_offset": 127,
-									"end_offset": 133
-								},
-								{
-									"position": 161,
-									"start_offset": 1109,
-									"end_offset": 1115
-								}
-							]
-						},
-						"non": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 171,
-									"start_offset": 1175,
-									"end_offset": 1178
-								},
-								{
-									"position": 243,
-									"start_offset": 1652,
-									"end_offset": 1655
-								}
-							]
-						},
-						"norma": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 72,
-									"start_offset": 487,
-									"end_offset": 492
-								}
-							]
-						},
-						"nostri": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 269,
-									"start_offset": 1827,
-									"end_offset": 1833
-								}
-							]
-						},
-						"omnia": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 152,
-									"start_offset": 1061,
-									"end_offset": 1066
-								}
-							]
-						},
-						"omnibus": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 136,
-									"start_offset": 925,
-									"end_offset": 932
-								},
-								{
-									"position": 155,
-									"start_offset": 1073,
-									"end_offset": 1080
-								}
-							]
-						},
-						"omnique": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 248,
-									"start_offset": 1684,
-									"end_offset": 1691
-								}
-							]
-						},
-						"pago": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 58,
-									"start_offset": 385,
-									"end_offset": 389
-								},
-								{
-									"position": 91,
-									"start_offset": 622,
-									"end_offset": 626
-								}
-							]
-						},
-						"pascuis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 146,
-									"start_offset": 1004,
-									"end_offset": 1011
-								}
-							]
-						},
-						"patris": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 48,
-									"start_offset": 319,
-									"end_offset": 325
-								}
-							]
-						},
-						"permaneat": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 253,
-									"start_offset": 1718,
-									"end_offset": 1727
-								}
-							]
-						},
-						"perpetuum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 82,
-									"start_offset": 569,
-									"end_offset": 578
-								}
-							]
-						},
-						"persona": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 190,
-									"start_offset": 1282,
-									"end_offset": 1289
-								}
-							]
-						},
-						"pius": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 35,
-									"start_offset": 232,
-									"end_offset": 236
-								}
-							]
-						},
-						"plurima": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 73,
-									"start_offset": 493,
-									"end_offset": 500
-								}
-							]
-						},
-						"pondus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 235,
-									"start_offset": 1597,
-									"end_offset": 1603
-								}
-							]
-						},
-						"possedere": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 111,
-									"start_offset": 747,
-									"end_offset": 756
-								}
-							]
-						},
-						"possidet": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 5,
-									"start_offset": 31,
-									"end_offset": 39
-								}
-							]
-						},
-						"pratis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 144,
-									"start_offset": 988,
-									"end_offset": 994
-								}
-							]
-						},
-						"premia": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 15,
-									"start_offset": 90,
-									"end_offset": 96
-								}
-							]
-						},
-						"presente": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 125,
-									"start_offset": 847,
-									"end_offset": 855
-								}
-							]
-						},
-						"pro": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 43,
-									"start_offset": 290,
-									"end_offset": 293
-								},
-								{
-									"position": 130,
-									"start_offset": 890,
-									"end_offset": 893
-								}
-							]
-						},
-						"proheredibus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 181,
-									"start_offset": 1225,
-									"end_offset": 1237
-								}
-							]
-						},
-						"proprias": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 89,
-									"start_offset": 610,
-									"end_offset": 618
-								}
-							]
-						},
-						"quam": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 195,
-									"start_offset": 1320,
-									"end_offset": 1324
-								}
-							]
-						},
-						"quantum": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 217,
-									"start_offset": 1474,
-									"end_offset": 1481
-								}
-							]
-						},
-						"quantumcumque": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 102,
-									"start_offset": 694,
-									"end_offset": 707
-								}
-							]
-						},
-						"qui": {
-							"term_freq": 5,
-							"tokens": [
-								{
-									"position": 9,
-									"start_offset": 55,
-									"end_offset": 58
-								},
-								{
-									"position": 62,
-									"start_offset": 410,
-									"end_offset": 413
-								},
-								{
-									"position": 95,
-									"start_offset": 647,
-									"end_offset": 650
-								},
-								{
-									"position": 191,
-									"start_offset": 1291,
-									"end_offset": 1294
-								},
-								{
-									"position": 212,
-									"start_offset": 1438,
-									"end_offset": 1441
-								}
-							]
-						},
-						"quis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 166,
-									"start_offset": 1146,
-									"end_offset": 1150
-								}
-							]
-						},
-						"quod": {
-							"term_freq": 3,
-							"tokens": [
-								{
-									"position": 140,
-									"start_offset": 961,
-									"end_offset": 965
-								},
-								{
-									"position": 168,
-									"start_offset": 1157,
-									"end_offset": 1161
-								},
-								{
-									"position": 240,
-									"start_offset": 1627,
-									"end_offset": 1631
-								}
-							]
-						},
-						"quondam": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 25,
-									"start_offset": 157,
-									"end_offset": 164
-								},
-								{
-									"position": 51,
-									"start_offset": 337,
-									"end_offset": 344
-								}
-							]
-						},
-						"rebus": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 13,
-									"start_offset": 75,
-									"end_offset": 80
-								}
-							]
-						},
-						"rector": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 68,
-									"start_offset": 463,
-									"end_offset": 469
-								}
-							]
-						},
-						"regis": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 272,
-									"start_offset": 1855,
-									"end_offset": 1860
-								}
-							]
-						},
-						"regni": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 267,
-									"start_offset": 1815,
-									"end_offset": 1820
-								}
-							]
-						},
-						"regulam": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 76,
-									"start_offset": 521,
-									"end_offset": 528
-								}
-							]
-						},
-						"remedium": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 46,
-									"start_offset": 306,
-									"end_offset": 314
-								}
-							]
-						},
-						"remunerare": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 37,
-									"start_offset": 245,
-									"end_offset": 255
-								}
-							]
-						},
-						"repetit": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 214,
-									"start_offset": 1446,
-									"end_offset": 1453
-								},
-								{
-									"position": 241,
-									"start_offset": 1632,
-									"end_offset": 1639
-								}
-							]
-						},
-						"res": {
-							"term_freq": 2,
-							"tokens": [
-								{
-									"position": 6,
-									"start_offset": 40,
-									"end_offset": 43
-								},
-								{
-									"position": 87,
-									"start_offset": 601,
-									"end_offset": 604
-								}
-							]
-						},
 						"retribucione": {
 							"term_freq": 1,
 							"tokens": [
 								{
 									"position": 32,
-									"start_offset": 210,
-									"end_offset": 222
+									"start_offset": 211,
+									"end_offset": 223
 								}
 							]
 						},
@@ -60412,8 +57923,8 @@
 							"tokens": [
 								{
 									"position": 280,
-									"start_offset": 1894,
-									"end_offset": 1904
+									"start_offset": 1895,
+									"end_offset": 1905
 								}
 							]
 						},
@@ -60422,8 +57933,8 @@
 							"tokens": [
 								{
 									"position": 204,
-									"start_offset": 1374,
-									"end_offset": 1380
+									"start_offset": 1373,
+									"end_offset": 1379
 								}
 							]
 						},
@@ -60432,13 +57943,13 @@
 							"tokens": [
 								{
 									"position": 54,
-									"start_offset": 358,
-									"end_offset": 364
+									"start_offset": 356,
+									"end_offset": 362
 								},
 								{
 									"position": 77,
-									"start_offset": 529,
-									"end_offset": 535
+									"start_offset": 527,
+									"end_offset": 533
 								}
 							]
 						},
@@ -60447,8 +57958,8 @@
 							"tokens": [
 								{
 									"position": 97,
-									"start_offset": 659,
-									"end_offset": 670
+									"start_offset": 655,
+									"end_offset": 666
 								}
 							]
 						},
@@ -60477,8 +57988,8 @@
 							"tokens": [
 								{
 									"position": 40,
-									"start_offset": 266,
-									"end_offset": 273
+									"start_offset": 267,
+									"end_offset": 274
 								}
 							]
 						},
@@ -60487,18 +57998,18 @@
 							"tokens": [
 								{
 									"position": 75,
-									"start_offset": 512,
-									"end_offset": 520
+									"start_offset": 510,
+									"end_offset": 518
 								},
 								{
 									"position": 117,
-									"start_offset": 787,
-									"end_offset": 795
+									"start_offset": 784,
+									"end_offset": 792
 								},
 								{
 									"position": 281,
-									"start_offset": 1905,
-									"end_offset": 1913
+									"start_offset": 1906,
+									"end_offset": 1914
 								}
 							]
 						},
@@ -60507,8 +58018,8 @@
 							"tokens": [
 								{
 									"position": 245,
-									"start_offset": 1664,
-									"end_offset": 1667
+									"start_offset": 1665,
+									"end_offset": 1668
 								}
 							]
 						},
@@ -60537,13 +58048,13 @@
 							"tokens": [
 								{
 									"position": 165,
-									"start_offset": 1143,
-									"end_offset": 1145
+									"start_offset": 1142,
+									"end_offset": 1144
 								},
 								{
 									"position": 173,
-									"start_offset": 1186,
-									"end_offset": 1188
+									"start_offset": 1185,
+									"end_offset": 1187
 								}
 							]
 						},
@@ -60562,8 +58073,8 @@
 							"tokens": [
 								{
 									"position": 145,
-									"start_offset": 996,
-									"end_offset": 1002
+									"start_offset": 994,
+									"end_offset": 1000
 								}
 							]
 						},
@@ -60572,8 +58083,8 @@
 							"tokens": [
 								{
 									"position": 56,
-									"start_offset": 376,
-									"end_offset": 381
+									"start_offset": 374,
+									"end_offset": 379
 								}
 							]
 						},
@@ -60592,8 +58103,8 @@
 							"tokens": [
 								{
 									"position": 198,
-									"start_offset": 1333,
-									"end_offset": 1342
+									"start_offset": 1332,
+									"end_offset": 1341
 								}
 							]
 						},
@@ -60602,8 +58113,8 @@
 							"tokens": [
 								{
 									"position": 252,
-									"start_offset": 1709,
-									"end_offset": 1717
+									"start_offset": 1708,
+									"end_offset": 1716
 								}
 							]
 						},
@@ -60612,8 +58123,8 @@
 							"tokens": [
 								{
 									"position": 255,
-									"start_offset": 1732,
-									"end_offset": 1744
+									"start_offset": 1731,
+									"end_offset": 1743
 								}
 							]
 						},
@@ -60622,8 +58133,8 @@
 							"tokens": [
 								{
 									"position": 256,
-									"start_offset": 1745,
-									"end_offset": 1752
+									"start_offset": 1744,
+									"end_offset": 1751
 								}
 							]
 						},
@@ -60632,8 +58143,8 @@
 							"tokens": [
 								{
 									"position": 108,
-									"start_offset": 732,
-									"end_offset": 735
+									"start_offset": 728,
+									"end_offset": 731
 								}
 							]
 						},
@@ -60642,8 +58153,8 @@
 							"tokens": [
 								{
 									"position": 142,
-									"start_offset": 976,
-									"end_offset": 979
+									"start_offset": 974,
+									"end_offset": 977
 								}
 							]
 						},
@@ -60667,8 +58178,8 @@
 								},
 								{
 									"position": 249,
-									"start_offset": 1692,
-									"end_offset": 1699
+									"start_offset": 1691,
+									"end_offset": 1698
 								}
 							]
 						},
@@ -60677,8 +58188,8 @@
 							"tokens": [
 								{
 									"position": 210,
-									"start_offset": 1417,
-									"end_offset": 1428
+									"start_offset": 1416,
+									"end_offset": 1427
 								}
 							]
 						},
@@ -60687,8 +58198,8 @@
 							"tokens": [
 								{
 									"position": 127,
-									"start_offset": 865,
-									"end_offset": 872
+									"start_offset": 862,
+									"end_offset": 869
 								}
 							]
 						},
@@ -60697,8 +58208,8 @@
 							"tokens": [
 								{
 									"position": 278,
-									"start_offset": 1884,
-									"end_offset": 1890
+									"start_offset": 1885,
+									"end_offset": 1891
 								}
 							]
 						},
@@ -60707,18 +58218,18 @@
 							"tokens": [
 								{
 									"position": 98,
-									"start_offset": 672,
-									"end_offset": 677
+									"start_offset": 668,
+									"end_offset": 673
 								}
 							]
 						},
-						"tradiciome": {
+						"tradicio": {
 							"term_freq": 1,
 							"tokens": [
 								{
 									"position": 247,
-									"start_offset": 1673,
-									"end_offset": 1683
+									"start_offset": 1674,
+									"end_offset": 1682
 								}
 							]
 						},
@@ -60737,8 +58248,8 @@
 							"tokens": [
 								{
 									"position": 194,
-									"start_offset": 1307,
-									"end_offset": 1318
+									"start_offset": 1306,
+									"end_offset": 1317
 								}
 							]
 						},
@@ -60747,8 +58258,8 @@
 							"tokens": [
 								{
 									"position": 116,
-									"start_offset": 781,
-									"end_offset": 786
+									"start_offset": 778,
+									"end_offset": 783
 								}
 							]
 						},
@@ -60757,13 +58268,13 @@
 							"tokens": [
 								{
 									"position": 120,
-									"start_offset": 814,
-									"end_offset": 823
+									"start_offset": 811,
+									"end_offset": 820
 								},
 								{
 									"position": 162,
-									"start_offset": 1116,
-									"end_offset": 1125
+									"start_offset": 1114,
+									"end_offset": 1123
 								}
 							]
 						},
@@ -60772,13 +58283,13 @@
 							"tokens": [
 								{
 									"position": 122,
-									"start_offset": 830,
-									"end_offset": 840
+									"start_offset": 827,
+									"end_offset": 837
 								},
 								{
 									"position": 164,
-									"start_offset": 1132,
-									"end_offset": 1142
+									"start_offset": 1130,
+									"end_offset": 1140
 								}
 							]
 						},
@@ -60797,8 +58308,8 @@
 							"tokens": [
 								{
 									"position": 65,
-									"start_offset": 432,
-									"end_offset": 435
+									"start_offset": 430,
+									"end_offset": 433
 								}
 							]
 						},
@@ -60807,8 +58318,8 @@
 							"tokens": [
 								{
 									"position": 186,
-									"start_offset": 1257,
-									"end_offset": 1261
+									"start_offset": 1256,
+									"end_offset": 1260
 								}
 							]
 						},
@@ -60817,8 +58328,8 @@
 							"tokens": [
 								{
 									"position": 177,
-									"start_offset": 1202,
-									"end_offset": 1207
+									"start_offset": 1201,
+									"end_offset": 1206
 								}
 							]
 						},
@@ -60837,8 +58348,8 @@
 							"tokens": [
 								{
 									"position": 33,
-									"start_offset": 224,
-									"end_offset": 226
+									"start_offset": 225,
+									"end_offset": 227
 								}
 							]
 						},
@@ -60847,8 +58358,8 @@
 							"tokens": [
 								{
 									"position": 244,
-									"start_offset": 1656,
-									"end_offset": 1662
+									"start_offset": 1657,
+									"end_offset": 1663
 								}
 							]
 						},
@@ -60857,38 +58368,38 @@
 							"tokens": [
 								{
 									"position": 30,
-									"start_offset": 199,
-									"end_offset": 202
+									"start_offset": 200,
+									"end_offset": 203
 								},
 								{
 									"position": 47,
-									"start_offset": 315,
-									"end_offset": 318
+									"start_offset": 313,
+									"end_offset": 316
 								},
 								{
 									"position": 71,
-									"start_offset": 483,
-									"end_offset": 486
+									"start_offset": 481,
+									"end_offset": 484
 								},
 								{
 									"position": 110,
-									"start_offset": 743,
-									"end_offset": 746
+									"start_offset": 739,
+									"end_offset": 742
 								},
 								{
 									"position": 180,
-									"start_offset": 1221,
-									"end_offset": 1224
+									"start_offset": 1220,
+									"end_offset": 1223
 								},
 								{
 									"position": 188,
-									"start_offset": 1269,
-									"end_offset": 1272
+									"start_offset": 1268,
+									"end_offset": 1271
 								},
 								{
 									"position": 201,
-									"start_offset": 1359,
-									"end_offset": 1362
+									"start_offset": 1358,
+									"end_offset": 1361
 								}
 							]
 						},
@@ -60897,8 +58408,8 @@
 							"tokens": [
 								{
 									"position": 205,
-									"start_offset": 1382,
-									"end_offset": 1388
+									"start_offset": 1381,
+									"end_offset": 1387
 								}
 							]
 						},
@@ -60907,8 +58418,8 @@
 							"tokens": [
 								{
 									"position": 167,
-									"start_offset": 1151,
-									"end_offset": 1155
+									"start_offset": 1150,
+									"end_offset": 1154
 								}
 							]
 						},
@@ -60927,8 +58438,8 @@
 							"tokens": [
 								{
 									"position": 70,
-									"start_offset": 475,
-									"end_offset": 482
+									"start_offset": 473,
+									"end_offset": 480
 								}
 							]
 						},
@@ -60947,8 +58458,8 @@
 							"tokens": [
 								{
 									"position": 94,
-									"start_offset": 640,
-									"end_offset": 645
+									"start_offset": 636,
+									"end_offset": 641
 								}
 							]
 						},
@@ -60957,8 +58468,8 @@
 							"tokens": [
 								{
 									"position": 107,
-									"start_offset": 726,
-									"end_offset": 731
+									"start_offset": 722,
+									"end_offset": 727
 								}
 							]
 						},
@@ -60967,8 +58478,28 @@
 							"tokens": [
 								{
 									"position": 84,
-									"start_offset": 587,
-									"end_offset": 591
+									"start_offset": 583,
+									"end_offset": 587
+								}
+							]
+						},
+						"voluerint": {
+							"term_freq": 1,
+							"tokens": [
+								{
+									"position": 141,
+									"start_offset": 963,
+									"end_offset": 972
+								}
+							]
+						},
+						"voluerit": {
+							"term_freq": 1,
+							"tokens": [
+								{
+									"position": 206,
+									"start_offset": 1388,
+									"end_offset": 1396
 								}
 							]
 						},
@@ -60977,28 +58508,8 @@
 							"tokens": [
 								{
 									"position": 199,
-									"start_offset": 1343,
-									"end_offset": 1352
-								}
-							]
-						},
-						"volverint": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 141,
-									"start_offset": 966,
-									"end_offset": 975
-								}
-							]
-						},
-						"volverit": {
-							"term_freq": 1,
-							"tokens": [
-								{
-									"position": 206,
-									"start_offset": 1389,
-									"end_offset": 1397
+									"start_offset": 1342,
+									"end_offset": 1351
 								}
 							]
 						},

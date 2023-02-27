@@ -2,7 +2,7 @@
   "aggregations": {
     "all_docs": {
       "meta": {},
-      "doc_count": 199,
+      "doc_count": 201,
       "forgeries": {
         "doc_count": 0
       },
@@ -84,6 +84,9 @@
           "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
             "doc_count": 0
           },
+          "<b>Herrscherurkunden</b>: Lothar II.": {
+            "doc_count": 0
+          },
           "<b>Herrscherurkunden</b>: Ludwig II.": {
             "doc_count": 0
           },
@@ -106,7 +109,7 @@
             "doc_count": 0
           },
           "<b>Mondsee</b>: Mondsee": {
-            "doc_count": 137
+            "doc_count": 139
           },
           "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
             "doc_count": 0
@@ -247,7 +250,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 62
+            "doc_count": 59
           },
           {
             "key": "800-899",
@@ -255,7 +258,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 74
+            "doc_count": 79
           },
           {
             "key": "900-999",
@@ -358,6 +361,9 @@
         "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
           "doc_count": 0
         },
+        "<b>Herrscherurkunden</b>: Lothar II.": {
+          "doc_count": 0
+        },
         "<b>Herrscherurkunden</b>: Ludwig II.": {
           "doc_count": 0
         },
@@ -380,7 +386,7 @@
           "doc_count": 0
         },
         "<b>Mondsee</b>: Mondsee": {
-          "doc_count": 17
+          "doc_count": 19
         },
         "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
           "doc_count": 0
@@ -529,7 +535,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 2
+          "doc_count": 4
         },
         {
           "key": "900-999",

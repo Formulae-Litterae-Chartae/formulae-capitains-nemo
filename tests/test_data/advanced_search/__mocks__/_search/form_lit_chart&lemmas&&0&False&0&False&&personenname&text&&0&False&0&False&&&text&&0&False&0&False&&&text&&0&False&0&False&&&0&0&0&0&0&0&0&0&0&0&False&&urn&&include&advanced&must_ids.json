@@ -150,9 +150,6 @@
     "id": "urn:cts:formulae:flavigny.form1_002.lat001"
   },
   {
-    "id": "urn:cts:formulae:flavigny.form1_006.lat001"
-  },
-  {
     "id": "urn:cts:formulae:flavigny.form1_007.lat001"
   },
   {
@@ -2283,6 +2280,15 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud0029.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud0047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud0048.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud0081.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud0249.lat001"
   },
   {
@@ -2290,6 +2296,12 @@
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud0629.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud0631.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud0929.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1011.lat001"
@@ -2304,7 +2316,55 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1015.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1016.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1017.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1022.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1024.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1025.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1026.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1028.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1029.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1031.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1255.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1299.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1421.lat001"
@@ -2319,6 +2379,9 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1425.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1426.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1434.lat001"
   },
   {
@@ -2328,13 +2391,28 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1436.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1437.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1439.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1441.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1444.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1446.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1452.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1454.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1455.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1458.lat001"
@@ -2346,10 +2424,25 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1462.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1463.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1467.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1468.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1469.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1470.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1471.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1472.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1478.lat001"
@@ -2370,7 +2463,19 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1488.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1489.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1490.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1491.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1493.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1494.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1496.lat001"
@@ -2389,6 +2494,9 @@
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1926.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1933.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud1972.lat001"
@@ -2418,10 +2526,22 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1986.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud1990.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2096.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2111.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2170.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2171.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2175.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2177.lat001"
@@ -2463,6 +2583,9 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2208.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2213.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2214.lat001"
   },
   {
@@ -2470,6 +2593,15 @@
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2227.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2228.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2230.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2232.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2234.lat001"
@@ -2493,6 +2625,9 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2248.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2266.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2268.lat001"
   },
   {
@@ -2511,7 +2646,19 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2275.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2283.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2284.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2285.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2286.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2289.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2291.lat001"
@@ -2520,10 +2667,25 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2294.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2296.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2297.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2299.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2321.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2325.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2617.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2632.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2798.lat001"
@@ -2547,6 +2709,12 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2808.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2810.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2813.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2826.lat001"
   },
   {
@@ -2556,10 +2724,16 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2831.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2833.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2834.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2836.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2839.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2848.lat001"
@@ -2568,7 +2742,31 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2849.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2850.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2851.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2852.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2853.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2854.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2856.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2858.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2859.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud2860.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2868.lat001"
@@ -2577,13 +2775,28 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud2869.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3129.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3131.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3132.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3135.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3136.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3140.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3141.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3145.lat001"
@@ -2617,6 +2830,9 @@
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3157.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3160.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3163.lat001"
@@ -2655,7 +2871,25 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3177.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3181.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3184.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3186.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3187.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3188.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3194.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3197.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3199.lat001"
@@ -2665,6 +2899,9 @@
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3201.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3203.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3205.lat001"
@@ -2703,7 +2940,13 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3229.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3230.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3235.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3248.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3253.lat001"
@@ -2721,13 +2964,43 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3262.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3263.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3264.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3265.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3266.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3267.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3342.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3497.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3498.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3499.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3500.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3501.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3502.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3503.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3515.lat001"
@@ -2745,6 +3018,12 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3519.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3520.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3523.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3526.lat001"
   },
   {
@@ -2752,6 +3031,12 @@
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3537.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3538.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3539.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3540.lat001"
@@ -2772,10 +3057,25 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3545.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3546.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3547.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3549.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3574.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3577.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3583.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3584.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3588.lat001"
@@ -2794,6 +3094,9 @@
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3593.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3594.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3595.lat001"
@@ -2823,7 +3126,43 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud3609.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud3615.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4409.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4433.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4434.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4440.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4443.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4444.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4445.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4446.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4448.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4514.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4515.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4534.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4541.lat001"
@@ -2832,25 +3171,55 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud4542.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4543.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4564.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4565.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4566.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4654.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4656.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4669.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4680.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4717.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4785.lat001"
   },
   {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4829.lat001"
+  },
+  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4833.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4834.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4840.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4884.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4909.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:telma_marmoutier.giraud4913.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud4936.lat001"

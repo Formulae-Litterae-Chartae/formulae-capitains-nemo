@@ -1,22 +1,22 @@
 [
   {
-    "took": 98,
+    "took": 182,
     "timed_out": false,
     "_shards": {
-      "total": 66,
-      "successful": 66,
+      "total": 67,
+      "successful": 67,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 80,
+        "value": 84,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form041.lat001",
           "_score": null,
           "_source": {
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form048.lat001",
           "_score": null,
           "_source": {
@@ -109,7 +109,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form051.lat001",
           "_score": null,
           "_source": {
@@ -140,7 +140,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form052.lat001",
           "_score": null,
           "_source": {
@@ -171,7 +171,7 @@
           ]
         },
         {
-          "_index": "auvergne_v32",
+          "_index": "auvergne_v43",
           "_id": "urn:cts:formulae:auvergne.form001.lat001",
           "_score": null,
           "_source": {
@@ -202,7 +202,7 @@
           ]
         },
         {
-          "_index": "auvergne_v32",
+          "_index": "auvergne_v43",
           "_id": "urn:cts:formulae:auvergne.form002.lat001",
           "_score": null,
           "_source": {
@@ -233,7 +233,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.2_capitula.lat001",
           "_score": null,
           "_source": {
@@ -264,7 +264,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form000.lat001",
           "_score": null,
           "_source": {
@@ -295,7 +295,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form2_003.lat001",
           "_score": null,
           "_source": {
@@ -326,7 +326,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form2_017.lat001",
           "_score": null,
           "_source": {
@@ -357,7 +357,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form2_031.lat001",
           "_score": null,
           "_source": {
@@ -388,7 +388,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form2_037.lat001",
           "_score": null,
           "_source": {
@@ -419,7 +419,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form2_038.lat001",
           "_score": null,
           "_source": {
@@ -450,7 +450,7 @@
           ]
         },
         {
-          "_index": "tours_v32",
+          "_index": "tours_v43",
           "_id": "urn:cts:formulae:tours.0_capitula.lat001",
           "_score": null,
           "_source": {
@@ -481,7 +481,7 @@
           ]
         },
         {
-          "_index": "tours_v32",
+          "_index": "tours_v43",
           "_id": "urn:cts:formulae:tours.form002.lat001",
           "_score": null,
           "_source": {
@@ -512,7 +512,7 @@
           ]
         },
         {
-          "_index": "tours_v32",
+          "_index": "tours_v43",
           "_id": "urn:cts:formulae:tours.form003.lat001",
           "_score": null,
           "_source": {
@@ -543,7 +543,7 @@
           ]
         },
         {
-          "_index": "tours_v32",
+          "_index": "tours_v43",
           "_id": "urn:cts:formulae:tours.form017.lat001",
           "_score": null,
           "_source": {
@@ -574,7 +574,7 @@
           ]
         },
         {
-          "_index": "tours_v32",
+          "_index": "tours_v43",
           "_id": "urn:cts:formulae:tours.form020.lat001",
           "_score": null,
           "_source": {
@@ -605,7 +605,7 @@
           ]
         },
         {
-          "_index": "tours_v32",
+          "_index": "tours_v43",
           "_id": "urn:cts:formulae:tours.form023.lat001",
           "_score": null,
           "_source": {
@@ -636,7 +636,7 @@
           ]
         },
         {
-          "_index": "tours_v32",
+          "_index": "tours_v43",
           "_id": "urn:cts:formulae:tours.form045.lat001",
           "_score": null,
           "_source": {
@@ -667,7 +667,7 @@
           ]
         },
         {
-          "_index": "flavigny_v26",
+          "_index": "flavigny_v37",
           "_id": "urn:cts:formulae:flavigny.2_capitula.lat001",
           "_score": null,
           "_source": {
@@ -698,7 +698,7 @@
           ]
         },
         {
-          "_index": "flavigny_v26",
+          "_index": "flavigny_v37",
           "_id": "urn:cts:formulae:flavigny.3_capitula.lat001",
           "_score": null,
           "_source": {
@@ -729,7 +729,7 @@
           ]
         },
         {
-          "_index": "flavigny_v26",
+          "_index": "flavigny_v37",
           "_id": "urn:cts:formulae:flavigny.form1_002.lat001",
           "_score": null,
           "_source": {
@@ -760,7 +760,7 @@
           ]
         },
         {
-          "_index": "flavigny_v26",
+          "_index": "flavigny_v37",
           "_id": "urn:cts:formulae:flavigny.form1_003.lat001",
           "_score": null,
           "_source": {
@@ -791,7 +791,7 @@
           ]
         },
         {
-          "_index": "flavigny_v26",
+          "_index": "flavigny_v37",
           "_id": "urn:cts:formulae:flavigny.form1_004.lat001",
           "_score": null,
           "_source": {
@@ -822,7 +822,7 @@
           ]
         },
         {
-          "_index": "flavigny_v26",
+          "_index": "flavigny_v37",
           "_id": "urn:cts:formulae:flavigny.form2_004.lat001",
           "_score": null,
           "_source": {
@@ -853,7 +853,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0111.lat001",
           "_score": null,
           "_source": {
@@ -896,7 +896,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0112.lat001",
           "_score": null,
           "_source": {
@@ -939,7 +939,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0138.lat001",
           "_score": null,
           "_source": {
@@ -982,7 +982,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0168.lat001",
           "_score": null,
           "_source": {
@@ -1025,7 +1025,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0183.lat001",
           "_score": null,
           "_source": {
@@ -1068,7 +1068,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0205.lat001",
           "_score": null,
           "_source": {
@@ -1111,7 +1111,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0003.lat001",
           "_score": null,
           "_source": {
@@ -1142,7 +1142,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0014.lat001",
           "_score": null,
           "_source": {
@@ -1185,7 +1185,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0018.lat001",
           "_score": null,
           "_source": {
@@ -1228,7 +1228,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v35",
+          "_index": "marmoutier_dunois_v46",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0025.lat001",
           "_score": null,
           "_source": {
@@ -1271,7 +1271,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0002.lat001",
           "_score": null,
           "_source": {
@@ -1314,7 +1314,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0011app.lat001",
           "_score": null,
           "_source": {
@@ -1357,7 +1357,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013app.lat001",
           "_score": null,
           "_source": {
@@ -1400,7 +1400,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
           "_score": null,
           "_source": {
@@ -1443,7 +1443,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
           "_score": null,
           "_source": {
@@ -1486,7 +1486,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0024.lat001",
           "_score": null,
           "_source": {
@@ -1529,7 +1529,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0027.lat001",
           "_score": null,
           "_source": {
@@ -1572,7 +1572,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0029.lat001",
           "_score": null,
           "_source": {
@@ -1615,7 +1615,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0041.lat001",
           "_score": null,
           "_source": {
@@ -1658,7 +1658,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
           "_score": null,
           "_source": {
@@ -1701,7 +1701,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0045.lat001",
           "_score": null,
           "_source": {
@@ -1744,7 +1744,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0046.lat001",
           "_score": null,
           "_source": {
@@ -1787,7 +1787,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
           "_score": null,
           "_source": {
@@ -1830,7 +1830,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0056.lat001",
           "_score": null,
           "_source": {
@@ -1873,7 +1873,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
           "_score": null,
           "_source": {
@@ -1916,7 +1916,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0078.lat001",
           "_score": null,
           "_source": {
@@ -1959,7 +1959,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0092.lat001",
           "_score": null,
           "_source": {
@@ -2002,7 +2002,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0094.lat001",
           "_score": null,
           "_source": {
@@ -2045,7 +2045,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v35",
+          "_index": "marmoutier_serfs_v46",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001",
           "_score": null,
           "_source": {
@@ -2088,7 +2088,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_v35",
+          "_index": "marmoutier_vendomois_v46",
           "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0104.lat001",
           "_score": null,
           "_source": {
@@ -2131,7 +2131,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_v35",
+          "_index": "marmoutier_vendomois_v46",
           "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0118.lat001",
           "_score": null,
           "_source": {
@@ -2174,7 +2174,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_appendix_v35",
+          "_index": "marmoutier_vendomois_appendix_v46",
           "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0031.lat001",
           "_score": null,
           "_source": {
@@ -2217,7 +2217,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_appendix_v35",
+          "_index": "marmoutier_vendomois_appendix_v46",
           "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0040.lat001",
           "_score": null,
           "_source": {
@@ -2260,7 +2260,7 @@
           ]
         },
         {
-          "_index": "telma_cormery_v32",
+          "_index": "telma_cormery_v43",
           "_id": "urn:cts:formulae:telma_cormery.giraud1419.lat001",
           "_score": null,
           "_source": {
@@ -2303,7 +2303,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud0623.lat001",
           "_score": null,
           "_source": {
@@ -2346,7 +2346,50 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
+          "_id": "urn:cts:formulae:telma_marmoutier.giraud1023.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud/Renault/Tock) Nr. 1023",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_marmoutier.giraud1023.lat001",
+            "date_string": "1090",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_marmoutier",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1090-01-01",
+                "lte": "1090-12-31"
+              }
+            ],
+            "all_dates": [
+              "1090-01-01",
+              "1090-12-31"
+            ],
+            "min_date": "1090-01-01",
+            "max_date": "1090-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_marmoutier.giraud1023.lat001"
+          ]
+        },
+        {
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1444.lat001",
           "_score": null,
           "_source": {
@@ -2389,7 +2432,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1480.lat001",
           "_score": null,
           "_source": {
@@ -2432,7 +2475,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1498.lat001",
           "_score": null,
           "_source": {
@@ -2475,7 +2518,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1525.lat001",
           "_score": null,
           "_source": {
@@ -2521,7 +2564,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2234.lat001",
           "_score": null,
           "_source": {
@@ -2564,7 +2607,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2248.lat001",
           "_score": null,
           "_source": {
@@ -2607,7 +2650,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2868.lat001",
           "_score": null,
           "_source": {
@@ -2650,7 +2693,50 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
+          "_id": "urn:cts:formulae:telma_marmoutier.giraud3129.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud/Renault/Tock) Nr. 3129",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_marmoutier.giraud3129.lat001",
+            "date_string": "1080",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_marmoutier",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1080-01-01",
+                "lte": "1080-12-31"
+              }
+            ],
+            "all_dates": [
+              "1080-01-01",
+              "1080-12-31"
+            ],
+            "min_date": "1080-01-01",
+            "max_date": "1080-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_marmoutier.giraud3129.lat001"
+          ]
+        },
+        {
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3147.lat001",
           "_score": null,
           "_source": {
@@ -2693,7 +2779,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3148.lat001",
           "_score": null,
           "_source": {
@@ -2736,7 +2822,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3149.lat001",
           "_score": null,
           "_source": {
@@ -2779,7 +2865,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3225.lat001",
           "_score": null,
           "_source": {
@@ -2822,7 +2908,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3266.lat001",
           "_score": null,
           "_source": {
@@ -2865,7 +2951,50 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
+          "_id": "urn:cts:formulae:telma_marmoutier.giraud3500.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud/Renault/Tock) Nr. 3500",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_marmoutier.giraud3500.lat001",
+            "date_string": "1081",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_marmoutier",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1081-01-01",
+                "lte": "1081-12-31"
+              }
+            ],
+            "all_dates": [
+              "1081-01-01",
+              "1081-12-31"
+            ],
+            "min_date": "1081-01-01",
+            "max_date": "1081-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_marmoutier.giraud3500.lat001"
+          ]
+        },
+        {
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3589.lat001",
           "_score": null,
           "_source": {
@@ -2908,7 +3037,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3590.lat001",
           "_score": null,
           "_source": {
@@ -2951,7 +3080,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3592.lat001",
           "_score": null,
           "_source": {
@@ -2994,7 +3123,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3604.lat001",
           "_score": null,
           "_source": {
@@ -3037,7 +3166,50 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
+          "_id": "urn:cts:formulae:telma_marmoutier.giraud4409.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Telma. Chartes originales antérieures à 1121 conservées en France (Ed. Giraud/Renault/Tock) Nr. 4409",
+            "keywords": "",
+            "urn": "urn:cts:formulae:telma_marmoutier.giraud4409.lat001",
+            "date_string": "1082",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "telma_marmoutier",
+            "forgery": false,
+            "dating": [
+              {
+                "gte": "1082-01-01",
+                "lte": "1082-12-31"
+              }
+            ],
+            "all_dates": [
+              "1082-01-01",
+              "1082-12-31"
+            ],
+            "min_date": "1082-01-01",
+            "max_date": "1082-12-31",
+            "sort_prefix": 1
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:telma_marmoutier.giraud4409.lat001"
+          ]
+        },
+        {
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud4840.lat001",
           "_score": null,
           "_source": {
@@ -3080,7 +3252,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v32",
+          "_index": "telma_marmoutier_v43",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud4884.lat001",
           "_score": null,
           "_source": {

@@ -2,7 +2,7 @@
   "aggregations": {
     "all_docs": {
       "meta": {},
-      "doc_count": 214,
+      "doc_count": 227,
       "forgeries": {
         "doc_count": 0
       },
@@ -49,7 +49,7 @@
             "doc_count": 0
           },
           "<b>E-Lexikon</b>": {
-            "doc_count": 214
+            "doc_count": 227
           },
           "<b>Echternach</b>: Echternach": {
             "doc_count": 0
@@ -82,6 +82,9 @@
             "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
+            "doc_count": 0
+          },
+          "<b>Herrscherurkunden</b>: Lothar II.": {
             "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Ludwig II.": {
@@ -274,7 +277,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 214
+        "doc_count": 227
       }
     },
     "forgeries": {
@@ -356,6 +359,9 @@
           "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Lothar II.": {
           "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Ludwig II.": {
