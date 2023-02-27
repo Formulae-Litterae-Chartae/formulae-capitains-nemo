@@ -114,7 +114,8 @@ ul.menu li a.active {
  *
  */
 #reading-container article {
-    padding:0.404em 2.617em 1.2em;
+    padding-top:0.404em;
+    padding-bottom: 1.2em;
     margin:1em auto;
     max-width: 100%;
 
@@ -153,7 +154,6 @@ ul.menu li a.active {
 #reading-container article section,
 #reading-container article body {
     font-size:1em;
-    line-height: 1.618em;
 }
 
 #reading-container article.nav {

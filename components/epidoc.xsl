@@ -333,7 +333,7 @@
                     <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                     <xsl:attribute name="data-html">true</xsl:attribute>
                     <xsl:attribute name="title"></xsl:attribute>
-                    <xsl:attribute name="class">btn btn-link px-0 right-note-tooltip text-body</xsl:attribute>
+                    <xsl:attribute name="class">btn btn-link p-0 right-note-tooltip text-body</xsl:attribute>
                     <xsl:attribute name="tabindex">0</xsl:attribute>
                     <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
                     <xsl:element name="span">

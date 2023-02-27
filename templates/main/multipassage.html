@@ -385,7 +385,7 @@
             {% set copy_class = '' %}
         {% endif %}
         <div class="row mx-0">
-            <article class="hentry entry white col-sm-12{% if loop.length > 1 %} multi-reading-row{% endif %}{{ copy_class }}">
+            <article class="hentry entry white px-2 px-md-4 col-sm-12{% if loop.length > 1 %} multi-reading-row{% endif %}{{ copy_class }}">
                 <!-- <nav>
                     {{ navigation }}
                 </nav> -->
@@ -397,7 +397,7 @@
                 {%set new_reffs = objects|map(attribute='subreference')|list %}
                 {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
                 
-                <div class="row pt-1 pb-0 control-row justify-content-between">
+                <div class="row pt-1 pb-0 mx-1 mx-md-n2 control-row justify-content-between">
                     {% if objects|length > 1 %}
                     <div class="col col-auto add-window-icon ml-auto">
                         {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
@@ -536,7 +536,7 @@
         
     {% else %}
         <div class="row mx-0">
-            <article class="hentry entry white col-sm-12">
+            <article class="hentry entry white px-2 px-md-4 col-sm-12">
                 <!-- <nav>
                     {{ navigation }}
                 </nav> -->
@@ -555,7 +555,7 @@
                 {%set new_reffs = objects|map(attribute='subreference')|list %}
                 {% set navigation = nav(text, all_texts, new_reffs, loop.index0) %}
                     <div class="col-sm{% if not loop.last %} with-border{% endif %}">
-                        <div class="d-md-none row pt-0 pb-0 control-row justify-content-between">
+                        <div class="d-md-none row pt-0 pb-0 mx-1 control-row justify-content-between">
                             <div class="col col-auto add-window-icon mr-auto">
                                 {{ version_menu(text.objectId|replace('manifest:', ''), text.isReferencedBy, text, loop.index) }}
                             </div>
