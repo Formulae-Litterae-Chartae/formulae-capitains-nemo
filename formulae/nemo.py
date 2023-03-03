@@ -237,7 +237,7 @@ class NemoFormulae(Nemo):
                        {'video': 'videos/einfache_suche_'},
                    (2, _l('Aktuelle Suchergebnisse herunterladen')):
                        {'video': 'videos/suchergebnisse_herunterladen_'},
-                   (3, _l('Suchergebnisse in ihrem Benutzerkonto speichern')):
+                   (3, _l('Suchergebnisse im Benutzerkonto speichern')):
                        {'video': 'videos/suchergebnisse_speichern_'},
                    },
               (2, _l('Zur Leseansicht')):
