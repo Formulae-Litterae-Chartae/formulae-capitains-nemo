@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-02-27 16:08+0100\n"
+"POT-Creation-Date: 2023-03-01 15:17+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -63,7 +63,7 @@ msgstr "Aucun résultat trouvé pour"
 
 #: formulae/nemo.py:240
 #, fuzzy
-msgid "Suchergebnisse in ihrem Benutzerkonto speichern"
+msgid "Suchergebnisse im Benutzerkonto speichern"
 msgstr "Résultats de la recherche"
 
 #: formulae/nemo.py:243
