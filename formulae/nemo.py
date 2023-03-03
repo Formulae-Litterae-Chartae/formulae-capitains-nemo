@@ -215,6 +215,7 @@ class NemoFormulae(Nemo):
                         "eng": _l("Englisch"), "cat": _l("Katalanisch"), "ita": _l("Italienisch")}
 
     BIBO = Namespace('http://bibliotek-o.org/1.0/ontology/')
+    BF = Namespace('http://id.loc.gov/ontologies/bibframe/')
 
     SALZBURG_MAPPING = {'a': 'Codex Odalberti', 'b': 'Codex Fridarici', 'c': 'Codex Hartuuici', 'd': 'Codex Tietmari II',
                         'e': 'Codex Balduuini', 'bn': 'Breves Notitiae', 'na': 'Notitia Arnonis',
@@ -231,15 +232,15 @@ class NemoFormulae(Nemo):
                              'IX': 'a09',
                              'X': 'a10'}
 
-    VIDEOS = {(1, _l('Suche')):
-                  {(1, _l('Die Einfache Suche')):
+    VIDEOS = {(1, _l('Zur einfachen und erweiterten Suche')):
+                  {(1, _l('Die einfache Suche (allgemein)')):
                        {'video': 'videos/einfache_suche_'},
                    (2, _l('Aktuelle Suchergebnisse herunterladen')):
                        {'video': 'videos/suchergebnisse_herunterladen_'},
-                   (3, _l('Suchergebnisse in ihrem Benutzerkonto speichern')):
+                   (3, _l('Suchergebnisse im Benutzerkonto speichern')):
                        {'video': 'videos/suchergebnisse_speichern_'},
                    },
-              (2, _l('Die Leseansicht')):
+              (2, _l('Zur Leseansicht')):
                   {(1, _l('Über die Leseansicht')):
                        {'video': 'videos/reading_page_'},
                    (2, _l('Übersetzung, Transkription oder Manuskriptbild anzeigen')):
@@ -1018,7 +1019,9 @@ class NemoFormulae(Nemo):
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
                                    'name': work_name,
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
-                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or '')})
+                                   'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
+                                   'deperditum': str(m.metadata.get_single(self.BF.status)) == 'deperditum'})
+
 
         for k, v in collection.children.items():
             if not v.children:
@@ -1471,7 +1474,8 @@ class NemoFormulae(Nemo):
                 cits[i] = Markup(Markup(cit))
             if ref[0] not in request.url:
                 try:
-                    inRefs.append([self.resolver.getMetadata(ref[0]), cits])
+                    in_ref_coll = self.resolver.getMetadata(ref[0])
+                    inRefs.append([(in_ref_coll.id, Markup(in_ref_coll.get_label())), cits])
                 except UnknownCollection:
                     inRefs.append(ref[0])
         translations = [(m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '')

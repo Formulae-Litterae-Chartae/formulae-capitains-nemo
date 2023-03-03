@@ -1,10 +1,10 @@
 [
   {
-    "took": 113,
+    "took": 93,
     "timed_out": false,
     "_shards": {
-      "total": 66,
-      "successful": 66,
+      "total": 67,
+      "successful": 67,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form034.lat001",
           "_score": null,
           "_source": {
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "buenden_v35",
+          "_index": "buenden_v46",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -374,14 +374,14 @@
             "max_date": "0813-04-20",
             "days": [
               "Easter",
+              "Wednesday",
               "Saturday",
               "Monday",
+              "Tuesday",
               "Sunday",
-              "Friday",
-              "Wednesday",
-              "Thursday",
               "Lent",
-              "Tuesday"
+              "Thursday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -396,7 +396,7 @@
           ]
         },
         {
-          "_index": "buenden_v35",
+          "_index": "buenden_v46",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -620,14 +620,14 @@
             "max_date": "0813-03-31",
             "days": [
               "Easter",
+              "Wednesday",
               "Saturday",
               "Monday",
+              "Tuesday",
               "Sunday",
-              "Friday",
-              "Thursday",
-              "Wednesday",
               "Lent",
-              "Tuesday"
+              "Thursday",
+              "Friday"
             ],
             "sort_prefix": 1
           },
@@ -642,7 +642,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
           "_score": null,
           "_source": {
@@ -688,7 +688,7 @@
           ]
         },
         {
-          "_index": "lorsch_v35",
+          "_index": "lorsch_v46",
           "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
           "_score": null,
           "_source": {
@@ -734,7 +734,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
           "_source": {
@@ -783,7 +783,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
           "_source": {
@@ -832,7 +832,7 @@
           ]
         },
         {
-          "_index": "raetien_v35",
+          "_index": "raetien_v46",
           "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
           "_score": null,
           "_source": {
@@ -869,8 +869,8 @@
             "min_date": "0858-02-12",
             "max_date": "0865-02-12",
             "days": [
-              "Monday",
-              "Saturday"
+              "Saturday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -885,7 +885,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
           "_source": {
@@ -931,7 +931,7 @@
           ]
         },
         {
-          "_index": "stgallen_v35",
+          "_index": "stgallen_v46",
           "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
           "_score": null,
           "_source": {
@@ -968,8 +968,8 @@
             "min_date": "0858-02-12",
             "max_date": "0865-02-12",
             "days": [
-              "Monday",
-              "Saturday"
+              "Saturday",
+              "Monday"
             ],
             "sort_prefix": 1
           },

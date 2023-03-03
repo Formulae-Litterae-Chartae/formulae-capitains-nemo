@@ -366,11 +366,6 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                                     sentence += x
                             sentences.append(Markup(sentence))
                             sentence_spans.append(range(max(0, pos - 10), min(len(highlight_offsets[highlight_field]), pos + 11)))
-                # elif s_field in FORM_PARTS.keys():
-                #     if query_terms['q']:
-                #         part_sentences += [(Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + highlight_segment(x)), s_field) for x in hit['highlight'][s_field]]
-                #     else:
-                #         part_sentences += [(Markup('<strong>' + s_field.replace('-', ' ') + ':</strong> ' + hit['_source'][s_field]), s_field)]
                 elif 'regest' in s_field:
                     if show_regest is False:
                         regest_sents = [_('Regest nicht zugänglich.')]
@@ -384,9 +379,6 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
             for x, y in sorted(zip(sentences, sentence_spans), key=lambda z: (z[1].start, z[1].stop)):
                 ordered_sentences.append(x)
                 ordered_sentence_spans.append(y)
-            # for part_sent, sent_part in sorted(part_sentences):
-            #     ordered_sentences.append(part_sent)
-            #     ordered_sentence_spans.append(sent_part)
             if ordered_sentences or regest_sents:
                 if current_app.config['nemo_app'].check_project_team() is False and not open_text:
                     ordered_sentences = [_('Text nicht zugänglich.')]
@@ -499,7 +491,6 @@ def advanced_query_index(corpus: list = None,
 
         searched_templates.append(elex_search)
         search = [current_app.elasticsearch.search(index=corpus,
-                                                   doc_type="",
                                                    body=elex_search)]
     else:
         if composition_place:
@@ -571,12 +562,6 @@ def advanced_query_index(corpus: list = None,
             if not any([query_vals['q'], query_vals['proper_name']]):  # , query_vals['formulaic_parts']]):
                 continue
             search_part_template = deepcopy(base_body_template)
-            # if query_vals['formulaic_parts'] != '':
-            #     query_vals['search_field'] = query_vals['formulaic_parts'].split('+')
-
-            # if isinstance(query_vals['search_field'], list):
-            #     search_highlight.update(query_vals['search_field'])
-            # else:
             search_highlight.add(query_vals['search_field'])
             for s_highlight in search_highlight:
                 search_part_template['highlight']['fields'][s_highlight] = {}
@@ -610,85 +595,6 @@ def advanced_query_index(corpus: list = None,
                 if query_vals['proper_name']:
                     query_vals['compare_term'] = query_vals['proper_name']
                     query_vals['compare_field'] = 'lemmas'
-
-                # if isinstance(query_vals['search_field'], list):
-                #     bool_clauses = []
-                #     for s_field in query_vals['search_field']:
-                #         clauses = []
-                #         for term in query_vals['q'].split():
-                #             if query_vals['regex_search'] == 'True':
-                #                 # Replace these characters if they are within brackets
-                #                 temp_term = re.sub(r'[ij](?=[^\[]*\])',
-                #                                    r'ij',
-                #                                    re.sub(r'(?<![uv])[uv](?![uv])(?=[^\[]*\])',
-                #                                           r'uv',
-                #                                           re.sub(r'\[([^\]]*)(w|uu|uv|vu|vv)([^\[]*)\]',
-                #                                                  repl,
-                #                                                  term)))
-                #                 # And then to replace the characters if they are not in brackets
-                #                 u_term = re.sub(r'[ij](?![^[]*])',
-                #                                 '[ij]',
-                #                                 re.sub(r'(?<![uv])[uv](?![uv])(?![^[]*])',
-                #                                        r'[uv]',
-                #                                        re.sub(r'(w|uu|uv|vu|vv)(?![^\(]*\))(?![^[]*])',
-                #                                               '(w|uu|vu|uv|vv)',
-                #                                               temp_term)))
-                #             else:
-                #                 u_term = re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', term)))
-                #             exclude_ending = ''
-                #             if query_vals['exclude_q']:
-                #                 exclude_ending = '&~({})'.format(query_vals['exclude_q'].replace('*', '.+').replace('?', '.'))
-                #             if u_term + exclude_ending != term:
-                #                 if query_vals['regex_search'] == 'True':
-                #                     clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term + exclude_ending,
-                #                                                                                    'flags': 'ALL',
-                #                                                                                    'case_insensitive': True}}}}}])
-                #                 elif '*' in term or '?' in term:
-                #                     clauses.append([{'span_multi': {'match': {'regexp': {s_field: {
-                #                         'value': u_term.replace('*', '.+').replace('?', '.') + exclude_ending,
-                #                         'flags': 'ALL',
-                #                         'case_insensitive': True}}}}}])
-                #                 else:
-                #                     words = [u_term]
-                #                     sub_clauses = {'span_or': {'clauses': []}}
-                #                     if query_vals['fuzziness'] == 'AUTO':
-                #                         if len(term) < 3:
-                #                             term_fuzz = 0
-                #                         elif len(term) < 6:
-                #                             term_fuzz = 1
-                #                         else:
-                #                             term_fuzz = 2
-                #                     else:
-                #                         term_fuzz = int(query_vals['fuzziness'])
-                #                     if term_fuzz != 0:
-                #                         suggest_body = {'suggest':
-                #                                             {'fuzzy_suggest':
-                #                                                  {'text': term,
-                #                                                   'term':
-                #                                                       {'field': s_field,
-                #                                                        'suggest_mode': 'always',
-                #                                                        'max_edits': term_fuzz,
-                #                                                        'min_word_length': 3,
-                #                                                        'max_term_freq': 20000}}}}
-                #                         suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
-                #                         if 'suggest' in suggests:
-                #                             for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
-                #                                 words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
-                #                     for w in words:
-                #                         sub_clauses['span_or']['clauses'].append({'span_multi': {'match': {'regexp': {s_field: {'value': w + exclude_ending,
-                #                                                                                                                 'flags': 'ALL',
-                #                                                                                                                 'case_insensitive': True}}}}})
-                #                     clauses.append([sub_clauses])
-                #             else:
-                #                 if query_vals['regex_search'] == 'True':
-                #                     clauses.append([{'span_multi': {'match': {'regexp': {s_field: {'value': u_term, 'flags': 'ALL', 'case_insensitive': True}}}}}])
-                #                 elif '*' in term or '?' in term:
-                #                     clauses.append([{'span_multi': {'match': {'wildcard': {s_field: term}}}}])
-                #                 else:
-                #                     clauses.append([{'span_multi': {'match': {'fuzzy': {s_field: {"value": term, "fuzziness": query_vals['fuzziness']}}}}}])
-                #         for clause in product(*clauses):
-                #             bool_clauses.append({'span_near': {'clauses': list(clause), 'slop': query_vals['slop'], 'in_order': query_vals['ordered_terms']}})
-                # else:
                 clauses = []
                 for term in query_vals['q'].split():
                     u_term = term
@@ -752,7 +658,7 @@ def advanced_query_index(corpus: list = None,
                                                                    'max_edits': term_fuzz,
                                                                    'min_word_length': 3,
                                                                    'max_term_freq': 20000}}}}
-                                    suggests = current_app.elasticsearch.search(index=corpus, doc_type='', body=suggest_body)
+                                    suggests = current_app.elasticsearch.search(index=corpus, body=suggest_body)
                                     if 'suggest' in suggests:
                                         for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                             words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
@@ -783,7 +689,7 @@ def advanced_query_index(corpus: list = None,
 
             searched_templates.append(search_part_template)
 
-            args_plus_results.append([query_vals, current_app.elasticsearch.search(index=corpus, doc_type="", body=search_part_template)])
+            args_plus_results.append([query_vals, current_app.elasticsearch.search(index=corpus, body=search_part_template)])
 
         if args_plus_results:
             combined_results = list()
@@ -823,7 +729,7 @@ def advanced_query_index(corpus: list = None,
             search = first + second
         else:
             searched_templates.append(base_body_template)
-            search = [current_app.elasticsearch.search(index=corpus, doc_type="", body=base_body_template)]
+            search = [current_app.elasticsearch.search(index=corpus, body=base_body_template)]
     if qSource:
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
@@ -866,7 +772,6 @@ def advanced_query_index(corpus: list = None,
             prev_search = ids
         agg_search_body = {'query': {'ids': {'values': [x['id'] for x in ids]}}, 'size': 0, 'aggs': AGGREGATIONS}
         aggregations = current_app.elasticsearch.search(index=corpus,
-                                                        doc_type="",
                                                         body=agg_search_body)['aggregations']
     if current_app.config["SAVE_REQUESTS"]:
         q = []

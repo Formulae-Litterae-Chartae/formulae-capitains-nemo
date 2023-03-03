@@ -2,9 +2,9 @@
   "aggregations": {
     "all_docs": {
       "meta": {},
-      "doc_count": 14687,
+      "doc_count": 14744,
       "forgeries": {
-        "doc_count": 187
+        "doc_count": 190
       },
       "corpus": {
         "meta": {},
@@ -84,6 +84,9 @@
           "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
             "doc_count": 48
           },
+          "<b>Herrscherurkunden</b>: Lothar II.": {
+            "doc_count": 50
+          },
           "<b>Herrscherurkunden</b>: Ludwig II.": {
             "doc_count": 89
           },
@@ -103,10 +106,10 @@
             "doc_count": 6
           },
           "<b>Marculf</b>: Marculf": {
-            "doc_count": 106
+            "doc_count": 111
           },
           "<b>Mondsee</b>: Mondsee": {
-            "doc_count": 137
+            "doc_count": 139
           },
           "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
             "doc_count": 259
@@ -247,7 +250,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4584
+            "doc_count": 4581
           },
           {
             "key": "800-899",
@@ -255,7 +258,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3632
+            "doc_count": 3687
           },
           {
             "key": "900-999",
@@ -274,7 +277,7 @@
         ]
       },
       "no_date": {
-        "doc_count": 832
+        "doc_count": 837
       }
     },
     "forgeries": {
@@ -358,6 +361,9 @@
         "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
           "doc_count": 0
         },
+        "<b>Herrscherurkunden</b>: Lothar II.": {
+          "doc_count": 0
+        },
         "<b>Herrscherurkunden</b>: Ludwig II.": {
           "doc_count": 0
         },
@@ -380,7 +386,7 @@
           "doc_count": 0
         },
         "<b>Mondsee</b>: Mondsee": {
-          "doc_count": 45
+          "doc_count": 43
         },
         "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
           "doc_count": 0
@@ -521,7 +527,7 @@
           "from_as_string": "0700",
           "to": -36953193600000.0,
           "to_as_string": "0799",
-          "doc_count": 444
+          "doc_count": 439
         },
         {
           "key": "800-899",
@@ -529,7 +535,7 @@
           "from_as_string": "0800",
           "to": -33797433600000.0,
           "to_as_string": "0899",
-          "doc_count": 601
+          "doc_count": 604
         },
         {
           "key": "900-999",

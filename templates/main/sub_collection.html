@@ -106,7 +106,7 @@
             {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzungen 1,1" %}
             <br>
             {% endif %}
-            <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{% if '_' in values['name']%} {{values['title']}}{% else %}{{values['name']|replace('(', '')|replace(')', '')}}{% endif %}{% else %}{{values['name']}}{% endif %}</a>
+            <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{% if '_' in values['name']%} {{values['title']}}{% else %}{{values['name']|replace('(', '')|replace(')', '')}}{% endif %}{% else %}{{values['name']}}{% endif %}{% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}</a>
         {% endfor %}
         {% endif %}
     {% endif %}
@@ -119,8 +119,9 @@
                 {% endif %}
                 <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column">
                     <div class="row justify-content-between">
-                        <div class="col-3"><h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['transcribed_edition'] %}: <span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}</h5></div>
+                        <div class="col-3"><h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['transcribed_edition'] %}: <span{% if values['parent_id'] in manuscript_notes %} id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"{% endif %}>{{ values['transcribed_edition']|join('/') }}{% if values['parent_id'] in manuscript_notes %}<span class="superscript" >*</span>{% endif %}</span>{% endif %}{% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}</h5></div>
                         <div class="col text-right">
+                        {% if not values['deperditum'] %}
                             {% if 'formulae_collection' in collections.parent_ids or 'manuscript_collection' in collections.parent_ids %}
                                 {% if values['versions']['editions']|length > 1 %}
                                 <div class="btn-group">
@@ -183,6 +184,9 @@
                                     <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{% if values['versions']['editions']|length > 1 %}{{_('Version') + ' ' + loop.index|string}}{% else %}{{ _('Lesen') }}{% endif %}</a>
                                 {% endfor %}
                             {% endif %}
+                        {% else %}
+                        <h5 class="latin-word">Deperditum</h5>
+                        {% endif %}
                         </div>
                         </div>
                         {% if 'alt_link' in values %}<p class="mb-1 short-regest"><a href="{{ values['alt_link'] }}" class="internal-link">-> {{ values['alt_title'] }}</a></p>{% endif %}

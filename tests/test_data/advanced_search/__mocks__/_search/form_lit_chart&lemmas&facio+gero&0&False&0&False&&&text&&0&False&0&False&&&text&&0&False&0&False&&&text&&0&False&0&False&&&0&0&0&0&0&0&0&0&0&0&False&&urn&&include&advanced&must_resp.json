@@ -1,10 +1,10 @@
 [
   {
-    "took": 77,
+    "took": 53,
     "timed_out": false,
     "_shards": {
-      "total": 66,
-      "successful": 66,
+      "total": 67,
+      "successful": 67,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form048.lat001",
           "_score": null,
           "_source": {
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form051.lat001",
           "_score": null,
           "_source": {
@@ -109,7 +109,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v35",
+          "_index": "andecavensis_v46",
           "_id": "urn:cts:formulae:andecavensis.form052.lat001",
           "_score": null,
           "_source": {

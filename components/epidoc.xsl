@@ -333,7 +333,7 @@
                     <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                     <xsl:attribute name="data-html">true</xsl:attribute>
                     <xsl:attribute name="title"></xsl:attribute>
-                    <xsl:attribute name="class">btn btn-link px-0 right-note-tooltip text-body</xsl:attribute>
+                    <xsl:attribute name="class">btn btn-link p-0 right-note-tooltip text-body</xsl:attribute>
                     <xsl:attribute name="tabindex">0</xsl:attribute>
                     <xsl:attribute name="data-container"><xsl:value-of select="concat('#', generate-id())"/></xsl:attribute>
                     <xsl:element name="span">
@@ -493,6 +493,10 @@
             <xsl:attribute name="title"><xsl:value-of select="translate(@function, '-', ' ')"/></xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
+    </xsl:template>
+    
+    <xsl:template match="t:seg[@type='deperditum']">
+        <span class="foreign-text h5"><xsl:apply-templates/></span>
     </xsl:template>
     
     <xsl:template match="t:list">

@@ -115,12 +115,13 @@ def r_simple_search() -> redirect:
     corpus = '+'.join(data.pop("corpus"))
     if not g.search_form.validate():
         for k, m in g.search_form.errors.items():
-            if k == 'corpus':
-                flash(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden").') + _(' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
-                return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', **data))
             if k == 'q_1':
                 flash(m[0] + _(' Die einfache Suche funktioniert nur mit einem Suchwort.'))
                 return ('', 204)
+    if not corpus:
+        flash(_('Sie müssen mindestens eine Sammlung für die Suche auswählen ("Formeln" und/oder "Urkunden" oder "Lexikon").') + _(
+            ' Resultate aus "Formeln" und "Urkunden" werden hier gezeigt.'))
+        return redirect(url_for('.r_results', source='simple', corpus='formulae+chartae', **data))
     return redirect(url_for('.r_results', source='simple', corpus=corpus, sort="urn", **data))
 
 

@@ -1,12 +1,12 @@
-Werkzeug==2.0.1
+Werkzeug>=2.2.3
 dnspython>=2.1.0
-elasticsearch==7.5.1
+elasticsearch>=8.0.0
 email-validator>=1.1.2
 git+https://github.com/Capitains/MyCapytain@future#egg=MyCapytain
 requests_cache>=0.6.3
 Flask>=2.0.0
 Flask-Caching>=1.10.1
-Flask-Babel>=2.0.0, <3.0.0
+Flask-Babel>=3.0.0
 Flask-Bootstrap>=3.3.7.1
 Flask-Login>=0.5.0
 Flask-Mail>=0.9.1
@@ -14,15 +14,15 @@ Flask-Migrate>=3.0.0
 flask-nemo>=2.0.0
 Flask-Session>=0.3.2
 Flask-SQLAlchemy>=2.5.1
-Flask-WTF<1.0.0
+Flask-WTF>=1.0.0
 gunicorn>=20.1.0
 jellyfish>=0.8.2
 PyJWT>=2.1.0
 python-slugify>=1.2.1
 python-dotenv>=0.17.1
-rdflib<6.0.0
+rdflib>=6.0.0
 redis>=3.5.3
 reportlab>=3.5.67
 roman>=3.3
-SQLAlchemy>=1.4.15, <2.0.0
-WTForms<3.0.0
+SQLAlchemy>=1.4.15
+WTForms>=3.0.0

@@ -1,10 +1,10 @@
 [
   {
-    "took": 93,
+    "took": 107,
     "timed_out": false,
     "_shards": {
-      "total": 66,
-      "successful": 66,
+      "total": 67,
+      "successful": 67,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form1_024.lat001",
           "_score": null,
           "_source": {
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form1_034.lat001",
           "_score": null,
           "_source": {
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "marculf_v35",
+          "_index": "marculf_v46",
           "_id": "urn:cts:formulae:marculf.form3_3_003.lat001",
           "_score": null,
           "_source": {
@@ -109,7 +109,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0010.lat001",
           "_score": null,
           "_source": {
@@ -152,7 +152,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0011.lat001",
           "_score": null,
           "_source": {
@@ -195,7 +195,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0012.lat001",
           "_score": null,
           "_source": {
@@ -241,7 +241,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0013.lat001",
           "_score": null,
           "_source": {
@@ -294,7 +294,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0014.lat001",
           "_score": null,
           "_source": {
@@ -340,7 +340,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0015.lat001",
           "_score": null,
           "_source": {
@@ -377,8 +377,8 @@
             "min_date": "0746-06-06",
             "max_date": "0747-06-06",
             "days": [
-              "Monday",
-              "Tuesday"
+              "Tuesday",
+              "Monday"
             ],
             "sort_prefix": 1
           },
@@ -393,7 +393,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0016.lat001",
           "_score": null,
           "_source": {
@@ -439,7 +439,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0017.lat001",
           "_score": null,
           "_source": {
@@ -485,7 +485,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0019.lat001",
           "_score": null,
           "_source": {
@@ -528,7 +528,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0020.lat001",
           "_score": null,
           "_source": {
@@ -571,7 +571,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
           "_score": null,
           "_source": {
@@ -617,7 +617,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0022.lat001",
           "_score": null,
           "_source": {
@@ -663,7 +663,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
           "_score": null,
           "_source": {
@@ -706,7 +706,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v34",
+          "_index": "arnulfinger_v45",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0024.lat001",
           "_score": null,
           "_source": {
@@ -749,7 +749,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0088.lat001",
           "_score": null,
           "_source": {
@@ -792,7 +792,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v35",
+          "_index": "merowinger1_v46",
           "_id": "urn:cts:formulae:merowinger1.koelzer0177.lat001",
           "_score": null,
           "_source": {

@@ -84,6 +84,9 @@
           "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
             "doc_count": 0
           },
+          "<b>Herrscherurkunden</b>: Lothar II.": {
+            "doc_count": 0
+          },
           "<b>Herrscherurkunden</b>: Ludwig II.": {
             "doc_count": 0
           },
@@ -356,6 +359,9 @@
           "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Lothar II.": {
           "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Ludwig II.": {
