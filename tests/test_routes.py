@@ -1795,13 +1795,23 @@ class TestFunctions(Formulae_Testing):
         test_strings = {'urn:cts:formulae:p16.4v6r':
                             '0004<span class="verso-recto">v</span>-6<span class="verso-recto">r</span>',
                         'urn:cts:formulae:m4.39r24r':
-                            '0039<span class="verso-recto">r</span>-24<span class="verso-recto">r</span>',
+                            'b0039<span class="verso-recto">r</span>-24<span class="verso-recto">r</span>',
+                        'urn:cts:formulae:m4.23r':
+                            'a0023<span class="verso-recto">r</span>',
+                        'urn:cts:formulae:m4.31r':
+                            'c0031<span class="verso-recto">r</span>',
                         'urn:cts:formulae:p3.130va131rb':
-                            '0130<span class="verso-recto">va</span>-131<span class="verso-recto">rb</span>',
+                            'a0130<span class="verso-recto">va</span>-131<span class="verso-recto">rb</span>',
                         'urn:cts:formulae:fu2.148v':
                             '0148<span class="verso-recto">v</span>',
                         'urn:cts:formulae:p3.134vb':
-                            '0134<span class="verso-recto">vb</span>',
+                            'a0134<span class="verso-recto">vb</span>',
+                        'urn:cts:formulae:p3.142vb':
+                            'a0142<span class="verso-recto">vb</span>',
+                        'urn:cts:formulae:p3.147vb':
+                            'b0147<span class="verso-recto">vb</span>',
+                        'urn:cts:formulae:p3.143vb':
+                            'c0143<span class="verso-recto">vb</span>',
                         'urn:cts:formulae:le1.155v156r2':
                             '0155<span class="verso-recto">v</span>-156<span class="verso-recto">r</span>(2)'}
         for k, v in test_strings.items():

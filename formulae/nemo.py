@@ -457,8 +457,31 @@ class NemoFormulae(Nemo):
     def sort_folia(matchobj: Match) -> str:
         """Sets up the folia ranges of manuscripts for better sorting"""
         groups = []
-        sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups()
-        groups.append('{:04}<span class="verso-recto">{}</span>'.format(int(sub_groups[0]), sub_groups[1]))
+        sub_groups = list(re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups())
+        start_letter = ''
+        start_letter_dict = {'m4': {range(0, 24): 'a',
+                                    range(32, 40): 'b',
+                                    range(24, 32): 'c',
+                                    range(56, 72): 'd',
+                                    range(40, 56): 'e',
+                                    range(80, 86): 'f',
+                                    range(72, 80): 'g'},
+                             'p3': {range(0, 143): 'a',
+                                    range(147, 151): 'b',
+                                    range(143, 147): 'c'}
+                             }
+        if 'm4' in matchobj.group(0):
+            start_fol = int(sub_groups[0])
+            for k, v in start_letter_dict['m4'].items():
+                if start_fol in k:
+                    start_letter = v
+        elif 'p3' in matchobj.group(0):
+            start_fol = int(sub_groups[0])
+            start_letter = 'd'
+            for k, v in start_letter_dict['p3'].items():
+                if start_fol in k:
+                    start_letter = v
+        groups.append('{}{:04}<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0]), sub_groups[1]))
         if matchobj.group(2):
             new_sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(2)).groups()
             groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
@@ -975,7 +998,10 @@ class NemoFormulae(Nemo):
                               'parent_id': str(m.id)}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
-                    work_name = Markup(par.lstrip('0') if isinstance(par, str) else '')
+                    if 'm4' in objectId or 'p3' in objectId:
+                        work_name = Markup(par.lstrip('abcdefg0') if isinstance(par, str) else '')
+                    else:
+                        work_name = Markup(par.lstrip('0') if isinstance(par, str) else '')
                     parents = self.make_parents(m)
                     parent_title = parents[0]['label']
                     if 'manuscript_collection' in collection.ancestors:
@@ -1217,7 +1243,7 @@ class NemoFormulae(Nemo):
                         if "sg2" in t_v:
                             new_parents.append('[p.' + t_parent.lstrip('0') + ']')
                         else:
-                            new_parents.append('[fol.' + t_parent.lstrip('0').replace('</span>-', '</span>-fol.') + ']')
+                            new_parents.append('[fol.' + t_parent.lstrip('0abcdefg').replace('</span>-', '</span>-fol.') + ']')
                     r['transcriptions'].append({
                         "name": k,
                         "edition_name": edition_names[k],
