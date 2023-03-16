@@ -1020,7 +1020,7 @@ class NemoFormulae(Nemo):
                             work_name = Markup(name_part.group(0))
                     regest = [Markup(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')]
                     short_regest = str(m.metadata.get_single(DCTERMS.abstract)) or ''
-                    for form_version in m.metadata.get(DCTERMS.isVersionOf):
+                    for version_index, form_version in enumerate(sorted(m.metadata.get(DCTERMS.isVersionOf))):
                         if form_version:
                             form_metadata = self.resolver.getMetadata(str(form_version))
                             form_parent = [str(x['id']) for x in self.make_parents(form_metadata) if 'formulae_collection' in x['ancestors'] and 'manuscript_collection' not in x['ancestors']][0]
@@ -1032,8 +1032,9 @@ class NemoFormulae(Nemo):
                                 elif readable_form.subtype == {'cts:edition'}:
                                     r[par]["versions"]['editions'].append(form_md + [form_ms_data])
                                     r[par]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
-                                    regest = [Markup(readable_form.metadata.get_single(DC.description))]
-                                    short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
+                                    if version_index == 0:
+                                        regest = [Markup(readable_form.metadata.get_single(DC.description))]
+                                        short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
                     # The following lines are to deal with the Pancarte Noire double regests
                     # if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
                         # if len(regest) == 2:
