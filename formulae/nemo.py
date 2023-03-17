@@ -457,8 +457,31 @@ class NemoFormulae(Nemo):
     def sort_folia(matchobj: Match) -> str:
         """Sets up the folia ranges of manuscripts for better sorting"""
         groups = []
-        sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups()
-        groups.append('{:04}<span class="verso-recto">{}</span>'.format(int(sub_groups[0]), sub_groups[1]))
+        sub_groups = list(re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups())
+        start_letter = ''
+        start_letter_dict = {'m4': {range(0, 24): 'a',
+                                    range(32, 40): 'b',
+                                    range(24, 32): 'c',
+                                    range(56, 72): 'd',
+                                    range(40, 56): 'e',
+                                    range(80, 86): 'f',
+                                    range(72, 80): 'g'},
+                             'p3': {range(0, 143): 'a',
+                                    range(147, 151): 'b',
+                                    range(143, 147): 'c'}
+                             }
+        if 'm4' in matchobj.group(0):
+            start_fol = int(sub_groups[0])
+            for k, v in start_letter_dict['m4'].items():
+                if start_fol in k:
+                    start_letter = v
+        elif 'p3' in matchobj.group(0):
+            start_fol = int(sub_groups[0])
+            start_letter = 'd'
+            for k, v in start_letter_dict['p3'].items():
+                if start_fol in k:
+                    start_letter = v
+        groups.append('{}{:04}<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0]), sub_groups[1]))
         if matchobj.group(2):
             new_sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(2)).groups()
             groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
@@ -975,7 +998,10 @@ class NemoFormulae(Nemo):
                               'parent_id': str(m.id)}
                     r[par]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
-                    work_name = Markup(par.lstrip('0') if isinstance(par, str) else '')
+                    if 'm4' in objectId or 'p3' in objectId:
+                        work_name = Markup(par.lstrip('abcdefg0') if isinstance(par, str) else '')
+                    else:
+                        work_name = Markup(par.lstrip('0') if isinstance(par, str) else '')
                     parents = self.make_parents(m)
                     parent_title = parents[0]['label']
                     if 'manuscript_collection' in collection.ancestors:
@@ -994,7 +1020,7 @@ class NemoFormulae(Nemo):
                             work_name = Markup(name_part.group(0))
                     regest = [Markup(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')]
                     short_regest = str(m.metadata.get_single(DCTERMS.abstract)) or ''
-                    for form_version in m.metadata.get(DCTERMS.isVersionOf):
+                    for version_index, form_version in enumerate(sorted(m.metadata.get(DCTERMS.isVersionOf))):
                         if form_version:
                             form_metadata = self.resolver.getMetadata(str(form_version))
                             form_parent = [str(x['id']) for x in self.make_parents(form_metadata) if 'formulae_collection' in x['ancestors'] and 'manuscript_collection' not in x['ancestors']][0]
@@ -1006,8 +1032,9 @@ class NemoFormulae(Nemo):
                                 elif readable_form.subtype == {'cts:edition'}:
                                     r[par]["versions"]['editions'].append(form_md + [form_ms_data])
                                     r[par]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
-                                    regest = [Markup(readable_form.metadata.get_single(DC.description))]
-                                    short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
+                                    if version_index == 0:
+                                        regest = [Markup(readable_form.metadata.get_single(DC.description))]
+                                        short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
                     # The following lines are to deal with the Pancarte Noire double regests
                     # if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
                         # if len(regest) == 2:
@@ -1217,7 +1244,7 @@ class NemoFormulae(Nemo):
                         if "sg2" in t_v:
                             new_parents.append('[p.' + t_parent.lstrip('0') + ']')
                         else:
-                            new_parents.append('[fol.' + t_parent.lstrip('0').replace('</span>-', '</span>-fol.') + ']')
+                            new_parents.append('[fol.' + t_parent.lstrip('0abcdefg').replace('</span>-', '</span>-fol.') + ']')
                     r['transcriptions'].append({
                         "name": k,
                         "edition_name": edition_names[k],
