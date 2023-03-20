@@ -6,7 +6,7 @@ import re
 from copy import deepcopy
 from typing import Dict, List, Union, Tuple, Set
 from itertools import product
-from jellyfish import levenshtein_distance
+from Levenshtein import distance
 from math import floor
 from random import randint
 from formulae.search.forms import FORM_PARTS
@@ -196,7 +196,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
     all_highlighted_terms = set()
     mvectors_body = {'docs': [{'_index': h[1], '_id': h[0], 'term_statistics': False, 'field_statistics': False} for h in result_ids]}
     corp_vectors = dict()
-    for i, d in enumerate(current_app.elasticsearch.mtermvectors(body=mvectors_body)['docs']):
+    for d in current_app.elasticsearch.mtermvectors(body=mvectors_body)['docs']:
         corp_vectors[d['_id']] = {'term_vectors': d['term_vectors']}
     if download_id:
         current_app.redis.set(download_id, '50%')
@@ -204,7 +204,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
         for list_index, hit in enumerate(query_results['hits']['hits']):
             hit_highlight_positions = list()
             open_text, half_open_text = check_open_texts(hit['_id'])
-            show_regest = current_app.config['nemo_app'].check_project_team() is True or (open_text and not half_open_text)
+            show_regest = (open_text and not half_open_text) or current_app.config['nemo_app'].check_project_team() is True
             text = hit['_source']['text']
             sentences = []
             sentence_spans = []
@@ -219,16 +219,22 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                     highlight_field = s_field
                     if s_field == 'lemmas':
                         highlight_field = 'text'
-                    highlight_offsets = {x: dict() for x in (highlight_field, s_field, query_terms['compare_field']) if x}
+                    highlight_offsets = dict()
+                    for x in (highlight_field, s_field, query_terms['compare_field']):
+                        if x:
+                            highlight_offsets[x] = dict()
                     if s_field in [highlight_field, query_terms['compare_field']]:
                         for k, v in vectors[s_field]['terms'].items():
-                            highlight_offsets[s_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
+                            for o in v['tokens']:
+                                highlight_offsets[s_field][o['position']] = (o['start_offset'], o['end_offset'], k)
                     if s_field != highlight_field:
                         for k, v in vectors[highlight_field]['terms'].items():
-                            highlight_offsets[highlight_field].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
+                            for o in v['tokens']:
+                                highlight_offsets[highlight_field][o['position']] = (o['start_offset'], o['end_offset'], k)
                     if query_terms['compare_field'] and query_terms['compare_field'] not in [highlight_field, s_field]:
                         for k, v in vectors[query_terms['compare_field']]['terms'].items():
-                            highlight_offsets[query_terms['compare_field']].update({o['position']: (o['start_offset'], o['end_offset'], k) for o in v['tokens']})
+                            for o in v['tokens']:
+                                highlight_offsets[query_terms['compare_field']][o['position']] = (o['start_offset'], o['end_offset'], k)
                     highlighted_words = set(query_terms['q'].split())
                     for highlight in hit['highlight'][s_field]:
                         for m in re.finditer(r'{}(\w+){}'.format(PRE_TAGS, POST_TAGS), highlight):
@@ -256,7 +262,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                                     else:
                                         fuzz = int(query_terms['fuzziness'])
                                     for term in highlighted_words:
-                                        if levenshtein_distance(term, token) <= fuzz:
+                                        if distance(term, token) <= fuzz:
                                             terms.add(term)
                             else:
                                 new_token = u_term.replace('?', '.').replace('*', '.+')
@@ -270,8 +276,8 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                                     else:
                                         fuzz = int(query_terms['fuzziness'])
                                     for term, t in product(highlighted_words, terms):
-                                        if levenshtein_distance(term, t) <= fuzz:
-                                            fuzz_terms.add(term)
+                                        if distance(term, token) <= fuzz:
+                                            terms.add(term)
                                     terms.update(fuzz_terms)
                             for w in terms:
                                 if s_field == 'lemmas':

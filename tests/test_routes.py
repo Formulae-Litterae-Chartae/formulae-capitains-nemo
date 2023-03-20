@@ -7801,6 +7801,16 @@ class TestES(Formulae_Testing):
                 fake_args['search_field_{}'.format(arg.split('_')[-1])] = 'lemmas'
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()]).replace('/', '-')
 
+    def profile_lem_highlight_to_text(self, profile_test_args):
+        # profile lem_highlight_to_text
+        if not os.environ.get('CI'):
+            from line_profiler import LineProfiler
+            lp = LineProfiler()
+            lp.add_function(Search.lem_highlight_to_text)
+            lp_wrapper = lp(advanced_query_index)
+            lp_wrapper(**profile_test_args)
+            lp.print_stats()
+
     def test_return_when_no_es(self):
         """ Make sure that when ElasticSearch is not active, calls to the search functions return empty results instead of errors"""
         self.app.elasticsearch = None
@@ -8575,8 +8585,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8607,8 +8619,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q'] = 'reg*'
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8627,8 +8641,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8646,8 +8662,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8665,8 +8683,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8688,8 +8708,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8711,8 +8733,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8731,8 +8755,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8748,8 +8774,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8765,8 +8793,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8796,8 +8826,10 @@ class TestES(Formulae_Testing):
         test_args['q_1'] = 'reg* domni'
         test_args['slop_1'] = '3'
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8819,9 +8851,11 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for s in sents:
             self.assertIn(s, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8837,8 +8871,10 @@ class TestES(Formulae_Testing):
         mock_vectors.return_value = self.term_vectors
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8877,8 +8913,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8913,8 +8951,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8949,8 +8989,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8977,8 +9019,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual([], [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -9010,8 +9054,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -9042,8 +9088,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     def test_lemma_advanced_search_with_wildcard(self, mock_search):
