@@ -8,8 +8,6 @@ from typing import Dict, List, Union, Tuple, Set
 from itertools import product
 from Levenshtein import distance
 from math import floor
-from random import randint
-from formulae.search.forms import FORM_PARTS
 
 
 PRE_TAGS = "</small><strong>"
@@ -112,8 +110,9 @@ LEMMA_INDICES = {'normal': ['lemmas'], 'auto': ['autocomplete_lemmas']}
 
 def check_open_texts(hit_id):
     """ Used for mock tests to return True for highlighting purposes"""
-    open_text = hit_id in current_app.config['nemo_app'].open_texts and hit_id not in current_app.config['nemo_app'].closed_texts['closed']
-    half_open_text = hit_id in current_app.config['nemo_app'].half_open_texts or hit_id in current_app.config['nemo_app'].closed_texts['half_closed']
+    nemo_app = current_app.config['nemo_app']
+    open_text = hit_id in nemo_app.open_texts and hit_id not in nemo_app.closed_texts['closed']
+    half_open_text = hit_id in nemo_app.half_open_texts or hit_id in nemo_app.closed_texts['half_closed']
     return open_text, half_open_text
 
 
@@ -192,6 +191,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
         return [], set()
     if download_id:
         current_app.redis.set(download_id, '20%')
+    nemo_app = current_app.config['nemo_app']
     id_dict = dict()
     all_highlighted_terms = set()
     mvectors_body = {'docs': [{'_index': h[1], '_id': h[0], 'term_statistics': False, 'field_statistics': False} for h in result_ids]}
@@ -204,7 +204,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
         for list_index, hit in enumerate(query_results['hits']['hits']):
             hit_highlight_positions = list()
             open_text, half_open_text = check_open_texts(hit['_id'])
-            show_regest = (open_text and not half_open_text) or current_app.config['nemo_app'].check_project_team() is True
+            show_regest = (open_text and not half_open_text) or nemo_app.check_project_team() is True
             text = hit['_source']['text']
             sentences = []
             sentence_spans = []
@@ -283,7 +283,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                                 if s_field == 'lemmas':
                                     if w in vectors['lemmas']['terms']:
                                         positions[token] += [i['position'] for i in vectors['lemmas']['terms'][w]['tokens']]
-                                    for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
+                                    for other_lem in nemo_app.lem_to_lem_mapping.get(w, {}):
                                         if other_lem in vectors['lemmas']['terms']:
                                             positions[token] += [i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']]
                                     positions[token] = sorted(positions[w])
@@ -313,7 +313,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                                 if query_terms['compare_term']:
                                     compare_true = False
                                     for position in span:
-                                        if highlight_offsets[query_terms['compare_field']][position][-1] in query_terms['compare_term'] + [x for y in query_terms['compare_term'] for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
+                                        if highlight_offsets[query_terms['compare_field']][position][-1] in query_terms['compare_term'] + [x for y in query_terms['compare_term'] for x in nemo_app.lem_to_lem_mapping.get(y, None)]:
                                             compare_true = True
                                             break
                                 if set(q_words) == used_q_words and len(span) == len(q_words) and compare_true:
@@ -346,7 +346,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                             if s_field == 'lemmas':
                                 if w in vectors['lemmas']['terms']:
                                     positions.update([i['position'] for i in vectors['lemmas']['terms'][w]['tokens']])
-                                for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping.get(w, {}):
+                                for other_lem in nemo_app.lem_to_lem_mapping.get(w, {}):
                                     if other_lem in vectors['lemmas']['terms']:
                                         positions.update([i['position'] for i in vectors['lemmas']['terms'][other_lem]['tokens']])
                             else:
@@ -354,7 +354,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                                     positions.update([i['position'] for i in vectors[s_field]['terms'][w]['tokens']])
                         hit_highlight_positions = sorted(positions)
                         for pos in hit_highlight_positions:
-                            if query_terms['compare_term'] and highlight_offsets[query_terms['compare_field']][pos][-1] not in query_terms['compare_term'] + [x for y in query_terms['compare_term'] for x in current_app.config['nemo_app'].lem_to_lem_mapping.get(y, None)]:
+                            if query_terms['compare_term'] and highlight_offsets[query_terms['compare_field']][pos][-1] not in query_terms['compare_term'] + [x for y in query_terms['compare_term'] for x in nemo_app.lem_to_lem_mapping.get(y, None)]:
                                 continue
                             start_offset = highlight_offsets[highlight_field][pos][0]
                             end_offset = highlight_offsets[highlight_field][pos][1] - 1
@@ -386,7 +386,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
                 ordered_sentences.append(x)
                 ordered_sentence_spans.append(y)
             if ordered_sentences or regest_sents:
-                if current_app.config['nemo_app'].check_project_team() is False and not open_text:
+                if not open_text and nemo_app.check_project_team() is False:
                     ordered_sentences = [_('Text nicht zugänglich.')]
                     ordered_sentence_spans = [range(0, 1)]
                 if hit['_id'] in id_dict:
@@ -440,6 +440,7 @@ def advanced_query_index(corpus: list = None,
     # all parts of the query should be appended to the 'must' list. This assumes AND and not OR at the highest level
     if not current_app.elasticsearch:
         return [], 0, {}, []
+    nemo_app = current_app.config['nemo_app']
     prev_search = None
     if search_id:
         search_id = 'search_progress_' + search_id
@@ -591,7 +592,7 @@ def advanced_query_index(corpus: list = None,
                 clauses = list()
                 for term in query_vals['proper_name']:
                     sub_clauses = [{'span_multi': {'match': {'fuzzy': {"lemmas": {"value": term, "fuzziness": query_vals['fuzziness']}}}}}]
-                    for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                    for other_lem in nemo_app.lem_to_lem_mapping[term]:
                         sub_clauses.append({'span_multi': {'match': {'fuzzy': {"lemmas": {"value": other_lem, "fuzziness": query_vals['fuzziness']}}}}})
                     clauses += sub_clauses
                 search_part_template['query']['bool']['must'].append({'bool': {'should': clauses, 'minimum_should_match': 1}})
@@ -636,9 +637,9 @@ def advanced_query_index(corpus: list = None,
                                                                                             'flags': 'ALL',
                                                                                             'case_insensitive': True}}}}}])
                     else:
-                        if query_vals['search_field'] == 'lemmas' and term in current_app.config['nemo_app'].lem_to_lem_mapping:
+                        if query_vals['search_field'] == 'lemmas' and term in nemo_app.lem_to_lem_mapping:
                             sub_clauses = [{'span_multi': {'match': {'fuzzy': {query_vals['search_field']: {"value": term, "fuzziness": query_vals['fuzziness']}}}}}]
-                            for other_lem in current_app.config['nemo_app'].lem_to_lem_mapping[term]:
+                            for other_lem in nemo_app.lem_to_lem_mapping[term]:
                                 sub_clauses.append({'span_multi': {'match': {'fuzzy': {query_vals['search_field']: {"value": other_lem, "fuzziness": query_vals['fuzziness']}}}}})
                             clauses.append(sub_clauses)
                         else:
