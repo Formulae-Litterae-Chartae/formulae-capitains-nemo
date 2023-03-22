@@ -962,6 +962,7 @@ class NemoFormulae(Nemo):
         template = "main::sub_collection.html"
         current_parents = self.make_parents(collection, lang=lang)
         containing_colls = list()
+        mss_editions = list()
         for cont_coll in sorted(collection.metadata.get(DCTERMS.isPartOf), key=lambda x: self.sort_sigla(x.split(':')[-1])):
             cont_coll_md = self.resolver.getMetadata(str(cont_coll)).metadata
             containing_colls.append((Markup(cont_coll_md.get_single(self.BIBO.AbbreviatedTitle)), cont_coll_md.get_single(DC.title), str(cont_coll)))
@@ -1020,8 +1021,16 @@ class NemoFormulae(Nemo):
                             work_name = Markup(name_part.group(0))
                     regest = [Markup(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')]
                     short_regest = str(m.metadata.get_single(DCTERMS.abstract)) or ''
+                    bg_color = 'bg-color-0'
                     for version_index, form_version in enumerate(sorted(m.metadata.get(DCTERMS.isVersionOf))):
                         if form_version:
+                            if '_' in form_version.split('.')[-1]:
+                                mss_edition = re.sub(r'(.*)\.(form)?(([2-9]_)*).*', r'\1\3', form_version)
+                            else:
+                                mss_edition = ''.join(form_version.split('.')[:-1])
+                            if mss_edition not in mss_editions:
+                                mss_editions.append(mss_edition)
+                            bg_color = 'bg-color-' + str(mss_editions.index(mss_edition) + 1)
                             form_metadata = self.resolver.getMetadata(str(form_version))
                             form_parent = [str(x['id']) for x in self.make_parents(form_metadata) if 'formulae_collection' in x['ancestors'] and 'manuscript_collection' not in x['ancestors']][0]
                             for readable_form in form_metadata.readableDescendants.values():
@@ -1047,7 +1056,8 @@ class NemoFormulae(Nemo):
                                    'name': work_name,
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
                                    'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
-                                   'deperditum': str(m.metadata.get_single(self.BF.status)) == 'deperditum'})
+                                   'deperditum': str(m.metadata.get_single(self.BF.status)) == 'deperditum',
+                                   'bg_color': bg_color})
 
 
         for k, v in collection.children.items():

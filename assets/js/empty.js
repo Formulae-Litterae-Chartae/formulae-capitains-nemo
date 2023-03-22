@@ -799,4 +799,18 @@ $(document).ready(function () {
     if ( locationHash ) {
         $('.corpus-nrs[href="' + locationHash + '"]').click();
     };
+
+
+
+    $('#show-mss-edition-colors').click(function() {
+        $('.work-cell').addClass('show-bg-color');
+        $( this ).addClass('d-none');
+        $('#hide-mss-edition-colors').removeClass('d-none');
+    })
+
+    $('#hide-mss-edition-colors').click(function() {
+        $('.work-cell').removeClass('show-bg-color');
+        $( this ).addClass('d-none');
+        $('#show-mss-edition-colors').removeClass('d-none');
+    })
 })

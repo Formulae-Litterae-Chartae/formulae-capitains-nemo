@@ -53,6 +53,10 @@
     <br>
     <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='karlsruhe_blb_aug') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
     {% endif %}
+    {% if "manuscript_collection" in collections.parent_ids %}
+    <h5 id="show-mss-edition-colors"><a class="internal-link" href="#">{{ _('Farbkodierung der Sammlungen zeigen') }}</a></h5>
+    <h5 id="hide-mss-edition-colors" class="d-none"><a class="internal-link" href="#">{{ _('Farbkodierung der Sammlungen verstecken') }}</a></h5>
+    {% endif %}
 </header>
 </div>
 </div>
@@ -121,7 +125,7 @@
                 {% if collections.current.id == 'urn:cts:formulae:salzburg' %}
                 {% set number = number[0] %}
                 {% endif %}
-                <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column">
+                <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column work-cell {{ values['bg_color']|default('bg-color-0') }}">
                     <div class="row justify-content-between">
                         <div class="col-3"><h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['parent_id'] in manuscript_notes %}<span id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"><span class="superscript" >*</span></span>{% endif %}{% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}</h5></div>
                         <div class="col text-right">
