@@ -710,14 +710,14 @@ $(document).ready(function () {
     
     $('#show-regest-control').click(function() {
         $('.ms-regesten').removeClass('d-none');
-        $( this ).addClass('d-none');
-        $('#hide-regest-control').removeClass('d-none');
+        $( this ).parent().addClass('d-none');
+        $('#hide-regest-control').parent().removeClass('d-none');
     })
     
     $('#hide-regest-control').click(function() {
         $('.ms-regesten').addClass('d-none');
-        $( this ).addClass('d-none');
-        $('#show-regest-control').removeClass('d-none');
+        $( this ).parent().addClass('d-none');
+        $('#show-regest-control').parent().removeClass('d-none');
     })
     
     $('#videoModal').on('show.bs.modal', function (event) {

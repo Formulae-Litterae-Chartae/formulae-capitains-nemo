@@ -19,6 +19,8 @@ var newColor = "#dddd22";
 
 $(function() {
     $('.card.search-hit.transcription').click(function() {
+        $('#hide-shared-control').parent().addClass('d-none');
+        $('#show-shared-control').parent().removeClass('d-none');
         console.log(count);
         var target = $(this);
         if (cntrlIsPressed == false) {
@@ -56,23 +58,26 @@ $(function() {
             newColor = oldColor;
             oldColor = '#fff';
         }
-//         var scrollContent = target[0].parentNode;
-//         var listElement = scrollContent.parentNode;
-//         var list = listElement.parentNode;
-//         for (i = 0; i < list.children.length; i++) {
-//             var list_of_list = list.children[i].children[1].children
-//             for(j = 0; j < list_of_list.length; j++){
-//                 if(list_of_list[j].children[0].innerText == target[0].childNodes[1].innerText){
-//                     var scrollParent = list_of_list[j].parentNode.parentNode;
-//                     scrollParent.scrollTop = list_of_list[j].offsetTop - (($(window).height() / 2) - (scrollParent.children[0].offsetHeight / 2));
-//                     list_of_list[j].style.backgroundColor = colorPalette[count % colorPalette.length];
-//                 } else {
-//                     if (cntrlIsPressed == false) {
-//                         list_of_list[j].style.backgroundColor = "#FFF"
-//                     }
-//                 }
-//             }
-//         }
-//         count++;
     })
+
+    $('#show-shared-control').click(function() {
+        $('li.transcription').css('background-color', '');
+        $('#ms-col-1 li.transcription').each(function() {
+            var targetForm = $( this ).attr('formula');
+            $('li[formula="' + targetForm + '"]').addClass('work-cell bg-color-4 show-bg-color');
+        })
+        $( this ).parent().addClass('d-none');
+        $('#hide-shared-control').parent().removeClass('d-none');
+    })
+
+    $('#hide-shared-control').click(function() {
+        $('li.transcription').css('background-color', '');
+        $('#ms-col-1 li.transcription').each(function() {
+            var targetForm = $( this ).attr('formula');
+            $('li[formula="' + targetForm + '"]').removeClass('work-cell bg-color-4 show-bg-color');
+        })
+        $( this ).parent().addClass('d-none');
+        $('#show-shared-control').parent().removeClass('d-none');
+    })
+
 })
