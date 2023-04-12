@@ -1226,3 +1226,13 @@ img.disabled {
 .work-cell.bg-color-10.show-bg-color {
     background: #00FFFF;
 }
+
+.two-source-table {
+    margin-top: -1rem;
+    margin-bottom: 0;
+}
+
+.two-source-table td {
+    width: 50%;
+    padding: 0 0.5rem;
+}
