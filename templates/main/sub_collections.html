@@ -49,11 +49,7 @@
                         <b>
                         <span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip" {% if not coll['lemmatized'] %} class="invisible"{%endif %} data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip" title="{{ _('Dieses Korpus ist lemmatisiert') }}" tabindex="0">* </span>
                         </b>
-                        {% if collections.current.id == 'herrscher_urkunden' %}
-                        {{ coll.short_title|safe }}
-                        {% else %}
                         {{ coll.label|safe }}
-                        {% endif %}
                         </h5>
                 </a>
             </li>
