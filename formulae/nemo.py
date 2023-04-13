@@ -124,6 +124,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:gorze',
                         'urn:cts:formulae:hersfeld',
                         'urn:cts:formulae:ka1',
+                        'urn:cts:formulae:karlmann_mgh',
                         'urn:cts:formulae:ko2',
                         # 'urn:cts:formulae:langobardisch', # needs correction
                         'urn:cts:formulae:langobardisch_1',
