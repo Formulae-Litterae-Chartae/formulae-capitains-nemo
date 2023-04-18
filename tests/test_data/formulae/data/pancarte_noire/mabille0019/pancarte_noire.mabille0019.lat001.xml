@@ -67,7 +67,7 @@
          </refsDecl>
       </encodingDesc>
    </teiHeader>
-   <text type="charta" xml:id="pancarte_noir_internal.mabille0019">
+   <text type="charta" xml:id="pancarte_noire.mabille0019">
       <front xml:lang="deu">
          <div type="section" subtype="regest">
             <p xml:space="preserve">MABILLE:</p>
@@ -79,7 +79,7 @@
          </dateline>
          </front>
       <body>
-         <div type="edition" xml:lang="lat" n="urn:cts:formulae:pancarte_noir_internal.mabille0019.lat001">
+         <div type="edition" xml:lang="lat" n="urn:cts:formulae:pancarte_noire.mabille0019.lat001">
             <div type="textpart" subtype="charta" n="1">
                <p xml:space="preserve">Some strange text.</p>
             </div>

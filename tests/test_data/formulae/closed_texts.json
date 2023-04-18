@@ -1,29 +1,29 @@
 {
 	"closed": [
-		"urn:cts:formulae:pancarte_noir_internal.mabille0019.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0020.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0034.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0061.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0065.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0088.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0089.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0113.lat001"
+		"urn:cts:formulae:pancarte_noire.mabille0019.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0020.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0034.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0061.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0065.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0088.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0089.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0113.lat001"
 	],
 	"half_closed": [
-		"urn:cts:formulae:pancarte_noir_internal.mabille0012.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0017.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0022.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0029.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0040.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0041.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0046.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0047.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0048.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0050.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0051.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0066.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0079.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0081.lat001",
-		"urn:cts:formulae:pancarte_noir_internal.mabille0135.lat001"
+		"urn:cts:formulae:pancarte_noire.mabille0012.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0017.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0022.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0029.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0040.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0041.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0046.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0047.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0048.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0050.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0051.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0066.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0079.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0081.lat001",
+		"urn:cts:formulae:pancarte_noire.mabille0135.lat001"
 	]
 }
