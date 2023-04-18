@@ -1,22 +1,22 @@
 [
   {
-    "took": 32,
+    "took": 106,
     "timed_out": false,
     "_shards": {
-      "total": 67,
-      "successful": 67,
+      "total": 70,
+      "successful": 70,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 38,
+        "value": 39,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -311,15 +311,15 @@
             "min_date": "0769-04-20",
             "max_date": "0813-04-20",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
+              "Sunday",
+              "Friday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -329,7 +329,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -345,7 +345,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -552,15 +552,15 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
+              "Sunday",
+              "Friday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -570,7 +570,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf0465.lat001",
           "_score": null,
           "_source": {
@@ -586,7 +586,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Kaplan Uuago erneuert seine und seiner Vorfahren frühere Schenkung.",
             "orig_comp_ort": "(Freising)",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "specific_date": [
               {
@@ -601,8 +601,8 @@
             "min_date": "0822-04-13",
             "max_date": "0822-04-13",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -612,7 +612,7 @@
           ]
         },
         {
-          "_index": "katalonien_v46",
+          "_index": "form_lit_chart-katalonien_v9",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0110.lat001",
           "_score": null,
           "_source": {
@@ -628,7 +628,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "katalonien",
+            "collection": "form_lit_chart-katalonien",
             "forgery": false,
             "specific_date": [
               {
@@ -781,15 +781,15 @@
             "min_date": "0912-01-10",
             "max_date": "0912-12-12",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
-              "Monday",
               "Sunday",
+              "Friday",
+              "Monday",
               "Tuesday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -799,7 +799,7 @@
           ]
         },
         {
-          "_index": "katalonien_v46",
+          "_index": "form_lit_chart-katalonien_v9",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0193.lat001",
           "_score": null,
           "_source": {
@@ -815,7 +815,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "katalonien",
+            "collection": "form_lit_chart-katalonien",
             "forgery": false,
             "specific_date": [
               {
@@ -837,9 +837,9 @@
             "max_date": "0919-04-25",
             "days": [
               "Lent",
+              "Monday",
               "Easter",
-              "Sunday",
-              "Monday"
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -849,7 +849,7 @@
           ]
         },
         {
-          "_index": "katalonien_v46",
+          "_index": "form_lit_chart-katalonien_v9",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_0857.lat001",
           "_score": null,
           "_source": {
@@ -865,7 +865,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "katalonien",
+            "collection": "form_lit_chart-katalonien",
             "forgery": false,
             "specific_date": [
               {
@@ -880,8 +880,8 @@
             "min_date": "0960-04-22",
             "max_date": "0960-04-22",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -891,7 +891,7 @@
           ]
         },
         {
-          "_index": "katalonien_v46",
+          "_index": "form_lit_chart-katalonien_v9",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1131.lat001",
           "_score": null,
           "_source": {
@@ -907,7 +907,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "katalonien",
+            "collection": "form_lit_chart-katalonien",
             "forgery": false,
             "specific_date": [
               {
@@ -922,8 +922,8 @@
             "min_date": "0973-03-23",
             "max_date": "0973-03-23",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -933,7 +933,7 @@
           ]
         },
         {
-          "_index": "katalonien_v46",
+          "_index": "form_lit_chart-katalonien_v9",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1189.lat001",
           "_score": null,
           "_source": {
@@ -949,7 +949,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "katalonien",
+            "collection": "form_lit_chart-katalonien",
             "forgery": false,
             "specific_date": [
               {
@@ -964,8 +964,8 @@
             "min_date": "0975-04-04",
             "max_date": "0975-04-04",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -975,7 +975,7 @@
           ]
         },
         {
-          "_index": "katalonien_v46",
+          "_index": "form_lit_chart-katalonien_v9",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1340.lat001",
           "_score": null,
           "_source": {
@@ -991,7 +991,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "katalonien",
+            "collection": "form_lit_chart-katalonien",
             "forgery": false,
             "specific_date": [
               {
@@ -1006,8 +1006,8 @@
             "min_date": "0981-03-27",
             "max_date": "0981-03-27",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -1017,7 +1017,7 @@
           ]
         },
         {
-          "_index": "katalonien_v46",
+          "_index": "form_lit_chart-katalonien_v9",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1488.lat001",
           "_score": null,
           "_source": {
@@ -1033,7 +1033,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "katalonien",
+            "collection": "form_lit_chart-katalonien",
             "forgery": false,
             "specific_date": [
               {
@@ -1048,8 +1048,8 @@
             "min_date": "0985-04-12",
             "max_date": "0985-04-12",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -1059,7 +1059,7 @@
           ]
         },
         {
-          "_index": "katalonien_v46",
+          "_index": "form_lit_chart-katalonien_v9",
           "_id": "urn:cts:formulae:katalonien.vinyals_elscomtatsdosonaimanresa_1760.lat001",
           "_score": null,
           "_source": {
@@ -1075,7 +1075,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "katalonien",
+            "collection": "form_lit_chart-katalonien",
             "forgery": false,
             "specific_date": [
               {
@@ -1090,8 +1090,8 @@
             "min_date": "0997-03-28",
             "max_date": "0997-03-28",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -1101,7 +1101,7 @@
           ]
         },
         {
-          "_index": "langobardisch_1_v22",
+          "_index": "form_lit_chart-langobardisch_1_v9",
           "_id": "urn:cts:formulae:langobardisch_1.schiaparelli0108.lat001",
           "_score": null,
           "_source": {
@@ -1117,7 +1117,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Lucca",
-            "collection": "langobardisch_1",
+            "collection": "form_lit_chart-langobardisch_1",
             "forgery": false,
             "specific_date": [
               {
@@ -1132,8 +1132,8 @@
             "min_date": "0753-03-25",
             "max_date": "0753-03-25",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -1143,7 +1143,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner0384.lat001",
           "_score": null,
           "_source": {
@@ -1159,7 +1159,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Lorsch, loco publico",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -1186,10 +1186,10 @@
             "min_date": "0766-04-19",
             "max_date": "0768-04-19",
             "days": [
-              "Saturday",
               "Easter",
               "Tuesday",
-              "Sunday"
+              "Sunday",
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -1199,7 +1199,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner0516.lat001",
           "_score": null,
           "_source": {
@@ -1215,7 +1215,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -1230,8 +1230,8 @@
             "min_date": "0850-04-06",
             "max_date": "0850-04-06",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -1241,7 +1241,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner0617.lat001",
           "_score": null,
           "_source": {
@@ -1257,7 +1257,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Lorsch",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -1272,8 +1272,8 @@
             "min_date": "0815-04-01",
             "max_date": "0815-04-01",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -1283,7 +1283,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner0923.lat001",
           "_score": null,
           "_source": {
@@ -1299,7 +1299,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -1314,8 +1314,8 @@
             "min_date": "0803-04-16",
             "max_date": "0803-04-16",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -1325,7 +1325,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner0982.lat001",
           "_score": null,
           "_source": {
@@ -1341,7 +1341,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Lorsch",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -1356,8 +1356,8 @@
             "min_date": "0788-03-30",
             "max_date": "0788-03-30",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -1367,7 +1367,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner0989.lat001",
           "_score": null,
           "_source": {
@@ -1383,7 +1383,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Lorsch",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -1398,8 +1398,8 @@
             "min_date": "0791-03-27",
             "max_date": "0791-03-27",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -1409,7 +1409,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner1240.lat001",
           "_score": null,
           "_source": {
@@ -1425,7 +1425,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -2130,15 +2130,15 @@
             "min_date": "0765-04-17",
             "max_date": "0880-04-17",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
-              "Monday",
               "Sunday",
+              "Friday",
+              "Monday",
               "Tuesday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -2148,7 +2148,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner1241.lat001",
           "_score": null,
           "_source": {
@@ -2164,7 +2164,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -2869,15 +2869,15 @@
             "min_date": "0765-04-18",
             "max_date": "0880-04-18",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
+              "Sunday",
+              "Friday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -2887,7 +2887,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner1261.lat001",
           "_score": null,
           "_source": {
@@ -2903,7 +2903,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -2972,14 +2972,14 @@
             "min_date": "0769-04-22",
             "max_date": "0778-04-22",
             "days": [
+              "Thursday",
               "Easter",
               "Wednesday",
-              "Monday",
               "Sunday",
+              "Friday",
+              "Monday",
               "Tuesday",
-              "Saturday",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -2989,7 +2989,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner1492.lat001",
           "_score": null,
           "_source": {
@@ -3005,7 +3005,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -3074,15 +3074,15 @@
             "min_date": "0769-04-18",
             "max_date": "0778-04-18",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
+              "Sunday",
+              "Friday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -3092,7 +3092,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner1683.lat001",
           "_score": null,
           "_source": {
@@ -3108,7 +3108,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -3123,8 +3123,8 @@
             "min_date": "0783-03-23",
             "max_date": "0783-03-23",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3134,7 +3134,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner1853.lat001",
           "_score": null,
           "_source": {
@@ -3150,7 +3150,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -3165,8 +3165,8 @@
             "min_date": "0783-03-23",
             "max_date": "0783-03-23",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3176,7 +3176,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner1987.lat001",
           "_score": null,
           "_source": {
@@ -3192,7 +3192,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -3251,11 +3251,11 @@
             "days": [
               "Easter",
               "Wednesday",
-              "Monday",
               "Sunday",
+              "Friday",
+              "Monday",
               "Tuesday",
-              "Saturday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -3265,7 +3265,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner2941.lat001",
           "_score": null,
           "_source": {
@@ -3281,7 +3281,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -3344,15 +3344,15 @@
             "min_date": "0805-04-13",
             "max_date": "0813-04-13",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
-              "Monday",
               "Sunday",
+              "Friday",
+              "Monday",
               "Tuesday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -3362,7 +3362,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner3728.lat001",
           "_score": null,
           "_source": {
@@ -3378,7 +3378,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -3393,8 +3393,8 @@
             "min_date": "0797-04-23",
             "max_date": "0797-04-23",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3404,7 +3404,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v46",
+          "_index": "form_lit_chart-merowinger1_v9",
           "_id": "urn:cts:formulae:merowinger1.koelzer0038.lat001",
           "_score": null,
           "_source": {
@@ -3420,7 +3420,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "merowinger1",
+            "collection": "form_lit_chart-merowinger1",
             "forgery": false,
             "specific_date": [
               {
@@ -3435,8 +3435,8 @@
             "min_date": "0630-04-08",
             "max_date": "0630-04-08",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3446,7 +3446,49 @@
           ]
         },
         {
-          "_index": "redon_v46",
+          "_index": "form_lit_chart-pancarte_noire_v3",
+          "_id": "urn:cts:formulae:pancarte_noire.mabille0055.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "La Pancarte Noire de Saint-Martin de Tours, brulée en 1793, restituée d’après les textes imprimés et manuscrits (Ed. Mabille) Nr. 55",
+            "keywords": "",
+            "urn": "urn:cts:formulae:pancarte_noire.mabille0055.lat001",
+            "date_string": "MABILLE: 897 03 27; EDITION: 895 03 27",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-pancarte_noire",
+            "forgery": false,
+            "specific_date": [
+              {
+                "year": 897,
+                "month": 3,
+                "day": 27
+              }
+            ],
+            "all_dates": [
+              "0897-03-27"
+            ],
+            "min_date": "0897-03-27",
+            "max_date": "0897-03-27",
+            "days": [
+              "Easter",
+              "Sunday"
+            ],
+            "sort_prefix": 1
+          },
+          "sort": [
+            1,
+            "urn:cts:formulae:pancarte_noire.mabille0055.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-redon_v9",
           "_id": "urn:cts:formulae:redon.courson0040.lat001",
           "_score": null,
           "_source": {
@@ -3462,7 +3504,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "redon",
+            "collection": "form_lit_chart-redon",
             "forgery": false,
             "specific_date": [
               {
@@ -3519,13 +3561,13 @@
             "min_date": "0859-04-22",
             "max_date": "0866-04-22",
             "days": [
+              "Thursday",
               "Easter",
               "Wednesday",
+              "Sunday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Saturday",
-              "Thursday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -3535,7 +3577,7 @@
           ]
         },
         {
-          "_index": "salzburg_v46",
+          "_index": "form_lit_chart-salzburg_v9",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0006.lat001",
           "_score": null,
           "_source": {
@@ -3551,7 +3593,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "salzburg",
+            "collection": "form_lit_chart-salzburg",
             "forgery": false,
             "specific_date": [
               {
@@ -3566,8 +3608,8 @@
             "min_date": "0927-03-25",
             "max_date": "0927-03-25",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3577,7 +3619,7 @@
           ]
         },
         {
-          "_index": "salzburg_v46",
+          "_index": "form_lit_chart-salzburg_v9",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0040.lat001",
           "_score": null,
           "_source": {
@@ -3593,7 +3635,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Salzburg",
-            "collection": "salzburg",
+            "collection": "form_lit_chart-salzburg",
             "forgery": false,
             "specific_date": [
               {
@@ -3608,8 +3650,8 @@
             "min_date": "0927-03-25",
             "max_date": "0927-03-25",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3619,7 +3661,7 @@
           ]
         },
         {
-          "_index": "salzburg_v46",
+          "_index": "form_lit_chart-salzburg_v9",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0045.lat001",
           "_score": null,
           "_source": {
@@ -3635,7 +3677,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Salzburg",
-            "collection": "salzburg",
+            "collection": "form_lit_chart-salzburg",
             "forgery": false,
             "specific_date": [
               {
@@ -3650,8 +3692,8 @@
             "min_date": "0927-03-25",
             "max_date": "0927-03-25",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3661,7 +3703,7 @@
           ]
         },
         {
-          "_index": "salzburg_v46",
+          "_index": "form_lit_chart-salzburg_v9",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0046.lat001",
           "_score": null,
           "_source": {
@@ -3677,7 +3719,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Salzburg",
-            "collection": "salzburg",
+            "collection": "form_lit_chart-salzburg",
             "forgery": false,
             "specific_date": [
               {
@@ -3692,8 +3734,8 @@
             "min_date": "0927-03-25",
             "max_date": "0927-03-25",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3703,7 +3745,7 @@
           ]
         },
         {
-          "_index": "salzburg_v46",
+          "_index": "form_lit_chart-salzburg_v9",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0047.lat001",
           "_score": null,
           "_source": {
@@ -3719,7 +3761,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Salzburg",
-            "collection": "salzburg",
+            "collection": "form_lit_chart-salzburg",
             "forgery": false,
             "specific_date": [
               {
@@ -3734,8 +3776,8 @@
             "min_date": "0927-03-25",
             "max_date": "0927-03-25",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3745,7 +3787,7 @@
           ]
         },
         {
-          "_index": "salzburg_v46",
+          "_index": "form_lit_chart-salzburg_v9",
           "_id": "urn:cts:formulae:salzburg.hauthaler-a0072.lat001",
           "_score": null,
           "_source": {
@@ -3761,7 +3803,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "salzburg",
+            "collection": "form_lit_chart-salzburg",
             "forgery": false,
             "specific_date": [
               {
@@ -3776,8 +3818,8 @@
             "min_date": "0930-04-18",
             "max_date": "0930-04-18",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3787,7 +3829,7 @@
           ]
         },
         {
-          "_index": "stgallen_v46",
+          "_index": "form_lit_chart-stgallen_v9",
           "_id": "urn:cts:formulae:stgallen.wartmann0440.lat001",
           "_score": null,
           "_source": {
@@ -3803,7 +3845,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Kloster St. Gallen",
-            "collection": "stgallen",
+            "collection": "form_lit_chart-stgallen",
             "forgery": false,
             "specific_date": [
               {
@@ -3818,8 +3860,8 @@
             "min_date": "0855-04-07",
             "max_date": "0855-04-07",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3829,7 +3871,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v46",
+          "_index": "form_lit_chart-weissenburg_v9",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0266.lat001",
           "_score": null,
           "_source": {
@@ -3845,7 +3887,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Weißenburg",
-            "collection": "weissenburg",
+            "collection": "form_lit_chart-weissenburg",
             "forgery": false,
             "specific_date": [
               {
@@ -3860,8 +3902,8 @@
             "min_date": "0731-04-01",
             "max_date": "0731-04-01",
             "days": [
-              "Sunday",
-              "Easter"
+              "Easter",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -3871,7 +3913,7 @@
           ]
         },
         {
-          "_index": "zuerich_v46",
+          "_index": "form_lit_chart-zuerich_v9",
           "_id": "urn:cts:formulae:zuerich.escher0113.lat001",
           "_score": null,
           "_source": {
@@ -3887,7 +3929,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Insel Rheinau",
-            "collection": "zuerich",
+            "collection": "form_lit_chart-zuerich",
             "forgery": false,
             "specific_date": [
               {
@@ -3920,9 +3962,9 @@
             "min_date": "0870-03-05",
             "max_date": "0870-03-26",
             "days": [
-              "Sunday",
+              "Lent",
               "Easter",
-              "Lent"
+              "Sunday"
             ],
             "sort_prefix": 1
           },

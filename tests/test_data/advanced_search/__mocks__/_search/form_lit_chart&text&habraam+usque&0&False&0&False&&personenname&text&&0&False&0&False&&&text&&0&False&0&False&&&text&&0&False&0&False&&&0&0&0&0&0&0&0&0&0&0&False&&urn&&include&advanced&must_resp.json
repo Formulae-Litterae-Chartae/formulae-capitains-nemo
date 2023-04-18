@@ -1,10 +1,10 @@
 [
   {
-    "took": 76,
+    "took": 265,
     "timed_out": false,
     "_shards": {
-      "total": 67,
-      "successful": 67,
+      "total": 70,
+      "successful": 70,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v46",
+          "_index": "form_lit_chart-andecavensis_v8",
           "_id": "urn:cts:formulae:andecavensis.computus.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "andecavensis",
+            "collection": "form_lit_chart-andecavensis",
             "forgery": false,
             "sort_prefix": 0
           },

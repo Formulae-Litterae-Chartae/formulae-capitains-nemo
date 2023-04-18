@@ -7572,6 +7572,9 @@ class TestES(Formulae_Testing):
           "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
             "doc_count": 50
           },
+          "<b>Touraine</b>: Pancarte Noire": {
+            "doc_count": 50
+          },
           "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
             "doc_count": 15
           },

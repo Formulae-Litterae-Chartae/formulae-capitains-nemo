@@ -1,6 +1,6 @@
 [
   {
-    "took": 4,
+    "took": 8,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -311,15 +311,15 @@
             "min_date": "0769-04-20",
             "max_date": "0813-04-20",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
+              "Sunday",
+              "Friday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },

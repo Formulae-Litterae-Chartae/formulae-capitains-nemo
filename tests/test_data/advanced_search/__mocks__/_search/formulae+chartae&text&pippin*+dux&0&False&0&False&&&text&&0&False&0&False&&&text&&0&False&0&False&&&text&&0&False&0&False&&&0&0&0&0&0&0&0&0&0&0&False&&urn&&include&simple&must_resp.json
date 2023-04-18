@@ -1,10 +1,10 @@
 [
   {
-    "took": 57,
+    "took": 3271,
     "timed_out": false,
     "_shards": {
-      "total": 67,
-      "successful": 67,
+      "total": 69,
+      "successful": 69,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0006.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Villa Bakel (?)",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "specific_date": [
               {
@@ -66,7 +66,7 @@
           ]
         },
         {
-          "_index": "echternach_v46",
+          "_index": "form_lit_chart-echternach_v9",
           "_id": "urn:cts:formulae:echternach.wampach0024.lat001",
           "_score": null,
           "_source": {
@@ -82,7 +82,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Bakel",
-            "collection": "echternach",
+            "collection": "form_lit_chart-echternach",
             "forgery": false,
             "specific_date": [
               {

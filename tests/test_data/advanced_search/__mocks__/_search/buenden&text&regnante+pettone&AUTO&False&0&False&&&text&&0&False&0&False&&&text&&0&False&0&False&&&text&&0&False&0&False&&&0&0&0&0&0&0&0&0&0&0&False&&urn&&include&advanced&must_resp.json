@@ -1,6 +1,6 @@
 [
   {
-    "took": 5,
+    "took": 8,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Priester Valencio schenkt seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.",
             "orig_comp_ort": "Maienfeld",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
