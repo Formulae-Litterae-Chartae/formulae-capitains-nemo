@@ -1,6 +1,6 @@
 [
   {
-    "took": 4,
+    "took": 5,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v46",
+          "_index": "form_lit_chart-mondsee_v9",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "orig_comp_ort": "Mondsee",
-            "collection": "mondsee",
+            "collection": "form_lit_chart-mondsee",
             "forgery": false,
             "specific_date": [
               {
@@ -65,7 +65,7 @@
     }
   },
   {
-    "took": 2,
+    "took": 3,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -81,7 +81,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v46",
+          "_index": "form_lit_chart-mondsee_v9",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
           "_source": {
@@ -97,7 +97,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "orig_comp_ort": "Mondsee",
-            "collection": "mondsee",
+            "collection": "form_lit_chart-mondsee",
             "forgery": false,
             "specific_date": [
               {
@@ -130,7 +130,7 @@
     }
   },
   {
-    "took": 5,
+    "took": 8,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -146,7 +146,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "mondsee_v46",
+          "_index": "form_lit_chart-mondsee_v9",
           "_id": "urn:cts:formulae:mondsee.rath0099.lat001",
           "_score": null,
           "_source": {
@@ -162,7 +162,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Heripald, Sohn des verstorbenen Atto, schenkt dem Kloster, dessen Vorsteher [Erz]bischof Hiltipald ist und in dem die Mönche gemäß der Regel des Hl. Benedikt zusammenleben, nach dem Recht der Bayern Besitz in Schörfling im Attergau.",
             "orig_comp_ort": "Mondsee",
-            "collection": "mondsee",
+            "collection": "form_lit_chart-mondsee",
             "forgery": false,
             "specific_date": [
               {

@@ -1,10 +1,10 @@
 [
   {
-    "took": 182,
+    "took": 254,
     "timed_out": false,
     "_shards": {
-      "total": 67,
-      "successful": 67,
+      "total": 70,
+      "successful": 70,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v46",
+          "_index": "form_lit_chart-andecavensis_v8",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "andecavensis",
+            "collection": "form_lit_chart-andecavensis",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v46",
+          "_index": "form_lit_chart-andecavensis_v8",
           "_id": "urn:cts:formulae:andecavensis.form041.lat001",
           "_score": null,
           "_source": {
@@ -63,7 +63,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "andecavensis",
+            "collection": "form_lit_chart-andecavensis",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v46",
+          "_index": "form_lit_chart-andecavensis_v8",
           "_id": "urn:cts:formulae:andecavensis.form048.lat001",
           "_score": null,
           "_source": {
@@ -94,7 +94,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "andecavensis",
+            "collection": "form_lit_chart-andecavensis",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -109,7 +109,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v46",
+          "_index": "form_lit_chart-andecavensis_v8",
           "_id": "urn:cts:formulae:andecavensis.form051.lat001",
           "_score": null,
           "_source": {
@@ -125,7 +125,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "andecavensis",
+            "collection": "form_lit_chart-andecavensis",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -140,7 +140,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v46",
+          "_index": "form_lit_chart-andecavensis_v8",
           "_id": "urn:cts:formulae:andecavensis.form052.lat001",
           "_score": null,
           "_source": {
@@ -156,7 +156,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "andecavensis",
+            "collection": "form_lit_chart-andecavensis",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -171,7 +171,7 @@
           ]
         },
         {
-          "_index": "auvergne_v43",
+          "_index": "form_lit_chart-auvergne_v7",
           "_id": "urn:cts:formulae:auvergne.form001.lat001",
           "_score": null,
           "_source": {
@@ -187,7 +187,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "auvergne",
+            "collection": "form_lit_chart-auvergne",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -202,7 +202,7 @@
           ]
         },
         {
-          "_index": "auvergne_v43",
+          "_index": "form_lit_chart-auvergne_v7",
           "_id": "urn:cts:formulae:auvergne.form002.lat001",
           "_score": null,
           "_source": {
@@ -218,7 +218,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "auvergne",
+            "collection": "form_lit_chart-auvergne",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -233,441 +233,7 @@
           ]
         },
         {
-          "_index": "marculf_v46",
-          "_id": "urn:cts:formulae:marculf.2_capitula.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Marculf II Capitulatio",
-            "keywords": "",
-            "urn": "urn:cts:formulae:marculf.2_capitula.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "marculf",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:marculf.2_capitula.lat001"
-          ]
-        },
-        {
-          "_index": "marculf_v46",
-          "_id": "urn:cts:formulae:marculf.form000.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Marculf Praefatio",
-            "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form000.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "marculf",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:marculf.form000.lat001"
-          ]
-        },
-        {
-          "_index": "marculf_v46",
-          "_id": "urn:cts:formulae:marculf.form2_003.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Marculf II,3",
-            "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form2_003.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "marculf",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:marculf.form2_003.lat001"
-          ]
-        },
-        {
-          "_index": "marculf_v46",
-          "_id": "urn:cts:formulae:marculf.form2_017.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Marculf II,17",
-            "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form2_017.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "marculf",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:marculf.form2_017.lat001"
-          ]
-        },
-        {
-          "_index": "marculf_v46",
-          "_id": "urn:cts:formulae:marculf.form2_031.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Marculf II,31",
-            "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form2_031.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "marculf",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:marculf.form2_031.lat001"
-          ]
-        },
-        {
-          "_index": "marculf_v46",
-          "_id": "urn:cts:formulae:marculf.form2_037.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Marculf II,37",
-            "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form2_037.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "marculf",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:marculf.form2_037.lat001"
-          ]
-        },
-        {
-          "_index": "marculf_v46",
-          "_id": "urn:cts:formulae:marculf.form2_038.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Marculf II,38",
-            "keywords": "",
-            "urn": "urn:cts:formulae:marculf.form2_038.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "marculf",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:marculf.form2_038.lat001"
-          ]
-        },
-        {
-          "_index": "tours_v43",
-          "_id": "urn:cts:formulae:tours.0_capitula.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Tours Capitulatio",
-            "keywords": "",
-            "urn": "urn:cts:formulae:tours.0_capitula.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "tours",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:tours.0_capitula.lat001"
-          ]
-        },
-        {
-          "_index": "tours_v43",
-          "_id": "urn:cts:formulae:tours.form002.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Tours 2",
-            "keywords": "",
-            "urn": "urn:cts:formulae:tours.form002.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "tours",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:tours.form002.lat001"
-          ]
-        },
-        {
-          "_index": "tours_v43",
-          "_id": "urn:cts:formulae:tours.form003.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Tours 3",
-            "keywords": "",
-            "urn": "urn:cts:formulae:tours.form003.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "tours",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:tours.form003.lat001"
-          ]
-        },
-        {
-          "_index": "tours_v43",
-          "_id": "urn:cts:formulae:tours.form017.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Tours 17",
-            "keywords": "",
-            "urn": "urn:cts:formulae:tours.form017.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "tours",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:tours.form017.lat001"
-          ]
-        },
-        {
-          "_index": "tours_v43",
-          "_id": "urn:cts:formulae:tours.form020.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Tours 20",
-            "keywords": "",
-            "urn": "urn:cts:formulae:tours.form020.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "tours",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:tours.form020.lat001"
-          ]
-        },
-        {
-          "_index": "tours_v43",
-          "_id": "urn:cts:formulae:tours.form023.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Tours 23",
-            "keywords": "",
-            "urn": "urn:cts:formulae:tours.form023.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "tours",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:tours.form023.lat001"
-          ]
-        },
-        {
-          "_index": "tours_v43",
-          "_id": "urn:cts:formulae:tours.form045.lat001",
-          "_score": null,
-          "_source": {
-            "text": "some real text",
-            "lemmas": "lemma text",
-            "regest": "regest text",
-            "title": "Tours 45",
-            "keywords": "",
-            "urn": "urn:cts:formulae:tours.form045.lat001",
-            "date_string": " ",
-            "comp_ort": " ",
-            "autocomplete": "autocomplete text",
-            "autocomplete_lemmas": "autocomplete lemma text",
-            "autocomplete_regest": "autocomplete regest text",
-            "orig_comp_ort": " ",
-            "collection": "tours",
-            "forgery": false,
-            "sort_prefix": 0
-          },
-          "highlight": {
-            "lemmas": [
-              "lemma text"
-            ]
-          },
-          "sort": [
-            0,
-            "urn:cts:formulae:tours.form045.lat001"
-          ]
-        },
-        {
-          "_index": "flavigny_v37",
+          "_index": "form_lit_chart-flavigny_v8",
           "_id": "urn:cts:formulae:flavigny.2_capitula.lat001",
           "_score": null,
           "_source": {
@@ -683,9 +249,9 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "flavigny",
+            "collection": "form_lit_chart-flavigny",
             "forgery": false,
-            "sort_prefix": 1
+            "sort_prefix": 0
           },
           "highlight": {
             "lemmas": [
@@ -693,12 +259,12 @@
             ]
           },
           "sort": [
-            1,
+            0,
             "urn:cts:formulae:flavigny.2_capitula.lat001"
           ]
         },
         {
-          "_index": "flavigny_v37",
+          "_index": "form_lit_chart-flavigny_v8",
           "_id": "urn:cts:formulae:flavigny.3_capitula.lat001",
           "_score": null,
           "_source": {
@@ -714,9 +280,9 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "flavigny",
+            "collection": "form_lit_chart-flavigny",
             "forgery": false,
-            "sort_prefix": 1
+            "sort_prefix": 0
           },
           "highlight": {
             "lemmas": [
@@ -724,12 +290,12 @@
             ]
           },
           "sort": [
-            1,
+            0,
             "urn:cts:formulae:flavigny.3_capitula.lat001"
           ]
         },
         {
-          "_index": "flavigny_v37",
+          "_index": "form_lit_chart-flavigny_v8",
           "_id": "urn:cts:formulae:flavigny.form1_002.lat001",
           "_score": null,
           "_source": {
@@ -745,9 +311,9 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "flavigny",
+            "collection": "form_lit_chart-flavigny",
             "forgery": false,
-            "sort_prefix": 1
+            "sort_prefix": 0
           },
           "highlight": {
             "lemmas": [
@@ -755,12 +321,12 @@
             ]
           },
           "sort": [
-            1,
+            0,
             "urn:cts:formulae:flavigny.form1_002.lat001"
           ]
         },
         {
-          "_index": "flavigny_v37",
+          "_index": "form_lit_chart-flavigny_v8",
           "_id": "urn:cts:formulae:flavigny.form1_003.lat001",
           "_score": null,
           "_source": {
@@ -776,9 +342,9 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "flavigny",
+            "collection": "form_lit_chart-flavigny",
             "forgery": false,
-            "sort_prefix": 1
+            "sort_prefix": 0
           },
           "highlight": {
             "lemmas": [
@@ -786,12 +352,12 @@
             ]
           },
           "sort": [
-            1,
+            0,
             "urn:cts:formulae:flavigny.form1_003.lat001"
           ]
         },
         {
-          "_index": "flavigny_v37",
+          "_index": "form_lit_chart-flavigny_v8",
           "_id": "urn:cts:formulae:flavigny.form1_004.lat001",
           "_score": null,
           "_source": {
@@ -807,9 +373,9 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "flavigny",
+            "collection": "form_lit_chart-flavigny",
             "forgery": false,
-            "sort_prefix": 1
+            "sort_prefix": 0
           },
           "highlight": {
             "lemmas": [
@@ -817,12 +383,12 @@
             ]
           },
           "sort": [
-            1,
+            0,
             "urn:cts:formulae:flavigny.form1_004.lat001"
           ]
         },
         {
-          "_index": "flavigny_v37",
+          "_index": "form_lit_chart-flavigny_v8",
           "_id": "urn:cts:formulae:flavigny.form2_004.lat001",
           "_score": null,
           "_source": {
@@ -838,9 +404,9 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "flavigny",
+            "collection": "form_lit_chart-flavigny",
             "forgery": false,
-            "sort_prefix": 1
+            "sort_prefix": 0
           },
           "highlight": {
             "lemmas": [
@@ -848,12 +414,446 @@
             ]
           },
           "sort": [
-            1,
+            0,
             "urn:cts:formulae:flavigny.form2_004.lat001"
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marculf_v9",
+          "_id": "urn:cts:formulae:marculf.2_capitula.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II Capitulatio",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.2_capitula.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.2_capitula.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-marculf_v9",
+          "_id": "urn:cts:formulae:marculf.form000.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf Praefatio",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form000.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form000.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-marculf_v9",
+          "_id": "urn:cts:formulae:marculf.form2_003.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,3",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_003.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_003.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-marculf_v9",
+          "_id": "urn:cts:formulae:marculf.form2_017.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,17",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_017.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_017.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-marculf_v9",
+          "_id": "urn:cts:formulae:marculf.form2_031.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,31",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_031.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_031.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-marculf_v9",
+          "_id": "urn:cts:formulae:marculf.form2_037.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,37",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_037.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_037.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-marculf_v9",
+          "_id": "urn:cts:formulae:marculf.form2_038.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Marculf II,38",
+            "keywords": "",
+            "urn": "urn:cts:formulae:marculf.form2_038.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-marculf",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:marculf.form2_038.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-tours_v9",
+          "_id": "urn:cts:formulae:tours.0_capitula.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours Capitulatio",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.0_capitula.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.0_capitula.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-tours_v9",
+          "_id": "urn:cts:formulae:tours.form002.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 2",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form002.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form002.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-tours_v9",
+          "_id": "urn:cts:formulae:tours.form003.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 3",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form003.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form003.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-tours_v9",
+          "_id": "urn:cts:formulae:tours.form017.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 17",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form017.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form017.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-tours_v9",
+          "_id": "urn:cts:formulae:tours.form020.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 20",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form020.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form020.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-tours_v9",
+          "_id": "urn:cts:formulae:tours.form023.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 23",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form023.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form023.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-tours_v9",
+          "_id": "urn:cts:formulae:tours.form045.lat001",
+          "_score": null,
+          "_source": {
+            "text": "some real text",
+            "lemmas": "lemma text",
+            "regest": "regest text",
+            "title": "Tours 45",
+            "keywords": "",
+            "urn": "urn:cts:formulae:tours.form045.lat001",
+            "date_string": " ",
+            "comp_ort": " ",
+            "autocomplete": "autocomplete text",
+            "autocomplete_lemmas": "autocomplete lemma text",
+            "autocomplete_regest": "autocomplete regest text",
+            "orig_comp_ort": " ",
+            "collection": "form_lit_chart-tours",
+            "forgery": false,
+            "sort_prefix": 0
+          },
+          "highlight": {
+            "lemmas": [
+              "lemma text"
+            ]
+          },
+          "sort": [
+            0,
+            "urn:cts:formulae:tours.form045.lat001"
+          ]
+        },
+        {
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0111.lat001",
           "_score": null,
           "_source": {
@@ -869,7 +869,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "dating": [
               {
@@ -896,7 +896,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0112.lat001",
           "_score": null,
           "_source": {
@@ -912,7 +912,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "dating": [
               {
@@ -939,7 +939,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0138.lat001",
           "_score": null,
           "_source": {
@@ -955,7 +955,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "dating": [
               {
@@ -982,7 +982,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0168.lat001",
           "_score": null,
           "_source": {
@@ -998,7 +998,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "dating": [
               {
@@ -1025,7 +1025,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0183.lat001",
           "_score": null,
           "_source": {
@@ -1041,7 +1041,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "dating": [
               {
@@ -1068,7 +1068,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartae_prioratum_0205.lat001",
           "_score": null,
           "_source": {
@@ -1084,7 +1084,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "dating": [
               {
@@ -1111,7 +1111,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0003.lat001",
           "_score": null,
           "_source": {
@@ -1127,7 +1127,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "sort_prefix": 1
           },
@@ -1142,7 +1142,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0014.lat001",
           "_score": null,
           "_source": {
@@ -1158,7 +1158,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "dating": [
               {
@@ -1185,7 +1185,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0018.lat001",
           "_score": null,
           "_source": {
@@ -1201,7 +1201,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "dating": [
               {
@@ -1228,7 +1228,7 @@
           ]
         },
         {
-          "_index": "marmoutier_dunois_v46",
+          "_index": "form_lit_chart-marmoutier_dunois_v8",
           "_id": "urn:cts:formulae:marmoutier_dunois.mabille_cartularium_dunense_0025.lat001",
           "_score": null,
           "_source": {
@@ -1244,7 +1244,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_dunois",
+            "collection": "form_lit_chart-marmoutier_dunois",
             "forgery": false,
             "dating": [
               {
@@ -1271,7 +1271,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0002.lat001",
           "_score": null,
           "_source": {
@@ -1287,7 +1287,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1314,7 +1314,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0011app.lat001",
           "_score": null,
           "_source": {
@@ -1330,7 +1330,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1357,7 +1357,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0013app.lat001",
           "_score": null,
           "_source": {
@@ -1373,7 +1373,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1400,7 +1400,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0015.lat001",
           "_score": null,
           "_source": {
@@ -1416,7 +1416,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1443,7 +1443,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0018app.lat001",
           "_score": null,
           "_source": {
@@ -1459,7 +1459,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1486,7 +1486,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0024.lat001",
           "_score": null,
           "_source": {
@@ -1502,7 +1502,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1529,7 +1529,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0027.lat001",
           "_score": null,
           "_source": {
@@ -1545,7 +1545,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1572,7 +1572,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0029.lat001",
           "_score": null,
           "_source": {
@@ -1588,7 +1588,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1615,7 +1615,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0041.lat001",
           "_score": null,
           "_source": {
@@ -1631,7 +1631,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1658,7 +1658,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0044.lat001",
           "_score": null,
           "_source": {
@@ -1674,7 +1674,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1701,7 +1701,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0045.lat001",
           "_score": null,
           "_source": {
@@ -1717,7 +1717,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1744,7 +1744,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0046.lat001",
           "_score": null,
           "_source": {
@@ -1760,7 +1760,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1787,7 +1787,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0055app.lat001",
           "_score": null,
           "_source": {
@@ -1803,7 +1803,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1830,7 +1830,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0056.lat001",
           "_score": null,
           "_source": {
@@ -1846,7 +1846,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1873,7 +1873,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0065.lat001",
           "_score": null,
           "_source": {
@@ -1889,7 +1889,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1916,7 +1916,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0078.lat001",
           "_score": null,
           "_source": {
@@ -1932,7 +1932,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -1959,7 +1959,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0092.lat001",
           "_score": null,
           "_source": {
@@ -1975,7 +1975,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -2002,7 +2002,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0094.lat001",
           "_score": null,
           "_source": {
@@ -2018,7 +2018,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -2045,7 +2045,7 @@
           ]
         },
         {
-          "_index": "marmoutier_serfs_v46",
+          "_index": "form_lit_chart-marmoutier_serfs_v9",
           "_id": "urn:cts:formulae:marmoutier_serfs.salmon0096.lat001",
           "_score": null,
           "_source": {
@@ -2061,7 +2061,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_serfs",
+            "collection": "form_lit_chart-marmoutier_serfs",
             "forgery": false,
             "dating": [
               {
@@ -2088,7 +2088,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_v46",
+          "_index": "form_lit_chart-marmoutier_vendomois_v8",
           "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0104.lat001",
           "_score": null,
           "_source": {
@@ -2104,7 +2104,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_vendomois",
+            "collection": "form_lit_chart-marmoutier_vendomois",
             "forgery": false,
             "dating": [
               {
@@ -2131,7 +2131,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_v46",
+          "_index": "form_lit_chart-marmoutier_vendomois_v8",
           "_id": "urn:cts:formulae:marmoutier_vendomois.trémault0118.lat001",
           "_score": null,
           "_source": {
@@ -2147,7 +2147,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_vendomois",
+            "collection": "form_lit_chart-marmoutier_vendomois",
             "forgery": false,
             "dating": [
               {
@@ -2174,7 +2174,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_appendix_v46",
+          "_index": "form_lit_chart-marmoutier_vendomois_appendix_v9",
           "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0031.lat001",
           "_score": null,
           "_source": {
@@ -2190,7 +2190,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_vendomois_appendix",
+            "collection": "form_lit_chart-marmoutier_vendomois_appendix",
             "forgery": false,
             "dating": [
               {
@@ -2217,7 +2217,7 @@
           ]
         },
         {
-          "_index": "marmoutier_vendomois_appendix_v46",
+          "_index": "form_lit_chart-marmoutier_vendomois_appendix_v9",
           "_id": "urn:cts:formulae:marmoutier_vendomois_appendix.trémault0040.lat001",
           "_score": null,
           "_source": {
@@ -2233,7 +2233,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marmoutier_vendomois_appendix",
+            "collection": "form_lit_chart-marmoutier_vendomois_appendix",
             "forgery": false,
             "dating": [
               {
@@ -2260,7 +2260,7 @@
           ]
         },
         {
-          "_index": "telma_cormery_v43",
+          "_index": "form_lit_chart-telma_cormery_v7",
           "_id": "urn:cts:formulae:telma_cormery.giraud1419.lat001",
           "_score": null,
           "_source": {
@@ -2276,7 +2276,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_cormery",
+            "collection": "form_lit_chart-telma_cormery",
             "forgery": false,
             "specific_date": [
               {
@@ -2303,7 +2303,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud0623.lat001",
           "_score": null,
           "_source": {
@@ -2319,7 +2319,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "specific_date": [
               {
@@ -2346,7 +2346,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1023.lat001",
           "_score": null,
           "_source": {
@@ -2362,7 +2362,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2389,7 +2389,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1444.lat001",
           "_score": null,
           "_source": {
@@ -2405,7 +2405,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2432,7 +2432,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1480.lat001",
           "_score": null,
           "_source": {
@@ -2448,7 +2448,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2475,7 +2475,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1498.lat001",
           "_score": null,
           "_source": {
@@ -2491,7 +2491,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2518,7 +2518,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud1525.lat001",
           "_score": null,
           "_source": {
@@ -2534,7 +2534,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Marmoutier",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "specific_date": [
               {
@@ -2564,7 +2564,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2234.lat001",
           "_score": null,
           "_source": {
@@ -2580,7 +2580,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2607,7 +2607,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2248.lat001",
           "_score": null,
           "_source": {
@@ -2623,7 +2623,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "specific_date": [
               {
@@ -2650,7 +2650,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud2868.lat001",
           "_score": null,
           "_source": {
@@ -2666,7 +2666,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2693,7 +2693,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3129.lat001",
           "_score": null,
           "_source": {
@@ -2709,7 +2709,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2736,7 +2736,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3147.lat001",
           "_score": null,
           "_source": {
@@ -2752,7 +2752,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2779,7 +2779,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3148.lat001",
           "_score": null,
           "_source": {
@@ -2795,7 +2795,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2822,7 +2822,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3149.lat001",
           "_score": null,
           "_source": {
@@ -2838,7 +2838,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2865,7 +2865,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3225.lat001",
           "_score": null,
           "_source": {
@@ -2881,7 +2881,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2908,7 +2908,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3266.lat001",
           "_score": null,
           "_source": {
@@ -2924,7 +2924,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2951,7 +2951,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3500.lat001",
           "_score": null,
           "_source": {
@@ -2967,7 +2967,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -2994,7 +2994,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3589.lat001",
           "_score": null,
           "_source": {
@@ -3010,7 +3010,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -3037,7 +3037,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3590.lat001",
           "_score": null,
           "_source": {
@@ -3053,7 +3053,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -3080,7 +3080,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3592.lat001",
           "_score": null,
           "_source": {
@@ -3096,7 +3096,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "specific_date": [
               {
@@ -3123,7 +3123,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud3604.lat001",
           "_score": null,
           "_source": {
@@ -3139,7 +3139,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -3166,7 +3166,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud4409.lat001",
           "_score": null,
           "_source": {
@@ -3182,7 +3182,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -3209,7 +3209,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud4840.lat001",
           "_score": null,
           "_source": {
@@ -3225,7 +3225,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "dating": [
               {
@@ -3252,7 +3252,7 @@
           ]
         },
         {
-          "_index": "telma_marmoutier_v43",
+          "_index": "form_lit_chart-telma_marmoutier_v9",
           "_id": "urn:cts:formulae:telma_marmoutier.giraud4884.lat001",
           "_score": null,
           "_source": {
@@ -3268,7 +3268,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "telma_marmoutier",
+            "collection": "form_lit_chart-telma_marmoutier",
             "forgery": false,
             "specific_date": [
               {

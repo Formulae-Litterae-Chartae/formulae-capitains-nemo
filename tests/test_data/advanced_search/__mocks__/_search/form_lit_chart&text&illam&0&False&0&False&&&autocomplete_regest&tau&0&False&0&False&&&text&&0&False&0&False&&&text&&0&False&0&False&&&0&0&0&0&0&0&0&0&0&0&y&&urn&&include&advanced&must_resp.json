@@ -1,22 +1,22 @@
 [
   {
-    "took": 179,
+    "took": 560,
     "timed_out": false,
     "_shards": {
-      "total": 67,
-      "successful": 67,
+      "total": 70,
+      "successful": 70,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 687,
+        "value": 688,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "chartae_latinae_cxvi_v46",
+          "_index": "form_lit_chart-chartae_latinae_cxvi_v8",
           "_id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0012.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Regensburg",
-            "collection": "chartae_latinae_cxvi",
+            "collection": "form_lit_chart-chartae_latinae_cxvi",
             "forgery": false,
             "specific_date": [
               {
@@ -62,7 +62,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
           "_score": null,
           "_source": {
@@ -78,7 +78,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Dracholf tauscht von dem Chorbischof Couuo die Abtei Moosburg gegen Lehen ebenda, zu Hummel, Schweinersdorf und anderweitige Entschädigung.",
             "orig_comp_ort": "Freising",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "specific_date": [
               {
@@ -108,7 +108,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
           "_score": null,
           "_source": {
@@ -124,7 +124,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Lambert tauscht von dem Grafen Adalpero 4 Morgen zu Reisen gegen Teile von Hohenburg.",
             "orig_comp_ort": " ",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "dating": [
               {
@@ -151,7 +151,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
           "_score": null,
           "_source": {
@@ -167,7 +167,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Abraham tauscht von dem Unfreien der Kirche Isanhard Besitz zu Altenhausen und Votting gegen anderen zu Kleinbachern.",
             "orig_comp_ort": " ",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "dating": [
               {
@@ -194,7 +194,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
           "_score": null,
           "_source": {
@@ -210,7 +210,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Abraham tauscht von dem Freien Aron Liegenschaften zu Schmiedhausen gegen das gleiche Mass zu Rimbach.",
             "orig_comp_ort": " ",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "dating": [
               {
@@ -237,7 +237,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
           "_score": null,
           "_source": {
@@ -253,7 +253,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "a) Bischof Gottschalk tauscht von dem Unfreien der Kirche Aripo Liegenschaften zu Sünzhausen und Hemhausen gegen andere zu Herrschenhof ein b) Bestätigung.",
             "orig_comp_ort": " ",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "dating": [
               {
@@ -280,7 +280,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v46",
+          "_index": "form_lit_chart-hersfeld_v9",
           "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
           "_score": null,
           "_source": {
@@ -296,7 +296,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Frankfurt",
-            "collection": "hersfeld",
+            "collection": "form_lit_chart-hersfeld",
             "forgery": false,
             "specific_date": [
               {
@@ -326,7 +326,7 @@
           ]
         },
         {
-          "_index": "ludwig_2_v46",
+          "_index": "form_lit_chart-ludwig_2_v9",
           "_id": "urn:cts:formulae:ludwig_2.wanner0076.lat001",
           "_score": null,
           "_source": {
@@ -342,7 +342,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Benevent",
-            "collection": "ludwig_2",
+            "collection": "form_lit_chart-ludwig_2",
             "forgery": false,
             "specific_date": [
               {
@@ -373,7 +373,7 @@
           ]
         },
         {
-          "_index": "passau_v46",
+          "_index": "form_lit_chart-passau_v8",
           "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
           "_score": null,
           "_source": {
@@ -389,7 +389,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Regensburg",
-            "collection": "passau",
+            "collection": "form_lit_chart-passau",
             "forgery": false,
             "specific_date": [
               {
@@ -419,7 +419,7 @@
           ]
         },
         {
-          "_index": "regensburg_v46",
+          "_index": "form_lit_chart-regensburg_v9",
           "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
           "_score": null,
           "_source": {
@@ -435,7 +435,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "regensburg",
+            "collection": "form_lit_chart-regensburg",
             "forgery": false,
             "dating": [
               {
@@ -462,7 +462,7 @@
           ]
         },
         {
-          "_index": "regensburg_v46",
+          "_index": "form_lit_chart-regensburg_v9",
           "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
           "_score": null,
           "_source": {
@@ -478,7 +478,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "regensburg",
+            "collection": "form_lit_chart-regensburg",
             "forgery": false,
             "dating": [
               {
@@ -505,7 +505,7 @@
           ]
         },
         {
-          "_index": "stgallen_v46",
+          "_index": "form_lit_chart-stgallen_v9",
           "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
           "_score": null,
           "_source": {
@@ -521,7 +521,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Wasserburg",
-            "collection": "stgallen",
+            "collection": "form_lit_chart-stgallen",
             "forgery": false,
             "specific_date": [
               {
@@ -551,7 +551,7 @@
           ]
         },
         {
-          "_index": "stgallen_v46",
+          "_index": "form_lit_chart-stgallen_v9",
           "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
           "_score": null,
           "_source": {
@@ -567,7 +567,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Bettenweiler",
-            "collection": "stgallen",
+            "collection": "form_lit_chart-stgallen",
             "forgery": false,
             "specific_date": [
               {
@@ -597,7 +597,7 @@
           ]
         },
         {
-          "_index": "stgallen_v46",
+          "_index": "form_lit_chart-stgallen_v9",
           "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
           "_score": null,
           "_source": {
@@ -613,7 +613,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Regensburg",
-            "collection": "stgallen",
+            "collection": "form_lit_chart-stgallen",
             "forgery": false,
             "specific_date": [
               {
@@ -643,7 +643,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v46",
+          "_index": "form_lit_chart-weissenburg_v9",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
           "_score": null,
           "_source": {
@@ -659,7 +659,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Quierzy-s.-Oise",
-            "collection": "weissenburg",
+            "collection": "form_lit_chart-weissenburg",
             "forgery": false,
             "specific_date": [
               {
@@ -692,23 +692,23 @@
     }
   },
   {
-    "took": 606,
+    "took": 1939,
     "timed_out": false,
     "_shards": {
-      "total": 67,
-      "successful": 67,
+      "total": 70,
+      "successful": 70,
       "skipped": 0,
       "failed": 0
     },
     "hits": {
       "total": {
-        "value": 1032,
+        "value": 983,
         "relation": "eq"
       },
       "max_score": null,
       "hits": [
         {
-          "_index": "chartae_latinae_cxvi_v46",
+          "_index": "form_lit_chart-chartae_latinae_cxvi_v8",
           "_id": "urn:cts:formulae:chartae_latinae_cxvi.thaller0012.lat001",
           "_score": null,
           "_source": {
@@ -724,7 +724,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Regensburg",
-            "collection": "chartae_latinae_cxvi",
+            "collection": "form_lit_chart-chartae_latinae_cxvi",
             "forgery": false,
             "specific_date": [
               {
@@ -754,7 +754,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1045.lat001",
           "_score": null,
           "_source": {
@@ -770,7 +770,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Dracholf tauscht von dem Chorbischof Couuo die Abtei Moosburg gegen Lehen ebenda, zu Hummel, Schweinersdorf und anderweitige Entschädigung.",
             "orig_comp_ort": "Freising",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "specific_date": [
               {
@@ -800,7 +800,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1152.lat001",
           "_score": null,
           "_source": {
@@ -816,7 +816,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Lambert tauscht von dem Grafen Adalpero 4 Morgen zu Reisen gegen Teile von Hohenburg.",
             "orig_comp_ort": " ",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "dating": [
               {
@@ -843,7 +843,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1214.lat001",
           "_score": null,
           "_source": {
@@ -859,7 +859,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Abraham tauscht von dem Unfreien der Kirche Isanhard Besitz zu Altenhausen und Votting gegen anderen zu Kleinbachern.",
             "orig_comp_ort": " ",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "dating": [
               {
@@ -886,7 +886,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1219.lat001",
           "_score": null,
           "_source": {
@@ -902,7 +902,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Abraham tauscht von dem Freien Aron Liegenschaften zu Schmiedhausen gegen das gleiche Mass zu Rimbach.",
             "orig_comp_ort": " ",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "dating": [
               {
@@ -929,7 +929,7 @@
           ]
         },
         {
-          "_index": "freising_v46",
+          "_index": "form_lit_chart-freising_v9",
           "_id": "urn:cts:formulae:freising.bitterauf1325.lat001",
           "_score": null,
           "_source": {
@@ -945,7 +945,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "a) Bischof Gottschalk tauscht von dem Unfreien der Kirche Aripo Liegenschaften zu Sünzhausen und Hemhausen gegen andere zu Herrschenhof ein b) Bestätigung.",
             "orig_comp_ort": " ",
-            "collection": "freising",
+            "collection": "form_lit_chart-freising",
             "forgery": false,
             "dating": [
               {
@@ -972,7 +972,7 @@
           ]
         },
         {
-          "_index": "hersfeld_v46",
+          "_index": "form_lit_chart-hersfeld_v9",
           "_id": "urn:cts:formulae:hersfeld.weirich0046.lat001",
           "_score": null,
           "_source": {
@@ -988,7 +988,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Frankfurt",
-            "collection": "hersfeld",
+            "collection": "form_lit_chart-hersfeld",
             "forgery": false,
             "specific_date": [
               {
@@ -1018,7 +1018,7 @@
           ]
         },
         {
-          "_index": "ludwig_2_v46",
+          "_index": "form_lit_chart-ludwig_2_v9",
           "_id": "urn:cts:formulae:ludwig_2.wanner0076.lat001",
           "_score": null,
           "_source": {
@@ -1034,7 +1034,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Benevent",
-            "collection": "ludwig_2",
+            "collection": "form_lit_chart-ludwig_2",
             "forgery": false,
             "specific_date": [
               {
@@ -1065,7 +1065,7 @@
           ]
         },
         {
-          "_index": "passau_v46",
+          "_index": "form_lit_chart-passau_v8",
           "_id": "urn:cts:formulae:passau.heuwieser0082.lat001",
           "_score": null,
           "_source": {
@@ -1081,7 +1081,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Regensburg",
-            "collection": "passau",
+            "collection": "form_lit_chart-passau",
             "forgery": false,
             "specific_date": [
               {
@@ -1111,7 +1111,7 @@
           ]
         },
         {
-          "_index": "regensburg_v46",
+          "_index": "form_lit_chart-regensburg_v9",
           "_id": "urn:cts:formulae:regensburg.wiedemann0034.lat001",
           "_score": null,
           "_source": {
@@ -1127,7 +1127,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "regensburg",
+            "collection": "form_lit_chart-regensburg",
             "forgery": false,
             "dating": [
               {
@@ -1154,7 +1154,7 @@
           ]
         },
         {
-          "_index": "regensburg_v46",
+          "_index": "form_lit_chart-regensburg_v9",
           "_id": "urn:cts:formulae:regensburg.wiedemann0122.lat001",
           "_score": null,
           "_source": {
@@ -1170,7 +1170,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "regensburg",
+            "collection": "form_lit_chart-regensburg",
             "forgery": false,
             "dating": [
               {
@@ -1197,7 +1197,7 @@
           ]
         },
         {
-          "_index": "stgallen_v46",
+          "_index": "form_lit_chart-stgallen_v9",
           "_id": "urn:cts:formulae:stgallen.wartmann0308.lat001",
           "_score": null,
           "_source": {
@@ -1213,7 +1213,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Wasserburg",
-            "collection": "stgallen",
+            "collection": "form_lit_chart-stgallen",
             "forgery": false,
             "specific_date": [
               {
@@ -1243,7 +1243,7 @@
           ]
         },
         {
-          "_index": "stgallen_v46",
+          "_index": "form_lit_chart-stgallen_v9",
           "_id": "urn:cts:formulae:stgallen.wartmann0381.lat001",
           "_score": null,
           "_source": {
@@ -1259,7 +1259,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Bettenweiler",
-            "collection": "stgallen",
+            "collection": "form_lit_chart-stgallen",
             "forgery": false,
             "specific_date": [
               {
@@ -1289,7 +1289,7 @@
           ]
         },
         {
-          "_index": "stgallen_v46",
+          "_index": "form_lit_chart-stgallen_v9",
           "_id": "urn:cts:formulae:stgallen.wartmann0694.lat001",
           "_score": null,
           "_source": {
@@ -1305,7 +1305,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Regensburg",
-            "collection": "stgallen",
+            "collection": "form_lit_chart-stgallen",
             "forgery": false,
             "specific_date": [
               {
@@ -1335,7 +1335,7 @@
           ]
         },
         {
-          "_index": "weissenburg_v46",
+          "_index": "form_lit_chart-weissenburg_v9",
           "_id": "urn:cts:formulae:weissenburg.gloeckner0069.lat001",
           "_score": null,
           "_source": {
@@ -1351,7 +1351,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Quierzy-s.-Oise",
-            "collection": "weissenburg",
+            "collection": "form_lit_chart-weissenburg",
             "forgery": false,
             "specific_date": [
               {

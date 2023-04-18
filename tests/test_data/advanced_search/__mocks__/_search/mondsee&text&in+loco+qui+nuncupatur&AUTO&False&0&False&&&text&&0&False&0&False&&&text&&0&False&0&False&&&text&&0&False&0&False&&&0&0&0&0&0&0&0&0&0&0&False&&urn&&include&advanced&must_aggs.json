@@ -84,6 +84,9 @@
           "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
             "doc_count": 0
           },
+          "<b>Herrscherurkunden</b>: Karlmann": {
+            "doc_count": 0
+          },
           "<b>Herrscherurkunden</b>: Lothar II.": {
             "doc_count": 0
           },
@@ -109,7 +112,7 @@
             "doc_count": 0
           },
           "<b>Mondsee</b>: Mondsee": {
-            "doc_count": 139
+            "doc_count": 0
           },
           "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
             "doc_count": 0
@@ -190,6 +193,9 @@
             "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+            "doc_count": 0
+          },
+          "<b>Touraine</b>: Pancarte Noire": {
             "doc_count": 0
           },
           "<b>Touraine</b>: Saint-Julien de Tours": {
@@ -361,6 +367,9 @@
         "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
           "doc_count": 0
         },
+        "<b>Herrscherurkunden</b>: Karlmann": {
+          "doc_count": 0
+        },
         "<b>Herrscherurkunden</b>: Lothar II.": {
           "doc_count": 0
         },
@@ -386,7 +395,7 @@
           "doc_count": 0
         },
         "<b>Mondsee</b>: Mondsee": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
           "doc_count": 0
@@ -467,6 +476,9 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Pancarte Noire": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Julien de Tours": {

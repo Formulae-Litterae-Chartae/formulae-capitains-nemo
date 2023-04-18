@@ -109,26 +109,6 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "domnusque",
-                                "fuzziness": "0"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    ],
-                    "slop": "0",
-                    "in_order": false
-                  }
-                },
-                {
-                  "span_near": {
-                    "clauses": [
-                      {
-                        "span_multi": {
-                          "match": {
-                            "fuzzy": {
-                              "lemmas": {
                                 "value": "dominusque",
                                 "fuzziness": "0"
                               }
@@ -149,7 +129,7 @@
                           "match": {
                             "fuzzy": {
                               "lemmas": {
-                                "value": "dominicillus",
+                                "value": "domnusque",
                                 "fuzziness": "0"
                               }
                             }
@@ -170,6 +150,26 @@
                             "fuzzy": {
                               "lemmas": {
                                 "value": "domnus",
+                                "fuzziness": "0"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "slop": "0",
+                    "in_order": false
+                  }
+                },
+                {
+                  "span_near": {
+                    "clauses": [
+                      {
+                        "span_multi": {
+                          "match": {
+                            "fuzzy": {
+                              "lemmas": {
+                                "value": "dominicillus",
                                 "fuzziness": "0"
                               }
                             }

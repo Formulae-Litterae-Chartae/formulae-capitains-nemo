@@ -1,6 +1,6 @@
 [
   {
-    "took": 3,
+    "took": 11,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "elexicon_v46",
+          "_index": "form_lit_chart-elexicon_v9",
           "_id": "urn:cts:formulae:elexicon.abbas.deu001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": null,
             "orig_comp_ort": " ",
-            "collection": "elexicon",
+            "collection": "form_lit_chart-elexicon",
             "forgery": false,
             "sort_prefix": 1
           },
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "elexicon_v46",
+          "_index": "form_lit_chart-elexicon_v9",
           "_id": "urn:cts:formulae:elexicon.martyrarius.deu001",
           "_score": null,
           "_source": {
@@ -63,7 +63,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": null,
             "orig_comp_ort": " ",
-            "collection": "elexicon",
+            "collection": "form_lit_chart-elexicon",
             "forgery": false,
             "sort_prefix": 1
           },

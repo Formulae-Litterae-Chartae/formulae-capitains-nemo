@@ -1,6 +1,6 @@
 [
   {
-    "took": 2,
+    "took": 3,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "dating": [
               {

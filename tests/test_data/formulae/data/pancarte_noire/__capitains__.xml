@@ -6,7 +6,7 @@
             xmlns:dc="http://purl.org/dc/elements/1.1/"
             xmlns:foaf="http://xmlns.com/foaf/0.1/"
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
-   <identifier>urn:cts:formulae:pancarte_noir_internal</identifier>
+   <identifier>urn:cts:formulae:pancarte_noire</identifier>
             <dc:title xml:lang="deu">La Pancarte Noire de Saint-Martin de Tours, ed. von Mabille (1866)</dc:title>
             <dc:coverage>Touraine</dc:coverage>
             <dc:type>cts:textgroup</dc:type>
@@ -15,6 +15,6 @@
             </structured-metadata>
    <members>
       <collection path="./mabille0019/__capitains__.xml"
-                  identifier="urn:cts:formulae:pancarte_noir_internal.mabille0019"/>
+                  identifier="urn:cts:formulae:pancarte_noire.mabille0019"/>
    </members>
 </collection>

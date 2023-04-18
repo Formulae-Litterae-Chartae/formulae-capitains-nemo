@@ -1,10 +1,10 @@
 [
   {
-    "took": 126,
+    "took": 754,
     "timed_out": false,
     "_shards": {
-      "total": 67,
-      "successful": 67,
+      "total": 70,
+      "successful": 70,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "andecavensis_v46",
+          "_index": "form_lit_chart-andecavensis_v8",
           "_id": "urn:cts:formulae:andecavensis.form001.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "andecavensis",
+            "collection": "form_lit_chart-andecavensis",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "andecavensis_v46",
+          "_index": "form_lit_chart-andecavensis_v8",
           "_id": "urn:cts:formulae:andecavensis.form034.lat001",
           "_score": null,
           "_source": {
@@ -63,7 +63,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "andecavensis",
+            "collection": "form_lit_chart-andecavensis",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -94,7 +94,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -373,15 +373,15 @@
             "min_date": "0769-04-20",
             "max_date": "0813-04-20",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
+              "Sunday",
+              "Friday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -396,7 +396,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -412,7 +412,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -619,15 +619,15 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
+              "Sunday",
+              "Friday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -642,7 +642,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner1074.lat001",
           "_score": null,
           "_source": {
@@ -658,7 +658,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Lorsch",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -688,7 +688,7 @@
           ]
         },
         {
-          "_index": "lorsch_v46",
+          "_index": "form_lit_chart-lorsch_v9",
           "_id": "urn:cts:formulae:lorsch.gloeckner1075.lat001",
           "_score": null,
           "_source": {
@@ -704,7 +704,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Lorsch",
-            "collection": "lorsch",
+            "collection": "form_lit_chart-lorsch",
             "forgery": false,
             "specific_date": [
               {
@@ -734,7 +734,7 @@
           ]
         },
         {
-          "_index": "raetien_v46",
+          "_index": "form_lit_chart-raetien_v8",
           "_id": "urn:cts:formulae:raetien.erhart0003.lat001",
           "_score": null,
           "_source": {
@@ -750,7 +750,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "raetien",
+            "collection": "form_lit_chart-raetien",
             "forgery": false,
             "dating": [
               {
@@ -783,7 +783,7 @@
           ]
         },
         {
-          "_index": "raetien_v46",
+          "_index": "form_lit_chart-raetien_v8",
           "_id": "urn:cts:formulae:raetien.erhart0006.lat001",
           "_score": null,
           "_source": {
@@ -799,7 +799,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "raetien",
+            "collection": "form_lit_chart-raetien",
             "forgery": false,
             "dating": [
               {
@@ -832,7 +832,7 @@
           ]
         },
         {
-          "_index": "raetien_v46",
+          "_index": "form_lit_chart-raetien_v8",
           "_id": "urn:cts:formulae:raetien.erhart0044.lat001",
           "_score": null,
           "_source": {
@@ -848,7 +848,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Grabs",
-            "collection": "raetien",
+            "collection": "form_lit_chart-raetien",
             "forgery": false,
             "specific_date": [
               {
@@ -869,8 +869,8 @@
             "min_date": "0858-02-12",
             "max_date": "0865-02-12",
             "days": [
-              "Saturday",
-              "Monday"
+              "Monday",
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -885,7 +885,7 @@
           ]
         },
         {
-          "_index": "stgallen_v46",
+          "_index": "form_lit_chart-stgallen_v9",
           "_id": "urn:cts:formulae:stgallen.wartmann0026.lat001",
           "_score": null,
           "_source": {
@@ -901,7 +901,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "stgallen",
+            "collection": "form_lit_chart-stgallen",
             "forgery": false,
             "specific_date": [
               {
@@ -931,7 +931,7 @@
           ]
         },
         {
-          "_index": "stgallen_v46",
+          "_index": "form_lit_chart-stgallen_v9",
           "_id": "urn:cts:formulae:stgallen.wartmann0458.lat001",
           "_score": null,
           "_source": {
@@ -947,7 +947,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Grabs",
-            "collection": "stgallen",
+            "collection": "form_lit_chart-stgallen",
             "forgery": false,
             "specific_date": [
               {
@@ -968,8 +968,8 @@
             "min_date": "0858-02-12",
             "max_date": "0865-02-12",
             "days": [
-              "Saturday",
-              "Monday"
+              "Monday",
+              "Saturday"
             ],
             "sort_prefix": 1
           },

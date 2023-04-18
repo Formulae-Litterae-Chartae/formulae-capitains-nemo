@@ -1,10 +1,10 @@
 [
   {
-    "took": 107,
+    "took": 470,
     "timed_out": false,
     "_shards": {
-      "total": 67,
-      "successful": 67,
+      "total": 69,
+      "successful": 69,
       "skipped": 0,
       "failed": 0
     },
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "marculf_v46",
+          "_index": "form_lit_chart-marculf_v9",
           "_id": "urn:cts:formulae:marculf.form1_024.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marculf",
+            "collection": "form_lit_chart-marculf",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -47,7 +47,7 @@
           ]
         },
         {
-          "_index": "marculf_v46",
+          "_index": "form_lit_chart-marculf_v9",
           "_id": "urn:cts:formulae:marculf.form1_034.lat001",
           "_score": null,
           "_source": {
@@ -63,7 +63,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marculf",
+            "collection": "form_lit_chart-marculf",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -78,7 +78,7 @@
           ]
         },
         {
-          "_index": "marculf_v46",
+          "_index": "form_lit_chart-marculf_v9",
           "_id": "urn:cts:formulae:marculf.form3_3_003.lat001",
           "_score": null,
           "_source": {
@@ -94,7 +94,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "marculf",
+            "collection": "form_lit_chart-marculf",
             "forgery": false,
             "sort_prefix": 0
           },
@@ -109,7 +109,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0010.lat001",
           "_score": null,
           "_source": {
@@ -125,7 +125,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Glamau villa",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "dating": [
               {
@@ -152,7 +152,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0011.lat001",
           "_score": null,
           "_source": {
@@ -168,7 +168,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "dating": [
               {
@@ -195,7 +195,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0012.lat001",
           "_score": null,
           "_source": {
@@ -211,7 +211,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Villa Herstal",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "specific_date": [
               {
@@ -241,7 +241,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0013.lat001",
           "_score": null,
           "_source": {
@@ -257,7 +257,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Castrum Zülpich",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "specific_date": [
               {
@@ -278,8 +278,8 @@
             "min_date": "0726-06-09",
             "max_date": "0726-07-09",
             "days": [
-              "Sunday",
-              "Tuesday"
+              "Tuesday",
+              "Sunday"
             ],
             "sort_prefix": 1
           },
@@ -294,7 +294,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0014.lat001",
           "_score": null,
           "_source": {
@@ -310,7 +310,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Villa in palatio Quierzy",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "specific_date": [
               {
@@ -340,7 +340,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0015.lat001",
           "_score": null,
           "_source": {
@@ -356,7 +356,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Villa Wasseiges",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "specific_date": [
               {
@@ -377,8 +377,8 @@
             "min_date": "0746-06-06",
             "max_date": "0747-06-06",
             "days": [
-              "Tuesday",
-              "Monday"
+              "Monday",
+              "Tuesday"
             ],
             "sort_prefix": 1
           },
@@ -393,7 +393,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0016.lat001",
           "_score": null,
           "_source": {
@@ -409,7 +409,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Duna villa (Düren)",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "specific_date": [
               {
@@ -439,7 +439,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0017.lat001",
           "_score": null,
           "_source": {
@@ -455,7 +455,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Königspfalz von Metz",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "specific_date": [
               {
@@ -485,7 +485,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0019.lat001",
           "_score": null,
           "_source": {
@@ -501,7 +501,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "dating": [
               {
@@ -528,7 +528,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0020.lat001",
           "_score": null,
           "_source": {
@@ -544,7 +544,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "dating": [
               {
@@ -571,7 +571,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0021.lat001",
           "_score": null,
           "_source": {
@@ -587,7 +587,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Villa in palatio Attigny",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "specific_date": [
               {
@@ -617,7 +617,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0022.lat001",
           "_score": null,
           "_source": {
@@ -633,7 +633,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": "Pfalz Attigny",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "specific_date": [
               {
@@ -663,7 +663,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0023.lat001",
           "_score": null,
           "_source": {
@@ -679,7 +679,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "dating": [
               {
@@ -706,7 +706,7 @@
           ]
         },
         {
-          "_index": "arnulfinger_v45",
+          "_index": "form_lit_chart-arnulfinger_v7",
           "_id": "urn:cts:formulae:arnulfinger.heidrich0024.lat001",
           "_score": null,
           "_source": {
@@ -722,7 +722,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "arnulfinger",
+            "collection": "form_lit_chart-arnulfinger",
             "forgery": false,
             "dating": [
               {
@@ -749,7 +749,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v46",
+          "_index": "form_lit_chart-merowinger1_v9",
           "_id": "urn:cts:formulae:merowinger1.koelzer0088.lat001",
           "_score": null,
           "_source": {
@@ -765,7 +765,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "merowinger1",
+            "collection": "form_lit_chart-merowinger1",
             "forgery": false,
             "dating": [
               {
@@ -792,7 +792,7 @@
           ]
         },
         {
-          "_index": "merowinger1_v46",
+          "_index": "form_lit_chart-merowinger1_v9",
           "_id": "urn:cts:formulae:merowinger1.koelzer0177.lat001",
           "_score": null,
           "_source": {
@@ -808,7 +808,7 @@
             "autocomplete_lemmas": "autocomplete lemma text",
             "autocomplete_regest": "autocomplete regest text",
             "orig_comp_ort": " ",
-            "collection": "merowinger1",
+            "collection": "form_lit_chart-merowinger1",
             "forgery": true,
             "dating": [
               {

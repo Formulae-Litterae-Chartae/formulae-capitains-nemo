@@ -2,7 +2,7 @@
   "aggregations": {
     "all_docs": {
       "meta": {},
-      "doc_count": 14744,
+      "doc_count": 14906,
       "forgeries": {
         "doc_count": 190
       },
@@ -10,211 +10,217 @@
         "meta": {},
         "buckets": {
           "<b>Angers</b>: Angers": {
-            "doc_count": 62
+            "doc_count": 0
           },
           "<b>Anjou</b>: Archives d’Anjou": {
-            "doc_count": 74
+            "doc_count": 0
           },
           "<b>Anjou</b>: Chroniques des comtes d’Anjou": {
-            "doc_count": 10
+            "doc_count": 0
           },
           "<b>Auvergne</b>: Auvergne": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "<b>Catalunya</b>: Katalonien": {
-            "doc_count": 2247
+            "doc_count": 0
           },
           "<b>Chartae Latinae</b>: Chartae Latinae CXV": {
-            "doc_count": 39
+            "doc_count": 0
           },
           "<b>Chartae Latinae</b>: Chartae Latinae CXVI": {
-            "doc_count": 36
+            "doc_count": 0
           },
           "<b>Chartae Latinae</b>: Chartae Latinae X": {
             "doc_count": 0
           },
           "<b>Chartae Latinae</b>: Chartae Latinae XI": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "<b>Chartae Latinae</b>: Chartae Latinae XII": {
-            "doc_count": 15
+            "doc_count": 0
           },
           "<b>Chartae Latinae</b>: Chartae Latinae XLVI": {
-            "doc_count": 4
+            "doc_count": 0
           },
           "<b>Chartae Latinae</b>: Chartae Latinae XLVII": {
-            "doc_count": 3
+            "doc_count": 0
           },
           "<b>Dijon</b>: Saint-Bénigne de Dijon": {
-            "doc_count": 174
+            "doc_count": 0
           },
           "<b>E-Lexikon</b>": {
             "doc_count": 0
           },
           "<b>Echternach</b>: Echternach": {
-            "doc_count": 152
+            "doc_count": 0
           },
           "<b>Flavigny</b>: Flavigny": {
-            "doc_count": 38
+            "doc_count": 0
           },
           "<b>Formulae Marculfinae</b>: Formulae Marculfinae": {
-            "doc_count": 10
+            "doc_count": 0
           },
           "<b>Freising</b>: Freising": {
-            "doc_count": 1383
+            "doc_count": 0
           },
           "<b>Fulda</b>: Fulda (Dronke)": {
-            "doc_count": 8
+            "doc_count": 0
           },
           "<b>Fulda</b>: Fulda (Stengel)": {
-            "doc_count": 563
+            "doc_count": 0
           },
           "<b>Gorze</b>: Gorze": {
-            "doc_count": 121
+            "doc_count": 0
           },
           "<b>Graubünden</b>: Bünden": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Arnulfinger": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo I": {
-            "doc_count": 126
+            "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
-            "doc_count": 48
+            "doc_count": 0
+          },
+          "<b>Herrscherurkunden</b>: Karlmann": {
+            "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Lothar II.": {
-            "doc_count": 50
+            "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Ludwig II.": {
-            "doc_count": 89
+            "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Merowinger": {
-            "doc_count": 196
+            "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Pippin III": {
-            "doc_count": 42
+            "doc_count": 0
           },
           "<b>Hersfeld</b>: Hersfeld": {
-            "doc_count": 121
+            "doc_count": 0
           },
           "<b>Lorsch</b>: Lorsch": {
-            "doc_count": 4130
+            "doc_count": 0
           },
           "<b>Luzern</b>: Luzern": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "<b>Marculf</b>: Marculf": {
-            "doc_count": 111
+            "doc_count": 0
           },
           "<b>Mondsee</b>: Mondsee": {
-            "doc_count": 139
+            "doc_count": 0
           },
           "<b>Papsturkunden</b>: Papsturkunden Frankreich": {
-            "doc_count": 259
+            "doc_count": 0
           },
           "<b>Passau</b>: Passau": {
-            "doc_count": 102
+            "doc_count": 0
           },
           "<b>Redon</b>: Cartulaire de Redon": {
-            "doc_count": 391
+            "doc_count": 0
           },
           "<b>Regensburg</b>: Regensburg": {
-            "doc_count": 269
+            "doc_count": 0
           },
           "<b>Rheinland</b>: Mittelrheinisch": {
-            "doc_count": 98
+            "doc_count": 0
           },
           "<b>Rheinland</b>: Rheinisch": {
-            "doc_count": 78
+            "doc_count": 0
           },
           "<b>Rätien</b>: Rätien": {
-            "doc_count": 60
+            "doc_count": 0
           },
           "<b>Salzburg</b>: Salzburg": {
-            "doc_count": 229
+            "doc_count": 0
           },
           "<b>Schäftlarn</b>: Schäftlarn": {
-            "doc_count": 37
+            "doc_count": 0
           },
           "<b>St. Gallen</b>: St. Gallen": {
-            "doc_count": 779
+            "doc_count": 0
           },
           "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "<b>Touraine</b>: Accomodement entre Marmoutier et S.-Martin": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "<b>Touraine</b>: Accord entre Bonneval et Marmoutier": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "<b>Touraine</b>: Cormery (TELMA)": {
-            "doc_count": 5
+            "doc_count": 0
           },
           "<b>Touraine</b>: Eudes": {
-            "doc_count": 34
+            "doc_count": 0
           },
           "<b>Touraine</b>: Formeln von Tours": {
-            "doc_count": 51
+            "doc_count": 0
           },
           "<b>Touraine</b>: Fragments de Saint-Julien de Tours": {
-            "doc_count": 38
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier (TELMA)": {
-            "doc_count": 548
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier - Dunois": {
-            "doc_count": 281
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier - Fougères": {
-            "doc_count": 7
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier - Manceau": {
-            "doc_count": 189
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier - Pour le perche": {
-            "doc_count": 71
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier - Serfs": {
-            "doc_count": 187
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier - Trois actes faux ou interpolés": {
-            "doc_count": 6
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier - Vendômois": {
-            "doc_count": 163
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
-            "doc_count": 50
+            "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
-            "doc_count": 184
+            "doc_count": 0
+          },
+          "<b>Touraine</b>: Pancarte Noire": {
+            "doc_count": 0
           },
           "<b>Touraine</b>: Saint-Julien de Tours": {
-            "doc_count": 157
+            "doc_count": 0
           },
           "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
-            "doc_count": 15
+            "doc_count": 0
           },
           "<b>Touraine</b>: Tours-Überarbeitung": {
-            "doc_count": 4
+            "doc_count": 0
           },
           "<b>Touraine</b>: Un acte faux de Marmoutier": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "<b>Touraine</b>: Une nouvelle charte de Théotolon": {
-            "doc_count": 1
+            "doc_count": 0
           },
           "<b>Werden</b>: Werden": {
-            "doc_count": 66
+            "doc_count": 0
           },
           "<b>Wissembourg</b>: Weißenburg": {
-            "doc_count": 276
+            "doc_count": 0
           },
           "<b>Zürich</b>: Zürich": {
-            "doc_count": 53
+            "doc_count": 0
           }
         }
       },
@@ -242,7 +248,7 @@
             "from_as_string": "0600",
             "to": -40108867200000.0,
             "to_as_string": "0699",
-            "doc_count": 174
+            "doc_count": 175
           },
           {
             "key": "700-799",
@@ -250,7 +256,7 @@
             "from_as_string": "0700",
             "to": -36953193600000.0,
             "to_as_string": "0799",
-            "doc_count": 4581
+            "doc_count": 4604
           },
           {
             "key": "800-899",
@@ -258,7 +264,7 @@
             "from_as_string": "0800",
             "to": -33797433600000.0,
             "to_as_string": "0899",
-            "doc_count": 3687
+            "doc_count": 3765
           },
           {
             "key": "900-999",
@@ -266,18 +272,18 @@
             "from_as_string": "0900",
             "to": -30641760000000.0,
             "to_as_string": "0999",
-            "doc_count": 2996
+            "doc_count": 3036
           },
           {
             "key": ">1000",
             "from": -30610224000000.0,
             "from_as_string": "1000",
-            "doc_count": 2294
+            "doc_count": 2088
           }
         ]
       },
       "no_date": {
-        "doc_count": 837
+        "doc_count": 1063
       }
     },
     "forgeries": {
@@ -305,7 +311,7 @@
           "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae CXVI": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Chartae Latinae</b>: Chartae Latinae X": {
           "doc_count": 0
@@ -338,7 +344,7 @@
           "doc_count": 0
         },
         "<b>Freising</b>: Freising": {
-          "doc_count": 5
+          "doc_count": 0
         },
         "<b>Fulda</b>: Fulda (Dronke)": {
           "doc_count": 0
@@ -361,11 +367,14 @@
         "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
           "doc_count": 0
         },
+        "<b>Herrscherurkunden</b>: Karlmann": {
+          "doc_count": 0
+        },
         "<b>Herrscherurkunden</b>: Lothar II.": {
           "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Ludwig II.": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Merowinger": {
           "doc_count": 0
@@ -374,7 +383,7 @@
           "doc_count": 0
         },
         "<b>Hersfeld</b>: Hersfeld": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Lorsch</b>: Lorsch": {
           "doc_count": 0
@@ -392,13 +401,13 @@
           "doc_count": 0
         },
         "<b>Passau</b>: Passau": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Redon</b>: Cartulaire de Redon": {
           "doc_count": 0
         },
         "<b>Regensburg</b>: Regensburg": {
-          "doc_count": 2
+          "doc_count": 0
         },
         "<b>Rheinland</b>: Mittelrheinisch": {
           "doc_count": 0
@@ -416,7 +425,7 @@
           "doc_count": 0
         },
         "<b>St. Gallen</b>: St. Gallen": {
-          "doc_count": 3
+          "doc_count": 0
         },
         "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {
           "doc_count": 0
@@ -469,6 +478,9 @@
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
           "doc_count": 0
         },
+        "<b>Touraine</b>: Pancarte Noire": {
+          "doc_count": 0
+        },
         "<b>Touraine</b>: Saint-Julien de Tours": {
           "doc_count": 0
         },
@@ -488,7 +500,7 @@
           "doc_count": 0
         },
         "<b>Wissembourg</b>: Weißenburg": {
-          "doc_count": 1
+          "doc_count": 0
         },
         "<b>Zürich</b>: Zürich": {
           "doc_count": 0
