@@ -804,13 +804,13 @@ $(document).ready(function () {
 
     $('#show-mss-edition-colors').click(function() {
         $('.work-cell').addClass('show-bg-color');
-        $( this ).addClass('d-none');
-        $('#hide-mss-edition-colors').removeClass('d-none');
+        $( this ).parent().addClass('d-none');
+        $('#hide-mss-edition-colors').parent().removeClass('d-none');
     })
 
     $('#hide-mss-edition-colors').click(function() {
         $('.work-cell').removeClass('show-bg-color');
-        $( this ).addClass('d-none');
-        $('#show-mss-edition-colors').removeClass('d-none');
+        $( this ).parent().addClass('d-none');
+        $('#show-mss-edition-colors').parent().removeClass('d-none');
     })
 })

@@ -124,6 +124,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:gorze',
                         'urn:cts:formulae:hersfeld',
                         'urn:cts:formulae:ka1',
+                        'urn:cts:formulae:karl_der_grosse',
                         'urn:cts:formulae:karlmann_mgh',
                         'urn:cts:formulae:ko2',
                         # 'urn:cts:formulae:langobardisch', # needs correction
@@ -1048,7 +1049,7 @@ class NemoFormulae(Nemo):
                     # The following lines are to deal with the Pancarte Noire double regests
                     if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
                         if len(regest) == 2:
-                           regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
+                           regest[1] = re.sub(r'^(\w+?:).*', r'\1 ', regest[1]) + '<i>{}</i>'.format(_('Dieses Regest ist nicht öffentlich zugänglich.'))
 
                     r[par].update({"short_regest": short_regest,
                                    "regest": regest,
@@ -1535,7 +1536,7 @@ class NemoFormulae(Nemo):
         # The following lines are to deal with the Pancarte Noire double regests
         if self.check_project_team() is False and (metadata.id in self.closed_texts['half_closed'] or metadata.id in self.closed_texts['closed']):
             if len(regest) == 2:
-                regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
+                regest[1] = re.sub(r'^(\w+?:).*', r'\1 ', regest[1]) + '<i>{}</i>'.format(_('Dieses Regest ist nicht öffentlich zugänglich.'))
         transcribed_edition = []
 
         for mss_ed in metadata.metadata.get(DCTERMS.isVersionOf):
