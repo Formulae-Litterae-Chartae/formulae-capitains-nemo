@@ -55,20 +55,20 @@
     {% elif collections.current.id == 'urn:cts:formulae:pippin_3' %}
     <h4>{{ _('Weitere Urkunden aus dieser Edition') }}</h4>
     <div class="row">
-        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karlmann_mgh')}}">Karlmann (Nrs. 43-54)</a></h5></div>
-        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karl_der_grosse')}}">Karl der Große (Nrs. 55-316)</a></h5></div>
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karlmann_mgh')}}">Karlmann (Nr. 43-54)</a></h5></div>
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karl_der_grosse')}}">Karl der Große (Nr. 55-316)</a></h5></div>
     </div>
     {% elif collections.current.id == 'urn:cts:formulae:karlmann_mgh' %}
     <h4>{{ _('Weitere Urkunden aus dieser Edition') }}</h4>
     <div class="row">
-        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:pippin_3')}}">Pippin (Nrs. 1-42)</a></h5></div>
-        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karl_der_grosse')}}">Karl der Große (Nrs. 55-316)</a></h5></div>
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:pippin_3')}}">Pippin (Nr. 1-42)</a></h5></div>
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karl_der_grosse')}}">Karl der Große (Nr. 55-316)</a></h5></div>
     </div>
     {% elif collections.current.id == 'urn:cts:formulae:karl_der_grosse' %}
     <h4>{{ _('Weitere Urkunden aus dieser Edition') }}</h4>
     <div class="row">
-        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:pippin_3')}}">Pippin (Nrs. 1-42)</a></h5></div>
-        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karlmann_mgh')}}">Karlmann (Nrs. 43-54)</a></h5></div>
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:pippin_3')}}">Pippin (Nr. 1-42)</a></h5></div>
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karlmann_mgh')}}">Karlmann (Nr. 43-54)</a></h5></div>
     </div>
     {% endif %}
     {% if "manuscript_collection" in collections.parent_ids %}
