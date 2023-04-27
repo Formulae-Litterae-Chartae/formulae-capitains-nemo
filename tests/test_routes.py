@@ -900,7 +900,7 @@ class TestIndividualRoutes(Formulae_Testing):
     @patch("formulae.search.routes.advanced_query_index")
     def test_advanced_search_results(self, mock_search):
         """ Make sure that the correct search results are passed to the search results form"""
-        params = dict(corpus='formulae%2Bchartae', year=600, month=1, day=31, year_start=600, month_start=12,
+        params = dict(corpus='formulae+chartae', year=600, month=1, day=31, year_start=600, month_start=12,
                       day_start=12, year_end=700, month_end=1, day_end=12)
         aggs = {"corpus": {"buckets":
                                {k: {'doc_count': 0} if k != '<b>Angers</b>: Angers' else
@@ -916,7 +916,7 @@ class TestIndividualRoutes(Formulae_Testing):
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                              'date_plus_minus=0&submit=Search')
             for p, v in params.items():
-                self.assertRegex(str(response.location), r'{}={}'.format(p, v))
+                self.assertRegex(str(response.location), r'{}={}'.format(p, v).replace('+', '\+'))
             c.get('/search/advanced_search?corpus=formulae&corpus=chartae&q=&year=600&month=1&day=31&'
                   'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                   'date_plus_minus=0&submit=Search', follow_redirects=True)
@@ -1108,15 +1108,15 @@ class TestIndividualRoutes(Formulae_Testing):
             # Test to make sure that a capitalized search term is converted to lowercase in advanced search
             params['q_1'] = 'regnum'
             params['corpus'] = 'chartae'
-            params['special_days'] = 'Easter%2BTuesday'
-            params['proper_name_1'] = 'personenname\+ortsname'
+            params['special_days'] = 'Easter+Tuesday'
+            params['proper_name_1'] = 'personenname+ortsname'
             params['regex_search_1'] = 'True'
             response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                              'date_plus_minus=0&special_days=Easter+Tuesday&proper_name=personenname%20ortsname&'
                              'regex_search=y&search_id=1234&exclude_q=&submit=Search')
             for p, v in params.items():
-                self.assertRegex(str(response.location), r'{}={}'.format(p, v))
+                self.assertRegex(str(response.location), r'{}={}'.format(p, v).replace('+', '\+'))
             c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                   'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                   'date_plus_minus=0&search_id=1234&exclude_q=&submit=Search', follow_redirects=True)
@@ -1127,14 +1127,14 @@ class TestIndividualRoutes(Formulae_Testing):
     @patch("formulae.search.routes.advanced_query_index")
     def test_simple_search_results(self, mock_search):
         """ Make sure that the correct search results are passed to the search results form"""
-        params = dict(corpus='formulae%2Bchartae', q_1='regnum', sort='urn', source='simple')
+        params = dict(corpus='formulae+chartae', q_1='regnum', sort='urn', source='simple')
         mock_search.return_value = [[], 0, {}, []]
         with self.client as c:
             c.post('/auth/login', data=dict(username='project.member', password="some_password"),
                    follow_redirects=True)
             response = c.get('/search/simple?corpus=formulae&corpus=chartae&q_1=Regnum&search_id=4321&simple_search_id=1234')
             for p, v in params.items():
-                self.assertRegex(str(response.location), r'{}={}'.format(p, v))
+                self.assertRegex(str(response.location), r'{}={}'.format(p, v).replace('+', '\+'))
             c.get('/search/simple?corpus=formulae&corpus=chartae&q_1=Regnum&search_id=4321&simple_search_id=1234',
                   follow_redirects=True)
             mock_search.assert_called_with(per_page=10000, page=1, year=0, month=0, day=0, year_start=0, month_start=0,
