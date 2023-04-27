@@ -555,7 +555,7 @@ msgstr "All"
 #: formulae/search/forms.py:133 formulae/search/forms.py:144
 #: formulae/search/forms.py:156 formulae/search/routes.py:384
 msgid "Jahr"
-msgstr "Year\"Downloading Search Result"
+msgstr "Year"
 
 #: formulae/search/forms.py:134 formulae/search/forms.py:145
 #: formulae/search/forms.py:158 tests/test_routes.py:1335
