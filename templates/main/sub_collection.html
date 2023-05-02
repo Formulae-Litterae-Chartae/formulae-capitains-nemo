@@ -147,7 +147,9 @@
                     <div class="row justify-content-between">
                         <div class="col-3"><h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['parent_id'] in manuscript_notes %}<span id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"><span class="superscript" >*</span></span>{% endif %}{% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}</h5></div>
                         <div class="col text-right">
-                        {% if not values['deperditum'] %}
+                        {% if collections.current.id == 'urn:cts:formulae:pancarte_noire' and not  values['source_edition'] %}
+                        <h5 class="latin-word">{{ _('Keine Edition') }}</h5>
+                        {% elif not values['deperditum'] %}
                             {% if 'formulae_collection' in collections.parent_ids or 'manuscript_collection' in collections.parent_ids %}
                                 {% if values['versions']['editions']|length > 1 %}
                                 <div class="btn-group">

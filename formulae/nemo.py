@@ -1059,6 +1059,7 @@ class NemoFormulae(Nemo):
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
                                    'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
                                    'deperditum': str(m.metadata.get_single(self.BF.status)) == 'deperditum',
+                                   "source_edition": str(m.metadata.get_single(DCTERMS.source) or ''),
                                    'bg_color': bg_color})
 
 
