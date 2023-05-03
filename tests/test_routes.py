@@ -366,12 +366,12 @@ class TestIndividualRoutes(Formulae_Testing):
             d = self.get_context_variable('collections')
             self.assertCountEqual(d['readable']['0019']['regest'],
                                   ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
-                                   'KÖLZER: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'])
+                                   '<b>REGEST EDITION</b>: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'])
             c.get('/texts/urn:cts:formulae:pancarte_noire.mabille0019.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['description'],
                              ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
-                              'KÖLZER: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'],
+                              '<b>REGEST EDITION</b>: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'],
                              'Regest should be changed for anonymous users.')
             self.assertEqual(self.get_context_variable('objects')[0]['text_passage'],
                              '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.')),
@@ -793,12 +793,12 @@ class TestIndividualRoutes(Formulae_Testing):
             d = self.get_context_variable('collections')
             self.assertCountEqual(d['readable']['0019']['regest'],
                                   ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
-                                   'KÖLZER: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'])
+                                   '<b>REGEST EDITION</b>: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'])
             c.get('/texts/urn:cts:formulae:pancarte_noire.mabille0019.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['description'],
                              ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
-                              'KÖLZER: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'],
+                              '<b>REGEST EDITION</b>: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'],
                              'Regest should be changed for non-project members.')
             self.assertEqual(self.get_context_variable('objects')[0]['text_passage'],
                              '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.')),
