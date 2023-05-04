@@ -108,7 +108,8 @@ class Formulae_Testing(TestCase):
                                  'urn:cts:formulae:buenden.meyer-marthaler0086.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0140.lat001',
                                  'urn:cts:formulae:freising.bitterauf0090.lat001',
-                                 'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001']
+                                 'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001',
+                                 'urn:cts:formulae:pancarte_noire.mabille0019.lat001']
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -184,7 +185,8 @@ class TestNemoSetup(Formulae_Testing):
                                                 'urn:cts:formulae:buenden.meyer-marthaler0086.lat001',
                                                 'urn:cts:formulae:buenden.meyer-marthaler0140.lat001',
                                                 'urn:cts:formulae:freising.bitterauf0090.lat001',
-                                                'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001'],
+                                                'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001',
+                                                'urn:cts:formulae:pancarte_noire.mabille0019.lat001'],
                              self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
