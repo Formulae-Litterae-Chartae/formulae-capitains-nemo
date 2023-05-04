@@ -1,10 +1,10 @@
 [
   {
-    "took": 175,
+    "took": 181,
     "timed_out": false,
     "_shards": {
-      "total": 67,
-      "successful": 67,
+      "total": 70,
+      "successful": 70,
       "skipped": 0,
       "failed": 0
     },

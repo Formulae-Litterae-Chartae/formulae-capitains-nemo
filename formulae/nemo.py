@@ -124,6 +124,8 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:gorze',
                         'urn:cts:formulae:hersfeld',
                         'urn:cts:formulae:ka1',
+                        'urn:cts:formulae:karl_der_grosse',
+                        'urn:cts:formulae:karlmann_mgh',
                         'urn:cts:formulae:ko2',
                         # 'urn:cts:formulae:langobardisch', # needs correction
                         'urn:cts:formulae:langobardisch_1',
@@ -132,6 +134,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:lothar_2',
                         'urn:cts:formulae:ludwig_2',
+                        'urn:cts:formulae:ludwig_der_juengere',
                         'urn:cts:formulae:luzern',
                         'urn:cts:formulae:m4',
                         'urn:cts:formulae:marculf',
@@ -153,7 +156,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:p14',
                         'urn:cts:formulae:p16a',
                         'urn:cts:formulae:p16b',
-                        #'urn:cts:formulae:pancarte_noir_internal',
+                        # 'urn:cts:formulae:pancarte_noire',
                         'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
                         'urn:cts:formulae:pippin_3',
@@ -962,6 +965,7 @@ class NemoFormulae(Nemo):
         template = "main::sub_collection.html"
         current_parents = self.make_parents(collection, lang=lang)
         containing_colls = list()
+        mss_editions = list()
         for cont_coll in sorted(collection.metadata.get(DCTERMS.isPartOf), key=lambda x: self.sort_sigla(x.split(':')[-1])):
             cont_coll_md = self.resolver.getMetadata(str(cont_coll)).metadata
             containing_colls.append((Markup(cont_coll_md.get_single(self.BIBO.AbbreviatedTitle)), cont_coll_md.get_single(DC.title), str(cont_coll)))
@@ -1020,8 +1024,16 @@ class NemoFormulae(Nemo):
                             work_name = Markup(name_part.group(0))
                     regest = [Markup(m.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(m.metadata.get_single(DC.description)).split('***')]
                     short_regest = str(m.metadata.get_single(DCTERMS.abstract)) or ''
+                    bg_color = 'bg-color-0'
                     for version_index, form_version in enumerate(sorted(m.metadata.get(DCTERMS.isVersionOf))):
                         if form_version:
+                            if '_' in form_version.split('.')[-1]:
+                                mss_edition = re.sub(r'(.*)\.(form)?(([2-9]_)*).*', r'\1\3', form_version)
+                            else:
+                                mss_edition = ''.join(form_version.split('.')[:-1])
+                            if mss_edition not in mss_editions:
+                                mss_editions.append(mss_edition)
+                            bg_color = 'bg-color-' + str(mss_editions.index(mss_edition) + 1)
                             form_metadata = self.resolver.getMetadata(str(form_version))
                             form_parent = [str(x['id']) for x in self.make_parents(form_metadata) if 'formulae_collection' in x['ancestors'] and 'manuscript_collection' not in x['ancestors']][0]
                             for readable_form in form_metadata.readableDescendants.values():
@@ -1036,9 +1048,9 @@ class NemoFormulae(Nemo):
                                         regest = [Markup(readable_form.metadata.get_single(DC.description))]
                                         short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
                     # The following lines are to deal with the Pancarte Noire double regests
-                    # if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
-                        # if len(regest) == 2:
-                        #    regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
+                    if self.check_project_team() is False and (m.id in self.closed_texts['half_closed'] or m.id in self.closed_texts['closed']):
+                        if len(regest) == 2:
+                           regest[1] = Markup('<b>REGEST EDITION</b>: ' + '<i>{}</i>'.format(_('Dieses Regest ist nicht öffentlich zugänglich.')))
 
                     r[par].update({"short_regest": short_regest,
                                    "regest": regest,
@@ -1047,7 +1059,9 @@ class NemoFormulae(Nemo):
                                    'name': work_name,
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
                                    'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
-                                   'deperditum': str(m.metadata.get_single(self.BF.status)) == 'deperditum'})
+                                   'deperditum': str(m.metadata.get_single(self.BF.status)) == 'deperditum',
+                                   "source_edition": str(m.metadata.get_single(DCTERMS.source) or ''),
+                                   'bg_color': bg_color})
 
 
         for k, v in collection.children.items():
@@ -1478,9 +1492,9 @@ class NemoFormulae(Nemo):
             flash('{}, {}'.format(metadata.get_label(lang), subreference) + _l(' wurde nicht gefunden. Der ganze Text wird angezeigt.'))
             subreference = new_subref
         passage = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
-        # The following is to deal with the Pancarte Noire double regests
-        # if objectId in self.closed_texts['closed'] and self.check_project_team() is False:
-        #     passage = '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.'))
+        # The following is to deal with the Pancarte Noire texts that are still under copyright
+        if objectId in self.closed_texts['closed'] and self.check_project_team() is False:
+            passage = '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.'))
         secondary_language = 'de'
         all_langs = [str(x) for x in metadata.metadata.get(DC.language, lang=None)]
         if len(all_langs) > 0:
@@ -1522,9 +1536,9 @@ class NemoFormulae(Nemo):
             linked_resources.append((linked_md.id, str(linked_md.metadata.get_single(DC.title, lang=None)) or metadata.get_label(lang)))
         regest = [Markup(metadata.metadata.get_single(DC.description))] if 'formulae_collection' in metadata.ancestors else [Markup(x) for x in str(metadata.metadata.get_single(DC.description)).split('***')]
         # The following lines are to deal with the Pancarte Noire double regests
-        # if self.check_project_team() is False and (metadata.id in self.closed_texts['half_closed'] or metadata.id in self.closed_texts['closed']):
-        #     if len(regest) == 2:
-        #         regest[1] = re.sub(r'^(\w+?:).*', r'\1 ' + _('Dieses Regest ist nicht öffentlich zugänglich'), regest[1])
+        if self.check_project_team() is False and (metadata.id in self.closed_texts['half_closed'] or metadata.id in self.closed_texts['closed']):
+            if len(regest) == 2:
+                regest[1] = Markup('<b>REGEST EDITION</b>: ' + '<i>{}</i>'.format(_('Dieses Regest ist nicht öffentlich zugänglich.')))
         transcribed_edition = []
 
         for mss_ed in metadata.metadata.get(DCTERMS.isVersionOf):

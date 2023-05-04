@@ -108,7 +108,8 @@ class Formulae_Testing(TestCase):
                                  'urn:cts:formulae:buenden.meyer-marthaler0086.lat001',
                                  'urn:cts:formulae:buenden.meyer-marthaler0140.lat001',
                                  'urn:cts:formulae:freising.bitterauf0090.lat001',
-                                 'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001']
+                                 'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001',
+                                 'urn:cts:formulae:pancarte_noire.mabille0019.lat001']
 
         @app.route('/500', methods=['GET'])
         def r_500():
@@ -184,7 +185,8 @@ class TestNemoSetup(Formulae_Testing):
                                                 'urn:cts:formulae:buenden.meyer-marthaler0086.lat001',
                                                 'urn:cts:formulae:buenden.meyer-marthaler0140.lat001',
                                                 'urn:cts:formulae:freising.bitterauf0090.lat001',
-                                                'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001'],
+                                                'urn:cts:formulae:papsturkunden_frankreich.ramackers0131.lat001',
+                                                'urn:cts:formulae:pancarte_noire.mabille0019.lat001'],
                              self.nemo.open_texts)
             self.assertEqual(nemo.sub_colls, self.nemo.sub_colls)
             self.assertEqual(nemo.pdf_folder, self.nemo.pdf_folder)
@@ -362,22 +364,20 @@ class TestIndividualRoutes(Formulae_Testing):
             p = re.compile('<h5>Notitia Arnonis</h5>.+<h5>Codex Odalberti, Vorrede</h5>.+<h5>Codex Odalberti, Nummer 1</h5>',
                            re.DOTALL)
             self.assertRegex(r.get_data(as_text=True), p)
-            """
-            c.get('/corpus/urn:cts:formulae:pancarte_noir_internal', follow_redirects=True)
+            c.get('/corpus/urn:cts:formulae:pancarte_noire', follow_redirects=True)
             d = self.get_context_variable('collections')
             self.assertCountEqual(d['readable']['0019']['regest'],
                                   ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
-                                   'KÖLZER: ' + _('Dieses Regest ist nicht öffentlich zugänglich')])
-            c.get('/texts/urn:cts:formulae:pancarte_noir_internal.mabille0019.lat001/passage/all', follow_redirects=True)
+                                   '<b>REGEST EDITION</b>: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'])
+            c.get('/texts/urn:cts:formulae:pancarte_noire.mabille0019.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['description'],
                              ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
-                              'KÖLZER: ' + _('Dieses Regest ist nicht öffentlich zugänglich')],
+                              '<b>REGEST EDITION</b>: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'],
                              'Regest should be changed for anonymous users.')
             self.assertEqual(self.get_context_variable('objects')[0]['text_passage'],
                              '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.')),
                              'Text should be changed for anonymous users.')
-            """
             r = c.get('/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.lat001/passage/1+all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertIn('text-section no-copy', r.get_data(as_text=True))
@@ -682,17 +682,17 @@ class TestIndividualRoutes(Formulae_Testing):
                                rdflib.term.Literal('Paris BNF 2123', lang='deu'),
                                'urn:cts:formulae:p3')],
                              'The IDs of the MSS that contain a formulae collection should be correctly passed to the template.')
-            """c.get('/corpus/urn:cts:formulae:pancarte_noir_internal', follow_redirects=True)
+            c.get('/corpus/urn:cts:formulae:pancarte_noire', follow_redirects=True)
             d = self.get_context_variable('collections')
             self.assertCountEqual(d['readable']['0019']['regest'],
                                   ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
                                    'KÖLZER: Some regest.'])
-            c.get('/texts/urn:cts:formulae:pancarte_noir_internal.mabille0019.lat001/passage/all', follow_redirects=True)
+            c.get('/texts/urn:cts:formulae:pancarte_noire.mabille0019.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['description'],
                              ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
                                    'KÖLZER: Some regest.'],
-                             'Regest should not be changed for project members.')"""
+                             'Regest should not be changed for project members.')
             c.get('/viewer/manifest:urn:cts:formulae:andecavensis.form001.fu2?view=0&embedded=True', follow_redirects=True)
             self.assertIn('viewer::miradorviewer.html', [x[0].name for x in self.templates])
             c.get('/viewer/urn:cts:formulae:andecavensis.form001?view=0&embedded=True', follow_redirects=True)
@@ -791,22 +791,20 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::sub_collection.html', [x[0].name for x in self.templates])
             c.get('/corpus/urn:cts:formulae:elexicon', follow_redirects=True)
             self.assertIn('main::elex_collection.html', [x[0].name for x in self.templates])
-            """
-            c.get('/corpus/urn:cts:formulae:pancarte_noir_internal', follow_redirects=True)
+            c.get('/corpus/urn:cts:formulae:pancarte_noire', follow_redirects=True)
             d = self.get_context_variable('collections')
             self.assertCountEqual(d['readable']['0019']['regest'],
                                   ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
-                                   'KÖLZER: ' + _('Dieses Regest ist nicht öffentlich zugänglich')])
-            c.get('/texts/urn:cts:formulae:pancarte_noir_internal.mabille0019.lat001/passage/all', follow_redirects=True)
+                                   '<b>REGEST EDITION</b>: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'])
+            c.get('/texts/urn:cts:formulae:pancarte_noire.mabille0019.lat001/passage/all', follow_redirects=True)
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
             self.assertEqual(self.get_context_variable('objects')[0]['collections']['current']['description'],
                              ['MABILLE: Louis-le-Débonnaire accorde aux religieux de Saint-Martin douze navires exempts de tout droit de tonlieu sur les rivières de Loire, Allier, Cher, Vienne, Mayenne, Sarthe et Loir, et défend à sés officiers d’exiger d’eux ou des hommes qui les monteront, aucune redevance, comme droit de port, d’abordage, de passige, de stationnage, etc.',
-                              'KÖLZER: ' + _('Dieses Regest ist nicht öffentlich zugänglich')],
+                              '<b>REGEST EDITION</b>: <i>' + _('Dieses Regest ist nicht öffentlich zugänglich.') + '</i>'],
                              'Regest should be changed for non-project members.')
             self.assertEqual(self.get_context_variable('objects')[0]['text_passage'],
                              '<div class="text lang_lat edition" data-lang="lat" lang="la"><div class="charta"><p>{}</p></div></div>'.format(_('Dieser Text ist nicht öffentlich zugänglich.')),
                              'Text should be changed for non-project members.')
-            """
             c.get('/corpus_m/urn:cts:formulae:marculf', follow_redirects=True)
             self.assertIn('main::sub_collection_mv.html', [x[0].name for x in self.templates])
             c.get('/corpus_m/urn:cts:formulae:flavigny_paris', follow_redirects=True)
@@ -1113,14 +1111,14 @@ class TestIndividualRoutes(Formulae_Testing):
             params['q_1'] = 'regnum'
             params['corpus'] = 'chartae'
             params['special_days'] = 'Easter%2BTuesday'
-            params['proper_name_1'] = 'personenname\+ortsname'
+            params['proper_name_1'] = 'personenname+ortsname'
             params['regex_search_1'] = 'True'
             response = c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                              'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                              'date_plus_minus=0&special_days=Easter+Tuesday&proper_name=personenname%20ortsname&'
                              'regex_search=y&search_id=1234&exclude_q=&submit=Search')
             for p, v in params.items():
-                self.assertRegex(str(response.location), r'{}={}'.format(p, v))
+                self.assertRegex(str(response.location), r'{}={}'.format(p, v).replace('+', '\+'))
             c.get('/search/advanced_search?corpus=chartae&q=Regnum&year=600&month=1&day=31&'
                   'year_start=600&month_start=12&day_start=12&year_end=700&month_end=1&day_end=12&'
                   'date_plus_minus=0&search_id=1234&exclude_q=&submit=Search', follow_redirects=True)
@@ -1894,7 +1892,7 @@ class TestFunctions(Formulae_Testing):
     def test_make_closed_texts(self):
         """ Ensure that the json closed text file is correctly loaded."""
         self.assertEqual(self.nemo.closed_texts['closed'][0],
-                         "urn:cts:formulae:pancarte_noir_internal.mabille0019.lat001",
+                         "urn:cts:formulae:pancarte_noire.mabille0019.lat001",
                          'Closed texts should have loaded correctly.')
         self.app.config['CORPUS_FOLDERS'].append('tests/test_data/errored_formulae')
         with patch.object(self.app.logger, 'warning') as mock:
@@ -7576,6 +7574,9 @@ class TestES(Formulae_Testing):
           "<b>Touraine</b>: Marmoutier - Vendômois, Appendix": {
             "doc_count": 50
           },
+          "<b>Touraine</b>: Pancarte Noire": {
+            "doc_count": 50
+          },
           "<b>Touraine</b>: Saint-Martin de Tours (TELMA)": {
             "doc_count": 15
           },
@@ -7800,6 +7801,16 @@ class TestES(Formulae_Testing):
             if 'proper_name' in arg and fake_args[arg] != '' and fake_args['q_{}'.format(arg.split('_')[-1])] == '':
                 fake_args['search_field_{}'.format(arg.split('_')[-1])] = 'lemmas'
         return '&'.join(["{}".format(str(v)) for k, v in fake_args.items()]).replace('/', '-')
+
+    def profile_lem_highlight_to_text(self, profile_test_args):
+        # profile lem_highlight_to_text
+        if not os.environ.get('CI'):
+            from line_profiler import LineProfiler
+            lp = LineProfiler()
+            lp.add_function(Search.lem_highlight_to_text)
+            lp_wrapper = lp(advanced_query_index)
+            lp_wrapper(**profile_test_args)
+            lp.print_stats()
 
     def test_return_when_no_es(self):
         """ Make sure that when ElasticSearch is not active, calls to the search functions return empty results instead of errors"""
@@ -8575,8 +8586,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8607,8 +8620,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q'] = 'reg*'
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8627,8 +8642,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8646,8 +8663,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8665,8 +8684,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8688,8 +8709,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8711,8 +8734,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8731,8 +8756,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8748,8 +8775,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8765,8 +8794,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8796,8 +8827,10 @@ class TestES(Formulae_Testing):
         test_args['q_1'] = 'reg* domni'
         test_args['slop_1'] = '3'
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8819,9 +8852,11 @@ class TestES(Formulae_Testing):
         mock_search.side_effect = self.search_side_effect
         mock_vectors.side_effect = self.vector_side_effect
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for s in sents:
             self.assertIn(s, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8837,8 +8872,10 @@ class TestES(Formulae_Testing):
         mock_vectors.return_value = self.term_vectors
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8877,8 +8914,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8913,8 +8952,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8949,8 +8990,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -8977,8 +9020,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual([], [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -9010,8 +9055,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -9042,8 +9089,10 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
+        profile_test_args = deepcopy(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
+        self.profile_lem_highlight_to_text(profile_test_args)
 
     @patch.object(Elasticsearch, "search")
     def test_lemma_advanced_search_with_wildcard(self, mock_search):

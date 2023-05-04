@@ -522,7 +522,7 @@
     
     <xsl:template match="t:table">
         <xsl:element name="table">
-            <xsl:attribute name="class">table table-borderless table-sm</xsl:attribute>
+            <xsl:attribute name="class">table table-borderless table-sm<xsl:if test="@type='two-source'"> two-source-table</xsl:if></xsl:attribute>
             <xsl:if test="@xml:id">
                 <xsl:attribute name="id">
                     <xsl:value-of select="@xml:id"/>

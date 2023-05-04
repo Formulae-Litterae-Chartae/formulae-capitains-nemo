@@ -1,5 +1,11 @@
 [
   {
+    "id": "urn:cts:formulae:flavigny.form1_008.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:flavigny.form2_010.lat001"
+  },
+  {
     "id": "urn:cts:formulae:marculf.form1_002.lat001"
   },
   {
@@ -87,12 +93,6 @@
     "id": "urn:cts:formulae:eudes.lex0010.lat001"
   },
   {
-    "id": "urn:cts:formulae:flavigny.form1_008.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form2_010.lat001"
-  },
-  {
     "id": "urn:cts:formulae:freising.bitterauf0012.lat001"
   },
   {
@@ -166,6 +166,21 @@
   },
   {
     "id": "urn:cts:formulae:hersfeld.weirich0108.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:karlmann_mgh.muehlbacher0044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:karlmann_mgh.muehlbacher0046.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:karlmann_mgh.muehlbacher0047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:karlmann_mgh.muehlbacher0050.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:karlmann_mgh.muehlbacher0052.lat001"
   },
   {
     "id": "urn:cts:formulae:katalonien.vinyals_elnaesglésiaeulàlia_0004.lat001"
@@ -364,6 +379,84 @@
   },
   {
     "id": "urn:cts:formulae:mittelrheinisch.beyer0210.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0013.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0014.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0018.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0041.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0047.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0054.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0055.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0069.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0079.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0085.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0089.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0091.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0100.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0111.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0112.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0115.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0130.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0133.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0134.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0136.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0145.lat001"
   },
   {
     "id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0039.lat001"
@@ -682,9 +775,6 @@
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud3187.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:telma_marmoutier.giraud4572.lat001"
   },
   {
     "id": "urn:cts:formulae:tours_st_julien_denis.denis0005.lat001"

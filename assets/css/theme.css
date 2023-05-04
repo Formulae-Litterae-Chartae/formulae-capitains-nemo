@@ -1186,3 +1186,53 @@ img.disabled {
     padding-bottom: 24px;
     padding-top: 24px;
 }
+
+.work-cell.bg-color-1.show-bg-color {
+    background: #dddd22;
+}
+
+.work-cell.bg-color-2.show-bg-color {
+    background: #9ae5e6;
+}
+
+.work-cell.bg-color-3.show-bg-color {
+    background: #E2D5B6;
+}
+
+.work-cell.bg-color-4.show-bg-color {
+    background: #CFDFCE;
+}
+
+.work-cell.bg-color-5.show-bg-color {
+    background: #7CFC00;
+}
+
+.work-cell.bg-color-6.show-bg-color {
+    background: #FFA347;
+}
+
+.work-cell.bg-color-7.show-bg-color {
+    background: #B5E2DA;
+}
+
+.work-cell.bg-color-8.show-bg-color {
+    background: #F5B7F5;
+}
+
+.work-cell.bg-color-9.show-bg-color {
+    background: #BEDF7C;
+}
+
+.work-cell.bg-color-10.show-bg-color {
+    background: #00FFFF;
+}
+
+.two-source-table {
+    margin-top: -1rem;
+    margin-bottom: 0;
+}
+
+.two-source-table td {
+    width: 50%;
+    padding: 0 0.5rem;
+}

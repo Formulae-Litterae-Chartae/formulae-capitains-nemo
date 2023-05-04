@@ -47,11 +47,34 @@
     {% include "main::marculfinae_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:m4' %}
     {% include "main::m4_info.html" %}
+    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='muenchen_bsb_clm_4650') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
     {% elif collections.current.id == 'urn:cts:formulae:p3' %}
     {% include "main::p3_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:ka1' %}
     <br>
     <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='karlsruhe_blb_aug') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
+    {% elif collections.current.id == 'urn:cts:formulae:pippin_3' %}
+    <h4>{{ _('Weitere Urkunden aus dieser Edition') }}</h4>
+    <div class="row">
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karlmann_mgh')}}">Karlmann (Nr. 43-54)</a></h5></div>
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karl_der_grosse')}}">Karl der Große (Nr. 55-316)</a></h5></div>
+    </div>
+    {% elif collections.current.id == 'urn:cts:formulae:karlmann_mgh' %}
+    <h4>{{ _('Weitere Urkunden aus dieser Edition') }}</h4>
+    <div class="row">
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:pippin_3')}}">Pippin (Nr. 1-42)</a></h5></div>
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karl_der_grosse')}}">Karl der Große (Nr. 55-316)</a></h5></div>
+    </div>
+    {% elif collections.current.id == 'urn:cts:formulae:karl_der_grosse' %}
+    <h4>{{ _('Weitere Urkunden aus dieser Edition') }}</h4>
+    <div class="row">
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:pippin_3')}}">Pippin (Nr. 1-42)</a></h5></div>
+        <div class="col-2"><h5><a class="internal-link" href="{{url_for('InstanceNemo.r_collection', objectId='urn:cts:formulae:karlmann_mgh')}}">Karlmann (Nr. 43-54)</a></h5></div>
+    </div>
+    {% endif %}
+    {% if "manuscript_collection" in collections.parent_ids %}
+    <h5><a class="internal-link" href="#" id="show-mss-edition-colors">{{ _('Farbkodierung der Sammlungen zeigen') }}</a> <button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ _('Die Farbkodierung ermöglicht es, die unterschiedliche Herkunft von Formeln in einer Handschrift zu visualisieren. Jede Formelgruppe (etwa Marculf Buch I) erhält dabei eine eigene Farbe.') }}" aria-label="{{ _('Hilfe für Farbkodierung der Sammlungen') }}"><i class="fas fa-question-circle"></i></button></h5>
+    <h5 class="d-none"><a class="internal-link" href="#" id="hide-mss-edition-colors">{{ _('Farbkodierung der Sammlungen verstecken') }}</a> <button type="button" class="btn btn-link px-1 py-0 search-help" data-container="body" data-toggle="popover" data-html="true" data-placement="right" data-trigger="focus" data-content="{{ _('Die Farbkodierung ermöglicht es, die unterschiedliche Herkunft von Formeln in einer Handschrift zu visualisieren. Jede Formelgruppe (etwa Marculf Buch I) erhält dabei eine eigene Farbe.') }}" aria-label="{{ _('Hilfe für Farbkodierung der Sammlungen') }}"><i class="fas fa-question-circle"></i></button></h5>
     {% endif %}
 </header>
 </div>
@@ -121,11 +144,15 @@
                 {% if collections.current.id == 'urn:cts:formulae:salzburg' %}
                 {% set number = number[0] %}
                 {% endif %}
-                <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column">
+                <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column work-cell {{ values['bg_color']|default('bg-color-0') }}">
                     <div class="row justify-content-between">
                         <div class="col-3"><h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['parent_id'] in manuscript_notes %}<span id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"><span class="superscript" >*</span></span>{% endif %}{% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}</h5></div>
                         <div class="col text-right">
-                        {% if not values['deperditum'] %}
+                        {% if values['deperditum'] %}
+                        <h5 class="latin-word">Deperditum</h5>
+                        {% elif collections.current.id == 'urn:cts:formulae:pancarte_noire' and not  values['source_edition'] %}
+                        <h5 class="latin-word">{{ _('Keine Edition') }}</h5>
+                        {% else %}
                             {% if 'formulae_collection' in collections.parent_ids or 'manuscript_collection' in collections.parent_ids %}
                                 {% if values['versions']['editions']|length > 1 %}
                                 <div class="btn-group">
@@ -188,8 +215,6 @@
                                     <a class="card-link" href="{{url_for('InstanceNemo.r_multipassage', objectIds=[prev_texts, urn]|join_list_values('+'), subreferences=[prev_reffs, 'all']|join_list_values('+'))}}">{% if values['versions']['editions']|length > 1 %}{{_('Version') + ' ' + loop.index|string}}{% else %}{{ _('Lesen') }}{% endif %}</a>
                                 {% endfor %}
                             {% endif %}
-                        {% else %}
-                        <h5 class="latin-word">Deperditum</h5>
                         {% endif %}
                         </div>
                         </div>

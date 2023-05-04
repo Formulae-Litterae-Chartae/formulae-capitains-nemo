@@ -1,6 +1,6 @@
 [
   {
-    "took": 14,
+    "took": 32,
     "timed_out": false,
     "_shards": {
       "total": 1,
@@ -16,7 +16,7 @@
       "max_score": null,
       "hits": [
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0016.lat001",
           "_score": null,
           "_source": {
@@ -32,7 +32,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Graf Wido von Lomello schenkt dem Kloster Disentis Güter und Rechte.",
             "orig_comp_ort": "Disentis",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "dating": [
               {
@@ -59,7 +59,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0017.lat001",
           "_score": null,
           "_source": {
@@ -75,7 +75,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Tello von Chur schenkt dem Kloster Disentis auf Ableben seine Güter in der Gruob und zu Domat/Ems, sowie fast allen an seine Getreuen ausgegebenen Besitz.",
             "orig_comp_ort": "Chur",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -105,7 +105,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0021.lat001",
           "_score": null,
           "_source": {
@@ -121,7 +121,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Alkuin empfiehlt dem Bischof Remedius von Chur seinen Geschäftsträger zum Schutze bei der Hin- und Rückreise über die Alpen und bittet ihn, für Josephus beten zu lassen.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "dating": [
               {
@@ -148,7 +148,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0024.lat001",
           "_score": null,
           "_source": {
@@ -164,7 +164,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Baselius vergabt zu seinem Seelenheile der Kirche St. Hilarius Acker bei Chur unter dem Vorbehalt eines Leibgedinges für sich und seine Gattin Laurentia.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -443,15 +443,15 @@
             "min_date": "0769-04-20",
             "max_date": "0813-04-20",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
+              "Sunday",
+              "Friday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -466,7 +466,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0027.lat001",
           "_score": null,
           "_source": {
@@ -482,7 +482,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Victorinus schenkt zu seinem und seiner Eltern Seelenheil der Kirche St. Hilarius Güter bei Chur.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -689,15 +689,15 @@
             "min_date": "0769-03-31",
             "max_date": "0813-03-31",
             "days": [
+              "Thursday",
+              "Lent",
               "Easter",
               "Wednesday",
-              "Saturday",
+              "Sunday",
+              "Friday",
               "Monday",
               "Tuesday",
-              "Sunday",
-              "Lent",
-              "Thursday",
-              "Friday"
+              "Saturday"
             ],
             "sort_prefix": 1
           },
@@ -712,7 +712,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0028.lat001",
           "_score": null,
           "_source": {
@@ -728,7 +728,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Richter Daumerius schenkt der Kirche St. Hilarius zu seinem Seelenheil und zum Gedächtnis seines Namens eine Wiese in Tesquene.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "dating": [
               {
@@ -761,7 +761,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0029.lat001",
           "_score": null,
           "_source": {
@@ -777,7 +777,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Vigilius von Trimmis schenkt zum Seelenheil seines Bruders Viktor einen kleinen Teil von dessen Besitz der Kirche St. Hilarius zu Chur.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "dating": [
               {
@@ -810,7 +810,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0031.lat001",
           "_score": null,
           "_source": {
@@ -826,7 +826,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Alkuin bittet Bischof Remedius von Chur, seiner im Gebet zu gedenken.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "dating": [
               {
@@ -853,7 +853,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0035.lat001",
           "_score": null,
           "_source": {
@@ -869,7 +869,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Vor Hunfrid, Graf von Rätien erhalten Hrothelmus und Flavinus durch gerichtlichen Spruch ein ihnen widerrechtlich entzogenes Grundstück zurück.",
             "orig_comp_ort": "Rankweil",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -899,7 +899,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0046.lat001",
           "_score": null,
           "_source": {
@@ -915,7 +915,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Viktor III. von Chur richtet an Kaiser Ludwig den Frommen (in Frankfurt) eine neue Eingabe, beklagt darin den Verfall seiner Diözese durch die sofort nach der von Karl dem Großen durchgeführten Trennung von Grafschaft und Bistum Chur von Graf Roderich und seinen Genossen Herloin vorgenommenen Obergriffe und bittet um Schutz und Untersuchung der Fälle durch einen Missus",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -941,7 +941,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0049.lat001",
           "_score": null,
           "_source": {
@@ -957,7 +957,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Bischof Viktor III. von Chur überreicht persönlich Kaiser Ludwig dem Frommen zu Corbeny eine Eingabe, worin er diesen an seine früheren Briefe und an die in Frankfurt beschlossene, jedoch noch nicht durchgeführte Untersuchung seiner Klagen erinnert.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "dating": [
               {
@@ -984,7 +984,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0072.lat001",
           "_score": null,
           "_source": {
@@ -1000,7 +1000,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Die Klöster St. Gallen und Reichenau schließen im Jahre 800 eine Gebetsbrüderschaft, 846 werden Bobbio, Disentis und Schienen, 865 Kempten aufgenommen.",
             "orig_comp_ort": " ",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -1033,7 +1033,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0089.lat001",
           "_score": null,
           "_source": {
@@ -1049,7 +1049,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Salomon, Bischof von Konstanz und Abt von St. Gallen, überträgt die Abtei Pfäfers dem Kloster St. Gallen unter dem Vorbehalt lebenslänglicher Nutznießung der Abteien und des St. Galler Hofes Bussnang für sich und seinen Neffen Waldo.",
             "orig_comp_ort": "St. Gallen",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {
@@ -1079,7 +1079,7 @@
           ]
         },
         {
-          "_index": "buenden_v46",
+          "_index": "form_lit_chart-buenden_v8",
           "_id": "urn:cts:formulae:buenden.meyer-marthaler0140.lat001",
           "_score": null,
           "_source": {
@@ -1095,7 +1095,7 @@
             "autocomplete_lemmas": "",
             "autocomplete_regest": "Der Priester Valencio schenkt seinem Neffen Priectus seinen ganzen Besitz zu Maienfeld.",
             "orig_comp_ort": "Maienfeld",
-            "collection": "buenden",
+            "collection": "form_lit_chart-buenden",
             "forgery": false,
             "specific_date": [
               {

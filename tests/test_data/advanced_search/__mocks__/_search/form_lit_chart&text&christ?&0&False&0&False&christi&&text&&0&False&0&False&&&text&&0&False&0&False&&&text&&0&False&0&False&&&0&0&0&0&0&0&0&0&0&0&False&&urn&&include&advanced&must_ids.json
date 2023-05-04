@@ -9,6 +9,60 @@
     "id": "urn:cts:formulae:andecavensis.form027.lat001"
   },
   {
+    "id": "urn:cts:formulae:flavigny.form1_002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:flavigny.form1_007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:flavigny.form1_009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:flavigny.form1_011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:flavigny.form1_012.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:flavigny.form2_006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:flavigny.form2_007d.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:flavigny.form2_007f.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:flavigny.form2_007g.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:formulae_marculfinae.form001.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:formulae_marculfinae.form002.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:formulae_marculfinae.form003.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:formulae_marculfinae.form004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:formulae_marculfinae.form005.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:formulae_marculfinae.form006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:formulae_marculfinae.form007.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:formulae_marculfinae.form010.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:formulae_marculfinae.form032.lat001"
+  },
+  {
     "id": "urn:cts:formulae:marculf.form1_001.lat001"
   },
   {
@@ -88,6 +142,9 @@
   },
   {
     "id": "urn:cts:formulae:tours.form2_003_b.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:tours_ueberarbeitung.form002.lat001"
   },
   {
     "id": "urn:cts:formulae:anjou_archives.marchegay_castrocelso_0001.lat001"
@@ -361,60 +418,6 @@
   },
   {
     "id": "urn:cts:formulae:eudes.lex0033.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form1_002.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form1_007.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form1_009.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form1_011.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form1_012.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form2_006.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form2_007d.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form2_007f.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:flavigny.form2_007g.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:formulae_marculfinae.form001.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:formulae_marculfinae.form002.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:formulae_marculfinae.form003.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:formulae_marculfinae.form004.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:formulae_marculfinae.form005.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:formulae_marculfinae.form006.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:formulae_marculfinae.form007.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:formulae_marculfinae.form010.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:formulae_marculfinae.form032.lat001"
   },
   {
     "id": "urn:cts:formulae:freising.bitterauf0002.lat001"
@@ -730,6 +733,9 @@
   },
   {
     "id": "urn:cts:formulae:hersfeld.weirich0113.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:karlmann_mgh.muehlbacher0052.lat001"
   },
   {
     "id": "urn:cts:formulae:katalonien.vinyals_arlesmonestirmaria_0002.lat001"
@@ -1737,6 +1743,102 @@
     "id": "urn:cts:formulae:mondsee.rath0134.lat001"
   },
   {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0004.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0006.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0009.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0011.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0016.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0019.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0020.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0021.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0023.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0027.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0030.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0034.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0036.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0038.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0043.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0044.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0054.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0061.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0065.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0071.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0074.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0075.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0078.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0083.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0090.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0121.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0124.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0133.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0136.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0139.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0141.lat001"
+  },
+  {
+    "id": "urn:cts:formulae:pancarte_noire.mabille0144.lat001"
+  },
+  {
     "id": "urn:cts:formulae:papsturkunden_frankreich.ramackers0007.lat001"
   },
   {
@@ -2292,25 +2394,10 @@
     "id": "urn:cts:formulae:telma_marmoutier.giraud1472.lat001"
   },
   {
-    "id": "urn:cts:formulae:telma_marmoutier.giraud2194.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:telma_marmoutier.giraud2250.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:telma_marmoutier.giraud2422.lat001"
-  },
-  {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2799.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_marmoutier.giraud2806.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:telma_marmoutier.giraud2823.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:telma_marmoutier.giraud3565.lat001"
   },
   {
     "id": "urn:cts:formulae:telma_martin_tours.giraud1420.lat001"
@@ -2320,9 +2407,6 @@
   },
   {
     "id": "urn:cts:formulae:tours_st_julien_denis.denis0086.lat001"
-  },
-  {
-    "id": "urn:cts:formulae:tours_ueberarbeitung.form002.lat001"
   },
   {
     "id": "urn:cts:formulae:weissenburg.gloeckner0001.lat001"

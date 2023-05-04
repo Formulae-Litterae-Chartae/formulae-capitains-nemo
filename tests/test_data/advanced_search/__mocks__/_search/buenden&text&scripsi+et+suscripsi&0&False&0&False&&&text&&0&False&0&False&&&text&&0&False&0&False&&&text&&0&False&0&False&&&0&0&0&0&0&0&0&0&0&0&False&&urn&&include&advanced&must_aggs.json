@@ -73,7 +73,7 @@
             "doc_count": 0
           },
           "<b>Graubünden</b>: Bünden": {
-            "doc_count": 24
+            "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Arnulfinger": {
             "doc_count": 0
@@ -82,6 +82,9 @@
             "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
+            "doc_count": 0
+          },
+          "<b>Herrscherurkunden</b>: Karlmann": {
             "doc_count": 0
           },
           "<b>Herrscherurkunden</b>: Lothar II.": {
@@ -190,6 +193,9 @@
             "doc_count": 0
           },
           "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+            "doc_count": 0
+          },
+          "<b>Touraine</b>: Pancarte Noire": {
             "doc_count": 0
           },
           "<b>Touraine</b>: Saint-Julien de Tours": {
@@ -350,7 +356,7 @@
           "doc_count": 0
         },
         "<b>Graubünden</b>: Bünden": {
-          "doc_count": 4
+          "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Arnulfinger": {
           "doc_count": 0
@@ -359,6 +365,9 @@
           "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1": {
+          "doc_count": 0
+        },
+        "<b>Herrscherurkunden</b>: Karlmann": {
           "doc_count": 0
         },
         "<b>Herrscherurkunden</b>: Lothar II.": {
@@ -467,6 +476,9 @@
           "doc_count": 0
         },
         "<b>Touraine</b>: Marmoutier Cartulaire blésois": {
+          "doc_count": 0
+        },
+        "<b>Touraine</b>: Pancarte Noire": {
           "doc_count": 0
         },
         "<b>Touraine</b>: Saint-Julien de Tours": {
