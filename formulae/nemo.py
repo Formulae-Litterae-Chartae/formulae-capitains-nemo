@@ -134,6 +134,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:lorsch',
                         'urn:cts:formulae:lothar_2',
                         'urn:cts:formulae:ludwig_2',
+                        'urn:cts:formulae:ludwig_der_juengere',
                         'urn:cts:formulae:luzern',
                         'urn:cts:formulae:m4',
                         'urn:cts:formulae:marculf',
