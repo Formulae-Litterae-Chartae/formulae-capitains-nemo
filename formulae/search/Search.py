@@ -52,6 +52,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Herrscherurkunden</b>: Karlmann': {'match': {'collection': 'karlmann_mgh'}},
                                       '<b>Herrscherurkunden</b>: Lothar II.': {'match': {'collection': 'lothar_2'}},
                                       '<b>Herrscherurkunden</b>: Ludwig II.': {'match': {'collection': 'ludwig_2'}},
+                                      '<b>Herrscherurkunden</b>: Ludwig der Jüngere': {'match': {'collection': 'ludwig_der_juengere'}},
                                       '<b>Herrscherurkunden</b>: Merowinger': {'match': {'collection': 'merowinger1'}},
                                       '<b>Herrscherurkunden</b>: Pippin III': {'match': {'collection': 'pippin_3'}},
                                       '<b>Lorsch</b>: Lorsch': {'match': {'collection': 'lorsch'}},
