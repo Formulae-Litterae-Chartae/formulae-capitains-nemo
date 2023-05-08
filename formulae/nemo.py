@@ -246,7 +246,7 @@ class NemoFormulae(Nemo):
                        {'video': 'videos/lemma_search_'},
                    (5, _l('Die Regestensuche')):
                        {'video': 'videos/regest_search_'},
-                   (5, _l('Suchen mit Platzhalter')):
+                   (6, _l('Suchen mit Platzhalter')):
                        {'video': 'videos/wildcard_search_'},
                    },
               (2, _l('Zur Leseansicht')):
