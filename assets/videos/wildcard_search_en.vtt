@@ -1,0 +1,61 @@
+WEBVTT
+
+00:00.000 --> 00:03.300
+It is possible to use either the asterisk
+
+00:03.400 --> 00:07.400
+or the question mark character in the search query
+
+00:07.600 --> 00:10.800
+as a wildcard within a search term.
+
+00:11.000 --> 00:14.000
+The question mark represents a single letter
+
+00:14.000 --> 00:17.800
+whereas the asterisk represents one or more letters.
+
+00:18.000 --> 00:21.800
+Neither one can replace a blank space,
+
+00:22.000 --> 00:26.500
+which means that they only function within a single word.
+
+00:26.800 --> 00:30.000
+So, if I wanted to search for every word
+
+00:30.000 --> 00:34.000
+that begins with the letters "r-e-g-n",
+
+00:34.200 --> 00:40.000
+I should input "regn*".
+
+00:40.500 --> 00:44.000
+This will return hits on words such as
+
+00:44.000 --> 00:50.200
+"regnum", "regnante" or "regno".
+
+00:50.400 --> 00:57.500
+If we change this query to "regn?",
+
+00:57.700 --> 01:02.500
+it will return all words that start with "r-e-g-n"
+
+01:02.700 --> 01:04.300
+followed by a single letter,
+
+01:04.400 --> 01:08.500
+for instance, "regno" or "regni",
+
+01:08.600 --> 01:10.800
+but not "regnum"
+
+01:10.800 --> 01:16.000
+since there are two letters after "r-e-g-n" in "regnum".
+
+01:16.200 --> 01:20.000
+The wildcard search works both in the advanced
+
+01:20.000 --> 01:23.000
+and the simple search.

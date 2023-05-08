@@ -242,6 +242,12 @@ class NemoFormulae(Nemo):
                        {'video': 'videos/suchergebnisse_herunterladen_'},
                    (3, _l('Suchergebnisse im Benutzerkonto speichern')):
                        {'video': 'videos/suchergebnisse_speichern_'},
+                   (4, _l('Nach Lemmata suchen')):
+                       {'video': 'videos/lemma_search_'},
+                   (5, _l('Die Regestensuche')):
+                       {'video': 'videos/regest_search_'},
+                   (6, _l('Suchen mit Platzhalter')):
+                       {'video': 'videos/wildcard_search_'},
                    },
               (2, _l('Zur Leseansicht')):
                   {(1, _l('Über die Leseansicht')):
@@ -256,6 +262,16 @@ class NemoFormulae(Nemo):
                        {'video': 'videos/add_third_text_'},
                    (6, _l('Die Leseansicht ändern')):
                        {'video': 'videos/adjust_reading_view_'},
+                   (7, _l('Texte zitieren und herunterladen')):
+                       {'video': 'videos/cite_download_'},
+                   },
+              (3, _l('Benutzerkonto erstellen und verwalten')):
+                  {(1, _l('Benutzerkonto erstellen')):
+                       {'video': 'videos/user_account_setup_'},
+                   (2, _l('Benutzerkonto verwalten')):
+                       {'video': 'videos/user_account_edit_profile_'},
+                   (3, _l('Werkstattseiten im Benutzerkonto speichern')):
+                       {'video': 'videos/suchergebnisse_speichern_'}
                    }
               }
 
