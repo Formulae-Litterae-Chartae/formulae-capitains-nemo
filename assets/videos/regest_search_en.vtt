@@ -1,0 +1,71 @@
+WEBVTT
+
+00:00.000 --> 00:02.000
+Sometimes it can be useful to search
+
+00:02.200 --> 00:05.000
+the short summaries of the formulae and the charters,
+
+00:05.000 --> 00:06.500
+the regesta,
+
+00:06.500 --> 00:10.000
+instead of the text of the documents themselves.
+
+00:10.500 --> 00:12.500
+The simple search does this automatically,
+
+00:12.700 --> 00:15.000
+searching for the query in both the texts
+
+00:15.000 --> 00:17.000
+and the regesta.
+
+00:17.000 --> 00:22.000
+So, for instance, searching for the word "Schenkung"
+
+00:23.000 --> 00:26.000
+will return every document
+
+00:26.000 --> 00:27.200
+where the word "Schenkung" appears
+
+00:27.200 --> 00:31.500
+in the text or the regest of the document.
+
+00:32.200 --> 00:34.000
+Since "Schenkung" is not a latin word,
+
+00:34.200 --> 00:38.000
+the results all come from the regesta.
+
+00:38.200 --> 00:40.000
+If, on the other hand,
+
+00:40.000 --> 00:41.000
+you want to search the regesta
+
+00:41.200 --> 00:44.400
+using the advanced search,
+
+00:44.500 --> 00:47.400
+you should select the "Regest" option
+
+00:47.500 --> 00:50.000
+from under the text input field
+
+00:50.200 --> 00:54.000
+and then type in your query,
+
+00:54.200 --> 00:57.000
+for instance "Schenkung",
+
+00:57.500 --> 00:59.000
+and we see that the results
+
+00:59.200 --> 01:03.000
+are the same as with the simple search.
+
+
+
+

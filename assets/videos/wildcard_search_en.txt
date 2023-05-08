@@ -1,0 +1,5 @@
+It is possible to use either the asterisk or the question mark character in the search query as a wildcard within a search term. The question mark represents a single letter whereas the asterisk represents one or more letters. Neither one can replace a blank space, which means that they only function within a single word.
+So, if I wanted to search for every word that begins with the letters "r-e-g-n", I should input "regn*".
+This will return hits on words such as "regnum", "regnante" or "regno".
+If we change this query to "regn?", it will return all words that start with "r-e-g-n" followed by a single letter, for instance, "regno" or "regni", but not "regnum" since there are two letters after "r-e-g-n" in "regnum".
+The wildcard search works both in the advanced and the simple search.

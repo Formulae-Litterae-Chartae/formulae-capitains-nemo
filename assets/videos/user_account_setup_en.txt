@@ -1,0 +1,7 @@
+You can create your own user account in the Werkstatt that will allow you to save search results or text views to use again later or to set the default language for the user interface. Both of these functions are covered in their own videos.
+To set up your user account click on the "Sign In" link in the navbar.
+Then, click on the "Click to Register" link at the bottom of this page next to "New User?"
+On the user registration page first input your username and your email then a password and then repeat this password then choose your default language and click on "Register".
+Note that the username and the email address must be unique.
+If another user is using one of these, then you will get a message asking you to use a different user name or a different email address.
+Once you have registered your account you should be able to click on the "Sign In" link in the navbar, and here input your username and your new password then click on "Sign In" to access your account. Be sure to watch our other videos about how to manage and use your new account.
