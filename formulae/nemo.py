@@ -924,9 +924,12 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae|langobarden', objectId)
         direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
-        current_parents = self.make_parents(collection, lang=lang)
         if self.check_project_team() is False:
-            data['collections']['members'] = [x for x in data['collections']['members'] if x['id'] in self.OPEN_COLLECTIONS]
+            if from_four_level_collection:
+                data['collections']['members'] = [x for x in data['collections']['members']]
+            else:
+                data['collections']['members'] = [x for x in data['collections']['members'] if
+                                                  x['id'] in self.OPEN_COLLECTIONS]
             if set(self.restricted_four_level_collections).intersection([p['id'] for p in data['collections']['parents']] + [objectId]):
                 data['collections']['members'] = []
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
