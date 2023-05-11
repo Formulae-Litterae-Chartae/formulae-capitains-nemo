@@ -13,6 +13,6 @@
         {% if object.collections.current.dating %}<br><span class="regest_collapse_heading">{{ _('Datierung: ') }}</span>{{ object.collections.current.dating|safe }}{% endif %}
         {% if object.collections.current.issued_at %}<br><span class="regest_collapse_heading">{{ _('Ausstellungsort:') }}</span> {{ object.collections.current.issued_at }}{% endif %}
         {% if object.collections.current.ms_source %}<br><span class="regest_collapse_heading">{% if 'pancarte_noire' in object.objectId %}EDITION:{% else %}{{ _('HS Signatur:')
-            }}{% endif %}</span> {{ object.collections.current.ms_source|safe }}{% endif %}</p>
+            }}{% endif %}</span> {{ object.collections.current.ms_source[-1]|safe }}{% endif %}</p>
         </div>
     </div>
