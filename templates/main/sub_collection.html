@@ -41,6 +41,8 @@
     <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
     {% elif collections.current.id == 'urn:cts:formulae:flavigny' %}
     {% include "main::flavigny_info.html" %}
+    {% elif collections.current.id == 'urn:cts:formulae:bourges' %}
+    {% include "main::bourges_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:tours_ueberarbeitung' %}
     {% include "main::tours_ueberarbeitung_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:formulae_marculfinae' %}

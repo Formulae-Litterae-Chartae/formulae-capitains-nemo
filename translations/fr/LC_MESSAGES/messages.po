@@ -48,28 +48,24 @@ msgid "Italienisch"
 msgstr ""
 
 #: formulae/nemo.py:238
-#, fuzzy
 msgid "Zur einfachen und erweiterten Suche"
-msgstr "Documentation détaillée de al recherche avancée"
+msgstr ""
 
 #: formulae/nemo.py:239
 msgid "Die einfache Suche (allgemein)"
 msgstr ""
 
 #: formulae/nemo.py:241
-#, fuzzy
 msgid "Aktuelle Suchergebnisse herunterladen"
-msgstr "Aucun résultat trouvé pour"
+msgstr ""
 
 #: formulae/nemo.py:243
-#, fuzzy
 msgid "Suchergebnisse im Benutzerkonto speichern"
-msgstr "Résultats de la recherche"
+msgstr ""
 
 #: formulae/nemo.py:245
-#, fuzzy
 msgid "Nach Lemmata suchen"
-msgstr "chercher des jours spécifiques"
+msgstr ""
 
 #: formulae/nemo.py:247
 msgid "Die Regestensuche"
@@ -104,14 +100,12 @@ msgid "Einen dritten Text anzeigen"
 msgstr ""
 
 #: formulae/nemo.py:263
-#, fuzzy
 msgid "Die Leseansicht ändern"
-msgstr "Modifier la recherche"
+msgstr ""
 
 #: formulae/nemo.py:265
-#, fuzzy
 msgid "Texte zitieren und herunterladen"
-msgstr "Aucun résultat trouvé pour"
+msgstr ""
 
 #: formulae/nemo.py:268
 msgid "Benutzerkonto erstellen und verwalten"
@@ -126,9 +120,8 @@ msgid "Benutzerkonto verwalten"
 msgstr ""
 
 #: formulae/nemo.py:273
-#, fuzzy
 msgid "Werkstattseiten im Benutzerkonto speichern"
-msgstr "Résultats de la recherche"
+msgstr ""
 
 #: formulae/nemo.py:554 formulae/nemo.py:610 formulae/nemo.py:1036
 msgid "(Titel)"
@@ -548,16 +541,14 @@ msgstr "Étendue de la recherche"
 
 #: formulae/search/forms.py:68 formulae/search/forms.py:85
 #: formulae/search/forms.py:102 formulae/search/forms.py:119
-#, fuzzy
 msgid "Wortreihenfolge?"
-msgstr "Ordre des mots"
+msgstr ""
 
 #: formulae/search/forms.py:69 formulae/search/forms.py:86
 #: formulae/search/forms.py:103 formulae/search/forms.py:120
 #: formulae/search/routes.py:399
-#, fuzzy
 msgid "Suchfeld"
-msgstr "Recherche"
+msgstr ""
 
 #: formulae/search/forms.py:69 formulae/search/forms.py:86
 #: formulae/search/forms.py:103 formulae/search/forms.py:120
@@ -568,9 +559,8 @@ msgstr ""
 
 #: formulae/search/forms.py:70 formulae/search/forms.py:87
 #: formulae/search/forms.py:104 formulae/search/forms.py:121
-#, fuzzy
 msgid "Lemmata"
-msgstr "Lemmes"
+msgstr ""
 
 #: formulae/search/forms.py:71 formulae/search/forms.py:88
 #: formulae/search/forms.py:105 formulae/search/forms.py:122
@@ -777,9 +767,8 @@ msgid "Boolesche Operator"
 msgstr ""
 
 #: formulae/search/forms.py:192
-#, fuzzy
 msgid "UND"
-msgstr "Jun"
+msgstr ""
 
 #: formulae/search/forms.py:192
 msgid "ODER"
@@ -888,9 +877,8 @@ msgid "Ja"
 msgstr ""
 
 #: formulae/search/routes.py:409
-#, fuzzy
 msgid "Suchterminus "
-msgstr "Étendue de la recherche"
+msgstr ""
 
 #: formulae/search/routes.py:436
 msgid "Aus dem Regest"
@@ -1156,9 +1144,8 @@ msgstr ""
 
 #: templates/main/flavigny_info.html:6 templates/main/marculfinae_info.html:6
 #: templates/main/tours_ueberarbeitung_info.html:5
-#, fuzzy
 msgid "Zur Sammlung"
-msgstr "Collections de textes"
+msgstr ""
 
 #: templates/main/flavigny_info.html:24
 msgid "Zur Kondordanz"
@@ -1189,9 +1176,8 @@ msgid "Zu den Formulae-Editionen"
 msgstr ""
 
 #: templates/main/index.html:18
-#, fuzzy
 msgid "Zum E-Lexikon"
-msgstr "Lexique"
+msgstr ""
 
 #: templates/main/index.html:23
 msgid "Zu den Urkunden + Briefen"
@@ -1242,22 +1228,16 @@ msgid ""
 msgstr ""
 
 #: templates/main/index.html:29
-#, fuzzy
 msgid ""
 "Das Ziel der Formulae - Litterae - Chartae Werkstatt ist es, die "
 "Erforschung dieser wichtigen kulturellen, sozialen, rechtlichen und "
 "linguistischen Quellen zu fördern und zu vereinfachen. Sollten Sie "
 "Verbesserungsvorschläge haben, zögern Sie nicht, uns zu "
 msgstr ""
-"Le but du projet Formulae - Litterae - Chartae est de favoriser et de "
-"simplifier l'étudede ces importantes sources culturelles, sociales, "
-"juridiques et linguistiques. Si vous avez des propositionsqui pourraient "
-"nous aider à nous améliorer, n'hésitez pas à nous contacter."
 
 #: templates/main/index.html:29
-#, fuzzy
 msgid "kontaktieren"
-msgstr "Contact"
+msgstr ""
 
 #: templates/main/index.html:29
 msgid ""
@@ -1291,9 +1271,8 @@ msgid "Sollten Sie Fragen haben, "
 msgstr ""
 
 #: templates/main/index.html:30
-#, fuzzy
 msgid "kontaktieren "
-msgstr "Contact"
+msgstr ""
 
 #: templates/main/index.html:30
 msgid "Sie uns bitte."
@@ -1360,9 +1339,8 @@ msgid "Nächste Formel"
 msgstr ""
 
 #: templates/main/multipassage.html:23
-#, fuzzy
 msgid "Vorherige Formeln"
-msgstr "Page précédente"
+msgstr ""
 
 #: templates/main/multipassage.html:24
 msgid "Folgende Formeln"
@@ -1377,9 +1355,8 @@ msgid "Nächster Eintrag"
 msgstr ""
 
 #: templates/main/multipassage.html:28
-#, fuzzy
 msgid "Vorherige Einträge"
-msgstr "Page précédente"
+msgstr ""
 
 #: templates/main/multipassage.html:29
 msgid "Folgende Einträge"
@@ -1394,9 +1371,8 @@ msgid "Nächste Urkunde"
 msgstr ""
 
 #: templates/main/multipassage.html:33
-#, fuzzy
 msgid "Vorherige Urkunden"
-msgstr "Page précédente"
+msgstr ""
 
 #: templates/main/multipassage.html:34
 msgid "Folgende Urkunden"
@@ -1601,14 +1577,12 @@ msgid "Über das Projekt"
 msgstr "A propos"
 
 #: templates/main/navbar.html:24
-#, fuzzy
 msgid "Suchergebnisse speichern"
-msgstr "Résultats de la recherche"
+msgstr ""
 
 #: templates/main/navbar.html:29
-#, fuzzy
 msgid "Ausloggen"
-msgstr "Déconnexion"
+msgstr ""
 
 #: templates/main/navbar.html:35
 msgid "Manuskripte"
@@ -1842,9 +1816,8 @@ msgid "Folgende Spalten anzeigen"
 msgstr ""
 
 #: templates/main/sub_collection_mv.html:43
-#, fuzzy
 msgid "Zeige"
-msgstr "Afficher plus"
+msgstr ""
 
 #: templates/main/sub_collections.html:30
 msgid "Empfänger"
@@ -1970,9 +1943,8 @@ msgstr ""
 #: templates/search/advanced_search.html:130
 #: templates/search/advanced_search.html:211
 #: templates/search/advanced_search.html:287
-#, fuzzy
 msgid "Diese Suchmaske ausblenden"
-msgstr "Modifier la recherche"
+msgstr ""
 
 #: templates/search/advanced_search.html:379
 #: templates/search/documentation.html:26
@@ -2067,7 +2039,6 @@ msgid "Wortreihenfolge"
 msgstr "Ordre des mots"
 
 #: templates/search/help_messages.html:3
-#, fuzzy
 msgid ""
 "Die Liste enthält alle durchsuchbaren Korpora des Projektes. Einige "
 "Korpora sind jedoch urheberrechtlich geschützt und können nicht im "
@@ -2075,12 +2046,6 @@ msgid ""
 "Treffer im urheberrechtlich geschützten Material werden angezeigt. Sie "
 "können diese Stellen in der angegebenen Printedition nachschlagen."
 msgstr ""
-"La liste contient tous les corpus consultables du projet:Certains corpus "
-"sont protégés par le droit d'auteur et ne peuvent doncpas être "
-"intégralement affichés. Tous les corpus sont consultables et "
-"lesoccurrences dans les documents protégés par le droit d'auteur sont "
-"égalementaffichés. Vous pouvez référer les emplacements dans l'édition "
-"d'impression indiquée."
 
 #: templates/search/help_messages.html:4
 msgid ""
@@ -2114,7 +2079,6 @@ msgid ""
 msgstr ""
 
 #: templates/search/help_messages.html:12
-#, fuzzy
 msgid ""
 "Die Vorschläge, die in der Wortsuche gezeigt werden, werden von alle "
 "anderen Parametern in der Suchmaske bestimmt. Wird etwa "
@@ -2125,14 +2089,6 @@ msgid ""
 "Einfluss auf die angezeigten Vorschlägen hat, ist 'Wortreihenfolge'. Nur "
 "Vorschläge, welche die selbe Wortreihenfolge haben, werden angezeigt."
 msgstr ""
-"Les propositions affichées pour la recherche d'un mot sont établies par "
-"d'autres paramètres dans le masque de recherche. Si par exemple, "
-"'Andecavensis' est sélectionné comme corpus à rechercherm seules les "
-"propositions des formules d'Angers seront affichées. Les restrictions de "
-"recherches évoquéesci-dessus s'appliquent également ici. La recherche de "
-"lemme ne propose aucune charte. Le seul paramètre qui n'influence pas les"
-" propositions est l'ordre des mots Seules les propositions avec un ordre "
-"de mots identique seront affichées."
 
 #: templates/search/help_messages.html:13
 msgid ""
@@ -2478,9 +2434,8 @@ msgid " in"
 msgstr ""
 
 #: templates/search/search.html:56
-#, fuzzy
 msgid "Keine Ergebnisse gefunden."
-msgstr "Aucun résultat trouvé pour"
+msgstr ""
 
 #: templates/search/search.html:111
 msgid "Sie haben nach flektierten Formen gesucht."
@@ -2499,14 +2454,12 @@ msgid "' oder '"
 msgstr ""
 
 #: templates/search/search.html:138
-#, fuzzy
 msgid " und "
-msgstr "Jun"
+msgstr ""
 
 #: templates/search/search.html:138
-#, fuzzy
 msgid " suchen?"
-msgstr "Recherche"
+msgstr ""
 
 #: templates/search/search.html:148
 msgid "Mindestens ein Lemma auswählen."
