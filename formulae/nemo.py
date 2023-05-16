@@ -583,6 +583,8 @@ class NemoFormulae(Nemo):
                     elif 'urn:cts:formulae:flavigny' in form_num:
                         if 'capitula' in form_num:
                             par = '0' + par
+                    elif 'formulae:bourges.' in form_num:
+                        par = re.sub(r'.*form_(\w_.*)', r'\1', form_num)
                     if par.endswith('000'):
                         par = par.replace('000', _('(Prolog)'))
                     par = par.replace('capitula', '0')
@@ -590,6 +592,10 @@ class NemoFormulae(Nemo):
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         elif re.search(r'anjou_archives|katalonien|marmoutier_manceau', m.id):
             par = list(m.parent)[0].split('_')[-1]
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
+        elif 'formulae:bourges.' in m.id:
+            par = re.sub(r'.*form_(\w_.*)', r'\1', list(m.parent)[0])
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
@@ -1127,7 +1133,6 @@ class NemoFormulae(Nemo):
             if v:
                 all_parent_colls.append([(x['id'], str(x['short_title'])) for x in v])
         all_parent_colls.append([(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
-
 
         return_value = {
             "template": template,
