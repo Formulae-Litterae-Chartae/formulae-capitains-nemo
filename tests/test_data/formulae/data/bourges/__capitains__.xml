@@ -6,18 +6,14 @@
             xmlns="http://purl.org/capitains/ns/1.0#"
             xmlns:owl="http://www.w3.org/2002/07/owl#"
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
-   <identifier>urn:cts:formulae:le1</identifier>
-   <dc:title xml:lang="deu">Leiden BPL 114</dc:title>
+   <identifier>urn:cts:formulae:bourges</identifier>
+   <dc:title xml:lang="deu">Formeln aus &lt;span class="collection-origin"&gt;Bourges&lt;/span&gt; (Betaversion)</dc:title>
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
-      <bib:AbbreviatedTitle>Le&lt;span class="manuscript-number"&gt;1&lt;/span&gt;</bib:AbbreviatedTitle>
+      <bib:AbbreviatedTitle>Bourges</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
-      <collection path="./109v110v/__capitains__.xml"
-         identifier="urn:cts:formulae:le1.109v110v"/>
-      <collection path="./155v156r2/__capitains__.xml"
-         identifier="urn:cts:formulae:le1.155v156r2"/>
-      <collection path="./166v/__capitains__.xml"
-         identifier="urn:cts:formulae:le1.i66v"/>
+      <collection path="./form_c_018/__capitains__.xml"
+                  identifier="urn:cts:formulae:bourges.form_c_018"/>
    </members>
 </collection>

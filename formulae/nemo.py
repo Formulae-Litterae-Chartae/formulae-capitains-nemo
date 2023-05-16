@@ -106,7 +106,9 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:anjou_archives',
                         'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:auvergne',
+                        'urn:cts:formulae:be4',
                         'urn:cts:formulae:bonneval_marmoutier',
+                        'urn:cts:formulae:bourges',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:cartier_1841',
                         'urn:cts:formulae:chartae_latinae_xi',
@@ -150,12 +152,15 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:p3',
+                        'urn:cts:formulae:p6',
                         'urn:cts:formulae:p8',
                         'urn:cts:formulae:p10',
                         'urn:cts:formulae:p12',
+                        'urn:cts:formulae:p13',
                         'urn:cts:formulae:p14',
                         'urn:cts:formulae:p16a',
                         'urn:cts:formulae:p16b',
+                        'urn:cts:formulae:p16c',
                         # 'urn:cts:formulae:pancarte_noire',
                         'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
@@ -583,6 +588,8 @@ class NemoFormulae(Nemo):
                     elif 'urn:cts:formulae:flavigny' in form_num:
                         if 'capitula' in form_num:
                             par = '0' + par
+                    elif 'formulae:bourges.' in form_num:
+                        par = re.sub(r'.*form_(\w_.*)', r'\1', form_num)
                     if par.endswith('000'):
                         par = par.replace('000', _('(Prolog)'))
                     par = par.replace('capitula', '0')
@@ -590,6 +597,10 @@ class NemoFormulae(Nemo):
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         elif re.search(r'anjou_archives|katalonien|marmoutier_manceau', m.id):
             par = list(m.parent)[0].split('_')[-1]
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
+        elif 'formulae:bourges.' in m.id:
+            par = re.sub(r'.*form_(\w_.*)', r'\1', list(m.parent)[0])
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
@@ -1127,7 +1138,6 @@ class NemoFormulae(Nemo):
             if v:
                 all_parent_colls.append([(x['id'], str(x['short_title'])) for x in v])
         all_parent_colls.append([(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
-
 
         return_value = {
             "template": template,
