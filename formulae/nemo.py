@@ -161,7 +161,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:p16a',
                         'urn:cts:formulae:p16b',
                         'urn:cts:formulae:p16c',
-                        # 'urn:cts:formulae:pancarte_noire',
+                        'urn:cts:formulae:pancarte_noire',
                         'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
                         'urn:cts:formulae:pippin_3',
