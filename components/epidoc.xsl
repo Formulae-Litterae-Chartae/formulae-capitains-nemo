@@ -349,7 +349,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:element name="sup">
-                    <xsl:if test="@xml:id"><xsl:attribute name="data-noteStart"><xsl:value-of select="@xml:id"/></xsl:attribute></xsl:if>
+                    <xsl:if test="@type='a1'"><xsl:attribute name="data-noteStart"><xsl:value-of select="@xml:id"/></xsl:attribute></xsl:if>
                     <xsl:element name="a">
                         <xsl:attribute name="class">note</xsl:attribute>
                         <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
