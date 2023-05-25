@@ -1,0 +1,163 @@
+{
+	"@context": "http://iiif.io/api/presentation/2/context.json",
+	"@id": "https://www.e-codices.unifr.ch/metadata/iiif/bbb-0611/manifest.json",
+	"@type": "sc:Manifest",
+	"label": "Bern, Burgerbibliothek, Cod. 611",
+	"metadata": [
+		{
+			"label": "Location",
+			"value": "Bern"
+		},
+		{
+			"label": "Collection Name",
+			"value": "Burgerbibliothek"
+		},
+		{
+			"label": "Shelfmark",
+			"value": "Cod. 611"
+		},
+		{
+			"label": "Document Type",
+			"value": "Manuscript"
+		},
+		{
+			"label": "DOI",
+			"value": "10.5076/e-codices-bbb-0611"
+		},
+		{
+			"label": "Title (English)",
+			"value": "Composite manuscript: Merovingian excerpts from grammatical, patristic, computistic and medical works"
+		},
+		{
+			"label": "Material",
+			"value": "Parchment"
+		},
+		{
+			"label": "Place of Origin (English)",
+			"value": "France: evidently Eastern France"
+		},
+		{
+			"label": "Date of Origin (English)",
+			"value": "8th century (Palimpsests 5th and 7th century)"
+		},
+		{
+			"label": "Number of Pages",
+			"value": "153"
+		},
+		{
+			"label": "Dimensions",
+			"value": "18-19 x 14-14.5 cm"
+		},
+		{
+			"label": "Online Since",
+			"value": "2016-03-17"
+		},
+		{
+			"label": "Summary (English)",
+			"value": "This Merovingian composite manuscript, which was probably created in (Eastern) France, originally consisted of six independent parts, which were written by different, often not very practiced hands in various phases. Most of the close to thirty individual pieces are texts from grammatical, patristic, computistic and medical works. The longer pieces are interspersed with further excerpts, partly written in Tironian notes. One quaternio from the only partially preserved third part is today held in Paris (BN lat. 10756). Noteworthy is the palimpsest in the fifth part, whose undertexts were probably written in Italy in the 7th century and in the second half of the 5th century respectively."
+		},
+		{
+			"label": "Persons",
+			"value": "Author: Alcuinus, Flaccus; Author: Asper; Former possessor: Bongars, Jacques; Former possessor: Daniel, Pierre; Author: Dionysius, Exiguus; Author: Galenus; Author: Gargilius Martialis, Quintus; Former possessor: Gravisset, Jakob von; Author: Gregorius I, Papa; Author: Hieronymus, Sophronius Eusebius; Author: Isidorus, Hispalensis; Restorer: Lindt, Johann; Author: Methodius, Olympius; Author: Oribasius; Author: Palladius, Rutilius Taurus Aemilianus; Former possessor: Pithou, Pierre; Author: Pomerius, Iulianus; Author: Taio, Caesaraugustanus"
+		},
+		{
+			"label": "Century",
+			"value": "8th century"
+		},
+		{
+			"label": "Century",
+			"value": "5th century"
+		},
+		{
+			"label": "Century",
+			"value": "7th century"
+		},
+		{
+			"label": "Text Language",
+			"value": "Latin"
+		},
+		{
+			"label": "Tags",
+			"value": "Codicology: Palimpsest"
+		}
+	],
+	"description": [
+		{
+			"@value": "This Merovingian composite manuscript, which was probably created in (Eastern) France, originally consisted of six independent parts, which were written by different, often not very practiced hands in various phases. Most of the close to thirty individual pieces are texts from grammatical, patristic, computistic and medical works. The longer pieces are interspersed with further excerpts, partly written in Tironian notes. One quaternio from the only partially preserved third part is today held in Paris (BN lat. 10756). Noteworthy is the palimpsest in the fifth part, whose undertexts were probably written in Italy in the 7th century and in the second half of the 5th century respectively.",
+			"@language": "en"
+		}
+	],
+	"license": "http://creativecommons.org/licenses/by-nc/4.0/",
+	"attribution": "e-codices - Virtual Manuscript Library of Switzerland",
+	"logo": "https://www.e-codices.ch/img/logo-for-iiif-manifest.png",
+	"service": [
+		{
+			"@context": "https://www.w3.org/ns/webmention",
+			"@id": "https://www.e-codices.unifr.ch/webmention/receive",
+			"profile": "https://www.w3.org/ns/webmention",
+			"label": "e-codices Webmention Service"
+		}
+	],
+	"related": "https://www.e-codices.ch/en/list/one/bbb/0611",
+	"within": "https://www.e-codices.ch/en/list/bbb",
+	"seeAlso": [
+		{
+			"@id": "https://www.e-codices.unifr.ch/xml/tei_published/bbb-0611_Mittenhuber.xml",
+			"@format": "application/tei+xml"
+		}
+	],
+	"sequences": [
+		{
+			"@id": "https://www.e-codices.unifr.ch/metadata/iiif/bbb-0611/sequence/Sequence-1570.json",
+			"@type": "sc:Sequence",
+			"label": [
+				{
+					"@value": "Standardabfolge",
+					"@language": "de"
+				},
+				{
+					"@value": "Normal Sequence",
+					"@language": "en"
+				},
+				{
+					"@value": "Séquence normale",
+					"@language": "fr"
+				},
+				{
+					"@value": "Sequenza normale",
+					"@language": "it"
+				}
+			],
+			"canvases": [
+				{
+					"@id": "https://www.e-codices.unifr.ch/metadata/iiif/bbb-0611/canvas/bbb-0611_086v.json",
+					"@type": "sc:Canvas",
+					"label": "86v",
+					"height": 8176,
+					"width": 6132,
+					"images": [
+						{
+							"@id": "https://www.e-codices.unifr.ch/metadata/iiif/bbb-0611/annotation/bbb-0611_086v.json",
+							"@type": "oa:Annotation",
+							"motivation": "sc:painting",
+							"on": "https://www.e-codices.unifr.ch/metadata/iiif/bbb-0611/canvas/bbb-0611_086v.json",
+							"resource": {
+								"@id": "https://www.e-codices.unifr.ch/loris/bbb/bbb-0611/bbb-0611_086v.jp2/full/full/0/default/jpg",
+								"@type": "dctypes:Image",
+								"format": "image/jpeg",
+								"height": 8176,
+								"width": 6132,
+								"service": {
+									"@context": "http://iiif.io/api/image/2/context.json",
+									"@id": "https://www.e-codices.unifr.ch/loris/bbb/bbb-0611/bbb-0611_086v.jp2",
+									"profile": "http://iiif.io/api/image/2/level2.json"
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"structures": []
+}

@@ -1723,6 +1723,9 @@ class NemoFormulae(Nemo):
                         # This links to the manuscript as a whole.
                         # I am not sure how to link to specific pages in their IIIF viewer.
                         d['lib_link'] = 'https://i3f.vls.io/?collection=i3fblbk&id=' + this_manifest['@id']
+                    elif 'www.e-codices.unifr.ch' in this_manifest['@id']:
+                        # This works for resources from the E-Codices
+                        d['lib_link'] = this_manifest['related'].replace('/list/one', '') + '/' + this_manifest['sequences'][0]['canvases'][0]['label']
                     folios = re.sub(r'(\d+)([rvab]{1,2})', r'\1<span class="verso-recto">\2</span>',
                                     this_manifest['sequences'][0]['canvases'][0]['label'])
                     if len(this_manifest['sequences'][0]['canvases']) > 1:
