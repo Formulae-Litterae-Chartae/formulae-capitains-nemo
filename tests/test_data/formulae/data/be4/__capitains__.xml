@@ -6,16 +6,13 @@
             xmlns="http://purl.org/capitains/ns/1.0#"
             xmlns:owl="http://www.w3.org/2002/07/owl#"
             xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
-   <identifier>urn:cts:formulae:bourges</identifier>
-   <dc:title xml:lang="deu">Formeln aus &lt;span class="collection-origin"&gt;Bourges&lt;/span&gt; (Betaversion)</dc:title>
+   <identifier>urn:cts:formulae:be4</identifier>
+   <dc:title xml:lang="deu">Bern Burgerbibliothek 611</dc:title>
    <dc:type>cts:textgroup</dc:type>
    <structured-metadata>
-      <bib:AbbreviatedTitle>Bourges</bib:AbbreviatedTitle>
+      <bib:AbbreviatedTitle>Be&lt;span class="manuscript-number"&gt;4&lt;/span&gt;</bib:AbbreviatedTitle>
    </structured-metadata>
    <members>
-      <collection path="./form_a_007/__capitains__.xml"
-         identifier="urn:cts:formulae:bourges.form_a_007"/>
-      <collection path="./form_c_018/__capitains__.xml"
-                  identifier="urn:cts:formulae:bourges.form_c_018"/>
+      <collection path="./86v/__capitains__.xml" identifier="urn:cts:formulae:be4.86v"/>
    </members>
 </collection>

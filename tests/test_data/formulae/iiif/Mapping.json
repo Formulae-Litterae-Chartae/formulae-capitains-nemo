@@ -42,5 +42,9 @@
 	"manifest:urn:cts:formulae:p16d.7r7v.lat001": {
 		"manifest": "urn:cts:formulae:p16.7r7v.lat001.json",
 		"title": "Paris BnF Lat. 10756"
+	},
+	"manifest:urn:cts:formulae:be4.86v.lat001": {
+		"manifest": "urn:cts:formulae:be4.86v.lat001.json",
+		"title": "Bern, Burgerbibliothek, Cod. 611"
 	}
 }
