@@ -473,6 +473,7 @@ $(document).ready(function () {
     });
     
     var searchResultTable = $('#partsSearchResultTable').DataTable({
+        "autoWidth": false,
         "order": [],
         "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, allResultsString] ],
         "language": {
@@ -488,6 +489,11 @@ $(document).ready(function () {
             }
         ]
     });
+
+    $('.search-regest-expand .regest-expand').click(function() {
+        $( this ).parents('.search-regest-expand').find('.regest-no-expansion').toggleClass('d-none');
+        $( this ).parents('.search-regest-expand').find('.regest-expansion').toggleClass('d-none');
+    })
     
     $('#restrictSearchButton').click(function() {
         restrictSearch();
@@ -812,5 +818,29 @@ $(document).ready(function () {
         $('.work-cell').removeClass('show-bg-color');
         $( this ).parent().addClass('d-none');
         $('#show-mss-edition-colors').parent().removeClass('d-none');
+    })
+
+    // Show expand icon only if the whole note is not shown. Thanks to http://jsfiddle.net/kedem/D9NCP/
+    $('.two-line').each(function(index, element) {
+        var noteHeight = $( element ).height();
+        var textHeight = $( element ).find('.card').height();
+        if (textHeight < noteHeight) {
+            $( element ).find('.expand').hide();
+            $( element ).removeClass('fade-out');
+        }
+    })
+
+    // Expands and contracts the note when the expand arrow is clicked
+    $('.expand').click(function() {
+        $('#' + $(this).attr('toexpand')).toggleClass('expanded fade-out');
+        if ($('#' + $(this).attr('toexpand')).hasClass('fade-out')) {
+            $(this).attr('title', expMess);
+        } else {
+            $(this).attr('title', conMess);
+        }
+    })
+
+    $('.expand').each(function() {
+        $(this).attr('title', expMess);
     })
 })
