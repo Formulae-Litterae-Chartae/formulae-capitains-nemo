@@ -191,9 +191,9 @@
                 <td data-order="{{  post['info']['comp_ort'] }}">{% if post['info']['orig_comp_ort']  != ' ' %}- {{ post['info']['orig_comp_ort'] }}{% endif %}</td>
                 {% endif %}
             {% if current_user.project_team or post['id'] in open_texts %}
-                <td data-order="{{  loop.index }}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">{{ post['info']['title'] }}</a></td>
+                <td data-order="{{  loop.index }}"><a class="internal-link" href="{{ url_for('InstanceNemo.r_multipassage', objectIds=post['id'], subreferences='all') }}">{{ post['info']['title']|safe }}</a></td>
             {% else %}
-                <td data-order="{{  loop.index }}"><a id="{{ loop.index }}-link-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-link-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">{{ post['info']['title'] }}</a></td>
+                <td data-order="{{  loop.index }}"><a id="{{ loop.index }}-link-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-link-copyright-tooltip" title="{{ _('Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie den Text in der gedruckten Ausgabe.') }}">{{ post['info']['title']|safe }}</a></td>
             {% endif %}
             </tr>
         {% endfor %}
