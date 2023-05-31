@@ -186,7 +186,7 @@
                 {% endif %}
                 </td>
                 {% if request.args['corpus'] != 'elexicon' %}
-                <td>{% if post['info']['regest'] not in ['None', '', None] %}<small>- {{ post['info']['regest'][:200]|safe }}{% if post['info']['regest']|length > 200 %}<span class="search-regest-expand"><span class="regest-no-expansion">...<i class="fas fa-chevron-down regest-expand text-primary" title="{{ _('Mehr') }}"></i></span><span class="regest-expansion d-none">{{ post['info']['regest'][200:]|safe }} <i class="fas fa-chevron-up regest-expand text-primary" title="{{ _('Weniger') }}"></i></span></span>{% endif %}</small>{% endif %}</td>
+                <td>{% if post['info']['regest'] not in ['None', '', None] %}<small>{% if post['info']['regest']|striptags|length > 200 %}<span class="search-regest-expand"><span class="regest-no-expansion">- {{ post['info']['regest']|striptags|truncate(200) }}<i class="fas fa-chevron-down regest-expand text-primary" title="{{ _('Mehr') }}"></i></span><span class="regest-expansion d-none">- {{ post['info']['regest']|safe }} <i class="fas fa-chevron-up regest-expand text-primary" title="{{ _('Weniger') }}"></i></span></span>{% else %}- {{ post['info']['regest']|safe }}{% endif %}</small>{% endif %}</td>
                 <td>{% if post['info']['date_string'] != ' ' %}- {{ post['info']['date_string']|safe }}{% endif %}</td>
                 <td data-order="{{  post['info']['min_date'] }}" class="hidden-cell"></td>
                 <td data-order="{{  post['info']['max_date'] }}" class="hidden-cell"></td>

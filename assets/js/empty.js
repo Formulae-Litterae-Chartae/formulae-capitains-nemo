@@ -490,6 +490,13 @@ $(document).ready(function () {
         ]
     });
 
+    searchResultTable.on( 'draw', function() {
+        $('.search-regest-expand .regest-expand').click(function() {
+            $( this ).parents('.search-regest-expand').find('.regest-no-expansion').toggleClass('d-none');
+            $( this ).parents('.search-regest-expand').find('.regest-expansion').toggleClass('d-none');
+        })
+    });
+
     $('.search-regest-expand .regest-expand').click(function() {
         $( this ).parents('.search-regest-expand').find('.regest-no-expansion').toggleClass('d-none');
         $( this ).parents('.search-regest-expand').find('.regest-expansion').toggleClass('d-none');
