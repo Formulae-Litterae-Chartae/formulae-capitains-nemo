@@ -222,14 +222,14 @@ $(document).ready(function(){
             var startNote = $( this ).attr('data-notestart');
             console.log($( 'span[n="' + startNote + '"]' ));
             $( this ).prevUntil('span[n="' + startNote + '"]', 'span').add('span[n="' + startNote + '"]').addBack().each(function() {
-                $( this ).addClass('bg-warning');
+                $( this ).addClass('bg-hhblue');
             })
             ;
         },
         mouseout: function() {
             var startNote = $( this ).attr('data-notestart');
             $( this ).prevUntil('span[n="' + startNote + '"]', 'span').add('span[n="' + startNote + '"]').addBack().each(function() {
-                $( this ).removeClass('bg-warning');
+                $( this ).removeClass('bg-hhblue');
             })
             ;
         }

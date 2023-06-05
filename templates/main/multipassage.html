@@ -90,7 +90,7 @@
             {% endif %}
         {% else %}
             {% if object.all_prev_versions %}
-                <div class="dropdown">
+                <div class="dropright">
                     <a class="btn internal-link px-2 px-md-3" href="#" role="button" id="prev-texts-dropdown-{{ index }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{prev_objs}}"><i class="fas fa-backward"></i></a>
                     <div class="dropdown-menu sibling-texts-menu" aria-labelledby="prev-texts-dropdown-{{ index }}">
                     {% for next_obj_id in object.all_prev_versions %}
