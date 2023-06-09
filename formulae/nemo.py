@@ -173,6 +173,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:sg2',
+                        'urn:cts:formulae:stavelot_malmedy',
                         'urn:cts:formulae:stgallen',
                         'urn:cts:formulae:syd',
                         'urn:cts:formulae:tours',
