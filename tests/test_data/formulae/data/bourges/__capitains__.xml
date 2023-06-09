@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="../../capitains.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<collection xmlns:ti="http://chs.harvard.edu/xmlns/cts"
+            xmlns:dct="http://purl.org/dc/terms/"
+            xmlns:dc="http://purl.org/dc/elements/1.1/"
+            xmlns="http://purl.org/capitains/ns/1.0#"
+            xmlns:owl="http://www.w3.org/2002/07/owl#"
+            xmlns:bib="http://bibliotek-o.org/1.0/ontology/">
+   <identifier>urn:cts:formulae:bourges</identifier>
+   <dc:title xml:lang="deu">Formeln aus &lt;span class="collection-origin"&gt;Bourges&lt;/span&gt; (Betaversion)</dc:title>
+   <dc:type>cts:textgroup</dc:type>
+   <structured-metadata>
+      <bib:AbbreviatedTitle>Bourges</bib:AbbreviatedTitle>
+   </structured-metadata>
+   <members>
+      <collection path="./form_a_007/__capitains__.xml"
+         identifier="urn:cts:formulae:bourges.form_a_007"/>
+      <collection path="./form_c_018/__capitains__.xml"
+                  identifier="urn:cts:formulae:bourges.form_c_018"/>
+   </members>
+</collection>

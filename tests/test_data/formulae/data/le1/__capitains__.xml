@@ -17,5 +17,7 @@
          identifier="urn:cts:formulae:le1.109v110v"/>
       <collection path="./155v156r2/__capitains__.xml"
          identifier="urn:cts:formulae:le1.155v156r2"/>
+      <collection path="./166v/__capitains__.xml"
+         identifier="urn:cts:formulae:le1.i66v"/>
    </members>
 </collection>

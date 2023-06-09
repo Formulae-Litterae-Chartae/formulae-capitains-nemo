@@ -106,7 +106,9 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:anjou_archives',
                         'urn:cts:formulae:anjou_comtes_chroniques',
                         'urn:cts:formulae:auvergne',
+                        'urn:cts:formulae:be4',
                         'urn:cts:formulae:bonneval_marmoutier',
+                        'urn:cts:formulae:bourges',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:cartier_1841',
                         'urn:cts:formulae:chartae_latinae_xi',
@@ -150,13 +152,16 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:mittelrheinisch',
                         'urn:cts:formulae:mondsee',
                         'urn:cts:formulae:p3',
+                        'urn:cts:formulae:p6',
                         'urn:cts:formulae:p8',
                         'urn:cts:formulae:p10',
                         'urn:cts:formulae:p12',
+                        'urn:cts:formulae:p13',
                         'urn:cts:formulae:p14',
                         'urn:cts:formulae:p16a',
                         'urn:cts:formulae:p16b',
-                        # 'urn:cts:formulae:pancarte_noire',
+                        'urn:cts:formulae:p16c',
+                        'urn:cts:formulae:pancarte_noire',
                         'urn:cts:formulae:papsturkunden_frankreich',
                         'urn:cts:formulae:passau',
                         'urn:cts:formulae:pippin_3',
@@ -243,6 +248,12 @@ class NemoFormulae(Nemo):
                        {'video': 'videos/suchergebnisse_herunterladen_'},
                    (3, _l('Suchergebnisse im Benutzerkonto speichern')):
                        {'video': 'videos/suchergebnisse_speichern_'},
+                   (4, _l('Nach Lemmata suchen')):
+                       {'video': 'videos/lemma_search_'},
+                   (5, _l('Die Regestensuche')):
+                       {'video': 'videos/regest_search_'},
+                   (6, _l('Suchen mit Platzhalter')):
+                       {'video': 'videos/wildcard_search_'},
                    },
               (2, _l('Zur Leseansicht')):
                   {(1, _l('Über die Leseansicht')):
@@ -257,6 +268,16 @@ class NemoFormulae(Nemo):
                        {'video': 'videos/add_third_text_'},
                    (6, _l('Die Leseansicht ändern')):
                        {'video': 'videos/adjust_reading_view_'},
+                   (7, _l('Texte zitieren und herunterladen')):
+                       {'video': 'videos/cite_download_'},
+                   },
+              (3, _l('Benutzerkonto erstellen und verwalten')):
+                  {(1, _l('Benutzerkonto erstellen')):
+                       {'video': 'videos/user_account_setup_'},
+                   (2, _l('Benutzerkonto verwalten')):
+                       {'video': 'videos/user_account_edit_profile_'},
+                   (3, _l('Werkstattseiten im Benutzerkonto speichern')):
+                       {'video': 'videos/suchergebnisse_speichern_'}
                    }
               }
 
@@ -568,6 +589,8 @@ class NemoFormulae(Nemo):
                     elif 'urn:cts:formulae:flavigny' in form_num:
                         if 'capitula' in form_num:
                             par = '0' + par
+                    elif 'formulae:bourges.' in form_num:
+                        par = re.sub(r'.*form_(\w_.*)', r'\1', form_num)
                     if par.endswith('000'):
                         par = par.replace('000', _('(Prolog)'))
                     par = par.replace('capitula', '0')
@@ -575,6 +598,10 @@ class NemoFormulae(Nemo):
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         elif re.search(r'anjou_archives|katalonien|marmoutier_manceau', m.id):
             par = list(m.parent)[0].split('_')[-1]
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
+        elif 'formulae:bourges.' in m.id:
+            par = re.sub(r'.*form_(\w_.*)', r'\1', list(m.parent)[0])
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
@@ -1113,7 +1140,6 @@ class NemoFormulae(Nemo):
                 all_parent_colls.append([(x['id'], str(x['short_title'])) for x in v])
         all_parent_colls.append([(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
 
-
         return_value = {
             "template": template,
             "collections": {
@@ -1581,7 +1607,7 @@ class NemoFormulae(Nemo):
                     "dating": str(metadata.metadata.get_single(DCTERMS.temporal) or ''),
                     "issued_at": str(metadata.metadata.get_single(DCTERMS.spatial) or ''),
                     "sigla": str(metadata.metadata.get_single(DCTERMS.isPartOf) or ''),
-                    "ms_source": str(metadata.metadata.get_single(DCTERMS.source) or ''),
+                    "ms_source": str(metadata.metadata.get_single(DCTERMS.source)).split('***') if metadata.metadata.get_single(DCTERMS.source) else '',
                     "linked_resources": linked_resources,
                     "transcribed_edition": sorted([Markup(x) for x in transcribed_edition]),
                     "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else []
@@ -1698,6 +1724,9 @@ class NemoFormulae(Nemo):
                         # This links to the manuscript as a whole.
                         # I am not sure how to link to specific pages in their IIIF viewer.
                         d['lib_link'] = 'https://i3f.vls.io/?collection=i3fblbk&id=' + this_manifest['@id']
+                    elif 'www.e-codices.unifr.ch' in this_manifest['@id']:
+                        # This works for resources from the E-Codices
+                        d['lib_link'] = this_manifest['related'].replace('/list/one', '') + '/' + this_manifest['sequences'][0]['canvases'][0]['label']
                     folios = re.sub(r'(\d+)([rvab]{1,2})', r'\1<span class="verso-recto">\2</span>',
                                     this_manifest['sequences'][0]['canvases'][0]['label'])
                     if len(this_manifest['sequences'][0]['canvases']) > 1:

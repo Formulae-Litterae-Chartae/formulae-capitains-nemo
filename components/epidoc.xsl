@@ -69,6 +69,9 @@
                     <xsl:if test="@n">
                         <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
                     </xsl:if>
+                    <xsl:if test="following-sibling::*[1][self::t:seg[@type='note-begin-marker']]">
+                        <xsl:attribute name="n"><xsl:value-of select="following-sibling::t:seg[@type='note-begin-marker']/@n"/></xsl:attribute>
+                    </xsl:if>
                     <xsl:if test="current()[@lemmaRef]">
                         <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                         <xsl:attribute name="tabindex">0</xsl:attribute>
@@ -346,6 +349,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:element name="sup">
+                    <xsl:if test="@type='a1'"><xsl:attribute name="data-noteStart"><xsl:value-of select="@xml:id"/></xsl:attribute></xsl:if>
                     <xsl:element name="a">
                         <xsl:attribute name="class">note</xsl:attribute>
                         <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->

@@ -26,6 +26,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       "<b>Anjou</b>: Archives d’Anjou": {'match': {'collection': 'anjou_archives'}},
                                       "<b>Anjou</b>: Chroniques des comtes d’Anjou": {'match': {'collection': 'anjou_comtes_chroniques'}},
                                       '<b>Auvergne</b>: Auvergne': {'match': {'collection': 'auvergne'}},
+                                      '<b>Bourges</b>: Bourges': {'match': {'collection': 'bourges'}},
                                       '<b>Catalunya</b>: Katalonien': {'match': {'collection': 'katalonien'}},
                                       '<b>Chartae Latinae</b>: Chartae Latinae X': {'match': {'collection': 'chartae_latinae_x'}},
                                       '<b>Chartae Latinae</b>: Chartae Latinae XI': {'match': {'collection': 'chartae_latinae_xi'}},

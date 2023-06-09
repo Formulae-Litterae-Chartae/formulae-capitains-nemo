@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-05-04 14:24+0200\n"
+"POT-Creation-Date: 2023-05-08 15:12+0200\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -49,57 +49,89 @@ msgstr "Italian"
 
 #: formulae/nemo.py:238
 msgid "Zur einfachen und erweiterten Suche"
-msgstr "About the simple and advanced search"
+msgstr "About the Simple and Advanced Search"
 
 #: formulae/nemo.py:239
 msgid "Die einfache Suche (allgemein)"
-msgstr "The Simple Search"
+msgstr "The simple search"
 
 #: formulae/nemo.py:241
 msgid "Aktuelle Suchergebnisse herunterladen"
-msgstr "Downloading Search Results"
+msgstr "Downloading search results"
 
 #: formulae/nemo.py:243
 msgid "Suchergebnisse im Benutzerkonto speichern"
-msgstr "Saving Search Results to Your User Account"
+msgstr "Saving search results to your user account"
 
-#: formulae/nemo.py:246
+#: formulae/nemo.py:245
+msgid "Nach Lemmata suchen"
+msgstr "Search for lemmatized forms"
+
+#: formulae/nemo.py:247
+msgid "Die Regestensuche"
+msgstr "Search in the regesta"
+
+#: formulae/nemo.py:249
+msgid "Suchen mit Platzhalter"
+msgstr "Wildcard search"
+
+#: formulae/nemo.py:252
 msgid "Zur Leseansicht"
 msgstr "About the Reading Page"
 
-#: formulae/nemo.py:247
+#: formulae/nemo.py:253
 msgid "Über die Leseansicht"
 msgstr "About the reading page"
 
-#: formulae/nemo.py:249
+#: formulae/nemo.py:255
 msgid "Übersetzung, Transkription oder Manuskriptbild anzeigen"
 msgstr "Show a translation, transcription or manuscript image"
 
-#: formulae/nemo.py:251
+#: formulae/nemo.py:257
 msgid "Einen anderen Text von der selben Sammlung anzeigen"
 msgstr "Show another text from the same collection"
 
-#: formulae/nemo.py:253
+#: formulae/nemo.py:259
 msgid "Einen Text von einer anderen Sammlung anzeigen"
 msgstr "Show a text from a different collection"
 
-#: formulae/nemo.py:255
+#: formulae/nemo.py:261
 msgid "Einen dritten Text anzeigen"
 msgstr "Show a third text"
 
-#: formulae/nemo.py:257
+#: formulae/nemo.py:263
 msgid "Die Leseansicht ändern"
 msgstr "Change the reading layout"
 
-#: formulae/nemo.py:538 formulae/nemo.py:594 formulae/nemo.py:1020
+#: formulae/nemo.py:265
+msgid "Texte zitieren und herunterladen"
+msgstr "Citing and downloading texts"
+
+#: formulae/nemo.py:268
+msgid "Benutzerkonto erstellen und verwalten"
+msgstr "Setting up and managing your user account"
+
+#: formulae/nemo.py:269
+msgid "Benutzerkonto erstellen"
+msgstr "Setting up a user account"
+
+#: formulae/nemo.py:271
+msgid "Benutzerkonto verwalten"
+msgstr "Managing your user account"
+
+#: formulae/nemo.py:273
+msgid "Werkstattseiten im Benutzerkonto speichern"
+msgstr "Saving pages to your user account"
+
+#: formulae/nemo.py:554 formulae/nemo.py:610 formulae/nemo.py:1036
 msgid "(Titel)"
 msgstr "(Title)"
 
-#: formulae/nemo.py:571 formulae/nemo.py:596
+#: formulae/nemo.py:587 formulae/nemo.py:612
 msgid "(Prolog)"
 msgstr "(Prologue)"
 
-#: formulae/nemo.py:766
+#: formulae/nemo.py:782
 msgid ""
 "Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt "
 "wird, dann laden Sie die Seite neu."
@@ -107,20 +139,20 @@ msgstr ""
 "Reading direction changed. You may need to refresh the page in your "
 "browser."
 
-#: formulae/nemo.py:932 formulae/nemo.py:1099 formulae/nemo.py:1281
-#: formulae/nemo.py:1355 tests/test_routes.py:288 tests/test_routes.py:312
+#: formulae/nemo.py:948 formulae/nemo.py:1115 formulae/nemo.py:1297
+#: formulae/nemo.py:1371 tests/test_routes.py:288 tests/test_routes.py:312
 #: tests/test_routes.py:326 tests/test_routes.py:343 tests/test_routes.py:346
 #: tests/test_routes.py:359 tests/test_routes.py:786 tests/test_routes.py:811
 #: tests/test_routes.py:816 tests/test_routes.py:847 tests/test_routes.py:850
 msgid "Diese Sammlung ist nicht öffentlich zugänglich."
 msgstr "This collection is not publicly available."
 
-#: formulae/nemo.py:1053 formulae/nemo.py:1541 tests/test_routes.py:371
+#: formulae/nemo.py:1069 formulae/nemo.py:1557 tests/test_routes.py:371
 #: tests/test_routes.py:376 tests/test_routes.py:798 tests/test_routes.py:803
 msgid "Dieses Regest ist nicht öffentlich zugänglich."
 msgstr "This regest is not publicly available."
 
-#: formulae/nemo.py:1097 tests/test_routes.py:349 tests/test_routes.py:853
+#: formulae/nemo.py:1113 tests/test_routes.py:349 tests/test_routes.py:853
 msgid ""
 "Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte "
 "gegebenenfalls die Homepage der Bibliothek."
@@ -128,47 +160,47 @@ msgstr ""
 "You may be able to view the images of this manuscript at the library's "
 "home page."
 
-#: formulae/nemo.py:1145 templates/main/multipassage.html:240
+#: formulae/nemo.py:1161 templates/main/multipassage.html:240
 #: templates/main/multipassage.html:427 templates/main/multipassage.html:614
 #: templates/main/sub_collection.html:171 templates/search/part_results.html:94
 #: templates/search/search.html:165
 msgid "Edition"
 msgstr ""
 
-#: formulae/nemo.py:1145 templates/main/multipassage.html:245
+#: formulae/nemo.py:1161 templates/main/multipassage.html:245
 #: templates/main/multipassage.html:432 templates/main/multipassage.html:619
 msgid "Übersetzung"
 msgstr "Translation"
 
-#: formulae/nemo.py:1278 tests/test_routes.py:526
+#: formulae/nemo.py:1294 tests/test_routes.py:526
 msgid "Diese View ist nur für Formelsammlungen verfuegbar"
 msgstr "This view is only available for formula collections."
 
-#: formulae/nemo.py:1483 formulae/viewer/routes.py:18 tests/test_routes.py:614
+#: formulae/nemo.py:1499 formulae/viewer/routes.py:18 tests/test_routes.py:614
 #: tests/test_routes.py:617
 msgid " hat keine Edition."
 msgstr " does not have an Edition."
 
-#: formulae/nemo.py:1492
+#: formulae/nemo.py:1508
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:1497 tests/test_routes.py:379 tests/test_routes.py:806
+#: formulae/nemo.py:1513 tests/test_routes.py:379 tests/test_routes.py:806
 msgid "Dieser Text ist nicht öffentlich zugänglich."
 msgstr "This text is not publicly available."
 
-#: formulae/nemo.py:1731 tests/test_routes.py:391 tests/test_routes.py:394
+#: formulae/nemo.py:1747 tests/test_routes.py:391 tests/test_routes.py:394
 #: tests/test_routes.py:397 tests/test_routes.py:596 tests/test_routes.py:859
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
 "at this point"
 
-#: formulae/nemo.py:1894 tests/test_routes.py:435
+#: formulae/nemo.py:1910 tests/test_routes.py:435
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr "The PDF for this text is not available."
 
-#: formulae/nemo.py:1903
+#: formulae/nemo.py:1919
 msgid "Heruntergeladen: "
 msgstr "Downloaded: "
 
@@ -1107,7 +1139,7 @@ msgstr "Observations/Suggestions"
 
 #: templates/main/feedback.html:12
 msgid ""
-"Wenn Sie Anmerkungen bzw. Verbesserungsvorschläge zur Formulae - Litterae"
+"Wenn Sie Anmerkungen bzw. Verbesserungsvorschläge´ zur Formulae - Litterae"
 " - Chartae Werkstatt haben, schicken Sie uns einfach eine Email an die "
 "obengennante Emailadresse. Wenn es um eine bestimmte Seite in der "
 "Werkstatt handelt, nennen Sie bitte die volle URL in den Text Ihre Email."
@@ -1115,6 +1147,23 @@ msgid ""
 "volle URL mit dem vollen Titel des Textes und eine genaue Beschreibung "
 "des Problems und des Vorschlags, das Problem zu beheben."
 msgstr ""
+"If you have observations about or "
+"suggestions for the improvement of the"
+" Formulae - Litterae - Chartae "
+"Werkstatt, just send us an <a "
+"href=\"mailto:formulae.geschichte@uni-hamburg.de\">email</a>."
+" If the email contains suggestions "
+"for a specific page in the "
+"Werkstatt, please include the full URL"
+" in the text of your email. If"
+" you would like to suggest "
+"corrections to a specific text, you "
+"should also include the full URL, "
+"the complete title of the text, as"
+" well as a detailed description of"
+" the problem you have found along "
+"with your suggestion to correct this "
+"problem."
 
 #: templates/main/flavigny_info.html:6 templates/main/marculfinae_info.html:6
 #: templates/main/tours_ueberarbeitung_info.html:5
@@ -1742,7 +1791,10 @@ msgid ""
 "Die Farbkodierung ermöglicht es, die unterschiedliche Herkunft von "
 "Formeln in einer Handschrift zu visualisieren. Jede Formelgruppe (etwa "
 "Marculf Buch I) erhält dabei eine eigene Farbe."
-msgstr "Color-coded collections distinguish the source collections for formulae in the manuscript. Every formula group (e.g., Marculf Book 1) is highlighted in a different color."
+msgstr ""
+"Color-coded collections distinguish the source collections for formulae "
+"in the manuscript. Every formula group (e.g., Marculf Book 1) is "
+"highlighted in a different color."
 
 #: templates/main/sub_collection.html:76 templates/main/sub_collection.html:77
 msgid "Hilfe für Farbkodierung der Sammlungen"

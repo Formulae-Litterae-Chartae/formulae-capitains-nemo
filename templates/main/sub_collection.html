@@ -41,6 +41,8 @@
     <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
     {% elif collections.current.id == 'urn:cts:formulae:flavigny' %}
     {% include "main::flavigny_info.html" %}
+    {% elif collections.current.id == 'urn:cts:formulae:bourges' %}
+    {% include "main::bourges_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:tours_ueberarbeitung' %}
     {% include "main::tours_ueberarbeitung_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:formulae_marculfinae' %}
@@ -114,6 +116,8 @@
     {% else %}
         {% if collections.current.id == 'urn:cts:formulae:flavigny' %}
         <h5>Capitulationes</h5>
+        {% elif collections.current.id == 'urn:cts:formulae:bourges' %}
+        <h5>{{ _('Formeln aus') }} <b>P<span class="manuscript-number">16</span><span class="verso-recto">c</span></b> + <b>Be<span class="manuscript-number">4</span></b></h5>
         {% endif %}
         {% if 'non_display_collection' in collections.parent_ids %}
             {% for number, values in collections.readable.items() %}
@@ -128,6 +132,12 @@
                 <h5 class="mt-1">{{ _('Material aus') }} P<span class="manuscript-number">3</span></h5>
                 {% elif number == '3_001' %}
                 <h5 class="mt-1">{{ _('Material aus') }} Ko<span class="manuscript-number">2</span></h5>
+                {% endif %}
+            {% elif collections.current.id == 'urn:cts:formulae:bourges' %}
+                {% if number == 'b_001' %}
+                <h5 class="mt-1">{{ _('Formeln aus') }} <b>P<span class="subscript smaller-text">13</span></b></h5>
+                {% elif number == "c_001a" %}
+                <h5 class="mt-1">{{ _('Eigenständiges Material aus') }} <b>Le<span class="subscript smaller-text">1</span></b></h5>
                 {% endif %}
             {% endif %}
             {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzungen 1,1" %}
