@@ -234,6 +234,18 @@ $(document).ready(function(){
             ;
         }
     })
+
+    $('[shared-word]').on({
+        mouseover: function() {
+            var wordNum = $( this ).attr('shared-word');
+            orig_elem = $( this );
+            $('[shared-word="' + wordNum + '"]').addClass('chosen-word');
+        },
+        mouseout: function() {
+            var wordNum = $( this ).attr('shared-word');
+            $('[shared-word="' + wordNum + '"]').removeClass('chosen-word');
+        }
+        })
 })
 
 function makePopupNote(id) {
