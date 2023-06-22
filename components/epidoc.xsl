@@ -94,6 +94,7 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:if>
+                    <xsl:if test="@synch"><xsl:attribute name="shared-word"><xsl:value-of select="@synch"/></xsl:attribute></xsl:if>
                     <xsl:apply-templates/>
                 </xsl:element>
             </xsl:otherwise>
