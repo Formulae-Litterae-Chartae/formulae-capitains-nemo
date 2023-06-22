@@ -1,3 +1,5 @@
+import json
+
 from config import Config
 from MyCapytain.resolvers.capitains.local import XmlCapitainsLocalResolver
 from formulae import create_app, db, mail
@@ -29,7 +31,23 @@ from lxml import etree
 from itertools import cycle
 from werkzeug import exceptions
 import rdflib
+import requests
 
+
+def mocked_requests_post(*args, **kwargs):
+    class MockResponse:
+        def __init__(self, json_data, status_code):
+            self.json_data = json_data
+            self.status_code = status_code
+
+        def json(self):
+            return self.json_data
+    if args[0] == 'http://localhost:7300/collate_xml':
+        with open('tests/test_data/advanced_search/collate_return.json') as f:
+            json_response = json.load(f)
+        return MockResponse(json_response, 200)
+
+    return MockResponse(None, 404)
 
 class TestConfig(Config):
     TESTING = True
@@ -396,6 +414,9 @@ class TestIndividualRoutes(Formulae_Testing):
             c.get('/texts/urn:cts:formulae:chartae_latinae_cxv.mersiowsky0001.lat001/passage/1', follow_redirects=True)
             self.assertIn(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'), [x[0] for x in self.flashed_messages])
             self.flashed_messages = []
+            with patch('requests.post', side_effect=mocked_requests_post) as mock_post:
+                r = c.get('/texts/urn:cts:formulae:ko2.69r70v.lat001+urn:cts:formulae:le1.109v110v.lat001/passage/1+1?collate=true', follow_redirects=True)
+                self.assertIn('shared-word="shared_3">Some</span>', r.get_data(as_text=True))
             c.get('/reading_format/rows', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])

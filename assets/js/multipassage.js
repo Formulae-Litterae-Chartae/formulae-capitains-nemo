@@ -66,30 +66,6 @@ $(document).ready(function(){
         $(this).attr('oldHeight', newHeight);
     });
     
-    // Show expand icon only if the whole note is not shown. Thanks to http://jsfiddle.net/kedem/D9NCP/
-    $('.two-line').each(function(index, element) {
-        var noteHeight = $( element ).height();
-        var textHeight = $( element ).find('.card').height();
-        if (textHeight < noteHeight) {
-            $( element ).find('.expand').hide();
-            $( element ).removeClass('fade-out');
-        }
-    })
-    
-    // Expands and contracts the note when the expand arrow is clicked
-    $('.expand').click(function() {
-        $('#' + $(this).attr('toexpand')).toggleClass('expanded fade-out');
-        if ($('#' + $(this).attr('toexpand')).hasClass('fade-out')) {
-            $(this).attr('title', expMess);
-        } else {
-            $(this).attr('title', conMess);
-        }
-    })
-
-    $('.expand').each(function() {
-        $(this).attr('title', expMess);
-    })
-    
     if ( screen.width > 767 ) {
         $('.note').click(function() {
             var linkTarget = $(this).attr('href');
@@ -234,6 +210,18 @@ $(document).ready(function(){
             ;
         }
     })
+
+    $('[shared-word]').on({
+        mouseover: function() {
+            var wordNum = $( this ).attr('shared-word');
+            orig_elem = $( this );
+            $('[shared-word="' + wordNum + '"]').addClass('chosen-word');
+        },
+        mouseout: function() {
+            var wordNum = $( this ).attr('shared-word');
+            $('[shared-word="' + wordNum + '"]').removeClass('chosen-word');
+        }
+        })
 })
 
 function makePopupNote(id) {
