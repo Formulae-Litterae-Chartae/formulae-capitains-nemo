@@ -148,7 +148,7 @@ def r_results():
         corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
     else:
         corps = corpus
-    g.corpora = [(CORP_MAP[x], x) for x in corps]
+    g.corpora = [(CORP_MAP['form_lit_chart-' + x], x) for x in corps]
     g.form_parts = []
     # if request.args.get('formulaic_parts'):
     #     g.form_parts = [(x, FORM_PARTS[x]) for x in request.args.get('formulaic_parts', '').split('+')]
@@ -418,7 +418,7 @@ def download_search_results(download_id: str) -> Response:
             if arg in session['previous_search_args']:
                 value = search_value_dict.get(session['previous_search_args'][arg], session['previous_search_args'][arg])
             if arg == 'corpus':
-                value = ' - '.join([CORP_MAP[x] for x in value.split('+')])
+                value = ' - '.join([CORP_MAP['form_lit_chart-' + x] for x in value.split('+')])
             if arg == 'special_days':
                 value = ' - '.join([special_day_dict[x] for x in value.split('+')])
             arg_list.append('<b>{}</b>: {}'.format(s, value if value != '0' else ''))
