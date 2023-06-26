@@ -175,7 +175,7 @@
                     {% for sent in post['sents'] %}
                     <p class="card-text m-0"><small>- {{ sent }}</small></p>
                     {% endfor %}
-                    {% if post['regest_sents'] and (current_user.project_team or post['id'] not in half_open_texts) %}
+                    {% if post['regest_sents'] %}
                     <span class="regest-sents-heading">{{ _('Aus dem Regest:') }}</span>
                     {% endif %}
                     {% for sent in post['regest_sents'] %}
@@ -186,7 +186,7 @@
                 {% endif %}
                 </td>
                 {% if request.args['corpus'] != 'elexicon' %}
-                <td>{% if post['info']['regest'] not in ['None', '', None] %}<small>{% if post['info']['regest']|striptags|length > 200 %}<span class="search-regest-expand"><span class="regest-no-expansion">- {{ post['info']['regest']|striptags|truncate(200) }}<i class="fas fa-chevron-down regest-expand text-primary" title="{{ _('Mehr') }}"></i></span><span class="regest-expansion d-none">- {{ post['info']['regest']|safe }} <i class="fas fa-chevron-up regest-expand text-primary" title="{{ _('Weniger') }}"></i></span></span>{% else %}- {{ post['info']['regest']|safe }}{% endif %}</small>{% endif %}</td>
+                <td>{% if post['info']['regest'] not in ['None', '', None] %}{% if current_user.project_team or (post['id'] in open_texts and post['id'] not in half_open_texts) %}<small>{% if post['info']['regest']|striptags|length > 200 %}<span class="search-regest-expand"><span class="regest-no-expansion">- {{ post['info']['regest']|striptags|truncate(200) }}<i class="fas fa-chevron-down regest-expand text-primary" title="{{ _('Mehr') }}"></i></span><span class="regest-expansion d-none">- {{ post['info']['regest']|safe }} <i class="fas fa-chevron-up regest-expand text-primary" title="{{ _('Weniger') }}"></i></span></span>{% else %}- {{ post['info']['regest']|safe }}{% endif %}</small>{% else %}<span id="{{ loop.index }}-regest-copyright-tooltip" data-toggle="tooltip" data-container="#{{ loop.index }}-regest-copyright-tooltip" title="{{ _('Dieses Regest unterliegt dem Urheberrecht und ist online nicht verfügbar. Bitte konsultieren Sie das Regest in der gedruckten Ausgabe.') }}"><small>{{ _('Regest kann nicht angezeigt werden') }}</small></span>{% endif %}{% endif %}</td>
                 <td>{% if post['info']['date_string'] != ' ' %}- {{ post['info']['date_string']|safe }}{% endif %}</td>
                 <td data-order="{{  post['info']['min_date'] }}" class="hidden-cell"></td>
                 <td data-order="{{  post['info']['max_date'] }}" class="hidden-cell"></td>
