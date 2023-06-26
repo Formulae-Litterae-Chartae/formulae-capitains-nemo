@@ -32,6 +32,7 @@ from typing import List, Tuple, Union, Match, Dict, Any, Sequence, Callable
 from collections import defaultdict, OrderedDict
 from random import randint
 import roman
+import requests
 from itertools import zip_longest
 
 
@@ -168,6 +169,8 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:redon',
                         'urn:cts:formulae:regensburg',
                         'urn:cts:formulae:rheinisch',
+                        'urn:cts:formulae:rudolf_1_mgh',
+                        'urn:cts:formulae:rudolf_2_mgh',
                         'urn:cts:formulae:s2',
                         'urn:cts:formulae:saint_bénigne',
                         'urn:cts:formulae:salzburg',
@@ -206,6 +209,8 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:papsturkunden_frankreich',
                              'urn:cts:formulae:regensburg',
                              'urn:cts:formulae:rheinisch',
+                             'urn:cts:formulae:rudolf_1_mgh',
+                             'urn:cts:formulae:rudolf_2_mgh',
                              'urn:cts:formulae:saint_bénigne',
                              'urn:cts:formulae:salzburg',
                              'urn:cts:formulae:tours_gasnault',
@@ -1627,7 +1632,7 @@ class NemoFormulae(Nemo):
             "transcriptions": transcriptions
         }
 
-    def r_multipassage(self, objectIds: str, subreferences: str, lang: str = None) -> Dict[str, Any]:
+    def r_multipassage(self, objectIds: str, subreferences: str, lang: str = None, collate: bool = False) -> Dict[str, Any]:
         """ Retrieve the text of the passage
 
         :param objectIds: Collection identifiers separated by '+'
@@ -1643,6 +1648,9 @@ class NemoFormulae(Nemo):
         passage_data = {'template': 'main::multipassage.html', 'objects': [], "translation": {}}
         subrefers = subreferences.split('+')
         all_parent_colls = list()
+        collate_html_dict = dict()
+        if 'collate' in request.values:
+            collate_html_dict = self.call_collate_api(obj_ids=ids, subrefers=subrefers)
         if len(subrefers) != len(ids):
             abort(404)
         for i, id in enumerate(ids):
@@ -1658,6 +1666,7 @@ class NemoFormulae(Nemo):
                 else:
                     subref = subrefers[i]
                 d = self.r_passage(id, subref, lang=lang)
+                d['text_passage'] = collate_html_dict.get(id, d['text_passage'])
                 d.update(self.get_prev_next_texts(d['objectId']))
                 del d['template']
                 parent_colls = defaultdict(list)
@@ -1822,6 +1831,25 @@ class NemoFormulae(Nemo):
         d['prev_texts'] = m.group(1).replace('%2B', '+')
         d['prev_reffs'] = m.group(2).replace('%2B', '+') if "texts" in request.referrer else "all"
         return d
+
+    def call_collate_api(self, obj_ids: list, subrefers: list) -> Dict[str, str]:
+        """ Transforms texts, sends them to collate API and transforms the results
+
+        :return:
+        """
+        json_input = {'texts': dict(), 'xpath': '//tei:w//text()'}
+        obj_dict = dict()
+        for i, obj_id in enumerate(obj_ids):
+            text = self.get_passage(objectId=obj_id, subreference=subrefers[i])
+            obj_dict[obj_id] = text
+            xml = text.export(Mimetypes.PYTHON.ETREE)
+            json_input['texts'][obj_id] = etree.tostring(xml, encoding='unicode')
+        r = requests.post('http://localhost:7300/collate_xml', json=json_input)
+        html_output_dict = dict()
+        for k, v in r.json().items():
+            return_xml = etree.fromstring(v)
+            html_output_dict[k] = Markup(self.transform(obj_dict[k], return_xml, k))
+        return html_output_dict
 
     @staticmethod
     def r_impressum() -> Dict[str, str]:
