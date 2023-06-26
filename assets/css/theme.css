@@ -1122,6 +1122,10 @@ a.btn-primary,li.page-item.active .page-link {
     outline-width: thin;
 }
 
+#partsSearchResultTable #results-regest-column {
+    width: 20%;
+}
+
 #lem_box {
     font-size: small;
     line-height: 2em;
