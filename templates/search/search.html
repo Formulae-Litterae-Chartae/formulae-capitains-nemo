@@ -174,7 +174,7 @@
                     {% for sent in post['sents'] %}
                     <p class="card-text m-0"><small>- {{ sent }}</small></p>
                     {% endfor %}
-                    {% if post['regest_sents'] %}
+                    {% if post['regest_sents'] and (current_user.project_team or post['id'] not in half_open_texts) %}
                     <span class="regest-sents-heading">{{ _('Aus dem Regest:') }}</span>
                     {% endif %}
                     {% for sent in post['regest_sents'] %}

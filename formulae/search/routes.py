@@ -241,8 +241,9 @@ def r_results():
             searched_lems[k] = v
             max_cols = max(len(v), max_cols)
     return current_app.config['nemo_app'].render(template=template, title=_('Suche'), posts=posts, current_page=page,
-                                                 url=dict(), open_texts=g.open_texts, total_results=total, aggs=aggs,
-                                                 searched_lems=searched_lems, max_cols=max_cols)
+                                                 url=dict(), open_texts=g.open_texts, half_open_texts=g.half_open_texts,
+                                                 total_results=total, aggs=aggs, searched_lems=searched_lems, 
+                                                 max_cols=max_cols)
 
 
 @bp.route("/advanced_search", methods=["GET"])
