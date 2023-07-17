@@ -60,7 +60,7 @@
                         <xsl:if test="ancestor::t:seg[contains(@type, 'line-through')]"><xsl:text> line-through</xsl:text></xsl:if>
                         <xsl:if test="ancestor::t:seg[contains(@type, 'superscript')]"><xsl:text> superscript</xsl:text></xsl:if>
                         <xsl:if test="ancestor::t:seg[contains(@type, 'subscript')]"><xsl:text> subscript</xsl:text></xsl:if>
-                        <xsl:if test="ancestor::t:seg[contains(@type, 'smaller-text')]"><xsl:text> smaller-text</xsl:text></xsl:if>
+                        <xsl:if test="current()[@function='from-other'] or ancestor::t:seg[contains(@type, 'smaller-text')]"><xsl:text> smaller-text</xsl:text></xsl:if>
                         <xsl:if test="ancestor::t:label"> formulae-label</xsl:if>
                         </xsl:attribute>
                     <xsl:if test="@lemma">
