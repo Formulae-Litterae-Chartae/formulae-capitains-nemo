@@ -193,23 +193,23 @@ $(document).ready(function(){
         request.send()
     })
 
-    $('sup[data-notestart]').on({
-        mouseover: function() {
-            var startNote = $( this ).attr('data-notestart');
-            console.log($( 'span[n="' + startNote + '"]' ));
-            $( this ).prevUntil('span[n="' + startNote + '"]', 'span').add('span[n="' + startNote + '"]').addBack().each(function() {
-                $( this ).addClass('bg-hhblue');
-            })
-            ;
-        },
-        mouseout: function() {
-            var startNote = $( this ).attr('data-notestart');
-            $( this ).prevUntil('span[n="' + startNote + '"]', 'span').add('span[n="' + startNote + '"]').addBack().each(function() {
-                $( this ).removeClass('bg-hhblue');
-            })
-            ;
-        }
-    })
+//     $('sup[data-notestart]').on({
+//         mouseover: function() {
+//             var startNote = $( this ).attr('data-notestart');
+//             console.log($( 'span[n="' + startNote + '"]' ));
+//             $( this ).prevUntil('span[n="' + startNote + '"]', 'span').add('span[n="' + startNote + '"]').addBack().each(function() {
+//                 $( this ).addClass('bg-hhblue');
+//             })
+//             ;
+//         },
+//         mouseout: function() {
+//             var startNote = $( this ).attr('data-notestart');
+//             $( this ).prevUntil('span[n="' + startNote + '"]', 'span').add('span[n="' + startNote + '"]').addBack().each(function() {
+//                 $( this ).removeClass('bg-hhblue');
+//             })
+//             ;
+//         }
+//     })
 })
 
 function makePopupNote(id) {
