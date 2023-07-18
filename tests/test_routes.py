@@ -35,6 +35,9 @@ import requests
 
 
 def mocked_requests_post(*args, **kwargs):
+    """ This solution for mocking requests.Response is based on
+    https://stackoverflow.com/questions/15753390/how-can-i-mock-requests-and-the-response
+    """
     class MockResponse:
         def __init__(self, json_data, status_code):
             self.json_data = json_data
@@ -48,6 +51,7 @@ def mocked_requests_post(*args, **kwargs):
         return MockResponse(json_response, 200)
 
     return MockResponse(None, 404)
+
 
 class TestConfig(Config):
     TESTING = True
