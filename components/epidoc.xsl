@@ -60,7 +60,7 @@
                         <xsl:if test="ancestor::t:seg[contains(@type, 'line-through')]"><xsl:text> line-through</xsl:text></xsl:if>
                         <xsl:if test="ancestor::t:seg[contains(@type, 'superscript')]"><xsl:text> superscript</xsl:text></xsl:if>
                         <xsl:if test="ancestor::t:seg[contains(@type, 'subscript')]"><xsl:text> subscript</xsl:text></xsl:if>
-                        <xsl:if test="ancestor::t:seg[contains(@type, 'smaller-text')]"><xsl:text> smaller-text</xsl:text></xsl:if>
+                        <xsl:if test="current()[@function='from-other'] or ancestor::t:seg[contains(@type, 'smaller-text')]"><xsl:text> smaller-text</xsl:text></xsl:if>
                         <xsl:if test="ancestor::t:label"> formulae-label</xsl:if>
                         </xsl:attribute>
                     <xsl:if test="@lemma">
@@ -68,9 +68,6 @@
                     </xsl:if>
                     <xsl:if test="@n">
                         <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
-                    </xsl:if>
-                    <xsl:if test="following-sibling::*[1][self::t:seg[@type='note-begin-marker']]">
-                        <xsl:attribute name="n"><xsl:value-of select="following-sibling::t:seg[@type='note-begin-marker']/@n"/></xsl:attribute>
                     </xsl:if>
                     <xsl:if test="current()[@lemmaRef]">
                         <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
@@ -99,6 +96,12 @@
                 </xsl:element>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    
+    <xsl:template match="t:seg[@type='note-begin-marker']">
+        <xsl:element name="span">
+            <xsl:attribute name="note-marker"><xsl:value-of select="@n"/></xsl:attribute>
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:pc">
@@ -350,7 +353,10 @@
             </xsl:when>
             <xsl:otherwise>
                 <xsl:element name="sup">
-                    <xsl:if test="@type='a1'"><xsl:attribute name="data-noteStart"><xsl:value-of select="@xml:id"/></xsl:attribute></xsl:if>
+                    <xsl:if test="@type='a1'">
+                        <xsl:attribute name="data-noteStart"><xsl:value-of select="@xml:id"/></xsl:attribute>
+                        <xsl:attribute name="data-noteEnd"><xsl:value-of select="@targetEnd"/></xsl:attribute>
+                    </xsl:if>
                     <xsl:element name="a">
                         <xsl:attribute name="class">note</xsl:attribute>
                         <!--<xsl:attribute name="data-toggle">collapse</xsl:attribute>-->
@@ -502,6 +508,13 @@
     
     <xsl:template match="t:seg[@type='deperditum']">
         <span class="foreign-text h5"><xsl:apply-templates/></span>
+    </xsl:template>
+    
+    <xsl:template match="t:seg[@xml:id]">
+        <xsl:element name="span">
+            <xsl:attribute name="id"><xsl:value-of select="@xml:id"/></xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:element>
     </xsl:template>
     
     <xsl:template match="t:list">
