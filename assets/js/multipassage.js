@@ -196,18 +196,63 @@ $(document).ready(function(){
     $('sup[data-notestart]').on({
         mouseover: function() {
             var startNote = $( this ).attr('data-notestart');
-            console.log($( 'span[n="' + startNote + '"]' ));
-            $( this ).prevUntil('span[n="' + startNote + '"]', 'span').add('span[n="' + startNote + '"]').addBack().each(function() {
-                $( this ).addClass('bg-hhblue');
-            })
-            ;
+            var noteEnd = $( this ).attr('data-noteEnd');
+            if ($( 'span[note-marker="' + startNote + '"]' ).length > 0 ) {
+                var endParent = $( noteEnd ).parent();
+                var startParent = $( 'span[note-marker="' + startNote + '"]' ).parent();
+                var startWord = $( 'span[note-marker="' + startNote + '"]' ).prevAll('.w').first();
+                if (endParent.index() == startParent.index()) {
+                    if ($( 'span[note-marker="' + startNote + '"]' ).index() < $( noteEnd ).index() ) {
+                        $( this ).prevUntil(startWord, 'span').add(startWord).addBack().each(function() {
+                            $( this ).addClass('bg-hhblue');
+                        })
+                    } else {
+                        $( noteEnd ).addClass('bg-hhblue');
+                    }
+                } else {
+                    $( this ).prevUntil(endParent.children().first( 'span' ), 'span').add(endParent.children().first( 'span' )).addBack().each(function() {
+                        $( this ).addClass('bg-hhblue');
+                    })
+                    endParent.prevUntil( startParent ).each(function() {
+                        $( this ).addClass('bg-hhblue');
+                    })
+                    startParent.children( 'span' ).last().prevUntil( startWord, 'span' ).add(startWord).add(startParent.children( 'span' ).last()).each(function() {
+                        $( this ).addClass('bg-hhblue');
+                    })
+                }
+            } else {
+                $( noteEnd ).addClass('bg-hhblue');
+            };
         },
         mouseout: function() {
             var startNote = $( this ).attr('data-notestart');
-            $( this ).prevUntil('span[n="' + startNote + '"]', 'span').add('span[n="' + startNote + '"]').addBack().each(function() {
-                $( this ).removeClass('bg-hhblue');
-            })
-            ;
+            var noteEnd = $( this ).attr('data-noteEnd');
+            if ($( 'span[note-marker="' + startNote + '"]' ).length > 0 ) {
+                var endParent = $( noteEnd ).parent();
+                var startParent = $( 'span[note-marker="' + startNote + '"]' ).parent();
+                var startWord = $( 'span[note-marker="' + startNote + '"]' ).prevAll('.w').first();
+                if (endParent.index() == startParent.index()) {
+                    if ($( 'span[note-marker="' + startNote + '"]' ).index() < $( noteEnd ).index() ) {
+                        $( this ).prevUntil(startWord, 'span').add(startWord).addBack().each(function() {
+                            $( this ).removeClass('bg-hhblue');
+                        })
+                    } else {
+                        $( noteEnd ).removeClass('bg-hhblue');
+                    }
+                } else {
+                    $( this ).prevUntil(endParent.children().first( 'span' ), 'span').add(endParent.children().first( 'span' )).addBack().each(function() {
+                        $( this ).removeClass('bg-hhblue');
+                    })
+                    endParent.prevUntil( startParent ).each(function() {
+                        $( this ).removeClass('bg-hhblue');
+                    })
+                    startParent.children( 'span' ).last().prevUntil( startWord, 'span' ).add(startWord).add(startParent.children( 'span' ).last()).each(function() {
+                        $( this ).removeClass('bg-hhblue');
+                    })
+                }
+            } else {
+                $( noteEnd ).removeClass('bg-hhblue');
+            };
         }
     })
 
