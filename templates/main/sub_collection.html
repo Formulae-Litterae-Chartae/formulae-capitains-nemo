@@ -150,7 +150,7 @@
                 <h5 class="mt-1">{{ _('Eigenständiges Material aus') }} <b>Le<span class="subscript smaller-text">1</span></b></h5>
                 {% endif %}
             {% endif %}
-            {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzungen 1,1" %}
+            {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzung 1,1" %}
             <br>
             {% endif %}
             <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{% if '_' in values['name']%} {{values['title']}}{% else %}{{values['name']|replace('(', '')|replace(')', '')}}{% endif %}{% else %}{{values['name']}}{% endif %}{% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}</a>
