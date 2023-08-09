@@ -9,7 +9,7 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 10
-    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL').split(';')
     ES_CLIENT_CERT = os.environ.get('ES_CLIENT_CERT', '')
     ES_CLIENT_KEY = os.environ.get('ES_CLIENT_KEY', '')
     LANGUAGES = ['en', 'de', 'fr']
