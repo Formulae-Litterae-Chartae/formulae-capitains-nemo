@@ -7720,7 +7720,7 @@ class TestES(Formulae_Testing):
     def vector_side_effect(self, **kwargs):
         ids = [x['_id'] for x in self.term_vectors['docs']]
         rv = self.term_vectors
-        for d in kwargs['body']['docs']:
+        for d in kwargs['docs']:
             if d['_id'] not in ids:
                 new_vector = copy(self.MOCK_VECTOR_RETURN_VALUE)
                 new_vector['_id'] = d['_id']
@@ -7728,17 +7728,17 @@ class TestES(Formulae_Testing):
         return rv
 
     def search_side_effect(self, **kwargs):
-        if 'suggest' in kwargs['body']:
+        if 'suggest' in kwargs:
             return self.suggest_side_effect(**kwargs)
-        if 'query' in kwargs['body'] and 'ids' in kwargs['body']['query'].keys():
+        if 'query' in kwargs and 'ids' in kwargs['query'].keys():
             return self.search_aggs
         return next(self.search_response)
 
     def suggest_side_effect(self, **kwargs):
-        if 'body' in kwargs.keys() and 'suggest' in kwargs['body'].keys():
+        if 'suggest' in kwargs.keys():
             resp = {}
-            if kwargs['body']['suggest']['fuzzy_suggest']['term']['field'] == 'text':
-                if kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'qui':
+            if kwargs['suggest']['fuzzy_suggest']['term']['field'] == 'text':
+                if kwargs['suggest']['fuzzy_suggest']['text'] == 'qui':
                     resp = {"suggest": {
                         "fuzzy_suggest": [{
                             "text": "qui",
@@ -7772,7 +7772,7 @@ class TestES(Formulae_Testing):
                             ]
                         }]
                     }}
-                elif kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'nuncupatur' and kwargs['body']['suggest']['fuzzy_suggest']['term']['field'] == 'text':
+                elif kwargs['suggest']['fuzzy_suggest']['text'] == 'nuncupatur' and kwargs['suggest']['fuzzy_suggest']['term']['field'] == 'text':
                     resp = {"suggest": {
                         "fuzzy_suggest": [{
                             "text": "qui",
@@ -7789,7 +7789,7 @@ class TestES(Formulae_Testing):
                     }
                     }
             else:
-                if kwargs['body']['suggest']['fuzzy_suggest']['text'] == 'qui':
+                if kwargs['suggest']['fuzzy_suggest']['text'] == 'qui':
                     resp = {"suggest": {
                         "fuzzy_suggest": [{
                             "text": "qui",
@@ -7876,7 +7876,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         # Test with old args
         mock_search.reset_mock()
@@ -7885,7 +7885,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -7901,7 +7901,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         # Test with old args
         mock_search.reset_mock()
@@ -7910,7 +7910,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -7926,7 +7926,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         # Test with old args
         mock_search.reset_mock()
@@ -7935,7 +7935,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -7951,7 +7951,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -7967,7 +7967,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -7983,7 +7983,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -7999,7 +7999,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, total, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         with self.client as c:
             test_args['source'] = 'advanced'
@@ -8020,7 +8020,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8036,7 +8036,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=['form_lit_chart'], body=b)
+            mock_search.assert_any_call(index=['form_lit_chart'], **b)
 
     @patch.object(Elasticsearch, "search")
     def test_date_range_search_only_start_year_and_month(self, mock_search):
@@ -8051,7 +8051,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8067,7 +8067,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8083,7 +8083,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8099,7 +8099,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8115,7 +8115,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8131,7 +8131,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8147,7 +8147,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8163,7 +8163,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8179,7 +8179,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         # Test with old args
         mock_search.reset_mock()
@@ -8188,7 +8188,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8207,7 +8207,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         # Test with old args
         mock_search.reset_mock()
@@ -8218,7 +8218,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8236,7 +8236,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         # Test with old args
         mock_search.reset_mock()
@@ -8247,7 +8247,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8266,7 +8266,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body[0]['query']['bool']['must'][0]['bool']['should'],
-                              mock_search.call_args_list[0][1]['body']['query']['bool']['must'][0]['bool']['should'])
+                              mock_search.call_args_list[0][1]['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         self.assertEqual(self.app.redis.get('search_progress_1234').decode('utf-8'), '100%',
                          "Redis should keep track of download progress")
@@ -8287,7 +8287,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body[0]['query']['bool']['must'][0]['bool']['should'],
-                              mock_search.call_args_list[0][1]['body']['query']['bool']['must'][0]['bool']['should'])
+                              mock_search.call_args_list[0][1]['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8311,7 +8311,7 @@ class TestES(Formulae_Testing):
         test_args['source'] = 'simple'
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8329,8 +8329,8 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         self.assertCountEqual(body[0]['query']['bool']['must'][0]['bool']['should'],
-                              mock_search.call_args_list[0][1]['body']['query']['bool']['must'][0]['bool']['should'])
-        # mock_search.assert_any_call(index=test_args['corpus'], body=body)
+                              mock_search.call_args_list[0][1]['query']['bool']['must'][0]['bool']['should'])
+        # mock_search.assert_any_call(index=test_args['corpus'], **body)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8347,7 +8347,7 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -8366,7 +8366,7 @@ class TestES(Formulae_Testing):
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Proper name matching of only a single term in a multi-term q should produce no results.")
@@ -8391,7 +8391,7 @@ class TestES(Formulae_Testing):
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual([], [{"id": x['id']} for x in actual],
                          "Proper name matching where neither term is a proper name should produce no results.")
@@ -8415,7 +8415,7 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual([], [{"id": x['id']} for x in actual],
                          "Proper name matching where neither term is a proper name should produce no results.")
@@ -8450,7 +8450,7 @@ class TestES(Formulae_Testing):
         test_args['corpus'] = self.set_corpus(test_args['corpus'].split('+'))
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Single word proper name matching with text search should work.")
@@ -8470,7 +8470,7 @@ class TestES(Formulae_Testing):
         test_args['q_1'] = test_args['q_1'].replace('+', ' ')
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
-        for lem in mock_search.call_args_list[0].kwargs['body']['query']['bool']['must'][0]['bool']['should']:
+        for lem in mock_search.call_args_list[0].kwargs['query']['bool']['must'][0]['bool']['should']:
             self.assertIn(lem, body[0]['query']['bool']['must'][0]['bool']['should'], '{} not found'.format(lem))
         self.assertEqual(ids, [{"id": x['id']} for x in actual],
                          "Multi-word proper name matching with text search should work.")
@@ -8490,7 +8490,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8508,7 +8508,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8526,7 +8526,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8547,7 +8547,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -8570,7 +8570,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         self.assertEqual(sents, [{"sents": x['sents']} for x in actual])
 
@@ -8593,7 +8593,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertIn(sents, [x['sents'] for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -9163,7 +9163,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         for h in actual:
             self.assertEqual(h['info']['comp_ort'], 'Basel-Augst', "{} was not composed in Basel-Augst".format(h['id']))
@@ -9182,7 +9182,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=['formulae', 'chartae'], body=b)
+            mock_search.assert_any_call(index=['formulae', 'chartae'], **b)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Elasticsearch, "mtermvectors")
@@ -9458,7 +9458,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -9475,7 +9475,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -9597,7 +9597,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
     #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     # @patch.object(Elasticsearch, "search")
@@ -9615,7 +9615,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
     #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     # @patch.object(Elasticsearch, "search")
@@ -9636,7 +9636,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
     #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     # @patch.object(Elasticsearch, "search")
@@ -9657,7 +9657,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
     #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
     #
     # @patch.object(Elasticsearch, "search")
@@ -9679,7 +9679,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
     #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
     #
     # @patch.object(Elasticsearch, "search")
@@ -9703,7 +9703,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
 
     @patch.object(Elasticsearch, "search")
     @patch.object(Search, 'lem_highlight_to_text')
@@ -9721,7 +9721,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     # @patch.object(Elasticsearch, "search")
@@ -9744,7 +9744,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
     #     self.assertEqual(ids, [{"id": x['id']} for x in actual])
     #     sents = [{'sents': [Markup('<strong>Poenformel:</strong> Si quis vero, quod futurum esse non credo, aut ego ipse aut ulla opposita persona, quod fieri non credo, contra hanc donationem venire aut eam infringere temptaverit, inprimis in iram dei incurrat, et a liminibus aecclesiae extraneus efficiatur, et sit culpabilis in fisco auri uncias duo et argenti pondera quinque, et effectum, quod inchoavit, obtinere non valeat')]},
     #              {'sents': [Markup('<strong>Stipulationsformel:</strong> Et haec traditio a nobis facta omni tempore firma et stabilis permaneat')]},
@@ -9777,7 +9777,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         for h in actual:
             self.assertEqual(h['info']['forgery'], True, "{} is a forgery and should be excluded".format(h['id']))
@@ -9795,7 +9795,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         for h in actual:
             self.assertEqual(h['info']['forgery'], False, "{} is a forgery and should be excluded".format(h['id']))
@@ -9812,7 +9812,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['text']['value'],
                          'r[uv]([ijeuv]|w|uu|vu|uv|vv|[w])g[ij]n(w|w|uu|vu|uv|vv|[uv])(w|uu|vu|uv|vv)m')
 
@@ -9828,7 +9828,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
     #     print(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp'])
     #     self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['Narratio']['value'],
     #                      'c(w|uu|vu|uv|vv)hr[ijij]s[ij]t([uv]|w|uu|vu|uv|vv|[w])[ij][uv]')
@@ -9845,7 +9845,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
     #     self.assertEqual(body[0]['query']['bool']['must'][0]['bool']['should'][0]['span_near']['clauses'][0]['span_multi']['match']['regexp']['Narratio']['value'],
     #                      'dos')
 
@@ -9863,7 +9863,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
 
     # @patch.object(Elasticsearch, "search")
     # @patch.object(Search, 'lem_highlight_to_text')
@@ -9881,7 +9881,7 @@ class TestES(Formulae_Testing):
     #     test_args['query_dict'] = make_query_dict(test_args)
     #     actual, _, _, _ = advanced_query_index(**test_args)
     #     for b in body:
-    #         mock_search.assert_any_call(index=test_args['corpus'], body=b)
+    #         mock_search.assert_any_call(index=test_args['corpus'], **b)
 
     @patch.object(Elasticsearch, "search")
     def test_elex_search(self, mock_search):
@@ -9904,7 +9904,7 @@ class TestES(Formulae_Testing):
                           [Markup('In wenigen Ausnahmefällen werden auch </small><strong>Diakone</strong><small> oder Kleriker als viri venerabiles bezeichnet, jedoch stehen')]]
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         self.assertEqual(expected_sents, [x['sents'] for x in actual])
 
@@ -9922,7 +9922,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -9939,7 +9939,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -9956,7 +9956,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
     @patch.object(Elasticsearch, "search")
@@ -9975,7 +9975,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
             self.assertIn('regest', b['highlight']['fields'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
 
@@ -9995,7 +9995,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
             self.assertIn('regest', b['highlight']['fields'])
 
     @patch.object(Elasticsearch, "search")
@@ -10020,7 +10020,7 @@ class TestES(Formulae_Testing):
         test_args['query_dict'] = make_query_dict(test_args)
         actual, _, _, _ = advanced_query_index(**test_args)
         for b in body:
-            mock_search.assert_any_call(index=test_args['corpus'], body=b)
+            mock_search.assert_any_call(index=test_args['corpus'], **b)
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
         sents = [{'sents': [Markup('dei nomine transcedo atque transfundo. Si quis vero, quod futurum </small><strong>esse</strong><small> </small><strong>non</strong><small> </small><strong>credo</strong><small>, si ego ipse aut ullus de heredibus vel proheredibus meis '),
                             Markup('Actum in ipso monasterio, datum VIII id. septebr., anno XXXVI </small><strong>regni</strong><small> </small><strong>domni</strong><small> nostri Karoli gloriosissime regis et imperii eius III. Et testes ')]}]
@@ -10048,8 +10048,8 @@ class TestES(Formulae_Testing):
         actual, _, _, _ = advanced_query_index(**test_args)
         exp_should_clauses = list()
         for call in mock_search.call_args_list:
-            if 'bool' in call.kwargs['body']['query']:
-                exp_should_clauses.append(call.kwargs['body']['query']['bool']['must'][0]['bool']['should'])
+            if 'bool' in call.kwargs['query']:
+                exp_should_clauses.append(call.kwargs['query']['bool']['must'][0]['bool']['should'])
         for i, b in enumerate(body):
             self.assertCountEqual(exp_should_clauses[i], b['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])
@@ -10071,8 +10071,8 @@ class TestES(Formulae_Testing):
         actual, _, _, _ = advanced_query_index(**test_args)
         exp_should_clauses = list()
         for call in mock_search.call_args_list:
-            if 'bool' in call.kwargs['body']['query']:
-                exp_should_clauses.append(call.kwargs['body']['query']['bool']['must'][0]['bool']['should'])
+            if 'bool' in call.kwargs['query']:
+                exp_should_clauses.append(call.kwargs['query']['bool']['must'][0]['bool']['should'])
         for i, b in enumerate(body):
             self.assertCountEqual(exp_should_clauses[i], b['query']['bool']['must'][0]['bool']['should'])
         self.assertEqual(ids, [{"id": x['id']} for x in actual])

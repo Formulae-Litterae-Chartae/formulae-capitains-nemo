@@ -204,7 +204,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
     all_highlighted_terms = set()
     mvectors_body = {'docs': [{'_index': h[1], '_id': h[0], 'term_statistics': False, 'field_statistics': False} for h in result_ids]}
     corp_vectors = dict()
-    for d in current_app.elasticsearch.mtermvectors(body=mvectors_body)['docs']:
+    for d in current_app.elasticsearch.mtermvectors(**mvectors_body)['docs']:
         corp_vectors[d['_id']] = {'term_vectors': d['term_vectors']}
     if download_id:
         current_app.redis.set(download_id, '50%')
@@ -506,7 +506,7 @@ def advanced_query_index(corpus: list = None,
 
         searched_templates.append(elex_search)
         search = [current_app.elasticsearch.search(index=corpus,
-                                                   body=elex_search)]
+                                                   **elex_search)]
     else:
         if composition_place:
             base_body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
@@ -673,7 +673,7 @@ def advanced_query_index(corpus: list = None,
                                                                    'max_edits': term_fuzz,
                                                                    'min_word_length': 3,
                                                                    'max_term_freq': 20000}}}}
-                                    suggests = current_app.elasticsearch.search(index=corpus, body=suggest_body)
+                                    suggests = current_app.elasticsearch.search(index=corpus, **suggest_body)
                                     if 'suggest' in suggests:
                                         for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                             words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
@@ -704,7 +704,7 @@ def advanced_query_index(corpus: list = None,
 
             searched_templates.append(search_part_template)
 
-            args_plus_results.append([query_vals, current_app.elasticsearch.search(index=corpus, body=search_part_template)])
+            args_plus_results.append([query_vals, current_app.elasticsearch.search(index=corpus, **search_part_template)])
 
         if args_plus_results:
             combined_results = list()
@@ -744,7 +744,7 @@ def advanced_query_index(corpus: list = None,
             search = first + second
         else:
             searched_templates.append(base_body_template)
-            search = [current_app.elasticsearch.search(index=corpus, body=base_body_template)]
+            search = [current_app.elasticsearch.search(index=corpus, **base_body_template)]
     if qSource:
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
@@ -787,7 +787,7 @@ def advanced_query_index(corpus: list = None,
             prev_search = ids
         agg_search_body = {'query': {'ids': {'values': [x['id'] for x in ids]}}, 'size': 0, 'aggs': AGGREGATIONS}
         aggregations = current_app.elasticsearch.search(index=corpus,
-                                                        body=agg_search_body)['aggregations']
+                                                        **agg_search_body)['aggregations']
     if current_app.config["SAVE_REQUESTS"]:
         q = []
         for k in ('q_1', 'q_2', 'q_3', 'q_4'):
