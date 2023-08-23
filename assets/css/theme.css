@@ -599,8 +599,7 @@ img[id$="-flag-navbar"] {
 }
 
 .chosen-word {
-    font-size: larger;
-    font-weight: bold;
+    background-color: lightgreen;
 }
 
 .hidden-button, .hidden-cell, #results-max-date-column, #results-min-date-column {
