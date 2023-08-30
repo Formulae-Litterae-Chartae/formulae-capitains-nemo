@@ -109,7 +109,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:auvergne',
                         'urn:cts:formulae:be4',
                         'urn:cts:formulae:bonneval_marmoutier',
-                        # 'urn:cts:formulae:bourges',
+                        'urn:cts:formulae:bourges',
                         'urn:cts:formulae:buenden',
                         'urn:cts:formulae:cartier_1841',
                         'urn:cts:formulae:chartae_latinae_xi',
