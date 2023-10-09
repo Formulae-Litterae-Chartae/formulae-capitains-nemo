@@ -395,7 +395,7 @@ span[lemma$="platzhalter"] {
     font-size: 0.7rem;
 }
 
-.searched {
+.searched,[shared-word] {
     background-color: yellow;
 }
 
@@ -596,6 +596,10 @@ img[id$="-flag-navbar"] {
 .flash-yellow span {
     animation-name: note-focus;
     animation-duration: 4s;
+}
+
+.chosen-word {
+    background-color: lightgreen;
 }
 
 .hidden-button, .hidden-cell, #results-max-date-column, #results-min-date-column {

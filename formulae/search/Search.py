@@ -22,83 +22,83 @@ range_agg = {'date_range': {'field': 'min_date', 'format': 'yyyy',
                                        {'key': '800-899', 'from': '0800', 'to': '0899'},
                                        {'key': '900-999', 'from': '0900', 'to': '0999'},
                                        {'key': '>1000', 'from': '1000'}]}}
-corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'collection': 'andecavensis'}},
-                                      "<b>Anjou</b>: Archives d’Anjou": {'match': {'collection': 'anjou_archives'}},
-                                      "<b>Anjou</b>: Chroniques des comtes d’Anjou": {'match': {'collection': 'anjou_comtes_chroniques'}},
-                                      '<b>Auvergne</b>: Auvergne': {'match': {'collection': 'auvergne'}},
-                                      '<b>Bourges</b>: Bourges': {'match': {'collection': 'bourges'}},
-                                      '<b>Catalunya</b>: Katalonien': {'match': {'collection': 'katalonien'}},
-                                      '<b>Chartae Latinae</b>: Chartae Latinae X': {'match': {'collection': 'chartae_latinae_x'}},
-                                      '<b>Chartae Latinae</b>: Chartae Latinae XI': {'match': {'collection': 'chartae_latinae_xi'}},
-                                      '<b>Chartae Latinae</b>: Chartae Latinae XII': {'match': {'collection': 'chartae_latinae_xii'}},
-                                      '<b>Chartae Latinae</b>: Chartae Latinae XLVI': {'match': {'collection': 'chartae_latinae_xlvi'}},
-                                      '<b>Chartae Latinae</b>: Chartae Latinae XLVII': {'match': {'collection': 'chartae_latinae_xlvii'}},
-                                      '<b>Chartae Latinae</b>: Chartae Latinae CXV': {'match': {'collection': 'chartae_latinae_cxv'}},
-                                      '<b>Chartae Latinae</b>: Chartae Latinae CXVI': {'match': {'collection': 'chartae_latinae_cxvi'}},
-                                      '<b>Dijon</b>: Saint-Bénigne de Dijon': {'match': {'collection': 'saint_bénigne'}},
-                                      '<b>Echternach</b>: Echternach': {'match': {'collection': 'echternach'}},
-                                      '<b>E-Lexikon</b>': {'match': {'collection': 'elexicon'}},
-                                      '<b>Flavigny</b>: Flavigny': {'match': {'collection': 'flavigny'}},
-                                      '<b>Formulae Marculfinae</b>: Formulae Marculfinae': {'match': {'collection': 'formulae_marculfinae'}},
-                                      '<b>Freising</b>: Freising': {'match': {'collection': 'freising'}},
-                                      '<b>Fulda</b>: Fulda (Dronke)': {'match': {'collection': 'fulda_dronke'}},
-                                      '<b>Fulda</b>: Fulda (Stengel)': {'match': {'collection': 'fulda_stengel'}},
-                                      '<b>Gorze</b>: Gorze': {'match': {'collection': 'gorze'}},
-                                      '<b>Graubünden</b>: Bünden': {'match': {'collection': 'buenden'}},
-                                      '<b>Hersfeld</b>: Hersfeld': {'match': {'collection': 'hersfeld'}},
-                                      '<b>Herrscherurkunden</b>: Arnulfinger': {'match': {'collection': 'arnulfinger'}},
-                                      '<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo I': {'match': {'collection': 'langobardisch_1'}},
-                                      '<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1': {'match': {'collection': 'langobardisch'}},
-                                      '<b>Herrscherurkunden</b>: Karl der Große': {'match': {'collection': 'karl_der_grosse'}},
-                                      '<b>Herrscherurkunden</b>: Karlmann': {'match': {'collection': 'karlmann_mgh'}},
-                                      '<b>Herrscherurkunden</b>: Lothar II.': {'match': {'collection': 'lothar_2'}},
-                                      '<b>Herrscherurkunden</b>: Ludwig II.': {'match': {'collection': 'ludwig_2'}},
-                                      '<b>Herrscherurkunden</b>: Ludwig der Jüngere': {'match': {'collection': 'ludwig_der_juengere'}},
-                                      '<b>Herrscherurkunden</b>: Merowinger': {'match': {'collection': 'merowinger1'}},
-                                      '<b>Herrscherurkunden</b>: Pippin III.': {'match': {'collection': 'pippin_3'}},
-                                      '<b>Herrscherurkunden</b>: Rudolf I.': {'match': {'collection': 'rudolf_1_mgh'}},
-                                      '<b>Herrscherurkunden</b>: Rudolf II.': {'match': {'collection': 'rudolf_2_mgh'}},
-                                      '<b>Lorsch</b>: Lorsch': {'match': {'collection': 'lorsch'}},
-                                      '<b>Luzern</b>: Luzern': {'match': {'collection': 'luzern'}},
-                                      '<b>Marculf</b>: Marculf': {'match': {'collection': 'marculf'}},
-                                      '<b>Mondsee</b>: Mondsee': {'match': {'collection': 'mondsee'}},
-                                      '<b>Papsturkunden</b>: Papsturkunden Frankreich': {'match': {'collection': 'papsturkunden_frankreich'}},
-                                      '<b>Passau</b>: Passau': {'match': {'collection': 'passau'}},
-                                      '<b>Rätien</b>: Rätien': {'match': {'collection': 'raetien'}},
-                                      '<b>Redon</b>: Cartulaire de Redon': {'match': {'collection': 'redon'}},
-                                      '<b>Regensburg</b>: Regensburg': {'match': {'collection': 'regensburg'}},
-                                      '<b>Rheinland</b>: Mittelrheinisch': {'match': {'collection': 'mittelrheinisch'}},
-                                      '<b>Rheinland</b>: Rheinisch': {'match': {'collection': 'rheinisch'}},
-                                      '<b>Salzburg</b>: Salzburg': {'match': {'collection': 'salzburg'}},
-                                      '<b>Schäftlarn</b>: Schäftlarn': {'match': {'collection': 'schaeftlarn'}},
-                                      '<b>Stavelot/Malmedy</b>: Stavelot-Malmedy': {'match': {'collection': 'stavelot_malmedy'}},
-                                      '<b>St. Gallen</b>: St. Gallen': {'match': {'collection': 'stgallen'}},
-                                      "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {'match': {'collection': 'marmoutier_barthelemy'}},
-                                      '<b>Touraine</b>: Accord entre Bonneval et Marmoutier': {'match': {'collection': 'bonneval_marmoutier'}},
-                                      '<b>Touraine</b>: Cormery (TELMA)': {'match': {'collection': 'telma_cormery'}},
-                                      '<b>Touraine</b>: Accomodement entre Marmoutier et S.-Martin': {'match': {'collection': 'cartier_1841'}},
-                                      '<b>Touraine</b>: Eudes': {'match': {'collection': 'eudes'}},
-                                      '<b>Touraine</b>: Fragments de Saint-Julien de Tours': {'match': {'collection': 'tours_st_julien_fragments'}},
-                                      '<b>Touraine</b>: Marmoutier Cartulaire blésois': {'match': {'collection': 'marmoutier_blésois'}},
-                                      '<b>Touraine</b>: Marmoutier - Dunois': {'match': {'collection': 'marmoutier_dunois'}},
-                                      '<b>Touraine</b>: Marmoutier - Fougères': {'match': {'collection': 'marmoutier_fougères'}},
-                                      '<b>Touraine</b>: Marmoutier - Manceau': {'match': {'collection': 'marmoutier_manceau'}},
-                                      '<b>Touraine</b>: Marmoutier - Pour le perche': {'match': {'collection': 'marmoutier_pour_le_perche'}},
-                                      '<b>Touraine</b>: Marmoutier - Serfs': {'match': {'collection': 'marmoutier_serfs'}},
-                                      '<b>Touraine</b>: Marmoutier - Trois actes faux ou interpolés': {'match': {'collection': 'marmoutier_leveque'}},
-                                      '<b>Touraine</b>: Marmoutier - Vendômois': {'match': {'collection': 'marmoutier_vendomois'}},
-                                      '<b>Touraine</b>: Marmoutier - Vendômois, Appendix': {'match': {'collection': 'marmoutier_vendomois_appendix'}},
-                                      '<b>Touraine</b>: Marmoutier (TELMA)': {'match': {'collection': 'telma_marmoutier'}},
-                                      '<b>Touraine</b>: Pancarte Noire': {'match': {'collection': 'pancarte_noire'}},
-                                      '<b>Touraine</b>: Saint-Julien de Tours': {'match': {'collection': 'tours_st_julien_denis'}},
-                                      '<b>Touraine</b>: Saint-Martin de Tours (TELMA)': {'match': {'collection': 'telma_martin_tours'}},
-                                      '<b>Touraine</b>: Un acte faux de Marmoutier': {'match': {'collection': 'marmoutier_laurain'}},
-                                      '<b>Touraine</b>: Une nouvelle charte de Théotolon': {'match': {'collection': 'tours_gasnault'}},
-                                      '<b>Touraine</b>: Formeln von Tours': {'match': {'collection': 'tours'}},
-                                      '<b>Touraine</b>: Tours-Überarbeitung': {'match': {'collection': 'tours_ueberarbeitung'}},
-                                      '<b>Werden</b>: Werden': {'match': {'collection': 'werden'}},
-                                      '<b>Wissembourg</b>: Weißenburg': {'match': {'collection': 'weissenburg'}},
-                                      '<b>Zürich</b>: Zürich': {'match': {'collection': 'zuerich'}}}}}
+corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'collection': 'form_lit_chart-andecavensis'}},
+                                      "<b>Anjou</b>: Archives d’Anjou": {'match': {'collection': 'form_lit_chart-anjou_archives'}},
+                                      "<b>Anjou</b>: Chroniques des comtes d’Anjou": {'match': {'collection': 'form_lit_chart-anjou_comtes_chroniques'}},
+                                      '<b>Auvergne</b>: Auvergne': {'match': {'collection': 'form_lit_chart-auvergne'}},
+                                      '<b>Bourges</b>: Bourges': {'match': {'collection': 'form_lit_chart-bourges'}},
+                                      '<b>Catalunya</b>: Katalonien': {'match': {'collection': 'form_lit_chart-katalonien'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae X': {'match': {'collection': 'form_lit_chart-chartae_latinae_x'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae XI': {'match': {'collection': 'form_lit_chart-chartae_latinae_xi'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae XII': {'match': {'collection': 'form_lit_chart-chartae_latinae_xii'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae XLVI': {'match': {'collection': 'form_lit_chart-chartae_latinae_xlvi'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae XLVII': {'match': {'collection': 'form_lit_chart-chartae_latinae_xlvii'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae CXV': {'match': {'collection': 'form_lit_chart-chartae_latinae_cxv'}},
+                                      '<b>Chartae Latinae</b>: Chartae Latinae CXVI': {'match': {'collection': 'form_lit_chart-chartae_latinae_cxvi'}},
+                                      '<b>Dijon</b>: Saint-Bénigne de Dijon': {'match': {'collection': 'form_lit_chart-saint_bénigne'}},
+                                      '<b>Echternach</b>: Echternach': {'match': {'collection': 'form_lit_chart-echternach'}},
+                                      '<b>E-Lexikon</b>': {'match': {'collection': 'form_lit_chart-elexicon'}},
+                                      '<b>Flavigny</b>: Flavigny': {'match': {'collection': 'form_lit_chart-flavigny'}},
+                                      '<b>Formulae Marculfinae</b>: Formulae Marculfinae': {'match': {'collection': 'form_lit_chart-formulae_marculfinae'}},
+                                      '<b>Freising</b>: Freising': {'match': {'collection': 'form_lit_chart-freising'}},
+                                      '<b>Fulda</b>: Fulda (Dronke)': {'match': {'collection': 'form_lit_chart-fulda_dronke'}},
+                                      '<b>Fulda</b>: Fulda (Stengel)': {'match': {'collection': 'form_lit_chart-fulda_stengel'}},
+                                      '<b>Gorze</b>: Gorze': {'match': {'collection': 'form_lit_chart-gorze'}},
+                                      '<b>Graubünden</b>: Bünden': {'match': {'collection': 'form_lit_chart-buenden'}},
+                                      '<b>Hersfeld</b>: Hersfeld': {'match': {'collection': 'form_lit_chart-hersfeld'}},
+                                      '<b>Herrscherurkunden</b>: Arnulfinger': {'match': {'collection': 'form_lit_chart-arnulfinger'}},
+                                      '<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo I': {'match': {'collection': 'form_lit_chart-langobardisch_1'}},
+                                      '<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1': {'match': {'collection': 'form_lit_chart-langobardisch'}},
+                                      '<b>Herrscherurkunden</b>: Karl der Große': {'match': {'collection': 'form_lit_chart-karl_der_grosse'}},
+                                      '<b>Herrscherurkunden</b>: Karlmann': {'match': {'collection': 'form_lit_chart-karlmann_mgh'}},
+                                      '<b>Herrscherurkunden</b>: Lothar II.': {'match': {'collection': 'form_lit_chart-lothar_2'}},
+                                      '<b>Herrscherurkunden</b>: Ludwig II.': {'match': {'collection': 'form_lit_chart-ludwig_2'}},
+                                      '<b>Herrscherurkunden</b>: Ludwig der Jüngere': {'match': {'collection': 'form_lit_chart-ludwig_der_juengere'}},
+                                      '<b>Herrscherurkunden</b>: Merowinger': {'match': {'collection': 'form_lit_chart-merowinger1'}},
+                                      '<b>Herrscherurkunden</b>: Pippin III.': {'match': {'collection': 'form_lit_chart-pippin_3'}},
+                                      '<b>Herrscherurkunden</b>: Rudolf I.': {'match': {'collection': 'form_lit_chart-rudolf_1_mgh'}},
+                                      '<b>Herrscherurkunden</b>: Rudolf II.': {'match': {'collection': 'form_lit_chart-rudolf_2_mgh'}},
+                                      '<b>Lorsch</b>: Lorsch': {'match': {'collection': 'form_lit_chart-lorsch'}},
+                                      '<b>Luzern</b>: Luzern': {'match': {'collection': 'form_lit_chart-luzern'}},
+                                      '<b>Marculf</b>: Marculf': {'match': {'collection': 'form_lit_chart-marculf'}},
+                                      '<b>Mondsee</b>: Mondsee': {'match': {'collection': 'form_lit_chart-mondsee'}},
+                                      '<b>Papsturkunden</b>: Papsturkunden Frankreich': {'match': {'collection': 'form_lit_chart-papsturkunden_frankreich'}},
+                                      '<b>Passau</b>: Passau': {'match': {'collection': 'form_lit_chart-passau'}},
+                                      '<b>Rätien</b>: Rätien': {'match': {'collection': 'form_lit_chart-raetien'}},
+                                      '<b>Redon</b>: Cartulaire de Redon': {'match': {'collection': 'form_lit_chart-redon'}},
+                                      '<b>Regensburg</b>: Regensburg': {'match': {'collection': 'form_lit_chart-regensburg'}},
+                                      '<b>Rheinland</b>: Mittelrheinisch': {'match': {'collection': 'form_lit_chart-mittelrheinisch'}},
+                                      '<b>Rheinland</b>: Rheinisch': {'match': {'collection': 'form_lit_chart-rheinisch'}},
+                                      '<b>Salzburg</b>: Salzburg': {'match': {'collection': 'form_lit_chart-salzburg'}},
+                                      '<b>Schäftlarn</b>: Schäftlarn': {'match': {'collection': 'form_lit_chart-schaeftlarn'}},
+                                      '<b>Stavelot/Malmedy</b>: Stavelot-Malmedy': {'match': {'collection': 'form_lit_chart-stavelot_malmedy'}},
+                                      '<b>St. Gallen</b>: St. Gallen': {'match': {'collection': 'form_lit_chart-stgallen'}},
+                                      "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {'match': {'collection': 'form_lit_chart-marmoutier_barthelemy'}},
+                                      '<b>Touraine</b>: Accord entre Bonneval et Marmoutier': {'match': {'collection': 'form_lit_chart-bonneval_marmoutier'}},
+                                      '<b>Touraine</b>: Cormery (TELMA)': {'match': {'collection': 'form_lit_chart-telma_cormery'}},
+                                      '<b>Touraine</b>: Accomodement entre Marmoutier et S.-Martin': {'match': {'collection': 'form_lit_chart-cartier_1841'}},
+                                      '<b>Touraine</b>: Eudes': {'match': {'collection': 'form_lit_chart-eudes'}},
+                                      '<b>Touraine</b>: Fragments de Saint-Julien de Tours': {'match': {'collection': 'form_lit_chart-tours_st_julien_fragments'}},
+                                      '<b>Touraine</b>: Marmoutier Cartulaire blésois': {'match': {'collection': 'form_lit_chart-marmoutier_blésois'}},
+                                      '<b>Touraine</b>: Marmoutier - Dunois': {'match': {'collection': 'form_lit_chart-marmoutier_dunois'}},
+                                      '<b>Touraine</b>: Marmoutier - Fougères': {'match': {'collection': 'form_lit_chart-marmoutier_fougères'}},
+                                      '<b>Touraine</b>: Marmoutier - Manceau': {'match': {'collection': 'form_lit_chart-marmoutier_manceau'}},
+                                      '<b>Touraine</b>: Marmoutier - Pour le perche': {'match': {'collection': 'form_lit_chart-marmoutier_pour_le_perche'}},
+                                      '<b>Touraine</b>: Marmoutier - Serfs': {'match': {'collection': 'form_lit_chart-marmoutier_serfs'}},
+                                      '<b>Touraine</b>: Marmoutier - Trois actes faux ou interpolés': {'match': {'collection': 'form_lit_chart-marmoutier_leveque'}},
+                                      '<b>Touraine</b>: Marmoutier - Vendômois': {'match': {'collection': 'form_lit_chart-marmoutier_vendomois'}},
+                                      '<b>Touraine</b>: Marmoutier - Vendômois, Appendix': {'match': {'collection': 'form_lit_chart-marmoutier_vendomois_appendix'}},
+                                      '<b>Touraine</b>: Marmoutier (TELMA)': {'match': {'collection': 'form_lit_chart-telma_marmoutier'}},
+                                      '<b>Touraine</b>: Pancarte Noire': {'match': {'collection': 'form_lit_chart-pancarte_noire'}},
+                                      '<b>Touraine</b>: Saint-Julien de Tours': {'match': {'collection': 'form_lit_chart-tours_st_julien_denis'}},
+                                      '<b>Touraine</b>: Saint-Martin de Tours (TELMA)': {'match': {'collection': 'form_lit_chart-telma_martin_tours'}},
+                                      '<b>Touraine</b>: Un acte faux de Marmoutier': {'match': {'collection': 'form_lit_chart-marmoutier_laurain'}},
+                                      '<b>Touraine</b>: Une nouvelle charte de Théotolon': {'match': {'collection': 'form_lit_chart-tours_gasnault'}},
+                                      '<b>Touraine</b>: Formeln von Tours': {'match': {'collection': 'form_lit_chart-tours'}},
+                                      '<b>Touraine</b>: Tours-Überarbeitung': {'match': {'collection': 'form_lit_chart-tours_ueberarbeitung'}},
+                                      '<b>Werden</b>: Werden': {'match': {'collection': 'form_lit_chart-werden'}},
+                                      '<b>Wissembourg</b>: Weißenburg': {'match': {'collection': 'form_lit_chart-weissenburg'}},
+                                      '<b>Zürich</b>: Zürich': {'match': {'collection': 'form_lit_chart-zuerich'}}}}}
 no_date_agg = {'missing': {'field': 'min_date'}}
 forgery_agg = {'filter': {'term': {'forgery': True}}}
 AGGREGATIONS = {'range': range_agg,
@@ -204,7 +204,7 @@ def lem_highlight_to_text(args_plus_results: List[List[Union[str, Dict]]] = None
     all_highlighted_terms = set()
     mvectors_body = {'docs': [{'_index': h[1], '_id': h[0], 'term_statistics': False, 'field_statistics': False} for h in result_ids]}
     corp_vectors = dict()
-    for d in current_app.elasticsearch.mtermvectors(body=mvectors_body)['docs']:
+    for d in current_app.elasticsearch.mtermvectors(**mvectors_body)['docs']:
         corp_vectors[d['_id']] = {'term_vectors': d['term_vectors']}
     if download_id:
         current_app.redis.set(download_id, '50%')
@@ -506,7 +506,7 @@ def advanced_query_index(corpus: list = None,
 
         searched_templates.append(elex_search)
         search = [current_app.elasticsearch.search(index=corpus,
-                                                   body=elex_search)]
+                                                   **elex_search)]
     else:
         if composition_place:
             base_body_template['query']['bool']['must'].append({'match': {'comp_ort': composition_place}})
@@ -673,7 +673,7 @@ def advanced_query_index(corpus: list = None,
                                                                    'max_edits': term_fuzz,
                                                                    'min_word_length': 3,
                                                                    'max_term_freq': 20000}}}}
-                                    suggests = current_app.elasticsearch.search(index=corpus, body=suggest_body)
+                                    suggests = current_app.elasticsearch.search(index=corpus, **suggest_body)
                                     if 'suggest' in suggests:
                                         for s in suggests['suggest']['fuzzy_suggest'][0]['options']:
                                             words.append(re.sub(r'[ij]', '[ij]', re.sub(r'(?<![uv])[uv](?![uv])', r'[uv]', re.sub(r'w|uu|uv|vu|vv', '(w|uu|vu|uv|vv)', s['text']))))
@@ -704,7 +704,7 @@ def advanced_query_index(corpus: list = None,
 
             searched_templates.append(search_part_template)
 
-            args_plus_results.append([query_vals, current_app.elasticsearch.search(index=corpus, body=search_part_template)])
+            args_plus_results.append([query_vals, current_app.elasticsearch.search(index=corpus, **search_part_template)])
 
         if args_plus_results:
             combined_results = list()
@@ -744,7 +744,7 @@ def advanced_query_index(corpus: list = None,
             search = first + second
         else:
             searched_templates.append(base_body_template)
-            search = [current_app.elasticsearch.search(index=corpus, body=base_body_template)]
+            search = [current_app.elasticsearch.search(index=corpus, **base_body_template)]
     if qSource:
         ids = [{'id': hit['_id'],
                 'info': hit['_source'],
@@ -787,7 +787,7 @@ def advanced_query_index(corpus: list = None,
             prev_search = ids
         agg_search_body = {'query': {'ids': {'values': [x['id'] for x in ids]}}, 'size': 0, 'aggs': AGGREGATIONS}
         aggregations = current_app.elasticsearch.search(index=corpus,
-                                                        body=agg_search_body)['aggregations']
+                                                        **agg_search_body)['aggregations']
     if current_app.config["SAVE_REQUESTS"]:
         q = []
         for k in ('q_1', 'q_2', 'q_3', 'q_4'):
