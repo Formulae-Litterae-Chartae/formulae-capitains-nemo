@@ -323,13 +323,11 @@
         <div class="row py-0 justify-content-center">
             {% if objects|length > 1 %}
             <div class="col-6 text-right px-0 mt-1">
-            {% if 'tools.formulae.uni-hamburg.de' in request.url or '127.0.0.1' in request.url %}
                 {% if 'collate=True' in request.url %}
                 <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|join_list_values('+'))}}" title="{{ _('Kollationierung ausschalten') }}" id="text-collation-link" data-toggle="tooltip" data-container="#text-collation-link"><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/collate_off.png')}}" alt="{{ _('Kollationierung ausschalten') }}"></a>
                 {% else %}
                 <a href="{{url_for('InstanceNemo.r_multipassage', objectIds=objects|map(attribute='objectId')|list|join_list_values('+'), subreferences=objects|map(attribute='subreference')|list|join_list_values('+'), collate=True)}}" title="{{ _('Texte miteinander kollationieren.') }}" id="text-collation-link" data-toggle="tooltip" data-container="#text-collation-link"><img class="img-fluid reading-format-image" src="{{url_for('InstanceNemo.static', filename='images/collate.png')}}" alt="{{ _('Texte miteinander kollationieren') }}"></a>
                 {% endif %}
-            {% endif %}
                 <a href="#" class="reading-format-setter" id="text-column-link" title="{{ _('Texte nebeneinander zeigen.') }}" value="columns" {% if session['reading_format'] != 'columns' %}{% else %}hidden{% endif %} data-toggle="tooltip" data-container="#text-column-link"><img class="img-fluid reading-format-image{% if 'tools.formulae.uni-hamburg.de' in request.url or '127.0.0.1' in request.url %} scroll-control-image{% endif %}" src="{{url_for('InstanceNemo.static', filename='images/reading_format_columns.png')}}" alt="{{ _('Texte nebeneinander') }}"></a>
                 <a href="#" class="reading-format-setter" id="text-row-link" title="{{ _('Texte übereinander zeigen.') }}" value="rows" {% if session['reading_format'] != 'rows' %}{% else %}hidden{% endif %} data-toggle="tooltip" data-container="#text-row-link"><img class="img-fluid reading-format-image{% if 'tools.formulae.uni-hamburg.de' in request.url or '127.0.0.1' in request.url %} scroll-control-image{% endif %}" src="{{url_for('InstanceNemo.static', filename='images/reading_format_rows.png')}}" alt="{{ _('Texte übereinander') }}"></a>
                 {% if session['reading_format'] == 'rows' %}
