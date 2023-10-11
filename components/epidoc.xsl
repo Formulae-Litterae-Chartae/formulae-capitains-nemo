@@ -50,7 +50,7 @@
             <xsl:otherwise>
                 <xsl:element name="span">
                     <xsl:attribute name="id"><xsl:value-of select="generate-id()"/></xsl:attribute>
-                    <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef]"><xsl:text> lexicon</xsl:text></xsl:if>
+                    <xsl:attribute name="class">w<xsl:if test="current()[@lemmaRef] and not(contains(/t:TEI/t:text/t:body/t:div/@n, current()/@lemmaRef))"><xsl:text> lexicon</xsl:text></xsl:if>
                         <xsl:if test="ancestor::t:seg[contains(@rend, 'italic')]"><xsl:text> font-italic</xsl:text></xsl:if>
                         <xsl:if test="ancestor::t:seg[contains(@type, 'italic')]"><xsl:text> font-italic</xsl:text></xsl:if>
                         <xsl:if test="ancestor::t:seg[contains(@type, 'platzhalter')]"><xsl:text> platzhalter</xsl:text></xsl:if>
@@ -69,7 +69,7 @@
                     <xsl:if test="@n">
                         <xsl:attribute name="n"><xsl:value-of select="@n"/></xsl:attribute>
                     </xsl:if>
-                    <xsl:if test="current()[@lemmaRef]">
+                    <xsl:if test="current()[@lemmaRef] and not(contains(/t:TEI/t:text/t:body/t:div/@n, current()/@lemmaRef))">
                         <xsl:attribute name="data-lexicon"><xsl:value-of select="@lemmaRef"/></xsl:attribute>
                         <xsl:attribute name="tabindex">0</xsl:attribute>
                         <xsl:attribute name="role">button</xsl:attribute>
