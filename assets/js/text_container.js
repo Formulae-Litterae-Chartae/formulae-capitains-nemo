@@ -158,6 +158,13 @@ $(document).ready(function () {
         stack: '.part-menu-icon',
         handle: '.part-menu-handle'
     });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if ( urlParams.has('formpart') ) {
+        $( 'span[function="' + urlParams.get('formpart') + '"]').each( function() {
+            $( this ).toggleClass('formelteil-bg');
+        })
+    }
 })
 
 var splitInstance = Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
