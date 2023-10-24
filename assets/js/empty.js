@@ -490,6 +490,91 @@ $(document).ready(function () {
         ]
     });
 
+    var searchResultTable = $('#Poenformel-Vordersatz-PartsTable').DataTable({
+        "autoWidth": true,
+        "order": [],
+        "language": {
+            url: dataTableLangFile
+        },
+//         "language": {
+//             "search": searchBoxString + ':'
+//         },
+        "columnDefs": [
+            {
+                "targets": [ "Poenformel-Vordersatz--all-charter-date-column" ],
+                "orderable": false
+            }
+        ]
+    });
+
+    var searchResultTable = $('#Poenformel-Strafklausel-PartsTable').DataTable({
+        "autoWidth": true,
+        "order": [],
+        "language": {
+            url: dataTableLangFile
+        },
+//         "language": {
+//             "search": searchBoxString + ':'
+//         },
+        "columnDefs": [
+            {
+                "targets": [ "Poenformel-Strafklausel--all-charter-date-column" ],
+                "orderable": false
+            }
+        ]
+    });
+
+    var searchResultTable = $('#StipulationsformelPartsTable').DataTable({
+        "autoWidth": true,
+        "order": [],
+        "language": {
+            url: dataTableLangFile
+        },
+//         "language": {
+//             "search": searchBoxString + ':'
+//         },
+        "columnDefs": [
+            {
+                "targets": [ "Stipulationsformel-all-charter-date-column" ],
+                "orderable": false
+            }
+        ]
+    });
+
+    var searchResultTable = $('#ÜberleitungsformelPartsTable').DataTable({
+        "autoWidth": true,
+        "order": [],
+        "language": {
+            url: dataTableLangFile
+        },
+//         "language": {
+//             "search": searchBoxString + ':'
+//         },
+        "columnDefs": [
+            {
+                "targets": [ "Überleitungsformel-all-charter-date-column" ],
+                "orderable": false
+            }
+        ]
+    });
+
+    var searchResultTable = $('#ArengaPartsTable').DataTable({
+        "autoWidth": true,
+        "order": [],
+        "language": {
+            url: dataTableLangFile
+        },
+//         "language": {
+//             "search": searchBoxString + ':'
+//         },
+        "columnDefs": [
+            {
+                "targets": [ "Arenga-all-charter-date-column" ],
+                "orderable": false
+            }
+        ]
+    });
+
     $('.search-regest-expand .regest-expand').click(function() {
         $( this ).parents('.search-regest-expand').find('.regest-no-expansion').toggleClass('d-none');
         $( this ).parents('.search-regest-expand').find('.regest-expansion').toggleClass('d-none');
@@ -850,5 +935,17 @@ $(document).ready(function () {
 
     $('.expand').each(function() {
         $(this).attr('title', expMess);
+    })
+
+    $('.charter-select-button').click(function() {
+        var target = $(this).data('target');
+        var urns = [];
+        var sections = [];
+        $('#' + target + ' .charter-part-checkbox:checked').each(function() {
+            urns.push($(this).attr('value'));
+            sections.push("all");
+        })
+        var url = subdomain + '/texts/' + urns.join('+') + '/passage/' + sections.join('+');
+        window.location.href = url;
     })
 })

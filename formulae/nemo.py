@@ -62,7 +62,8 @@ class NemoFormulae(Nemo):
         ("/accessibility_statement", "r_accessibility_statement", ["GET"]),
         ("/videos", "r_videos", ["GET"]),
         ("/charter_parts", "r_parts", ["GET"]),
-        ("/charter_groups", "r_groups", ["GET"])
+        ("/charter_groups", "r_groups", ["GET"]),
+        ("/charter_formulaic", "r_charter_formulaic", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1939,6 +1940,14 @@ class NemoFormulae(Nemo):
         :rtype: {str: str, str: list(tuple(str))}
         """
         return {"template": "main::charter_groups.html"}
+
+    def r_charter_formulaic(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with intro and links to data from Franziska Quaas
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::charter_formulae.html"}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be

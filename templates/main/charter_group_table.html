@@ -1,595 +1,1043 @@
 
                     <div class="card">
-                        <h3 class="card-header" id="part-Urkundengruppen">
-                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-Urkundengruppen" aria-expanded="true" aria-controls="part-collaps
-e-Urkundengruppen">
+                        <h3 class="card-header" id="part-allCharterGroups">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#allCharterGroupAccordion" aria-expanded="true" aria-controls="allCharterGroupAccordion">
                             <h4>Gruppen von gesamten Urkunden</h4>
                             </button>
                         </h3>
-                        <div id="part-collapse-Urkundengruppen" class="collapse" aria-labelledby="part-category-Urkundengruppen" data-parent="#charterGroupAccordion">
-                            <div class="card-body">
-                                <table id="allCharterGroupTable" class="table table-sm table-hover table-bordered" aria-label="{{ _('Urkundengruppentabelle') }}">
-                                    <thead>
-                                        <tr>
-                                            <th id="all-charter-checkbox-column" scope="col"></th>
-                                            <th id="all-charter-type-column" scope="col">{{ _('Urkundengruppe') }}</th>
-                                            <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0007.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0007.lat001"></td>
-                                            <td>Passauer Form I</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 7</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0023.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0023.lat001"></td>
-                                            <td>Passauer Form I</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 23</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0025.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0025.lat001"></td>
-                                            <td>Passauer Form I</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 25</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0026.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0026.lat001"></td>
-                                            <td>Passauer Form I</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 26</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0027.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0027.lat001"></td>
-                                            <td>Passauer Form I</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 27</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0029.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0029.lat001"></td>
-                                            <td>Passauer Form I</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 29</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0044.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0044.lat001"></td>
-                                            <td>Passauer Form I</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 44a</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0049.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0049.lat001"></td>
-                                            <td>Passauer Form I</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 49</td>
-                                        </tr>
+                        <div class="accordion collapse" id="allCharterGroupAccordion">
+                        
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_I">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_I" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_I">
+                                    <h5>Mondseer Form I</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_I" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_I" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_I" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form I">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0009.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0009.lat001"></td>
-                                            <td>Mondseer Form I</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 9</td>
+                                            <td>(789-800) 05 16</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0025.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0025.lat001"></td>
-                                            <td>Mondseer Form I</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 25</td>
+                                            <td>(748-784) 04</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0026.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0026.lat001"></td>
-                                            <td>Mondseer Form I</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 26</td>
+                                            <td>(vor 748 Juli – Anfang 784)</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0029.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0029.lat001"></td>
-                                            <td>Mondseer Form I</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 29</td>
+                                            <td>767 06 09</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0031.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0031.lat001"></td>
-                                            <td>Mondseer Form I</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 31</td>
+                                            <td>749 05 29</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0064.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0064.lat001"></td>
-                                            <td>Mondseer Form I</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 64</td>
+                                            <td>827 04 14</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0114.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0114.lat001"></td>
-                                            <td>Mondseer Form I</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 114</td>
+                                            <td>749 07 10</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0123.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0123.lat001"></td>
-                                            <td>Mondseer Form I</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 123</td>
+                                            <td>748 07 10</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_I" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_II">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_II" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_II">
+                                    <h5>Mondseer Form II</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_II" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_II" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_II" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form II">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0013.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0013.lat001"></td>
-                                            <td>Mondseer Form II</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 13</td>
+                                            <td>771</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0033.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0033.lat001"></td>
-                                            <td>Mondseer Form II</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 33</td>
+                                            <td>776</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0070.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0070.lat001"></td>
-                                            <td>Mondseer Form II</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 70</td>
+                                            <td>(letztes Drittel 8. Jhd.?/ nach 770?) 10 12</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0085.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0085.lat001"></td>
-                                            <td>Mondseer Form II</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 85</td>
+                                            <td>722</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0087.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0087.lat001"></td>
-                                            <td>Mondseer Form II</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 87</td>
+                                            <td>(748/770? -788)</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0096.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0096.lat001"></td>
-                                            <td>Mondseer Form II</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 96</td>
+                                            <td>(letztes Drittel 8. Jhd?/783?/798?) 07 25/ 08 06</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0116.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0116.lat001"></td>
-                                            <td>Mondseer Form II</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 116</td>
+                                            <td>770</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0118.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0118.lat001"></td>
-                                            <td>Mondseer Form II</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 118</td>
+                                            <td>(letztes Drittel 8. Jh.?/ nach 770?)</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_II" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_IIIa">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_IIIa" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_IIIa">
+                                    <h5>Mondseer Form IIIa</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_IIIa" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_IIIa" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_IIIa" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form IIIa">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0002.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0002.lat001"></td>
-                                            <td>Mondseer Form IIIa</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 2</td>
+                                            <td>813 02 12</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0028.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0028.lat001"></td>
-                                            <td>Mondseer Form IIIa</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 28</td>
+                                            <td>815 05 21</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0032.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0032.lat001"></td>
-                                            <td>Mondseer Form IIIa</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 32</td>
+                                            <td>813 09 30</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0059.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0059.lat001"></td>
-                                            <td>Mondseer Form IIIa</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 59</td>
+                                            <td>(814?) 06 06</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_IIIa" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_IIIb">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_IIIb" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_IIIb">
+                                    <h5>Mondseer Form IIIb</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_IIIb" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_IIIb" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_IIIb" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form IIIb">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0012.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0012.lat001"></td>
-                                            <td>Mondseer Form IIIb</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 12</td>
+                                            <td>(748-829?)</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0041.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0041.lat001"></td>
-                                            <td>Mondseer Form IIIb</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 41</td>
+                                            <td>748-829?</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0043.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0043.lat001"></td>
-                                            <td>Mondseer Form IIIb</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 43</td>
+                                            <td>748-829?</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_IIIb" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_IIIc">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_IIIc" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_IIIc">
+                                    <h5>Mondseer Form IIIc</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_IIIc" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_IIIc" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_IIIc" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form IIIc">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0082.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0082.lat001"></td>
-                                            <td>Mondseer Form IIIc</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 82</td>
+                                            <td>(827?) 10 08</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0083.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0083.lat001"></td>
-                                            <td>Mondseer Form IIIc</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 83</td>
+                                            <td>(748- vor 814 11 30</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0084.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0084.lat001"></td>
-                                            <td>Mondseer Form IIIc</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 84</td>
+                                            <td>(748-829?)</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_IIIc" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_IV">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_IV" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_IV">
+                                    <h5>Mondseer Form IV</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_IV" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_IV" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_IV" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form IV">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0011.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0011.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 11</td>
+                                            <td>803 03 18</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0014.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0014.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 14</td>
+                                            <td>805 01 20</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0021.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0021.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 21</td>
+                                            <td>803 11 18</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0030.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0030.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 30</td>
+                                            <td>808 03 28</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0047.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0047.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 47</td>
+                                            <td>808 04 12</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0071.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0071.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 71</td>
+                                            <td>807 10 30</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0072.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0072.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 72</td>
+                                            <td>811 02 07</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0073.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0073.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 73</td>
+                                            <td>808 06 24</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0077.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0077.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 77</td>
+                                            <td>811 02 06</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0091.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0091.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 91</td>
+                                            <td>807 11 12</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0098.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0098.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 98</td>
+                                            <td>809 04 04</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0112.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0112.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 112</td>
+                                            <td>803 03 21</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0126.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0126.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 126</td>
+                                            <td>803 11 01</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0133.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0133.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 133</td>
+                                            <td>(ca. 803-816?)</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0135.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0135.lat001"></td>
-                                            <td>Mondseer Form IV</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 135</td>
+                                            <td>805 01 20</td>
                                         </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0019.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0019.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 19</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0064.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0064.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 64</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0066.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0066.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 66</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0068.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0068.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 68</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0104.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0104.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 104</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0105.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0105.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 105</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0106.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0106.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 106</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0109.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0109.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 109</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0115.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0115.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 115</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0120.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0120.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 120</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0121.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0121.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 121</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0129.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0129.lat001"></td>
-                                            <td>Mondseer Form Va</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 129</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0008.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0008.lat001"></td>
-                                            <td>Mondseer Form Vb</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 8</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0017.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0017.lat001"></td>
-                                            <td>Mondseer Form Vb</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 17</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0045.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0045.lat001"></td>
-                                            <td>Mondseer Form Vb</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 45</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0046.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0046.lat001"></td>
-                                            <td>Mondseer Form Vb</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 46</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0062.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0062.lat001"></td>
-                                            <td>Mondseer Form Vb</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 62</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0125.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0125.lat001"></td>
-                                            <td>Mondseer Form Vb</td>
-                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 125</td>
-                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_IV" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_VI">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_VI" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_VI">
+                                    <h5>Mondseer Form VI</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_VI" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_VI" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_VI" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form VI">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0128.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0128.lat001"></td>
-                                            <td>Mondseer Form VI</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 128</td>
+                                            <td>(Anfang 784 – nach 799 April)</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0134.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0134.lat001"></td>
-                                            <td>Mondseer Form VI</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 134</td>
+                                            <td>(Anfang 784- vor 799 04 11)</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_VI" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_VII">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_VII" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_VII">
+                                    <h5>Mondseer Form VII</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_VII" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_VII" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_VII" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form VII">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0048.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0048.lat001"></td>
-                                            <td>Mondseer Form VII</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 48</td>
+                                            <td>748-829?</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0052b.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0052b.lat001"></td>
-                                            <td>Mondseer Form VII</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 52/2</td>
+                                            <td>816</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0057.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0057.lat001"></td>
-                                            <td>Mondseer Form VII</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 57</td>
+                                            <td>824 05 26</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0061.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0061.lat001"></td>
-                                            <td>Mondseer Form VII</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 61</td>
+                                            <td>825 06 05</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0086.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0086.lat001"></td>
-                                            <td>Mondseer Form VII</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 86</td>
+                                            <td>824 04 19</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0089.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0089.lat001"></td>
-                                            <td>Mondseer Form VII</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 89</td>
+                                            <td>(823?) 12 04/05</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0090.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0090.lat001"></td>
-                                            <td>Mondseer Form VII</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 90</td>
+                                            <td>824 05 19</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_VII" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_VIII">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_VIII" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_VIII">
+                                    <h5>Mondseer Form VIII</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_VIII" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_VIII" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_VIII" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form VIII">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0042.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0042.lat001"></td>
-                                            <td>Mondseer Form VIII</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 42</td>
+                                            <td>772 04 23</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0095.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0095.lat001"></td>
-                                            <td>Mondseer Form VIII</td>
                                             <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 95</td>
+                                            <td>773 04 29</td>
+                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_VIII" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_Va">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_Va" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_Va">
+                                    <h5>Mondseer Form Va</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_Va" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_Va" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_Va" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form Va">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0019.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0019.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 19</td>
+                                            <td>817 03 28</td>
                                         </tr>
                                         <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0064.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0064.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 64</td>
+                                            <td>827 04 14</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0066.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0066.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 66</td>
+                                            <td>(Anfang 817 – nach 829 03)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0068.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0068.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 68</td>
+                                            <td>822 03 19</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0104.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0104.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 104</td>
+                                            <td>822 06 01</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0105.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0105.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 105</td>
+                                            <td>822 06 16</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0106.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0106.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 106</td>
+                                            <td>823 12 26</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0109.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0109.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 109</td>
+                                            <td>826 01 15</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0115.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0115.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 115</td>
+                                            <td>805</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0120.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0120.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 120</td>
+                                            <td>821 02 23</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0121.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0121.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 121</td>
+                                            <td>820 10 06</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0129.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0129.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 129</td>
+                                            <td>826 11 03</td>
+                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_Va" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Mondseer_Form_Vb">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Mondseer_Form_Vb" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Mondseer_Form_Vb">
+                                    <h5>Mondseer Form Vb</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Mondseer_Form_Vb" class="collapse" aria-labelledby="allCharterGroupTableMondseer_Form_Vb" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableMondseer_Form_Vb" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Mondseer Form Vb">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0008.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0008.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 8</td>
+                                            <td>823 08 12</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0017.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0017.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 17</td>
+                                            <td>828 11 13</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0045.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0045.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 45</td>
+                                            <td>817</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0046.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0046.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 46</td>
+                                            <td>748-829</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0062.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0062.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 62</td>
+                                            <td>828 02 18</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:mondsee.rath0125.lat001-checkbox" type="checkbox" value="urn:cts:formulae:mondsee.rath0125.lat001"></td>
+                                            <td>Das älteste Traditionsbuch des Klosters Mondsee (Edition) (Ed. Rath/Reiter) Nr. 125</td>
+                                            <td>829 03 07</td>
+                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableMondseer_Form_Vb" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Passauer_Form_I">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Passauer_Form_I" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Passauer_Form_I">
+                                    <h5>Passauer Form I</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Passauer_Form_I" class="collapse" aria-labelledby="allCharterGroupTablePassauer_Form_I" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTablePassauer_Form_I" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Passauer Form I">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0007.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0007.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 7</td>
+                                            <td>764-788.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0023.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0023.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 23</td>
+                                            <td>788-800</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0025.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0025.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 25</td>
+                                            <td>788-800</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0026.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0026.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 26</td>
+                                            <td>788-800</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0027.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0027.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 27</td>
+                                            <td>788-800</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0029.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0029.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 29</td>
+                                            <td>789</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0044.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0044.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 44a</td>
+                                            <td>a) März 9 796 (?). b) Passau 796 Mai 10.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0049.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0049.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 49</td>
+                                            <td>800</td>
+                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTablePassauer_Form_I" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Passauer_Form_II">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Passauer_Form_II" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Passauer_Form_II">
+                                    <h5>Passauer Form II</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Passauer_Form_II" class="collapse" aria-labelledby="allCharterGroupTablePassauer_Form_II" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTablePassauer_Form_II" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Passauer Form II">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                        <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0015.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0015.lat001"></td>
-                                            <td>Passauer Form II</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 15</td>
+                                            <td>788 März 1.</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0016.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0016.lat001"></td>
-                                            <td>Passauer Form II</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 16</td>
+                                            <td>788 März 1.</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0017.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0017.lat001"></td>
-                                            <td>Passauer Form II</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 17</td>
+                                            <td>788 März 11.</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0057.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0057.lat001"></td>
-                                            <td>Passauer Form II</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 57</td>
+                                            <td>a) 803 vor Oktober 27 b) 803 Oktober 27.</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTablePassauer_Form_II" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Passauer_Form_III">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Passauer_Form_III" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Passauer_Form_III">
+                                    <h5>Passauer Form III</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Passauer_Form_III" class="collapse" aria-labelledby="allCharterGroupTablePassauer_Form_III" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTablePassauer_Form_III" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Passauer Form III">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0018.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0018.lat001"></td>
-                                            <td>Passauer Form III</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 18</td>
+                                            <td>788/89.</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0019.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0019.lat001"></td>
-                                            <td>Passauer Form III</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 19</td>
+                                            <td>788/89.</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0020.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0020.lat001"></td>
-                                            <td>Passauer Form III</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 20</td>
+                                            <td>788/89.</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0030.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0030.lat001"></td>
-                                            <td>Passauer Form III</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 30</td>
+                                            <td>789</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0032.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0032.lat001"></td>
-                                            <td>Passauer Form III</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 32</td>
+                                            <td>789 nach Juni 7.</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTablePassauer_Form_III" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Passauer_Form_IV">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Passauer_Form_IV" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Passauer_Form_IV">
+                                    <h5>Passauer Form IV</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Passauer_Form_IV" class="collapse" aria-labelledby="allCharterGroupTablePassauer_Form_IV" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTablePassauer_Form_IV" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Passauer Form IV">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0021.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0021.lat001"></td>
-                                            <td>Passauer Form IV</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 21</td>
+                                            <td>788-800</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0037.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0037.lat001"></td>
-                                            <td>Passauer Form IV</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 37</td>
+                                            <td>791-804</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0038.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0038.lat001"></td>
-                                            <td>Passauer Form IV</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 38</td>
+                                            <td>791-804</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0040.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0040.lat001"></td>
-                                            <td>Passauer Form IV</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 40</td>
+                                            <td>791-804</td>
                                         </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0022.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0022.lat001"></td>
-                                            <td>Passauer Form Va</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 22</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0024.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0024.lat001"></td>
-                                            <td>Passauer Form Va</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 24</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0047.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0047.lat001"></td>
-                                            <td>Passauer Form Va</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 47</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0048.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0048.lat001"></td>
-                                            <td>Passauer Form Va</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 48</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0051.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0051.lat001"></td>
-                                            <td>Passauer Form Va</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 51</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0052.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0052.lat001"></td>
-                                            <td>Passauer Form Va</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 52</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0034.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0034.lat001"></td>
-                                            <td>Passauer Form Vb</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 34</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0035.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0035.lat001"></td>
-                                            <td>Passauer Form Vb</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 35</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0036.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0036.lat001"></td>
-                                            <td>Passauer Form Vb</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 36</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0057.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0057.lat001"></td>
-                                            <td>Passauer Form Vb</td>
-                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 57</td>
-                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTablePassauer_Form_IV" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Passauer_Form_VI">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Passauer_Form_VI" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Passauer_Form_VI">
+                                    <h5>Passauer Form VI</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Passauer_Form_VI" class="collapse" aria-labelledby="allCharterGroupTablePassauer_Form_VI" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTablePassauer_Form_VI" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Passauer Form VI">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0064.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0064.lat001"></td>
-                                            <td>Passauer Form VI</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 64</td>
+                                            <td>812 Juni 24.</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0065.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0065.lat001"></td>
-                                            <td>Passauer Form VI</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 65</td>
+                                            <td>812-817</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTablePassauer_Form_VI" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Passauer_Form_VII">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Passauer_Form_VII" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Passauer_Form_VII">
+                                    <h5>Passauer Form VII</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Passauer_Form_VII" class="collapse" aria-labelledby="allCharterGroupTablePassauer_Form_VII" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTablePassauer_Form_VII" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Passauer Form VII">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0067.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0067.lat001"></td>
-                                            <td>Passauer Form VII</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 67</td>
+                                            <td>815 Oktober 6.</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0077.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0077.lat001"></td>
-                                            <td>Passauer Form VII</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 77</td>
+                                            <td>21 Dezember 28.</td>
                                         </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTablePassauer_Form_VII" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Passauer_Form_VIII">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Passauer_Form_VIII" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Passauer_Form_VIII">
+                                    <h5>Passauer Form VIII</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Passauer_Form_VIII" class="collapse" aria-labelledby="allCharterGroupTablePassauer_Form_VIII" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTablePassauer_Form_VIII" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Passauer Form VIII">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0071.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0071.lat001"></td>
-                                            <td>Passauer Form VIII</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 71</td>
+                                            <td>a) 815-821 b) Buch 825-831.</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0072.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0072.lat001"></td>
-                                            <td>Passauer Form VIII</td>
                                             <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 72</td>
+                                            <td>825-831</td>
+                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTablePassauer_Form_VIII" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Passauer_Form_Va">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Passauer_Form_Va" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Passauer_Form_Va">
+                                    <h5>Passauer Form Va</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Passauer_Form_Va" class="collapse" aria-labelledby="allCharterGroupTablePassauer_Form_Va" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTablePassauer_Form_Va" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Passauer Form Va">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0022.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0022.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 22</td>
+                                            <td>788-800</td>
                                         </tr>
                                         <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0024.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0024.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 24</td>
+                                            <td>788-800</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0047.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0047.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 47</td>
+                                            <td>Vor 800.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0048.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0048.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 48</td>
+                                            <td>Vor 800.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0051.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0051.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 51</td>
+                                            <td>800-804</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0052.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0052.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 52</td>
+                                            <td>800-804</td>
+                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTablePassauer_Form_Va" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Passauer_Form_Vb">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Passauer_Form_Vb" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Passauer_Form_Vb">
+                                    <h5>Passauer Form Vb</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Passauer_Form_Vb" class="collapse" aria-labelledby="allCharterGroupTablePassauer_Form_Vb" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTablePassauer_Form_Vb" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Passauer Form Vb">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0034.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0034.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 34</td>
+                                            <td>791 oder 796 Januar 16.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0035.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0035.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 35</td>
+                                            <td>791-800</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0036.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0036.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 36</td>
+                                            <td>791-803</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input class="charter-part-checkbox" name="urn:cts:formulae:passau.heuwieser0057.lat001-checkbox" type="checkbox" value="urn:cts:formulae:passau.heuwieser0057.lat001"></td>
+                                            <td>Die Traditionen des Hochstifts Passau (Ed. Heuwieser) Nr. 57</td>
+                                            <td>a) 803 vor Oktober 27 b) 803 Oktober 27.</td>
+                                        </tr>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTablePassauer_Form_Vb" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
+                                <h3 class="card-header" id="part-allCharterGroups-Schäftlarner_Form_I">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#part-collapse-allCharterGroups-Schäftlarner_Form_I" aria-expanded="true" aria-controls="part-collapse-allCharterGroups-Schäftlarner_Form_I">
+                                    <h5>Schäftlarner Form I</h5>
+                                    </button>
+                                </h3>
+                                <div id="part-collapse-allCharterGroups-Schäftlarner_Form_I" class="collapse" aria-labelledby="allCharterGroupTableSchäftlarner_Form_I" data-parent="#allCharterGroupAccordion">
+                                    <div class="card-body">
+                                        <table id="allCharterGroupTableSchäftlarner_Form_I" class="table table-sm table-hover table-bordered" aria-label="{{ _('Gesamte Urkundengruppe') }} Schäftlarner Form I">
+                                            <thead>
+                                                <tr>
+                                                    <th id="all-charter-checkbox-column" scope="col"></th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Urkunde") }}</th>
+                                                    <th id="all-charter-title-column" scope="col">{{ _("Datum") }}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                        <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:schaeftlarn.weissthanner0003.lat001-checkbox" type="checkbox" value="urn:cts:formulae:schaeftlarn.weissthanner0003.lat001"></td>
-                                            <td>Schäftlarner Form 1</td>
                                             <td>Die Traditionen des Klosters Schäftlarn (Ed. Weissthanner) Nr. 3</td>
+                                            <td>776 - 779</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:schaeftlarn.weissthanner0005.lat001-checkbox" type="checkbox" value="urn:cts:formulae:schaeftlarn.weissthanner0005.lat001"></td>
-                                            <td>Schäftlarner Form 2</td>
                                             <td>Die Traditionen des Klosters Schäftlarn (Ed. Weissthanner) Nr. 5</td>
+                                            <td>um 776 - 788</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:schaeftlarn.weissthanner0006.lat001-checkbox" type="checkbox" value="urn:cts:formulae:schaeftlarn.weissthanner0006.lat001"></td>
-                                            <td>Schäftlarner Form 3</td>
                                             <td>Die Traditionen des Klosters Schäftlarn (Ed. Weissthanner) Nr. 6</td>
+                                            <td>779</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:schaeftlarn.weissthanner0011.lat001-checkbox" type="checkbox" value="urn:cts:formulae:schaeftlarn.weissthanner0011.lat001"></td>
-                                            <td>Schäftlarner Form 4</td>
                                             <td>Die Traditionen des Klosters Schäftlarn (Ed. Weissthanner) Nr. 11a</td>
+                                            <td>ca. 785</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:schaeftlarn.weissthanner0011.lat002-checkbox" type="checkbox" value="urn:cts:formulae:schaeftlarn.weissthanner0011.lat002"></td>
-                                            <td>Schäftlarner Form 5</td>
                                             <td>Die Traditionen des Klosters Schäftlarn (Ed. Weissthanner) Nr. 11b</td>
+                                            <td>ca. 785</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:schaeftlarn.weissthanner0014.lat001-checkbox" type="checkbox" value="urn:cts:formulae:schaeftlarn.weissthanner0014.lat001"></td>
-                                            <td>Schäftlarner Form 6</td>
                                             <td>Die Traditionen des Klosters Schäftlarn (Ed. Weissthanner) Nr. 14</td>
+                                            <td>(801 – 813) 09 28</td>
                                         </tr>
                                         <tr>
                                             <td><input class="charter-part-checkbox" name="urn:cts:formulae:schaeftlarn.weissthanner0015.lat001-checkbox" type="checkbox" value="urn:cts:formulae:schaeftlarn.weissthanner0015.lat001"></td>
-                                            <td>Schäftlarner Form 7</td>
                                             <td>Die Traditionen des Klosters Schäftlarn (Ed. Weissthanner) Nr. 15</td>
+                                            <td>(801 – 813) 09 28</td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                            </tbody>
+                                        </table>
+                                        <button data-target="allCharterGroupTableSchäftlarner_Form_I" class="btn btn-primary charter-select-button" type="button" aria-expanded="true">{{ _('Gewählte Urkunken anschauen') }}</button>
+                                    </div>
+                                </div>
                         </div>
                     </div>
