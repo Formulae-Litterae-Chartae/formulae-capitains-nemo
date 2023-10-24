@@ -1,0 +1,26 @@
+{% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Formelhafte Bestandteile in Urkunden') }}{% endblock %}
+
+{%block article%}
+<div class="container">
+    <header>
+        <h3 class="text-center">{{ _('Formelhafte Bestandteile in Urkunden') }}</h3>
+    </header>
+    <div class="row">
+        <div class="col">
+            <h5 class="text-center"><a class="internal-link"
+                  href="{{ url_for('InstanceNemo.r_parts') }}">{{ _('Zu den Urkundenteilen') }}</a></h5>
+        </div>
+        <div class="col">
+            <h5 class="text-center"><a class="internal-link"
+                  href="{{ url_for('InstanceNemo.r_groups') }}">{{ _('Zu den Urkundengruppen') }}</a></h5>
+        </div>
+    </div>
+    <section id="landing-text">
+        <p>Text von Franziska</p>
+    </section>
+    <footer>
+
+    </footer>
+</div>
+{%endblock%}

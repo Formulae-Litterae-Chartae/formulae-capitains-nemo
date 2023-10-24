@@ -60,7 +60,10 @@ class NemoFormulae(Nemo):
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"]),
         ("/manuscript_desc/siglen", "r_man_siglen", ["GET"]),
         ("/accessibility_statement", "r_accessibility_statement", ["GET"]),
-        ("/videos", "r_videos", ["GET"])
+        ("/videos", "r_videos", ["GET"]),
+        ("/charter_parts", "r_parts", ["GET"]),
+        ("/charter_groups", "r_groups", ["GET"]),
+        ("/charter_formulaic", "r_charter_formulaic", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1921,6 +1924,30 @@ class NemoFormulae(Nemo):
         :rtype: {str: str, str: list(tuple(str))}
         """
         return {"template": "main::videos.html", 'videos': self.VIDEOS}
+
+    def r_parts(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing all charters with certain formulaic parts
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::all_parts.html"}
+
+    def r_groups(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing charter and charter part groups
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::charter_groups.html"}
+
+    def r_charter_formulaic(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with intro and links to data from Franziska Quaas
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::charter_formulae.html"}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
