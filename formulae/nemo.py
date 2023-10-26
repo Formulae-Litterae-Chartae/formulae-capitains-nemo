@@ -2055,6 +2055,28 @@ class NemoFormulae(Nemo):
                         opening_tag += '<sub>'
                         closing_tag = '</sub>' + closing_tag
                     p += opening_tag + c_text + closing_tag
+                elif c.xpath('./span') and c.xpath('./span')[0].get('class') and 'w' in c.xpath('./span')[0].get('class').split():
+                    opening_tag = ''
+                    closing_tag = ''
+                    word_span = c.xpath('./span')[0]
+                    c_class = word_span.get('class')
+                    c_text = word_span.text
+                    if 'font-italic' in c_class or 'latin-word' in c_class:
+                        opening_tag += '<i>'
+                        closing_tag = '</i>' + closing_tag
+                    if c.get('lemma') and 'platzhalter' in c.get('lemma'):
+                        opening_tag += '<b>'
+                        closing_tag = '</b>' + closing_tag
+                    if 'line-through' in c_class:
+                        opening_tag += '<strike>'
+                        closing_tag = '</strike>' + closing_tag
+                    if 'superscript' in c_class:
+                        opening_tag += '<super>'
+                        closing_tag = '</super>' + closing_tag
+                    if 'subscript' in c_class:
+                        opening_tag += '<sub>'
+                        closing_tag = '</sub>' + closing_tag
+                    p += opening_tag + c_text + closing_tag
                 elif c.xpath('./a[@type="a1"]') or c.xpath('./a[@type="n1"]'):
                     note_num = c.xpath('./a[@class="note"]')[0].text
                     p += '<sup>{}</sup>'.format(note_num)
