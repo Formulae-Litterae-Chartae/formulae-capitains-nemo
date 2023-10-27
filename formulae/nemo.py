@@ -2064,7 +2064,7 @@ class NemoFormulae(Nemo):
                     if 'font-italic' in c_class or 'latin-word' in c_class:
                         opening_tag += '<i>'
                         closing_tag = '</i>' + closing_tag
-                    if c.get('lemma') and 'platzhalter' in c.get('lemma'):
+                    if word_span.get('lemma') and 'platzhalter' in word_span.get('lemma'):
                         opening_tag += '<b>'
                         closing_tag = '</b>' + closing_tag
                     if 'line-through' in c_class:
