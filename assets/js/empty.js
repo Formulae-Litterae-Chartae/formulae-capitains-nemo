@@ -948,4 +948,14 @@ $(document).ready(function () {
         var url = subdomain + '/texts/' + urns.join('+') + '/passage/' + sections.join('+');
         window.location.href = url;
     })
+
+    $('.charter-part-checkbox').click(function() {
+        parent_table = $( this ).closest('table');
+        target_button = $( 'button[data-target="' + parent_table.attr('id') + '"]' );
+        if ( parent_table.find('.charter-part-checkbox:checked').length > 0 ) {
+            target_button.removeAttr('disabled');
+        } else if ( parent_table.find('.charter-part-checkbox:checked').length == 0 ) {
+            target_button.attr('disabled', true);
+        }
+    })
 })
