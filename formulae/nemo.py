@@ -1100,8 +1100,10 @@ class NemoFormulae(Nemo):
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
                                    'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
                                    'deperditum': str(m.metadata.get_single(self.BF.status)) == 'deperditum',
+                                   'problematic': str(m.metadata.get_single(self.BIBO.Activity)) if m.metadata.get_single(self.BIBO.Activity) else '',
                                    "source_edition": str(m.metadata.get_single(DCTERMS.source) or ''),
                                    'bg_color': bg_color})
+                    print(r[par]['problematic'])
 
 
         for k, v in collection.children.items():
@@ -1619,7 +1621,9 @@ class NemoFormulae(Nemo):
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source)).split('***') if metadata.metadata.get_single(DCTERMS.source) else '',
                     "linked_resources": linked_resources,
                     "transcribed_edition": sorted([Markup(x) for x in transcribed_edition]),
-                    "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else []
+                    "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else [],
+                    'problematic': str(metadata.metadata.get_single(self.BIBO.Activity)) if metadata.metadata.get_single(
+                        self.BIBO.Activity) else ''
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]

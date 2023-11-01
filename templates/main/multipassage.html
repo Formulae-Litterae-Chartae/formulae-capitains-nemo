@@ -143,6 +143,7 @@
                 <h2 class="entry-folia" lang="{{ object.collections.current.secondary_lang }}">{{object.collections.current.label[1]|safe}}</h2>
                 {% else %}
                     {{object.collections.current.label|safe}}
+                    {% if object.collections.current.problematic|lower == 'unecht' %} <span id="{{object.collections.current.id.replace('.', '-').replace(':', '-')}}-forgery-tooltip" data-toggle="tooltip" data-container="#{{object.collections.current.id.replace('.', '-').replace(':', '-')}}-forgery-tooltip" title="" data-original-title="Unecht">†</span>{% elif object.collections.current.problematic != '' %} <span id="{{object.collections.current.id.replace('.', '-').replace(':', '-')}}-forgery-tooltip" data-toggle="tooltip" data-container="#{{object.collections.current.id.replace('.', '-').replace(':', '-')}}-forgery-tooltip" title="" data-original-title="{{object.collections.current.problematic}}">⚠</span>{% endif %}
                     {% if object.collections.current.ms_source %}<br>({% if 'pancarte_noire' in object.collections.current.id %}<b>EDITION: </b>{% endif %}{{ object.collections.current.ms_source[0]|safe }}){% endif %}
                 </h2>
                 {% endif %}
