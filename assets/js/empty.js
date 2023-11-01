@@ -490,7 +490,7 @@ $(document).ready(function () {
         ]
     });
 
-    var searchResultTable = $('#Poenformel-Vordersatz-PartsTable').DataTable({
+    var poenformelVordersatzTable = $('#Poenformel-Vordersatz-PartsTable').DataTable({
         "autoWidth": true,
         "order": [],
         "language": {
@@ -507,7 +507,7 @@ $(document).ready(function () {
         ]
     });
 
-    var searchResultTable = $('#Poenformel-Strafklausel-PartsTable').DataTable({
+    var poenformelStrafklauselTable = $('#Poenformel-Strafklausel-PartsTable').DataTable({
         "autoWidth": true,
         "order": [],
         "language": {
@@ -524,7 +524,7 @@ $(document).ready(function () {
         ]
     });
 
-    var searchResultTable = $('#StipulationsformelPartsTable').DataTable({
+    var stipulationsformelTable = $('#StipulationsformelPartsTable').DataTable({
         "autoWidth": true,
         "order": [],
         "language": {
@@ -541,7 +541,7 @@ $(document).ready(function () {
         ]
     });
 
-    var searchResultTable = $('#ÜberleitungsformelPartsTable').DataTable({
+    var ueberleitungsformelTable = $('#ÜberleitungsformelPartsTable').DataTable({
         "autoWidth": true,
         "order": [],
         "language": {
@@ -558,7 +558,7 @@ $(document).ready(function () {
         ]
     });
 
-    var searchResultTable = $('#ArengaPartsTable').DataTable({
+    var arengaTable = $('#ArengaPartsTable').DataTable({
         "autoWidth": true,
         "order": [],
         "language": {
