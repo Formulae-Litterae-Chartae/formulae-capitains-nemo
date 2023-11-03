@@ -490,90 +490,36 @@ $(document).ready(function () {
         ]
     });
 
-    var poenformelVordersatzTable = $('#Poenformel-Vordersatz-PartsTable').DataTable({
-        "autoWidth": true,
+    var tables = $('.parts-table').DataTable({
+        "autoWidth": false,
         "order": [],
+        "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, allResultsString] ],
         "language": {
             url: dataTableLangFile
         },
 //         "language": {
 //             "search": searchBoxString + ':'
 //         },
-        "columnDefs": [
-            {
-                "targets": [ "Poenformel-Vordersatz--all-charter-date-column" ],
-                "orderable": false
-            }
+        "columns": [
+            {"width": "15%"},
+            {"width": "10%", "orderable": false},
+            {"width": "10%", "orderable": false},
+            {"width": "65%"}
         ]
     });
 
-    var poenformelStrafklauselTable = $('#Poenformel-Strafklausel-PartsTable').DataTable({
-        "autoWidth": true,
-        "order": [],
-        "language": {
-            url: dataTableLangFile
-        },
-//         "language": {
-//             "search": searchBoxString + ':'
-//         },
-        "columnDefs": [
-            {
-                "targets": [ "Poenformel-Strafklausel--all-charter-date-column" ],
-                "orderable": false
-            }
-        ]
-    });
-
-    var stipulationsformelTable = $('#StipulationsformelPartsTable').DataTable({
-        "autoWidth": true,
-        "order": [],
-        "language": {
-            url: dataTableLangFile
-        },
-//         "language": {
-//             "search": searchBoxString + ':'
-//         },
-        "columnDefs": [
-            {
-                "targets": [ "Stipulationsformel-all-charter-date-column" ],
-                "orderable": false
-            }
-        ]
-    });
-
-    var ueberleitungsformelTable = $('#ÜberleitungsformelPartsTable').DataTable({
-        "autoWidth": true,
-        "order": [],
-        "language": {
-            url: dataTableLangFile
-        },
-//         "language": {
-//             "search": searchBoxString + ':'
-//         },
-        "columnDefs": [
-            {
-                "targets": [ "Überleitungsformel-all-charter-date-column" ],
-                "orderable": false
-            }
-        ]
-    });
-
-    var arengaTable = $('#ArengaPartsTable').DataTable({
-        "autoWidth": true,
-        "order": [],
-        "language": {
-            url: dataTableLangFile
-        },
-//         "language": {
-//             "search": searchBoxString + ':'
-//         },
-        "columnDefs": [
-            {
-                "targets": [ "Arenga-all-charter-date-column" ],
-                "orderable": false
-            }
-        ]
-    });
+    $('.charter-type-filter').click(function() {
+        var searchTerms = [];
+        clickedButton = $( this );
+        clickedButton.closest('form').find('.charter-type-filter:checked').each(function() {
+            searchTerms.push( $( this ).attr('value'))
+        })
+        if (searchTerms.length > 0) {
+            clickedButton.closest('table').DataTable().columns(2).search( searchTerms.join('|') , true, false).draw();
+        } else {
+            clickedButton.closest('table').DataTable().columns(2).search( '' ).draw();
+        }
+    })
 
     $('.search-regest-expand .regest-expand').click(function() {
         $( this ).parents('.search-regest-expand').find('.regest-no-expansion').toggleClass('d-none');
@@ -947,5 +893,15 @@ $(document).ready(function () {
         })
         var url = subdomain + '/texts/' + urns.join('+') + '/passage/' + sections.join('+');
         window.location.href = url;
+    })
+
+    $('.charter-part-checkbox').click(function() {
+        parent_table = $( this ).closest('table');
+        target_button = $( 'button[data-target="' + parent_table.attr('id') + '"]' );
+        if ( parent_table.find('.charter-part-checkbox:checked').length > 0 ) {
+            target_button.removeAttr('disabled');
+        } else if ( parent_table.find('.charter-part-checkbox:checked').length == 0 ) {
+            target_button.attr('disabled', true);
+        }
     })
 })

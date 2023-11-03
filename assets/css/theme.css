@@ -1249,3 +1249,12 @@ img.disabled {
     width: 50%;
     padding: 0 0.5rem;
 }
+
+.charter-type-filter {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.part-collapse {
+    min-height: 18em;
+}
