@@ -6,14 +6,35 @@ e-Arenga">
                             <h4>Arengen</h4>
                             </button>
                         </h3>
-                        <div id="part-collapse-Arenga" class="collapse" aria-labelledby="part-category-Arenga" data-parent="#partAccordion">
+                        <div id="part-collapse-Arenga" class="collapse part-collapse" aria-labelledby="part-category-Arenga" data-parent="#partAccordion">
                             <div class="card-body">
-                                <table id="ArengaPartsTable" class="table table-sm table-hover table-bordered" aria-label="Arengen {{ _('Tabelle') }}">
+                                <table id="ArengaPartsTable" class="table table-sm table-hover table-bordered parts-table" aria-label="Arengen {{ _('Tabelle') }}">
                                     <thead>
                                         <tr>
                                             <th id="Arenga-title-charter-column" scope="col">{{ _('Urkunde') }}</th>
                                             <th id="Arenga-all-charter-date-column" scope="col">{{ _("Datum") }}</th>
-                                            <th id="Arenga-type-charter-column" scope="col">{{ _('Urkundenart') }}</th>
+                                            <th id="Arenga-type-charter-column" scope="col">
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle text-body" href="#" role="button" data-toggle="dropdown" aria-expanded="false">{{ _('Urkundenart') }}</a>
+                                                    <form class="dropdown-menu px-4">
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Arenga-kauf-checkbox" type="checkbox" value="Kauf"><label class="form-check-label font-weight-normal" for="Arenga-kauf-checkbox">Kauf</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Arenga-praestarie-checkbox" type="checkbox" value="Prästarie"><label class="form-check-label font-weight-normal" for="Arenga-praestarie-checkbox">Prästarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Arenga-prekarie-checkbox" type="checkbox" value="Prekarie"><label class="form-check-label font-weight-normal" for="Arenga-prekarie-checkbox">Prekarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Arenga-schenkung-checkbox" type="checkbox" value="Schenkung"><label class="form-check-label font-weight-normal" for="Arenga-schenkung-checkbox">Schenkung</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Arenga-tausch-checkbox" type="checkbox" value="Tausch"><label class="form-check-label font-weight-normal" for="Arenga-tausch-checkbox">Tausch</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </th>
                                             <th id="Arenga-charter-column" scope="col">Arenga</th>
                                         </tr>
                                     </thead>
@@ -1945,14 +1966,35 @@ e-Poenformel-Vordersatz-">
                             <h4>Poenformel (Vordersatz)</h4>
                             </button>
                         </h3>
-                        <div id="part-collapse-Poenformel-Vordersatz-" class="collapse" aria-labelledby="part-category-Poenformel-Vordersatz-" data-parent="#partAccordion">
+                        <div id="part-collapse-Poenformel-Vordersatz-" class="collapse part-collapse" aria-labelledby="part-category-Poenformel-Vordersatz-" data-parent="#partAccordion">
                             <div class="card-body">
-                                <table id="Poenformel-Vordersatz-PartsTable" class="table table-sm table-hover table-bordered" aria-label="Poenformel (Vordersatz) {{ _('Tabelle') }}">
+                                <table id="Poenformel-Vordersatz-PartsTable" class="table table-sm table-hover table-bordered parts-table" aria-label="Poenformel (Vordersatz) {{ _('Tabelle') }}">
                                     <thead>
                                         <tr>
                                             <th id="Poenformel-Vordersatz--title-charter-column" scope="col">{{ _('Urkunde') }}</th>
                                             <th id="Poenformel-Vordersatz--all-charter-date-column" scope="col">{{ _("Datum") }}</th>
-                                            <th id="Poenformel-Vordersatz--type-charter-column" scope="col">{{ _('Urkundenart') }}</th>
+                                            <th id="Poenformel-Vordersatz--type-charter-column" scope="col">
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle text-body" href="#" role="button" data-toggle="dropdown" aria-expanded="false">{{ _('Urkundenart') }}</a>
+                                                    <form class="dropdown-menu px-4">
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Vordersatz--kauf-checkbox" type="checkbox" value="Kauf"><label class="form-check-label font-weight-normal" for="Poenformel-Vordersatz--kauf-checkbox">Kauf</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Vordersatz--praestarie-checkbox" type="checkbox" value="Prästarie"><label class="form-check-label font-weight-normal" for="Poenformel-Vordersatz--praestarie-checkbox">Prästarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Vordersatz--prekarie-checkbox" type="checkbox" value="Prekarie"><label class="form-check-label font-weight-normal" for="Poenformel-Vordersatz--prekarie-checkbox">Prekarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Vordersatz--schenkung-checkbox" type="checkbox" value="Schenkung"><label class="form-check-label font-weight-normal" for="Poenformel-Vordersatz--schenkung-checkbox">Schenkung</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Vordersatz--tausch-checkbox" type="checkbox" value="Tausch"><label class="form-check-label font-weight-normal" for="Poenformel-Vordersatz--tausch-checkbox">Tausch</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </th>
                                             <th id="Poenformel-Vordersatz--charter-column" scope="col">Poenformel (Vordersatz)</th>
                                         </tr>
                                     </thead>
@@ -6633,14 +6675,35 @@ e-Poenformel-Strafklausel-">
                             <h4>Poenformel (Strafklausel)</h4>
                             </button>
                         </h3>
-                        <div id="part-collapse-Poenformel-Strafklausel-" class="collapse" aria-labelledby="part-category-Poenformel-Strafklausel-" data-parent="#partAccordion">
+                        <div id="part-collapse-Poenformel-Strafklausel-" class="collapse part-collapse" aria-labelledby="part-category-Poenformel-Strafklausel-" data-parent="#partAccordion">
                             <div class="card-body">
-                                <table id="Poenformel-Strafklausel-PartsTable" class="table table-sm table-hover table-bordered" aria-label="Poenformel (Strafklausel) {{ _('Tabelle') }}">
+                                <table id="Poenformel-Strafklausel-PartsTable" class="table table-sm table-hover table-bordered parts-table" aria-label="Poenformel (Strafklausel) {{ _('Tabelle') }}">
                                     <thead>
                                         <tr>
                                             <th id="Poenformel-Strafklausel--title-charter-column" scope="col">{{ _('Urkunde') }}</th>
                                             <th id="Poenformel-Strafklausel--all-charter-date-column" scope="col">{{ _("Datum") }}</th>
-                                            <th id="Poenformel-Strafklausel--type-charter-column" scope="col">{{ _('Urkundenart') }}</th>
+                                            <th id="Poenformel-Strafklausel--type-charter-column" scope="col">
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle text-body" href="#" role="button" data-toggle="dropdown" aria-expanded="false">{{ _('Urkundenart') }}</a>
+                                                    <form class="dropdown-menu px-4">
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Strafklausel--kauf-checkbox" type="checkbox" value="Kauf"><label class="form-check-label font-weight-normal" for="Poenformel-Strafklausel--kauf-checkbox">Kauf</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Strafklausel--praestarie-checkbox" type="checkbox" value="Prästarie"><label class="form-check-label font-weight-normal" for="Poenformel-Strafklausel--praestarie-checkbox">Prästarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Strafklausel--prekarie-checkbox" type="checkbox" value="Prekarie"><label class="form-check-label font-weight-normal" for="Poenformel-Strafklausel--prekarie-checkbox">Prekarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Strafklausel--schenkung-checkbox" type="checkbox" value="Schenkung"><label class="form-check-label font-weight-normal" for="Poenformel-Strafklausel--schenkung-checkbox">Schenkung</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Poenformel-Strafklausel--tausch-checkbox" type="checkbox" value="Tausch"><label class="form-check-label font-weight-normal" for="Poenformel-Strafklausel--tausch-checkbox">Tausch</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </th>
                                             <th id="Poenformel-Strafklausel--charter-column" scope="col">Poenformel (Strafklausel)</th>
                                         </tr>
                                     </thead>
@@ -9893,14 +9956,35 @@ e-Stipulationsformel">
                             <h4>Stipulationsformel</h4>
                             </button>
                         </h3>
-                        <div id="part-collapse-Stipulationsformel" class="collapse" aria-labelledby="part-category-Stipulationsformel" data-parent="#partAccordion">
+                        <div id="part-collapse-Stipulationsformel" class="collapse part-collapse" aria-labelledby="part-category-Stipulationsformel" data-parent="#partAccordion">
                             <div class="card-body">
-                                <table id="StipulationsformelPartsTable" class="table table-sm table-hover table-bordered" aria-label="Stipulationsformel {{ _('Tabelle') }}">
+                                <table id="StipulationsformelPartsTable" class="table table-sm table-hover table-bordered parts-table" aria-label="Stipulationsformel {{ _('Tabelle') }}">
                                     <thead>
                                         <tr>
                                             <th id="Stipulationsformel-title-charter-column" scope="col">{{ _('Urkunde') }}</th>
                                             <th id="Stipulationsformel-all-charter-date-column" scope="col">{{ _("Datum") }}</th>
-                                            <th id="Stipulationsformel-type-charter-column" scope="col">{{ _('Urkundenart') }}</th>
+                                            <th id="Stipulationsformel-type-charter-column" scope="col">
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle text-body" href="#" role="button" data-toggle="dropdown" aria-expanded="false">{{ _('Urkundenart') }}</a>
+                                                    <form class="dropdown-menu px-4">
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Stipulationsformel-kauf-checkbox" type="checkbox" value="Kauf"><label class="form-check-label font-weight-normal" for="Stipulationsformel-kauf-checkbox">Kauf</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Stipulationsformel-praestarie-checkbox" type="checkbox" value="Prästarie"><label class="form-check-label font-weight-normal" for="Stipulationsformel-praestarie-checkbox">Prästarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Stipulationsformel-prekarie-checkbox" type="checkbox" value="Prekarie"><label class="form-check-label font-weight-normal" for="Stipulationsformel-prekarie-checkbox">Prekarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Stipulationsformel-schenkung-checkbox" type="checkbox" value="Schenkung"><label class="form-check-label font-weight-normal" for="Stipulationsformel-schenkung-checkbox">Schenkung</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Stipulationsformel-tausch-checkbox" type="checkbox" value="Tausch"><label class="form-check-label font-weight-normal" for="Stipulationsformel-tausch-checkbox">Tausch</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </th>
                                             <th id="Stipulationsformel-charter-column" scope="col">Stipulationsformel</th>
                                         </tr>
                                     </thead>
@@ -15038,14 +15122,35 @@ e-Überleitungsformel">
                             <h4>Überleitungsformel</h4>
                             </button>
                         </h3>
-                        <div id="part-collapse-Überleitungsformel" class="collapse" aria-labelledby="part-category-Überleitungsformel" data-parent="#partAccordion">
+                        <div id="part-collapse-Überleitungsformel" class="collapse part-collapse" aria-labelledby="part-category-Überleitungsformel" data-parent="#partAccordion">
                             <div class="card-body">
-                                <table id="ÜberleitungsformelPartsTable" class="table table-sm table-hover table-bordered" aria-label="Überleitungsformel {{ _('Tabelle') }}">
+                                <table id="ÜberleitungsformelPartsTable" class="table table-sm table-hover table-bordered parts-table" aria-label="Überleitungsformel {{ _('Tabelle') }}">
                                     <thead>
                                         <tr>
                                             <th id="Überleitungsformel-title-charter-column" scope="col">{{ _('Urkunde') }}</th>
                                             <th id="Überleitungsformel-all-charter-date-column" scope="col">{{ _("Datum") }}</th>
-                                            <th id="Überleitungsformel-type-charter-column" scope="col">{{ _('Urkundenart') }}</th>
+                                            <th id="Überleitungsformel-type-charter-column" scope="col">
+                                                <div class="dropdown">
+                                                    <a class="dropdown-toggle text-body" href="#" role="button" data-toggle="dropdown" aria-expanded="false">{{ _('Urkundenart') }}</a>
+                                                    <form class="dropdown-menu px-4">
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Überleitungsformel-kauf-checkbox" type="checkbox" value="Kauf"><label class="form-check-label font-weight-normal" for="Überleitungsformel-kauf-checkbox">Kauf</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Überleitungsformel-praestarie-checkbox" type="checkbox" value="Prästarie"><label class="form-check-label font-weight-normal" for="Überleitungsformel-praestarie-checkbox">Prästarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Überleitungsformel-prekarie-checkbox" type="checkbox" value="Prekarie"><label class="form-check-label font-weight-normal" for="Überleitungsformel-prekarie-checkbox">Prekarie</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Überleitungsformel-schenkung-checkbox" type="checkbox" value="Schenkung"><label class="form-check-label font-weight-normal" for="Überleitungsformel-schenkung-checkbox">Schenkung</a>
+                                                        </div>
+                                                        <div class="form-group m-0">
+                                                            <input class="charter-type-filter form-check-input" id="Überleitungsformel-tausch-checkbox" type="checkbox" value="Tausch"><label class="form-check-label font-weight-normal" for="Überleitungsformel-tausch-checkbox">Tausch</a>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </th>
                                             <th id="Überleitungsformel-charter-column" scope="col">Überleitungsformel</th>
                                         </tr>
                                     </thead>
