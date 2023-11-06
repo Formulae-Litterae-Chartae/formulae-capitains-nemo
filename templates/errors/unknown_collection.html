@@ -5,6 +5,6 @@
     <article>
     <h1>{{ _('Unbekannte Sammlung') }}</h1>
     <p>{{ message }}</p>
-    <p><a href="{{ url_for('InstanceNemo.r_collection', objectId=parent) }}">{{ _('Andere Texte in dieser Sammlung durchsuchen.') }}</a></p>
+    <p><a href="{% if parent != '' %}{{ url_for('InstanceNemo.r_collection', objectId=parent) }}{% else %}{{ url_for('InstanceNemo.r_collections') }}{% endif %}">{{ _('Andere Texte in dieser Sammlung durchsuchen.') }}</a></p>
     </article>
 {% endblock %}
