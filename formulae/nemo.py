@@ -1014,6 +1014,8 @@ class NemoFormulae(Nemo):
         elif objectId in self.FOUR_LEVEL_COLLECTIONS:
             return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
         if collection.id not in self.all_texts:
+            if collection.readable == True:
+                return redirect(url_for('InstanceNemo.r_multipassage', objectIds=objectId, subreferences='all'))
             new_id = [x['id'] for x in self.make_parents(collection) if x['id'] in self.all_texts]
             raise UnknownCollection('{}'.format(collection.get_label(lang)) + _l(' ist kein bekannter Korpus.'),
                                     new_id[0] if new_id else '')
