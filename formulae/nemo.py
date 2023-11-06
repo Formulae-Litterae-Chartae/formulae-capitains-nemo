@@ -1016,6 +1016,12 @@ class NemoFormulae(Nemo):
         #     template = "main::salzburg_collection.html"
         elif objectId in self.FOUR_LEVEL_COLLECTIONS:
             return redirect(url_for('InstanceNemo.r_collection', objectId=objectId, lang=lang))
+        if collection.id not in self.all_texts:
+            if collection.readable == True:
+                return redirect(url_for('InstanceNemo.r_multipassage', objectIds=objectId, subreferences='all'))
+            new_id = [x['id'] for x in self.make_parents(collection) if x['id'] in self.all_texts]
+            raise UnknownCollection('{}'.format(collection.get_label(lang)) + _l(' ist kein bekannter Korpus.'),
+                                    new_id[0] if new_id else '')
         for par, metadata, m in self.all_texts[collection.id]:
             if self.check_project_team() is True or m.id in self.open_texts:
                 manuscript_data = [m.metadata.get_single(DC.source) or
