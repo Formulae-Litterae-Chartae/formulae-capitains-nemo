@@ -501,7 +501,6 @@
     <xsl:template match="t:seg[@function]">
         <xsl:element name="span">
             <xsl:attribute name="function"><xsl:value-of select="@function"/></xsl:attribute>
-            <xsl:attribute name="title"><xsl:value-of select="translate(@function, '-', ' ')"/></xsl:attribute>
             <xsl:apply-templates/>
         </xsl:element>
     </xsl:template>

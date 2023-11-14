@@ -904,4 +904,8 @@ $(document).ready(function () {
             target_button.attr('disabled', true);
         }
     })
+
+    $('.all-group-header').click(function () {
+        $(this).toggleClass('active');
+    });
 })
