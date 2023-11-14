@@ -1266,7 +1266,7 @@ class TestIndividualRoutes(Formulae_Testing):
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
         html_output = self.nemo.highlight_found_sents(html_input, results)
-        self.assertIn('<span function="Invocatio" title="Invocatio" class="searched">',
+        self.assertIn('<span function="Invocatio" class="searched">',
                       html_output)
         self.assertIn('class="w font-weight-bold">trinitatis</span>', html_output)
 
