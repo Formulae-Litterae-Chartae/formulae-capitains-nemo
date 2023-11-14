@@ -490,6 +490,37 @@ $(document).ready(function () {
         ]
     });
 
+    var tables = $('.parts-table').DataTable({
+        "autoWidth": false,
+        "order": [],
+        "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, allResultsString] ],
+        "language": {
+            url: dataTableLangFile
+        },
+//         "language": {
+//             "search": searchBoxString + ':'
+//         },
+        "columns": [
+            {"width": "15%"},
+            {"width": "10%", "orderable": false},
+            {"width": "10%", "orderable": false},
+            {"width": "65%"}
+        ]
+    });
+
+    $('.charter-type-filter').click(function() {
+        var searchTerms = [];
+        clickedButton = $( this );
+        clickedButton.closest('form').find('.charter-type-filter:checked').each(function() {
+            searchTerms.push( $( this ).attr('value'))
+        })
+        if (searchTerms.length > 0) {
+            clickedButton.closest('table').DataTable().columns(2).search( searchTerms.join('|') , true, false).draw();
+        } else {
+            clickedButton.closest('table').DataTable().columns(2).search( '' ).draw();
+        }
+    })
+
     $('.search-regest-expand .regest-expand').click(function() {
         $( this ).parents('.search-regest-expand').find('.regest-no-expansion').toggleClass('d-none');
         $( this ).parents('.search-regest-expand').find('.regest-expansion').toggleClass('d-none');
@@ -851,4 +882,30 @@ $(document).ready(function () {
     $('.expand').each(function() {
         $(this).attr('title', expMess);
     })
+
+    $('.charter-select-button').click(function() {
+        var target = $(this).data('target');
+        var urns = [];
+        var sections = [];
+        $('#' + target + ' .charter-part-checkbox:checked').each(function() {
+            urns.push($(this).attr('value'));
+            sections.push("all");
+        })
+        var url = subdomain + '/texts/' + urns.join('+') + '/passage/' + sections.join('+');
+        window.location.href = url;
+    })
+
+    $('.charter-part-checkbox').click(function() {
+        parent_table = $( this ).closest('table');
+        target_button = $( 'button[data-target="' + parent_table.attr('id') + '"]' );
+        if ( parent_table.find('.charter-part-checkbox:checked').length > 0 ) {
+            target_button.removeAttr('disabled');
+        } else if ( parent_table.find('.charter-part-checkbox:checked').length == 0 ) {
+            target_button.attr('disabled', true);
+        }
+    })
+
+    $('.all-group-header').click(function () {
+        $(this).toggleClass('active');
+    });
 })

@@ -504,6 +504,12 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertEqual(r.request.path, '/auth/login')
             c.get('/videos', follow_redirects=True)
             self.assertIn('main::videos.html', [x[0].name for x in self.templates])
+            response = c.get('/charter_parts', follow_redirects=True)
+            self.assertEqual(response.status_code, 401, 'Should raise 401 error.')
+            response = c.get('/charter_groups', follow_redirects=True)
+            self.assertEqual(response.status_code, 401, 'Should raise 401 error.')
+            response = c.get('/charter_formulaic', follow_redirects=True)
+            self.assertEqual(response.status_code, 401, 'Should raise 401 error.')
 
     def test_authorized_project_member(self):
 
@@ -789,6 +795,12 @@ class TestIndividualRoutes(Formulae_Testing):
             r = c.get('/auth/remove_page/{}'.format(page_to_remove.id), follow_redirects=True)
             self.assertEqual(r.request.path, '/auth/saved_pages')
             self.assertEqual([], [p for p in current_user.pages])
+            c.get('/charter_parts', follow_redirects=True)
+            self.assertIn('main::all_parts.html', [x[0].name for x in self.templates])
+            c.get('/charter_groups', follow_redirects=True)
+            self.assertIn('main::charter_groups.html', [x[0].name for x in self.templates])
+            c.get('/charter_formulaic', follow_redirects=True)
+            self.assertIn('main::charter_formulae.html', [x[0].name for x in self.templates])
 
     def test_authorized_normal_user(self):
         """ Make sure that all routes are open to normal users but that some texts are not available"""
@@ -1254,7 +1266,7 @@ class TestIndividualRoutes(Formulae_Testing):
         xml = self.nemo.get_passage(objectId=obj_id, subreference='1')
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
         html_output = self.nemo.highlight_found_sents(html_input, results)
-        self.assertIn('<span function="Invocatio" title="Invocatio" class="searched">',
+        self.assertIn('<span function="Invocatio" class="searched">',
                       html_output)
         self.assertIn('class="w font-weight-bold">trinitatis</span>', html_output)
 

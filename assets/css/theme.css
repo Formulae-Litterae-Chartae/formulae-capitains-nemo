@@ -915,6 +915,11 @@ span.corpus_coverage {
 
 /* Background colors for formulaic parts */
 
+.formelteil-bg {
+    border-bottom-style: solid;
+    border-color: black;
+}
+
 .Arenga-bg {
     border-bottom-style: solid;
     border-color: darkgoldenrod;
@@ -945,7 +950,7 @@ span.corpus_coverage {
     border-color: blue;
 }
 
-.Invocatio-oder-Inscriptio-bg {
+.Invocatio-bg {
     border-bottom-style: solid;
     border-color: darkolivegreen;
 }
@@ -1243,4 +1248,27 @@ img.disabled {
 .two-source-table td {
     width: 50%;
     padding: 0 0.5rem;
+}
+
+.charter-type-filter {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.part-collapse {
+    min-height: 18em;
+}
+
+
+.all-group-header  button:before {
+   font-family: 'Glyphicons Halflings';
+   content: "\e114";
+   float: right;
+   transition: all 0.5s;
+}
+
+.all-group-header.active :before {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
 }

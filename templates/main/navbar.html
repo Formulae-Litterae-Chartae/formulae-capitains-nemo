@@ -60,6 +60,10 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" role="button" id="charterDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Urkunden + Briefe') }}</a>
                 <div class="dropdown-menu" aria-labelledby="charterDropdown">
+                    {% if current_user.project_team %}
+                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_charter_formulaic')}}">{{ _("Formelhafte Bestandteile in Urkunden") }}</a>
+                    <div class="dropdown-divider"></div>
+                    {% endif %}
                     {% for coll in g.sub_colls['display_collection'] %}
                     {% if current_user.project_team or coll.id in g.open_collections %}
                     <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"

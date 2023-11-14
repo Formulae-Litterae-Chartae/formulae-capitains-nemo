@@ -136,7 +136,7 @@ $(document).ready(function () {
         var selectedPart = $( this ).attr('value');
         var childCheck = $( this ).children();
         $( this ).parents('.control-row').first().next('.text-section,.text-row').find('span[function="' + selectedPart + '"]').each( function() {
-            $( this ).toggleClass(selectedPart + '-bg');
+            $( this ).toggleClass('formelteil-bg');
         })
     });
     
@@ -158,6 +158,13 @@ $(document).ready(function () {
         stack: '.part-menu-icon',
         handle: '.part-menu-handle'
     });
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if ( urlParams.has('formpart') ) {
+        $( 'span[function="' + urlParams.get('formpart') + '"]').each( function() {
+            $( this ).toggleClass('formelteil-bg');
+        })
+    }
 })
 
 var splitInstance = Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {

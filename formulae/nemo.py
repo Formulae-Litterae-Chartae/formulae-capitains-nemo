@@ -15,7 +15,7 @@ from formulae.search.forms import SearchForm
 from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
 from formulae.auth.forms import AddSavedPageForm
 from lxml import etree
-from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error
+from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error, e_not_authorized_error
 import re
 from datetime import date
 from urllib.parse import quote
@@ -60,7 +60,10 @@ class NemoFormulae(Nemo):
         ("/manuscript_desc/<manuscript>", "r_man_desc", ["GET"]),
         ("/manuscript_desc/siglen", "r_man_siglen", ["GET"]),
         ("/accessibility_statement", "r_accessibility_statement", ["GET"]),
-        ("/videos", "r_videos", ["GET"])
+        ("/videos", "r_videos", ["GET"]),
+        ("/charter_parts", "r_parts", ["GET"]),
+        ("/charter_groups", "r_groups", ["GET"]),
+        ("/charter_formulaic", "r_charter_formulaic", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -302,6 +305,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.globals['get_locale'] = get_locale
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
+        self.app.register_error_handler(401, e_not_authorized_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
         self.register_font()
@@ -1103,6 +1107,7 @@ class NemoFormulae(Nemo):
                                    'title': Markup(str(self.make_parents(m)[0]['label'])),
                                    'translated_title': str(m.metadata.get_single(DCTERMS.alternative) or ''),
                                    'deperditum': str(m.metadata.get_single(self.BF.status)) == 'deperditum',
+                                   'problematic': str(m.metadata.get_single(self.BIBO.Activity)) if m.metadata.get_single(self.BIBO.Activity) else '',
                                    "source_edition": str(m.metadata.get_single(DCTERMS.source) or ''),
                                    'bg_color': bg_color})
 
@@ -1622,7 +1627,9 @@ class NemoFormulae(Nemo):
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source)).split('***') if metadata.metadata.get_single(DCTERMS.source) else '',
                     "linked_resources": linked_resources,
                     "transcribed_edition": sorted([Markup(x) for x in transcribed_edition]),
-                    "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else []
+                    "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else [],
+                    'problematic': str(metadata.metadata.get_single(self.BIBO.Activity)) if metadata.metadata.get_single(
+                        self.BIBO.Activity) else ''
                 },
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents]
@@ -1927,6 +1934,37 @@ class NemoFormulae(Nemo):
         :rtype: {str: str, str: list(tuple(str))}
         """
         return {"template": "main::videos.html", 'videos': self.VIDEOS}
+
+    def r_parts(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing all charters with certain formulaic parts
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        if self.check_project_team():
+            return {"template": "main::all_parts.html"}
+        abort(401, _('Diese Seite ist nicht öffentlich zugänglich.'))
+
+
+    def r_groups(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing charter and charter part groups
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        if self.check_project_team():
+            return {"template": "main::charter_groups.html"}
+        abort(401, _('Diese Seite ist nicht öffentlich zugänglich.'))
+
+    def r_charter_formulaic(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with intro and links to data from Franziska Quaas
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        if self.check_project_team():
+            return {"template": "main::charter_formulae.html"}
+        abort(401, _('Diese Seite ist nicht öffentlich zugänglich.'))
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
