@@ -1258,3 +1258,17 @@ img.disabled {
 .part-collapse {
     min-height: 18em;
 }
+
+
+.all-group-header  button:before {
+   font-family: 'Glyphicons Halflings';
+   content: "\e114";
+   float: right;
+   transition: all 0.5s;
+}
+
+.all-group-header.active :before {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	transform: rotate(180deg);
+}

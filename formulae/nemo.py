@@ -1110,7 +1110,6 @@ class NemoFormulae(Nemo):
                                    'problematic': str(m.metadata.get_single(self.BIBO.Activity)) if m.metadata.get_single(self.BIBO.Activity) else '',
                                    "source_edition": str(m.metadata.get_single(DCTERMS.source) or ''),
                                    'bg_color': bg_color})
-                    print(r[par]['problematic'])
 
 
         for k, v in collection.children.items():
