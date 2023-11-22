@@ -58,6 +58,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Herrscherurkunden</b>: Pippin III.': {'match': {'collection': 'form_lit_chart-pippin_3'}},
                                       '<b>Herrscherurkunden</b>: Rudolf I.': {'match': {'collection': 'form_lit_chart-rudolf_1_mgh'}},
                                       '<b>Herrscherurkunden</b>: Rudolf II.': {'match': {'collection': 'form_lit_chart-rudolf_2_mgh'}},
+                                      '<b>Herrscherurkunden</b>: Rudolf III.': {'match': {'collection': 'form_lit_chart-rudolf_3'}},
                                       '<b>Lorsch</b>: Lorsch': {'match': {'collection': 'form_lit_chart-lorsch'}},
                                       '<b>Luzern</b>: Luzern': {'match': {'collection': 'form_lit_chart-luzern'}},
                                       '<b>Marculf</b>: Marculf': {'match': {'collection': 'form_lit_chart-marculf'}},
