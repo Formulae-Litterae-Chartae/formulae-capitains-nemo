@@ -77,6 +77,7 @@ class TestConfig(Config):
     SAVE_REQUESTS = False
     IIIF_MAPPING = "tests/test_data/formulae/iiif"
     IIIF_SERVER = "http://127.0.0.1:5004"
+    WORD_GRAPH_API_URL = 'http://localhost:7310'
 
 
 class NoESConfig(TestConfig):
