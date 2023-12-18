@@ -1,0 +1,32 @@
+<!-- The Modal Content for the word-graph results -->
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="word-graph-modalLabel">{{target_word}}</h5>
+            <button type="button" class="close" aria-label="Close" onclick="closeLexEntry()">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="accordion" id="collocationAccordion">
+        {% for w in data|sort(reverse=True, attribute='in_text_quantity') %}
+            {% set secondWord = w['word'] %}
+                <div class="card" onclick="wordGraphMutualTexts(this, '{{target_word}}', '{{secondWord}}')">
+                    <div class="card-header py-1" id="heading-{{secondWord}}">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{secondWord}}" aria-expanded="true" aria-controls="collapse-{{secondWord}}">
+                        {{ secondWord }}: {{ w['in_text_quantity'] }}
+                        </button>
+                    </h2>
+                    </div>
+
+                    <div id="collapse-{{secondWord}}" class="collapse" aria-labelledby="heading-{{secondWord}}" data-parent="#collocationAccordion">
+                    <div class="card-body pb-0 pt-2">
+                    </div>
+                    </div>
+                </div>
+        {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

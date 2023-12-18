@@ -52,6 +52,11 @@
 
 {% block additionalscript %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.5.11/split.min.js"></script>
+{% if word_graph_url == '' %}
+<script> var wordGraph = false;</script>
+{% else %}
+<script> var wordGraph = true;</script>
+{% endif %}
 <script>
 var gutterBackgroundImage="url('{{ url_for('InstanceNemo.static', filename='images/vertical_handle.png') }}')";
 var handleBackgroundImage="{{url_for('InstanceNemo.static', filename='images/horizontal_handle.png')}}";

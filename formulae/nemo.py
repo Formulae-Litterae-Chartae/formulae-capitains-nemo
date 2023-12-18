@@ -34,6 +34,7 @@ from random import randint
 import roman
 import requests
 from itertools import zip_longest
+from operator import itemgetter
 
 
 class NemoFormulae(Nemo):
@@ -63,7 +64,8 @@ class NemoFormulae(Nemo):
         ("/videos", "r_videos", ["GET"]),
         ("/charter_parts", "r_parts", ["GET"]),
         ("/charter_groups", "r_groups", ["GET"]),
-        ("/charter_formulaic", "r_charter_formulaic", ["GET"])
+        ("/charter_formulaic", "r_charter_formulaic", ["GET"]),
+        ("/collocations/<targetWord>/<targetWord2>", "r_call_word_graph_api", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1789,6 +1791,7 @@ class NemoFormulae(Nemo):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         passage_data['translation'] = translations
         passage_data['videos'] = [v for k, v in self.VIDEOS.items() if 2 in k][0]
+        passage_data['word_graph_url'] = self.app.config['WORD_GRAPH_API_URL']
         return passage_data
 
     @staticmethod
@@ -1859,12 +1862,39 @@ class NemoFormulae(Nemo):
             obj_dict[obj_id] = text
             xml = text.export(Mimetypes.PYTHON.ETREE)
             json_input['texts'][obj_id] = etree.tostring(xml, encoding='unicode')
-        r = requests.post('http://localhost:7300/collate_xml', json=json_input)
+        r = requests.post(os.path.join(self.app.config['COLLATE_API_URL'], 'collate_xml'), json=json_input)
         html_output_dict = dict()
         for k, v in r.json().items():
             return_xml = etree.fromstring(v)
             html_output_dict[k] = Markup(self.transform(obj_dict[k], return_xml, k))
         return html_output_dict
+
+
+    def r_call_word_graph_api(self, targetWord: str, targetWord2: str):
+        if targetWord2 == 'None':
+            r = requests.get(os.path.join(self.app.config['WORD_GRAPH_API_URL'],
+                                          'word',
+                                          targetWord,
+                                          'neighbors',
+                                          'maxneighborhops',
+                                          '1'))
+            return {'template': 'main::word_graph_modal.html',
+                    'data': [{'word': x['word'], 'in_text_quantity': int(x['in_text_quantity'])} for x in r.json()],
+                    'target_word': targetWord}
+        else:
+            r = requests.get(os.path.join(self.app.config['WORD_GRAPH_API_URL'],
+                                          'text',
+                                          'mutual',
+                                          targetWord,
+                                          targetWord2,
+                                          'maxneighborhops',
+                                          '1'))
+            return '<ul>{}</ul>'.format(
+                '\n'.join(['<li><a href="{}" target="_blank">{}</a></li>'.format(
+                    url_for("InstanceNemo.r_multipassage", objectIds=x['title'], subreferences='1'),
+                    x['headline']) for x in sorted(r.json(), key=itemgetter('title'))]))
+
+
 
     @staticmethod
     def r_impressum() -> Dict[str, str]:
