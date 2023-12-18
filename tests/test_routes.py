@@ -49,6 +49,14 @@ def mocked_requests_post(*args, **kwargs):
         with open('tests/test_data/advanced_search/collate_return.json') as f:
             json_response = json.load(f)
         return MockResponse(json_response, 200)
+    if 'http://localhost:7310/word' in args[0]:
+        with open('tests/test_data/advanced_search/word_graph_neighbor_words_return.json') as f:
+            json_response = json.load(f)
+        return MockResponse(json_response, 200)
+    if 'http://localhost:7310/text/mutual' in args[0]:
+        with open('tests/test_data/advanced_search/word_graph_neighbor_texts_return.json') as f:
+            json_response = json.load(f)
+        return MockResponse(json_response, 200)
 
     return MockResponse(None, 404)
 
@@ -69,6 +77,7 @@ class TestConfig(Config):
     SAVE_REQUESTS = False
     IIIF_MAPPING = "tests/test_data/formulae/iiif"
     IIIF_SERVER = "http://127.0.0.1:5004"
+    WORD_GRAPH_API_URL = 'http://localhost:7310'
 
 
 class NoESConfig(TestConfig):
@@ -427,6 +436,12 @@ class TestIndividualRoutes(Formulae_Testing):
             with patch('requests.post', side_effect=mocked_requests_post) as mock_post:
                 r = c.get('/texts/urn:cts:formulae:ko2.69r70v.lat001+urn:cts:formulae:le1.109v110v.lat001/passage/1+1?collate=true', follow_redirects=True)
                 self.assertIn('shared-word="shared_3">Some</span>', r.get_data(as_text=True))
+            with patch('requests.get', side_effect=mocked_requests_post) as mock_post:
+                r = c.get('/collocations/Dionisiy/None', follow_redirects=True)
+                json_data = self.get_context_variable('data')
+                self.assertIn({'word': 'sancti', 'in_text_quantity': 2}, json_data)
+                r = c.get('/collocations/Dionisiy/sancti', follow_redirects=True)
+                self.assertIn('Die Urkunden Karlmanns (768-771) (Ed. Mühlbacher) Nr. 43', r.get_data(as_text=True))
             c.get('/reading_format/rows', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
@@ -1229,6 +1244,7 @@ class TestIndividualRoutes(Formulae_Testing):
         html_input = Markup(self.nemo.transform(xml, xml.export(Mimetypes.PYTHON.ETREE), obj_id))
         mock_highlight.return_value = [[{'sents': search_string, 'sentence_spans': [range(0, 6)]}], []]
         result = etree.fromstring(self.nemo.highlight_found_sents(html_input, [{'sents': search_string, 'sentence_spans': [range(0, 6)]}]))
+        print(etree.tostring(result))
         self.assertEqual(expected, [y for y in result.xpath('//span[@class="searched"]//text()')])
         # Should be able to deal with editorial punctuation in the text
         search_string = ['Text with special editorial signs in it']

@@ -108,6 +108,45 @@ $(document).ready(function(){
         request.setRequestHeader("X-Requested-With", "XMLHttpRequest");
         request.send()
     })
+
+    $('span.w').on({
+        mouseover: function() {
+            $( this ).tooltip('show');
+            showLemma($( this ));
+        },
+        mouseout: function() {
+            $( this ).tooltip('hide');
+            hideLemma($( this ));
+        },
+        focusin: function() {
+            $( this ).tooltip('show');
+            showLemma($( this ));
+        },
+        focusout: function() {
+            $( this ).tooltip('hide');
+            hideLemma($( this ));
+        },
+        dblclick: function() {
+            var wordGraphModal = $( '#word-graph-modal' );
+            var request = new XMLHttpRequest();
+            var subdomain = '';
+            if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+                subdomain = '/dev'
+            }
+            request.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if (this.status == 200) {
+                        wordGraphModal.html(this.responseText);
+                        wordGraphModal.modal('show');
+                    } else {
+                        alert(message)
+                    }
+                }
+            };
+            request.open('GET', subdomain + '/collocations/' + $( this ).attr('inflected') + '/None', true);
+            request.send()
+        }
+    })
     
     $('span.w.lexicon').each(function() {
         $(this).attr({
@@ -126,39 +165,23 @@ $(document).ready(function(){
                 lexModal.modal('show', $( this ));
             }
             $( this ).tooltip('hide');
-        },
-        mouseover: function() {
-            $( this ).tooltip('show');
-            showLemma($( this ));
-        },
-        mouseout: function() {
-            $( this ).tooltip('hide');
-            hideLemma($( this ));
-        },
-        focusin: function() {
-            $( this ).tooltip('show');
-            showLemma($( this ));
-        },
-        focusout: function() {
-            $( this ).tooltip('hide');
-            hideLemma($( this ));
         }
     });
     
-    $('span.w[lemma]').on({
-        mouseover: function() {
-            showLemma($( this ));
-        },
-        mouseout: function() {
-            hideLemma($( this ));
-        },
-        focusin: function() {
-            showLemma($( this ));
-        },
-        focusout: function() {
-            hideLemma($( this ));
-        }
-    })
+//     $('span.w[lemma]').on({
+//         mouseover: function() {
+//             showLemma($( this ));
+//         },
+//         mouseout: function() {
+//             hideLemma($( this ));
+//         },
+//         focusin: function() {
+//             showLemma($( this ));
+//         },
+//         focusout: function() {
+//             hideLemma($( this ));
+//         }
+//     })
     
     $('div.mirador-viewer-pane').each(function() {
         var minusHeight = $(this).prev().height();
@@ -290,8 +313,16 @@ function closeNote(id) {
 function showLemma(x) {
     var lemma = x.attr("n");
     var lem_box = document.getElementById("lem_box");
+    var extraStr = '';
+    if (wordGraph) {
+        extraStr = '<p>Dbl-click to see collocates for <b>' + x.attr('inflected') + '</b></p>';
+    }
 //     lem_box.setAttribute("default-data", lem_box.innerHTML);
-    lem_box.innerHTML = lemma;
+    if (lemma) {
+        lem_box.innerHTML = lemma + extraStr;
+    } else {
+        lem_box.innerHTML = extraStr;
+    }
 }
 
 function hideLemma() {
@@ -436,4 +467,23 @@ function goToLinkedParagraph(h, t) {
     target.scrollIntoView();
     target.onanimationend =  function() {this.classList.remove('flash-grey')};
     target.classList.add( 'flash-grey' );
+};
+
+function wordGraphMutualTexts(element, firstWord, secondWord) {
+    var request = new XMLHttpRequest();
+    var subdomain = '';
+    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+        subdomain = '/dev'
+    }
+    request.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                $( element ).find('.card-body').html(this.responseText);
+            } else {
+                alert('There was a problem')
+            }
+        }
+    };
+    request.open('GET', subdomain + '/collocations/' + firstWord + '/' + secondWord, true);
+    request.send()
 };

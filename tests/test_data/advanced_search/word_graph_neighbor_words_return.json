@@ -1,0 +1,47 @@
+[
+    {
+        "word": "sancti",
+        "distance": 1,
+        "in_text_quantity": "2"
+    },
+    {
+        "word": "martiris",
+        "distance": 1,
+        "in_text_quantity": "1"
+    },
+    {
+        "word": "vel",
+        "distance": 1,
+        "in_text_quantity": "1"
+    },
+    {
+        "word": "martyris",
+        "distance": 1,
+        "in_text_quantity": "1"
+    },
+    {
+        "word": "infra",
+        "distance": 1,
+        "in_text_quantity": "1"
+    },
+    {
+        "word": "concesserunt",
+        "distance": 1,
+        "in_text_quantity": "1"
+    },
+    {
+        "word": "super",
+        "distance": 1,
+        "in_text_quantity": "1"
+    },
+    {
+        "word": "patronis",
+        "distance": 1,
+        "in_text_quantity": "1"
+    },
+    {
+        "word": "ubi",
+        "distance": 1,
+        "in_text_quantity": "1"
+    }
+]
