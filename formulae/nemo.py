@@ -133,6 +133,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:karl_der_grosse',
                         'urn:cts:formulae:karlmann_mgh',
                         'urn:cts:formulae:ko2',
+                        'urn:cts:formulae:konrad_mgh',
                         # 'urn:cts:formulae:langobardisch', # needs correction
                         'urn:cts:formulae:langobardisch_1',
                         'urn:cts:formulae:le1',
@@ -205,6 +206,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:chartae_latinae_xlvi',
                              'urn:cts:formulae:echternach',
                              'urn:cts:formulae:fulda_stengel',
+                             'urn:cts:formulae:konrad_mgh',
                              # 'urn:cts:formulae:langobardisch', # needs correction
                              'urn:cts:formulae:lorsch',
                              'urn:cts:formulae:lothar_2',
