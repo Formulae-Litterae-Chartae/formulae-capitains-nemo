@@ -436,6 +436,7 @@ class TestIndividualRoutes(Formulae_Testing):
             with patch('requests.post', side_effect=mocked_requests_post) as mock_post:
                 r = c.get('/texts/urn:cts:formulae:ko2.69r70v.lat001+urn:cts:formulae:le1.109v110v.lat001/passage/1+1?collate=true', follow_redirects=True)
                 self.assertIn('shared-word="shared_3">Some</span>', r.get_data(as_text=True))
+            with patch('requests.get', side_effect=mocked_requests_post) as mock_post:
                 r = c.get('/collocations/Dionisiy/None', follow_redirects=True)
                 json_data = self.get_context_variable('data')
                 self.assertIn({'word': 'sancti', 'in_text_quantity': 2}, json_data)
