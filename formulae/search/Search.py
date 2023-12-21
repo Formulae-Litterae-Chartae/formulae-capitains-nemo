@@ -51,6 +51,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Herrscherurkunden</b>: Codice Diplomatico Longobardo III,1': {'match': {'collection': 'form_lit_chart-langobardisch'}},
                                       '<b>Herrscherurkunden</b>: Karl der Große': {'match': {'collection': 'form_lit_chart-karl_der_grosse'}},
                                       '<b>Herrscherurkunden</b>: Karlmann': {'match': {'collection': 'form_lit_chart-karlmann_mgh'}},
+                                      '<b>Herrscherurkunden</b>: Konrad': {'match': {'collection': 'form_lit_chart-konrad_mgh'}},
                                       '<b>Herrscherurkunden</b>: Lothar II.': {'match': {'collection': 'form_lit_chart-lothar_2'}},
                                       '<b>Herrscherurkunden</b>: Ludwig II.': {'match': {'collection': 'form_lit_chart-ludwig_2'}},
                                       '<b>Herrscherurkunden</b>: Ludwig der Jüngere': {'match': {'collection': 'form_lit_chart-ludwig_der_juengere'}},
