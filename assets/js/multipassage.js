@@ -113,20 +113,47 @@ $(document).ready(function(){
         mouseover: function() {
             $( this ).tooltip('show');
             showLemma($( this ));
+            $( this ).addClass('word-graph-focus');
         },
         mouseout: function() {
             $( this ).tooltip('hide');
             hideLemma($( this ));
+            $( this ).removeClass('word-graph-focus');
         },
         focusin: function() {
             $( this ).tooltip('show');
             showLemma($( this ));
+            $( this ).addClass('word-graph-focus');
         },
         focusout: function() {
             $( this ).tooltip('hide');
             hideLemma($( this ));
+            $( this ).removeClass('word-graph-focus');
         },
-        dblclick: function() {
+//         dblclick: function() {
+//             var wordGraphModal = $( '#word-graph-modal' );
+//             var request = new XMLHttpRequest();
+//             var subdomain = '';
+//             if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+//                 subdomain = '/dev'
+//             }
+//             request.onreadystatechange = function() {
+//                 if (this.readyState == 4) {
+//                     if (this.status == 200) {
+//                         wordGraphModal.html(this.responseText);
+//                         wordGraphModal.modal('show');
+//                     } else {
+//                         alert(message)
+//                     }
+//                 }
+//             };
+//             request.open('GET', subdomain + '/collocations/' + $( this ).attr('inflected') + '/None', true);
+//             request.send()
+//         }
+    })
+
+    $(document).keypress(function(e){
+        if (e.key ==  "Enter" ) {
             var wordGraphModal = $( '#word-graph-modal' );
             var request = new XMLHttpRequest();
             var subdomain = '';
@@ -143,7 +170,7 @@ $(document).ready(function(){
                     }
                 }
             };
-            request.open('GET', subdomain + '/collocations/' + $( this ).attr('inflected') + '/None', true);
+            request.open('GET', subdomain + '/collocations/' + $( '.word-graph-focus' ).attr('inflected') + '/None', true);
             request.send()
         }
     })
@@ -315,7 +342,7 @@ function showLemma(x) {
     var lem_box = document.getElementById("lem_box");
     var extraStr = '';
     if (wordGraph) {
-        extraStr = '<p>Dbl-click to see collocates for <b>' + x.attr('inflected') + '</b></p>';
+        extraStr = '<p>Press &lt;Enter&gt; to see collocates for <b>' + x.attr('inflected') + '</b></p>';
     }
 //     lem_box.setAttribute("default-data", lem_box.innerHTML);
     if (lemma) {
