@@ -65,7 +65,7 @@ class NemoFormulae(Nemo):
         ("/charter_parts", "r_parts", ["GET"]),
         ("/charter_groups", "r_groups", ["GET"]),
         ("/charter_formulaic", "r_charter_formulaic", ["GET"]),
-        ("/collocations/<targetWord>/<targetWord2>", "r_call_word_graph_api", ["GET"])
+        ("/collocations/<targetWord>/<word1Lemma>/<targetWord2>/<word1Type>", "r_call_word_graph_api", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1871,32 +1871,36 @@ class NemoFormulae(Nemo):
             html_output_dict[k] = Markup(self.transform(obj_dict[k], return_xml, k))
         return html_output_dict
 
-
-    def r_call_word_graph_api(self, targetWord: str, targetWord2: str):
+    def r_call_word_graph_api(self, targetWord: str, word1Lemma: str, targetWord2: str, word1Type: str):
+        opposite_type = {'inflected': 'lemma', 'lemma': 'inflected'}
+        target_word = targetWord
+        extra_params = ''
+        if word1Type == 'lemma':
+            target_word = word1Lemma
+            extra_params = '?lemmas=true'
         if targetWord2 == 'None':
             r = requests.get(os.path.join(self.app.config['WORD_GRAPH_API_URL'],
                                           'word',
-                                          targetWord,
+                                          target_word,
                                           'neighbors',
                                           'maxneighborhops',
-                                          '1'))
+                                          '1{}'.format(extra_params)))
             return {'template': 'main::word_graph_modal.html',
                     'data': [{'word': x['word'], 'in_text_quantity': int(x['in_text_quantity'])} for x in r.json()],
-                    'target_word': targetWord}
+                    'target_word': targetWord, 'target_lemma': word1Lemma, 'target_type': word1Type,
+                    'opposite_type': opposite_type[word1Type]}
         else:
             r = requests.get(os.path.join(self.app.config['WORD_GRAPH_API_URL'],
                                           'text',
                                           'mutual',
-                                          targetWord,
+                                          target_word,
                                           targetWord2,
                                           'maxneighborhops',
-                                          '1'))
+                                          '1{}'.format(extra_params)))
             return '<ul>{}</ul>'.format(
                 '\n'.join(['<li><a href="{}" target="_blank">{}</a></li>'.format(
                     url_for("InstanceNemo.r_multipassage", objectIds=x['title'], subreferences='1'),
                     x['headline']) for x in sorted(r.json(), key=itemgetter('title'))]))
-
-
 
     @staticmethod
     def r_impressum() -> Dict[str, str]:
