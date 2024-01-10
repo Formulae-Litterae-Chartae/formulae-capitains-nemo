@@ -113,38 +113,48 @@ $(document).ready(function(){
         mouseover: function() {
             $( this ).tooltip('show');
             showLemma($( this ));
+            $( this ).addClass('word-graph-focus');
         },
         mouseout: function() {
             $( this ).tooltip('hide');
             hideLemma($( this ));
+            $( this ).removeClass('word-graph-focus');
         },
         focusin: function() {
             $( this ).tooltip('show');
             showLemma($( this ));
+            $( this ).addClass('word-graph-focus');
         },
         focusout: function() {
             $( this ).tooltip('hide');
             hideLemma($( this ));
+            $( this ).removeClass('word-graph-focus');
         },
-        dblclick: function() {
-            var wordGraphModal = $( '#word-graph-modal' );
-            var request = new XMLHttpRequest();
-            var subdomain = '';
-            if (window.location.host == 'tools.formulae.uni-hamburg.de') {
-                subdomain = '/dev'
-            }
-            request.onreadystatechange = function() {
-                if (this.readyState == 4) {
-                    if (this.status == 200) {
-                        wordGraphModal.html(this.responseText);
-                        wordGraphModal.modal('show');
-                    } else {
-                        alert(message)
-                    }
-                }
-            };
-            request.open('GET', subdomain + '/collocations/' + $( this ).attr('inflected') + '/None', true);
-            request.send()
+//         dblclick: function() {
+//             var wordGraphModal = $( '#word-graph-modal' );
+//             var request = new XMLHttpRequest();
+//             var subdomain = '';
+//             if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+//                 subdomain = '/dev'
+//             }
+//             request.onreadystatechange = function() {
+//                 if (this.readyState == 4) {
+//                     if (this.status == 200) {
+//                         wordGraphModal.html(this.responseText);
+//                         wordGraphModal.modal('show');
+//                     } else {
+//                         alert(message)
+//                     }
+//                 }
+//             };
+//             request.open('GET', subdomain + '/collocations/' + $( this ).attr('inflected') + '/None', true);
+//             request.send()
+//         }
+    })
+
+    $(document).keypress(function(e){
+        if (e.key ==  "Enter" ) {
+            openWordGraphModal($( '.word-graph-focus' ).attr('inflected'), $( '.word-graph-focus' ).attr('lemma'), 'inflected')
         }
     })
     
@@ -315,7 +325,7 @@ function showLemma(x) {
     var lem_box = document.getElementById("lem_box");
     var extraStr = '';
     if (wordGraph) {
-        extraStr = '<p>Dbl-click to see collocates for <b>' + x.attr('inflected') + '</b></p>';
+        extraStr = '<p>Press &lt;Enter&gt; to see collocates for <b>' + x.attr('inflected') + '</b></p>';
     }
 //     lem_box.setAttribute("default-data", lem_box.innerHTML);
     if (lemma) {
@@ -469,7 +479,37 @@ function goToLinkedParagraph(h, t) {
     target.classList.add( 'flash-grey' );
 };
 
-function wordGraphMutualTexts(element, firstWord, secondWord) {
+function openWordGraphModal(targetWord, targetLemma, targetType, targetCorpus) {
+    var wordGraphModal = $( '#word-graph-modal' );
+    var extraParams = '';
+    if ( targetCorpus ) {
+        extraParams = '?corpus=' + targetCorpus;
+    }
+    console.log('params=' + extraParams);
+    var request = new XMLHttpRequest();
+    var subdomain = '';
+    if (window.location.host == 'tools.formulae.uni-hamburg.de') {
+        subdomain = '/dev'
+    }
+    request.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                wordGraphModal.html(this.responseText);
+                wordGraphModal.modal('show');
+            } else {
+                alert(message)
+            }
+        }
+    };
+    request.open('GET', subdomain + '/collocations/' + targetWord + '/' + targetLemma + '/None/' + targetType + extraParams, true);
+    request.send()
+}
+
+function wordGraphMutualTexts(element, firstWord, wordLemma, secondWord, firstWordType, targetCorpus) {
+    var extraParams = '';
+    if ( targetCorpus ) {
+        extraParams = '?corpus=' + targetCorpus;
+    }
     var request = new XMLHttpRequest();
     var subdomain = '';
     if (window.location.host == 'tools.formulae.uni-hamburg.de') {
@@ -484,6 +524,6 @@ function wordGraphMutualTexts(element, firstWord, secondWord) {
             }
         }
     };
-    request.open('GET', subdomain + '/collocations/' + firstWord + '/' + secondWord, true);
+    request.open('GET', subdomain + '/collocations/' + firstWord + '/' + wordLemma + '/' + secondWord + '/' + firstWordType + extraParams, true);
     request.send()
 };
