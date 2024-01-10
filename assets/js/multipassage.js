@@ -479,8 +479,13 @@ function goToLinkedParagraph(h, t) {
     target.classList.add( 'flash-grey' );
 };
 
-function openWordGraphModal(targetWord, targetLemma, targetType) {
+function openWordGraphModal(targetWord, targetLemma, targetType, targetCorpus) {
     var wordGraphModal = $( '#word-graph-modal' );
+    var extraParams = '';
+    if ( targetCorpus ) {
+        extraParams = '?corpus=' + targetCorpus;
+    }
+    console.log('params=' + extraParams);
     var request = new XMLHttpRequest();
     var subdomain = '';
     if (window.location.host == 'tools.formulae.uni-hamburg.de') {
@@ -496,11 +501,15 @@ function openWordGraphModal(targetWord, targetLemma, targetType) {
             }
         }
     };
-    request.open('GET', subdomain + '/collocations/' + targetWord + '/' + targetLemma + '/None/' + targetType, true);
+    request.open('GET', subdomain + '/collocations/' + targetWord + '/' + targetLemma + '/None/' + targetType + extraParams, true);
     request.send()
 }
 
-function wordGraphMutualTexts(element, firstWord, wordLemma, secondWord, firstWordType) {
+function wordGraphMutualTexts(element, firstWord, wordLemma, secondWord, firstWordType, targetCorpus) {
+    var extraParams = '';
+    if ( targetCorpus ) {
+        extraParams = '?corpus=' + targetCorpus;
+    }
     var request = new XMLHttpRequest();
     var subdomain = '';
     if (window.location.host == 'tools.formulae.uni-hamburg.de') {
@@ -515,6 +524,6 @@ function wordGraphMutualTexts(element, firstWord, wordLemma, secondWord, firstWo
             }
         }
     };
-    request.open('GET', subdomain + '/collocations/' + firstWord + '/' + wordLemma + '/' + secondWord + '/' + firstWordType, true);
+    request.open('GET', subdomain + '/collocations/' + firstWord + '/' + wordLemma + '/' + secondWord + '/' + firstWordType + extraParams, true);
     request.send()
 };

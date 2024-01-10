@@ -10,34 +10,57 @@
         </div>
         <div class="modal-body">
             <div class="row">
+                <div class="col dropleft">
+                    <a class="nav-link dropdown-toggle active pl-0 pt-0" role="button" id="wordGraphCollDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Sammlung wählen') }}</a>
+                    <div class="dropdown-menu" aria-labelledby="wordGraphCollDropdown" id="wordGraphCollMenu">
+                    {% if target_corpus %}
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="dropdown-item" onclick="openWordGraphModal('{{target_word}}', '{{target_lemma}}', '{{target_type}}', '')"><b><span class="invisible">* </span></b>{{ _('Nachbarn aus allen Sammlungen zeigen') }}</a>
+                            </li>
+                        </ul>
+                        <div class="dropdown-divider"></div>
+                    {% endif %}
+                        <ul class="list-unstyled">
+                            <li><h5 class="ml-3">Formulae</h5></li>
+                            {% for coll in coll_dict['Formulae'] %}
+                            <li>
+                                <a class="dropdown-item" value="{{coll['id']}}" onclick="openWordGraphModal('{{target_word}}', '{{target_lemma}}', '{{target_type}}', '{{coll['id']}}')" href="#"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip" {% if not coll['lemmatized'] %} class="invisible"{%endif %} data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip" title="{{ _('Dieses Korpus ist lemmatisiert') }}" tabindex="0">* </span></b>{{ coll['short_title']|safe }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="dropdown-divider"></div>
+                        <ul class="list-unstyled">
+                            <li><h5 class="ml-3">{{ _('Urkunden') }}</h5></li>
+                            {% for category in coll_dict['Urkunden'] %}
+                            <li>
+                                {% if coll_dict['Urkunden'][category]|length == 1 %}
+                                <a class="dropdown-item" value="{{coll_dict['Urkunden'][category][0]['id']}}" onclick="openWordGraphModal('{{target_word}}', '{{target_lemma}}', '{{target_type}}', '{{coll_dict['Urkunden'][category][0]['id']}}')" href="#"><b><span id="{{coll_dict['Urkunden'][category][0]['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip" {% if not coll_dict['Urkunden'][category][0]['lemmatized'] %} class="invisible"{%endif %} data-container="#{{coll_dict['Urkunden'][category][0]['id'].split(':')[-1]}}-corpus-tooltip" title="{{ _('Dieses Korpus ist lemmatisiert') }}" tabindex="0">* </span></b>{{ coll_dict['Urkunden'][category][0]['short_title']|safe }}</a>
+                                {% else %}
+                                <a class="dropdown-item" id="{{category}}GraphCollDropdown" onclick="openWordGraphModal('{{target_word}}', '{{target_lemma}}', '{{target_type}}', '{{coll_dict['Urkunden'][category]|map(attribute='id')|join(',')}}')" href="#" data-toggle="tooltip" data-container="#{{category}}GraphCollDropdown" title="{{ _('Nachbarn aus allen Texten von') }} {{category}} {{_('zeigen')}}" tabindex="0"><b><span  class="invisible">* </span></b>{{category}} ↴</a>
+                                <ul class="list-unstyled">
+                                    {% for coll in coll_dict['Urkunden'][category] %}
+                                    <li class="ml-3">
+                                        <a class="dropdown-item" value="{{coll['id']}}" onclick="openWordGraphModal('{{target_word}}', '{{target_lemma}}', '{{target_type}}', '{{coll['id']}}')" href="#"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip" {% if not coll['lemmatized'] %} class="invisible"{%endif %} data-container="#{{coll_dict['Urkunden'][category][0]['id'].split(':')[-1]}}-corpus-tooltip" title="{{ _('Dieses Korpus ist lemmatisiert') }}" tabindex="0">* </span></b>{{ coll['short_title']|safe }}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
                 <div class="col">
-                    <p><a href="#" onclick="openWordGraphModal('{{target_word}}', '{{target_lemma}}', '{{opposite_type}}')">Show {{opposite_type}}</a></p>
-                </div>
-                <div class="col dropright">
-                    <a class="nav-link dropdown-toggle active dropright" role="button" id="wordGraphCollDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">{{ _('Sammlung wählen') }}</a>
-                <div class="dropdown-menu" aria-labelledby="wordGraphCollDropdown" id="wordGraphCollMenu">
-                    {% for coll in g.sub_colls['formulae_collection'] %}
-                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
-                                                     {% if not coll['lemmatized'] %} class="invisible"{%endif %}
-                                                                data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
-                                                                title="{{ _('Dieses Korpus ist lemmatisiert') }}"
-                                            tabindex="0">* </span></b>{{ coll['short_title']|safe }}</a>
-                    {% endfor %}
-                    <div class="dropdown-divider"></div>
-                    {% for coll in g.sub_colls['other_collection'] %}
-                    <a class="dropdown-item" href="{{url_for('InstanceNemo.r_collection', objectId=coll['id'])}}"><b><span id="{{coll['id'].split(':')[-1]}}-corpus-tooltip" data-toggle="tooltip"
-                                                     {% if not coll['lemmatized'] %} class="invisible"{%endif %}
-                                                                data-container="#{{coll['id'].split(':')[-1]}}-corpus-tooltip"
-                                                                title="{{ _('Dieses Korpus ist lemmatisiert') }}"
-                                            tabindex="0">* </span></b>{{ coll['short_title']|safe }}</a>
-                    {% endfor %}
-                </div>
+                {% if target_lemma != 'undefined' %}
+                    <a href="#" onclick="openWordGraphModal('{{target_word}}', '{{target_lemma}}', '{{opposite_type}}', '{{target_corpus}}')">Show {{opposite_type}}</a>
+                {% endif %}
                 </div>
             </div>
             <div class="accordion" id="collocationAccordion">
         {% for w in data|sort(reverse=True, attribute='in_text_quantity') %}
             {% set secondWord = w['word'] %}
-                <div class="card" onclick="wordGraphMutualTexts(this, '{{target_word}}', '{{target_lemma}}', '{{secondWord}}', '{{target_type}}')">
+                <div class="card" onclick="wordGraphMutualTexts(this, '{{target_word}}', '{{target_lemma}}', '{{secondWord}}', '{{target_type}}', '{{target_corpus}}')">
                     <div class="card-header py-1" id="heading-{{secondWord}}">
                     <h2 class="mb-0">
                         <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse-{{secondWord}}" aria-expanded="true" aria-controls="collapse-{{secondWord}}">

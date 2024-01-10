@@ -1874,11 +1874,18 @@ class NemoFormulae(Nemo):
     def r_call_word_graph_api(self, targetWord: str, word1Lemma: str, targetWord2: str, word1Type: str):
         opposite_type = {'inflected': 'lemma', 'lemma': 'inflected'}
         target_word = targetWord
-        extra_params = ''
+        extra_params = list()
         if word1Type == 'lemma':
             target_word = word1Lemma
-            extra_params = '?lemmas=true'
+            extra_params.append('lemmas=true')
+        target_corpus = request.args.get('corpus', '')
+        if target_corpus:
+            extra_params.append('includedcollections=' + target_corpus)
+        extra_params = '?{}'.format('&'.join(extra_params))
         if targetWord2 == 'None':
+            coll_dict = {'Formulae': [c for c in self.sub_colls['formulae_collection']], 'Urkunden': defaultdict(list)}
+            for sub_coll in self.sub_colls['other_collection']:
+                coll_dict['Urkunden'][sub_coll['coverage']].append(sub_coll)
             r = requests.get(os.path.join(self.app.config['WORD_GRAPH_API_URL'],
                                           'word',
                                           target_word,
@@ -1886,9 +1893,9 @@ class NemoFormulae(Nemo):
                                           'maxneighborhops',
                                           '1{}'.format(extra_params)))
             return {'template': 'main::word_graph_modal.html',
-                    'data': [{'word': x['word'], 'in_text_quantity': int(x['in_text_quantity'])} for x in r.json()],
+                    'data': [{'word': x['word'], 'in_text_quantity': int(x['in_text_quantity'])} for x in r.json() if x['word']],
                     'target_word': targetWord, 'target_lemma': word1Lemma, 'target_type': word1Type,
-                    'opposite_type': opposite_type[word1Type]}
+                    'opposite_type': opposite_type[word1Type], 'target_corpus': target_corpus, 'coll_dict': coll_dict}
         else:
             r = requests.get(os.path.join(self.app.config['WORD_GRAPH_API_URL'],
                                           'text',
