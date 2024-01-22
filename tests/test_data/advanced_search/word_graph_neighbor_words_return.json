@@ -2,46 +2,55 @@
     {
         "word": "sancti",
         "distance": 1,
-        "in_text_quantity": "2"
+        "in_text_quantity": "2",
+        "in_collection": "urn:cts:formulae:marculf"
     },
     {
         "word": "martiris",
         "distance": 1,
-        "in_text_quantity": "1"
+        "in_text_quantity": "1",
+        "in_collection": "urn:cts:formulae:marculf"
     },
     {
         "word": "vel",
         "distance": 1,
-        "in_text_quantity": "1"
+        "in_text_quantity": "1",
+        "in_collection": "urn:cts:formulae:marculf"
     },
     {
         "word": "martyris",
         "distance": 1,
-        "in_text_quantity": "1"
+        "in_text_quantity": "1",
+        "in_collection": "urn:cts:formulae:marculf"
     },
     {
         "word": "infra",
         "distance": 1,
-        "in_text_quantity": "1"
+        "in_text_quantity": "1",
+        "in_collection": "urn:cts:formulae:marculf"
     },
     {
         "word": "concesserunt",
         "distance": 1,
-        "in_text_quantity": "1"
+        "in_text_quantity": "1",
+        "in_collection": "urn:cts:formulae:marculf"
     },
     {
         "word": "super",
         "distance": 1,
-        "in_text_quantity": "1"
+        "in_text_quantity": "1",
+        "in_collection": "urn:cts:formulae:marculf"
     },
     {
         "word": "patronis",
         "distance": 1,
-        "in_text_quantity": "1"
+        "in_text_quantity": "1",
+        "in_collection": "urn:cts:formulae:marculf"
     },
     {
         "word": "ubi",
         "distance": 1,
-        "in_text_quantity": "1"
+        "in_text_quantity": "1",
+        "in_collection": "urn:cts:formulae:raetien"
     }
 ]

@@ -1875,25 +1875,37 @@ class NemoFormulae(Nemo):
         opposite_type = {'inflected': 'lemma', 'lemma': 'inflected'}
         target_word = targetWord
         extra_params = list()
+        coll_dict = None
         if word1Type == 'lemma':
             target_word = word1Lemma
             extra_params.append('lemmas=true')
         target_corpus = request.args.get('corpus', '')
         if target_corpus:
             extra_params.append('includedcollections=' + target_corpus)
+            coll_dict = session.get('word_graph_used_colls', None)
         extra_params = '?{}'.format('&'.join(extra_params))
         if targetWord2 == 'None':
-            coll_dict = {'Formulae': [c for c in self.sub_colls['formulae_collection']], 'Urkunden': defaultdict(list)}
-            for sub_coll in self.sub_colls['other_collection']:
-                coll_dict['Urkunden'][sub_coll['coverage']].append(sub_coll)
             r = requests.get(os.path.join(self.app.config['WORD_GRAPH_API_URL'],
                                           'word',
                                           target_word,
                                           'neighbors',
                                           'maxneighborhops',
                                           '1{}'.format(extra_params)))
+            return_data = dict()
+            used_colls = set()
+            for x in r.json():
+                if x['word']:
+                    used_colls.add(x['in_collection'])
+                    return_data[x['word']] = int(x['in_text_quantity'])
+            if not coll_dict:
+                coll_dict = {'Formulae': [c for c in self.sub_colls['formulae_collection'] if c['id'] in used_colls],
+                             'Urkunden': defaultdict(list)}
+                for sub_coll in self.sub_colls['other_collection']:
+                    if sub_coll['id'] in used_colls:
+                        coll_dict['Urkunden'][sub_coll['coverage']].append(sub_coll)
+                session['word_graph_used_colls'] = coll_dict
             return {'template': 'main::word_graph_modal.html',
-                    'data': [{'word': x['word'], 'in_text_quantity': int(x['in_text_quantity'])} for x in r.json() if x['word']],
+                    'data': return_data,
                     'target_word': targetWord, 'target_lemma': word1Lemma, 'target_type': word1Type,
                     'opposite_type': opposite_type[word1Type], 'target_corpus': target_corpus, 'coll_dict': coll_dict}
         else:
