@@ -439,12 +439,15 @@ class TestIndividualRoutes(Formulae_Testing):
             with patch('requests.get', side_effect=mocked_requests_post) as mock_post:
                 r = c.get('/collocations/Dionisiy/dionisius/None/inflected', follow_redirects=True)
                 json_data = self.get_context_variable('data')
-                self.assertIn({'word': 'sancti', 'in_text_quantity': 2}, json_data)
+                coll_data = self.get_context_variable('coll_dict')
+                self.assertEqual(json_data['sancti'], 2)
+                self.assertEqual(['urn:cts:formulae:marculf'], [x['id'] for x in coll_data['Formulae']])
                 r = c.get('/collocations/Dionisiy/dionisius/sancti/inflected', follow_redirects=True)
                 self.assertIn('Die Urkunden Karlmanns (768-771) (Ed. Mühlbacher) Nr. 43', r.get_data(as_text=True))
                 r = c.get('/collocations/Dionisiy/dionisius/None/lemma?corpus=urn:cts:formulae:marculf', follow_redirects=True)
                 self.assertEqual(self.get_context_variable('target_lemma'), 'dionisius')
                 self.assertEqual(self.get_context_variable('target_corpus'), 'urn:cts:formulae:marculf')
+                self.assertEqual(['urn:cts:formulae:marculf'], [x['id'] for x in self.get_context_variable('coll_dict')['Formulae']])
             c.get('/reading_format/rows', follow_redirects=True,
                   headers={'Referer': '/texts/urn:cts:formulae:raetien.erhart0001.lat001+urn:cts:formulae:andecavensis.form001.fu2/passage/1+all'})
             self.assertIn('main::multipassage.html', [x[0].name for x in self.templates])
