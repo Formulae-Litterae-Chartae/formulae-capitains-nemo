@@ -53,7 +53,7 @@
                 </div>
                 <div class="col">
                 {% if target_lemma != 'undefined' %}
-                    <a href="#" onclick="openWordGraphModal('{{target_word}}', '{{target_lemma}}', '{{opposite_type}}', '{{target_corpus}}')">{% if opposite_type == 'lemma' %}{{ _('Flekierte Wörter zeigen') }}{% else %}{{ ('Lemmata zeigen') }}{% endif %}</a>
+                    <a href="#" onclick="openWordGraphModal('{{target_word}}', '{{target_lemma}}', '{{opposite_type}}', '{{target_corpus}}')">{% if opposite_type == 'lemma' %}{{ _('Lemmata zeigen') }}{% else %}{{ ('Flekierte Wörter zeigen') }}{% endif %}</a>
                 {% endif %}
                 </div>
             </div>
