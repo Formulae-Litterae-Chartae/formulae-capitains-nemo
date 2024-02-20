@@ -1998,9 +1998,7 @@ class NemoFormulae(Nemo):
         :return: all_parts template
         :rtype: {str: str, str: list(tuple(str))}
         """
-        if self.check_project_team():
-            return {"template": "main::all_parts.html"}
-        abort(401, _('Diese Seite ist nicht öffentlich zugänglich.'))
+        return {"template": "main::all_parts.html"}
 
 
     def r_groups(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
@@ -2009,9 +2007,7 @@ class NemoFormulae(Nemo):
         :return: all_parts template
         :rtype: {str: str, str: list(tuple(str))}
         """
-        if self.check_project_team():
-            return {"template": "main::charter_groups.html"}
-        abort(401, _('Diese Seite ist nicht öffentlich zugänglich.'))
+        return {"template": "main::charter_groups.html"}
 
     def r_charter_formulaic(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
         """ Route for page with intro and links to data from Franziska Quaas
@@ -2019,9 +2015,7 @@ class NemoFormulae(Nemo):
         :return: all_parts template
         :rtype: {str: str, str: list(tuple(str))}
         """
-        if self.check_project_team():
-            return {"template": "main::charter_formulae.html"}
-        abort(401, _('Diese Seite ist nicht öffentlich zugänglich.'))
+        return {"template": "main::charter_formulae.html"}
 
     def extract_notes(self, text: str) -> str:
         """ Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
