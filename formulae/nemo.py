@@ -15,7 +15,7 @@ from formulae.search.forms import SearchForm
 from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
 from formulae.auth.forms import AddSavedPageForm
 from lxml import etree
-from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error, e_not_authorized_error
+from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error# , e_not_authorized_error
 import re
 from datetime import date
 from urllib.parse import quote
@@ -64,7 +64,10 @@ class NemoFormulae(Nemo):
         ("/videos", "r_videos", ["GET"]),
         ("/charter_parts", "r_parts", ["GET"]),
         ("/charter_groups", "r_groups", ["GET"]),
+        ("/similar_parts", "r_part_groups", ["GET"]),
         ("/charter_formulaic", "r_charter_formulaic", ["GET"]),
+        ("/formulae_formulae", "r_formulae_formulae", ["GET"]),
+        ("/formulae_charter", "r_formulae_charter", ["GET"]),
         ("/collocations/<targetWord>/<word1Lemma>/<targetWord2>/<word1Type>", "r_call_word_graph_api", ["GET"])
     ]
 
@@ -311,7 +314,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.globals['get_locale'] = get_locale
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
-        self.app.register_error_handler(401, e_not_authorized_error)
+        # self.app.register_error_handler(401, e_not_authorized_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
         self.register_font()
@@ -2000,6 +2003,13 @@ class NemoFormulae(Nemo):
         """
         return {"template": "main::all_parts.html"}
 
+    def r_part_groups(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing similar parts for Arengen and Überleitungsformel
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::charter_parts.html"}
 
     def r_groups(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
         """ Route for page with data from Franziska Quaas showing charter and charter part groups
@@ -2008,6 +2018,22 @@ class NemoFormulae(Nemo):
         :rtype: {str: str, str: list(tuple(str))}
         """
         return {"template": "main::charter_groups.html"}
+
+    def r_formulae_formulae(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing formulae with formulae agreements
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::formulae_formulae.html"}
+
+    def r_formulae_charter(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing formulae with charter agreements
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::formulae_charter.html"}
 
     def r_charter_formulaic(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
         """ Route for page with intro and links to data from Franziska Quaas
