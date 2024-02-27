@@ -21,9 +21,9 @@ def e_unknown_collection_error(error):
     return r_display_error(error_code=code, error_message=response,
                            objectId=error.args[1] if len(error.args) == 2 else '')
 
-def e_not_authorized_error(error):
-    response = "<h4>{}</h4>".format(error)
-    return r_display_error(401, response)
+# def e_not_authorized_error(error):
+#     response = "<h4>{}</h4>".format(error)
+#     return r_display_error(401, response)
 
 
 def r_display_error(error_code, error_message, **kwargs):

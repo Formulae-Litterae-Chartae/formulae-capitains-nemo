@@ -15,7 +15,7 @@ from formulae.search.forms import SearchForm
 from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
 from formulae.auth.forms import AddSavedPageForm
 from lxml import etree
-from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error, e_not_authorized_error
+from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error# , e_not_authorized_error
 import re
 from datetime import date
 from urllib.parse import quote
@@ -314,7 +314,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.globals['get_locale'] = get_locale
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
-        self.app.register_error_handler(401, e_not_authorized_error)
+        # self.app.register_error_handler(401, e_not_authorized_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
         self.register_font()
