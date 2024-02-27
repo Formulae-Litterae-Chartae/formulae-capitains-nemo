@@ -67,7 +67,7 @@ class NemoFormulae(Nemo):
         ("/similar_parts", "r_part_groups", ["GET"]),
         ("/charter_formulaic", "r_charter_formulaic", ["GET"]),
         ("/formulae_formulae", "r_formulae_formulae", ["GET"]),
-        ("/formulae_charter", "r_formulae_charter", ["GET"])
+        ("/formulae_charter", "r_formulae_charter", ["GET"]),
         ("/collocations/<targetWord>/<word1Lemma>/<targetWord2>/<word1Type>", "r_call_word_graph_api", ["GET"])
     ]
 
