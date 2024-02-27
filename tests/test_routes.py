@@ -510,6 +510,12 @@ class TestIndividualRoutes(Formulae_Testing):
             self.assertIn('main::charter_groups.html', [x[0].name for x in self.templates])
             c.get('/charter_formulaic', follow_redirects=True)
             self.assertIn('main::charter_formulae.html', [x[0].name for x in self.templates])
+            c.get('/similar_parts', follow_redirects=True)
+            self.assertIn('main::charter_parts.html', [x[0].name for x in self.templates])
+            c.get('/formulae_formulae', follow_redirects=True)
+            self.assertIn('main::formulae_formulae.html', [x[0].name for x in self.templates])
+            c.get('/formulae_charter', follow_redirects=True)
+            self.assertIn('main::formulae_charter.html', [x[0].name for x in self.templates])
 
     def test_authorized_project_member(self):
 

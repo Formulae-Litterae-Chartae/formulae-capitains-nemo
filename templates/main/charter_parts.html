@@ -1,0 +1,19 @@
+{% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Gruppen ähnlicher Urkundenteile') }}{% endblock %}
+
+{%block article%}
+<div class="container-fluid">
+    <header>
+        <h1 class="text-center">{{ _('Gruppen ähnlicher ') }} {{ _('Urkundenteile') }}</h3>
+        <h5 class="text-center">{{ _('Bei der Digitalisierung neuer Sammlungen werden weitere Texte und Gruppen erscheinen.') }}</h5>
+    </header>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8">
+                <div class="accordion" id="charterGroupAccordion">
+                {% include "main::charter_parts_table.html" %}
+                </div>
+            </div>
+        </div>
+    
+</div>
+{%endblock%}

@@ -63,7 +63,10 @@ class NemoFormulae(Nemo):
         ("/videos", "r_videos", ["GET"]),
         ("/charter_parts", "r_parts", ["GET"]),
         ("/charter_groups", "r_groups", ["GET"]),
-        ("/charter_formulaic", "r_charter_formulaic", ["GET"])
+        ("/similar_parts", "r_part_groups", ["GET"]),
+        ("/charter_formulaic", "r_charter_formulaic", ["GET"]),
+        ("/formulae_formulae", "r_formulae_formulae", ["GET"]),
+        ("/formulae_charter", "r_formulae_charter", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1945,6 +1948,13 @@ class NemoFormulae(Nemo):
         """
         return {"template": "main::all_parts.html"}
 
+    def r_part_groups(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing similar parts for Arengen and Überleitungsformel
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::charter_parts.html"}
 
     def r_groups(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
         """ Route for page with data from Franziska Quaas showing charter and charter part groups
@@ -1953,6 +1963,22 @@ class NemoFormulae(Nemo):
         :rtype: {str: str, str: list(tuple(str))}
         """
         return {"template": "main::charter_groups.html"}
+
+    def r_formulae_formulae(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing formulae with formulae agreements
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::formulae_formulae.html"}
+
+    def r_formulae_charter(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing formulae with charter agreements
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::formulae_charter.html"}
 
     def r_charter_formulaic(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
         """ Route for page with intro and links to data from Franziska Quaas
