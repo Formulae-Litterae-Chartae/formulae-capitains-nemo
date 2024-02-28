@@ -15,7 +15,7 @@ from formulae.search.forms import SearchForm
 from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
 from formulae.auth.forms import AddSavedPageForm
 from lxml import etree
-from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error, e_not_authorized_error
+from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error# , e_not_authorized_error
 import re
 from datetime import date
 from urllib.parse import quote
@@ -34,6 +34,7 @@ from random import randint
 import roman
 import requests
 from itertools import zip_longest
+from operator import itemgetter
 
 
 class NemoFormulae(Nemo):
@@ -63,7 +64,11 @@ class NemoFormulae(Nemo):
         ("/videos", "r_videos", ["GET"]),
         ("/charter_parts", "r_parts", ["GET"]),
         ("/charter_groups", "r_groups", ["GET"]),
-        ("/charter_formulaic", "r_charter_formulaic", ["GET"])
+        ("/similar_parts", "r_part_groups", ["GET"]),
+        ("/charter_formulaic", "r_charter_formulaic", ["GET"]),
+        ("/formulae_formulae", "r_formulae_formulae", ["GET"]),
+        ("/formulae_charter", "r_formulae_charter", ["GET"]),
+        ("/collocations/<targetWord>/<word1Lemma>/<targetWord2>/<word1Type>", "r_call_word_graph_api", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -133,6 +138,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:karl_der_grosse',
                         'urn:cts:formulae:karlmann_mgh',
                         'urn:cts:formulae:ko2',
+                        'urn:cts:formulae:konrad_mgh',
                         # 'urn:cts:formulae:langobardisch', # needs correction
                         'urn:cts:formulae:langobardisch_1',
                         'urn:cts:formulae:le1',
@@ -205,6 +211,7 @@ class NemoFormulae(Nemo):
                              'urn:cts:formulae:chartae_latinae_xlvi',
                              'urn:cts:formulae:echternach',
                              'urn:cts:formulae:fulda_stengel',
+                             'urn:cts:formulae:konrad_mgh',
                              # 'urn:cts:formulae:langobardisch', # needs correction
                              'urn:cts:formulae:lorsch',
                              'urn:cts:formulae:lothar_2',
@@ -307,7 +314,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.globals['get_locale'] = get_locale
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
-        self.app.register_error_handler(401, e_not_authorized_error)
+        # self.app.register_error_handler(401, e_not_authorized_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
         self.register_font()
@@ -1789,6 +1796,7 @@ class NemoFormulae(Nemo):
             flash(_('Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.'))
         passage_data['translation'] = translations
         passage_data['videos'] = [v for k, v in self.VIDEOS.items() if 2 in k][0]
+        passage_data['word_graph_url'] = self.app.config['WORD_GRAPH_API_URL']
         return passage_data
 
     @staticmethod
@@ -1825,7 +1833,7 @@ class NemoFormulae(Nemo):
                     spans[i].set('class', spans[i].get('class') + ' searched-end')
         xml_string = etree.tostring(root, encoding=str, method='html', xml_declaration=None, pretty_print=False,
                                     with_tail=True, standalone=None)
-        span_pattern = re.compile(r'(<span id="\w+" class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
+        span_pattern = re.compile(r'(<span id="\w+" (inflected="\w+" )?class="w [\w\-]*\s?searched-start.*?searched-end".*?</span>)', re.DOTALL)
         xml_string = re.sub(span_pattern, r'<span class="searched">\1</span>', xml_string)
         return Markup(xml_string)
 
@@ -1859,12 +1867,62 @@ class NemoFormulae(Nemo):
             obj_dict[obj_id] = text
             xml = text.export(Mimetypes.PYTHON.ETREE)
             json_input['texts'][obj_id] = etree.tostring(xml, encoding='unicode')
-        r = requests.post('http://localhost:7300/collate_xml', json=json_input)
+        r = requests.post(os.path.join(self.app.config['COLLATE_API_URL'], 'collate_xml'), json=json_input)
         html_output_dict = dict()
         for k, v in r.json().items():
             return_xml = etree.fromstring(v)
             html_output_dict[k] = Markup(self.transform(obj_dict[k], return_xml, k))
         return html_output_dict
+
+    def r_call_word_graph_api(self, targetWord: str, word1Lemma: str, targetWord2: str, word1Type: str):
+        opposite_type = {'inflected': 'lemma', 'lemma': 'inflected'}
+        target_word = targetWord
+        extra_params = list()
+        coll_dict = None
+        if word1Type == 'lemma':
+            target_word = word1Lemma
+            extra_params.append('lemmas=true')
+        target_corpus = request.args.get('corpus', '')
+        if target_corpus:
+            extra_params.append('includedcollections=' + target_corpus)
+            coll_dict = session.get('word_graph_used_colls', None)
+        extra_params = '?{}'.format('&'.join(extra_params))
+        if targetWord2 == 'None':
+            r = requests.get(os.path.join(self.app.config['WORD_GRAPH_API_URL'],
+                                          'word',
+                                          target_word,
+                                          'neighbors',
+                                          'maxneighborhops',
+                                          '1{}'.format(extra_params)))
+            return_data = dict()
+            used_colls = set()
+            for x in r.json():
+                if x['word']:
+                    used_colls.add(x['in_collection'])
+                    return_data[x['word']] = int(x['in_text_quantity'])
+            if not coll_dict:
+                coll_dict = {'Formulae': [c for c in self.sub_colls['formulae_collection'] if c['id'] in used_colls],
+                             'Urkunden': defaultdict(list)}
+                for sub_coll in self.sub_colls['other_collection']:
+                    if sub_coll['id'] in used_colls:
+                        coll_dict['Urkunden'][sub_coll['coverage']].append(sub_coll)
+                session['word_graph_used_colls'] = coll_dict
+            return {'template': 'main::word_graph_modal.html',
+                    'data': return_data,
+                    'target_word': targetWord, 'target_lemma': word1Lemma, 'target_type': word1Type,
+                    'opposite_type': opposite_type[word1Type], 'target_corpus': target_corpus, 'coll_dict': coll_dict}
+        else:
+            r = requests.get(os.path.join(self.app.config['WORD_GRAPH_API_URL'],
+                                          'text',
+                                          'mutual',
+                                          target_word,
+                                          targetWord2,
+                                          'maxneighborhops',
+                                          '1{}'.format(extra_params)))
+            return '<ul>{}</ul>'.format(
+                '\n'.join(['<li><a href="{}" target="_blank">{}</a></li>'.format(
+                    url_for("InstanceNemo.r_multipassage", objectIds=x['title'], subreferences='1'),
+                    x['headline']) for x in sorted(r.json(), key=itemgetter('title'))]))
 
     @staticmethod
     def r_impressum() -> Dict[str, str]:
@@ -1945,6 +2003,13 @@ class NemoFormulae(Nemo):
         """
         return {"template": "main::all_parts.html"}
 
+    def r_part_groups(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing similar parts for Arengen and Überleitungsformel
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::charter_parts.html"}
 
     def r_groups(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
         """ Route for page with data from Franziska Quaas showing charter and charter part groups
@@ -1953,6 +2018,22 @@ class NemoFormulae(Nemo):
         :rtype: {str: str, str: list(tuple(str))}
         """
         return {"template": "main::charter_groups.html"}
+
+    def r_formulae_formulae(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing formulae with formulae agreements
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::formulae_formulae.html"}
+
+    def r_formulae_charter(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
+        """ Route for page with data from Franziska Quaas showing formulae with charter agreements
+
+        :return: all_parts template
+        :rtype: {str: str, str: list(tuple(str))}
+        """
+        return {"template": "main::formulae_charter.html"}
 
     def r_charter_formulaic(self) -> Dict[str, Union[str, List[Tuple[str]]]]:
         """ Route for page with intro and links to data from Franziska Quaas

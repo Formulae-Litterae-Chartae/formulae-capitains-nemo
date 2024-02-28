@@ -1,0 +1,17 @@
+{% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Entsprechungen zwischen Urkunden und formulae') }}{% endblock %}
+
+{%block article%}
+<div class="container-fluid">
+    <header>
+        <h1 class="text-center">{{ _('Synchronoptische Darstellung von Entsprechungen zwischen Urkunden und ') }}<i>formulae</i></h3>
+        <h5 class="text-center">{{ _('Bei der Digitalisierung neuer Sammlungen werden weitere Texte und Gruppen erscheinen.') }}</h5>
+    </header>
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-10 col-md-8">
+                {% include "main::formulae_charter_table.html" %}
+            </div>
+        </div>
+    
+</div>
+{%endblock%}

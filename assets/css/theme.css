@@ -1272,3 +1272,8 @@ img.disabled {
 	-moz-transform: rotate(180deg);
 	transform: rotate(180deg);
 }
+
+#wordGraphCollMenu {
+    max-height: 70vh;
+    overflow: scroll;
+}

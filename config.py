@@ -41,3 +41,6 @@ class Config(object):
     REDIS_URL = os.environ.get('REDIS_URL') or 'redis://'
     PREFERRED_URL_SCHEME = os.environ.get('PREFERRED_URL_SCHEME', 'http')
     VIDEO_FOLDER = os.environ.get('VIDEO_FOLDER') or ''
+    COLLATE_API_URL = os.environ.get('COLLATE_API_URL', 'http://localhost:7300')
+    WORD_GRAPH_API_URL = os.environ.get('WORD_GRAPH_API_URL', '')
+
