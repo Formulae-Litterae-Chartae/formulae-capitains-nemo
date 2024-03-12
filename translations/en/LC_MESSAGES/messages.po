@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2023-05-08 15:12+0200\n"
+"POT-Creation-Date: 2024-03-12 08:47+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -12,126 +12,126 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.11.0\n"
+"Generated-By: Babel 2.12.1\n"
 
-#: formulae/__init__.py:21 tests/test_routes.py:259 tests/test_routes.py:464
-#: tests/test_routes.py:468 tests/test_routes.py:472
+#: formulae/__init__.py:21 tests/test_routes.py:290 tests/test_routes.py:516
+#: tests/test_routes.py:520 tests/test_routes.py:524
 msgid "Bitte loggen Sie sich ein, um Zugang zu erhalten."
 msgstr "Please log in to access this page."
 
-#: formulae/__init__.py:87 tests/test_routes.py:224 tests/test_routes.py:232
+#: formulae/__init__.py:87 tests/test_routes.py:255 tests/test_routes.py:263
 msgid "Der Viewer konnte nicht gestartet werden."
 msgstr "The Viewer could not be started."
 
-#: formulae/nemo.py:217
+#: formulae/nemo.py:240
 msgid "Latein"
 msgstr "Latin"
 
-#: formulae/nemo.py:217
+#: formulae/nemo.py:240
 msgid "Deutsch"
 msgstr "German"
 
-#: formulae/nemo.py:217
+#: formulae/nemo.py:240
 msgid "Französisch"
 msgstr "French"
 
-#: formulae/nemo.py:218
+#: formulae/nemo.py:241
 msgid "Englisch"
 msgstr "English"
 
-#: formulae/nemo.py:218
+#: formulae/nemo.py:241
 msgid "Katalanisch"
 msgstr "Catalan"
 
-#: formulae/nemo.py:218
+#: formulae/nemo.py:241
 msgid "Italienisch"
 msgstr "Italian"
 
-#: formulae/nemo.py:238
+#: formulae/nemo.py:261
 msgid "Zur einfachen und erweiterten Suche"
 msgstr "About the Simple and Advanced Search"
 
-#: formulae/nemo.py:239
+#: formulae/nemo.py:262
 msgid "Die einfache Suche (allgemein)"
 msgstr "The simple search"
 
-#: formulae/nemo.py:241
+#: formulae/nemo.py:264
 msgid "Aktuelle Suchergebnisse herunterladen"
 msgstr "Downloading search results"
 
-#: formulae/nemo.py:243
+#: formulae/nemo.py:266
 msgid "Suchergebnisse im Benutzerkonto speichern"
 msgstr "Saving search results to your user account"
 
-#: formulae/nemo.py:245
+#: formulae/nemo.py:268
 msgid "Nach Lemmata suchen"
 msgstr "Search for lemmatized forms"
 
-#: formulae/nemo.py:247
+#: formulae/nemo.py:270
 msgid "Die Regestensuche"
 msgstr "Search in the regesta"
 
-#: formulae/nemo.py:249
+#: formulae/nemo.py:272
 msgid "Suchen mit Platzhalter"
 msgstr "Wildcard search"
 
-#: formulae/nemo.py:252
+#: formulae/nemo.py:275
 msgid "Zur Leseansicht"
 msgstr "About the Reading Page"
 
-#: formulae/nemo.py:253
+#: formulae/nemo.py:276
 msgid "Über die Leseansicht"
 msgstr "About the reading page"
 
-#: formulae/nemo.py:255
+#: formulae/nemo.py:278
 msgid "Übersetzung, Transkription oder Manuskriptbild anzeigen"
 msgstr "Show a translation, transcription or manuscript image"
 
-#: formulae/nemo.py:257
+#: formulae/nemo.py:280
 msgid "Einen anderen Text von der selben Sammlung anzeigen"
 msgstr "Show another text from the same collection"
 
-#: formulae/nemo.py:259
+#: formulae/nemo.py:282
 msgid "Einen Text von einer anderen Sammlung anzeigen"
 msgstr "Show a text from a different collection"
 
-#: formulae/nemo.py:261
+#: formulae/nemo.py:284
 msgid "Einen dritten Text anzeigen"
 msgstr "Show a third text"
 
-#: formulae/nemo.py:263
+#: formulae/nemo.py:286
 msgid "Die Leseansicht ändern"
 msgstr "Change the reading layout"
 
-#: formulae/nemo.py:265
+#: formulae/nemo.py:288
 msgid "Texte zitieren und herunterladen"
 msgstr "Citing and downloading texts"
 
-#: formulae/nemo.py:268
+#: formulae/nemo.py:291
 msgid "Benutzerkonto erstellen und verwalten"
 msgstr "Setting up and managing your user account"
 
-#: formulae/nemo.py:269
+#: formulae/nemo.py:292
 msgid "Benutzerkonto erstellen"
 msgstr "Setting up a user account"
 
-#: formulae/nemo.py:271
+#: formulae/nemo.py:294
 msgid "Benutzerkonto verwalten"
 msgstr "Managing your user account"
 
-#: formulae/nemo.py:273
+#: formulae/nemo.py:296
 msgid "Werkstattseiten im Benutzerkonto speichern"
 msgstr "Saving pages to your user account"
 
-#: formulae/nemo.py:554 formulae/nemo.py:610 formulae/nemo.py:1036
+#: formulae/nemo.py:578 formulae/nemo.py:640 formulae/nemo.py:1076
 msgid "(Titel)"
 msgstr "(Title)"
 
-#: formulae/nemo.py:587 formulae/nemo.py:612
+#: formulae/nemo.py:613 formulae/nemo.py:642
 msgid "(Prolog)"
 msgstr "(Prologue)"
 
-#: formulae/nemo.py:782
+#: formulae/nemo.py:812
 msgid ""
 "Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt "
 "wird, dann laden Sie die Seite neu."
@@ -139,20 +139,24 @@ msgstr ""
 "Reading direction changed. You may need to refresh the page in your "
 "browser."
 
-#: formulae/nemo.py:948 formulae/nemo.py:1115 formulae/nemo.py:1297
-#: formulae/nemo.py:1371 tests/test_routes.py:288 tests/test_routes.py:312
-#: tests/test_routes.py:326 tests/test_routes.py:343 tests/test_routes.py:346
-#: tests/test_routes.py:359 tests/test_routes.py:786 tests/test_routes.py:811
-#: tests/test_routes.py:816 tests/test_routes.py:847 tests/test_routes.py:850
+#: formulae/nemo.py:982 formulae/nemo.py:1156 formulae/nemo.py:1337
+#: formulae/nemo.py:1411 tests/test_routes.py:319 tests/test_routes.py:343
+#: tests/test_routes.py:357 tests/test_routes.py:374 tests/test_routes.py:377
+#: tests/test_routes.py:396 tests/test_routes.py:867 tests/test_routes.py:892
+#: tests/test_routes.py:897 tests/test_routes.py:928 tests/test_routes.py:931
 msgid "Diese Sammlung ist nicht öffentlich zugänglich."
 msgstr "This collection is not publicly available."
 
-#: formulae/nemo.py:1069 formulae/nemo.py:1557 tests/test_routes.py:371
-#: tests/test_routes.py:376 tests/test_routes.py:798 tests/test_routes.py:803
+#: formulae/nemo.py:1033
+msgid " ist kein bekannter Korpus."
+msgstr " is not a know corpus."
+
+#: formulae/nemo.py:1109 formulae/nemo.py:1597 tests/test_routes.py:408
+#: tests/test_routes.py:413 tests/test_routes.py:879 tests/test_routes.py:884
 msgid "Dieses Regest ist nicht öffentlich zugänglich."
 msgstr "This regest is not publicly available."
 
-#: formulae/nemo.py:1113 tests/test_routes.py:349 tests/test_routes.py:853
+#: formulae/nemo.py:1154 tests/test_routes.py:380 tests/test_routes.py:934
 msgid ""
 "Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte "
 "gegebenenfalls die Homepage der Bibliothek."
@@ -160,55 +164,55 @@ msgstr ""
 "You may be able to view the images of this manuscript at the library's "
 "home page."
 
-#: formulae/nemo.py:1161 templates/main/multipassage.html:240
-#: templates/main/multipassage.html:427 templates/main/multipassage.html:614
-#: templates/main/sub_collection.html:171 templates/search/part_results.html:94
-#: templates/search/search.html:165
+#: formulae/nemo.py:1201 templates/main/multipassage.html:241
+#: templates/main/multipassage.html:435 templates/main/multipassage.html:622
+#: templates/main/sub_collection.html:209 templates/search/part_results.html:94
+#: templates/search/search.html:166
 msgid "Edition"
 msgstr ""
 
-#: formulae/nemo.py:1161 templates/main/multipassage.html:245
-#: templates/main/multipassage.html:432 templates/main/multipassage.html:619
+#: formulae/nemo.py:1201 templates/main/multipassage.html:246
+#: templates/main/multipassage.html:440 templates/main/multipassage.html:627
 msgid "Übersetzung"
 msgstr "Translation"
 
-#: formulae/nemo.py:1294 tests/test_routes.py:526
+#: formulae/nemo.py:1334 tests/test_routes.py:596
 msgid "Diese View ist nur für Formelsammlungen verfuegbar"
 msgstr "This view is only available for formula collections."
 
-#: formulae/nemo.py:1499 formulae/viewer/routes.py:18 tests/test_routes.py:614
-#: tests/test_routes.py:617
+#: formulae/nemo.py:1539 formulae/viewer/routes.py:18 tests/test_routes.py:684
+#: tests/test_routes.py:687
 msgid " hat keine Edition."
 msgstr " does not have an Edition."
 
-#: formulae/nemo.py:1508
+#: formulae/nemo.py:1548
 msgid " wurde nicht gefunden. Der ganze Text wird angezeigt."
 msgstr " was not found. The whole text is shown here."
 
-#: formulae/nemo.py:1513 tests/test_routes.py:379 tests/test_routes.py:806
+#: formulae/nemo.py:1553 tests/test_routes.py:416 tests/test_routes.py:887
 msgid "Dieser Text ist nicht öffentlich zugänglich."
 msgstr "This text is not publicly available."
 
-#: formulae/nemo.py:1747 tests/test_routes.py:391 tests/test_routes.py:394
-#: tests/test_routes.py:397 tests/test_routes.py:596 tests/test_routes.py:859
+#: formulae/nemo.py:1796 tests/test_routes.py:428 tests/test_routes.py:431
+#: tests/test_routes.py:434 tests/test_routes.py:666 tests/test_routes.py:940
 msgid "Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar."
 msgstr ""
 "One or more of the texts that you are trying to display is not available "
 "at this point"
 
-#: formulae/nemo.py:1910 tests/test_routes.py:435
+#: formulae/nemo.py:2077 tests/test_routes.py:487
 msgid "Das PDF für diesen Text ist nicht zugänglich."
 msgstr "The PDF for this text is not available."
 
-#: formulae/nemo.py:1919
+#: formulae/nemo.py:2086
 msgid "Heruntergeladen: "
 msgstr "Downloaded: "
 
-#: formulae/auth/email.py:9 tests/test_routes.py:2220
+#: formulae/auth/email.py:9 tests/test_routes.py:2302
 msgid "[Formulae - Litterae - Chartae] Passwort zurücksetzen"
 msgstr "[Formulae - Litterae - Chartae] Reset Your Password"
 
-#: formulae/auth/email.py:18 tests/test_routes.py:2234
+#: formulae/auth/email.py:18 tests/test_routes.py:2316
 msgid "[Formulae - Litterae - Chartae] Emailadresse ändern"
 msgstr "[Formulae - Litterae - Chartae] Change Your Email Address"
 
@@ -292,11 +296,11 @@ msgstr "Default Language"
 msgid "Anmelden"
 msgstr "Register"
 
-#: formulae/auth/forms.py:60 tests/test_routes.py:2138
+#: formulae/auth/forms.py:60 tests/test_routes.py:2220
 msgid "Bitte wählen Sie einen anderen Benutzername."
 msgstr "Please use a different user name."
 
-#: formulae/auth/forms.py:65 tests/test_routes.py:2140
+#: formulae/auth/forms.py:65 tests/test_routes.py:2222
 msgid "Bitte wählen Sie eine andere Emailaddresse."
 msgstr "Please use a different email address."
 
@@ -318,20 +322,20 @@ msgid "Seite speichern"
 msgstr "Save Page"
 
 #: formulae/auth/routes.py:20 formulae/auth/routes.py:156
-#: tests/test_routes.py:550 tests/test_routes.py:773 tests/test_routes.py:776
-#: tests/test_routes.py:843
+#: tests/test_routes.py:620 tests/test_routes.py:854 tests/test_routes.py:857
+#: tests/test_routes.py:924
 msgid "Sie sind schon eingeloggt."
 msgstr "You are already logged in."
 
-#: formulae/auth/routes.py:26 tests/test_routes.py:2166
+#: formulae/auth/routes.py:26 tests/test_routes.py:2248
 msgid "Benutzername oder Passwort ist ungültig"
 msgstr "Invalid username or password"
 
-#: formulae/auth/routes.py:59 tests/test_routes.py:2340
+#: formulae/auth/routes.py:59 tests/test_routes.py:2422
 msgid "Das ist nicht Ihr aktuelles Passwort."
 msgstr "This is not your current password."
 
-#: formulae/auth/routes.py:64 tests/test_routes.py:2326
+#: formulae/auth/routes.py:64 tests/test_routes.py:2408
 msgid "Sie haben Ihr Passwort erfolgreich geändert."
 msgstr "You have successfully changed your password."
 
@@ -339,7 +343,7 @@ msgstr "You have successfully changed your password."
 msgid "Sie haben Ihre Benutzersprache erfolgreich geändert."
 msgstr "You have successfully changed your default language."
 
-#: formulae/auth/routes.py:76 tests/test_routes.py:2240
+#: formulae/auth/routes.py:76 tests/test_routes.py:2322
 msgid ""
 "Ein Link zur Bestätigung dieser Änderung wurde an Ihre neue Emailadresse "
 "zugeschickt"
@@ -350,7 +354,7 @@ msgid "Benutzerprofil ändern"
 msgstr "Edit Profile"
 
 #: formulae/auth/routes.py:93 formulae/auth/routes.py:113
-#: tests/test_routes.py:769 tests/test_routes.py:2274
+#: tests/test_routes.py:850 tests/test_routes.py:2356
 msgid "Sie sind schon eingeloggt. Sie können Ihr Password hier ändern."
 msgstr "You are already logged in. You can change your password here."
 
@@ -358,31 +362,31 @@ msgstr "You are already logged in. You can change your password here."
 msgid "Ihr Passwort wurde erfolgreich zurückgesetzt."
 msgstr "Your password has been reset."
 
-#: formulae/auth/routes.py:120 tests/test_routes.py:2226
-#: tests/test_routes.py:2251
+#: formulae/auth/routes.py:120 tests/test_routes.py:2308
+#: tests/test_routes.py:2333
 msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
 msgstr "Instructions for resetting your password have been emailed to you."
 
-#: formulae/auth/routes.py:137 tests/test_routes.py:2298
+#: formulae/auth/routes.py:137 tests/test_routes.py:2380
 msgid "Der Token ist nicht gültig. Versuchen Sie es erneut."
 msgstr "This token is not valid. Please try again."
 
-#: formulae/auth/routes.py:140 tests/test_routes.py:2295
+#: formulae/auth/routes.py:140 tests/test_routes.py:2377
 msgid "Ihre Emailaddresse wurde nicht geändert. Versuchen Sie es erneut."
 msgstr "Your email address was not changed. Please try again."
 
-#: formulae/auth/routes.py:145 tests/test_routes.py:2291
+#: formulae/auth/routes.py:145 tests/test_routes.py:2373
 msgid "Ihr Email wurde erfolgreich geändert. Sie lautet jetzt"
 msgstr "Your email address was successfully changed. It is now"
 
-#: formulae/auth/routes.py:166 tests/test_routes.py:2207
+#: formulae/auth/routes.py:166 tests/test_routes.py:2289
 msgid "Sie sind nun registriert."
 msgstr "You are now registered."
 
-#: formulae/auth/routes.py:183 tests/test_routes.py:740
-#: tests/test_routes.py:892
+#: formulae/auth/routes.py:183 tests/test_routes.py:815
+#: tests/test_routes.py:973
 msgid "Diese URL ist nicht Teil der Werkstatt."
 msgstr "This URL is not part of the Werkstatt."
 
@@ -403,31 +407,31 @@ msgid "Die gesuchte URL wurde nicht gefunden"
 msgstr "The URL you were looking for was not found"
 
 #: formulae/errors/handlers.py:12 templates/main/500.html:4
-#: tests/test_routes.py:10071
+#: tests/test_routes.py:10153
 msgid "Ein unerwarteter Fehler ist aufgetreten"
 msgstr "An unexpected error has occurred"
 
 #: formulae/errors/handlers.py:13 templates/main/500.html:5
-#: tests/test_routes.py:10072
+#: tests/test_routes.py:10154
 msgid ""
 "Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die "
 "Unannehmlichkeiten!"
 msgstr "The administrator has been notified. Sorry for the inconvenience!"
 
-#: formulae/errors/handlers.py:32
+#: formulae/errors/handlers.py:36
 msgid "Zurück zur Startseite"
 msgstr "Back to Home"
 
-#: formulae/search/Search.py:381
+#: formulae/search/Search.py:387
 msgid "Regest nicht zugänglich."
 msgstr "Regest not available"
 
-#: formulae/search/Search.py:394
+#: formulae/search/Search.py:400
 msgid "Text nicht zugänglich."
 msgstr "Text not available"
 
-#: formulae/search/Search.py:585 tests/test_routes.py:9107
-#: tests/test_routes.py:9120
+#: formulae/search/Search.py:591 tests/test_routes.py:9189
+#: tests/test_routes.py:9202
 msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
@@ -489,26 +493,31 @@ msgid "Suche"
 msgstr "Search"
 
 #: formulae/search/forms.py:45 formulae/search/forms.py:130
-#: formulae/search/routes.py:397 templates/search/documentation.html:12
+#: formulae/search/routes.py:398 templates/search/documentation.html:12
 #: templates/search/part_results.html:64 templates/search/search.html:75
 msgid "Korpora"
 msgstr "Corpora"
 
 #: formulae/search/forms.py:45 formulae/search/forms.py:131
-#: templates/main/multipassage.html:280 templates/main/multipassage.html:468
-#: templates/main/multipassage.html:655 templates/main/navbar.html:47
+#: templates/main/multipassage.html:281 templates/main/multipassage.html:476
+#: templates/main/multipassage.html:663 templates/main/navbar.html:47
 #: templates/main/sub_collections.html:16
 msgid "Formeln"
 msgstr "Formulae"
 
 #: formulae/search/forms.py:46 formulae/search/forms.py:130
+#: templates/main/charter_group_table.html:5
+#: templates/main/charter_group_table.html:607
+#: templates/main/charter_group_table.html:1000
+#: templates/main/charter_group_table.html:1067
+#: templates/main/word_graph_modal.html:34
 msgid "Urkunden"
 msgstr "Charters"
 
 #: formulae/search/forms.py:47 formulae/search/forms.py:132
-#: templates/main/elex_collection.html:16 templates/main/multipassage.html:281
-#: templates/main/multipassage.html:469 templates/main/multipassage.html:656
-#: templates/main/navbar.html:75 templates/search/advanced_search.html:51
+#: templates/main/elex_collection.html:16 templates/main/multipassage.html:282
+#: templates/main/multipassage.html:477 templates/main/multipassage.html:664
+#: templates/main/navbar.html:77 templates/search/advanced_search.html:51
 msgid "Lexikon"
 msgstr "Lexicon"
 
@@ -524,7 +533,7 @@ msgstr ""
 
 #: formulae/search/forms.py:64 formulae/search/forms.py:81
 #: formulae/search/forms.py:98 formulae/search/forms.py:115
-#: formulae/search/routes.py:400 templates/search/documentation.html:22
+#: formulae/search/routes.py:401 templates/search/documentation.html:22
 msgid "Unschärfegrad"
 msgstr "Fuzziness Level"
 
@@ -535,7 +544,7 @@ msgstr "AUTO"
 
 #: formulae/search/forms.py:67 formulae/search/forms.py:84
 #: formulae/search/forms.py:101 formulae/search/forms.py:118
-#: formulae/search/routes.py:401 templates/search/documentation.html:24
+#: formulae/search/routes.py:402 templates/search/documentation.html:24
 msgid "Suchradius"
 msgstr "Search Radius"
 
@@ -546,7 +555,7 @@ msgstr "Word Order?"
 
 #: formulae/search/forms.py:69 formulae/search/forms.py:86
 #: formulae/search/forms.py:103 formulae/search/forms.py:120
-#: formulae/search/routes.py:399
+#: formulae/search/routes.py:400
 msgid "Suchfeld"
 msgstr "Search"
 
@@ -565,6 +574,7 @@ msgstr "Lemma"
 #: formulae/search/forms.py:71 formulae/search/forms.py:88
 #: formulae/search/forms.py:105 formulae/search/forms.py:122
 #: templates/main/regest_collapse.html:5 templates/main/regest_collapse.html:8
+#: templates/search/search.html:161
 msgid "Regest"
 msgstr ""
 
@@ -594,17 +604,17 @@ msgid "Alle"
 msgstr "All"
 
 #: formulae/search/forms.py:133 formulae/search/forms.py:144
-#: formulae/search/forms.py:156 formulae/search/routes.py:384
+#: formulae/search/forms.py:156 formulae/search/routes.py:385
 msgid "Jahr"
 msgstr "Year"
 
 #: formulae/search/forms.py:134 formulae/search/forms.py:145
-#: formulae/search/forms.py:158 tests/test_routes.py:1336
+#: formulae/search/forms.py:158 tests/test_routes.py:1418
 msgid "Die Jahreszahl muss zwischen 500 und 1000 liegen"
 msgstr "The year must be between 500 and 1000"
 
 #: formulae/search/forms.py:136 formulae/search/forms.py:147
-#: formulae/search/forms.py:160 formulae/search/routes.py:385
+#: formulae/search/forms.py:160 formulae/search/routes.py:386
 msgid "Monat"
 msgstr "Month"
 
@@ -669,7 +679,7 @@ msgid "Dez"
 msgstr "Dec"
 
 #: formulae/search/forms.py:141 formulae/search/forms.py:152
-#: formulae/search/forms.py:165 formulae/search/routes.py:386
+#: formulae/search/forms.py:165 formulae/search/routes.py:387
 msgid "Tag"
 msgstr "Day"
 
@@ -678,7 +688,7 @@ msgstr "Day"
 msgid "Das Datum muss zwischen 1 und 31 liegen"
 msgstr "Day must be between 1 and 31"
 
-#: formulae/search/forms.py:168 formulae/search/routes.py:393
+#: formulae/search/forms.py:168 formulae/search/routes.py:394
 #: templates/search/documentation.html:32
 msgid "Datum Plus-Minus"
 msgstr "Date Plus-Minus"
@@ -687,15 +697,15 @@ msgstr "Date Plus-Minus"
 msgid "Plus-Minus muss zwischen 0 und 100 Jahren liegen"
 msgstr "Plus-Minus must be between 0 and 100 years"
 
-#: formulae/search/forms.py:172 formulae/search/routes.py:394
+#: formulae/search/forms.py:172 formulae/search/routes.py:395
 #: templates/search/advanced_search.html:428
 #: templates/search/documentation.html:36
 msgid "Exklusiv"
 msgstr "Exclusive"
 
-#: formulae/search/forms.py:173 formulae/search/routes.py:395
+#: formulae/search/forms.py:173 formulae/search/routes.py:396
 #: templates/main/salzburg_collection.html:7
-#: templates/main/sub_collection.html:7 templates/search/search.html:164
+#: templates/main/sub_collection.html:7 templates/search/search.html:165
 msgid "Ausstellungsort"
 msgstr "Issued At"
 
@@ -703,17 +713,17 @@ msgstr "Issued At"
 msgid "Nach bestimmten Tagen suchen"
 msgstr "Search for Specific Days"
 
-#: formulae/search/forms.py:175 formulae/search/routes.py:374
+#: formulae/search/forms.py:175 formulae/search/routes.py:375
 #: templates/search/advanced_search.html:490
 msgid "Ostern"
 msgstr "Easter"
 
-#: formulae/search/forms.py:176 formulae/search/routes.py:375
+#: formulae/search/forms.py:176 formulae/search/routes.py:376
 #: templates/search/advanced_search.html:498
 msgid "Fastenzeit"
 msgstr "Lent"
 
-#: formulae/search/forms.py:177 formulae/search/routes.py:376
+#: formulae/search/forms.py:177 formulae/search/routes.py:377
 #: templates/search/advanced_search.html:494
 msgid "Pfingsten"
 msgstr "Pentecost"
@@ -778,11 +788,11 @@ msgstr "OR"
 msgid "Suche Durchführen"
 msgstr "Search"
 
-#: formulae/search/routes.py:119 tests/test_routes.py:9198
+#: formulae/search/routes.py:119 tests/test_routes.py:9280
 msgid " Die einfache Suche funktioniert nur mit einem Suchwort."
 msgstr " The simple search requires a search term."
 
-#: formulae/search/routes.py:122 tests/test_routes.py:9182
+#: formulae/search/routes.py:122 tests/test_routes.py:9264
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\" oder \"Lexikon\")."
@@ -790,115 +800,115 @@ msgstr ""
 "You must select at least one collection to search (\"Formulae\" and/or "
 "\"Charters\" or \"Lexicon\")."
 
-#: formulae/search/routes.py:122 tests/test_routes.py:9183
+#: formulae/search/routes.py:122 tests/test_routes.py:9265
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
 msgstr " Results from both \"Formulae\" and \"Charters\" are shown here."
 
-#: formulae/search/routes.py:317 tests/test_routes.py:1339
+#: formulae/search/routes.py:318 tests/test_routes.py:1421
 msgid "Bitte geben Sie Daten in mindestens einem Feld ein."
 msgstr "Please enter data in at least one field."
 
-#: formulae/search/routes.py:367 tests/test_routes.py:9457
+#: formulae/search/routes.py:368 tests/test_routes.py:9539
 msgid "Keine Suchergebnisse zum Herunterladen."
 msgstr "There are no search results to download."
 
-#: formulae/search/routes.py:377
+#: formulae/search/routes.py:378
 msgid "Sonntag"
 msgstr "Sunday"
 
-#: formulae/search/routes.py:378
+#: formulae/search/routes.py:379
 msgid "Montag"
 msgstr "Monday"
 
-#: formulae/search/routes.py:379
+#: formulae/search/routes.py:380
 msgid "Dienstag"
 msgstr "Tuesday"
 
-#: formulae/search/routes.py:380
+#: formulae/search/routes.py:381
 msgid "Mittwoch"
 msgstr "Wednesday"
 
-#: formulae/search/routes.py:381
+#: formulae/search/routes.py:382
 msgid "Donnerstag"
 msgstr "Thursday"
 
-#: formulae/search/routes.py:382
+#: formulae/search/routes.py:383
 msgid "Freitag"
 msgstr "Friday"
 
-#: formulae/search/routes.py:383
+#: formulae/search/routes.py:384
 msgid "Samstag"
 msgstr "Saturday"
 
-#: formulae/search/routes.py:387
+#: formulae/search/routes.py:388
 msgid "Anfangsjahr"
 msgstr "Start Year"
 
-#: formulae/search/routes.py:388
+#: formulae/search/routes.py:389
 msgid "Anfangsmonat"
 msgstr "Start Month"
 
-#: formulae/search/routes.py:389
+#: formulae/search/routes.py:390
 msgid "Anfangstag"
 msgstr "Start Day"
 
-#: formulae/search/routes.py:390
+#: formulae/search/routes.py:391
 msgid "Endjahr"
 msgstr "End Year"
 
-#: formulae/search/routes.py:391
+#: formulae/search/routes.py:392
 msgid "Endmonat"
 msgstr "End Month"
 
-#: formulae/search/routes.py:392
+#: formulae/search/routes.py:393
 msgid "Endtag"
 msgstr "End Day"
 
-#: formulae/search/routes.py:396
+#: formulae/search/routes.py:397
 msgid "Besondere Tage"
 msgstr "Special Days"
 
-#: formulae/search/routes.py:398
+#: formulae/search/routes.py:399
 msgid "Suchbegriff"
 msgstr "Search string"
 
-#: formulae/search/routes.py:402
+#: formulae/search/routes.py:403
 msgid "Wortreihenfolge beachten?"
 msgstr "Keep Word Order?"
 
-#: formulae/search/routes.py:404
+#: formulae/search/routes.py:405
 msgid "Eigenname"
 msgstr "Proper Name"
 
-#: formulae/search/routes.py:405
+#: formulae/search/routes.py:406
 msgid "Nein"
 msgstr "No"
 
-#: formulae/search/routes.py:405
+#: formulae/search/routes.py:406
 msgid "Ja"
 msgstr "Yes"
 
-#: formulae/search/routes.py:409
+#: formulae/search/routes.py:410
 msgid "Suchterminus "
 msgstr "Search Term"
 
-#: formulae/search/routes.py:436
+#: formulae/search/routes.py:437
 msgid "Aus dem Regest"
 msgstr "From the Regest"
 
-#: formulae/search/routes.py:446
+#: formulae/search/routes.py:447
 msgid "Suchparameter"
 msgstr "Search parameters"
 
-#: formulae/search/routes.py:449 templates/search/part_results.html:2
+#: formulae/search/routes.py:450 templates/search/part_results.html:2
 #: templates/search/part_results.html:10 templates/search/part_results.html:44
 #: templates/search/part_results.html:89 templates/search/search.html:2
 #: templates/search/search.html:52 templates/search/search.html:153
 msgid "Suchergebnisse"
 msgstr "Search Results"
 
-#: formulae/viewer/routes.py:29 tests/test_routes.py:429
-#: tests/test_routes.py:869
+#: formulae/viewer/routes.py:29 tests/test_routes.py:481
+#: tests/test_routes.py:950
 msgid "Diese Formelsammlung ist noch nicht frei zugänglich."
 msgstr "This formula collection is not yet available."
 
@@ -927,7 +937,7 @@ msgid "Keine gespeicherte Seiten"
 msgstr "No saved pages"
 
 #: templates/email/reset_email.html:1 templates/email/reset_password.html:1
-#: tests/test_routes.py:2222 tests/test_routes.py:2236
+#: tests/test_routes.py:2304 tests/test_routes.py:2318
 msgid "Sehr geehrte(r)"
 msgstr "Dear"
 
@@ -1008,13 +1018,1474 @@ msgstr "Back"
 msgid "Erklärung zur Barrierefreiheit"
 msgstr "Accessibility Statement (auf Deutsch)"
 
-#: templates/main/bibliography.html:6 templates/main/navbar.html:78
+#: templates/main/all_parts.html:2 templates/main/all_parts.html:7
+#: templates/main/charter_parts.html:7 templates/search/part_results.html:65
+#: templates/search/search.html:76
+msgid "Urkundenteile"
+msgstr "Charter Parts"
+
+#: templates/main/all_parts_table.html:11
+#: templates/main/all_parts_table.html:1911
+#: templates/main/all_parts_table.html:6530
+#: templates/main/all_parts_table.html:9811
+#: templates/main/all_parts_table.html:14682
+#: templates/main/charter_group_table.html:17
+#: templates/main/charter_group_table.html:79
+#: templates/main/charter_group_table.html:141
+#: templates/main/charter_group_table.html:183
+#: templates/main/charter_group_table.html:220
+#: templates/main/charter_group_table.html:257
+#: templates/main/charter_group_table.html:354
+#: templates/main/charter_group_table.html:436
+#: templates/main/charter_group_table.html:488
+#: templates/main/charter_group_table.html:520
+#: templates/main/charter_group_table.html:577
+#: templates/main/charter_group_table.html:619
+#: templates/main/charter_group_table.html:681
+#: templates/main/charter_group_table.html:723
+#: templates/main/charter_group_table.html:770
+#: templates/main/charter_group_table.html:812
+#: templates/main/charter_group_table.html:864
+#: templates/main/charter_group_table.html:906
+#: templates/main/charter_group_table.html:938
+#: templates/main/charter_group_table.html:970
+#: templates/main/charter_group_table.html:1012
+#: templates/main/charter_group_table.html:1079
+#: templates/main/charter_group_table.html:1141
+#: templates/main/charter_group_table.html:1183
+#: templates/main/charter_group_table.html:1320
+#: templates/main/charter_group_table.html:1357
+#: templates/main/charter_group_table.html:1459
+#: templates/main/charter_group_table.html:1506
+#: templates/main/charter_group_table.html:1543
+#: templates/main/charter_group_table.html:1600
+#: templates/main/charter_group_table.html:1657
+#: templates/main/charter_group_table.html:1689
+#: templates/main/charter_group_table.html:1781
+#: templates/main/charter_group_table.html:1873
+#: templates/main/charter_group_table.html:1940
+#: templates/main/charter_group_table.html:2037
+#: templates/main/charter_group_table.html:2069
+#: templates/main/charter_group_table.html:2141
+#: templates/main/charter_group_table.html:2178
+#: templates/main/charter_group_table.html:2205
+#: templates/main/charter_group_table.html:2257
+#: templates/main/charter_group_table.html:2299
+#: templates/main/charter_group_table.html:2406
+#: templates/main/charter_group_table.html:2448
+#: templates/main/charter_group_table.html:2480
+#: templates/main/charter_group_table.html:2567
+#: templates/main/charter_group_table.html:2599
+#: templates/main/charter_group_table.html:2631
+#: templates/main/charter_group_table.html:2673
+#: templates/main/charter_group_table.html:2770
+#: templates/main/charter_group_table.html:2802
+#: templates/main/charter_group_table.html:2849
+#: templates/main/charter_group_table.html:2891
+#: templates/main/charter_group_table.html:2923
+#: templates/main/charter_group_table.html:2985
+#: templates/main/charter_group_table.html:3032
+#: templates/main/charter_group_table.html:3064
+#: templates/main/charter_group_table.html:3101
+#: templates/main/charter_group_table.html:3138
+#: templates/main/charter_parts_table.html:17
+#: templates/main/charter_parts_table.html:119
+#: templates/main/charter_parts_table.html:191
+#: templates/main/charter_parts_table.html:250
+#: templates/main/charter_parts_table.html:287
+#: templates/main/charter_parts_table.html:314
+#: templates/main/charter_parts_table.html:366
+#: templates/main/charter_parts_table.html:490
+#: templates/main/charter_parts_table.html:547
+#: templates/main/charter_parts_table.html:579
+#: templates/main/charter_parts_table.html:618
+#: templates/main/charter_parts_table.html:650
+#: templates/main/charter_parts_table.html:682
+#: templates/main/charter_parts_table.html:753
+#: templates/main/charter_parts_table.html:840
+#: templates/main/charter_parts_table.html:872
+#: templates/main/charter_parts_table.html:919
+#: templates/main/charter_parts_table.html:956
+#: templates/main/charter_parts_table.html:1123
+#: templates/main/charter_parts_table.html:1155
+#: templates/main/charter_parts_table.html:1323
+#: templates/main/charter_parts_table.html:1444
+#: templates/main/charter_parts_table.html:1476
+#: templates/main/charter_parts_table.html:1513
+#: templates/main/charter_parts_table.html:1560
+#: templates/main/charter_parts_table.html:1933
+#: templates/main/charter_parts_table.html:1981
+#: templates/main/charter_parts_table.html:2048
+#: templates/main/charter_parts_table.html:2170
+#: templates/main/charter_parts_table.html:2209
+#: templates/main/charter_parts_table.html:2242
+#: templates/main/charter_parts_table.html:2290
+#: templates/main/charter_parts_table.html:2322
+#: templates/main/charter_parts_table.html:2364
+#: templates/main/charter_parts_table.html:2401
+#: templates/main/charter_parts_table.html:2433
+#: templates/main/charter_parts_table.html:2465
+#: templates/main/charter_parts_table.html:2497
+#: templates/main/charter_parts_table.html:2811
+#: templates/main/charter_parts_table.html:2843
+#: templates/main/charter_parts_table.html:2877
+#: templates/main/charter_parts_table.html:2909
+#: templates/main/charter_parts_table.html:2996
+#: templates/main/charter_parts_table.html:3028
+#: templates/main/charter_parts_table.html:3070
+#: templates/main/charter_parts_table.html:3122
+#: templates/main/charter_parts_table.html:3149
+#: templates/main/charter_parts_table.html:3426
+#: templates/main/charter_parts_table.html:3513
+#: templates/main/charter_parts_table.html:3545
+#: templates/main/charter_parts_table.html:3592
+#: templates/main/charter_parts_table.html:3624
+#: templates/main/charter_parts_table.html:3656
+#: templates/main/charter_parts_table.html:3688
+#: templates/main/charter_parts_table.html:3720
+#: templates/main/charter_parts_table.html:3752
+#: templates/main/charter_parts_table.html:3799
+#: templates/main/charter_parts_table.html:3831
+#: templates/main/charter_parts_table.html:3938
+#: templates/main/charter_parts_table.html:3970
+#: templates/main/charter_parts_table.html:4082
+#: templates/main/charter_parts_table.html:4274
+#: templates/main/charter_parts_table.html:4301
+#: templates/main/charter_parts_table.html:4363
+#: templates/main/charter_parts_table.html:4395
+#: templates/main/charter_parts_table.html:4477
+#: templates/main/charter_parts_table.html:4509
+#: templates/main/charter_parts_table.html:4541
+#: templates/main/charter_parts_table.html:4568
+#: templates/main/charter_parts_table.html:4605
+#: templates/main/charter_parts_table.html:4662
+#: templates/main/charter_parts_table.html:4694
+#: templates/main/charter_parts_table.html:4791
+#: templates/main/charter_parts_table.html:4823
+#: templates/main/charter_parts_table.html:4890
+#: templates/main/charter_parts_table.html:4917
+#: templates/main/charter_parts_table.html:4964
+#: templates/main/charter_parts_table.html:4996
+#: templates/main/charter_parts_table.html:5028
+#: templates/main/charter_parts_table.html:5070
+#: templates/main/charter_parts_table.html:5102
+#: templates/main/charter_parts_table.html:5149
+#: templates/main/charter_parts_table.html:5206
+#: templates/main/charter_parts_table.html:5238
+#: templates/main/charter_parts_table.html:5270
+#: templates/main/charter_parts_table.html:5302
+#: templates/main/charter_parts_table.html:5349
+#: templates/main/charter_parts_table.html:5411
+#: templates/main/charter_parts_table.html:5608
+#: templates/main/charter_parts_table.html:5660
+#: templates/main/charter_parts_table.html:5692
+#: templates/main/charter_parts_table.html:5724
+#: templates/main/charter_parts_table.html:5766
+msgid "Tabelle"
+msgstr "Table"
+
+#: templates/main/all_parts_table.html:14
+#: templates/main/all_parts_table.html:1914
+#: templates/main/all_parts_table.html:6533
+#: templates/main/all_parts_table.html:9814
+#: templates/main/all_parts_table.html:14685
+#: templates/main/charter_group_table.html:21
+#: templates/main/charter_group_table.html:83
+#: templates/main/charter_group_table.html:145
+#: templates/main/charter_group_table.html:187
+#: templates/main/charter_group_table.html:224
+#: templates/main/charter_group_table.html:261
+#: templates/main/charter_group_table.html:358
+#: templates/main/charter_group_table.html:440
+#: templates/main/charter_group_table.html:492
+#: templates/main/charter_group_table.html:524
+#: templates/main/charter_group_table.html:581
+#: templates/main/charter_group_table.html:623
+#: templates/main/charter_group_table.html:685
+#: templates/main/charter_group_table.html:727
+#: templates/main/charter_group_table.html:774
+#: templates/main/charter_group_table.html:816
+#: templates/main/charter_group_table.html:868
+#: templates/main/charter_group_table.html:910
+#: templates/main/charter_group_table.html:942
+#: templates/main/charter_group_table.html:974
+#: templates/main/charter_group_table.html:1016
+#: templates/main/charter_group_table.html:1083
+#: templates/main/charter_group_table.html:1145
+#: templates/main/charter_group_table.html:1187
+#: templates/main/charter_group_table.html:1324
+#: templates/main/charter_group_table.html:1361
+#: templates/main/charter_group_table.html:1463
+#: templates/main/charter_group_table.html:1510
+#: templates/main/charter_group_table.html:1547
+#: templates/main/charter_group_table.html:1604
+#: templates/main/charter_group_table.html:1661
+#: templates/main/charter_group_table.html:1693
+#: templates/main/charter_group_table.html:1785
+#: templates/main/charter_group_table.html:1877
+#: templates/main/charter_group_table.html:1944
+#: templates/main/charter_group_table.html:2041
+#: templates/main/charter_group_table.html:2073
+#: templates/main/charter_group_table.html:2145
+#: templates/main/charter_group_table.html:2182
+#: templates/main/charter_group_table.html:2209
+#: templates/main/charter_group_table.html:2261
+#: templates/main/charter_group_table.html:2303
+#: templates/main/charter_group_table.html:2410
+#: templates/main/charter_group_table.html:2452
+#: templates/main/charter_group_table.html:2484
+#: templates/main/charter_group_table.html:2571
+#: templates/main/charter_group_table.html:2603
+#: templates/main/charter_group_table.html:2635
+#: templates/main/charter_group_table.html:2677
+#: templates/main/charter_group_table.html:2774
+#: templates/main/charter_group_table.html:2806
+#: templates/main/charter_group_table.html:2853
+#: templates/main/charter_group_table.html:2895
+#: templates/main/charter_group_table.html:2927
+#: templates/main/charter_group_table.html:2989
+#: templates/main/charter_group_table.html:3036
+#: templates/main/charter_group_table.html:3068
+#: templates/main/charter_group_table.html:3105
+#: templates/main/charter_group_table.html:3142
+#: templates/main/charter_parts_table.html:21
+#: templates/main/charter_parts_table.html:123
+#: templates/main/charter_parts_table.html:195
+#: templates/main/charter_parts_table.html:254
+#: templates/main/charter_parts_table.html:291
+#: templates/main/charter_parts_table.html:318
+#: templates/main/charter_parts_table.html:370
+#: templates/main/charter_parts_table.html:494
+#: templates/main/charter_parts_table.html:551
+#: templates/main/charter_parts_table.html:583
+#: templates/main/charter_parts_table.html:622
+#: templates/main/charter_parts_table.html:654
+#: templates/main/charter_parts_table.html:686
+#: templates/main/charter_parts_table.html:757
+#: templates/main/charter_parts_table.html:844
+#: templates/main/charter_parts_table.html:876
+#: templates/main/charter_parts_table.html:923
+#: templates/main/charter_parts_table.html:960
+#: templates/main/charter_parts_table.html:1127
+#: templates/main/charter_parts_table.html:1159
+#: templates/main/charter_parts_table.html:1327
+#: templates/main/charter_parts_table.html:1448
+#: templates/main/charter_parts_table.html:1480
+#: templates/main/charter_parts_table.html:1517
+#: templates/main/charter_parts_table.html:1564
+#: templates/main/charter_parts_table.html:1937
+#: templates/main/charter_parts_table.html:1985
+#: templates/main/charter_parts_table.html:2052
+#: templates/main/charter_parts_table.html:2174
+#: templates/main/charter_parts_table.html:2213
+#: templates/main/charter_parts_table.html:2246
+#: templates/main/charter_parts_table.html:2294
+#: templates/main/charter_parts_table.html:2326
+#: templates/main/charter_parts_table.html:2368
+#: templates/main/charter_parts_table.html:2405
+#: templates/main/charter_parts_table.html:2437
+#: templates/main/charter_parts_table.html:2469
+#: templates/main/charter_parts_table.html:2501
+#: templates/main/charter_parts_table.html:2815
+#: templates/main/charter_parts_table.html:2847
+#: templates/main/charter_parts_table.html:2881
+#: templates/main/charter_parts_table.html:2913
+#: templates/main/charter_parts_table.html:3000
+#: templates/main/charter_parts_table.html:3032
+#: templates/main/charter_parts_table.html:3074
+#: templates/main/charter_parts_table.html:3126
+#: templates/main/charter_parts_table.html:3153
+#: templates/main/charter_parts_table.html:3430
+#: templates/main/charter_parts_table.html:3517
+#: templates/main/charter_parts_table.html:3549
+#: templates/main/charter_parts_table.html:3596
+#: templates/main/charter_parts_table.html:3628
+#: templates/main/charter_parts_table.html:3660
+#: templates/main/charter_parts_table.html:3692
+#: templates/main/charter_parts_table.html:3724
+#: templates/main/charter_parts_table.html:3756
+#: templates/main/charter_parts_table.html:3803
+#: templates/main/charter_parts_table.html:3835
+#: templates/main/charter_parts_table.html:3942
+#: templates/main/charter_parts_table.html:3974
+#: templates/main/charter_parts_table.html:4086
+#: templates/main/charter_parts_table.html:4278
+#: templates/main/charter_parts_table.html:4305
+#: templates/main/charter_parts_table.html:4367
+#: templates/main/charter_parts_table.html:4399
+#: templates/main/charter_parts_table.html:4481
+#: templates/main/charter_parts_table.html:4513
+#: templates/main/charter_parts_table.html:4545
+#: templates/main/charter_parts_table.html:4572
+#: templates/main/charter_parts_table.html:4609
+#: templates/main/charter_parts_table.html:4666
+#: templates/main/charter_parts_table.html:4698
+#: templates/main/charter_parts_table.html:4795
+#: templates/main/charter_parts_table.html:4827
+#: templates/main/charter_parts_table.html:4894
+#: templates/main/charter_parts_table.html:4921
+#: templates/main/charter_parts_table.html:4968
+#: templates/main/charter_parts_table.html:5000
+#: templates/main/charter_parts_table.html:5032
+#: templates/main/charter_parts_table.html:5074
+#: templates/main/charter_parts_table.html:5106
+#: templates/main/charter_parts_table.html:5153
+#: templates/main/charter_parts_table.html:5210
+#: templates/main/charter_parts_table.html:5242
+#: templates/main/charter_parts_table.html:5274
+#: templates/main/charter_parts_table.html:5306
+#: templates/main/charter_parts_table.html:5353
+#: templates/main/charter_parts_table.html:5415
+#: templates/main/charter_parts_table.html:5612
+#: templates/main/charter_parts_table.html:5664
+#: templates/main/charter_parts_table.html:5696
+#: templates/main/charter_parts_table.html:5728
+#: templates/main/charter_parts_table.html:5770
+msgid "Urkunde"
+msgstr "Charter"
+
+#: templates/main/all_parts_table.html:15
+#: templates/main/all_parts_table.html:1915
+#: templates/main/all_parts_table.html:6534
+#: templates/main/all_parts_table.html:9815
+#: templates/main/all_parts_table.html:14686
+#: templates/main/charter_group_table.html:22
+#: templates/main/charter_group_table.html:84
+#: templates/main/charter_group_table.html:146
+#: templates/main/charter_group_table.html:188
+#: templates/main/charter_group_table.html:225
+#: templates/main/charter_group_table.html:262
+#: templates/main/charter_group_table.html:359
+#: templates/main/charter_group_table.html:441
+#: templates/main/charter_group_table.html:493
+#: templates/main/charter_group_table.html:525
+#: templates/main/charter_group_table.html:582
+#: templates/main/charter_group_table.html:624
+#: templates/main/charter_group_table.html:686
+#: templates/main/charter_group_table.html:728
+#: templates/main/charter_group_table.html:775
+#: templates/main/charter_group_table.html:817
+#: templates/main/charter_group_table.html:869
+#: templates/main/charter_group_table.html:911
+#: templates/main/charter_group_table.html:943
+#: templates/main/charter_group_table.html:975
+#: templates/main/charter_group_table.html:1017
+#: templates/main/charter_group_table.html:1084
+#: templates/main/charter_group_table.html:1146
+#: templates/main/charter_group_table.html:1188
+#: templates/main/charter_group_table.html:1325
+#: templates/main/charter_group_table.html:1362
+#: templates/main/charter_group_table.html:1464
+#: templates/main/charter_group_table.html:1511
+#: templates/main/charter_group_table.html:1548
+#: templates/main/charter_group_table.html:1605
+#: templates/main/charter_group_table.html:1662
+#: templates/main/charter_group_table.html:1694
+#: templates/main/charter_group_table.html:1786
+#: templates/main/charter_group_table.html:1878
+#: templates/main/charter_group_table.html:1945
+#: templates/main/charter_group_table.html:2042
+#: templates/main/charter_group_table.html:2074
+#: templates/main/charter_group_table.html:2146
+#: templates/main/charter_group_table.html:2183
+#: templates/main/charter_group_table.html:2210
+#: templates/main/charter_group_table.html:2262
+#: templates/main/charter_group_table.html:2304
+#: templates/main/charter_group_table.html:2411
+#: templates/main/charter_group_table.html:2453
+#: templates/main/charter_group_table.html:2485
+#: templates/main/charter_group_table.html:2572
+#: templates/main/charter_group_table.html:2604
+#: templates/main/charter_group_table.html:2636
+#: templates/main/charter_group_table.html:2678
+#: templates/main/charter_group_table.html:2775
+#: templates/main/charter_group_table.html:2807
+#: templates/main/charter_group_table.html:2854
+#: templates/main/charter_group_table.html:2896
+#: templates/main/charter_group_table.html:2928
+#: templates/main/charter_group_table.html:2990
+#: templates/main/charter_group_table.html:3037
+#: templates/main/charter_group_table.html:3069
+#: templates/main/charter_group_table.html:3106
+#: templates/main/charter_group_table.html:3143
+#: templates/main/charter_parts_table.html:22
+#: templates/main/charter_parts_table.html:124
+#: templates/main/charter_parts_table.html:196
+#: templates/main/charter_parts_table.html:255
+#: templates/main/charter_parts_table.html:292
+#: templates/main/charter_parts_table.html:319
+#: templates/main/charter_parts_table.html:371
+#: templates/main/charter_parts_table.html:495
+#: templates/main/charter_parts_table.html:552
+#: templates/main/charter_parts_table.html:584
+#: templates/main/charter_parts_table.html:623
+#: templates/main/charter_parts_table.html:655
+#: templates/main/charter_parts_table.html:687
+#: templates/main/charter_parts_table.html:758
+#: templates/main/charter_parts_table.html:845
+#: templates/main/charter_parts_table.html:877
+#: templates/main/charter_parts_table.html:924
+#: templates/main/charter_parts_table.html:961
+#: templates/main/charter_parts_table.html:1128
+#: templates/main/charter_parts_table.html:1160
+#: templates/main/charter_parts_table.html:1328
+#: templates/main/charter_parts_table.html:1449
+#: templates/main/charter_parts_table.html:1481
+#: templates/main/charter_parts_table.html:1518
+#: templates/main/charter_parts_table.html:1565
+#: templates/main/charter_parts_table.html:1938
+#: templates/main/charter_parts_table.html:1986
+#: templates/main/charter_parts_table.html:2053
+#: templates/main/charter_parts_table.html:2175
+#: templates/main/charter_parts_table.html:2214
+#: templates/main/charter_parts_table.html:2247
+#: templates/main/charter_parts_table.html:2295
+#: templates/main/charter_parts_table.html:2327
+#: templates/main/charter_parts_table.html:2369
+#: templates/main/charter_parts_table.html:2406
+#: templates/main/charter_parts_table.html:2438
+#: templates/main/charter_parts_table.html:2470
+#: templates/main/charter_parts_table.html:2502
+#: templates/main/charter_parts_table.html:2816
+#: templates/main/charter_parts_table.html:2848
+#: templates/main/charter_parts_table.html:2882
+#: templates/main/charter_parts_table.html:2914
+#: templates/main/charter_parts_table.html:3001
+#: templates/main/charter_parts_table.html:3033
+#: templates/main/charter_parts_table.html:3075
+#: templates/main/charter_parts_table.html:3127
+#: templates/main/charter_parts_table.html:3154
+#: templates/main/charter_parts_table.html:3431
+#: templates/main/charter_parts_table.html:3518
+#: templates/main/charter_parts_table.html:3550
+#: templates/main/charter_parts_table.html:3597
+#: templates/main/charter_parts_table.html:3629
+#: templates/main/charter_parts_table.html:3661
+#: templates/main/charter_parts_table.html:3693
+#: templates/main/charter_parts_table.html:3725
+#: templates/main/charter_parts_table.html:3757
+#: templates/main/charter_parts_table.html:3804
+#: templates/main/charter_parts_table.html:3836
+#: templates/main/charter_parts_table.html:3943
+#: templates/main/charter_parts_table.html:3975
+#: templates/main/charter_parts_table.html:4087
+#: templates/main/charter_parts_table.html:4279
+#: templates/main/charter_parts_table.html:4306
+#: templates/main/charter_parts_table.html:4368
+#: templates/main/charter_parts_table.html:4400
+#: templates/main/charter_parts_table.html:4482
+#: templates/main/charter_parts_table.html:4514
+#: templates/main/charter_parts_table.html:4546
+#: templates/main/charter_parts_table.html:4573
+#: templates/main/charter_parts_table.html:4610
+#: templates/main/charter_parts_table.html:4667
+#: templates/main/charter_parts_table.html:4699
+#: templates/main/charter_parts_table.html:4796
+#: templates/main/charter_parts_table.html:4828
+#: templates/main/charter_parts_table.html:4895
+#: templates/main/charter_parts_table.html:4922
+#: templates/main/charter_parts_table.html:4969
+#: templates/main/charter_parts_table.html:5001
+#: templates/main/charter_parts_table.html:5033
+#: templates/main/charter_parts_table.html:5075
+#: templates/main/charter_parts_table.html:5107
+#: templates/main/charter_parts_table.html:5154
+#: templates/main/charter_parts_table.html:5211
+#: templates/main/charter_parts_table.html:5243
+#: templates/main/charter_parts_table.html:5275
+#: templates/main/charter_parts_table.html:5307
+#: templates/main/charter_parts_table.html:5354
+#: templates/main/charter_parts_table.html:5416
+#: templates/main/charter_parts_table.html:5613
+#: templates/main/charter_parts_table.html:5665
+#: templates/main/charter_parts_table.html:5697
+#: templates/main/charter_parts_table.html:5729
+#: templates/main/charter_parts_table.html:5771
+#: templates/main/salzburg_collection.html:7
+#: templates/main/sub_collection.html:7
+msgid "Datum"
+msgstr "Date"
+
+#: templates/main/all_parts_table.html:18
+#: templates/main/all_parts_table.html:1918
+#: templates/main/all_parts_table.html:6537
+#: templates/main/all_parts_table.html:9818
+#: templates/main/all_parts_table.html:14689
+msgid "Urkundenart"
+msgstr "Charter type"
+
+#: templates/main/bibliography.html:6 templates/main/navbar.html:80
 msgid "Bibliographie"
 msgstr "Bibliography"
 
 #: templates/main/bibliography.html:8 templates/main/elex_collection.html:32
 msgid "Gehe zu Buchstabe:"
 msgstr "Jump to Letter:"
+
+#: templates/main/bourges_info.html:6 templates/main/flavigny_info.html:6
+#: templates/main/marculfinae_info.html:6
+#: templates/main/tours_ueberarbeitung_info.html:5
+msgid "Zur Sammlung"
+msgstr "About the Collection"
+
+#: templates/main/bourges_info.html:30 templates/main/flavigny_info.html:24
+msgid "Zur Kondordanz"
+msgstr "About the Concordance"
+
+#: templates/main/bourges_info.html:35 templates/main/flavigny_info.html:26
+msgid "Konkordanz im neuen Tab öffnen"
+msgstr "Open the concordance in a new tab"
+
+#: templates/main/charter_formulae.html:2
+#: templates/main/charter_formulae.html:7 templates/main/navbar.html:63
+msgid "Formelhafte Bestandteile in Urkunden"
+msgstr "Formulaic Parts in Charters"
+
+#: templates/main/charter_formulae.html:12
+msgid "Zu den Urkundenteilen"
+msgstr "To the Charter Parts"
+
+#: templates/main/charter_formulae.html:16
+msgid "Zu den Urkundengruppen"
+msgstr "To the Charter Groups"
+
+#: templates/main/charter_formulae.html:20
+msgid "Zu den Gruppen ähnlicher Urkundenteile"
+msgstr "To the Groups of similar Charters"
+
+#: templates/main/charter_formulae.html:24
+msgid "Zu den Entsprechungen zwischen verschiedenen "
+msgstr "To the similarities between various "
+
+#: templates/main/charter_formulae.html:28
+msgid "Zu den Entsprechungen zwischen Urkunden und "
+msgstr "To the similarities between Charters and "
+
+#: templates/main/charter_group_table.html:5
+#: templates/main/charter_group_table.html:607
+#: templates/main/charter_group_table.html:1000
+#: templates/main/charter_group_table.html:1067
+#: templates/main/charter_parts.html:7
+#: templates/main/charter_parts_table.html:5
+#: templates/main/charter_parts_table.html:3058
+msgid "Gruppen ähnlicher "
+msgstr "Groups of similar "
+
+#: templates/main/charter_group_table.html:12
+#: templates/main/charter_group_table.html:17
+#: templates/main/charter_group_table.html:74
+#: templates/main/charter_group_table.html:79
+#: templates/main/charter_group_table.html:136
+#: templates/main/charter_group_table.html:141
+#: templates/main/charter_group_table.html:178
+#: templates/main/charter_group_table.html:183
+#: templates/main/charter_group_table.html:215
+#: templates/main/charter_group_table.html:220
+#: templates/main/charter_group_table.html:252
+#: templates/main/charter_group_table.html:257
+#: templates/main/charter_group_table.html:349
+#: templates/main/charter_group_table.html:354
+#: templates/main/charter_group_table.html:431
+#: templates/main/charter_group_table.html:436
+#: templates/main/charter_group_table.html:483
+#: templates/main/charter_group_table.html:488
+#: templates/main/charter_group_table.html:515
+#: templates/main/charter_group_table.html:520
+#: templates/main/charter_group_table.html:572
+#: templates/main/charter_group_table.html:577
+#: templates/main/charter_group_table.html:614
+#: templates/main/charter_group_table.html:619
+#: templates/main/charter_group_table.html:676
+#: templates/main/charter_group_table.html:681
+#: templates/main/charter_group_table.html:718
+#: templates/main/charter_group_table.html:723
+#: templates/main/charter_group_table.html:765
+#: templates/main/charter_group_table.html:770
+#: templates/main/charter_group_table.html:807
+#: templates/main/charter_group_table.html:812
+#: templates/main/charter_group_table.html:859
+#: templates/main/charter_group_table.html:864
+#: templates/main/charter_group_table.html:901
+#: templates/main/charter_group_table.html:906
+#: templates/main/charter_group_table.html:933
+#: templates/main/charter_group_table.html:938
+#: templates/main/charter_group_table.html:965
+#: templates/main/charter_group_table.html:970
+#: templates/main/charter_group_table.html:1007
+#: templates/main/charter_group_table.html:1012
+#: templates/main/charter_group_table.html:1074
+#: templates/main/charter_group_table.html:1079
+#: templates/main/charter_group_table.html:1136
+#: templates/main/charter_group_table.html:1141
+#: templates/main/charter_group_table.html:1178
+#: templates/main/charter_group_table.html:1183
+#: templates/main/charter_group_table.html:1315
+#: templates/main/charter_group_table.html:1320
+#: templates/main/charter_group_table.html:1352
+#: templates/main/charter_group_table.html:1357
+#: templates/main/charter_group_table.html:1454
+#: templates/main/charter_group_table.html:1459
+#: templates/main/charter_group_table.html:1501
+#: templates/main/charter_group_table.html:1506
+#: templates/main/charter_group_table.html:1538
+#: templates/main/charter_group_table.html:1543
+#: templates/main/charter_group_table.html:1595
+#: templates/main/charter_group_table.html:1600
+#: templates/main/charter_group_table.html:1652
+#: templates/main/charter_group_table.html:1657
+#: templates/main/charter_group_table.html:1684
+#: templates/main/charter_group_table.html:1689
+#: templates/main/charter_group_table.html:1776
+#: templates/main/charter_group_table.html:1781
+#: templates/main/charter_group_table.html:1868
+#: templates/main/charter_group_table.html:1873
+#: templates/main/charter_group_table.html:1935
+#: templates/main/charter_group_table.html:1940
+#: templates/main/charter_group_table.html:2032
+#: templates/main/charter_group_table.html:2037
+#: templates/main/charter_group_table.html:2064
+#: templates/main/charter_group_table.html:2069
+#: templates/main/charter_group_table.html:2136
+#: templates/main/charter_group_table.html:2141
+#: templates/main/charter_group_table.html:2173
+#: templates/main/charter_group_table.html:2178
+#: templates/main/charter_group_table.html:2200
+#: templates/main/charter_group_table.html:2205
+#: templates/main/charter_group_table.html:2252
+#: templates/main/charter_group_table.html:2257
+#: templates/main/charter_group_table.html:2294
+#: templates/main/charter_group_table.html:2299
+#: templates/main/charter_group_table.html:2401
+#: templates/main/charter_group_table.html:2406
+#: templates/main/charter_group_table.html:2443
+#: templates/main/charter_group_table.html:2448
+#: templates/main/charter_group_table.html:2475
+#: templates/main/charter_group_table.html:2480
+#: templates/main/charter_group_table.html:2562
+#: templates/main/charter_group_table.html:2567
+#: templates/main/charter_group_table.html:2594
+#: templates/main/charter_group_table.html:2599
+#: templates/main/charter_group_table.html:2626
+#: templates/main/charter_group_table.html:2631
+#: templates/main/charter_group_table.html:2668
+#: templates/main/charter_group_table.html:2673
+#: templates/main/charter_group_table.html:2765
+#: templates/main/charter_group_table.html:2770
+#: templates/main/charter_group_table.html:2797
+#: templates/main/charter_group_table.html:2802
+#: templates/main/charter_group_table.html:2844
+#: templates/main/charter_group_table.html:2849
+#: templates/main/charter_group_table.html:2886
+#: templates/main/charter_group_table.html:2891
+#: templates/main/charter_group_table.html:2918
+#: templates/main/charter_group_table.html:2923
+#: templates/main/charter_group_table.html:2980
+#: templates/main/charter_group_table.html:2985
+#: templates/main/charter_group_table.html:3027
+#: templates/main/charter_group_table.html:3032
+#: templates/main/charter_group_table.html:3059
+#: templates/main/charter_group_table.html:3064
+#: templates/main/charter_group_table.html:3096
+#: templates/main/charter_group_table.html:3101
+#: templates/main/charter_group_table.html:3133
+#: templates/main/charter_group_table.html:3138
+#: templates/main/charter_parts_table.html:12
+#: templates/main/charter_parts_table.html:17
+#: templates/main/charter_parts_table.html:114
+#: templates/main/charter_parts_table.html:119
+#: templates/main/charter_parts_table.html:186
+#: templates/main/charter_parts_table.html:191
+#: templates/main/charter_parts_table.html:245
+#: templates/main/charter_parts_table.html:250
+#: templates/main/charter_parts_table.html:282
+#: templates/main/charter_parts_table.html:287
+#: templates/main/charter_parts_table.html:309
+#: templates/main/charter_parts_table.html:314
+#: templates/main/charter_parts_table.html:361
+#: templates/main/charter_parts_table.html:366
+#: templates/main/charter_parts_table.html:485
+#: templates/main/charter_parts_table.html:490
+#: templates/main/charter_parts_table.html:542
+#: templates/main/charter_parts_table.html:547
+#: templates/main/charter_parts_table.html:574
+#: templates/main/charter_parts_table.html:579
+#: templates/main/charter_parts_table.html:613
+#: templates/main/charter_parts_table.html:618
+#: templates/main/charter_parts_table.html:645
+#: templates/main/charter_parts_table.html:650
+#: templates/main/charter_parts_table.html:677
+#: templates/main/charter_parts_table.html:682
+#: templates/main/charter_parts_table.html:748
+#: templates/main/charter_parts_table.html:753
+#: templates/main/charter_parts_table.html:835
+#: templates/main/charter_parts_table.html:840
+#: templates/main/charter_parts_table.html:867
+#: templates/main/charter_parts_table.html:872
+#: templates/main/charter_parts_table.html:914
+#: templates/main/charter_parts_table.html:919
+#: templates/main/charter_parts_table.html:951
+#: templates/main/charter_parts_table.html:956
+#: templates/main/charter_parts_table.html:1118
+#: templates/main/charter_parts_table.html:1123
+#: templates/main/charter_parts_table.html:1150
+#: templates/main/charter_parts_table.html:1155
+#: templates/main/charter_parts_table.html:1318
+#: templates/main/charter_parts_table.html:1323
+#: templates/main/charter_parts_table.html:1439
+#: templates/main/charter_parts_table.html:1444
+#: templates/main/charter_parts_table.html:1471
+#: templates/main/charter_parts_table.html:1476
+#: templates/main/charter_parts_table.html:1508
+#: templates/main/charter_parts_table.html:1513
+#: templates/main/charter_parts_table.html:1555
+#: templates/main/charter_parts_table.html:1560
+#: templates/main/charter_parts_table.html:1928
+#: templates/main/charter_parts_table.html:1933
+#: templates/main/charter_parts_table.html:1976
+#: templates/main/charter_parts_table.html:1981
+#: templates/main/charter_parts_table.html:2043
+#: templates/main/charter_parts_table.html:2048
+#: templates/main/charter_parts_table.html:2165
+#: templates/main/charter_parts_table.html:2170
+#: templates/main/charter_parts_table.html:2204
+#: templates/main/charter_parts_table.html:2209
+#: templates/main/charter_parts_table.html:2237
+#: templates/main/charter_parts_table.html:2242
+#: templates/main/charter_parts_table.html:2285
+#: templates/main/charter_parts_table.html:2290
+#: templates/main/charter_parts_table.html:2317
+#: templates/main/charter_parts_table.html:2322
+#: templates/main/charter_parts_table.html:2359
+#: templates/main/charter_parts_table.html:2364
+#: templates/main/charter_parts_table.html:2396
+#: templates/main/charter_parts_table.html:2401
+#: templates/main/charter_parts_table.html:2428
+#: templates/main/charter_parts_table.html:2433
+#: templates/main/charter_parts_table.html:2460
+#: templates/main/charter_parts_table.html:2465
+#: templates/main/charter_parts_table.html:2492
+#: templates/main/charter_parts_table.html:2497
+#: templates/main/charter_parts_table.html:2806
+#: templates/main/charter_parts_table.html:2811
+#: templates/main/charter_parts_table.html:2838
+#: templates/main/charter_parts_table.html:2843
+#: templates/main/charter_parts_table.html:2872
+#: templates/main/charter_parts_table.html:2877
+#: templates/main/charter_parts_table.html:2904
+#: templates/main/charter_parts_table.html:2909
+#: templates/main/charter_parts_table.html:2991
+#: templates/main/charter_parts_table.html:2996
+#: templates/main/charter_parts_table.html:3023
+#: templates/main/charter_parts_table.html:3028
+#: templates/main/charter_parts_table.html:3065
+#: templates/main/charter_parts_table.html:3070
+#: templates/main/charter_parts_table.html:3117
+#: templates/main/charter_parts_table.html:3122
+#: templates/main/charter_parts_table.html:3144
+#: templates/main/charter_parts_table.html:3149
+#: templates/main/charter_parts_table.html:3421
+#: templates/main/charter_parts_table.html:3426
+#: templates/main/charter_parts_table.html:3508
+#: templates/main/charter_parts_table.html:3513
+#: templates/main/charter_parts_table.html:3540
+#: templates/main/charter_parts_table.html:3545
+#: templates/main/charter_parts_table.html:3587
+#: templates/main/charter_parts_table.html:3592
+#: templates/main/charter_parts_table.html:3619
+#: templates/main/charter_parts_table.html:3624
+#: templates/main/charter_parts_table.html:3651
+#: templates/main/charter_parts_table.html:3656
+#: templates/main/charter_parts_table.html:3683
+#: templates/main/charter_parts_table.html:3688
+#: templates/main/charter_parts_table.html:3715
+#: templates/main/charter_parts_table.html:3720
+#: templates/main/charter_parts_table.html:3747
+#: templates/main/charter_parts_table.html:3752
+#: templates/main/charter_parts_table.html:3794
+#: templates/main/charter_parts_table.html:3799
+#: templates/main/charter_parts_table.html:3826
+#: templates/main/charter_parts_table.html:3831
+#: templates/main/charter_parts_table.html:3933
+#: templates/main/charter_parts_table.html:3938
+#: templates/main/charter_parts_table.html:3965
+#: templates/main/charter_parts_table.html:3970
+#: templates/main/charter_parts_table.html:4077
+#: templates/main/charter_parts_table.html:4082
+#: templates/main/charter_parts_table.html:4269
+#: templates/main/charter_parts_table.html:4274
+#: templates/main/charter_parts_table.html:4296
+#: templates/main/charter_parts_table.html:4301
+#: templates/main/charter_parts_table.html:4358
+#: templates/main/charter_parts_table.html:4363
+#: templates/main/charter_parts_table.html:4390
+#: templates/main/charter_parts_table.html:4395
+#: templates/main/charter_parts_table.html:4472
+#: templates/main/charter_parts_table.html:4477
+#: templates/main/charter_parts_table.html:4504
+#: templates/main/charter_parts_table.html:4509
+#: templates/main/charter_parts_table.html:4536
+#: templates/main/charter_parts_table.html:4541
+#: templates/main/charter_parts_table.html:4563
+#: templates/main/charter_parts_table.html:4568
+#: templates/main/charter_parts_table.html:4600
+#: templates/main/charter_parts_table.html:4605
+#: templates/main/charter_parts_table.html:4657
+#: templates/main/charter_parts_table.html:4662
+#: templates/main/charter_parts_table.html:4689
+#: templates/main/charter_parts_table.html:4694
+#: templates/main/charter_parts_table.html:4786
+#: templates/main/charter_parts_table.html:4791
+#: templates/main/charter_parts_table.html:4818
+#: templates/main/charter_parts_table.html:4823
+#: templates/main/charter_parts_table.html:4885
+#: templates/main/charter_parts_table.html:4890
+#: templates/main/charter_parts_table.html:4912
+#: templates/main/charter_parts_table.html:4917
+#: templates/main/charter_parts_table.html:4959
+#: templates/main/charter_parts_table.html:4964
+#: templates/main/charter_parts_table.html:4991
+#: templates/main/charter_parts_table.html:4996
+#: templates/main/charter_parts_table.html:5023
+#: templates/main/charter_parts_table.html:5028
+#: templates/main/charter_parts_table.html:5065
+#: templates/main/charter_parts_table.html:5070
+#: templates/main/charter_parts_table.html:5097
+#: templates/main/charter_parts_table.html:5102
+#: templates/main/charter_parts_table.html:5144
+#: templates/main/charter_parts_table.html:5149
+#: templates/main/charter_parts_table.html:5201
+#: templates/main/charter_parts_table.html:5206
+#: templates/main/charter_parts_table.html:5233
+#: templates/main/charter_parts_table.html:5238
+#: templates/main/charter_parts_table.html:5265
+#: templates/main/charter_parts_table.html:5270
+#: templates/main/charter_parts_table.html:5297
+#: templates/main/charter_parts_table.html:5302
+#: templates/main/charter_parts_table.html:5344
+#: templates/main/charter_parts_table.html:5349
+#: templates/main/charter_parts_table.html:5406
+#: templates/main/charter_parts_table.html:5411
+#: templates/main/charter_parts_table.html:5603
+#: templates/main/charter_parts_table.html:5608
+#: templates/main/charter_parts_table.html:5655
+#: templates/main/charter_parts_table.html:5660
+#: templates/main/charter_parts_table.html:5687
+#: templates/main/charter_parts_table.html:5692
+#: templates/main/charter_parts_table.html:5719
+#: templates/main/charter_parts_table.html:5724
+#: templates/main/charter_parts_table.html:5761
+#: templates/main/charter_parts_table.html:5766
+msgid "Gruppe"
+msgstr "Group"
+
+#: templates/main/charter_group_table.html:12
+#: templates/main/charter_group_table.html:17
+#: templates/main/charter_group_table.html:74
+#: templates/main/charter_group_table.html:79
+#: templates/main/charter_group_table.html:136
+#: templates/main/charter_group_table.html:141
+#: templates/main/charter_group_table.html:178
+#: templates/main/charter_group_table.html:183
+#: templates/main/charter_group_table.html:215
+#: templates/main/charter_group_table.html:220
+#: templates/main/charter_group_table.html:252
+#: templates/main/charter_group_table.html:257
+#: templates/main/charter_group_table.html:349
+#: templates/main/charter_group_table.html:354
+#: templates/main/charter_group_table.html:431
+#: templates/main/charter_group_table.html:436
+#: templates/main/charter_group_table.html:483
+#: templates/main/charter_group_table.html:488
+#: templates/main/charter_group_table.html:515
+#: templates/main/charter_group_table.html:520
+#: templates/main/charter_group_table.html:572
+#: templates/main/charter_group_table.html:577
+#: templates/main/charter_group_table.html:614
+#: templates/main/charter_group_table.html:619
+#: templates/main/charter_group_table.html:676
+#: templates/main/charter_group_table.html:681
+#: templates/main/charter_group_table.html:718
+#: templates/main/charter_group_table.html:723
+#: templates/main/charter_group_table.html:765
+#: templates/main/charter_group_table.html:770
+#: templates/main/charter_group_table.html:807
+#: templates/main/charter_group_table.html:812
+#: templates/main/charter_group_table.html:859
+#: templates/main/charter_group_table.html:864
+#: templates/main/charter_group_table.html:901
+#: templates/main/charter_group_table.html:906
+#: templates/main/charter_group_table.html:933
+#: templates/main/charter_group_table.html:938
+#: templates/main/charter_group_table.html:965
+#: templates/main/charter_group_table.html:970
+#: templates/main/charter_group_table.html:1007
+#: templates/main/charter_group_table.html:1012
+#: templates/main/charter_group_table.html:1074
+#: templates/main/charter_group_table.html:1079
+#: templates/main/charter_group_table.html:1136
+#: templates/main/charter_group_table.html:1141
+#: templates/main/charter_group_table.html:1178
+#: templates/main/charter_group_table.html:1183
+#: templates/main/charter_group_table.html:1315
+#: templates/main/charter_group_table.html:1320
+#: templates/main/charter_group_table.html:1352
+#: templates/main/charter_group_table.html:1357
+#: templates/main/charter_group_table.html:1454
+#: templates/main/charter_group_table.html:1459
+#: templates/main/charter_group_table.html:1501
+#: templates/main/charter_group_table.html:1506
+#: templates/main/charter_group_table.html:1538
+#: templates/main/charter_group_table.html:1543
+#: templates/main/charter_group_table.html:1595
+#: templates/main/charter_group_table.html:1600
+#: templates/main/charter_group_table.html:1652
+#: templates/main/charter_group_table.html:1657
+#: templates/main/charter_group_table.html:1684
+#: templates/main/charter_group_table.html:1689
+#: templates/main/charter_group_table.html:1776
+#: templates/main/charter_group_table.html:1781
+#: templates/main/charter_group_table.html:1868
+#: templates/main/charter_group_table.html:1873
+#: templates/main/charter_group_table.html:1935
+#: templates/main/charter_group_table.html:1940
+#: templates/main/charter_group_table.html:2032
+#: templates/main/charter_group_table.html:2037
+#: templates/main/charter_group_table.html:2064
+#: templates/main/charter_group_table.html:2069
+#: templates/main/charter_group_table.html:2136
+#: templates/main/charter_group_table.html:2141
+#: templates/main/charter_group_table.html:2173
+#: templates/main/charter_group_table.html:2178
+#: templates/main/charter_group_table.html:2200
+#: templates/main/charter_group_table.html:2205
+#: templates/main/charter_group_table.html:2252
+#: templates/main/charter_group_table.html:2257
+#: templates/main/charter_group_table.html:2294
+#: templates/main/charter_group_table.html:2299
+#: templates/main/charter_group_table.html:2401
+#: templates/main/charter_group_table.html:2406
+#: templates/main/charter_group_table.html:2443
+#: templates/main/charter_group_table.html:2448
+#: templates/main/charter_group_table.html:2475
+#: templates/main/charter_group_table.html:2480
+#: templates/main/charter_group_table.html:2562
+#: templates/main/charter_group_table.html:2567
+#: templates/main/charter_group_table.html:2594
+#: templates/main/charter_group_table.html:2599
+#: templates/main/charter_group_table.html:2626
+#: templates/main/charter_group_table.html:2631
+#: templates/main/charter_group_table.html:2668
+#: templates/main/charter_group_table.html:2673
+#: templates/main/charter_group_table.html:2765
+#: templates/main/charter_group_table.html:2770
+#: templates/main/charter_group_table.html:2797
+#: templates/main/charter_group_table.html:2802
+#: templates/main/charter_group_table.html:2844
+#: templates/main/charter_group_table.html:2849
+#: templates/main/charter_group_table.html:2886
+#: templates/main/charter_group_table.html:2891
+#: templates/main/charter_group_table.html:2918
+#: templates/main/charter_group_table.html:2923
+#: templates/main/charter_group_table.html:2980
+#: templates/main/charter_group_table.html:2985
+#: templates/main/charter_group_table.html:3027
+#: templates/main/charter_group_table.html:3032
+#: templates/main/charter_group_table.html:3059
+#: templates/main/charter_group_table.html:3064
+#: templates/main/charter_group_table.html:3096
+#: templates/main/charter_group_table.html:3101
+#: templates/main/charter_group_table.html:3133
+#: templates/main/charter_group_table.html:3138
+msgid "von"
+msgstr "from"
+
+#: templates/main/charter_group_table.html:12
+#: templates/main/charter_group_table.html:17
+#: templates/main/charter_group_table.html:74
+#: templates/main/charter_group_table.html:79
+#: templates/main/charter_group_table.html:136
+#: templates/main/charter_group_table.html:141
+#: templates/main/charter_group_table.html:178
+#: templates/main/charter_group_table.html:183
+#: templates/main/charter_group_table.html:215
+#: templates/main/charter_group_table.html:220
+#: templates/main/charter_group_table.html:252
+#: templates/main/charter_group_table.html:257
+#: templates/main/charter_group_table.html:349
+#: templates/main/charter_group_table.html:354
+#: templates/main/charter_group_table.html:431
+#: templates/main/charter_group_table.html:436
+#: templates/main/charter_group_table.html:483
+#: templates/main/charter_group_table.html:488
+#: templates/main/charter_group_table.html:515
+#: templates/main/charter_group_table.html:520
+#: templates/main/charter_group_table.html:572
+#: templates/main/charter_group_table.html:577
+#: templates/main/charter_group_table.html:614
+#: templates/main/charter_group_table.html:619
+#: templates/main/charter_group_table.html:676
+#: templates/main/charter_group_table.html:681
+#: templates/main/charter_group_table.html:718
+#: templates/main/charter_group_table.html:723
+#: templates/main/charter_group_table.html:765
+#: templates/main/charter_group_table.html:770
+#: templates/main/charter_group_table.html:807
+#: templates/main/charter_group_table.html:812
+#: templates/main/charter_group_table.html:859
+#: templates/main/charter_group_table.html:864
+#: templates/main/charter_group_table.html:901
+#: templates/main/charter_group_table.html:906
+#: templates/main/charter_group_table.html:933
+#: templates/main/charter_group_table.html:938
+#: templates/main/charter_group_table.html:965
+#: templates/main/charter_group_table.html:970
+#: templates/main/charter_group_table.html:1007
+#: templates/main/charter_group_table.html:1012
+#: templates/main/charter_group_table.html:1074
+#: templates/main/charter_group_table.html:1079
+#: templates/main/charter_group_table.html:1136
+#: templates/main/charter_group_table.html:1141
+#: templates/main/charter_group_table.html:1178
+#: templates/main/charter_group_table.html:1183
+#: templates/main/charter_group_table.html:1315
+#: templates/main/charter_group_table.html:1320
+#: templates/main/charter_group_table.html:1352
+#: templates/main/charter_group_table.html:1357
+#: templates/main/charter_group_table.html:1454
+#: templates/main/charter_group_table.html:1459
+#: templates/main/charter_group_table.html:1501
+#: templates/main/charter_group_table.html:1506
+#: templates/main/charter_group_table.html:1538
+#: templates/main/charter_group_table.html:1543
+#: templates/main/charter_group_table.html:1595
+#: templates/main/charter_group_table.html:1600
+#: templates/main/charter_group_table.html:1652
+#: templates/main/charter_group_table.html:1657
+#: templates/main/charter_group_table.html:1684
+#: templates/main/charter_group_table.html:1689
+#: templates/main/charter_group_table.html:1776
+#: templates/main/charter_group_table.html:1781
+#: templates/main/charter_group_table.html:1868
+#: templates/main/charter_group_table.html:1873
+#: templates/main/charter_group_table.html:1935
+#: templates/main/charter_group_table.html:1940
+#: templates/main/charter_group_table.html:2032
+#: templates/main/charter_group_table.html:2037
+#: templates/main/charter_group_table.html:2064
+#: templates/main/charter_group_table.html:2069
+#: templates/main/charter_group_table.html:2136
+#: templates/main/charter_group_table.html:2141
+#: templates/main/charter_group_table.html:2173
+#: templates/main/charter_group_table.html:2178
+#: templates/main/charter_group_table.html:2200
+#: templates/main/charter_group_table.html:2205
+#: templates/main/charter_group_table.html:2252
+#: templates/main/charter_group_table.html:2257
+#: templates/main/charter_group_table.html:2294
+#: templates/main/charter_group_table.html:2299
+#: templates/main/charter_group_table.html:2401
+#: templates/main/charter_group_table.html:2406
+#: templates/main/charter_group_table.html:2443
+#: templates/main/charter_group_table.html:2448
+#: templates/main/charter_group_table.html:2475
+#: templates/main/charter_group_table.html:2480
+#: templates/main/charter_group_table.html:2562
+#: templates/main/charter_group_table.html:2567
+#: templates/main/charter_group_table.html:2594
+#: templates/main/charter_group_table.html:2599
+#: templates/main/charter_group_table.html:2626
+#: templates/main/charter_group_table.html:2631
+#: templates/main/charter_group_table.html:2668
+#: templates/main/charter_group_table.html:2673
+#: templates/main/charter_group_table.html:2765
+#: templates/main/charter_group_table.html:2770
+#: templates/main/charter_group_table.html:2797
+#: templates/main/charter_group_table.html:2802
+#: templates/main/charter_group_table.html:2844
+#: templates/main/charter_group_table.html:2849
+#: templates/main/charter_group_table.html:2886
+#: templates/main/charter_group_table.html:2891
+#: templates/main/charter_group_table.html:2918
+#: templates/main/charter_group_table.html:2923
+#: templates/main/charter_group_table.html:2980
+#: templates/main/charter_group_table.html:2985
+#: templates/main/charter_group_table.html:3027
+#: templates/main/charter_group_table.html:3032
+#: templates/main/charter_group_table.html:3059
+#: templates/main/charter_group_table.html:3064
+#: templates/main/charter_group_table.html:3096
+#: templates/main/charter_group_table.html:3101
+#: templates/main/charter_group_table.html:3133
+#: templates/main/charter_group_table.html:3138
+msgid "Urkunden in der Sammlung"
+msgstr "Charters in the Collection"
+
+#: templates/main/charter_group_table.html:69
+#: templates/main/charter_group_table.html:131
+#: templates/main/charter_group_table.html:173
+#: templates/main/charter_group_table.html:210
+#: templates/main/charter_group_table.html:247
+#: templates/main/charter_group_table.html:344
+#: templates/main/charter_group_table.html:426
+#: templates/main/charter_group_table.html:478
+#: templates/main/charter_group_table.html:510
+#: templates/main/charter_group_table.html:567
+#: templates/main/charter_group_table.html:599
+#: templates/main/charter_group_table.html:671
+#: templates/main/charter_group_table.html:713
+#: templates/main/charter_group_table.html:760
+#: templates/main/charter_group_table.html:802
+#: templates/main/charter_group_table.html:854
+#: templates/main/charter_group_table.html:896
+#: templates/main/charter_group_table.html:928
+#: templates/main/charter_group_table.html:960
+#: templates/main/charter_group_table.html:992
+#: templates/main/charter_group_table.html:1059
+#: templates/main/charter_group_table.html:1131
+#: templates/main/charter_group_table.html:1173
+#: templates/main/charter_group_table.html:1310
+#: templates/main/charter_group_table.html:1347
+#: templates/main/charter_group_table.html:1449
+#: templates/main/charter_group_table.html:1496
+#: templates/main/charter_group_table.html:1533
+#: templates/main/charter_group_table.html:1590
+#: templates/main/charter_group_table.html:1647
+#: templates/main/charter_group_table.html:1679
+#: templates/main/charter_group_table.html:1771
+#: templates/main/charter_group_table.html:1863
+#: templates/main/charter_group_table.html:1930
+#: templates/main/charter_group_table.html:2027
+#: templates/main/charter_group_table.html:2059
+#: templates/main/charter_group_table.html:2131
+#: templates/main/charter_group_table.html:2168
+#: templates/main/charter_group_table.html:2195
+#: templates/main/charter_group_table.html:2247
+#: templates/main/charter_group_table.html:2289
+#: templates/main/charter_group_table.html:2396
+#: templates/main/charter_group_table.html:2438
+#: templates/main/charter_group_table.html:2470
+#: templates/main/charter_group_table.html:2557
+#: templates/main/charter_group_table.html:2589
+#: templates/main/charter_group_table.html:2621
+#: templates/main/charter_group_table.html:2663
+#: templates/main/charter_group_table.html:2760
+#: templates/main/charter_group_table.html:2792
+#: templates/main/charter_group_table.html:2839
+#: templates/main/charter_group_table.html:2881
+#: templates/main/charter_group_table.html:2913
+#: templates/main/charter_group_table.html:2975
+#: templates/main/charter_group_table.html:3022
+#: templates/main/charter_group_table.html:3054
+#: templates/main/charter_group_table.html:3091
+#: templates/main/charter_group_table.html:3128
+#: templates/main/charter_group_table.html:3160
+#: templates/main/charter_parts_table.html:109
+#: templates/main/charter_parts_table.html:181
+#: templates/main/charter_parts_table.html:240
+#: templates/main/charter_parts_table.html:277
+#: templates/main/charter_parts_table.html:304
+#: templates/main/charter_parts_table.html:356
+#: templates/main/charter_parts_table.html:480
+#: templates/main/charter_parts_table.html:537
+#: templates/main/charter_parts_table.html:569
+#: templates/main/charter_parts_table.html:608
+#: templates/main/charter_parts_table.html:640
+#: templates/main/charter_parts_table.html:672
+#: templates/main/charter_parts_table.html:743
+#: templates/main/charter_parts_table.html:830
+#: templates/main/charter_parts_table.html:862
+#: templates/main/charter_parts_table.html:909
+#: templates/main/charter_parts_table.html:946
+#: templates/main/charter_parts_table.html:1113
+#: templates/main/charter_parts_table.html:1145
+#: templates/main/charter_parts_table.html:1313
+#: templates/main/charter_parts_table.html:1434
+#: templates/main/charter_parts_table.html:1466
+#: templates/main/charter_parts_table.html:1503
+#: templates/main/charter_parts_table.html:1550
+#: templates/main/charter_parts_table.html:1923
+#: templates/main/charter_parts_table.html:1971
+#: templates/main/charter_parts_table.html:2038
+#: templates/main/charter_parts_table.html:2160
+#: templates/main/charter_parts_table.html:2199
+#: templates/main/charter_parts_table.html:2232
+#: templates/main/charter_parts_table.html:2280
+#: templates/main/charter_parts_table.html:2312
+#: templates/main/charter_parts_table.html:2354
+#: templates/main/charter_parts_table.html:2391
+#: templates/main/charter_parts_table.html:2423
+#: templates/main/charter_parts_table.html:2455
+#: templates/main/charter_parts_table.html:2487
+#: templates/main/charter_parts_table.html:2801
+#: templates/main/charter_parts_table.html:2833
+#: templates/main/charter_parts_table.html:2867
+#: templates/main/charter_parts_table.html:2899
+#: templates/main/charter_parts_table.html:2986
+#: templates/main/charter_parts_table.html:3018
+#: templates/main/charter_parts_table.html:3050
+#: templates/main/charter_parts_table.html:3112
+#: templates/main/charter_parts_table.html:3139
+#: templates/main/charter_parts_table.html:3416
+#: templates/main/charter_parts_table.html:3503
+#: templates/main/charter_parts_table.html:3535
+#: templates/main/charter_parts_table.html:3582
+#: templates/main/charter_parts_table.html:3614
+#: templates/main/charter_parts_table.html:3646
+#: templates/main/charter_parts_table.html:3678
+#: templates/main/charter_parts_table.html:3710
+#: templates/main/charter_parts_table.html:3742
+#: templates/main/charter_parts_table.html:3789
+#: templates/main/charter_parts_table.html:3821
+#: templates/main/charter_parts_table.html:3928
+#: templates/main/charter_parts_table.html:3960
+#: templates/main/charter_parts_table.html:4072
+#: templates/main/charter_parts_table.html:4264
+#: templates/main/charter_parts_table.html:4291
+#: templates/main/charter_parts_table.html:4353
+#: templates/main/charter_parts_table.html:4385
+#: templates/main/charter_parts_table.html:4467
+#: templates/main/charter_parts_table.html:4499
+#: templates/main/charter_parts_table.html:4531
+#: templates/main/charter_parts_table.html:4558
+#: templates/main/charter_parts_table.html:4595
+#: templates/main/charter_parts_table.html:4652
+#: templates/main/charter_parts_table.html:4684
+#: templates/main/charter_parts_table.html:4781
+#: templates/main/charter_parts_table.html:4813
+#: templates/main/charter_parts_table.html:4880
+#: templates/main/charter_parts_table.html:4907
+#: templates/main/charter_parts_table.html:4954
+#: templates/main/charter_parts_table.html:4986
+#: templates/main/charter_parts_table.html:5018
+#: templates/main/charter_parts_table.html:5060
+#: templates/main/charter_parts_table.html:5092
+#: templates/main/charter_parts_table.html:5139
+#: templates/main/charter_parts_table.html:5196
+#: templates/main/charter_parts_table.html:5228
+#: templates/main/charter_parts_table.html:5260
+#: templates/main/charter_parts_table.html:5292
+#: templates/main/charter_parts_table.html:5339
+#: templates/main/charter_parts_table.html:5401
+#: templates/main/charter_parts_table.html:5598
+#: templates/main/charter_parts_table.html:5650
+#: templates/main/charter_parts_table.html:5682
+#: templates/main/charter_parts_table.html:5714
+#: templates/main/charter_parts_table.html:5756
+#: templates/main/charter_parts_table.html:5793
+msgid "Gewählte Urkunken lesen"
+msgstr "Read the chosen charters"
+
+#: templates/main/charter_groups.html:2 templates/main/charter_groups.html:7
+msgid "Urkundengruppen"
+msgstr "Charter Groups"
+
+#: templates/main/charter_parts.html:2
+msgid "Gruppen ähnlicher Urkundenteile"
+msgstr "Groups of similar charter parts"
+
+#: templates/main/charter_parts.html:8 templates/main/formulae_charter.html:8
+#: templates/main/formulae_formulae.html:8
+msgid ""
+"Bei der Digitalisierung neuer Sammlungen werden weitere Texte und Gruppen"
+" erscheinen."
+msgstr "More texts and groups will appear as new collections are digitized"
+
+#: templates/main/charter_parts_table.html:5
+msgid "Arengen"
+msgstr "Arengas"
+
+#: templates/main/charter_parts_table.html:12
+#: templates/main/charter_parts_table.html:17
+#: templates/main/charter_parts_table.html:114
+#: templates/main/charter_parts_table.html:119
+#: templates/main/charter_parts_table.html:186
+#: templates/main/charter_parts_table.html:191
+#: templates/main/charter_parts_table.html:245
+#: templates/main/charter_parts_table.html:250
+#: templates/main/charter_parts_table.html:282
+#: templates/main/charter_parts_table.html:287
+#: templates/main/charter_parts_table.html:309
+#: templates/main/charter_parts_table.html:314
+#: templates/main/charter_parts_table.html:361
+#: templates/main/charter_parts_table.html:366
+#: templates/main/charter_parts_table.html:485
+#: templates/main/charter_parts_table.html:490
+#: templates/main/charter_parts_table.html:542
+#: templates/main/charter_parts_table.html:547
+#: templates/main/charter_parts_table.html:574
+#: templates/main/charter_parts_table.html:579
+#: templates/main/charter_parts_table.html:613
+#: templates/main/charter_parts_table.html:618
+#: templates/main/charter_parts_table.html:645
+#: templates/main/charter_parts_table.html:650
+#: templates/main/charter_parts_table.html:677
+#: templates/main/charter_parts_table.html:682
+#: templates/main/charter_parts_table.html:748
+#: templates/main/charter_parts_table.html:753
+#: templates/main/charter_parts_table.html:835
+#: templates/main/charter_parts_table.html:840
+#: templates/main/charter_parts_table.html:867
+#: templates/main/charter_parts_table.html:872
+#: templates/main/charter_parts_table.html:914
+#: templates/main/charter_parts_table.html:919
+#: templates/main/charter_parts_table.html:951
+#: templates/main/charter_parts_table.html:956
+#: templates/main/charter_parts_table.html:1118
+#: templates/main/charter_parts_table.html:1123
+#: templates/main/charter_parts_table.html:1150
+#: templates/main/charter_parts_table.html:1155
+#: templates/main/charter_parts_table.html:1318
+#: templates/main/charter_parts_table.html:1323
+#: templates/main/charter_parts_table.html:1439
+#: templates/main/charter_parts_table.html:1444
+#: templates/main/charter_parts_table.html:1471
+#: templates/main/charter_parts_table.html:1476
+#: templates/main/charter_parts_table.html:1508
+#: templates/main/charter_parts_table.html:1513
+#: templates/main/charter_parts_table.html:1555
+#: templates/main/charter_parts_table.html:1560
+#: templates/main/charter_parts_table.html:1928
+#: templates/main/charter_parts_table.html:1933
+#: templates/main/charter_parts_table.html:1976
+#: templates/main/charter_parts_table.html:1981
+#: templates/main/charter_parts_table.html:2043
+#: templates/main/charter_parts_table.html:2048
+#: templates/main/charter_parts_table.html:2165
+#: templates/main/charter_parts_table.html:2170
+#: templates/main/charter_parts_table.html:2204
+#: templates/main/charter_parts_table.html:2209
+#: templates/main/charter_parts_table.html:2237
+#: templates/main/charter_parts_table.html:2242
+#: templates/main/charter_parts_table.html:2285
+#: templates/main/charter_parts_table.html:2290
+#: templates/main/charter_parts_table.html:2317
+#: templates/main/charter_parts_table.html:2322
+#: templates/main/charter_parts_table.html:2359
+#: templates/main/charter_parts_table.html:2364
+#: templates/main/charter_parts_table.html:2396
+#: templates/main/charter_parts_table.html:2401
+#: templates/main/charter_parts_table.html:2428
+#: templates/main/charter_parts_table.html:2433
+#: templates/main/charter_parts_table.html:2460
+#: templates/main/charter_parts_table.html:2465
+#: templates/main/charter_parts_table.html:2492
+#: templates/main/charter_parts_table.html:2497
+#: templates/main/charter_parts_table.html:2806
+#: templates/main/charter_parts_table.html:2811
+#: templates/main/charter_parts_table.html:2838
+#: templates/main/charter_parts_table.html:2843
+#: templates/main/charter_parts_table.html:2872
+#: templates/main/charter_parts_table.html:2877
+#: templates/main/charter_parts_table.html:2904
+#: templates/main/charter_parts_table.html:2909
+#: templates/main/charter_parts_table.html:2991
+#: templates/main/charter_parts_table.html:2996
+#: templates/main/charter_parts_table.html:3023
+#: templates/main/charter_parts_table.html:3028
+#: templates/main/charter_parts_table.html:3065
+#: templates/main/charter_parts_table.html:3070
+#: templates/main/charter_parts_table.html:3117
+#: templates/main/charter_parts_table.html:3122
+#: templates/main/charter_parts_table.html:3144
+#: templates/main/charter_parts_table.html:3149
+#: templates/main/charter_parts_table.html:3421
+#: templates/main/charter_parts_table.html:3426
+#: templates/main/charter_parts_table.html:3508
+#: templates/main/charter_parts_table.html:3513
+#: templates/main/charter_parts_table.html:3540
+#: templates/main/charter_parts_table.html:3545
+#: templates/main/charter_parts_table.html:3587
+#: templates/main/charter_parts_table.html:3592
+#: templates/main/charter_parts_table.html:3619
+#: templates/main/charter_parts_table.html:3624
+#: templates/main/charter_parts_table.html:3651
+#: templates/main/charter_parts_table.html:3656
+#: templates/main/charter_parts_table.html:3683
+#: templates/main/charter_parts_table.html:3688
+#: templates/main/charter_parts_table.html:3715
+#: templates/main/charter_parts_table.html:3720
+#: templates/main/charter_parts_table.html:3747
+#: templates/main/charter_parts_table.html:3752
+#: templates/main/charter_parts_table.html:3794
+#: templates/main/charter_parts_table.html:3799
+#: templates/main/charter_parts_table.html:3826
+#: templates/main/charter_parts_table.html:3831
+#: templates/main/charter_parts_table.html:3933
+#: templates/main/charter_parts_table.html:3938
+#: templates/main/charter_parts_table.html:3965
+#: templates/main/charter_parts_table.html:3970
+#: templates/main/charter_parts_table.html:4077
+#: templates/main/charter_parts_table.html:4082
+#: templates/main/charter_parts_table.html:4269
+#: templates/main/charter_parts_table.html:4274
+#: templates/main/charter_parts_table.html:4296
+#: templates/main/charter_parts_table.html:4301
+#: templates/main/charter_parts_table.html:4358
+#: templates/main/charter_parts_table.html:4363
+#: templates/main/charter_parts_table.html:4390
+#: templates/main/charter_parts_table.html:4395
+#: templates/main/charter_parts_table.html:4472
+#: templates/main/charter_parts_table.html:4477
+#: templates/main/charter_parts_table.html:4504
+#: templates/main/charter_parts_table.html:4509
+#: templates/main/charter_parts_table.html:4536
+#: templates/main/charter_parts_table.html:4541
+#: templates/main/charter_parts_table.html:4563
+#: templates/main/charter_parts_table.html:4568
+#: templates/main/charter_parts_table.html:4600
+#: templates/main/charter_parts_table.html:4605
+#: templates/main/charter_parts_table.html:4657
+#: templates/main/charter_parts_table.html:4662
+#: templates/main/charter_parts_table.html:4689
+#: templates/main/charter_parts_table.html:4694
+#: templates/main/charter_parts_table.html:4786
+#: templates/main/charter_parts_table.html:4791
+#: templates/main/charter_parts_table.html:4818
+#: templates/main/charter_parts_table.html:4823
+#: templates/main/charter_parts_table.html:4885
+#: templates/main/charter_parts_table.html:4890
+#: templates/main/charter_parts_table.html:4912
+#: templates/main/charter_parts_table.html:4917
+#: templates/main/charter_parts_table.html:4959
+#: templates/main/charter_parts_table.html:4964
+#: templates/main/charter_parts_table.html:4991
+#: templates/main/charter_parts_table.html:4996
+#: templates/main/charter_parts_table.html:5023
+#: templates/main/charter_parts_table.html:5028
+#: templates/main/charter_parts_table.html:5065
+#: templates/main/charter_parts_table.html:5070
+#: templates/main/charter_parts_table.html:5097
+#: templates/main/charter_parts_table.html:5102
+#: templates/main/charter_parts_table.html:5144
+#: templates/main/charter_parts_table.html:5149
+#: templates/main/charter_parts_table.html:5201
+#: templates/main/charter_parts_table.html:5206
+#: templates/main/charter_parts_table.html:5233
+#: templates/main/charter_parts_table.html:5238
+#: templates/main/charter_parts_table.html:5265
+#: templates/main/charter_parts_table.html:5270
+#: templates/main/charter_parts_table.html:5297
+#: templates/main/charter_parts_table.html:5302
+#: templates/main/charter_parts_table.html:5344
+#: templates/main/charter_parts_table.html:5349
+#: templates/main/charter_parts_table.html:5406
+#: templates/main/charter_parts_table.html:5411
+#: templates/main/charter_parts_table.html:5603
+#: templates/main/charter_parts_table.html:5608
+#: templates/main/charter_parts_table.html:5655
+#: templates/main/charter_parts_table.html:5660
+#: templates/main/charter_parts_table.html:5687
+#: templates/main/charter_parts_table.html:5692
+#: templates/main/charter_parts_table.html:5719
+#: templates/main/charter_parts_table.html:5724
+#: templates/main/charter_parts_table.html:5761
+#: templates/main/charter_parts_table.html:5766
+msgid "Texte"
+msgstr "Texts"
+
+#: templates/main/charter_parts_table.html:3058
+msgid "Überleitungsformel"
+msgstr ""
 
 #: templates/main/collection.html:2 templates/main/collection.html:11
 msgid "Textsammlungen"
@@ -1119,7 +2590,7 @@ msgstr ""
 msgid "Lexikon durchsuchen"
 msgstr "Search the E-Lexicon"
 
-#: templates/main/elex_modal_footer.html:3 templates/main/multipassage.html:152
+#: templates/main/elex_modal_footer.html:3 templates/main/multipassage.html:153
 #: templates/main/passage_footer.html:3
 msgid "Empfohlene Zitierweise"
 msgstr "Suggested Citation Form"
@@ -1129,7 +2600,7 @@ msgid "letzter Aufruf:"
 msgstr "Accessed on:"
 
 #: templates/main/feedback.html:2 templates/main/feedback.html:7
-#: templates/main/navbar.html:84
+#: templates/main/navbar.html:86
 msgid "Feedback"
 msgstr ""
 
@@ -1139,7 +2610,7 @@ msgstr "Observations/Suggestions"
 
 #: templates/main/feedback.html:12
 msgid ""
-"Wenn Sie Anmerkungen bzw. Verbesserungsvorschläge´ zur Formulae - Litterae"
+"Wenn Sie Anmerkungen bzw. Verbesserungsvorschläge zur Formulae - Litterae"
 " - Chartae Werkstatt haben, schicken Sie uns einfach eine Email an die "
 "obengennante Emailadresse. Wenn es um eine bestimmte Seite in der "
 "Werkstatt handelt, nennen Sie bitte die volle URL in den Text Ihre Email."
@@ -1147,36 +2618,44 @@ msgid ""
 "volle URL mit dem vollen Titel des Textes und eine genaue Beschreibung "
 "des Problems und des Vorschlags, das Problem zu beheben."
 msgstr ""
-"If you have observations about or "
-"suggestions for the improvement of the"
-" Formulae - Litterae - Chartae "
-"Werkstatt, just send us an <a "
-"href=\"mailto:formulae.geschichte@uni-hamburg.de\">email</a>."
-" If the email contains suggestions "
-"for a specific page in the "
-"Werkstatt, please include the full URL"
-" in the text of your email. If"
-" you would like to suggest "
-"corrections to a specific text, you "
-"should also include the full URL, "
-"the complete title of the text, as"
-" well as a detailed description of"
-" the problem you have found along "
-"with your suggestion to correct this "
+"If you have observations about or suggestions for the improvement of the "
+"Formulae - Litterae - Chartae Werkstatt, just send us an <a "
+"href=\"mailto:formulae.geschichte@uni-hamburg.de\">email</a>. If the "
+"email contains suggestions for a specific page in the Werkstatt, please "
+"include the full URL in the text of your email. If you would like to "
+"suggest corrections to a specific text, you should also include the full "
+"URL, the complete title of the text, as well as a detailed description of"
+" the problem you have found along with your suggestion to correct this "
 "problem."
 
-#: templates/main/flavigny_info.html:6 templates/main/marculfinae_info.html:6
-#: templates/main/tours_ueberarbeitung_info.html:5
-msgid "Zur Sammlung"
-msgstr "About the Collection"
+#: templates/main/formulae_charter.html:2
+msgid "Entsprechungen zwischen Urkunden und formulae"
+msgstr "Similarities between Charters and Formulae"
 
-#: templates/main/flavigny_info.html:24
-msgid "Zur Kondordanz"
-msgstr "About the Concordance"
+#: templates/main/formulae_charter.html:7
+msgid "Synchronoptische Darstellung von Entsprechungen zwischen Urkunden und "
+msgstr "Synchronoptic view of the similarities between charters and "
 
-#: templates/main/flavigny_info.html:26
-msgid "Konkordanz im neuen Tab öffnen"
-msgstr "Open the concordance in a new tab"
+#: templates/main/formulae_charter_table.html:1
+msgid "Formel zu Urkunde Entsprechungen"
+msgstr "Formula to Charter similarities"
+
+#: templates/main/formulae_charter_table.html:1
+#: templates/main/formulae_formulae_table.html:1
+msgid "Gruppennr."
+msgstr "Group nr."
+
+#: templates/main/formulae_formulae.html:2
+msgid "Entsprechungen zwischen verschiedenen formulae"
+msgstr "Similarities between various formulae"
+
+#: templates/main/formulae_formulae.html:7
+msgid " Synchronoptische Darstellung von Entsprechungen zwischen verschiedenen "
+msgstr " Synchronoptic view of the similarities between various "
+
+#: templates/main/formulae_formulae_table.html:1
+msgid "Formel zu Formel Entsprechungen"
+msgstr "Formula to Fromula similarities"
 
 #: templates/main/fulda_d1_desc.html:2
 #: templates/main/karlsruhe_blb_aug_desc.html:2
@@ -1239,9 +2718,9 @@ msgid ""
 "Formelsammlungen. Die meisten dieser retrodigitalisierten Editionen "
 "unterliegen nicht mehr dem Urheberrecht und sind daher in der Werkstatt "
 "frei verfügbar. Urheberrechtlich geschützte Texte sind durchsuchbar, "
-"können aber nicht im Volltext angezeigt werde und müssen in den "
-"Druckausgaben kobsultiert werden. Alle nicht urheberrechtlich geschützten"
-" digitalen Texte, werden hier unter einer Creative-Commons-Lizenz "
+"können aber nicht im Volltext angezeigt werden und müssen in den "
+"Druckausgaben konsultiert werden. Alle nicht urheberrechtlich geschützten"
+" digitalen Texte werden hier unter einer Creative-Commons-Lizenz "
 "veröffentlicht. Da die Formeln noch nicht bei den MGH veröffentlicht "
 "wurden, unterliegen sie einer restriktiveren Creative Commons "
 "Namensnennung-Nicht kommerziell-Keine Bearbeitungen (CC-BY NC ND) Lizenz."
@@ -1465,153 +2944,169 @@ msgstr "Older Manuscript Images"
 msgid "Vorheriges Suchergebnis"
 msgstr "Previous search result"
 
-#: templates/main/multipassage.html:154
+#: templates/main/multipassage.html:155
 msgid "Diesen Text als PDF herunterladen."
 msgstr "Download this text as PDF."
 
-#: templates/main/multipassage.html:161
+#: templates/main/multipassage.html:162
 msgid "Nächstes Suchergebnis"
 msgstr "Next search result"
 
-#: templates/main/multipassage.html:218
+#: templates/main/multipassage.html:219
 msgid "Eine Spalte hinzufügen"
 msgstr "Add a column"
 
-#: templates/main/multipassage.html:223 templates/main/multipassage.html:410
-#: templates/main/multipassage.html:419 templates/main/multipassage.html:573
-#: templates/main/multipassage.html:589
+#: templates/main/multipassage.html:224 templates/main/multipassage.html:418
+#: templates/main/multipassage.html:427 templates/main/multipassage.html:581
+#: templates/main/multipassage.html:597
 msgid "Manuskriptbilder"
 msgstr "Manuscript Images"
 
-#: templates/main/multipassage.html:226 templates/main/multipassage.html:578
+#: templates/main/multipassage.html:227 templates/main/multipassage.html:586
 msgid "Diese Manuskriptbilder können nicht gezeigt werden"
 msgstr "The manuscript images cannot be shown."
 
-#: templates/main/multipassage.html:237
+#: templates/main/multipassage.html:238
 msgid "Edition, Übersetzung, Transkription"
 msgstr "Edition, Translation, Transcription"
 
-#: templates/main/multipassage.html:250
+#: templates/main/multipassage.html:251
 msgid "Transkription"
 msgstr "Transcription"
 
-#: templates/main/multipassage.html:256 templates/main/multipassage.html:438
-#: templates/main/multipassage.html:625
+#: templates/main/multipassage.html:257 templates/main/multipassage.html:446
+#: templates/main/multipassage.html:633
 msgid "Texte mit diesem Lemma"
 msgstr "Texts that contain this lemma"
 
-#: templates/main/multipassage.html:272 templates/main/multipassage.html:461
-#: templates/main/multipassage.html:648
+#: templates/main/multipassage.html:273 templates/main/multipassage.html:469
+#: templates/main/multipassage.html:656
 msgid "Verwandte Texte"
 msgstr "Related texts"
 
-#: templates/main/multipassage.html:279 templates/main/multipassage.html:457
-#: templates/main/multipassage.html:644
+#: templates/main/multipassage.html:280 templates/main/multipassage.html:465
+#: templates/main/multipassage.html:652
 msgid "Weitere Texte"
 msgstr "More texts"
 
-#: templates/main/multipassage.html:282 templates/main/multipassage.html:470
-#: templates/main/multipassage.html:657
+#: templates/main/multipassage.html:283 templates/main/multipassage.html:478
+#: templates/main/multipassage.html:665
 msgid "Urkunden und Briefe"
 msgstr "Charters and Letters"
 
-#: templates/main/multipassage.html:290
+#: templates/main/multipassage.html:291
 msgid "Vorherige Seite"
 msgstr "Previous Page"
 
-#: templates/main/multipassage.html:295
+#: templates/main/multipassage.html:296
 msgid "Nächste Seite"
 msgstr "Next Page"
 
-#: templates/main/multipassage.html:306
+#: templates/main/multipassage.html:307
 msgid "Es gibt derzeit noch keinen Lexikoneintrag zu"
 msgstr "No lexicon entry found for"
 
-#: templates/main/multipassage.html:312
+#: templates/main/multipassage.html:309
+msgid "Es kann zur Zeit keine Kollokationen gezeigt werden"
+msgstr "Collocations can't be shown at this time."
+
+#: templates/main/multipassage.html:315
 msgid "Fußnote"
 msgstr "Footnote"
 
-#: templates/main/multipassage.html:326
+#: templates/main/multipassage.html:330
+msgid "Kollationierung ausschalten"
+msgstr "Turn off the collation"
+
+#: templates/main/multipassage.html:332
+msgid "Texte miteinander kollationieren."
+msgstr "Collate the texts with each other."
+
+#: templates/main/multipassage.html:332
+msgid "Texte miteinander kollationieren"
+msgstr "Collate the texts with each other"
+
+#: templates/main/multipassage.html:334
 msgid "Texte nebeneinander zeigen."
 msgstr "Show texts next to each other."
 
-#: templates/main/multipassage.html:326
+#: templates/main/multipassage.html:334
 msgid "Texte nebeneinander"
 msgstr "Show texts in columns"
 
-#: templates/main/multipassage.html:327
+#: templates/main/multipassage.html:335
 msgid "Texte übereinander zeigen."
 msgstr "Show texts one above the other."
 
-#: templates/main/multipassage.html:327
+#: templates/main/multipassage.html:335
 msgid "Texte übereinander"
 msgstr "Show texts in rows"
 
-#: templates/main/multipassage.html:329
+#: templates/main/multipassage.html:337
 msgid "Alle Texte maximiert anzeigen."
 msgstr "Maximize all texts."
 
-#: templates/main/multipassage.html:329
+#: templates/main/multipassage.html:337
 msgid "Texte maximieren"
 msgstr "Maximize texts"
 
-#: templates/main/multipassage.html:330
+#: templates/main/multipassage.html:338
 msgid "Alle Texte in original Größe anzeigen."
 msgstr "Return all texts to their original size."
 
-#: templates/main/multipassage.html:330
+#: templates/main/multipassage.html:338
 msgid "Texte in original Größe"
 msgstr "Texts in original size"
 
-#: templates/main/multipassage.html:335 templates/main/multipassage.html:339
-#: templates/main/multipassage.html:357 templates/main/multipassage.html:361
+#: templates/main/multipassage.html:343 templates/main/multipassage.html:347
+#: templates/main/multipassage.html:365 templates/main/multipassage.html:369
 #: templates/main/videos.html:7
 msgid "Videotutorials"
 msgstr "Video Tutorials"
 
-#: templates/main/multipassage.html:410 templates/main/multipassage.html:419
-#: templates/main/multipassage.html:573
+#: templates/main/multipassage.html:418 templates/main/multipassage.html:427
+#: templates/main/multipassage.html:581
 msgid "Manuskriptbilder hinzufügen"
 msgstr "Add Manuscript Images"
 
-#: templates/main/multipassage.html:427 templates/main/multipassage.html:614
+#: templates/main/multipassage.html:435 templates/main/multipassage.html:622
 msgid "Edition hinzufügen"
 msgstr "Add the edition"
 
-#: templates/main/multipassage.html:432 templates/main/multipassage.html:619
+#: templates/main/multipassage.html:440 templates/main/multipassage.html:627
 msgid "Übersetzung hinzufügen"
 msgstr "Add the translation"
 
-#: templates/main/multipassage.html:457 templates/main/multipassage.html:644
+#: templates/main/multipassage.html:465 templates/main/multipassage.html:652
 msgid "Weitere Texte hinzufügen"
 msgstr "Add another text"
 
-#: templates/main/multipassage.html:478 templates/main/multipassage.html:665
+#: templates/main/multipassage.html:486 templates/main/multipassage.html:673
 msgid "Urkundenteile zeigen"
 msgstr "Show charter parts"
 
-#: templates/main/multipassage.html:481 templates/main/multipassage.html:668
+#: templates/main/multipassage.html:489 templates/main/multipassage.html:676
 msgid "Dieses Menü bewegen"
 msgstr "Move this menu"
 
-#: templates/main/multipassage.html:485 templates/main/multipassage.html:672
-#: templates/main/text_container.html:59
+#: templates/main/multipassage.html:493 templates/main/multipassage.html:680
+#: templates/main/text_container.html:64
 msgid "Alle zeigen"
 msgstr "Show all"
 
-#: templates/main/multipassage.html:494
+#: templates/main/multipassage.html:502
 msgid "Maximieren"
 msgstr "Maximize"
 
-#: templates/main/multipassage.html:497
+#: templates/main/multipassage.html:505
 msgid "Original Größe"
 msgstr "Original Size"
 
-#: templates/main/multipassage.html:502 templates/main/multipassage.html:681
+#: templates/main/multipassage.html:510 templates/main/multipassage.html:689
 msgid "Spalte ausblenden"
 msgstr "Remove column"
 
-#: templates/main/multipassage.html:528 templates/main/multipassage.html:708
+#: templates/main/multipassage.html:536 templates/main/multipassage.html:716
 msgid ""
 "Aus technischen bzw. rechtlichen Gründen können keine Manuskriptbilder "
 "gezeigt werden"
@@ -1619,19 +3114,19 @@ msgstr ""
 "The images for this manuscript cannot be shown for technical or legal "
 "reasons"
 
-#: templates/main/multipassage.html:528 templates/main/multipassage.html:708
+#: templates/main/multipassage.html:536 templates/main/multipassage.html:716
 msgid "Keine Bilder"
 msgstr "No images"
 
-#: templates/main/multipassage.html:589
+#: templates/main/multipassage.html:597
 msgid "Die Manuskriptbilder können nicht gezeigt werden"
 msgstr "The manuscript images cannot be shown."
 
-#: templates/main/multipassage.html:597 templates/main/multipassage.html:606
+#: templates/main/multipassage.html:605 templates/main/multipassage.html:614
 msgid "Transkriptionen hinzufügen"
 msgstr "Add a Transcription"
 
-#: templates/main/multipassage.html:597 templates/main/multipassage.html:606
+#: templates/main/multipassage.html:605 templates/main/multipassage.html:614
 msgid "Transkriptionen"
 msgstr "Transcriptions"
 
@@ -1655,10 +3150,13 @@ msgstr "Manuscripts"
 msgid "Liste aller Formelhandschriften"
 msgstr "List of all Formulae Manuscripts"
 
-#: templates/main/navbar.html:54 templates/main/navbar.html:68
+#: templates/main/navbar.html:54 templates/main/navbar.html:70
 #: templates/main/sub_collections.html:39
 #: templates/main/sub_collections.html:50
 #: templates/main/sub_collections.html:64
+#: templates/main/word_graph_modal.html:28
+#: templates/main/word_graph_modal.html:38
+#: templates/main/word_graph_modal.html:44
 #: templates/search/advanced_search.html:28
 #: templates/search/advanced_search.html:42
 msgid "Dieses Korpus ist lemmatisiert"
@@ -1668,11 +3166,11 @@ msgstr "This corpus is lemmatized"
 msgid "Urkunden + Briefe"
 msgstr "Charters + Letters"
 
-#: templates/main/navbar.html:81 templates/main/videos.html:2
+#: templates/main/navbar.html:83 templates/main/videos.html:2
 msgid "Tutorials"
 msgstr ""
 
-#: templates/main/navbar.html:87
+#: templates/main/navbar.html:89
 msgid "Links"
 msgstr ""
 
@@ -1706,7 +3204,7 @@ msgid "Suchergebnisse herunterladen"
 msgstr "Download these search results"
 
 #: templates/main/prev_search.html:35 templates/search/part_results.html:117
-#: templates/search/search.html:208
+#: templates/search/search.html:210
 msgid "Das PDF konnte nicht heruntergeladen werden. Versuchen Sie es später."
 msgstr "The PDF could not be downloaded. Try again later."
 
@@ -1734,13 +3232,8 @@ msgstr "Place of Composition:"
 msgid "HS Signatur:"
 msgstr "MS Signature:"
 
-#: templates/main/salzburg_collection.html:7
-#: templates/main/sub_collection.html:7
-msgid "Datum"
-msgstr "Date"
-
 #: templates/main/salzburg_collection.html:28
-#: templates/main/sub_collection.html:83
+#: templates/main/sub_collection.html:113
 msgid "Gehe zu (Text):"
 msgstr "Jump to Text:"
 
@@ -1749,14 +3242,14 @@ msgid "Lesen: "
 msgstr "Read: "
 
 #: templates/main/salzburg_collection.html:59
-#: templates/main/sub_collection.html:215
+#: templates/main/sub_collection.html:253
 msgid "Version"
 msgstr ""
 
 #: templates/main/salzburg_collection.html:67
 #: templates/main/salzburg_collection.html:70
-#: templates/main/sub_collection.html:235
-#: templates/main/sub_collection.html:238
+#: templates/main/sub_collection.html:273
+#: templates/main/sub_collection.html:276
 msgid "Zurück zum Seitenanfang"
 msgstr "Back to top"
 
@@ -1772,21 +3265,24 @@ msgstr "Manuscript comparison"
 msgid "Anzeige im Handschriftenkontext von:"
 msgstr "Show in Manuscript context:"
 
-#: templates/main/sub_collection.html:41 templates/main/sub_collection.html:50
-#: templates/main/sub_collection.html:55
+#: templates/main/sub_collection.html:41 templates/main/sub_collection.html:52
+#: templates/main/sub_collection.html:57
 msgid "Zum Manuskriptinhalt"
 msgstr "Manuscript Contents"
 
-#: templates/main/sub_collection.html:57 templates/main/sub_collection.html:63
-#: templates/main/sub_collection.html:69
+#: templates/main/sub_collection.html:59 templates/main/sub_collection.html:65
+#: templates/main/sub_collection.html:71 templates/main/sub_collection.html:77
+#: templates/main/sub_collection.html:84 templates/main/sub_collection.html:91
+#: templates/main/sub_collection.html:98
 msgid "Weitere Urkunden aus dieser Edition"
 msgstr "More charters from this edition"
 
-#: templates/main/sub_collection.html:76
+#: templates/main/sub_collection.html:106
 msgid "Farbkodierung der Sammlungen zeigen"
 msgstr "Show color-coded collections"
 
-#: templates/main/sub_collection.html:76 templates/main/sub_collection.html:77
+#: templates/main/sub_collection.html:106
+#: templates/main/sub_collection.html:107
 msgid ""
 "Die Farbkodierung ermöglicht es, die unterschiedliche Herkunft von "
 "Formeln in einer Handschrift zu visualisieren. Jede Formelgruppe (etwa "
@@ -1796,49 +3292,59 @@ msgstr ""
 "in the manuscript. Every formula group (e.g., Marculf Book 1) is "
 "highlighted in a different color."
 
-#: templates/main/sub_collection.html:76 templates/main/sub_collection.html:77
+#: templates/main/sub_collection.html:106
+#: templates/main/sub_collection.html:107
 msgid "Hilfe für Farbkodierung der Sammlungen"
 msgstr "Help for color-coded collections"
 
-#: templates/main/sub_collection.html:77
+#: templates/main/sub_collection.html:107
 msgid "Farbkodierung der Sammlungen verstecken"
 msgstr "Hide color-coded collections"
 
-#: templates/main/sub_collection.html:126
+#: templates/main/sub_collection.html:148
+#: templates/main/sub_collection.html:166
+msgid "Formeln aus"
+msgstr "Formulae from"
+
+#: templates/main/sub_collection.html:158
 msgid "Gemeinsames Material"
 msgstr "Shared Material"
 
-#: templates/main/sub_collection.html:128
-#: templates/main/sub_collection.html:130
+#: templates/main/sub_collection.html:160
+#: templates/main/sub_collection.html:162
 msgid "Material aus"
 msgstr "Material from"
 
-#: templates/main/sub_collection.html:154
+#: templates/main/sub_collection.html:168
+msgid "Eigenständiges Material aus"
+msgstr "Unique Material from"
+
+#: templates/main/sub_collection.html:192
 msgid "Keine Edition"
 msgstr "No Edition"
 
-#: templates/main/sub_collection.html:160
+#: templates/main/sub_collection.html:198
 msgid "Editionen"
 msgstr "Editions"
 
-#: templates/main/sub_collection.html:179
+#: templates/main/sub_collection.html:217
 msgid "Deutsche Übersetzungen"
 msgstr "German Translations"
 
-#: templates/main/sub_collection.html:189
+#: templates/main/sub_collection.html:227
 msgid "Deutsche Übersetzung"
 msgstr "German Translation"
 
-#: templates/main/sub_collection.html:197
+#: templates/main/sub_collection.html:235
 msgid "Transkriptionen/Manuskriptbilder"
 msgstr "Transcriptions/Manuscript Images"
 
-#: templates/main/sub_collection.html:199
+#: templates/main/sub_collection.html:237
 msgid "Transkription/Manuskriptbild"
 msgstr "Transcription/Manuscript Image"
 
-#: templates/main/sub_collection.html:211
-#: templates/main/sub_collection.html:215
+#: templates/main/sub_collection.html:249
+#: templates/main/sub_collection.html:253
 #: templates/main/sub_collection_mv.html:85
 msgid "Lesen"
 msgstr "Read"
@@ -1895,7 +3401,7 @@ msgstr "Recipient"
 msgid "Leseumgebung"
 msgstr "Reading page"
 
-#: templates/main/text_container.html:58
+#: templates/main/text_container.html:63
 msgid "Alle ausblenden"
 msgstr "Hide all"
 
@@ -1914,6 +3420,18 @@ msgstr "Show video transcript"
 #: templates/main/video_modal.html:21
 msgid "Ihr Browser kann keine eingebetteten Videos zeigen."
 msgstr "Your browser cannot play embedded videos."
+
+#: templates/main/word_graph_modal.html:14
+msgid "Sammlung wählen"
+msgstr "Choose collection"
+
+#: templates/main/word_graph_modal.html:19
+msgid "Nachbarn aus allen Sammlungen zeigen"
+msgstr "Show neighbors from all collections"
+
+#: templates/main/word_graph_modal.html:56
+msgid "Lemmata zeigen"
+msgstr "Show lemmas"
 
 #: templates/search/advanced_search.html:2
 #: templates/search/advanced_search.html:10 templates/search/search_box.html:27
@@ -2476,7 +3994,7 @@ msgid "Korpus"
 msgstr "Corpus"
 
 #: templates/search/part_results.html:16 templates/search/part_results.html:93
-#: templates/search/search.html:24 templates/search/search.html:161
+#: templates/search/search.html:24 templates/search/search.html:162
 msgid "Datierung"
 msgstr "Date"
 
@@ -2522,10 +4040,6 @@ msgstr "Filter results"
 msgid "Zeig Alle Resultate"
 msgstr "Show all Results"
 
-#: templates/search/part_results.html:65 templates/search/search.html:76
-msgid "Urkundenteile"
-msgstr "Charter Parts"
-
 #: templates/search/part_results.html:81 templates/search/search.html:98
 msgid "Los!"
 msgstr "Go!"
@@ -2534,8 +4048,8 @@ msgstr "Go!"
 msgid "Resultate nach Korpora zeigen"
 msgstr "Show Corpus view"
 
-#: templates/search/part_results.html:100 templates/search/search.html:184
-#: templates/search/search.html:196
+#: templates/search/part_results.html:100 templates/search/search.html:185
+#: templates/search/search.html:198
 msgid ""
 "Dieser Text unterliegt dem Urheberrecht und ist online nicht verfügbar. "
 "Bitte konsultieren Sie den Text in der gedruckten Ausgabe."
@@ -2597,21 +4111,39 @@ msgstr "Search"
 msgid "Artikel"
 msgstr "Entry"
 
-#: templates/search/search.html:161
+#: templates/search/search.html:162
 msgid "Nach Terminus Post Quem sortieren"
 msgstr "Sort by terminus post quem"
 
-#: templates/search/search.html:161
+#: templates/search/search.html:162
 msgid "Nach Terminus Ante Quem sortieren"
 msgstr "Sort by terminus ante quem"
 
-#: templates/search/search.html:178
+#: templates/search/search.html:179
 msgid "Aus dem Regest:"
 msgstr "From the Regest"
 
-#: templates/search/search.html:184
+#: templates/search/search.html:185
 msgid "Text kann nicht angezeigt werden"
 msgstr "This text cannot be shown."
+
+#: templates/search/search.html:189
+msgid "Mehr"
+msgstr "More"
+
+#: templates/search/search.html:189
+msgid "Weniger"
+msgstr "Less"
+
+#: templates/search/search.html:189
+msgid ""
+"Dieses Regest unterliegt dem Urheberrecht und ist online nicht verfügbar."
+" Bitte konsultieren Sie das Regest in der gedruckten Ausgabe."
+msgstr "This regest is not available. Consult the printed edition for the regest."
+
+#: templates/search/search.html:189
+msgid "Regest kann nicht angezeigt werden"
+msgstr "This regest cannot be shown."
 
 #: templates/search/search_box.html:2
 msgid "Die einfache Suche"
@@ -2625,12 +4157,12 @@ msgstr "Lemma search is currently only available for Latin formulae"
 msgid "Zur Seite der erweiterten Suche"
 msgstr "Go to the advanced search page"
 
-#: tests/test_routes.py:2091 tests/test_routes.py:2099
-#: tests/test_routes.py:9198
+#: tests/test_routes.py:2173 tests/test_routes.py:2181
+#: tests/test_routes.py:9280
 msgid "Dieses Feld wird benötigt."
 msgstr "This is a required field."
 
-#: tests/test_routes.py:2100
+#: tests/test_routes.py:2182
 msgid "'' ist kein gültige Auswahl für dieses Feld."
 msgstr "'' is not a valid choice for this field."
 
