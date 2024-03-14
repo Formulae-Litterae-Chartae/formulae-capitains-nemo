@@ -1177,9 +1177,8 @@ msgstr ""
 #: templates/main/charter_parts_table.html:5692
 #: templates/main/charter_parts_table.html:5724
 #: templates/main/charter_parts_table.html:5766
-#, fuzzy
 msgid "Tabelle"
-msgstr "Tous"
+msgstr ""
 
 #: templates/main/all_parts_table.html:14
 #: templates/main/all_parts_table.html:1914
@@ -1508,7 +1507,6 @@ msgstr "Date"
 #: templates/main/all_parts_table.html:6537
 #: templates/main/all_parts_table.html:9818
 #: templates/main/all_parts_table.html:14689
-#, fuzzy
 msgid "Urkundenart"
 msgstr ""
 
@@ -4016,18 +4014,15 @@ msgid "Mehr"
 msgstr ""
 
 #: templates/search/search.html:189
-#, fuzzy
 msgid "Weniger"
-msgstr "Afficher moins"
+msgstr ""
 
 #: templates/search/search.html:189
-#, fuzzy
 msgid ""
 "Dieses Regest unterliegt dem Urheberrecht und ist online nicht verfügbar."
 " Bitte konsultieren Sie das Regest in der gedruckten Ausgabe."
 msgstr ""
-"Ce texte est protégé par le droit d'auteur et n'est donc pas disponible "
-"en ligne. Veuillez le consulter au format imprimé."
+""
 
 #: templates/search/search.html:189
 msgid "Regest kann nicht angezeigt werden"
