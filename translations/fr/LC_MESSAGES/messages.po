@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-03-12 08:47+0100\n"
+"POT-Creation-Date: 2024-03-14 10:18+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -135,7 +135,9 @@ msgstr "(Prologue)"
 msgid ""
 "Die Leserichtung wurde geändert. Wenn die Änderung noch nicht gezeigt "
 "wird, dann laden Sie die Seite neu."
-msgstr "Le sens de lecture a été modifié. Si la modification ne s'affiche pas encore, veuillez recharger le site."
+msgstr ""
+"Le sens de lecture a été modifié. Si la modification ne s'affiche pas "
+"encore, veuillez recharger le site."
 
 #: formulae/nemo.py:982 formulae/nemo.py:1156 formulae/nemo.py:1337
 #: formulae/nemo.py:1411 tests/test_routes.py:319 tests/test_routes.py:343
@@ -147,7 +149,7 @@ msgstr "Cette collection n'est pas accessible au public."
 
 #: formulae/nemo.py:1033
 msgid " ist kein bekannter Korpus."
-msgstr ""
+msgstr " n’est pas un corpus connu."
 
 #: formulae/nemo.py:1109 formulae/nemo.py:1597 tests/test_routes.py:408
 #: tests/test_routes.py:413 tests/test_routes.py:879 tests/test_routes.py:884
@@ -158,7 +160,9 @@ msgstr "Ce regeste n'est pas accessible au public."
 msgid ""
 "Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte "
 "gegebenenfalls die Homepage der Bibliothek."
-msgstr "Pour voir la numérisation de ce manuscrit, veuillez visiter le site web de la bibliothèque."
+msgstr ""
+"Pour voir la numérisation de ce manuscrit, veuillez visiter le site web "
+"de la bibliothèque."
 
 #: formulae/nemo.py:1201 templates/main/multipassage.html:241
 #: templates/main/multipassage.html:435 templates/main/multipassage.html:622
@@ -341,7 +345,9 @@ msgstr "Vous avez réussi à changer la langue par défault."
 msgid ""
 "Ein Link zur Bestätigung dieser Änderung wurde an Ihre neue Emailadresse "
 "zugeschickt"
-msgstr "Un lien pour confirmer ce changement a été envoyé à votre nouvelle adresse e-mail."
+msgstr ""
+"Un lien pour confirmer ce changement a été envoyé à votre nouvelle "
+"adresse e-mail."
 
 #: formulae/auth/routes.py:80 templates/main/navbar.html:18
 msgid "Benutzerprofil ändern"
@@ -362,7 +368,8 @@ msgid ""
 "Die Anweisung zum Zurücksetzen Ihres Passworts wurde Ihnen per E-mail "
 "zugeschickt"
 msgstr ""
-"Les instructions pour remplacer votre mot de passe ont été envoyé à votre adresse e-mail."
+"Les instructions pour remplacer votre mot de passe ont été envoyé à votre"
+" adresse e-mail."
 
 #: formulae/auth/routes.py:137 tests/test_routes.py:2380
 msgid "Der Token ist nicht gültig. Versuchen Sie es erneut."
@@ -374,7 +381,9 @@ msgstr "Votre adresse e-mail n'a pas été changée. Veuillez réessayer."
 
 #: formulae/auth/routes.py:145 tests/test_routes.py:2373
 msgid "Ihr Email wurde erfolgreich geändert. Sie lautet jetzt"
-msgstr "Votre adresse e-mail a été changée avec success. Elle est d´sormais la suivante"
+msgstr ""
+"Votre adresse e-mail a été changée avec success. Elle est d´sormais la "
+"suivante"
 
 #: formulae/auth/routes.py:166 tests/test_routes.py:2289
 msgid "Sie sind nun registriert."
@@ -433,7 +442,8 @@ msgid ""
 "'Wildcard'-Zeichen (\"*\" and \"?\") sind bei der Lemmasuche nicht "
 "möglich."
 msgstr ""
-"Les caractères Wildcard (\*\ and \?\) ne sont pas disponible pour la recherche de lemmes."
+"Les caractères Wildcard (\\*\\ and \\?\\) ne sont pas disponible pour la "
+"recherche de lemmes."
 
 #: formulae/search/forms.py:13
 msgid "Invocatio"
@@ -794,7 +804,9 @@ msgstr "La recherche facile nécessite seulement un mot de recherche."
 msgid ""
 "Sie müssen mindestens eine Sammlung für die Suche auswählen (\"Formeln\" "
 "und/oder \"Urkunden\" oder \"Lexikon\")."
-msgstr "Vous devez sélectionner au moins une collection pour la recherche (\Formules\  et/ou \l'acte\ ou \l'Encyclopédie\)"
+msgstr ""
+"Vous devez sélectionner au moins une collection pour la recherche "
+"(\\Formules\\  et/ou \\l'acte\\ ou \\l'Encyclopédie\\)"
 
 #: formulae/search/routes.py:122 tests/test_routes.py:9265
 msgid " Resultate aus \"Formeln\" und \"Urkunden\" werden hier gezeigt."
@@ -957,7 +969,9 @@ msgstr ""
 msgid ""
 "Wenn Sie ihr Emailadresse nicht ändern möchten, ignorieren Sie diese "
 "Nachricht bitte."
-msgstr "Si vous ne souhaitez pas modifier votre adresse e-mail, veuillez ignorez ce message."
+msgstr ""
+"Si vous ne souhaitez pas modifier votre adresse e-mail, veuillez ignorez "
+"ce message."
 
 #: templates/email/reset_email.html:11 templates/email/reset_password.html:11
 msgid "Mit freundlichen Grüßen,"
@@ -1018,7 +1032,7 @@ msgstr "Déclaration d'accessibilité"
 #: templates/main/charter_parts.html:7 templates/search/part_results.html:65
 #: templates/search/search.html:76
 msgid "Urkundenteile"
-msgstr ""
+msgstr "Partie de charte"
 
 #: templates/main/all_parts_table.html:11
 #: templates/main/all_parts_table.html:1911
@@ -1177,9 +1191,8 @@ msgstr ""
 #: templates/main/charter_parts_table.html:5692
 #: templates/main/charter_parts_table.html:5724
 #: templates/main/charter_parts_table.html:5766
-#, fuzzy
 msgid "Tabelle"
-msgstr "Tous"
+msgstr "Tableau"
 
 #: templates/main/all_parts_table.html:14
 #: templates/main/all_parts_table.html:1914
@@ -1508,9 +1521,8 @@ msgstr "Date"
 #: templates/main/all_parts_table.html:6537
 #: templates/main/all_parts_table.html:9818
 #: templates/main/all_parts_table.html:14689
-#, fuzzy
 msgid "Urkundenart"
-msgstr ""
+msgstr "Type de charte"
 
 #: templates/main/bibliography.html:6 templates/main/navbar.html:80
 msgid "Bibliographie"
@@ -1537,27 +1549,27 @@ msgstr "Ouvrir la concordance dans un nouveau onglet"
 #: templates/main/charter_formulae.html:2
 #: templates/main/charter_formulae.html:7 templates/main/navbar.html:63
 msgid "Formelhafte Bestandteile in Urkunden"
-msgstr ""
+msgstr "Élément de charte formaté"
 
 #: templates/main/charter_formulae.html:12
 msgid "Zu den Urkundenteilen"
-msgstr ""
+msgstr "Vers les parties de chartes"
 
 #: templates/main/charter_formulae.html:16
 msgid "Zu den Urkundengruppen"
-msgstr ""
+msgstr "Vers les groupes de chartes"
 
 #: templates/main/charter_formulae.html:20
 msgid "Zu den Gruppen ähnlicher Urkundenteile"
-msgstr ""
+msgstr "Vers les groupes comprenant des éléments similaires"
 
 #: templates/main/charter_formulae.html:24
 msgid "Zu den Entsprechungen zwischen verschiedenen "
-msgstr ""
+msgstr "Vers les correspondances entre divers"
 
 #: templates/main/charter_formulae.html:28
 msgid "Zu den Entsprechungen zwischen Urkunden und "
-msgstr ""
+msgstr "Vers les correspondances entre des chartes et"
 
 #: templates/main/charter_group_table.html:5
 #: templates/main/charter_group_table.html:607
@@ -1567,7 +1579,7 @@ msgstr ""
 #: templates/main/charter_parts_table.html:5
 #: templates/main/charter_parts_table.html:3058
 msgid "Gruppen ähnlicher "
-msgstr ""
+msgstr "Groupes ayant des correspondances "
 
 #: templates/main/charter_group_table.html:12
 #: templates/main/charter_group_table.html:17
@@ -1874,7 +1886,7 @@ msgstr ""
 #: templates/main/charter_parts_table.html:5761
 #: templates/main/charter_parts_table.html:5766
 msgid "Gruppe"
-msgstr ""
+msgstr "Groupe"
 
 #: templates/main/charter_group_table.html:12
 #: templates/main/charter_group_table.html:17
@@ -2116,7 +2128,7 @@ msgstr "des"
 #: templates/main/charter_group_table.html:3133
 #: templates/main/charter_group_table.html:3138
 msgid "Urkunden in der Sammlung"
-msgstr ""
+msgstr "Chartes dans la collection"
 
 #: templates/main/charter_group_table.html:69
 #: templates/main/charter_group_table.html:131
@@ -2271,26 +2283,26 @@ msgstr ""
 #: templates/main/charter_parts_table.html:5756
 #: templates/main/charter_parts_table.html:5793
 msgid "Gewählte Urkunken lesen"
-msgstr ""
+msgstr "Lire la charte sélectionnée"
 
 #: templates/main/charter_groups.html:2 templates/main/charter_groups.html:7
 msgid "Urkundengruppen"
-msgstr ""
+msgstr "Groupes de chartes"
 
 #: templates/main/charter_parts.html:2
 msgid "Gruppen ähnlicher Urkundenteile"
-msgstr ""
+msgstr "Groupes ayant des parties de chartes similaires"
 
 #: templates/main/charter_parts.html:8 templates/main/formulae_charter.html:8
 #: templates/main/formulae_formulae.html:8
 msgid ""
 "Bei der Digitalisierung neuer Sammlungen werden weitere Texte und Gruppen"
 " erscheinen."
-msgstr ""
+msgstr "À l’occasion de la numérisation de nouvelles collections, d’autres textes et d’autres groupes seront publiés"
 
 #: templates/main/charter_parts_table.html:5
 msgid "Arengen"
-msgstr ""
+msgstr "Préambules"
 
 #: templates/main/charter_parts_table.html:12
 #: templates/main/charter_parts_table.html:17
@@ -2479,11 +2491,11 @@ msgstr ""
 #: templates/main/charter_parts_table.html:5761
 #: templates/main/charter_parts_table.html:5766
 msgid "Texte"
-msgstr ""
+msgstr "Textes"
 
 #: templates/main/charter_parts_table.html:3058
 msgid "Überleitungsformel"
-msgstr ""
+msgstr "Formule de transition"
 
 #: templates/main/collection.html:2 templates/main/collection.html:11
 msgid "Textsammlungen"
@@ -2577,7 +2589,12 @@ msgid ""
 " bis zum Ende des frühen Mittelalters nachvollziehbar. Aufgenommen werden"
 " ausschließlich Begriffe, die in den im Langzeitvorhaben edierten Formeln"
 " verwendet werden."
-msgstr "L'encyclopédie électronique explique des notions de l'histoire du droit, de l'histoire sociale et de l'histoire des idées et montre leur évolution de l'Antiquité jusqu'au début de Moyen-Âge.  Seules les notions qui sont utilisée dans les formules éditées du projet à long terme sont enrégistrées."
+msgstr ""
+"L'encyclopédie électronique explique des notions de l'histoire du droit, "
+"de l'histoire sociale et de l'histoire des idées et montre leur évolution"
+" de l'Antiquité jusqu'au début de Moyen-Âge.  Seules les notions qui sont"
+" utilisée dans les formules éditées du projet à long terme sont "
+"enrégistrées."
 
 #: templates/main/elex_collection.html:24
 #: templates/main/elex_collection.html:26
@@ -2611,36 +2628,41 @@ msgid ""
 " Wenn es um einen bestimmten Text handelt, nennen Sie bitte ebenso die "
 "volle URL mit dem vollen Titel des Textes und eine genaue Beschreibung "
 "des Problems und des Vorschlags, das Problem zu beheben."
-msgstr "Si vous avez des remarques ou des propositions d'amélioration pour l'atelier Formulae - Litterae - Chartae, veuillez envoyer un e-mail à l'adresse cité ci-dessus. S'il s'agit d'une page spécifique, veuillez envoyer l'adresse URL complète avec le titre complet et une discription précise."
+msgstr ""
+"Si vous avez des remarques ou des propositions d'amélioration pour "
+"l'atelier Formulae - Litterae - Chartae, veuillez envoyer un e-mail à "
+"l'adresse cité ci-dessus. S'il s'agit d'une page spécifique, veuillez "
+"envoyer l'adresse URL complète avec le titre complet et une discription "
+"précise."
 
 #: templates/main/formulae_charter.html:2
 msgid "Entsprechungen zwischen Urkunden und formulae"
-msgstr ""
+msgstr "Correspondances entre chartes et formulae"
 
 #: templates/main/formulae_charter.html:7
 msgid "Synchronoptische Darstellung von Entsprechungen zwischen Urkunden und "
-msgstr ""
+msgstr "Présentation synoptique des correspondances entre chartes et "
 
 #: templates/main/formulae_charter_table.html:1
 msgid "Formel zu Urkunde Entsprechungen"
-msgstr ""
+msgstr "Correspondances entre formule et charte"
 
 #: templates/main/formulae_charter_table.html:1
 #: templates/main/formulae_formulae_table.html:1
 msgid "Gruppennr."
-msgstr ""
+msgstr "Nurméro de Groupe"
 
 #: templates/main/formulae_formulae.html:2
 msgid "Entsprechungen zwischen verschiedenen formulae"
-msgstr ""
+msgstr "Correspondances entre diverses formulae"
 
 #: templates/main/formulae_formulae.html:7
 msgid " Synchronoptische Darstellung von Entsprechungen zwischen verschiedenen "
-msgstr ""
+msgstr "Présentation synoptique de correspondances entre diverses formules"
 
 #: templates/main/formulae_formulae_table.html:1
 msgid "Formel zu Formel Entsprechungen"
-msgstr ""
+msgstr "Correspondances entre formule et formule"
 
 #: templates/main/fulda_d1_desc.html:2
 #: templates/main/karlsruhe_blb_aug_desc.html:2
@@ -2712,7 +2734,26 @@ msgid ""
 "Unter Nennung des Projekts Formulae - Litterae - Chartae als Quelle der "
 "digitalen Texte stehen diese Texte unter CC-BY Lizenz zur freien "
 "Verfügung."
-msgstr "Les textes sont d'origines diverses. Les formules proviennent de la nouvelle édition critique des collections de formules médiévales, qui s'élabore actuellement avec une traduction allemande. Actuellement, un nombre significant de recueils de formules est à disposition (partiellement en version bêta), d'autres corpora sont en phase d'élaboration.  Les actes proviennent de recueils de rétro-numérisés. Les actes sont reliés au formules et donc indispensables pour l'exploration de formules.  La plupart de ces éditions rétro-numérisées ne sont plus liés au droit d'auteur et sont au accès libre dans l'atelier.  Des textes protégés par le droit d'auteur sont consultable mais pas affichés au texte complet et doivent être consultés au version d'imprimante. Toutes les textes numerique sans droit d'auteur sont publiés ici sous une licence de Creative-commons. Lorsque les formules ne sont pas encore publiées au MGH, elles sont soumises à une licence Creative Commons plus restrictive pour la licence de mention du nom sans commerce et édition (CC-BY NC ND). Les actes sont soumis à une simple mention du nom Licence (CC-BY).  Ces textes sont a disposition libre sous une licence CC-BY avec la mention du projet Formulae - Litterae - Chartae comme source des textes numériques."
+msgstr ""
+"Les textes sont d'origines diverses. Les formules proviennent de la "
+"nouvelle édition critique des collections de formules médiévales, qui "
+"s'élabore actuellement avec une traduction allemande. Actuellement, un "
+"nombre significant de recueils de formules est à disposition "
+"(partiellement en version bêta), d'autres corpora sont en phase "
+"d'élaboration.  Les actes proviennent de recueils de rétro-numérisés. Les"
+" actes sont reliés au formules et donc indispensables pour l'exploration "
+"de formules.  La plupart de ces éditions rétro-numérisées ne sont plus "
+"liés au droit d'auteur et sont au accès libre dans l'atelier.  Des textes"
+" protégés par le droit d'auteur sont consultable mais pas affichés au "
+"texte complet et doivent être consultés au version d'imprimante. Toutes "
+"les textes numerique sans droit d'auteur sont publiés ici sous une "
+"licence de Creative-commons. Lorsque les formules ne sont pas encore "
+"publiées au MGH, elles sont soumises à une licence Creative Commons plus "
+"restrictive pour la licence de mention du nom sans commerce et édition "
+"(CC-BY NC ND). Les actes sont soumis à une simple mention du nom Licence "
+"(CC-BY).  Ces textes sont a disposition libre sous une licence CC-BY avec"
+" la mention du projet Formulae - Litterae - Chartae comme source des "
+"textes numériques."
 
 #: templates/main/index.html:29
 msgid ""
@@ -2720,7 +2761,11 @@ msgid ""
 "Erforschung dieser wichtigen kulturellen, sozialen, rechtlichen und "
 "linguistischen Quellen zu fördern und zu vereinfachen. Sollten Sie "
 "Verbesserungsvorschläge haben, zögern Sie nicht, uns zu "
-msgstr "L'objectif de l'atelier Formulae -Litterae -Chartae est la promotion et la facilitation de l'exploration de ces sources culturelles, sociale et juridique importante.  Si vous avez des propositions d'amélioration, n'hésitez pas à nous"
+msgstr ""
+"L'objectif de l'atelier Formulae -Litterae -Chartae est la promotion et "
+"la facilitation de l'exploration de ces sources culturelles, sociale et "
+"juridique importante.  Si vous avez des propositions d'amélioration, "
+"n'hésitez pas à nous"
 
 #: templates/main/index.html:29
 msgid "kontaktieren"
@@ -2730,7 +2775,9 @@ msgstr "contacter"
 msgid ""
 "Und wenn Sie mehr über das Formulae - Litterae - Chartae Projekt erfahren"
 " wollen, besuchen Sie unsere "
-msgstr "Et si vous souhaitez d'apprendre davantage du notre projet Formulae - Litterae - Chartae, veuillez consulter notre"
+msgstr ""
+"Et si vous souhaitez d'apprendre davantage du notre projet Formulae - "
+"Litterae - Chartae, veuillez consulter notre"
 
 #: templates/main/index.html:29
 msgid "Webseite"
@@ -2778,7 +2825,13 @@ msgid ""
 "benutzen, könnte dies zu beschränkter Funktionalität der Werkstatt "
 "führen. Normalerweise kann solche Software für einzelne, vertraute "
 "Webseiten ausgeschaltet werden."
-msgstr "Certaines parties de l'atelier ne fonctionnent pas avec Internet Explorer. Nous conseillons un browser modern comme Firefox, Chrome, Safari ou Microsoft Edge.  JavaScript est également essentiel pour certaines fonctions. Si vous utilisez un logiciel antipub ou un logiciel similaire cela pourrait limiter les fonctionnalités de l'atelier.  En général, vous pouvez éteindre ces logiciels pour des sites web connus."
+msgstr ""
+"Certaines parties de l'atelier ne fonctionnent pas avec Internet "
+"Explorer. Nous conseillons un browser modern comme Firefox, Chrome, "
+"Safari ou Microsoft Edge.  JavaScript est également essentiel pour "
+"certaines fonctions. Si vous utilisez un logiciel antipub ou un logiciel "
+"similaire cela pourrait limiter les fonctionnalités de l'atelier.  En "
+"général, vous pouvez éteindre ces logiciels pour des sites web connus."
 
 #: templates/main/lexicon.html:4
 msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
@@ -2881,7 +2934,9 @@ msgstr "Apprendre davantage sur ce manuscrit dans la bibliothèque."
 msgid ""
 "Die älteren Manuskriptbilder bei der Bibliothek in einem neuen Tab "
 "anschauen."
-msgstr "Consultez les images de manuscrits plus anciens dans un nouvel onglet dans la bibliothèque"
+msgstr ""
+"Consultez les images de manuscrits plus anciens dans un nouvel onglet "
+"dans la bibliothèque"
 
 #: templates/main/multipassage.html:77
 msgid "Ältere Manuskriptbilder"
@@ -2955,7 +3010,7 @@ msgstr "Aucune entrée du lexique pour l'instant"
 
 #: templates/main/multipassage.html:309
 msgid "Es kann zur Zeit keine Kollokationen gezeigt werden"
-msgstr ""
+msgstr "Il n’est actuellement pas possible d’afficher une collocation"
 
 #: templates/main/multipassage.html:315
 msgid "Fußnote"
@@ -2963,15 +3018,15 @@ msgstr "Note de bas de page"
 
 #: templates/main/multipassage.html:330
 msgid "Kollationierung ausschalten"
-msgstr ""
+msgstr "Supprimer la collation"
 
 #: templates/main/multipassage.html:332
 msgid "Texte miteinander kollationieren."
-msgstr ""
+msgstr "Collationner les textes entre eux."
 
 #: templates/main/multipassage.html:332
 msgid "Texte miteinander kollationieren"
-msgstr ""
+msgstr "Collationner les textes entre eux"
 
 #: templates/main/multipassage.html:334
 msgid "Texte nebeneinander zeigen."
@@ -3057,7 +3112,9 @@ msgstr "Masquer la colonne"
 msgid ""
 "Aus technischen bzw. rechtlichen Gründen können keine Manuskriptbilder "
 "gezeigt werden"
-msgstr "Pour des raison techniques ou juridiques, il n'est pas possible de montrer des images de manuscrits"
+msgstr ""
+"Pour des raison techniques ou juridiques, il n'est pas possible de "
+"montrer des images de manuscrits"
 
 #: templates/main/multipassage.html:536 templates/main/multipassage.html:716
 msgid "Keine Bilder"
@@ -3123,7 +3180,9 @@ msgstr "Liens"
 msgid ""
 "Da dieser Text noch nicht in Druckform veröffentlicht wurde, ist das "
 "Kopieren von Inhalten derzeit leider nicht möglich."
-msgstr "Ce texte n'ayant pas encore été publié sous forme imprimée,  il n'est malheureusement pas possible de copier son contenu pour le moment."
+msgstr ""
+"Ce texte n'ayant pas encore été publié sous forme imprimée,  il n'est "
+"malheureusement pas possible de copier son contenu pour le moment."
 
 #: templates/main/notes.html:6
 msgid "Anmerkungen"
@@ -3230,7 +3289,10 @@ msgid ""
 "Die Farbkodierung ermöglicht es, die unterschiedliche Herkunft von "
 "Formeln in einer Handschrift zu visualisieren. Jede Formelgruppe (etwa "
 "Marculf Buch I) erhält dabei eine eigene Farbe."
-msgstr "Le code couleur permit de visualiser la provenance de différentes formules dans un manuscrit.  Chaque groupe de formules (par exemple Marculf livre I) y a sa propre couleur."
+msgstr ""
+"Le code couleur permit de visualiser la provenance de différentes "
+"formules dans un manuscrit.  Chaque groupe de formules (par exemple "
+"Marculf livre I) y a sa propre couleur."
 
 #: templates/main/sub_collection.html:106
 #: templates/main/sub_collection.html:107
@@ -3257,7 +3319,7 @@ msgstr "Matériel de"
 
 #: templates/main/sub_collection.html:168
 msgid "Eigenständiges Material aus"
-msgstr ""
+msgstr "Matériau autonome provenant de"
 
 #: templates/main/sub_collection.html:192
 msgid "Keine Edition"
@@ -3363,15 +3425,15 @@ msgstr "Votre navigateur ne peut pas montrer des vidéos encastrées"
 
 #: templates/main/word_graph_modal.html:14
 msgid "Sammlung wählen"
-msgstr ""
+msgstr "Choisir une collection"
 
 #: templates/main/word_graph_modal.html:19
 msgid "Nachbarn aus allen Sammlungen zeigen"
-msgstr ""
+msgstr "Afficher les voisins dans toutes les collections"
 
 #: templates/main/word_graph_modal.html:56
 msgid "Lemmata zeigen"
-msgstr ""
+msgstr "Afficher les lemmes"
 
 #: templates/search/advanced_search.html:2
 #: templates/search/advanced_search.html:10 templates/search/search_box.html:27
@@ -3571,7 +3633,12 @@ msgid ""
 "Volltext angezeigt werden. Sämtliche Korpora sind durchsuchbar und auch "
 "Treffer im urheberrechtlich geschützten Material werden angezeigt. Sie "
 "können diese Stellen in der angegebenen Printedition nachschlagen."
-msgstr "Cette Liste contient tous les corpora interrogeables du projet.  Pourtant, quelques corpora sont protégés par le droit d'auteur et ne peuvent pas être affiché au texte complet.  Tous les corpora sont interrogeables et aussi résultats au matériel protégé sont affichés.  Vous pouvez consulter ces passages dans l'édition imprimée indiquée."
+msgstr ""
+"Cette Liste contient tous les corpora interrogeables du projet.  "
+"Pourtant, quelques corpora sont protégés par le droit d'auteur et ne "
+"peuvent pas être affiché au texte complet.  Tous les corpora sont "
+"interrogeables et aussi résultats au matériel protégé sont affichés.  "
+"Vous pouvez consulter ces passages dans l'édition imprimée indiquée."
 
 #: templates/search/help_messages.html:4
 msgid ""
@@ -3602,7 +3669,17 @@ msgid ""
 "und das dritte mit <em><b>poss</b></em> beginnt. Möchten sie im "
 "Suchergebnis Worte zwischen den Suchbegriffen zulassen, stellen Sie bitte"
 " einen entsprechenden 'Suchradius' größer als 0 ein."
-msgstr "La recherche de mots fouille que dans les textes latin. Des caractères spéciaux sont permit.  Un point d'interrogation ('?') remplace un caractère seul, une étoile('*') remplace un ou plusieurs caractères. Les deux ne fonctionne que à l'intérieur d'un mot. Lors de la recherche <em><b>hab* ten* poss*</b></em>, chaque série de trois mots consécutifs est trouvée,  où le premier mot commence par <em><b>hab</b></em>, le deuxième par <em><b>ten</b></em>, et le troisième commence par <em><b>poss</b></em>.  Si vous souhaitez autoriser les mots entre les termes de recherche dans le résultat de la recherche,  veuillez définir un rayon de recherche supérieur à 0."
+msgstr ""
+"La recherche de mots fouille que dans les textes latin. Des caractères "
+"spéciaux sont permit.  Un point d'interrogation ('?') remplace un "
+"caractère seul, une étoile('*') remplace un ou plusieurs caractères. Les "
+"deux ne fonctionne que à l'intérieur d'un mot. Lors de la recherche "
+"<em><b>hab* ten* poss*</b></em>, chaque série de trois mots consécutifs "
+"est trouvée,  où le premier mot commence par <em><b>hab</b></em>, le "
+"deuxième par <em><b>ten</b></em>, et le troisième commence par "
+"<em><b>poss</b></em>.  Si vous souhaitez autoriser les mots entre les "
+"termes de recherche dans le résultat de la recherche,  veuillez définir "
+"un rayon de recherche supérieur à 0."
 
 #: templates/search/help_messages.html:12
 msgid ""
@@ -3614,7 +3691,16 @@ msgid ""
 "keine Vorschläge aus den Urkunden. Der einzige Parameter, der keinen "
 "Einfluss auf die angezeigten Vorschlägen hat, ist 'Wortreihenfolge'. Nur "
 "Vorschläge, welche die selbe Wortreihenfolge haben, werden angezeigt."
-msgstr "Les propositions affichées dans la recherche de mots sont déterminées par tous les autres paramètres du masque de recherche. Par exemple, si vous sélectionnez <em><b>Andecavensis</b></em> comme corpus à rechercher,  seules les propositions issues des formules d'Angers seront affichées. Les restrictions de recherche mentionnées ci-dessus s'appliquent également ici. La recherceh des lemmes ne fournit pas des propositions à partir des actes. Le seul paramètre qui n'a pas d'influence sur les propositions affichées est 'l'ordre des mots'.  Seules les propositions qui ont le même ordre des mots seront affichées."
+msgstr ""
+"Les propositions affichées dans la recherche de mots sont déterminées par"
+" tous les autres paramètres du masque de recherche. Par exemple, si vous "
+"sélectionnez <em><b>Andecavensis</b></em> comme corpus à rechercher,  "
+"seules les propositions issues des formules d'Angers seront affichées. "
+"Les restrictions de recherche mentionnées ci-dessus s'appliquent "
+"également ici. La recherceh des lemmes ne fournit pas des propositions à "
+"partir des actes. Le seul paramètre qui n'a pas d'influence sur les "
+"propositions affichées est 'l'ordre des mots'.  Seules les propositions "
+"qui ont le même ordre des mots seront affichées."
 
 #: templates/search/help_messages.html:13
 msgid ""
@@ -3641,7 +3727,13 @@ msgid ""
 "<em><b>Domino</b></em> an. Auch orthographische Varianten wie "
 "<em><b>domni</b></em> oder <em><b>Domeno</b></em> werden durchsucht. Die "
 "Lemmasuche funktioniert nur in ausgewählten Korpora."
-msgstr "La recherche de lemmes cherche des mots sans conjugaison.  Une recherche de lemmes comme <em><b>dominus</b></em> montre tous les forme conjugés de ce mot comme <em><b>domini</b></em> ou <em><b>Domino</b></em>. Aussi des versions orthographiques comme <em><b>domni</b></em> ou <em><b>Domeno</b></em> sont fouillées.  La recherche de lemmes n efonctionne que au Corpora sélectionnés."
+msgstr ""
+"La recherche de lemmes cherche des mots sans conjugaison.  Une recherche "
+"de lemmes comme <em><b>dominus</b></em> montre tous les forme conjugés de"
+" ce mot comme <em><b>domini</b></em> ou <em><b>Domino</b></em>. Aussi des"
+" versions orthographiques comme <em><b>domni</b></em> ou "
+"<em><b>Domeno</b></em> sont fouillées.  La recherche de lemmes n "
+"efonctionne que au Corpora sélectionnés."
 
 #: templates/search/help_messages.html:21
 msgid ""
@@ -3787,20 +3879,30 @@ msgid ""
 "Die Regestensuche sucht nur in den Regesten der Formeln und Urkunden. Die"
 " Regesten sind hauptsächlich auf Deutsch geschrieben. Die Einstellungen "
 "für Unschärfegrad und Suchradius werden bei dieser Suche auch verwendet."
-msgstr "La recherche de regestes cherche dans les regestes de formules et des actes. Les Regestes sont en majorité écrit en allemand.  Les paramètres pour le degré de flou et le rayon de recherche sont également utilisés pendant la recherche."
+msgstr ""
+"La recherche de regestes cherche dans les regestes de formules et des "
+"actes. Les Regestes sont en majorité écrit en allemand.  Les paramètres "
+"pour le degré de flou et le rayon de recherche sont également utilisés "
+"pendant la recherche."
 
 #: templates/search/help_messages.html:62
 msgid ""
 "Ob die Buchstaben im Suchfeld am Anfang der Ortsnamensvorschläge "
 "vorkommen müssen."
-msgstr "Si les lettres du champ de recherche doivent être présentes au début des propositions de noms de lieux."
+msgstr ""
+"Si les lettres du champ de recherche doivent être présentes au début des "
+"propositions de noms de lieux."
 
 #: templates/search/help_messages.html:66
 msgid ""
 "Reguläre Ausdrücke funktionieren gemäß Elasticsearch-Vorgaben. Siehe <a "
 "href='https://www.elastic.co/guide/en/elasticsearch/reference/current"
 "/regexp-syntax.html' target='_blank'>hier</a> für mehr Information."
-msgstr "Des expressions regulières fonctionne selon les spécifications d'Elasticsearch. Veuillez sonsulter <a  href='https://www.elastic.co/guide/en/elasticsearch/reference/current /regexp-syntax.html' target='_blank'>hier</a> pour plus d'informations."
+msgstr ""
+"Des expressions regulières fonctionne selon les spécifications "
+"d'Elasticsearch. Veuillez sonsulter <a  "
+"href='https://www.elastic.co/guide/en/elasticsearch/reference/current "
+"/regexp-syntax.html' target='_blank'>hier</a> pour plus d'informations."
 
 #: templates/search/lemma_list.html:9
 msgid ""
@@ -3808,7 +3910,11 @@ msgid ""
 "werden kann. Die einzelnen Einträge können angeklickt werden, um direkt "
 "eine Suche durchzuführen. Alternativ kann auch das Suchfeld oben rechts "
 "benutzt werden."
-msgstr "Cette liste montre tous les lemmes, qui sont à disposition de recherche.  Il est possible de cliquer sur les différentes entrées pour effectuer directement une recherche.  Il est également possible d'utiliser le champ de recherche en haut à droite."
+msgstr ""
+"Cette liste montre tous les lemmes, qui sont à disposition de recherche."
+"  Il est possible de cliquer sur les différentes entrées pour effectuer "
+"directement une recherche.  Il est également possible d'utiliser le champ"
+" de recherche en haut à droite."
 
 #: templates/search/lemma_list.html:10
 msgid ""
@@ -3823,20 +3929,36 @@ msgid ""
 "infimae latinitatis (= der „du Cange“). In den Formelsammlungen "
 "auftauchende Personennamen sind unter der jeweiligen Grundform, unter dem"
 " MGH- und Namenlemma der Datenbank nomen et gens"
-msgstr "Toutes les formules et tous les documents en rapport avec les communautés monastiques autour de Tours ont été lemmatisés.  De nombreux termes sont dotés de plusieurs lemmes,  par exemple habet (il/elle/il a) peut être trouvé aussi bien par habo (j'ai) que par habere (avoir).   L'orthographe utilisée est celle des dictionnaires courants dans l'ordre suivant :   Le nouveau Georges, dictionnaire de latin médiévale, Mediae Latinitatis Lexicon Minus (souvent appelé simplement der Niermeyer), Glossarium mediae et infimae latinitatis (du Cange).  Les noms de personnes apparaissant dans les collections de formules sont indiqués sous la forme de base correspondante,   sous le lemme du MGH et du nom de la base de données nomen et gens."
+msgstr ""
+"Toutes les formules et tous les documents en rapport avec les communautés"
+" monastiques autour de Tours ont été lemmatisés.  De nombreux termes sont"
+" dotés de plusieurs lemmes,  par exemple habet (il/elle/il a) peut être "
+"trouvé aussi bien par habo (j'ai) que par habere (avoir).   L'orthographe"
+" utilisée est celle des dictionnaires courants dans l'ordre suivant :   "
+"Le nouveau Georges, dictionnaire de latin médiévale, Mediae Latinitatis "
+"Lexicon Minus (souvent appelé simplement der Niermeyer), Glossarium "
+"mediae et infimae latinitatis (du Cange).  Les noms de personnes "
+"apparaissant dans les collections de formules sont indiqués sous la forme"
+" de base correspondante,   sous le lemme du MGH et du nom de la base de "
+"données nomen et gens."
 
 #: templates/search/lemma_list.html:10
 msgid ""
 "sowie unter „Personenname“ aufgenommen. Orte sind analog dazu nach den "
 "Angaben des orbis latinus"
-msgstr "Toutes les formules et toutes les actes avec un rapport de la monestaire dfe tours on était lemmatisé"
+msgstr ""
+"Toutes les formules et toutes les actes avec un rapport de la monestaire "
+"dfe tours on était lemmatisé"
 
 #: templates/search/lemma_list.html:10
 msgid ""
 "und als „Ortsname“ lemmatisiert. Namen und Orte, die nicht in den "
 "Formelsammlungen erwähnt werden, sind in der Lemmasuche nur als "
 "„Personenname“ bzw. „Ortsname“ zu finden."
-msgstr "et lemmatisé comme nom de lieu. Les noms et les lieux qui ne sont pas mentionnés dans les collections de formules  ne se trouvent pas dans la recherche de lemmes que comme nom de personne ou nom de lieu."
+msgstr ""
+"et lemmatisé comme nom de lieu. Les noms et les lieux qui ne sont pas "
+"mentionnés dans les collections de formules  ne se trouvent pas dans la "
+"recherche de lemmes que comme nom de personne ou nom de lieu."
 
 #: templates/search/lemma_list.html:17
 msgid "Deutsche Lemmata"
@@ -4013,25 +4135,21 @@ msgstr "Ce texte ne peut pas être affiché"
 
 #: templates/search/search.html:189
 msgid "Mehr"
-msgstr ""
+msgstr "Plus"
 
 #: templates/search/search.html:189
-#, fuzzy
 msgid "Weniger"
-msgstr "Afficher moins"
+msgstr "Moins"
 
 #: templates/search/search.html:189
-#, fuzzy
 msgid ""
 "Dieses Regest unterliegt dem Urheberrecht und ist online nicht verfügbar."
 " Bitte konsultieren Sie das Regest in der gedruckten Ausgabe."
-msgstr ""
-"Ce texte est protégé par le droit d'auteur et n'est donc pas disponible "
-"en ligne. Veuillez le consulter au format imprimé."
+msgstr "Ce régeste est protégé par les droits de propriété intellectuelle. Prière de consulter le régeste dans la version imprimée."
 
 #: templates/search/search.html:189
 msgid "Regest kann nicht angezeigt werden"
-msgstr ""
+msgstr "Le régeste ne peut pas être affiché."
 
 #: templates/search/search_box.html:2
 msgid "Die einfache Suche"
