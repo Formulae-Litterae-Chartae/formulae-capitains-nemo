@@ -1565,11 +1565,11 @@ msgstr "Vers les groupes comprenant des éléments similaires"
 
 #: templates/main/charter_formulae.html:24
 msgid "Zu den Entsprechungen zwischen verschiedenen "
-msgstr "Vers les correspondances entre divers"
+msgstr "Vers les correspondances entre divers "
 
 #: templates/main/charter_formulae.html:28
 msgid "Zu den Entsprechungen zwischen Urkunden und "
-msgstr "Vers les correspondances entre des chartes et"
+msgstr "Vers les correspondances entre des chartes et "
 
 #: templates/main/charter_group_table.html:5
 #: templates/main/charter_group_table.html:607
