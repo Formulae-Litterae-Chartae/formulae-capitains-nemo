@@ -9,12 +9,13 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     POSTS_PER_PAGE = 10
-    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL').split(';')
+    # if the environment variables ELASTICSEARCH_URL is not set; the application is starting without it
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL').split(';') if os.environ.get('ELASTICSEARCH_URL') else False
     ES_CLIENT_CERT = os.environ.get('ES_CLIENT_CERT', '')
     ES_CLIENT_KEY = os.environ.get('ES_CLIENT_KEY', '')
     LANGUAGES = ['en', 'de', 'fr']
     BABEL_DEFAULT_LOCALE = 'de'
-    CORPUS_FOLDERS = os.environ.get('CORPUS_FOLDERS').split(';') if os.environ.get('CORPUS_FOLDERS') else ["/home/matt/results/formulae"]
+    CORPUS_FOLDERS = os.environ.get('CORPUS_FOLDERS').split(';') if os.environ.get('CORPUS_FOLDERS') else ["../formulae-corpora/"]
     INFLECTED_LEM_JSONS = os.environ.get('INFLECTED_LEM_JSONS').split(';') if os.environ.get('INFLECTED_LEM_JSONS') else []
     LEM_TO_LEM_JSONS = os.environ.get('LEM_TO_LEM_JSONS').split(';') if os.environ.get('LEM_TO_LEM_JSONS') else []
     DEAD_URLS = os.environ.get('DEAD_URLS').split(';') if os.environ.get('DEAD_URLS') else []

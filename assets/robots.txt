@@ -1,0 +1,6 @@
+# robots.txt
+User-agent: *
+# AdsBot crawlers must be named explicitly
+User-agent: AdsBot-Google
+# Disallow all sites with a “+”
+Disallow: /.*\+.*
