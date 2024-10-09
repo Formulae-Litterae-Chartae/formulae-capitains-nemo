@@ -68,7 +68,8 @@ class NemoFormulae(Nemo):
         ("/charter_formulaic", "r_charter_formulaic", ["GET"]),
         ("/formulae_formulae", "r_formulae_formulae", ["GET"]),
         ("/formulae_charter", "r_formulae_charter", ["GET"]),
-        ("/collocations/<targetWord>/<word1Lemma>/<targetWord2>/<word1Type>", "r_call_word_graph_api", ["GET"])
+        ("/collocations/<targetWord>/<word1Lemma>/<targetWord2>/<word1Type>", "r_call_word_graph_api", ["GET"]),
+        ("/robots.txt", "r_robots", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -1923,6 +1924,18 @@ class NemoFormulae(Nemo):
                 '\n'.join(['<li><a href="{}" target="_blank">{}</a></li>'.format(
                     url_for("InstanceNemo.r_multipassage", objectIds=x['title'], subreferences='1'),
                     x['headline']) for x in sorted(r.json(), key=itemgetter('title'))]))
+
+    def r_robots(self):
+        """ Route for the robots.txt
+
+        :param filetype: Asset Type
+        :param asset: Filename of an asset
+        :return: Response
+        """
+        print('hier')
+        self.app.logger.debug('Try to serve robots.txt')
+        #self.r_assets('txt', 'robots.txt')
+        return send_from_directory("assets", "robots.txt")
 
     @staticmethod
     def r_impressum() -> Dict[str, str]:
