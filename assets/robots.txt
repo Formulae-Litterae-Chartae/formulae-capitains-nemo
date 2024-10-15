@@ -1,6 +1,12 @@
 # robots.txt
-## AdsBot crawlers must be named explicitly
-## According to my own observation: YandexBot, AcademicBotRTU also seem to require an explicit instruction
-User-agent: *, AdsBot-Google, Yandex, YandexBot, AcademicBotRTU
-## Disallow all sites with a “+”
+## Although the "*" should include all bots. I did observe, that certain ones do need specific instructions.
+## The goal is to disallow the crawling and automatic processing of all sites with a “+”
+## Since the site is refreshed quite infrequent, we used a Crawl-delay of 30 seconds
+User-agent: *
+User-agent: AdsBot-Google
+User-agent: Yandex
+User-agent: YandexBot
+User-agent: AcademicBotRTU
+User-agent: Googlebot
 Disallow: *+*
+Crawl-delay: 30
