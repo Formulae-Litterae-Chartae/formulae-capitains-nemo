@@ -1,6 +1,6 @@
 # robots.txt
-User-agent: *
-# AdsBot crawlers must be named explicitly
-User-agent: AdsBot-Google
-# Disallow all sites with a “+”
+## AdsBot crawlers must be named explicitly
+## According to my own observation: YandexBot, AcademicBotRTU also seem to require an explicit instruction
+User-agent: *, AdsBot-Google, Yandex, YandexBot, AcademicBotRTU
+## Disallow all sites with a “+”
 Disallow: *+*

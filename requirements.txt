@@ -27,7 +27,3 @@ reportlab>=3.5.67
 roman>=3.3
 SQLAlchemy>=1.4.15
 WTForms>=3.0.0
-
-# SPHINX requirements
-myst-parser>=4.0
-sphinx_rtd_theme>=3.0
