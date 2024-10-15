@@ -73,8 +73,16 @@ Which bots frequently crawled our website?
    * - BingBot 
      - 
      - search engine
+   * - Baiduspider
+     - https://www.baidu.com/search/robots_english.html
+     - search engine   
+   * - Nexus 5X Build/MMB29P
+     - https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers?hl=de#googlebot-smartphone 
+     - search engine
 
-
+What if a crawler ignores `robots.txt`
+~~~~~~~~~~
+https://blog.archive.org/2017/04/17/robots-txt-meant-for-search-engines-dont-work-well-for-web-archives/
 
 nginx
 #####################
