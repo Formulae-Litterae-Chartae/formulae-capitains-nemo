@@ -46,12 +46,16 @@ If you intend to make changes to the robots.txt, consider checking it's function
 
 This reduce the accesses by over 50% within one day (10k-20k 404s per hour on 09.10.24 vs 300-6k 404s per hour on 10.10.24). The most prominent of the remaining crawlers on 10.10.24 are AcademicBotRTU and YandexBot, these remained until the 15.10.24, on which I added explicit rules to block them. Since, Google needs at most `24-36 hours <https://support.google.com/webmasters/thread/70176854/how-long-does-it-take-for-google-bot-to-take-into-effect-new-robots-txt-file?hl=en>`_  to check the new robots.txt, I expect other crawlers to have the same frequency. 
 
-Why not add :code:`crawl-delay`?
+Why add :code:`crawl-delay`?
 ~~~~~~~~~~
-Well, Googlebot and Yandex wont use it. So, it wont cause any harm and is mostly just ignored. https://support.google.com/webmasters/thread/251817470/putting-crawl-delay-in-robots-txt-file-is-good?hl=en
+Well, Googlebot and Yandex wont use it. So, it wont cause any harm and is mostly just ignored. https://support.google.com/webmasters/thread/251817470/putting-crawl-delay-in-robots-txt-file-is-good?hl=en. But some do recognize it, so I have added the arbitrary limit of 30 seconds. Which is for instance recognize by the AcademicBotRTU.
+
+Why add :code:`%2B`?
+~~~~~~~~~~
+Because it is the  `Percent-encoding <https://en.wikipedia.org/wiki/Percent-encoding>`_ equivalent for '+'.
 
 
-Which bots frequently crawled our website?
+Which "good" bots frequently crawled our website?
 ~~~~~~~~~~
 
 .. list-table:: crawler-list
@@ -79,6 +83,11 @@ Which bots frequently crawled our website?
    * - Nexus 5X Build/MMB29P
      - https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers?hl=de#googlebot-smartphone 
      - search engine
+   * - CCBot
+     - ???
+     - ???
+
+
 
 What if a crawler ignores `robots.txt`
 ~~~~~~~~~~
