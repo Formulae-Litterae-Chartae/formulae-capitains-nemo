@@ -44,4 +44,13 @@ class Config(object):
     VIDEO_FOLDER = os.environ.get('VIDEO_FOLDER') or ''
     COLLATE_API_URL = os.environ.get('COLLATE_API_URL', 'http://localhost:7300')
     WORD_GRAPH_API_URL = os.environ.get('WORD_GRAPH_API_URL', '')
+    # Used to decide whether authentication is needed for certain resources (dev -> access to all without restriction; production -> restricted access for non-authenticated users)
+    SERVER_TYPE = os.environ.get('SERVER_TYPE', 'dev')
+    # Number of texts a not-authenticated user should be able to see. int > 0
+    try:
+        MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER = int(os.environ.get('MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER'))
+        if not MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER > 0:
+            MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER = 1
+    except TypeError:
+        MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER = 1
 
