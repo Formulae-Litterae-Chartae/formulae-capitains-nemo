@@ -95,3 +95,21 @@ https://blog.archive.org/2017/04/17/robots-txt-meant-for-search-engines-dont-wor
 
 nginx
 #####################
+
+
+flask
+#####################
+Controlled by the `MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USERMAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USE` environment variable, which is then used by the `r_multipassager_multipassage`-method.
+
+.. literalinclude:: ../../config.py
+   :linenos:
+   :caption: Config.py
+   :emphasize-lines: 44-49
+   :pyobject: Config
+
+
+.. literalinclude:: ../../formulae/nemo.py
+   :linenos:
+   :caption: r_multipassage()
+   :emphasize-lines: 9-14
+   :pyobject: NemoFormulae.r_multipassage

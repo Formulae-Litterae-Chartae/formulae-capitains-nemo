@@ -15,7 +15,7 @@ from formulae.search.forms import SearchForm
 from formulae.search.Search import lem_highlight_to_text, POST_TAGS, PRE_TAGS
 from formulae.auth.forms import AddSavedPageForm
 from lxml import etree
-from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error# , e_not_authorized_error
+from .errors.handlers import e_internal_error, e_not_found_error, e_unknown_collection_error, e_not_authorized_error
 import re
 from datetime import date
 from urllib.parse import quote
@@ -47,6 +47,7 @@ class NemoFormulae(Nemo):
         ("/corpus/<objectId>", "r_corpus", ["GET"]),
         ("/text/<objectId>/references", "r_references", ["GET"]),
         ("/texts/<objectIds>/passage/<subreferences>", "r_multipassage", ["GET"]),
+        ("/texts_v2/<objectIds>/passage/<subreferences>", "r_multipassage_authentication_check", ["GET"]),
         ("/add_collections/<objectIds>/<reffs>", "r_add_text_collections", ["GET"]),
         ("/add_collection/<objectId>/<objectIds>/<reffs>", "r_add_text_collection", ["GET"]),
         ("/add_text/<objectId>/<objectIds>/<reffs>", "r_add_text_corpus", ["GET"]),
@@ -98,7 +99,7 @@ class NemoFormulae(Nemo):
         # Business logic
         # "view_maker", "route", #"render",
     ]
-
+    # For more information, please see view_maker method
     PROTECTED = [
         # "r_index", "r_collections", "r_collection", "r_references", "r_multipassage", "r_lexicon",
         # "r_add_text_collections", "r_add_text_collection", "r_corpus", "r_corpus_m", "r_add_text_corpus"
@@ -315,7 +316,7 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.globals['get_locale'] = get_locale
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
-        # self.app.register_error_handler(401, e_not_authorized_error)
+        self.app.register_error_handler(401, e_not_authorized_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
         self.register_font()
@@ -1654,6 +1655,23 @@ class NemoFormulae(Nemo):
             "translations": translations + transcriptions,
             "transcriptions": transcriptions
         }
+    
+    def r_multipassage_authentication_check(self, objectIds: str, subreferences: str, lang: str = None, collate: bool = False) -> Dict[str, Any]:
+        """ Wrapper method for r_multipassage. Requires all users to be logged in, when using '+' in the query. It should eventually replace r_multipassage.
+
+        :param objectIds: Collection identifiers separated by '+'
+        :param lang: Lang in which to express main data
+        :param subreferences: Reference identifiers separated by '+'
+        :return: Template, collections metadata and Markup object representing the text
+        """
+        # Example call:
+        # /texts/urn:cts:formulae:bourges.form_a_007.lat001+urn:cts:formulae:be4.86v.lat001+urn:cts:formulae:andecavensis.form000.lat001/passage/1+1+all
+        if '+' in objectIds or '+' in subreferences:
+            if not current_user.is_authenticated:
+                if not 'dev' in self.app.config['SERVER_TYPE'].lower():
+                    abort(401)
+        return self.r_multipassage(objectIds, subreferences, lang, collate)
+        
 
     def r_multipassage(self, objectIds: str, subreferences: str, lang: str = None, collate: bool = False) -> Dict[str, Any]:
         """ Retrieve the text of the passage
@@ -1663,6 +1681,13 @@ class NemoFormulae(Nemo):
         :param subreferences: Reference identifiers separated by '+'
         :return: Template, collections metadata and Markup object representing the text
         """
+        # authentication check:
+        texts_threshold = self.app.config['MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER']
+        if (texts_threshold <= objectIds.count('+')  or texts_threshold <= subreferences.count('+')) and \
+            not current_user.is_authenticated and \
+            not 'dev' in self.app.config['SERVER_TYPE'].lower():
+                abort(401)
+
         if 'reading_format' not in session:
             session['reading_format'] = 'columns'
         ids = objectIds.split('+')
@@ -1925,16 +1950,14 @@ class NemoFormulae(Nemo):
                     url_for("InstanceNemo.r_multipassage", objectIds=x['title'], subreferences='1'),
                     x['headline']) for x in sorted(r.json(), key=itemgetter('title'))]))
 
-    def r_robots(self):
+    @staticmethod
+    def r_robots():
         """ Route for the robots.txt
 
         :param filetype: Asset Type
         :param asset: Filename of an asset
         :return: Response
         """
-        print('hier')
-        self.app.logger.debug('Try to serve robots.txt')
-        #self.r_assets('txt', 'robots.txt')
         return send_from_directory("assets", "robots.txt")
 
     @staticmethod
