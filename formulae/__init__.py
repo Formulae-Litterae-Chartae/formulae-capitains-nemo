@@ -78,6 +78,7 @@ def create_app(config_class=Config):
         app.logger.addHandler(file_handler)
         app.logger.setLevel(logging.INFO)
         app.logger.info('Formulae-Nemo startup')
+        app.logger.info('server type: '+Config.SERVER_TYPE+' (set in config.py)')
 
     from .auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix="/auth")

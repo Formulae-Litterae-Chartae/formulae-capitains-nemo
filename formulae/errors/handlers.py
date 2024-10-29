@@ -22,8 +22,7 @@ def e_unknown_collection_error(error):
                            objectId=error.args[1] if len(error.args) == 2 else '')
 
 def e_not_authorized_error(error):
-    response = "<h4>{}</h4><p>{}</p>".format(_('Sie verfügen nicht über ausreichende Berechtigung, um diese Aktion durchzuführen.'),
-                                             _('Versuchen Sie sich mit einem berechtigten Nutzeraccount einzuloggen.'))
+    response = "<h4>{}</h4>".format(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'))
     return r_display_error(401, response)
 
 
