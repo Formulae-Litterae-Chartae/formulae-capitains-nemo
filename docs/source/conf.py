@@ -3,6 +3,14 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+# https://biapol.github.io/blog/johannes_mueller/entry_sphinx/Readme.html
+import os
+import sys
+sys.path.append(os.path.abspath('../../'))
+print('Sphinx runs with the following prefix:'+sys.prefix)
+
+
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -17,10 +25,13 @@ release = '1.0'
 extensions = ['myst_parser',
               'sphinx_rtd_theme', 
               'sphinx.ext.autodoc',
-            'sphinx.ext.autosummary']
+              'sphinx.ext.autosummary']
+
+intersphinx_mapping = {'flask': ('https://docs.python.org/3', None)}
 
 templates_path = ['_templates']
 exclude_patterns = []
+
 
 
 

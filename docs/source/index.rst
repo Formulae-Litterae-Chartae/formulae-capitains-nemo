@@ -19,7 +19,7 @@ formulae-capitains-nemo documentation
    workflow
    traffic-management
    nav-bar
-   api
+   formulae-nemo
    collection
 
    
