@@ -3269,8 +3269,8 @@ msgstr "Affichage au context du manuscrit de :"
 
 #: templates/main/sub_collection.html:41 templates/main/sub_collection.html:52
 #: templates/main/sub_collection.html:57
-msgid "Zum Manuskriptinhalt"
-msgstr "Vers le contenu du manuscrit"
+msgid "Handschriftenbeschreibung"
+msgstr "Description du manuscrit"
 
 #: templates/main/sub_collection.html:59 templates/main/sub_collection.html:65
 #: templates/main/sub_collection.html:71 templates/main/sub_collection.html:77
