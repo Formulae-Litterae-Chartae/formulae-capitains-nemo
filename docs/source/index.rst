@@ -21,5 +21,8 @@ formulae-capitains-nemo documentation
    nav-bar
    formulae-nemo
    collection
+   deployment
+   data-structure
+   internationalization
 
    

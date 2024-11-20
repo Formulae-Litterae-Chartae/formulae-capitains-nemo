@@ -6,6 +6,7 @@ Internationalization
 - How to apply the changes:
 
 .. code-block:: shell
+
     source ~/envs/bin/activate
     pybabel compile -d ./translations
     compiling catalog ./translations/en/LC_MESSAGES/messages.po to ./translations/en/LC_MESSAGES/messages.mo
