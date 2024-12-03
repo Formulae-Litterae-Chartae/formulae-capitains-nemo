@@ -187,6 +187,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:saint_bénigne',
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
+                        'urn:cts:formulae:scholars',
                         'urn:cts:formulae:sg2',
                         'urn:cts:formulae:stavelot_malmedy',
                         'urn:cts:formulae:stgallen',
@@ -973,6 +974,7 @@ class NemoFormulae(Nemo):
         data = super(NemoFormulae, self).r_collection(objectId, lang=lang)
         from_four_level_collection = re.search(r'katalonien|marmoutier_manceau|marmoutier_vendomois_appendix|marmoutier_dunois|anjou_archives|other_formulae|langobarden', objectId)
         direct_parents = [x for x in self.resolver.getMetadata(objectId).parent]
+        self.app.logger.debug(str(objectId)+"'s data: "+str(data))
         if self.check_project_team() is False:
             if from_four_level_collection:
                 data['collections']['members'] = [x for x in data['collections']['members']]
@@ -984,7 +986,12 @@ class NemoFormulae(Nemo):
                 flash(_('Diese Sammlung ist nicht öffentlich zugänglich.'))
         if not from_four_level_collection and 'defaultTic' not in direct_parents and direct_parents != ['display_collection']:
             return redirect(url_for('InstanceNemo.r_corpus', objectId=objectId, lang=lang))
+        if 0 == len(data['collections']['members']):
+            self.app.logger.warn(str(objectId)+' is an empty collection')
         if len(data['collections']['members']) == 1 and objectId != 'other_formulae':
+            # "redirection collection" is a collection with only one member
+            # member is the collection, to which the redirect points 
+            self.app.logger.debug(str(objectId)+' is a redirection collection. redirect to '+str(data['collections']['members'][0]['id']))
             return redirect(url_for('InstanceNemo.r_corpus', objectId=data['collections']['members'][0]['id'], lang=lang))
         for m in data['collections']['members']:
             m['lemmatized'] = str(self.resolver.getMetadata(m['id']).metadata.get_single(self.BIBO.Annotations)) == 'Lemmas'

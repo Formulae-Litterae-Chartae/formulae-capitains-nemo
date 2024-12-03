@@ -23,6 +23,7 @@
             {% set prev_objs = _('Vorherige Formeln') %}
             {% set next_objs = _('Folgende Formeln') %}
             {% elif 'lexicon_entries' in object.collections.parent_ids %}
+            {% elif 'scholar_list' in object.collections.parent_ids %}
             {% set prev_obj = _('Vorheriger Eintrag') %}
             {% set next_obj = _('Nächster Eintrag') %}
             {% set prev_objs = _('Vorherige Einträge') %}
@@ -280,6 +281,7 @@
         <span class="dropdown-item-text">{{ _('Weitere Texte') }}</span>
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='formulae_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Formeln') }}</span></a>
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='lexicon_entries', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Lexikon') }}</span></a>
+        <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='scholar_list', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Gelehrtenverzeichnis') }}</span></a>
         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='other_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Urkunden und Briefe') }}</span></a>
     </div>
 </div>
@@ -475,6 +477,7 @@
                             {% endif %}
                                 <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='formulae_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Formeln') }}</span></a>
                                 <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='lexicon_entries', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Lexikon') }}</span></a>
+                                <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='scholar_list', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Gelehrtenverzeichnis') }}</span></a>
                                 <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='other_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Urkunden und Briefe') }}</span></a>
                             </div>
                         </div>
@@ -662,6 +665,7 @@
                                     {% endif %}
                                         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='formulae_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Formeln') }}</span></a>
                                         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='lexicon_entries', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Lexikon') }}</span></a>
+                                        <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='scholar_list', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Gelehrtenverzeichnis') }}</span></a>
                                         <a class="dropdown-item" href="{{url_for('InstanceNemo.r_add_text_collection', objectId='other_collection', objectIds=prev_texts, reffs=prev_reffs)}}">- <span class="text-primary">{{ _('Urkunden und Briefe') }}</span></a>
                                     </div>
                                 </div>

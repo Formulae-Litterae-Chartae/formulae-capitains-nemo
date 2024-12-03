@@ -13,9 +13,16 @@ formulae-capitains-nemo documentation
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
    
    workflow
    traffic-management
-   api
+   nav-bar
+   formulae-nemo
+   collection
+   deployment
+   data-structure
+   internationalization
+
+   

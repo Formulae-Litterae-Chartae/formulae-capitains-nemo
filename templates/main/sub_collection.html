@@ -38,7 +38,7 @@
     {% endif %}
     {% if collections.current.id == 'urn:cts:formulae:fu2' %}
     <br>
-    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
+    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='fulda_d1') }}">{{ _('Handschriftenbeschreibung') }}</a></h5><br>
     {% elif collections.current.id == 'urn:cts:formulae:flavigny' %}
     {% include "main::flavigny_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:bourges' %}
@@ -49,12 +49,12 @@
     {% include "main::marculfinae_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:m4' %}
     {% include "main::m4_info.html" %}
-    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='muenchen_bsb_clm_4650') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
+    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='muenchen_bsb_clm_4650') }}">{{ _('Handschriftenbeschreibung') }}</a></h5><br>
     {% elif collections.current.id == 'urn:cts:formulae:p3' %}
     {% include "main::p3_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:ka1' %}
     <br>
-    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='karlsruhe_blb_aug') }}">{{ _('Zum Manuskriptinhalt') }}</a></h5><br>
+    <h5><a class="outside-link man_desc_link" href="{{ url_for('InstanceNemo.r_man_desc', manuscript='karlsruhe_blb_aug') }}">{{ _('Handschriftenbeschreibung') }}</a></h5><br>
     {% elif collections.current.id == 'urn:cts:formulae:pippin_3' %}
     <h4>{{ _('Weitere Urkunden aus dieser Edition') }}</h4>
     <div class="row">

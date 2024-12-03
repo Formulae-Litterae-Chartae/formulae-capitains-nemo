@@ -3267,8 +3267,8 @@ msgstr "Show in Manuscript context:"
 
 #: templates/main/sub_collection.html:41 templates/main/sub_collection.html:52
 #: templates/main/sub_collection.html:57
-msgid "Zum Manuskriptinhalt"
-msgstr "Manuscript Contents"
+msgid "Handschriftenbeschreibung"
+msgstr "Manuscript Description"
 
 #: templates/main/sub_collection.html:59 templates/main/sub_collection.html:65
 #: templates/main/sub_collection.html:71 templates/main/sub_collection.html:77

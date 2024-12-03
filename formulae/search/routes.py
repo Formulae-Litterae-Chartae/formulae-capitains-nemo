@@ -260,7 +260,7 @@ def r_advanced_search():
     form.corpus.choices = form.corpus.choices + [(x['id'].split(':')[-1], x['short_title'].strip()) for y in colls.values() for x in y if 'elexicon' not in x['id']]
     coll_cats = dict()
     for k, v in colls.items():
-        if k != 'lexicon_entries':
+        if k != 'lexicon_entries' or k != 'scholar_list':
             coll_cats[k] = list()
             for x in v:
                 if x['coverage'] != 'None':

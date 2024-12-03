@@ -12,11 +12,9 @@ Varnish Cache is a...
   :alt: Alternative text
 
 Let all '+' lead to 404
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Our initial approach was to define a Varnish-rule, that basically blocked all url-accesses, with a '+' and return a `404`. This vastly stabilized the application and made it useful again.  But with Google's: `Note that returning "no availability" codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site, so follow the additional next steps` (source: `Handle overcrawling of your site (emergencies) <https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget#emergencies>`_) in mind, we should change this behavior in the future:
-
-	
+Our initial approach was to define a Varnish-rule, that basically blocked all url-accesses, with a '+' and return a `404`. This vastly stabilized the application and made it useful again.  But with Google's: `Note that returning "no availability" codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site, so follow the additional next steps` (source: `Handle overcrawling of your site (emergencies) <https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget#emergencies>`_) in mind, we should change this behavior in the future: 
 
 .. code-block:: python
    :linenos:
@@ -32,6 +30,9 @@ Our initial approach was to define a Varnish-rule, that basically blocked all ur
 
 The next step is to comment-out this rule and switch to a request limit approach as seen in https://support.platform.sh/hc/en-us/community/posts/16439617864722-Rate-limit-connections-to-your-application-using-Varnish.
 
+Before making any changes, please check the syntax of the file via :code:`varnishd -C -f /etc/varnish/default.vcl` (see this `blog post <https://cloudkul.com/knowledgebase/check-varnish-syntax>`_ ). 
+
+After changes: `service varnish reload`.  (https://stackoverflow.com/a/46088507/7924573)
 
 robots.txt
 #####################
@@ -47,16 +48,16 @@ If you intend to make changes to the robots.txt, consider checking it's function
 This reduce the accesses by over 50% within one day (10k-20k 404s per hour on 09.10.24 vs 300-6k 404s per hour on 10.10.24). The most prominent of the remaining crawlers on 10.10.24 are AcademicBotRTU and YandexBot, these remained until the 15.10.24, on which I added explicit rules to block them. Since, Google needs at most `24-36 hours <https://support.google.com/webmasters/thread/70176854/how-long-does-it-take-for-google-bot-to-take-into-effect-new-robots-txt-file?hl=en>`_  to check the new robots.txt, I expect other crawlers to have the same frequency. 
 
 Why add :code:`crawl-delay`?
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Well, Googlebot and Yandex wont use it. So, it wont cause any harm and is mostly just ignored. https://support.google.com/webmasters/thread/251817470/putting-crawl-delay-in-robots-txt-file-is-good?hl=en. But some do recognize it, so I have added the arbitrary limit of 30 seconds. Which is for instance recognize by the AcademicBotRTU.
 
 Why add :code:`%2B`?
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Because it is the  `Percent-encoding <https://en.wikipedia.org/wiki/Percent-encoding>`_ equivalent for '+'.
 
 
 Which "good" bots frequently crawled our website?
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table:: crawler-list
    :widths: 25 25 25
@@ -90,7 +91,7 @@ Which "good" bots frequently crawled our website?
 
 
 What if a crawler ignores `robots.txt`
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 https://blog.archive.org/2017/04/17/robots-txt-meant-for-search-engines-dont-work-well-for-web-archives/
 
 nginx
@@ -99,7 +100,18 @@ nginx
 
 flask
 #####################
-Controlled by the `MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USERMAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USE` environment variable, which is then used by the `r_multipassager_multipassage`-method.
+Controlled by the `MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USE` environment variable, which is then used by the `r_multipassager_multipassage`-method.
+
+Per default it is set to 'dev', so authentication is not required. If you want to activate the authentication required-process, please set it to 'production'. Create or modify the `.env`-file in the root directory. With the following variables:
+
+
+.. code-block:: python
+
+  SERVER_TYPE = "production"
+  MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER = 1 
+
+
+
 
 .. literalinclude:: ../../config.py
    :linenos:

@@ -20,7 +20,7 @@ Further information:
     2. activate the virtualenv (e.g., `source ~/envs/bin/activate`) 
     3. install the requirements via `pip install -r requirements.txt` within in the venv and from the `formulae-capitains-nemo` folder 
 3. If the requirements have been installed properly, you can launch `python app.py` within the env and in `formulae-capitains-nemo` folder 
-4. Reach the site via [localhost:5000](localhost:5000)
+4. Reach the site via [127.0.0.1:5000](http://127.0.0.1:5000)
 5. Only if needed: Set the environment variable `CORPUS_FOLDERS` and re-start the app.
 
 ### How are static files handled?
