@@ -100,7 +100,7 @@ nginx
 
 flask
 #####################
-Controlled by the `MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USE` environment variable, which is then used by the `r_multipassager_multipassage`-method.
+Controlled by the `MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER` environment variable, which is then used by the `r_multipassager_multipassage`-method.
 
 Per default it is set to 'dev', so authentication is not required. If you want to activate the authentication required-process, please set it to 'production'. Create or modify the `.env`-file in the root directory. With the following variables:
 
@@ -109,6 +109,7 @@ Per default it is set to 'dev', so authentication is not required. If you want t
 
   SERVER_TYPE = "production"
   MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER = 1 
+
 
 
 

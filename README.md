@@ -13,8 +13,8 @@ Further information:
 
 ## Runnning the app locally:
 1. Clone the repositories:
-    1. formulae-capitains-nemo (code-base) 
-    2. formulae-corpora (texts) (ideally in the same folder e.g., `git` as the code base)
+    1. `git clone formulae-capitains-nemo` (code-base) 
+    2. `git clone formulae-corpora` (texts) (ideally in the same folder e.g., `git` as the code base)
 2. Setup the environment:
     1. Create a Python virtualenv (e.g., `virtualenv --python=python3 ~/envs`), 
     2. activate the virtualenv (e.g., `source ~/envs/bin/activate`) 
@@ -31,3 +31,10 @@ https://flask.palletsprojects.com/en/2.3.x/quickstart/#static-files
     - For Debin/Ubuntu the [OS-specific package manager](https://www.sphinx-doc.org/en/master/usage/installation.html#os-specific-package-manager) worked best
 2. Build the project: `sphinx-build -M html docs/source/ docs/build/`
 3. Open `docs/build/html/index.html` with your preferred browser: `firefox docs/build/html/index.html`
+
+## How to change/add translations:
+```
+pybabel compile -d translations
+pybabel extract -F babel.cfg -k _l -o messages.pot .
+pybabel update -i messages.pot -d translations 
+```
