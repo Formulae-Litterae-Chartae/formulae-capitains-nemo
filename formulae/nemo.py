@@ -94,9 +94,7 @@ class NemoFormulae(Nemo):
         "r_index",
         # Controllers
         # Inherited from https://github.com/Capitains/flask-capitains-nemo/blob/982df8e89bf447235f8106e2b5c18d9e35be539a/flask_nemo/__init__.py#L405
-        "get_inventory", "get_collection", "get_reffs", 
-        #"get_passage", 
-        "get_siblings", "get_open_texts", "get_all_corpora",
+        "get_inventory", "get_collection", "get_reffs", "get_passage", "get_siblings", "get_open_texts", "get_all_corpora",
         # Translator
         "semantic", "make_coins", "expose_ancestors_or_children", "make_members", "transform",
         # Business logic
@@ -2199,7 +2197,7 @@ class NemoFormulae(Nemo):
         flowables.append(Paragraph(doc_title, sample_style_sheet['Heading1']))
         hist_note_num = 1
         ## Add each paragraph from the xml file to pdf
-        from formulae.pdf_creation import str_from_xml_paragraph
+        from formulae.services.pdf_service import str_from_xml_paragraph
         for paragraph in transformed_xml.xpath('/div/div/p'):
             flowables.append(Paragraph(re.sub(u'\u200c', '', str_from_xml_paragraph(paragraph)), sample_style_sheet['BodyText']))
         

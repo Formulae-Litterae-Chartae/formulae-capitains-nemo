@@ -14,7 +14,6 @@ def _str_from_xml_element(p:str, xml_element: Element) -> str:
     if isinstance(xml_element, etree._ElementUnicodeResult):
         p += xml_element.replace('<', '&lt;').replace('>', '&gt;')
     elif c_class and 'w' in c_class.split():
-        print('c\n',c_class,xml_element.text)
         opening_tag = ''
         closing_tag = ''
         if 'font-italic' in c_class or 'latin-word' in c_class:
@@ -32,7 +31,6 @@ def _str_from_xml_element(p:str, xml_element: Element) -> str:
         if 'subscript' in c_class:
             opening_tag += '<sub>'
             closing_tag = '</sub>' + closing_tag
-        print(c_class, c_text)
         p += opening_tag + c_text + closing_tag
     elif xml_element.xpath('./span') and xml_element.xpath('./span')[0].get('class') and 'w' in xml_element.xpath('./span')[0].get('class').split():
         opening_tag = ''
@@ -70,7 +68,7 @@ def _str_from_xml_element(p:str, xml_element: Element) -> str:
 def str_from_xml_paragraph(paragraph: Element) -> str:
     """
     Extract the words from all child and grandchild nodes of the paragraph.
-    :param paragraph: the URN of the text to transform
+    :param paragraph: 
     :return paragraph_str: String representation of all words in the paragraph.
     """
     paragraph_str = ''
@@ -82,3 +80,4 @@ def str_from_xml_paragraph(paragraph: Element) -> str:
             for grandchild_node in child_node.xpath('child::node()'):
                 paragraph_str = _str_from_xml_element(paragraph_str, grandchild_node)
     return paragraph_str
+
