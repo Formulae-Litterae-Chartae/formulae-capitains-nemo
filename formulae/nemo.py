@@ -2199,106 +2199,9 @@ class NemoFormulae(Nemo):
         flowables.append(Paragraph(doc_title, sample_style_sheet['Heading1']))
         hist_note_num = 1
         ## Add each paragraph from the xml file to pdf
-
-        def str_from_xml_elemt(p:str, xml_element: Element) -> str:
-            """
-            Extract all words from lxml-Element
-            """
-            c_class = None
-            c_text = ''
-            if isinstance(xml_element, etree._Element):
-                c_class = xml_element.get('class')
-                c_text = xml_element.text.replace('<', '&lt;').replace('>', '&gt;') if xml_element.text else ''
-            
-            if isinstance(xml_element, etree._ElementUnicodeResult):
-                p += xml_element.replace('<', '&lt;').replace('>', '&gt;')
-            elif c_class and 'w' in c_class.split():
-                print('c\n',c_class,xml_element.text)
-                opening_tag = ''
-                closing_tag = ''
-                if 'font-italic' in c_class or 'latin-word' in c_class:
-                    opening_tag += '<i>'
-                    closing_tag = '</i>' + closing_tag
-                if xml_element.get('lemma') and 'platzhalter' in xml_element.get('lemma'):
-                    opening_tag += '<b>'
-                    closing_tag = '</b>' + closing_tag
-                if 'line-through' in c_class:
-                    opening_tag += '<strike>'
-                    closing_tag = '</strike>' + closing_tag
-                if 'superscript' in c_class:
-                    opening_tag += '<super>'
-                    closing_tag = '</super>' + closing_tag
-                if 'subscript' in c_class:
-                    opening_tag += '<sub>'
-                    closing_tag = '</sub>' + closing_tag
-                print(c_class, c_text)
-                p += opening_tag + c_text + closing_tag
-            elif xml_element.xpath('./span') and xml_element.xpath('./span')[0].get('class') and 'w' in xml_element.xpath('./span')[0].get('class').split():
-                opening_tag = ''
-                closing_tag = ''
-                word_span = xml_element.xpath('./span')[0]
-                c_class = word_span.get('class')
-                c_text = word_span.text
-                if 'font-italic' in c_class or 'latin-word' in c_class:
-                    opening_tag += '<i>'
-                    closing_tag = '</i>' + closing_tag
-                if word_span.get('lemma') and 'platzhalter' in word_span.get('lemma'):
-                    opening_tag += '<b>'
-                    closing_tag = '</b>' + closing_tag
-                if 'line-through' in c_class:
-                    opening_tag += '<strike>'
-                    closing_tag = '</strike>' + closing_tag
-                if 'superscript' in c_class:
-                    opening_tag += '<super>'
-                    closing_tag = '</super>' + closing_tag
-                if 'subscript' in c_class:
-                    opening_tag += '<sub>'
-                    closing_tag = '</sub>' + closing_tag
-                p += opening_tag + c_text + closing_tag
-            elif xml_element.xpath('./a[@type="a1"]') or xml_element.xpath('./a[@type="n1"]'):
-                note_num = xml_element.xpath('./a[@class="note"]')[0].text
-                p += '<sup>{}</sup>'.format(note_num)
-            elif c_class and xml_element.xpath('self::span[contains(@class, "right-note-tooltip")]|./a[@class="note"]'):
-                if xml_element.xpath('self::span[contains(@class, "right-note-tooltip")]'):
-                    text_to_add = ''.join(xml_element.xpath('./text()')).replace('<', '&lt;').replace('>', '&gt;')
-                    p += text_to_add
-                p += '<sup>{}</sup>'.format(hist_note_num)
-                hist_note_num += 1
-            return p
-        ### log the pdf content for debugging purposes
-        logging_count=0
-        from xml.etree.ElementTree import ElementTree
-        logging_tree = ElementTree()
-        logging_tree._setroot(transformed_xml)
-        logging_tree.write(file_or_filename='./logs/transformed_xml_{}.txt'.format(logging_count))
-        ###
-        
+        from formulae.pdf_creation import str_from_xml_paragraph
         for paragraph in transformed_xml.xpath('/div/div/p'):
-            p = ''
-            # I think this lines has a major impact on issue #1066
-            #for child_node in paragraph.xpath('child::node()'):
-            # I think this lines has a major impact on issue #1066
-            #for child_node in paragraph.xpath('descendant::node()'):
-            for child_node in paragraph.xpath('child::node()'):
-                # if not isinstance(child_node, etree._ElementUnicodeResult):
-                #     logging_count +=1
-                #     logging_tree = ElementTree()
-                #     logging_tree._setroot(child_node)
-                #     logging_tree.write(file_or_filename='./logs/transformed_xml_{}.txt'.format(logging_count))
-                # p = str_from_xml_elemt(p, child_node)
-                # print('p\n',p)
-                if isinstance(child_node, etree._ElementUnicodeResult):
-                    p = str_from_xml_elemt(p, child_node)
-                else:
-                    for grandchild_node in child_node.xpath('child::node()'):
-                        if not isinstance(grandchild_node, etree._ElementUnicodeResult):
-                            logging_count +=1
-                            logging_tree = ElementTree()
-                            logging_tree._setroot(grandchild_node)
-                            logging_tree.write(file_or_filename='./logs/transformed_xml_{}.txt'.format(logging_count))
-                        p = str_from_xml_elemt(p, grandchild_node)
-                print('grandchild_node\n',p)
-            flowables.append(Paragraph(re.sub(u'\u200c', '', p), sample_style_sheet['BodyText']))
+            flowables.append(Paragraph(re.sub(u'\u200c', '', str_from_xml_paragraph(paragraph)), sample_style_sheet['BodyText']))
         
         if transformed_xml.xpath('/div/div/p/sup/a[@type="a1"]'):
             flowables.append(Spacer(1, 5))
@@ -2370,7 +2273,6 @@ class NemoFormulae(Nemo):
                 flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
         if self.check_project_team() is False and is_formula is True:
             flowables.append(encryption)
-        print('flowables\n',flowables)
         my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
