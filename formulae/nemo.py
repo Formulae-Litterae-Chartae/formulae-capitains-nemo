@@ -93,7 +93,10 @@ class NemoFormulae(Nemo):
         # Routes
         "r_index",
         # Controllers
-        "get_inventory", "get_collection", "get_reffs", "get_passage", "get_siblings", "get_open_texts", "get_all_corpora",
+        # Inherited from https://github.com/Capitains/flask-capitains-nemo/blob/982df8e89bf447235f8106e2b5c18d9e35be539a/flask_nemo/__init__.py#L405
+        "get_inventory", "get_collection", "get_reffs", 
+        #"get_passage", 
+        "get_siblings", "get_open_texts", "get_all_corpora",
         # Translator
         "semantic", "make_coins", "expose_ancestors_or_children", "make_members", "transform",
         # Business logic
@@ -2111,17 +2114,19 @@ class NemoFormulae(Nemo):
         return str(notes_html)
 
     def r_pdf(self, objectId: str) -> Response:
-        """Produces a PDF from the objectId for download and then delivers it
+        """Produces a PDF from the objectId for download and then delivers it.
+
+        If the objectId is not part of the open_texts a pdf only generated if project member tries to access it.
 
         :param objectId: the URN of the text to transform
         :return:
         """
+        from xml.etree.ElementTree import Element
         if self.check_project_team() is False and objectId not in self.open_texts:
             flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
             return redirect(url_for('InstanceNemo.r_index'))
         metadata = self.resolver.getMetadata(objectId=objectId)
         is_formula = 'formulae_collection' in metadata.ancestors
-
         def add_citation_info(canvas, doc):
             cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
             cit_string = re.sub(r'\s+', ' ', cit_string)
@@ -2151,9 +2156,10 @@ class NemoFormulae(Nemo):
             canvas.drawCentredString(doc.pagesize[0] / 2, 0.75 * inch, '{}'.format(doc.page))
             canvas.restoreState()
         new_subref = self.get_reffs(objectId)[0][0]
-        text = self.get_passage(objectId=objectId, subreference=new_subref)
+        text: InteractiveTextualNode = self.get_passage(objectId=objectId, subreference=new_subref)
         transformed_str = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId).replace('<?xml version="1.0" encoding="UTF-8"?>', '')
-        transformed_xml = etree.fromstring(transformed_str)
+        transformed_xml: Element = etree.fromstring(transformed_str)
+
         pdf_buffer = BytesIO()
         doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>',
                            r'<sub>\1</sub>',
@@ -2167,6 +2173,7 @@ class NemoFormulae(Nemo):
             if char in trans_table:
                 new_char = trans_table[char]
             filename += new_char
+        # Create the pdf-document
         my_doc = SimpleDocTemplate(pdf_buffer, title=description)
         sample_style_sheet = getSampleStyleSheet()
         custom_style = copy(sample_style_sheet['Normal'])
@@ -2188,83 +2195,125 @@ class NemoFormulae(Nemo):
                                         canCopy=0,
                                         canModify=0)
         flowables = list()
+        ## Add the first paragraph containing the title etc.
         flowables.append(Paragraph(doc_title, sample_style_sheet['Heading1']))
         hist_note_num = 1
+        ## Add each paragraph from the xml file to pdf
+
+        def str_from_xml_elemt(p:str, xml_element: Element) -> str:
+            """
+            Extract all words from lxml-Element
+            """
+            c_class = None
+            c_text = ''
+            if isinstance(xml_element, etree._Element):
+                c_class = xml_element.get('class')
+                c_text = xml_element.text.replace('<', '&lt;').replace('>', '&gt;') if xml_element.text else ''
+            
+            if isinstance(xml_element, etree._ElementUnicodeResult):
+                p += xml_element.replace('<', '&lt;').replace('>', '&gt;')
+            elif c_class and 'w' in c_class.split():
+                print('c\n',c_class,xml_element.text)
+                opening_tag = ''
+                closing_tag = ''
+                if 'font-italic' in c_class or 'latin-word' in c_class:
+                    opening_tag += '<i>'
+                    closing_tag = '</i>' + closing_tag
+                if xml_element.get('lemma') and 'platzhalter' in xml_element.get('lemma'):
+                    opening_tag += '<b>'
+                    closing_tag = '</b>' + closing_tag
+                if 'line-through' in c_class:
+                    opening_tag += '<strike>'
+                    closing_tag = '</strike>' + closing_tag
+                if 'superscript' in c_class:
+                    opening_tag += '<super>'
+                    closing_tag = '</super>' + closing_tag
+                if 'subscript' in c_class:
+                    opening_tag += '<sub>'
+                    closing_tag = '</sub>' + closing_tag
+                print(c_class, c_text)
+                p += opening_tag + c_text + closing_tag
+            elif xml_element.xpath('./span') and xml_element.xpath('./span')[0].get('class') and 'w' in xml_element.xpath('./span')[0].get('class').split():
+                opening_tag = ''
+                closing_tag = ''
+                word_span = xml_element.xpath('./span')[0]
+                c_class = word_span.get('class')
+                c_text = word_span.text
+                if 'font-italic' in c_class or 'latin-word' in c_class:
+                    opening_tag += '<i>'
+                    closing_tag = '</i>' + closing_tag
+                if word_span.get('lemma') and 'platzhalter' in word_span.get('lemma'):
+                    opening_tag += '<b>'
+                    closing_tag = '</b>' + closing_tag
+                if 'line-through' in c_class:
+                    opening_tag += '<strike>'
+                    closing_tag = '</strike>' + closing_tag
+                if 'superscript' in c_class:
+                    opening_tag += '<super>'
+                    closing_tag = '</super>' + closing_tag
+                if 'subscript' in c_class:
+                    opening_tag += '<sub>'
+                    closing_tag = '</sub>' + closing_tag
+                p += opening_tag + c_text + closing_tag
+            elif xml_element.xpath('./a[@type="a1"]') or xml_element.xpath('./a[@type="n1"]'):
+                note_num = xml_element.xpath('./a[@class="note"]')[0].text
+                p += '<sup>{}</sup>'.format(note_num)
+            elif c_class and xml_element.xpath('self::span[contains(@class, "right-note-tooltip")]|./a[@class="note"]'):
+                if xml_element.xpath('self::span[contains(@class, "right-note-tooltip")]'):
+                    text_to_add = ''.join(xml_element.xpath('./text()')).replace('<', '&lt;').replace('>', '&gt;')
+                    p += text_to_add
+                p += '<sup>{}</sup>'.format(hist_note_num)
+                hist_note_num += 1
+            return p
+        ### log the pdf content for debugging purposes
+        logging_count=0
+        from xml.etree.ElementTree import ElementTree
+        logging_tree = ElementTree()
+        logging_tree._setroot(transformed_xml)
+        logging_tree.write(file_or_filename='./logs/transformed_xml_{}.txt'.format(logging_count))
+        ###
+        
         for paragraph in transformed_xml.xpath('/div/div/p'):
             p = ''
-            for c in paragraph.xpath('child::node()'):
-                c_class = None
-                c_text = ''
-                if isinstance(c, etree._Element):
-                    c_class = c.get('class')
-                    c_text = c.text.replace('<', '&lt;').replace('>', '&gt;') if c.text else ''
-                if isinstance(c, etree._ElementUnicodeResult):
-                    p += c.replace('<', '&lt;').replace('>', '&gt;')
-                elif c_class and 'w' in c_class.split():
-                    opening_tag = ''
-                    closing_tag = ''
-                    if 'font-italic' in c_class or 'latin-word' in c_class:
-                        opening_tag += '<i>'
-                        closing_tag = '</i>' + closing_tag
-                    if c.get('lemma') and 'platzhalter' in c.get('lemma'):
-                        opening_tag += '<b>'
-                        closing_tag = '</b>' + closing_tag
-                    if 'line-through' in c_class:
-                        opening_tag += '<strike>'
-                        closing_tag = '</strike>' + closing_tag
-                    if 'superscript' in c_class:
-                        opening_tag += '<super>'
-                        closing_tag = '</super>' + closing_tag
-                    if 'subscript' in c_class:
-                        opening_tag += '<sub>'
-                        closing_tag = '</sub>' + closing_tag
-                    p += opening_tag + c_text + closing_tag
-                elif c.xpath('./span') and c.xpath('./span')[0].get('class') and 'w' in c.xpath('./span')[0].get('class').split():
-                    opening_tag = ''
-                    closing_tag = ''
-                    word_span = c.xpath('./span')[0]
-                    c_class = word_span.get('class')
-                    c_text = word_span.text
-                    if 'font-italic' in c_class or 'latin-word' in c_class:
-                        opening_tag += '<i>'
-                        closing_tag = '</i>' + closing_tag
-                    if word_span.get('lemma') and 'platzhalter' in word_span.get('lemma'):
-                        opening_tag += '<b>'
-                        closing_tag = '</b>' + closing_tag
-                    if 'line-through' in c_class:
-                        opening_tag += '<strike>'
-                        closing_tag = '</strike>' + closing_tag
-                    if 'superscript' in c_class:
-                        opening_tag += '<super>'
-                        closing_tag = '</super>' + closing_tag
-                    if 'subscript' in c_class:
-                        opening_tag += '<sub>'
-                        closing_tag = '</sub>' + closing_tag
-                    p += opening_tag + c_text + closing_tag
-                elif c.xpath('./a[@type="a1"]') or c.xpath('./a[@type="n1"]'):
-                    note_num = c.xpath('./a[@class="note"]')[0].text
-                    p += '<sup>{}</sup>'.format(note_num)
-                elif c_class and c.xpath('self::span[contains(@class, "right-note-tooltip")]|./a[@class="note"]'):
-                    if c.xpath('self::span[contains(@class, "right-note-tooltip")]'):
-                        text_to_add = ''.join(c.xpath('./text()')).replace('<', '&lt;').replace('>', '&gt;')
-                        p += text_to_add
-                    p += '<sup>{}</sup>'.format(hist_note_num)
-                    hist_note_num += 1
+            # I think this lines has a major impact on issue #1066
+            #for child_node in paragraph.xpath('child::node()'):
+            # I think this lines has a major impact on issue #1066
+            #for child_node in paragraph.xpath('descendant::node()'):
+            for child_node in paragraph.xpath('child::node()'):
+                # if not isinstance(child_node, etree._ElementUnicodeResult):
+                #     logging_count +=1
+                #     logging_tree = ElementTree()
+                #     logging_tree._setroot(child_node)
+                #     logging_tree.write(file_or_filename='./logs/transformed_xml_{}.txt'.format(logging_count))
+                # p = str_from_xml_elemt(p, child_node)
+                # print('p\n',p)
+                if isinstance(child_node, etree._ElementUnicodeResult):
+                    p = str_from_xml_elemt(p, child_node)
+                else:
+                    for grandchild_node in child_node.xpath('child::node()'):
+                        if not isinstance(grandchild_node, etree._ElementUnicodeResult):
+                            logging_count +=1
+                            logging_tree = ElementTree()
+                            logging_tree._setroot(grandchild_node)
+                            logging_tree.write(file_or_filename='./logs/transformed_xml_{}.txt'.format(logging_count))
+                        p = str_from_xml_elemt(p, grandchild_node)
+                print('grandchild_node\n',p)
             flowables.append(Paragraph(re.sub(u'\u200c', '', p), sample_style_sheet['BodyText']))
+        
         if transformed_xml.xpath('/div/div/p/sup/a[@type="a1"]'):
             flowables.append(Spacer(1, 5))
             flowables.append(HRFlowable())
             flowables.append(Spacer(1, 5))
             for app_note in transformed_xml.xpath('/div/div/p/sup/a[@type="a1"]'):
                 n = '<sup>{}</sup>'.format(app_note.text)
-                for c in app_note.xpath('./span[@hidden="true"]/child::node()'):
+                for child_node in app_note.xpath('./span[@hidden="true"]/child::node()'):
                     c_class = None
                     c_text = ''
-                    if isinstance(c, etree._Element):
-                        c_class = c.get('class')
-                        c_text = c.text if c.text else ''
-                    if isinstance(c, etree._ElementUnicodeResult):
-                        n += c
+                    if isinstance(child_node, etree._Element):
+                        c_class = child_node.get('class')
+                        c_text = child_node.text if child_node.text else ''
+                    if isinstance(child_node, etree._ElementUnicodeResult):
+                        n += child_node
                     elif c_class:
                         opening_tag = ''
                         closing_tag = ''
@@ -2292,14 +2341,14 @@ class NemoFormulae(Nemo):
             for app_note in transformed_xml.xpath('/div/div/p/sup/a[not(@type="a1")]|/div/div/p/span[contains(@class, "right-note-tooltip")]'):
                 n = '<sup>{}</sup>'.format(hist_note_num)
                 hist_note_num += 1
-                for c in app_note.xpath('./span[@hidden="true"]/child::node()'):
+                for child_node in app_note.xpath('./span[@hidden="true"]/child::node()'):
                     c_class = None
                     c_text = ''
-                    if isinstance(c, etree._Element):
-                        c_class = c.get('class')
-                        c_text = c.text if c.text else ''
-                    if isinstance(c, etree._ElementUnicodeResult):
-                        n += c
+                    if isinstance(child_node, etree._Element):
+                        c_class = child_node.get('class')
+                        c_text = child_node.text if child_node.text else ''
+                    if isinstance(child_node, etree._ElementUnicodeResult):
+                        n += child_node
                     elif c_class:
                         opening_tag = ''
                         closing_tag = ''
@@ -2321,6 +2370,7 @@ class NemoFormulae(Nemo):
                 flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
         if self.check_project_team() is False and is_formula is True:
             flowables.append(encryption)
+        print('flowables\n',flowables)
         my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
         pdf_value = pdf_buffer.getvalue()
         pdf_buffer.close()
