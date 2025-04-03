@@ -146,6 +146,8 @@
         <h5>Capitulationes</h5>
         {% elif collections.current.id == 'urn:cts:formulae:bourges' %}
         <h5>{{ _('Formeln aus') }} <b>P<span class="manuscript-number">16</span><span class="verso-recto">c</span></b> + <b>Be<span class="manuscript-number">4</span></b></h5>
+        {% elif collections.current.id == 'urn:cts:formulae:sens' %}
+        <h5><b> Sens A</b></h5>
         {% endif %}
         {% if 'non_display_collection' in collections.parent_ids %}
             {% for number, values in collections.readable.items() %}
@@ -167,7 +169,12 @@
                 {% elif number == "c_001a" %}
                 <h5 class="mt-1">{{ _('Eigenständiges Material aus') }} <b>Le<span class="subscript smaller-text">1</span></b></h5>
                 {% endif %}
+            {% elif collections.current.id == 'urn:cts:formulae:sens' %}
+                {% if number == 'b_001' %}
+                <h5 class="mt-1"><b> Sens B</b></h5>
+                {% endif %}
             {% endif %}
+
             {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzung 1,1" %}
             <br>
             {% endif %}

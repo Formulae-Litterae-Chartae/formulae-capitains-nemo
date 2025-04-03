@@ -73,6 +73,7 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Rheinland</b>: Rheinisch': {'match': {'collection': 'form_lit_chart-rheinisch'}},
                                       '<b>Salzburg</b>: Salzburg': {'match': {'collection': 'form_lit_chart-salzburg'}},
                                       '<b>Schäftlarn</b>: Schäftlarn': {'match': {'collection': 'form_lit_chart-schaeftlarn'}},
+                                      '<b>Sens</b>: Sens': {'match': {'collection': 'form_lit_chart-sens'}},
                                       '<b>Stavelot/Malmedy</b>: Stavelot-Malmedy': {'match': {'collection': 'form_lit_chart-stavelot_malmedy'}},
                                       '<b>St. Gallen</b>: St. Gallen': {'match': {'collection': 'form_lit_chart-stgallen'}},
                                       "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {'match': {'collection': 'form_lit_chart-marmoutier_barthelemy'}},
