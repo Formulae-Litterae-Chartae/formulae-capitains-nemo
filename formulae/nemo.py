@@ -189,6 +189,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:scholars',
+                        'urn:cts:formulae:sens', # just for debugging purposes. SENS IS NOT OPEN
                         'urn:cts:formulae:sg2',
                         'urn:cts:formulae:stavelot_malmedy',
                         'urn:cts:formulae:stgallen',
@@ -613,7 +614,9 @@ class NemoFormulae(Nemo):
                             par = '0' + par
                     elif 'formulae:bourges.' in form_num:
                         par = re.sub(r'.*form_(\w_.*)', r'\1', form_num)
-                    if par.endswith('000'):
+                    elif 'formulae:sens.' in form_num:
+                        par = re.sub(r'.*form_(\w_.*)', r'\1', form_num)
+                    if par.endswith('000') and not 'formulae:sens.' in form_num:
                         par = par.replace('000', _('(Prolog)'))
                     par = par.replace('capitula', '0')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
@@ -624,6 +627,13 @@ class NemoFormulae(Nemo):
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         elif 'formulae:bourges.' in m.id:
             par = re.sub(r'.*form_(\w_.*)', r'\1', list(m.parent)[0])
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
+        
+        elif 'formulae:sens.' in m.id:
+            # -> "a_001"
+            self.app.logger.debug("m.i={}".format(m.id))
+            par = re.sub(r'.*form_(a|b)', r'\1', list(m.parent)[0])
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:

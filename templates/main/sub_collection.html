@@ -43,6 +43,8 @@
     {% include "main::flavigny_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:bourges' %}
     {% include "main::bourges_info.html" %}
+    {% elif collections.current.id == 'urn:cts:formulae:sens' %}
+    {% include "main::sens_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:tours_ueberarbeitung' %}
     {% include "main::tours_ueberarbeitung_info.html" %}
     {% elif collections.current.id == 'urn:cts:formulae:formulae_marculfinae' %}
@@ -139,6 +141,7 @@
             <h5 class="mt-1">{{ ns.codex }}</h5>
             {% endif %}
             {% endif %}
+            <!-- Each item in the collection gets its own button -->
             <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number[0]}}">{{number[1][1]}}</a>
         {% endfor %}
     {% else %}
