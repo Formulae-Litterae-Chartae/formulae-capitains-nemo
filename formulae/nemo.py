@@ -140,6 +140,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:ka1',
                         'urn:cts:formulae:karl_der_grosse',
                         'urn:cts:formulae:karlmann_mgh',
+                        'urn:cts:formulae:ko1',
                         'urn:cts:formulae:ko2',
                         'urn:cts:formulae:konrad_mgh',
                         # 'urn:cts:formulae:langobardisch', # needs correction
@@ -151,7 +152,9 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:ludwig_2',
                         'urn:cts:formulae:ludwig_der_juengere',
                         'urn:cts:formulae:luzern',
+                        'urn:cts:formulae:m1',
                         'urn:cts:formulae:m4',
+                        'urn:cts:formulae:m15',
                         'urn:cts:formulae:marculf',
                         'urn:cts:formulae:marmoutier_blésois',
                         'urn:cts:formulae:marmoutier_dunois',
@@ -1699,6 +1702,7 @@ class NemoFormulae(Nemo):
         :param subreferences: Reference identifiers separated by '+'
         :return: Template, collections metadata and Markup object representing the text
         """
+        self.app.logger.debug('Do you see me?')
         # authentication check:
         texts_threshold = self.app.config['MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER']
         if (texts_threshold <= objectIds.count('+')  or texts_threshold <= subreferences.count('+')) and \
@@ -1720,12 +1724,12 @@ class NemoFormulae(Nemo):
         if len(subrefers) != len(ids):
             abort(404)
         for i, id in enumerate(ids):
-            v = False
+            manifest_requested = False
             if id in self.dead_urls:
                 id = self.dead_urls[id]
             if "manifest:" in id:
                 id = re.sub(r'^manifest:', '', id)
-                v = True
+                manifest_requested = True
             if self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] in ["all", 'first']:
                     subref = self.get_reffs(id)[0][0]
@@ -1752,7 +1756,7 @@ class NemoFormulae(Nemo):
                 for x in d.pop('translations', None):
                     if x[0].id not in ids and x not in translations[id]:
                         translations[id].append(x)
-                if v:
+                if manifest_requested:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     formulae = dict()
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
@@ -1777,12 +1781,14 @@ class NemoFormulae(Nemo):
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
                         this_manifest = json_load(f)
+                    self.app.logger.warn("this_manifest['@id'] {}".format(this_manifest['@id']))
                     if 'fuldig.hs-fulda.de' in this_manifest['@id']:
                         # This works for resources from https://fuldig.hs-fulda.de/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering'][1]['@id']
                     elif 'gallica.bnf.fr' in this_manifest['@id']:
                         # This link needs to be constructed from the thumbnail link for images from https://gallica.bnf.fr/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['thumbnail']['@id'].replace('.thumbnail', '')
+                        self.app.logger.warn("gallica.bnf.fr: lib_link created:{}".format(d['lib_link']))
                     elif 'api.digitale-sammlungen.de' in this_manifest['@id']:
                         # This works for resources from the Bayerische Staatsbibliothek
                         # (and perhaps other German digital libraries?)
@@ -1803,6 +1809,9 @@ class NemoFormulae(Nemo):
                     elif 'www.e-codices.unifr.ch' in this_manifest['@id']:
                         # This works for resources from the E-Codices
                         d['lib_link'] = this_manifest['related'].replace('/list/one', '') + '/' + this_manifest['sequences'][0]['canvases'][0]['label']
+                    
+                    self.app.logger.debug(msg="lib_link: {}".format(d['lib_link']))
+                    
                     folios = re.sub(r'(\d+)([rvab]{1,2})', r'\1<span class="verso-recto">\2</span>',
                                     this_manifest['sequences'][0]['canvases'][0]['label'])
                     if len(this_manifest['sequences'][0]['canvases']) > 1:
@@ -1822,6 +1831,8 @@ class NemoFormulae(Nemo):
                                                 t_title + ' (' + t_siglum + ')',
                                                 t_partOf))
 
+                    
+                    self.app.logger.warn(msg='d["IIIFviewer"]: {}'.format(d["IIIFviewer"]))
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]
                         if result_ids and any([x.get('highlight') for x in result_ids]):
