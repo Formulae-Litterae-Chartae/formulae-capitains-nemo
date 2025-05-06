@@ -1547,6 +1547,32 @@ class NemoFormulae(Nemo):
             transcriptions += [v for v in parent_obj.descendants.values() if 'transcription' in v.subtype]
         return sorted(transcriptions, key=self.sort_transcriptions)
 
+    def get_mss_eds(self, metadata, split_token: str = "**") -> list[str]:
+        """ 
+        Extracts a list of manuscript edition references from the metadata.
+
+        The method retrieves the value associated with the Dublin Core 'references' field,
+        splits it into separate entries based on a given split token (defaulting to "\*\*"),
+        and unescapes any escaped "**" sequences within each entry.
+
+        :param metadata: the metadata object containing a 'DCTERMS.references' field
+        :param split_token: the delimiter used to separate edition entries (default '**')
+        :return: a list of manuscript edition references as strings
+        """
+        # Check if 'references' field is present in the metadata
+        if metadata.metadata.get_single(DCTERMS.references):
+            # Get the field value and split it using the split_token (default '**')
+            mss_eds_list = str(metadata.metadata.get_single(DCTERMS.references)).split(split_token)
+
+            # Unescape any escaped '**' (i.e., replace '\*\*' with '**')
+            mss_eds_list = [mss_edition.replace('\*\*', '**') for mss_edition in mss_eds_list]
+
+            return mss_eds_list
+        else:
+            # If no references exist, return an empty list
+            return []
+
+
     def r_passage(self, objectId: str, subreference: str, lang: str = None) -> Dict[str, Any]:
         """ Retrieve the text of the passage
 
@@ -1659,7 +1685,7 @@ class NemoFormulae(Nemo):
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source)).split('***') if metadata.metadata.get_single(DCTERMS.source) else '',
                     "linked_resources": linked_resources,
                     "transcribed_edition": sorted([Markup(x) for x in transcribed_edition]),
-                    "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else [],
+                    "mss_eds": self.get_mss_eds(metadata),
                     'problematic': str(metadata.metadata.get_single(self.BIBO.Activity)) if metadata.metadata.get_single(
                         self.BIBO.Activity) else ''
                 },
@@ -1676,6 +1702,7 @@ class NemoFormulae(Nemo):
             "translations": translations + transcriptions,
             "transcriptions": transcriptions
         }
+    
     
     def r_multipassage_authentication_check(self, objectIds: str, subreferences: str, lang: str = None, collate: bool = False) -> Dict[str, Any]:
         """ Wrapper method for r_multipassage. Requires all users to be logged in, when using '+' in the query. It should eventually replace r_multipassage.
