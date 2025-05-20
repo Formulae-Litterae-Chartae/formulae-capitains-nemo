@@ -507,8 +507,15 @@ class NemoFormulae(Nemo):
     @staticmethod
     def sort_folia(matchobj: Match) -> str:
         """Sets up the folia ranges of manuscripts for better sorting"""
+        folio_extraction_pattern = r'(\d+)((?:bis)?[rvab])'
+
         groups = []
-        sub_groups = list(re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups())
+        # Examples:
+        # '28r' → ['28', 'r']
+        # '28bisr' → ['28', 'bisr']
+        # '100b' → ['100', 'b']
+        # '101bisv' → ['101', 'bisv']
+        sub_groups = list(re.search(folio_extraction_pattern, matchobj.group(1)).groups())
         start_letter = ''
         start_letter_dict = {'m4': {range(0, 24): 'a',
                                     range(32, 40): 'b',
@@ -521,6 +528,7 @@ class NemoFormulae(Nemo):
                                     range(147, 151): 'b',
                                     range(143, 147): 'c'}
                              }
+    
         if 'm4' in matchobj.group(0):
             start_fol = int(sub_groups[0])
             for k, v in start_letter_dict['m4'].items():
@@ -534,7 +542,7 @@ class NemoFormulae(Nemo):
                     start_letter = v
         groups.append('{}{:04}<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0]), sub_groups[1]))
         if matchobj.group(2):
-            new_sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(2)).groups()
+            new_sub_groups = re.search(folio_extraction_pattern, matchobj.group(2)).groups()
             groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
         return_value = '-'.join(groups)
         if matchobj.group(3):
@@ -545,7 +553,8 @@ class NemoFormulae(Nemo):
             -> Tuple[Union[str, Tuple[str, Tuple[str, str]]],
                      Union[List[Sequence[str]], list],
                      XmlCapitainsReadableMetadata]:
-        """ Sets up the readable descendants in each corpus to be correctly ordered
+        """ Sets up the readable descendants in each corpus to be correctly ordered.
+        These strings are later used in displaying the buttons on templates/main/sub_collection.html
 
         :param m: the metadata for the descendant
         :param collection: the collection to which readable collection belongs
@@ -592,11 +601,14 @@ class NemoFormulae(Nemo):
             else:
                 if collection in m.id:
                     par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
+                    
                     if "sg2" in m.id:
                         par_parts = re.search(r'.*\[p\.\s*(\d+)\-?(\d+)?.*', str(m.metadata.get_single(DC.title)))
                         par = '{:04}'.format(int(par_parts.group(1)))
                         if len(par_parts.groups()) > 1:
                             par += '-' + par_parts.group(2)
+                    elif "bis" in m.id:
+                        par = re.sub(r'.*?(\d+(?:bis)?[rvab]+)(\d+(?:bis)?[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     if collection == "urn:cts:formulae:formulae_marculfinae":
@@ -1025,7 +1037,7 @@ class NemoFormulae(Nemo):
         all_parent_colls.append([(x['id'], str(x['short_title'])) for k, v in sorted(parent_colls.items()) for x in v] + [(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
         data['breadcrumb_colls'] = [all_parent_colls]
         return data
-
+    
     def r_corpus(self, objectId: str, lang: str = None) -> Dict[str, Any]:
         """ Route to browse collections and add another text to the view
 
@@ -1042,6 +1054,7 @@ class NemoFormulae(Nemo):
         for cont_coll in sorted(collection.metadata.get(DCTERMS.isPartOf), key=lambda x: self.sort_sigla(x.split(':')[-1])):
             cont_coll_md = self.resolver.getMetadata(str(cont_coll)).metadata
             containing_colls.append((Markup(cont_coll_md.get_single(self.BIBO.AbbreviatedTitle)), cont_coll_md.get_single(DC.title), str(cont_coll)))
+
         form = None
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
@@ -1085,6 +1098,8 @@ class NemoFormulae(Nemo):
                         work_name = Markup(par.lstrip('abcdefg0') if isinstance(par, str) else '')
                     else:
                         work_name = Markup(par.lstrip('0') if isinstance(par, str) else '')
+                        # work_name = Markup(self.format_folia_range(par) if isinstance(par, str) else '')
+                    #print('work_name',work_name,'par',par)
                     parents = self.make_parents(m)
                     parent_title = parents[0]['label']
                     if 'manuscript_collection' in collection.ancestors:
@@ -1144,12 +1159,15 @@ class NemoFormulae(Nemo):
                                    'bg_color': bg_color})
 
 
-        for k, v in collection.children.items():
+        for key, v in collection.children.items():
             if not v.children:
                 replacement_data = [str(v.metadata.get_single(DCTERMS.isPartOf) or ''),
                                     str(v.metadata.get_single(DCTERMS.isReplacedBy) or '')]
                 if all(replacement_data):
-                    par = re.sub(r'.*?(\d+\w*)\Z', r'\1', k)
+                    #par = re.sub(r'.*?(\d+\w*)\Z', r'\1', k)
+                    
+                    par = re.sub(r'^.*?\.(\d+\w*(?:\d+\w*)?)$', r'\1', key)
+
                     replacement_md = self.resolver.getMetadata(replacement_data[-1])
                     regest = [Markup(replacement_md.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(replacement_md.metadata.get_single(DC.description)).split('***')]
                     short_regest = str(replacement_md.metadata.get_single(DCTERMS.abstract)) or ''
@@ -1165,12 +1183,18 @@ class NemoFormulae(Nemo):
                               'parent_id': '',
                               'alt_link': url_for('InstanceNemo.r_corpus', objectId=replacement_data[0]) + '#N' + replacement_par,
                               'alt_title': Markup(replacement_md.metadata.get_single(DC.title) or '').replace(' (lat)', '')}
-        r = OrderedDict(sorted(r.items()))
 
-        for k in r.keys():
-            r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
-                                                               key=lambda x: int(x[2][1])),
+
+
+        from formulae.services.corpus_service import custom_par_sort_key
+        r = OrderedDict(sorted(r.items(), key=lambda item: custom_par_sort_key(item[0])))
+
+        #r = OrderedDict(sorted(r.items()))
+        for key in r.keys():
+            r[key]['versions']['transcriptions'] = sorted(sorted(r[key]['versions']['transcriptions'], key=lambda x: int(x[2][1])),
                                                         key=lambda x: x[2][0])
+
+ 
 
         if len(r) == 0:
             if 'manuscript_collection' in collection.ancestors:
@@ -1184,7 +1208,7 @@ class NemoFormulae(Nemo):
         parent_ids = {x['id'] for x in parent_textgroups}
         for parent_coll in parent_textgroups:
             parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
-        for k, v in sorted(parent_colls.items()):
+        for key, v in sorted(parent_colls.items()):
             if v:
                 all_parent_colls.append([(x['id'], str(x['short_title'])) for x in v])
         all_parent_colls.append([(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
@@ -1201,6 +1225,8 @@ class NemoFormulae(Nemo):
                     "short_title": collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or '',
                     "containing_collections": containing_colls
                 },
+                # later consumed in templates/main/sub_collection.html:
+                # {% for number, values in collections.readable.items() %}
                 "readable": r,
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents],
@@ -1320,6 +1346,7 @@ class NemoFormulae(Nemo):
                         "links": [forms[k], v],
                         "regesten": regesten[k]
                     })
+                # transcriptions
                 else:
                     # Zip titles, forms and regesten together and then sort them with
                     # re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
@@ -1729,7 +1756,6 @@ class NemoFormulae(Nemo):
         :param subreferences: Reference identifiers separated by '+'
         :return: Template, collections metadata and Markup object representing the text
         """
-        self.app.logger.debug('Do you see me?')
         # authentication check:
         texts_threshold = self.app.config['MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER']
         if (texts_threshold <= objectIds.count('+')  or texts_threshold <= subreferences.count('+')) and \

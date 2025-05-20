@@ -181,7 +181,20 @@
             {% if 'Capitulatio' in values['name'] or values['name'] == "Ergänzung 1,1" %}
             <br>
             {% endif %}
-            <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if 'lorsch' not in collections.current.id %}{% if '_' in values['name']%} {{values['title']}}{% else %}{{values['name']|replace('(', '')|replace(')', '')}}{% endif %}{% else %}{{values['name']}}{% endif %}{% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}</a>
+            <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">
+                {% if 'lorsch' not in collections.current.id %}
+                    {% if '_' in values['name']%} 
+                        {{values['title']}}
+                    {% else %}
+                        {{values['name']|replace('(', '')|replace(')', '')}}
+                    {% endif %}
+                {% else %}
+                    {{values['name']}}
+                {% endif %}
+                {% if values['deperditum'] == True %} 
+                    (<i>dep.</i>)
+                {% endif %}
+            </a>
         {% endfor %}
         {% endif %}
     {% endif %}
@@ -194,7 +207,25 @@
                 {% endif %}
                 <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column work-cell {{ values['bg_color']|default('bg-color-0') }}">
                     <div class="row justify-content-between">
-                        <div class="col-3"><h5>{% if 'non_display_collection' in collections.parent_ids %}{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}{% else %}{{values['title']}}{% endif %}{% if values['parent_id'] in manuscript_notes %}<span id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}"><span class="superscript" >*</span></span>{% endif %}{% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}{% if values['problematic']|lower == 'unecht' %} <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="Unecht">†</span>{% elif values['problematic'] != '' %} <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="{{values['problematic']}}">⚠</span>{% endif %}</h5></div>
+                        <div class="col-3">
+                            <h5>
+                                {% if 'non_display_collection' in collections.parent_ids %}
+                                    {% if values['name'] is string %}
+                                        {{values['name']}}
+                                    {% else %}
+                                        {{values['name']|join('/')}}
+                                    {% endif %}
+                                {% else %}
+                                    {{values['title']}}
+                                {% endif %}
+                                {% if values['parent_id'] in manuscript_notes %}
+                                    <span id="{{ number|striptags }}-note" data-toggle="tooltip" data-placement="top" data-container="#{{ number|striptags }}-note" title="{{ manuscript_notes[values['parent_id']]}}">
+                                        <span class="superscript" >*</span>
+                                    </span>
+                                {% endif %}
+                                {% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}{% if values['problematic']|lower == 'unecht' %} <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="Unecht">†</span>{% elif values['problematic'] != '' %} <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="{{values['problematic']}}">⚠</span>{% endif %}
+                            </h5>
+                        </div>
                         <div class="col text-right">
                         {% if values['deperditum'] %}
                         <h5 class="latin-word">Deperditum</h5>
