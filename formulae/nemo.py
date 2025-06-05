@@ -507,7 +507,8 @@ class NemoFormulae(Nemo):
     @staticmethod
     def sort_folia(matchobj: Match) -> str:
         """Sets up the folia ranges of manuscripts for better sorting"""
-        folio_extraction_pattern = r'(\d+)((?:bis)?[rvab])'
+        #folio_extraction_pattern = r'(\d+)((?:bis)?[rvab])'
+        folio_extraction_pattern = r'(\d+(?:bis)?)([rv][ab]?)'
 
         groups = []
         # Examples:
@@ -540,10 +541,18 @@ class NemoFormulae(Nemo):
             for k, v in start_letter_dict['p3'].items():
                 if start_fol in k:
                     start_letter = v
-        groups.append('{}{:04}<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0]), sub_groups[1]))
+        if 'bis' in sub_groups[0]:
+            groups.append('{}{} bis<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0].replace('bis','')), sub_groups[1]))
+        else:
+            groups.append('{}{:04}<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0]), sub_groups[1]))
+            
         if matchobj.group(2):
-            new_sub_groups = re.search(folio_extraction_pattern, matchobj.group(2)).groups()
-            groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
+            new_sub_groups = re.search(folio_extraction_pattern, matchobj.group(2)).groups() 
+            if 'bis' in new_sub_groups[0]:
+                groups.append('{} bis<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0].replace('bis','')), new_sub_groups[1]))
+            else:
+                groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
+                
         return_value = '-'.join(groups)
         if matchobj.group(3):
             return_value += '(' + matchobj.group(3) + ')'
@@ -1186,8 +1195,8 @@ class NemoFormulae(Nemo):
 
 
 
-        from formulae.services.corpus_service import custom_par_sort_key
-        r = OrderedDict(sorted(r.items(), key=lambda item: custom_par_sort_key(item[0])))
+        from formulae.services.corpus_service import extract_folio_sort_key
+        r = OrderedDict(sorted(r.items(), key=lambda item: extract_folio_sort_key(item[0])))
 
         #r = OrderedDict(sorted(r.items()))
         for key in r.keys():
