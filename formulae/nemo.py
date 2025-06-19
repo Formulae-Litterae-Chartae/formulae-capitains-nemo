@@ -2193,7 +2193,8 @@ class NemoFormulae(Nemo):
             pass
 
         return str(notes_html)
-
+    
+    
     def r_pdf(self, objectId: str) -> Response:
         """Produces a PDF from the objectId for download and then delivers it.
 
@@ -2202,160 +2203,17 @@ class NemoFormulae(Nemo):
         :param objectId: the URN of the text to transform
         :return:
         """
-        from xml.etree.ElementTree import Element
         if self.check_project_team() is False and objectId not in self.open_texts:
             flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
             return redirect(url_for('InstanceNemo.r_index'))
-        metadata = self.resolver.getMetadata(objectId=objectId)
-        is_formula = 'formulae_collection' in metadata.ancestors
-        def add_citation_info(canvas, doc):
-            cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
-            cit_string = re.sub(r'\s+', ' ', cit_string)
-            cit_string += '<font color="grey">URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '</font>' + '<br/>'
-            cit_string += '<font color="grey">' + _('Heruntergeladen: ') + date.today().isoformat() + '</font>'
-            cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
-            cit_string = re.sub(r'<span class="verso-recto">([^<]+)</span>', r'<super>\1</super>', cit_string)
-            cit_string = re.sub(r'<span class="surname">([^<]+)</span>', r'<b>\1</b>', cit_string)
-            cit_flowables = [Paragraph(cit_string, cit_style)]
-            f = Frame(doc.leftMargin - .9 * inch, 0.01 * inch, doc.pagesize[0] - .2 * inch, 0.7 * inch, showBoundary=0)
-            canvas.saveState()
-            if is_formula is True:
-                canvas.drawImage(self.static_folder + 'images/logo_white.png',
-                                 inch, inch, width=doc.pagesize[0] - doc.rightMargin,
-                                 height=doc.pagesize[1] - 1.5 * inch)
-                canvas.drawImage(self.static_folder + 'images/uhh-logo-web.gif',
-                                 doc.leftMargin, doc.pagesize[1] - 0.9 * inch, width=1.111 * inch, height=0.5 * inch,
-                                 mask=[255, 256, 255, 256, 255, 256])
-                canvas.drawImage(self.static_folder + 'images/logo_226x113_white_bg.png',
-                                 (doc.pagesize[0] / 2) - 0.5 * inch, doc.pagesize[1] - 0.9 * inch, width=inch,
-                                 height=0.5 * inch, mask=[255, 256, 255, 256, 255, 256])
-                canvas.drawImage(self.static_folder + 'images/adwhh200x113.jpg',
-                                 doc.pagesize[0] - doc.rightMargin - 0.88 * inch, doc.pagesize[1] - 0.9 * inch, width=.882 * inch,
-                                 height=0.5 * inch)
-            f.addFromList(cit_flowables, canvas)
-            canvas.setFont('Times-Roman', 8)
-            canvas.drawCentredString(doc.pagesize[0] / 2, 0.75 * inch, '{}'.format(doc.page))
-            canvas.restoreState()
-        new_subref = self.get_reffs(objectId)[0][0]
-        text: InteractiveTextualNode = self.get_passage(objectId=objectId, subreference=new_subref)
-        transformed_str = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId).replace('<?xml version="1.0" encoding="UTF-8"?>', '')
-        transformed_xml: Element = etree.fromstring(transformed_str)
-
-        pdf_buffer = BytesIO()
-        doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>',
-                           r'<sub>\1</sub>',
-                           re.sub(r'<span class="verso-recto">([^<]+)</span>', r'<super>\1</super>',
-                                  str(metadata.metadata.get_single(DC.title, lang=None))))
-        description = '{} ({})'.format(doc_title, date.today().isoformat())
-        trans_table = {'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'Ä': 'Ae', 'Ö': 'Oe', 'Ü': 'Ue', 'ẞ': 'Ss'}
-        filename = ''
-        for char in description:
-            new_char = char
-            if char in trans_table:
-                new_char = trans_table[char]
-            filename += new_char
-        # Create the pdf-document
-        my_doc = SimpleDocTemplate(pdf_buffer, title=description)
-        sample_style_sheet = getSampleStyleSheet()
-        custom_style = copy(sample_style_sheet['Normal'])
-        custom_style.name = 'Notes'
-        custom_style.fontSize = 10
-        custom_style.fontName = 'Liberation'
-        cit_style = copy(sample_style_sheet['Normal'])
-        cit_style.name = 'DocCitation'
-        cit_style.fontSize = 8
-        cit_style.alignment = 1
-        cit_style.leading = 9.6
-        sample_style_sheet['BodyText'].fontName = 'Liberation'
-        sample_style_sheet['BodyText'].fontSize = 12
-        sample_style_sheet['BodyText'].leading = 14.4
-        encryption = EncryptionFlowable(userPassword='',
-                                        ownerPassword=self.app.config['PDF_ENCRYPTION_PW'],
-                                        canPrint=1,
-                                        canAnnotate=0,
-                                        canCopy=0,
-                                        canModify=0)
-        flowables = list()
-        ## Add the first paragraph containing the title etc.
-        flowables.append(Paragraph(doc_title, sample_style_sheet['Heading1']))
-        hist_note_num = 1
-        ## Add each paragraph from the xml file to pdf
-        from formulae.services.pdf_service import str_from_xml_paragraph
-        for paragraph in transformed_xml.xpath('/div/div/p'):
-            flowables.append(Paragraph(re.sub(u'\u200c', '', str_from_xml_paragraph(paragraph)), sample_style_sheet['BodyText']))
-        
-        if transformed_xml.xpath('/div/div/p/sup/a[@type="a1"]'):
-            flowables.append(Spacer(1, 5))
-            flowables.append(HRFlowable())
-            flowables.append(Spacer(1, 5))
-            for app_note in transformed_xml.xpath('/div/div/p/sup/a[@type="a1"]'):
-                n = '<sup>{}</sup>'.format(app_note.text)
-                for child_node in app_note.xpath('./span[@hidden="true"]/child::node()'):
-                    c_class = None
-                    c_text = ''
-                    if isinstance(child_node, etree._Element):
-                        c_class = child_node.get('class')
-                        c_text = child_node.text if child_node.text else ''
-                    if isinstance(child_node, etree._ElementUnicodeResult):
-                        n += child_node
-                    elif c_class:
-                        opening_tag = ''
-                        closing_tag = ''
-                        if 'italic' in c_class or 'latin-word' in c_class:
-                            opening_tag += '<i>'
-                            closing_tag = '</i>' + closing_tag
-                        if 'line-through' in c_class:
-                            opening_tag += '<strike>'
-                            closing_tag = '</strike>' + closing_tag
-                        if 'superscript' in c_class:
-                            opening_tag += '<super>'
-                            closing_tag = '</super>' + closing_tag
-                        if 'subscript' in c_class:
-                            opening_tag += '<sub>'
-                            closing_tag = '</sub>' + closing_tag
-                        n += opening_tag + c_text + closing_tag
-                    else:
-                        n += c_text
-                flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
-        if transformed_xml.xpath('/div/div/p/sup/a[not(@type="a1")]|/div/div/p/span[contains(@class, "right-note-tooltip")]'):
-            flowables.append(Spacer(1, 5))
-            flowables.append(HRFlowable())
-            flowables.append(Spacer(1, 5))
-            hist_note_num = 1
-            for app_note in transformed_xml.xpath('/div/div/p/sup/a[not(@type="a1")]|/div/div/p/span[contains(@class, "right-note-tooltip")]'):
-                n = '<sup>{}</sup>'.format(hist_note_num)
-                hist_note_num += 1
-                for child_node in app_note.xpath('./span[@hidden="true"]/child::node()'):
-                    c_class = None
-                    c_text = ''
-                    if isinstance(child_node, etree._Element):
-                        c_class = child_node.get('class')
-                        c_text = child_node.text if child_node.text else ''
-                    if isinstance(child_node, etree._ElementUnicodeResult):
-                        n += child_node
-                    elif c_class:
-                        opening_tag = ''
-                        closing_tag = ''
-                        if 'italic' in c_class or 'latin-word' in c_class:
-                            opening_tag += '<i>'
-                            closing_tag = '</i>' + closing_tag
-                        if 'line-through' in c_class:
-                            opening_tag += '<strike>'
-                            closing_tag = '</strike>' + closing_tag
-                        if 'superscript' in c_class:
-                            opening_tag += '<super>'
-                            closing_tag = '</super>' + closing_tag
-                        if 'subscript' in c_class:
-                            opening_tag += '<sub>'
-                            closing_tag = '</sub>' + closing_tag
-                        n += opening_tag + c_text + closing_tag
-                    else:
-                        n += c_text
-                flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
-        if self.check_project_team() is False and is_formula is True:
-            flowables.append(encryption)
-        my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
-        pdf_value = pdf_buffer.getvalue()
-        pdf_buffer.close()
-        return Response(pdf_value, mimetype='application/pdf',
-                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(re.sub(r'\W+', '_', filename))})
+        from formulae.services.pdf_service import render_pdf_response
+        return render_pdf_response(
+            objectId=objectId,
+            resolver=self.resolver,
+            static_folder=self.static_folder,
+            check_project_team=self.check_project_team,
+            transform=self.transform,
+            get_passage=self.get_passage,
+            get_reffs=self.get_reffs,
+            encryption_pw=self.app.config['PDF_ENCRYPTION_PW']
+        )
