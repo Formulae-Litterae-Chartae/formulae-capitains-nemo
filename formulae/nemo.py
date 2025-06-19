@@ -192,7 +192,6 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:scholars',
-                        'urn:cts:formulae:sens', # just for debugging purposes. SENS IS NOT OPEN
                         'urn:cts:formulae:sg2',
                         'urn:cts:formulae:stavelot_malmedy',
                         'urn:cts:formulae:stgallen',
