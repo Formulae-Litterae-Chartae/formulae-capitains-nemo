@@ -116,6 +116,8 @@ from reportlab.lib.pdfencrypt import StandardEncryption
 from lxml import etree
 
 
+from reportlab.lib.pdfencrypt import EncryptionFlowable
+
 def render_pdf_response(objectId, resolver, static_folder, check_project_team, transform,
                         get_passage, get_reffs, encryption_pw) -> Response:
     """Generates a PDF from TEI XML and returns a Flask Response with encryption if required."""
@@ -125,20 +127,17 @@ def render_pdf_response(objectId, resolver, static_folder, check_project_team, t
     new_subref = get_reffs(objectId)[0][0]
     text = get_passage(objectId=objectId, subreference=new_subref)
 
-    # Export and transform TEI to internal XML
     from MyCapytain.common.constants import Mimetypes
     transformed_str = transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId)
     transformed_str = transformed_str.replace('<?xml version="1.0" encoding="UTF-8"?>', '')
     transformed_xml = etree.fromstring(transformed_str)
 
-    # Document title and filename
     doc_title_raw = str(metadata.metadata.get_single('http://purl.org/dc/elements/1.1/title', lang=None))
     doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>', r'<sub>\1</sub>',
                        re.sub(r'<span class="verso-recto">([^<]+)</span>', r'<super>\1</super>', doc_title_raw))
     description = f'{doc_title} ({date.today().isoformat()})'
     filename = _slugify_filename(description)
 
-    # Setup ReportLab document
     buffer = BytesIO()
     doc = SimpleDocTemplate(buffer, title=description)
 
@@ -160,32 +159,27 @@ def render_pdf_response(objectId, resolver, static_folder, check_project_team, t
 
     flowables = build_flowables(transformed_xml, doc_title, style_sheet, note_style)
 
-    # 🔐 Encryption logic (using canvasmaker)
-    encryption = None
+    # Only add encryption flowable if needed
     if check_project_team() is False and is_formula:
-        encryption = StandardEncryption(
+        flowables.append(EncryptionFlowable(
             userPassword='',
             ownerPassword=encryption_pw,
             canPrint=1,
-            canModify=0,
+            canAnnotate=0,
             canCopy=0,
-            canAnnotate=0
-        )
+            canModify=0
+        ))
 
-    def canvasmaker(*args, **kwargs):
-        return canvas.Canvas(*args, encrypt=encryption, **kwargs) if encryption else canvas.Canvas(*args, **kwargs)
-
-    # Final PDF rendering
     doc.build(
         flowables,
         onFirstPage=lambda c, d: add_citation_info(c, d, metadata, is_formula, static_folder, objectId, cit_style),
-        onLaterPages=lambda c, d: add_citation_info(c, d, metadata, is_formula, static_folder, objectId, cit_style),
-        canvasmaker=canvasmaker
+        onLaterPages=lambda c, d: add_citation_info(c, d, metadata, is_formula, static_folder, objectId, cit_style)
     )
 
     safe_filename = re.sub(r'\W+', '_', filename)
     return Response(buffer.getvalue(), mimetype='application/pdf',
                     headers={'Content-Disposition': f'attachment;filename={safe_filename}.pdf'})
+
 
 
 

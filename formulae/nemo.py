@@ -1196,7 +1196,17 @@ class NemoFormulae(Nemo):
 
 
         from formulae.services.corpus_service import extract_folio_sort_key
-        r = OrderedDict(sorted(r.items(), key=lambda item: extract_folio_sort_key(item[0])))
+
+        def normalize_sort_key(item_key):
+            if isinstance(item_key, str):
+                return extract_folio_sort_key(item_key)
+            elif isinstance(item_key, tuple):
+                return extract_folio_sort_key(item_key[0])
+            return (9999, 99)
+
+        r = OrderedDict(sorted(r.items(), key=lambda item: normalize_sort_key(item[0])))
+
+
 
         #r = OrderedDict(sorted(r.items()))
         for key in r.keys():

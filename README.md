@@ -37,3 +37,13 @@ Only need to be executed the **before the first time** running the app:
     - For Debin/Ubuntu the [OS-specific package manager](https://www.sphinx-doc.org/en/master/usage/installation.html#os-specific-package-manager) worked best
 2. Build the project: `sphinx-build -M html docs/source/ docs/build/`
 3. Open `docs/build/html/index.html` with your preferred browser: `firefox docs/build/html/index.html`
+
+## Contribution guide
+- Currently, we do not follow any specific design pattern. In the future I would to "reduce the weight" of our fat controller [formulae/app.py](./formulae/app.py). I have not fully decided on whether I want to have [fat models](https://www.tonymarston.net/php-mysql/fat-model-skinny-controller.html) or fat services instead; at the end services vs. models is more a naming thing than a real decision. Alternatively, I could do the [MVC-pattern](https://www.reddit.com/r/flask/comments/134j8qw/how_can_we_use_the_mvc_pattern_in_flask/). 
+- Each new collection should 
+
+## Run GitHub-actions locally:
+1. Install [GitHub CLI](https://cli.github.com/)
+2. Install [act](https://nektosact.com/installation/gh.html): `gh extension install https://github.com/nektos/gh-act`
+3. `gh act -W '.github/workflows/python-app.yml'`
+4. Comment out the redis port (gh seems to bring its own redis instance)
