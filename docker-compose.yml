@@ -1,0 +1,12 @@
+version: '3'
+services:
+  elasticsearch:
+    image: elasticsearch:8.11.2
+    container_name: es8
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.security.http.ssl.enabled=false
