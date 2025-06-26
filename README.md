@@ -14,7 +14,7 @@ Further information:
 
 ## Runnning the app locally:
 
-### Preliminary setup steps:
+### 1. Preliminary setup steps:
 Only need to be executed the **before the first time** running the app:
 1. Clone the repositories:
     1. `git clone formulae-capitains-nemo` (code-base) 
@@ -22,11 +22,15 @@ Only need to be executed the **before the first time** running the app:
 2. Create a Python virtualenv (e.g., `virtualenv --python=python3 .venv`)
 3. Only if needed: Set the environment variable `CORPUS_FOLDERS` and re-start the app.
 
-### Start the app:    
+### 2. Start the app:    
 1. activate the virtualenv (e.g., `source .venv/bin/activate`) 
 2. install the requirements via `pip install -r requirements.txt` within in the venv and from the `formulae-capitains-nemo` folder 
+3. Optional: set-up
 3. If the requirements have been installed properly, you can launch `python3 app.py` within the env and in `formulae-capitains-nemo` folder 
 4. Reach the site via [127.0.0.1:5000](http://127.0.0.1:5000)
+
+### Run a local instance of Elastic Search
+1. 
 
 ### How are static files handled?
 1. https://flask.palletsprojects.com/en/2.3.x/quickstart/#static-files
@@ -45,5 +49,6 @@ Only need to be executed the **before the first time** running the app:
 ## Run GitHub-actions locally:
 1. Install [GitHub CLI](https://cli.github.com/)
 2. Install [act](https://nektosact.com/installation/gh.html): `gh extension install https://github.com/nektos/gh-act`
+3. cd git/formulae-capitains-nemo
 3. `gh act -W '.github/workflows/python-app.yml'`
 4. Comment out the redis port (gh seems to bring its own redis instance)

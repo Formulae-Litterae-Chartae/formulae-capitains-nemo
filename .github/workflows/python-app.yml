@@ -22,9 +22,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
+        #ports:
           # Maps port 6379 on service container to the host
-          - 6379:6379
+          #- 6379:6379
 
     env:
       ELASTICSEARCH_URL: http://localhost:9200
@@ -40,12 +40,28 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 coveralls
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Install Liberation fonts
+      run: sudo apt-get update && sudo apt-get install -y fonts-liberation
+
+    - name: Link Liberation Serif fonts to working directory
+      run: |
+        find /usr/share/fonts -name 'LiberationSerif-*.ttf' -exec cp {} . \;
+
+        # Sanity check
+        for f in LiberationSerif-*.ttf; do
+          head -c 4 "$f" | cmp -n 4 <(printf '\x00\x01\x00\x00') || (echo "$f is not a valid TTF"; exit 1)
+        done
+
+
+
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+
     - name: Code testing with coverage
       env:
         ELASTICSEARCH_URL: http://localhost:9200
@@ -53,6 +69,7 @@ jobs:
       run: |
         coverage run --source=formulae -m unittest discover
     - name: Post test results
+      if: env.ACT != 'true'
       env: 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |

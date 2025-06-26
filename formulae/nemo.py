@@ -1089,19 +1089,36 @@ class NemoFormulae(Nemo):
                     key = 'translations'
                 else:
                     key = 'transcriptions'
-                if par in r.keys():
-                    r[par]["versions"][key].append(metadata + [manuscript_data])
+
+                def extract_short_key(par: str|tuple) -> str:
+                    """
+                    From 'urn:cts:formulae:formulae_marculfinae.form008' or 'form008' extract '008'.
+                    """
+                    if isinstance(par, tuple):
+                        print('paristuple:', par)
+                        par = par[0]  # get the actual key like 'form008'
+                    if isinstance(par, str):
+                        if par.startswith('urn:'):
+                            par = par.split('.')[-1]
+                        return par.replace('form', '')
+
+
+                short_key = extract_short_key(par)
+                if short_key in r:
+                    r[short_key]["versions"][key].append(metadata + [manuscript_data])
                 else:
-                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                              "short_regest": '',
-                              "regest": [],
-                              "dating": '',
-                              "ausstellungsort": '',
-                              'name': '',
-                              'title': '',
-                              'transcribed_edition': [],
-                              'parent_id': str(m.id)}
-                    r[par]["versions"][key].append(metadata + [manuscript_data])
+                    r[short_key] = {
+                        "versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                        "short_regest": '',
+                        "regest": [],
+                        "dating": '',
+                        "ausstellungsort": '',
+                        'name': '',
+                        'title': '',
+                        'transcribed_edition': [],
+                        'parent_id': str(m.id)
+                    }
+                    r[short_key]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     if 'm4' in objectId or 'p3' in objectId:
                         work_name = Markup(par.lstrip('abcdefg0') if isinstance(par, str) else '')
@@ -1143,10 +1160,10 @@ class NemoFormulae(Nemo):
                                 form_par, form_md, form_m = self.ordered_corpora(readable_form, form_parent)
                                 form_ms_data = [readable_form.metadata.get_single(DC.source), "manifest:" + readable_form.id in self.app.picture_file]
                                 if readable_form.subtype == {'cts:translation'}:
-                                    r[par]["versions"]['translations'].append(form_md + [form_ms_data])
+                                    r[short_key]["versions"]['translations'].append(form_md + [form_ms_data])
                                 elif readable_form.subtype == {'cts:edition'}:
-                                    r[par]["versions"]['editions'].append(form_md + [form_ms_data])
-                                    r[par]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
+                                    r[short_key]["versions"]['editions'].append(form_md + [form_ms_data])
+                                    r[short_key]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
                                     if version_index == 0:
                                         regest = [Markup(readable_form.metadata.get_single(DC.description))]
                                         short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
@@ -1155,7 +1172,7 @@ class NemoFormulae(Nemo):
                         if len(regest) == 2:
                            regest[1] = Markup('<b>REGEST EDITION</b>: ' + '<i>{}</i>'.format(_('Dieses Regest ist nicht öffentlich zugänglich.')))
 
-                    r[par].update({"short_regest": short_regest,
+                    r[short_key].update({"short_regest": short_regest,
                                    "regest": regest,
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
@@ -1175,13 +1192,15 @@ class NemoFormulae(Nemo):
                 if all(replacement_data):
                     #par = re.sub(r'.*?(\d+\w*)\Z', r'\1', k)
                     
-                    par = re.sub(r'^.*?\.(\d+\w*(?:\d+\w*)?)$', r'\1', key)
+                    #par = re.sub(r'^.*?\.(\d+\w*(?:\d+\w*)?)$', r'\1', key)
+                    short_key = extract_short_key(key)
 
                     replacement_md = self.resolver.getMetadata(replacement_data[-1])
                     regest = [Markup(replacement_md.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(replacement_md.metadata.get_single(DC.description)).split('***')]
                     short_regest = str(replacement_md.metadata.get_single(DCTERMS.abstract)) or ''
                     replacement_par = re.sub(r'.*?(\d+\w*)\Z', r'\1', list(replacement_md.parent)[0])
-                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                    #r[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                    r[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
                               "short_regest": short_regest,
                               "regest": regest,
                               "dating": '',
@@ -1204,14 +1223,27 @@ class NemoFormulae(Nemo):
                 return extract_folio_sort_key(item_key[0])
             return (9999, 99)
 
-        r = OrderedDict(sorted(r.items(), key=lambda item: normalize_sort_key(item[0])))
+        # r = OrderedDict(sorted(r.items(), key=lambda item: normalize_sort_key(item[0])))
+        r = OrderedDict(
+            sorted(
+                ((k, v) for k, v in r.items() if isinstance(k, (str, tuple))),  # skip ellipsis
+                key=lambda item: normalize_sort_key(item[0])
+            )
+        )
 
 
 
         #r = OrderedDict(sorted(r.items()))
-        for key in r.keys():
-            r[key]['versions']['transcriptions'] = sorted(sorted(r[key]['versions']['transcriptions'], key=lambda x: int(x[2][1])),
-                                                        key=lambda x: x[2][0])
+        for k in r.keys():
+            valid_trans = [
+                t for t in r[k]['versions']['transcriptions']
+                if isinstance(t, (list, tuple)) and len(t) > 2 and isinstance(t[2], (list, tuple)) and len(t[2]) > 1
+                    and isinstance(t[2][1], (str, int)) and str(t[2][1]).isdigit()
+            ]
+            r[k]['versions']['transcriptions'] = sorted(
+                sorted(valid_trans, key=lambda x: int(x[2][1])),
+                key=lambda x: x[2][0]
+            )
 
  
 
