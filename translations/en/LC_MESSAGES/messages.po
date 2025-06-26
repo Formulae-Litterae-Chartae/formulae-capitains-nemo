@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2024-12-04 17:09+0100\n"
+"POT-Creation-Date: 2025-01-22 10:38+0100\n"
 "PO-Revision-Date: 2018-09-20 11:54+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -2659,6 +2659,10 @@ msgstr " Synchronoptic view of the similarities between various "
 msgid "Formel zu Formel Entsprechungen"
 msgstr "Formula to Fromula similarities"
 
+#: templates/main/impressum.html:11
+msgid "Inhaltliche Verantwortlichkeit i. S. v. § 5 TMG und § 55 Abs. 2 RStV"
+msgstr ""
+
 #: templates/main/index.html:2
 msgid "Willkommen in der Formulae - Litterae - Chartae Werkstatt!"
 msgstr "Welcome to the Formulae - Litterae - Chartae Werkstatt!"
@@ -2800,7 +2804,7 @@ msgstr "contact us"
 msgid "Sie uns bitte."
 msgstr "."
 
-#: templates/main/index.html:31
+#: templates/main/index.html:31 templates/main/index.html:32
 msgid "Hinweis:"
 msgstr "Attention:"
 
@@ -2820,6 +2824,20 @@ msgstr ""
 "normal operation of the website. If your browser uses an ad-blocker or "
 "similar software it could limit JavaScript performance. Such software can"
 " usually be disabled for trusted websites."
+
+#: templates/main/index.html:32
+msgid ""
+"Aufgrund technischer Optimierungen zur Stabilisierung der Werkstatt-"
+"Umgebung können derzeit nicht alle Ressourcen gleichzeitig nebeneinander "
+"angezeigt werden. Diese Einschränkung gilt jedoch nur für nicht "
+"eingeloggte Nutzerinnen und Nutzer. Eingeloggte Benutzer können weiterhin"
+" uneingeschränkt auf die Funktion zugreifen."
+msgstr ""
+"Due to technical optimizations to stabilize the workshop environment, not"
+" all resources can be displayed at the same time can be displayed at the "
+"same time. However, this restriction only applies to users who are not "
+"users who are not logged in. Logged-in users can still unrestricted "
+"access to the function."
 
 #: templates/main/lexicon.html:4
 msgid "Über ein Wort fahren, um das Lemma angezeigt zu bekommen."
@@ -3919,6 +3937,7 @@ msgstr ""
 "box in the upper right section of the window."
 
 #: templates/search/lemma_list.html:10
+#, fuzzy
 msgid ""
 "Lemmatisiert wurden sämtliche Formeln und jene Dokumente, die im "
 "Zusammenhang mit den Klostergemeinschaften um Tours stehen. Viele "
@@ -3938,11 +3957,12 @@ msgstr ""
 "lemmata 'habeo' ('I have') and 'habere' ('to have'). The spelling of the "
 "lemmata is based on the following lexica: Der Neue Georges, "
 "Mittellateinisches Wörterbuch, Mediae Latinitatis Lexicon Minus (= "
-"„Niermeyer“), Glossarium mediae et infimae latinitatis (= „du Cange“). "
+"„Niermeyer\"), Glossarium mediae et infimae latinitatis (= „du Cange\"). "
 "The personal names that appear in the formulae are lemmatized according "
 "to the MGH and the name lemmata from nomen et gens"
 
 #: templates/search/lemma_list.html:10
+#, fuzzy
 msgid ""
 "sowie unter „Personenname“ aufgenommen. Orte sind analog dazu nach den "
 "Angaben des orbis latinus"
@@ -3951,6 +3971,7 @@ msgstr ""
 "lemmatized according to the orbis latinus"
 
 #: templates/search/lemma_list.html:10
+#, fuzzy
 msgid ""
 "und als „Ortsname“ lemmatisiert. Namen und Orte, die nicht in den "
 "Formelsammlungen erwähnt werden, sind in der Lemmasuche nur als "

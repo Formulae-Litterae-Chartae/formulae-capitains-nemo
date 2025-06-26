@@ -93,6 +93,7 @@ class NemoFormulae(Nemo):
         # Routes
         "r_index",
         # Controllers
+        # Inherited from https://github.com/Capitains/flask-capitains-nemo/blob/982df8e89bf447235f8106e2b5c18d9e35be539a/flask_nemo/__init__.py#L405
         "get_inventory", "get_collection", "get_reffs", "get_passage", "get_siblings", "get_open_texts", "get_all_corpora",
         # Translator
         "semantic", "make_coins", "expose_ancestors_or_children", "make_members", "transform",
@@ -139,6 +140,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:ka1',
                         'urn:cts:formulae:karl_der_grosse',
                         'urn:cts:formulae:karlmann_mgh',
+                        'urn:cts:formulae:ko1',
                         'urn:cts:formulae:ko2',
                         'urn:cts:formulae:konrad_mgh',
                         # 'urn:cts:formulae:langobardisch', # needs correction
@@ -150,7 +152,9 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:ludwig_2',
                         'urn:cts:formulae:ludwig_der_juengere',
                         'urn:cts:formulae:luzern',
+                        'urn:cts:formulae:m1',
                         'urn:cts:formulae:m4',
+                        'urn:cts:formulae:m15',
                         'urn:cts:formulae:marculf',
                         'urn:cts:formulae:marmoutier_blésois',
                         'urn:cts:formulae:marmoutier_dunois',
@@ -188,6 +192,7 @@ class NemoFormulae(Nemo):
                         'urn:cts:formulae:salzburg',
                         'urn:cts:formulae:schaeftlarn',
                         'urn:cts:formulae:scholars',
+                        'urn:cts:formulae:sens',
                         'urn:cts:formulae:sg2',
                         'urn:cts:formulae:stavelot_malmedy',
                         'urn:cts:formulae:stgallen',
@@ -502,8 +507,16 @@ class NemoFormulae(Nemo):
     @staticmethod
     def sort_folia(matchobj: Match) -> str:
         """Sets up the folia ranges of manuscripts for better sorting"""
+        #folio_extraction_pattern = r'(\d+)((?:bis)?[rvab])'
+        folio_extraction_pattern = r'(\d+(?:bis)?)([rv][ab]?)'
+
         groups = []
-        sub_groups = list(re.search(r'(\d+)([rvab]+)', matchobj.group(1)).groups())
+        # Examples:
+        # '28r' → ['28', 'r']
+        # '28bisr' → ['28', 'bisr']
+        # '100b' → ['100', 'b']
+        # '101bisv' → ['101', 'bisv']
+        sub_groups = list(re.search(folio_extraction_pattern, matchobj.group(1)).groups())
         start_letter = ''
         start_letter_dict = {'m4': {range(0, 24): 'a',
                                     range(32, 40): 'b',
@@ -516,6 +529,7 @@ class NemoFormulae(Nemo):
                                     range(147, 151): 'b',
                                     range(143, 147): 'c'}
                              }
+    
         if 'm4' in matchobj.group(0):
             start_fol = int(sub_groups[0])
             for k, v in start_letter_dict['m4'].items():
@@ -527,10 +541,18 @@ class NemoFormulae(Nemo):
             for k, v in start_letter_dict['p3'].items():
                 if start_fol in k:
                     start_letter = v
-        groups.append('{}{:04}<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0]), sub_groups[1]))
+        if 'bis' in sub_groups[0]:
+            groups.append('{}{} bis<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0].replace('bis','')), sub_groups[1]))
+        else:
+            groups.append('{}{:04}<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0]), sub_groups[1]))
+            
         if matchobj.group(2):
-            new_sub_groups = re.search(r'(\d+)([rvab]+)', matchobj.group(2)).groups()
-            groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
+            new_sub_groups = re.search(folio_extraction_pattern, matchobj.group(2)).groups() 
+            if 'bis' in new_sub_groups[0]:
+                groups.append('{} bis<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0].replace('bis','')), new_sub_groups[1]))
+            else:
+                groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
+                
         return_value = '-'.join(groups)
         if matchobj.group(3):
             return_value += '(' + matchobj.group(3) + ')'
@@ -540,7 +562,8 @@ class NemoFormulae(Nemo):
             -> Tuple[Union[str, Tuple[str, Tuple[str, str]]],
                      Union[List[Sequence[str]], list],
                      XmlCapitainsReadableMetadata]:
-        """ Sets up the readable descendants in each corpus to be correctly ordered
+        """ Sets up the readable descendants in each corpus to be correctly ordered.
+        These strings are later used in displaying the buttons on templates/main/sub_collection.html
 
         :param m: the metadata for the descendant
         :param collection: the collection to which readable collection belongs
@@ -587,11 +610,14 @@ class NemoFormulae(Nemo):
             else:
                 if collection in m.id:
                     par = re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
+                    
                     if "sg2" in m.id:
                         par_parts = re.search(r'.*\[p\.\s*(\d+)\-?(\d+)?.*', str(m.metadata.get_single(DC.title)))
                         par = '{:04}'.format(int(par_parts.group(1)))
                         if len(par_parts.groups()) > 1:
                             par += '-' + par_parts.group(2)
+                    elif "bis" in m.id:
+                        par = re.sub(r'.*?(\d+(?:bis)?[rvab]+)(\d+(?:bis)?[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
                 else:
                     if collection == "urn:cts:formulae:formulae_marculfinae":
@@ -612,7 +638,9 @@ class NemoFormulae(Nemo):
                             par = '0' + par
                     elif 'formulae:bourges.' in form_num:
                         par = re.sub(r'.*form_(\w_.*)', r'\1', form_num)
-                    if par.endswith('000'):
+                    elif 'formulae:sens.' in form_num:
+                        par = re.sub(r'.*form_(\w_.*)', r'\1', form_num)
+                    if par.endswith('000') and not 'formulae:sens.' in form_num:
                         par = par.replace('000', _('(Prolog)'))
                     par = par.replace('capitula', '0')
                     manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
@@ -623,6 +651,13 @@ class NemoFormulae(Nemo):
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         elif 'formulae:bourges.' in m.id:
             par = re.sub(r'.*form_(\w_.*)', r'\1', list(m.parent)[0])
+            manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
+            metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
+        
+        elif 'formulae:sens.' in m.id:
+            # -> "a_001"
+            self.app.logger.debug("m.i={}".format(m.id))
+            par = re.sub(r'.*form_(a|b)', r'\1', list(m.parent)[0])
             manuscript_parts = re.search(r'(\D+)(\d+)', m.id.split('.')[-1])
             metadata = [m.id, self.LANGUAGE_MAPPING[m.lang], manuscript_parts.groups()]
         else:
@@ -1011,7 +1046,7 @@ class NemoFormulae(Nemo):
         all_parent_colls.append([(x['id'], str(x['short_title'])) for k, v in sorted(parent_colls.items()) for x in v] + [(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
         data['breadcrumb_colls'] = [all_parent_colls]
         return data
-
+    
     def r_corpus(self, objectId: str, lang: str = None) -> Dict[str, Any]:
         """ Route to browse collections and add another text to the view
 
@@ -1028,6 +1063,7 @@ class NemoFormulae(Nemo):
         for cont_coll in sorted(collection.metadata.get(DCTERMS.isPartOf), key=lambda x: self.sort_sigla(x.split(':')[-1])):
             cont_coll_md = self.resolver.getMetadata(str(cont_coll)).metadata
             containing_colls.append((Markup(cont_coll_md.get_single(self.BIBO.AbbreviatedTitle)), cont_coll_md.get_single(DC.title), str(cont_coll)))
+
         form = None
         if 'elexicon' in objectId:
             template = "main::elex_collection.html"
@@ -1053,24 +1089,43 @@ class NemoFormulae(Nemo):
                     key = 'translations'
                 else:
                     key = 'transcriptions'
-                if par in r.keys():
-                    r[par]["versions"][key].append(metadata + [manuscript_data])
+
+                def extract_short_key(par: str|tuple) -> str:
+                    """
+                    From 'urn:cts:formulae:formulae_marculfinae.form008' or 'form008' extract '008'.
+                    """
+                    if isinstance(par, tuple):
+                        print('paristuple:', par)
+                        par = par[0]  # get the actual key like 'form008'
+                    if isinstance(par, str):
+                        if par.startswith('urn:'):
+                            par = par.split('.')[-1]
+                        return par.replace('form', '')
+
+
+                short_key = extract_short_key(par)
+                if short_key in r:
+                    r[short_key]["versions"][key].append(metadata + [manuscript_data])
                 else:
-                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                              "short_regest": '',
-                              "regest": [],
-                              "dating": '',
-                              "ausstellungsort": '',
-                              'name': '',
-                              'title': '',
-                              'transcribed_edition': [],
-                              'parent_id': str(m.id)}
-                    r[par]["versions"][key].append(metadata + [manuscript_data])
+                    r[short_key] = {
+                        "versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                        "short_regest": '',
+                        "regest": [],
+                        "dating": '',
+                        "ausstellungsort": '',
+                        'name': '',
+                        'title': '',
+                        'transcribed_edition': [],
+                        'parent_id': str(m.id)
+                    }
+                    r[short_key]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     if 'm4' in objectId or 'p3' in objectId:
                         work_name = Markup(par.lstrip('abcdefg0') if isinstance(par, str) else '')
                     else:
                         work_name = Markup(par.lstrip('0') if isinstance(par, str) else '')
+                        # work_name = Markup(self.format_folia_range(par) if isinstance(par, str) else '')
+                    #print('work_name',work_name,'par',par)
                     parents = self.make_parents(m)
                     parent_title = parents[0]['label']
                     if 'manuscript_collection' in collection.ancestors:
@@ -1105,10 +1160,10 @@ class NemoFormulae(Nemo):
                                 form_par, form_md, form_m = self.ordered_corpora(readable_form, form_parent)
                                 form_ms_data = [readable_form.metadata.get_single(DC.source), "manifest:" + readable_form.id in self.app.picture_file]
                                 if readable_form.subtype == {'cts:translation'}:
-                                    r[par]["versions"]['translations'].append(form_md + [form_ms_data])
+                                    r[short_key]["versions"]['translations'].append(form_md + [form_ms_data])
                                 elif readable_form.subtype == {'cts:edition'}:
-                                    r[par]["versions"]['editions'].append(form_md + [form_ms_data])
-                                    r[par]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
+                                    r[short_key]["versions"]['editions'].append(form_md + [form_ms_data])
+                                    r[short_key]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
                                     if version_index == 0:
                                         regest = [Markup(readable_form.metadata.get_single(DC.description))]
                                         short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
@@ -1117,7 +1172,7 @@ class NemoFormulae(Nemo):
                         if len(regest) == 2:
                            regest[1] = Markup('<b>REGEST EDITION</b>: ' + '<i>{}</i>'.format(_('Dieses Regest ist nicht öffentlich zugänglich.')))
 
-                    r[par].update({"short_regest": short_regest,
+                    r[short_key].update({"short_regest": short_regest,
                                    "regest": regest,
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
@@ -1130,17 +1185,22 @@ class NemoFormulae(Nemo):
                                    'bg_color': bg_color})
 
 
-        for k, v in collection.children.items():
+        for key, v in collection.children.items():
             if not v.children:
                 replacement_data = [str(v.metadata.get_single(DCTERMS.isPartOf) or ''),
                                     str(v.metadata.get_single(DCTERMS.isReplacedBy) or '')]
                 if all(replacement_data):
-                    par = re.sub(r'.*?(\d+\w*)\Z', r'\1', k)
+                    #par = re.sub(r'.*?(\d+\w*)\Z', r'\1', k)
+                    
+                    #par = re.sub(r'^.*?\.(\d+\w*(?:\d+\w*)?)$', r'\1', key)
+                    short_key = extract_short_key(key)
+
                     replacement_md = self.resolver.getMetadata(replacement_data[-1])
                     regest = [Markup(replacement_md.metadata.get_single(DC.description))] if 'formulae_collection' in collection.ancestors else [Markup(x) for x in str(replacement_md.metadata.get_single(DC.description)).split('***')]
                     short_regest = str(replacement_md.metadata.get_single(DCTERMS.abstract)) or ''
                     replacement_par = re.sub(r'.*?(\d+\w*)\Z', r'\1', list(replacement_md.parent)[0])
-                    r[par] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                    #r[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                    r[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
                               "short_regest": short_regest,
                               "regest": regest,
                               "dating": '',
@@ -1151,12 +1211,41 @@ class NemoFormulae(Nemo):
                               'parent_id': '',
                               'alt_link': url_for('InstanceNemo.r_corpus', objectId=replacement_data[0]) + '#N' + replacement_par,
                               'alt_title': Markup(replacement_md.metadata.get_single(DC.title) or '').replace(' (lat)', '')}
-        r = OrderedDict(sorted(r.items()))
 
+
+
+        from formulae.services.corpus_service import extract_folio_sort_key
+
+        def normalize_sort_key(item_key):
+            if isinstance(item_key, str):
+                return extract_folio_sort_key(item_key)
+            elif isinstance(item_key, tuple):
+                return extract_folio_sort_key(item_key[0])
+            return (9999, 99)
+
+        # r = OrderedDict(sorted(r.items(), key=lambda item: normalize_sort_key(item[0])))
+        r = OrderedDict(
+            sorted(
+                ((k, v) for k, v in r.items() if isinstance(k, (str, tuple))),  # skip ellipsis
+                key=lambda item: normalize_sort_key(item[0])
+            )
+        )
+
+
+
+        #r = OrderedDict(sorted(r.items()))
         for k in r.keys():
-            r[k]['versions']['transcriptions'] = sorted(sorted(r[k]['versions']['transcriptions'],
-                                                               key=lambda x: int(x[2][1])),
-                                                        key=lambda x: x[2][0])
+            valid_trans = [
+                t for t in r[k]['versions']['transcriptions']
+                if isinstance(t, (list, tuple)) and len(t) > 2 and isinstance(t[2], (list, tuple)) and len(t[2]) > 1
+                    and isinstance(t[2][1], (str, int)) and str(t[2][1]).isdigit()
+            ]
+            r[k]['versions']['transcriptions'] = sorted(
+                sorted(valid_trans, key=lambda x: int(x[2][1])),
+                key=lambda x: x[2][0]
+            )
+
+ 
 
         if len(r) == 0:
             if 'manuscript_collection' in collection.ancestors:
@@ -1170,7 +1259,7 @@ class NemoFormulae(Nemo):
         parent_ids = {x['id'] for x in parent_textgroups}
         for parent_coll in parent_textgroups:
             parent_colls[len(parent_ids.intersection({x for x in parent_coll['ancestors'].keys()}))].append(parent_coll)
-        for k, v in sorted(parent_colls.items()):
+        for key, v in sorted(parent_colls.items()):
             if v:
                 all_parent_colls.append([(x['id'], str(x['short_title'])) for x in v])
         all_parent_colls.append([(collection.id, str(collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or ''))])
@@ -1187,6 +1276,8 @@ class NemoFormulae(Nemo):
                     "short_title": collection.metadata.get_single(self.BIBO.AbbreviatedTitle) or '',
                     "containing_collections": containing_colls
                 },
+                # later consumed in templates/main/sub_collection.html:
+                # {% for number, values in collections.readable.items() %}
                 "readable": r,
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents],
@@ -1306,6 +1397,7 @@ class NemoFormulae(Nemo):
                         "links": [forms[k], v],
                         "regesten": regesten[k]
                     })
+                # transcriptions
                 else:
                     # Zip titles, forms and regesten together and then sort them with
                     # re.sub(r'.*?(\d+[rvab]+)(\d+[rvab]+)?(\d)?\Z', self.sort_folia, list(m.parent)[0])
@@ -1533,6 +1625,32 @@ class NemoFormulae(Nemo):
             transcriptions += [v for v in parent_obj.descendants.values() if 'transcription' in v.subtype]
         return sorted(transcriptions, key=self.sort_transcriptions)
 
+    def get_mss_eds(self, metadata, split_token: str = "**") -> list[str]:
+        """ 
+        Extracts a list of manuscript edition references from the metadata.
+
+        The method retrieves the value associated with the Dublin Core 'references' field,
+        splits it into separate entries based on a given split token (defaulting to "\*\*"),
+        and unescapes any escaped "**" sequences within each entry.
+
+        :param metadata: the metadata object containing a 'DCTERMS.references' field
+        :param split_token: the delimiter used to separate edition entries (default '**')
+        :return: a list of manuscript edition references as strings
+        """
+        # Check if 'references' field is present in the metadata
+        if metadata.metadata.get_single(DCTERMS.references):
+            # Get the field value and split it using the split_token (default '**')
+            mss_eds_list = str(metadata.metadata.get_single(DCTERMS.references)).split(split_token)
+
+            # Unescape any escaped '**' (i.e., replace '\*\*' with '**')
+            mss_eds_list = [mss_edition.replace('\*\*', '**') for mss_edition in mss_eds_list]
+
+            return mss_eds_list
+        else:
+            # If no references exist, return an empty list
+            return []
+
+
     def r_passage(self, objectId: str, subreference: str, lang: str = None) -> Dict[str, Any]:
         """ Retrieve the text of the passage
 
@@ -1645,7 +1763,7 @@ class NemoFormulae(Nemo):
                     "ms_source": str(metadata.metadata.get_single(DCTERMS.source)).split('***') if metadata.metadata.get_single(DCTERMS.source) else '',
                     "linked_resources": linked_resources,
                     "transcribed_edition": sorted([Markup(x) for x in transcribed_edition]),
-                    "mss_eds": str(metadata.metadata.get_single(DCTERMS.references)).split('**') if metadata.metadata.get_single(DCTERMS.references) else [],
+                    "mss_eds": self.get_mss_eds(metadata),
                     'problematic': str(metadata.metadata.get_single(self.BIBO.Activity)) if metadata.metadata.get_single(
                         self.BIBO.Activity) else ''
                 },
@@ -1662,6 +1780,7 @@ class NemoFormulae(Nemo):
             "translations": translations + transcriptions,
             "transcriptions": transcriptions
         }
+    
     
     def r_multipassage_authentication_check(self, objectIds: str, subreferences: str, lang: str = None, collate: bool = False) -> Dict[str, Any]:
         """ Wrapper method for r_multipassage. Requires all users to be logged in, when using '+' in the query. It should eventually replace r_multipassage.
@@ -1709,12 +1828,12 @@ class NemoFormulae(Nemo):
         if len(subrefers) != len(ids):
             abort(404)
         for i, id in enumerate(ids):
-            v = False
+            manifest_requested = False
             if id in self.dead_urls:
                 id = self.dead_urls[id]
             if "manifest:" in id:
                 id = re.sub(r'^manifest:', '', id)
-                v = True
+                manifest_requested = True
             if self.check_project_team() is True or id in self.open_texts:
                 if subrefers[i] in ["all", 'first']:
                     subref = self.get_reffs(id)[0][0]
@@ -1741,7 +1860,7 @@ class NemoFormulae(Nemo):
                 for x in d.pop('translations', None):
                     if x[0].id not in ids and x not in translations[id]:
                         translations[id].append(x)
-                if v:
+                if manifest_requested:
                     # This is when there are multiple manuscripts and the edition cannot be tied to any single one of them
                     formulae = dict()
                     if 'manifest:' + d['collections']['current']['id'] in self.app.picture_file:
@@ -1766,12 +1885,14 @@ class NemoFormulae(Nemo):
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
                         this_manifest = json_load(f)
+                    self.app.logger.warn("this_manifest['@id'] {}".format(this_manifest['@id']))
                     if 'fuldig.hs-fulda.de' in this_manifest['@id']:
                         # This works for resources from https://fuldig.hs-fulda.de/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering'][1]['@id']
                     elif 'gallica.bnf.fr' in this_manifest['@id']:
                         # This link needs to be constructed from the thumbnail link for images from https://gallica.bnf.fr/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['thumbnail']['@id'].replace('.thumbnail', '')
+                        self.app.logger.warn("gallica.bnf.fr: lib_link created:{}".format(d['lib_link']))
                     elif 'api.digitale-sammlungen.de' in this_manifest['@id']:
                         # This works for resources from the Bayerische Staatsbibliothek
                         # (and perhaps other German digital libraries?)
@@ -1792,6 +1913,9 @@ class NemoFormulae(Nemo):
                     elif 'www.e-codices.unifr.ch' in this_manifest['@id']:
                         # This works for resources from the E-Codices
                         d['lib_link'] = this_manifest['related'].replace('/list/one', '') + '/' + this_manifest['sequences'][0]['canvases'][0]['label']
+                    
+                    self.app.logger.debug(msg="lib_link: {}".format(d['lib_link']))
+                    
                     folios = re.sub(r'(\d+)([rvab]{1,2})', r'\1<span class="verso-recto">\2</span>',
                                     this_manifest['sequences'][0]['canvases'][0]['label'])
                     if len(this_manifest['sequences'][0]['canvases']) > 1:
@@ -1811,6 +1935,8 @@ class NemoFormulae(Nemo):
                                                 t_title + ' (' + t_siglum + ')',
                                                 t_partOf))
 
+                    
+                    self.app.logger.warn(msg='d["IIIFviewer"]: {}'.format(d["IIIFviewer"]))
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]
                         if result_ids and any([x.get('highlight') for x in result_ids]):
@@ -2109,9 +2235,12 @@ class NemoFormulae(Nemo):
             pass
 
         return str(notes_html)
-
+    
+    
     def r_pdf(self, objectId: str) -> Response:
-        """Produces a PDF from the objectId for download and then delivers it
+        """Produces a PDF from the objectId for download and then delivers it.
+
+        If the objectId is not part of the open_texts a pdf only generated if project member tries to access it.
 
         :param objectId: the URN of the text to transform
         :return:
@@ -2119,210 +2248,14 @@ class NemoFormulae(Nemo):
         if self.check_project_team() is False and objectId not in self.open_texts:
             flash(_('Das PDF für diesen Text ist nicht zugänglich.'))
             return redirect(url_for('InstanceNemo.r_index'))
-        metadata = self.resolver.getMetadata(objectId=objectId)
-        is_formula = 'formulae_collection' in metadata.ancestors
-
-        def add_citation_info(canvas, doc):
-            cit_string = '<font color="grey">' + re.sub(r',?\s+\[URL:[^\]]+\]', '', str(metadata.metadata.get_single(DCTERMS.bibliographicCitation))) + '</font>' + '<br/>'
-            cit_string = re.sub(r'\s+', ' ', cit_string)
-            cit_string += '<font color="grey">URL: https://werkstatt.formulae.uni-hamburg.de' + url_for("InstanceNemo.r_multipassage", objectIds=objectId, subreferences='1') + '</font>' + '<br/>'
-            cit_string += '<font color="grey">' + _('Heruntergeladen: ') + date.today().isoformat() + '</font>'
-            cit_string = re.sub(r'<span class="manuscript-number">(\d+)</span>', r'<sub>\1</sub>', cit_string)
-            cit_string = re.sub(r'<span class="verso-recto">([^<]+)</span>', r'<super>\1</super>', cit_string)
-            cit_string = re.sub(r'<span class="surname">([^<]+)</span>', r'<b>\1</b>', cit_string)
-            cit_flowables = [Paragraph(cit_string, cit_style)]
-            f = Frame(doc.leftMargin - .9 * inch, 0.01 * inch, doc.pagesize[0] - .2 * inch, 0.7 * inch, showBoundary=0)
-            canvas.saveState()
-            if is_formula is True:
-                canvas.drawImage(self.static_folder + 'images/logo_white.png',
-                                 inch, inch, width=doc.pagesize[0] - doc.rightMargin,
-                                 height=doc.pagesize[1] - 1.5 * inch)
-                canvas.drawImage(self.static_folder + 'images/uhh-logo-web.gif',
-                                 doc.leftMargin, doc.pagesize[1] - 0.9 * inch, width=1.111 * inch, height=0.5 * inch,
-                                 mask=[255, 256, 255, 256, 255, 256])
-                canvas.drawImage(self.static_folder + 'images/logo_226x113_white_bg.png',
-                                 (doc.pagesize[0] / 2) - 0.5 * inch, doc.pagesize[1] - 0.9 * inch, width=inch,
-                                 height=0.5 * inch, mask=[255, 256, 255, 256, 255, 256])
-                canvas.drawImage(self.static_folder + 'images/adwhh200x113.jpg',
-                                 doc.pagesize[0] - doc.rightMargin - 0.88 * inch, doc.pagesize[1] - 0.9 * inch, width=.882 * inch,
-                                 height=0.5 * inch)
-            f.addFromList(cit_flowables, canvas)
-            canvas.setFont('Times-Roman', 8)
-            canvas.drawCentredString(doc.pagesize[0] / 2, 0.75 * inch, '{}'.format(doc.page))
-            canvas.restoreState()
-        new_subref = self.get_reffs(objectId)[0][0]
-        text = self.get_passage(objectId=objectId, subreference=new_subref)
-        transformed_str = self.transform(text, text.export(Mimetypes.PYTHON.ETREE), objectId).replace('<?xml version="1.0" encoding="UTF-8"?>', '')
-        transformed_xml = etree.fromstring(transformed_str)
-        pdf_buffer = BytesIO()
-        doc_title = re.sub(r'<span class="manuscript-number">(\w+)</span>',
-                           r'<sub>\1</sub>',
-                           re.sub(r'<span class="verso-recto">([^<]+)</span>', r'<super>\1</super>',
-                                  str(metadata.metadata.get_single(DC.title, lang=None))))
-        description = '{} ({})'.format(doc_title, date.today().isoformat())
-        trans_table = {'ä': 'ae', 'ö': 'oe', 'ü': 'ue', 'ß': 'ss', 'Ä': 'Ae', 'Ö': 'Oe', 'Ü': 'Ue', 'ẞ': 'Ss'}
-        filename = ''
-        for char in description:
-            new_char = char
-            if char in trans_table:
-                new_char = trans_table[char]
-            filename += new_char
-        my_doc = SimpleDocTemplate(pdf_buffer, title=description)
-        sample_style_sheet = getSampleStyleSheet()
-        custom_style = copy(sample_style_sheet['Normal'])
-        custom_style.name = 'Notes'
-        custom_style.fontSize = 10
-        custom_style.fontName = 'Liberation'
-        cit_style = copy(sample_style_sheet['Normal'])
-        cit_style.name = 'DocCitation'
-        cit_style.fontSize = 8
-        cit_style.alignment = 1
-        cit_style.leading = 9.6
-        sample_style_sheet['BodyText'].fontName = 'Liberation'
-        sample_style_sheet['BodyText'].fontSize = 12
-        sample_style_sheet['BodyText'].leading = 14.4
-        encryption = EncryptionFlowable(userPassword='',
-                                        ownerPassword=self.app.config['PDF_ENCRYPTION_PW'],
-                                        canPrint=1,
-                                        canAnnotate=0,
-                                        canCopy=0,
-                                        canModify=0)
-        flowables = list()
-        flowables.append(Paragraph(doc_title, sample_style_sheet['Heading1']))
-        hist_note_num = 1
-        for paragraph in transformed_xml.xpath('/div/div/p'):
-            p = ''
-            for c in paragraph.xpath('child::node()'):
-                c_class = None
-                c_text = ''
-                if isinstance(c, etree._Element):
-                    c_class = c.get('class')
-                    c_text = c.text.replace('<', '&lt;').replace('>', '&gt;') if c.text else ''
-                if isinstance(c, etree._ElementUnicodeResult):
-                    p += c.replace('<', '&lt;').replace('>', '&gt;')
-                elif c_class and 'w' in c_class.split():
-                    opening_tag = ''
-                    closing_tag = ''
-                    if 'font-italic' in c_class or 'latin-word' in c_class:
-                        opening_tag += '<i>'
-                        closing_tag = '</i>' + closing_tag
-                    if c.get('lemma') and 'platzhalter' in c.get('lemma'):
-                        opening_tag += '<b>'
-                        closing_tag = '</b>' + closing_tag
-                    if 'line-through' in c_class:
-                        opening_tag += '<strike>'
-                        closing_tag = '</strike>' + closing_tag
-                    if 'superscript' in c_class:
-                        opening_tag += '<super>'
-                        closing_tag = '</super>' + closing_tag
-                    if 'subscript' in c_class:
-                        opening_tag += '<sub>'
-                        closing_tag = '</sub>' + closing_tag
-                    p += opening_tag + c_text + closing_tag
-                elif c.xpath('./span') and c.xpath('./span')[0].get('class') and 'w' in c.xpath('./span')[0].get('class').split():
-                    opening_tag = ''
-                    closing_tag = ''
-                    word_span = c.xpath('./span')[0]
-                    c_class = word_span.get('class')
-                    c_text = word_span.text
-                    if 'font-italic' in c_class or 'latin-word' in c_class:
-                        opening_tag += '<i>'
-                        closing_tag = '</i>' + closing_tag
-                    if word_span.get('lemma') and 'platzhalter' in word_span.get('lemma'):
-                        opening_tag += '<b>'
-                        closing_tag = '</b>' + closing_tag
-                    if 'line-through' in c_class:
-                        opening_tag += '<strike>'
-                        closing_tag = '</strike>' + closing_tag
-                    if 'superscript' in c_class:
-                        opening_tag += '<super>'
-                        closing_tag = '</super>' + closing_tag
-                    if 'subscript' in c_class:
-                        opening_tag += '<sub>'
-                        closing_tag = '</sub>' + closing_tag
-                    p += opening_tag + c_text + closing_tag
-                elif c.xpath('./a[@type="a1"]') or c.xpath('./a[@type="n1"]'):
-                    note_num = c.xpath('./a[@class="note"]')[0].text
-                    p += '<sup>{}</sup>'.format(note_num)
-                elif c_class and c.xpath('self::span[contains(@class, "right-note-tooltip")]|./a[@class="note"]'):
-                    if c.xpath('self::span[contains(@class, "right-note-tooltip")]'):
-                        text_to_add = ''.join(c.xpath('./text()')).replace('<', '&lt;').replace('>', '&gt;')
-                        p += text_to_add
-                    p += '<sup>{}</sup>'.format(hist_note_num)
-                    hist_note_num += 1
-            flowables.append(Paragraph(re.sub(u'\u200c', '', p), sample_style_sheet['BodyText']))
-        if transformed_xml.xpath('/div/div/p/sup/a[@type="a1"]'):
-            flowables.append(Spacer(1, 5))
-            flowables.append(HRFlowable())
-            flowables.append(Spacer(1, 5))
-            for app_note in transformed_xml.xpath('/div/div/p/sup/a[@type="a1"]'):
-                n = '<sup>{}</sup>'.format(app_note.text)
-                for c in app_note.xpath('./span[@hidden="true"]/child::node()'):
-                    c_class = None
-                    c_text = ''
-                    if isinstance(c, etree._Element):
-                        c_class = c.get('class')
-                        c_text = c.text if c.text else ''
-                    if isinstance(c, etree._ElementUnicodeResult):
-                        n += c
-                    elif c_class:
-                        opening_tag = ''
-                        closing_tag = ''
-                        if 'italic' in c_class or 'latin-word' in c_class:
-                            opening_tag += '<i>'
-                            closing_tag = '</i>' + closing_tag
-                        if 'line-through' in c_class:
-                            opening_tag += '<strike>'
-                            closing_tag = '</strike>' + closing_tag
-                        if 'superscript' in c_class:
-                            opening_tag += '<super>'
-                            closing_tag = '</super>' + closing_tag
-                        if 'subscript' in c_class:
-                            opening_tag += '<sub>'
-                            closing_tag = '</sub>' + closing_tag
-                        n += opening_tag + c_text + closing_tag
-                    else:
-                        n += c_text
-                flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
-        if transformed_xml.xpath('/div/div/p/sup/a[not(@type="a1")]|/div/div/p/span[contains(@class, "right-note-tooltip")]'):
-            flowables.append(Spacer(1, 5))
-            flowables.append(HRFlowable())
-            flowables.append(Spacer(1, 5))
-            hist_note_num = 1
-            for app_note in transformed_xml.xpath('/div/div/p/sup/a[not(@type="a1")]|/div/div/p/span[contains(@class, "right-note-tooltip")]'):
-                n = '<sup>{}</sup>'.format(hist_note_num)
-                hist_note_num += 1
-                for c in app_note.xpath('./span[@hidden="true"]/child::node()'):
-                    c_class = None
-                    c_text = ''
-                    if isinstance(c, etree._Element):
-                        c_class = c.get('class')
-                        c_text = c.text if c.text else ''
-                    if isinstance(c, etree._ElementUnicodeResult):
-                        n += c
-                    elif c_class:
-                        opening_tag = ''
-                        closing_tag = ''
-                        if 'italic' in c_class or 'latin-word' in c_class:
-                            opening_tag += '<i>'
-                            closing_tag = '</i>' + closing_tag
-                        if 'line-through' in c_class:
-                            opening_tag += '<strike>'
-                            closing_tag = '</strike>' + closing_tag
-                        if 'superscript' in c_class:
-                            opening_tag += '<super>'
-                            closing_tag = '</super>' + closing_tag
-                        if 'subscript' in c_class:
-                            opening_tag += '<sub>'
-                            closing_tag = '</sub>' + closing_tag
-                        n += opening_tag + c_text + closing_tag
-                    else:
-                        n += c_text
-                flowables.append(Paragraph(re.sub(u'\u200c', '', n), custom_style))
-        if self.check_project_team() is False and is_formula is True:
-            flowables.append(encryption)
-        my_doc.build(flowables, onFirstPage=add_citation_info, onLaterPages=add_citation_info)
-        pdf_value = pdf_buffer.getvalue()
-        pdf_buffer.close()
-        return Response(pdf_value, mimetype='application/pdf',
-                        headers={'Content-Disposition': 'attachment;filename={}.pdf'.format(re.sub(r'\W+', '_', filename))})
+        from formulae.services.pdf_service import render_pdf_response
+        return render_pdf_response(
+            objectId=objectId,
+            resolver=self.resolver,
+            static_folder=self.static_folder,
+            check_project_team=self.check_project_team,
+            transform=self.transform,
+            get_passage=self.get_passage,
+            get_reffs=self.get_reffs,
+            encryption_pw=self.app.config['PDF_ENCRYPTION_PW']
+        )
