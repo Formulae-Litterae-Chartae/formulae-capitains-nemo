@@ -1,0 +1,468 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traffic management &mdash; formulae-capitains-nemo 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Navigation bar" href="nav-bar.html" />
+    <link rel="prev" title="Workflow Nemo Design" href="workflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #212529" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formulae-capitains-nemo
+              <img src="_static/logo_226x113.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Traffic management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#varnish-varnish">Varnish </a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#let-all-lead-to-404">Let all ‘+’ lead to 404</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#robots-txt">robots.txt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-add-crawl-delay">Why add <code class="code docutils literal notranslate"><span class="pre">crawl-delay</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-add-2b">Why add <code class="code docutils literal notranslate"><span class="pre">%2B</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#which-good-bots-frequently-crawled-our-website">Which “good” bots frequently crawled our website?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-if-a-crawler-ignores-robots-txt">What if a crawler ignores <cite>robots.txt</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#nginx">nginx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flask">flask</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae-nemo.html">formulae nemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #212529" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formulae-capitains-nemo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Traffic management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/traffic-management.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="traffic-management">
+<h1>Traffic management<a class="headerlink" href="#traffic-management" title="Link to this heading"></a></h1>
+<p>We have had a situation, where the access times of our application where increased so much, that it became almost unusable for real users. To find the reason behind this behavior, we checked the access logs we saw a huge number of accesses to our website by bots. Since, the functionality of this application makes possible to compare multiple resources by joining them into one url with one or more ‘+’, there is huge number of possible links (for <span class="math notranslate nohighlight">\(n\)</span> resources they are <span class="math notranslate nohighlight">\(n^k\)</span>, where k is number ‘+’+1).</p>
+<section id="varnish-varnish">
+<h2>Varnish <a class="reference internal" href="https://www.varnish-software.com/media/xs4hjt04/vs-logo-2020-140x60-1.svg"><img alt="Alternative text" src="https://www.varnish-software.com/media/xs4hjt04/vs-logo-2020-140x60-1.svg" style="width: 50px;" /></a><a class="headerlink" href="#varnish-varnish" title="Link to this heading"></a></h2>
+<p>Varnish Cache is a…</p>
+<section id="let-all-lead-to-404">
+<h3>Let all ‘+’ lead to 404<a class="headerlink" href="#let-all-lead-to-404" title="Link to this heading"></a></h3>
+<p>Our initial approach was to define a Varnish-rule, that basically blocked all url-accesses, with a ‘+’ and return a <cite>404</cite>. This vastly stabilized the application and made it useful again.  But with Google’s: <cite>Note that returning “no availability” codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site, so follow the additional next steps</cite> (source: <a class="reference external" href="https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget#emergencies">Handle overcrawling of your site (emergencies)</a>) in mind, we should change this behavior in the future:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">snippet from default.vcl</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">url</span> <span class="o">~</span> <span class="s2">&quot;/texts/&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos">2</span>   <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">url</span> <span class="o">~</span> <span class="s2">&quot;\+.*\+.*&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos">3</span>      <span class="k">return</span> <span class="p">(</span><span class="n">synth</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="s2">&quot;Denied by request filtering configuration&quot;</span><span class="p">));</span>
+<span class="linenos">4</span>   <span class="p">}</span>
+<span class="linenos">5</span>   <span class="k">return</span> <span class="p">(</span><span class="k">pass</span><span class="p">);</span>
+<span class="linenos">6</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>The next step is to comment-out this rule and switch to a request limit approach as seen in <a class="reference external" href="https://support.platform.sh/hc/en-us/community/posts/16439617864722-Rate-limit-connections-to-your-application-using-Varnish">https://support.platform.sh/hc/en-us/community/posts/16439617864722-Rate-limit-connections-to-your-application-using-Varnish</a>.</p>
+<p>Before making any changes, please check the syntax of the file via <code class="code docutils literal notranslate"><span class="pre">varnishd</span> <span class="pre">-C</span> <span class="pre">-f</span> <span class="pre">/etc/varnish/default.vcl</span></code> (see this <a class="reference external" href="https://cloudkul.com/knowledgebase/check-varnish-syntax">blog post</a> ).</p>
+<p>After changes: <cite>service varnish reload</cite>.  (<a class="reference external" href="https://stackoverflow.com/a/46088507/7924573">https://stackoverflow.com/a/46088507/7924573</a>)</p>
+</section>
+</section>
+<section id="robots-txt">
+<h2>robots.txt<a class="headerlink" href="#robots-txt" title="Link to this heading"></a></h2>
+<p>We use a <a class="reference external" href="../../assets/robots.txt">robots.txt</a>  file to disallow all bots to crawl sites containing a “+”. To achieve this we used the robots.txt wildcard expression “*”. It is not known whether all bots accept this form of wildcard annotation.</p>
+<p>If you intend to make changes to the robots.txt, consider checking it’s functionality before hand via online tools such as the: <a class="reference external" href="https://tamethebots.com/tools/robotstxt-checker">robots.txt Testing &amp; Validation Tool</a></p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">robots.txt</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># robots.txt</span>
+<span class="linenos"> 2</span><span class="c1">## Although the &quot;*&quot; should include all bots. I did observe, that certain ones do need specific instructions.</span>
+<span class="linenos"> 3</span><span class="c1">## The goal is to disallow the crawling and automatic processing of all sites with a &quot;+&quot; or &quot;%2B&quot; (equivalent in percentage encoding)</span>
+<span class="linenos"> 4</span><span class="c1">## Since the site is refreshed quite infrequent, we used a Crawl-delay of 30 seconds</span>
+<span class="linenos"> 5</span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="o">*</span>
+<span class="linenos"> 6</span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="n">AdsBot</span><span class="o">-</span><span class="n">Google</span>
+<span class="linenos"> 7</span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="n">Yandex</span>
+<span class="linenos"> 8</span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="n">YandexBot</span>
+<span class="linenos"> 9</span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="n">AcademicBotRTU</span>
+<span class="linenos">10</span><span class="n">User</span><span class="o">-</span><span class="n">agent</span><span class="p">:</span> <span class="n">Googlebot</span>
+<span class="linenos">11</span><span class="n">Disallow</span><span class="p">:</span> <span class="o">*+*</span>
+<span class="linenos">12</span><span class="n">Disallow</span><span class="p">:</span> <span class="o">*%</span><span class="mi">2</span><span class="n">B</span><span class="o">*</span>
+<span class="linenos">13</span><span class="n">Crawl</span><span class="o">-</span><span class="n">delay</span><span class="p">:</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</div>
+<p>This reduce the accesses by over 50% within one day (10k-20k 404s per hour on 09.10.24 vs 300-6k 404s per hour on 10.10.24). The most prominent of the remaining crawlers on 10.10.24 are AcademicBotRTU and YandexBot, these remained until the 15.10.24, on which I added explicit rules to block them. Since, Google needs at most <a class="reference external" href="https://support.google.com/webmasters/thread/70176854/how-long-does-it-take-for-google-bot-to-take-into-effect-new-robots-txt-file?hl=en">24-36 hours</a>  to check the new robots.txt, I expect other crawlers to have the same frequency.</p>
+<section id="why-add-crawl-delay">
+<h3>Why add <code class="code docutils literal notranslate"><span class="pre">crawl-delay</span></code>?<a class="headerlink" href="#why-add-crawl-delay" title="Link to this heading"></a></h3>
+<p>Well, Googlebot and Yandex wont use it. So, it wont cause any harm and is mostly just ignored. <a class="reference external" href="https://support.google.com/webmasters/thread/251817470/putting-crawl-delay-in-robots-txt-file-is-good?hl=en">https://support.google.com/webmasters/thread/251817470/putting-crawl-delay-in-robots-txt-file-is-good?hl=en</a>. But some do recognize it, so I have added the arbitrary limit of 30 seconds. Which is for instance recognize by the AcademicBotRTU.</p>
+</section>
+<section id="why-add-2b">
+<h3>Why add <code class="code docutils literal notranslate"><span class="pre">%2B</span></code>?<a class="headerlink" href="#why-add-2b" title="Link to this heading"></a></h3>
+<p>Because it is the  <a class="reference external" href="https://en.wikipedia.org/wiki/Percent-encoding">Percent-encoding</a> equivalent for ‘+’.</p>
+</section>
+<section id="which-good-bots-frequently-crawled-our-website">
+<h3>Which “good” bots frequently crawled our website?<a class="headerlink" href="#which-good-bots-frequently-crawled-our-website" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id4">
+<caption><span class="caption-text">crawler-list</span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>name</p></th>
+<th class="head"><p>url</p></th>
+<th class="head"><p>remarks</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AcademicBotRTU</p></td>
+<td><p><a class="reference external" href="https://academicbot.rtu.lv/">https://academicbot.rtu.lv/</a></p></td>
+<td><p>academic</p></td>
+</tr>
+<tr class="row-odd"><td><p>YandexBot</p></td>
+<td></td>
+<td><p>search engine</p></td>
+</tr>
+<tr class="row-even"><td><p>GoogleBot</p></td>
+<td></td>
+<td><p>search engine</p></td>
+</tr>
+<tr class="row-odd"><td><p>BingBot</p></td>
+<td></td>
+<td><p>search engine</p></td>
+</tr>
+<tr class="row-even"><td><p>Baiduspider</p></td>
+<td><p><a class="reference external" href="https://www.baidu.com/search/robots_english.html">https://www.baidu.com/search/robots_english.html</a></p></td>
+<td><p>search engine</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nexus 5X Build/MMB29P</p></td>
+<td><p><a class="reference external" href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers?hl=de#googlebot-smartphone">https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers?hl=de#googlebot-smartphone</a></p></td>
+<td><p>search engine</p></td>
+</tr>
+<tr class="row-even"><td><p>CCBot</p></td>
+<td><p>???</p></td>
+<td><p>???</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="what-if-a-crawler-ignores-robots-txt">
+<h3>What if a crawler ignores <cite>robots.txt</cite><a class="headerlink" href="#what-if-a-crawler-ignores-robots-txt" title="Link to this heading"></a></h3>
+<p><a class="reference external" href="https://blog.archive.org/2017/04/17/robots-txt-meant-for-search-engines-dont-work-well-for-web-archives/">https://blog.archive.org/2017/04/17/robots-txt-meant-for-search-engines-dont-work-well-for-web-archives/</a></p>
+</section>
+</section>
+<section id="nginx">
+<h2>nginx<a class="headerlink" href="#nginx" title="Link to this heading"></a></h2>
+</section>
+<section id="flask">
+<h2>flask<a class="headerlink" href="#flask" title="Link to this heading"></a></h2>
+<p>Controlled by the <cite>MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER</cite> environment variable, which is then used by the <cite>r_multipassager_multipassage</cite>-method.</p>
+<p>Per default it is set to ‘dev’, so authentication is not required. If you want to activate the authentication required-process, please set it to ‘production’. Create or modify the <cite>.env</cite>-file in the root directory. With the following variables:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">SERVER_TYPE</span> <span class="o">=</span> <span class="s2">&quot;production&quot;</span>
+<span class="n">MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Config.py</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">Config</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NEMO_KEY&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;you-will-never-guess&#39;</span>
+<span class="linenos"> 3</span>    <span class="n">SQLALCHEMY_DATABASE_URI</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DATABASE_URL&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;sqlite:///&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">&#39;app.db&#39;</span><span class="p">)</span>
+<span class="linenos"> 4</span>    <span class="n">SQLALCHEMY_TRACK_MODIFICATIONS</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 5</span>    <span class="n">POSTS_PER_PAGE</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="linenos"> 6</span>    <span class="c1"># if the environment variables ELASTICSEARCH_URL is not set; the application is starting without it</span>
+<span class="linenos"> 7</span>    <span class="n">ELASTICSEARCH_URL</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ELASTICSEARCH_URL&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ELASTICSEARCH_URL&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">False</span>
+<span class="linenos"> 8</span>    <span class="n">ES_CLIENT_CERT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ES_CLIENT_CERT&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos"> 9</span>    <span class="n">ES_CLIENT_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ES_CLIENT_KEY&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos">10</span>    <span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;de&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">]</span>
+<span class="linenos">11</span>    <span class="n">BABEL_DEFAULT_LOCALE</span> <span class="o">=</span> <span class="s1">&#39;de&#39;</span>
+<span class="linenos">12</span>    <span class="n">CORPUS_FOLDERS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CORPUS_FOLDERS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;CORPUS_FOLDERS&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="s2">&quot;../formulae-corpora/&quot;</span><span class="p">]</span>
+<span class="linenos">13</span>    <span class="n">INFLECTED_LEM_JSONS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;INFLECTED_LEM_JSONS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;INFLECTED_LEM_JSONS&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
+<span class="linenos">14</span>    <span class="n">LEM_TO_LEM_JSONS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LEM_TO_LEM_JSONS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LEM_TO_LEM_JSONS&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
+<span class="linenos">15</span>    <span class="n">DEAD_URLS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEAD_URLS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DEAD_URLS&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
+<span class="linenos">16</span>    <span class="n">COMP_PLACES</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;COMP_PLACES&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;COMP_PLACES&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
+<span class="linenos">17</span>    <span class="n">LEMMA_LISTS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LEMMA_LISTS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LEMMA_LISTS&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
+<span class="linenos">18</span>    <span class="n">COLLECTED_COLLS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;COLLECTED_COLLS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;COLLECTED_COLLS&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
+<span class="linenos">19</span>    <span class="c1"># TERM_VECTORS = os.environ.get(&#39;TERM_VECTORS&#39;)</span>
+<span class="linenos">20</span>    <span class="n">CACHE_DIRECTORY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NEMO_CACHE_DIR&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;./cache/&#39;</span>
+<span class="linenos">21</span>    <span class="n">MAIL_SERVER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_SERVER&#39;</span><span class="p">)</span>
+<span class="linenos">22</span>    <span class="n">MAIL_PORT</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_PORT&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">25</span><span class="p">)</span>
+<span class="linenos">23</span>    <span class="n">MAIL_USE_TLS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_USE_TLS&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="linenos">24</span>    <span class="n">MAIL_USERNAME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_USERNAME&#39;</span><span class="p">)</span>
+<span class="linenos">25</span>    <span class="n">MAIL_PASSWORD</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAIL_PASSWORD&#39;</span><span class="p">)</span>
+<span class="linenos">26</span>    <span class="n">ADMINS</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ADMINS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ADMINS&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="s1">&#39;no-reply@example.com&#39;</span><span class="p">]</span>
+<span class="linenos">27</span>    <span class="n">SESSION_TYPE</span> <span class="o">=</span> <span class="s1">&#39;filesystem&#39;</span>
+<span class="linenos">28</span>    <span class="n">IIIF_SERVER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;IIIF_SERVER&#39;</span><span class="p">)</span>
+<span class="linenos">29</span>    <span class="n">IIIF_MAPPING</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;IIIF_MAPPING&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/iiif&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">CORPUS_FOLDERS</span><span class="p">])</span>
+<span class="linenos">30</span>    <span class="c1"># This should only be changed to True when collecting search queries and responses for mocking ES</span>
+<span class="linenos">31</span>    <span class="n">SAVE_REQUESTS</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos">32</span>    <span class="n">CACHE_MAX_AGE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;VARNISH_MAX_AGE&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>  <span class="c1"># Only need cache on the server, where this should be set in env</span>
+<span class="linenos">33</span>    <span class="n">PDF_ENCRYPTION_PW</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PDF_ENCRYPTION_PW&#39;</span><span class="p">,</span> <span class="s1">&#39;hard_pw&#39;</span><span class="p">)</span>
+<span class="linenos">34</span>    <span class="n">SESSION_COOKIE_SECURE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SESSION_COOKIE_SECURE&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos">35</span>    <span class="n">REMEMBER_COOKIE_SECURE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REMEMBER_COOKIE_SECURE&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="linenos">36</span>    <span class="n">REDIS_URL</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REDIS_URL&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;redis://&#39;</span>
+<span class="linenos">37</span>    <span class="n">PREFERRED_URL_SCHEME</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PREFERRED_URL_SCHEME&#39;</span><span class="p">,</span> <span class="s1">&#39;http&#39;</span><span class="p">)</span>
+<span class="linenos">38</span>    <span class="n">VIDEO_FOLDER</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;VIDEO_FOLDER&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span>
+<span class="linenos">39</span>    <span class="n">COLLATE_API_URL</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;COLLATE_API_URL&#39;</span><span class="p">,</span> <span class="s1">&#39;http://localhost:7300&#39;</span><span class="p">)</span>
+<span class="linenos">40</span>    <span class="n">WORD_GRAPH_API_URL</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;WORD_GRAPH_API_URL&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos">41</span>    <span class="c1"># Used to decide whether authentication is needed for certain resources (dev -&gt; access to all without restriction; production -&gt; restricted access for non-authenticated users)</span>
+<span class="linenos">42</span>    <span class="n">SERVER_TYPE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SERVER_TYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;dev&#39;</span><span class="p">)</span>
+<span class="linenos">43</span>    <span class="c1"># Number of texts a not-authenticated user should be able to see. int &gt; 0</span>
+<span class="hll"><span class="linenos">44</span>    <span class="k">try</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">45</span>        <span class="n">MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER&#39;</span><span class="p">))</span>
+</span><span class="hll"><span class="linenos">46</span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">47</span>            <span class="n">MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class="hll"><span class="linenos">48</span>    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+</span><span class="hll"><span class="linenos">49</span>        <span class="n">MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER</span> <span class="o">=</span> <span class="mi">1</span>
+</span></pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="code-block-caption"><span class="caption-text">r_multipassage()</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span>    <span class="k">def</span> <span class="nf">r_multipassage</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">objectIds</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">subreferences</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">lang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">collate</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="linenos">  2</span><span class="w">        </span><span class="sd">&quot;&quot;&quot; Retrieve the text of the passage</span>
+<span class="linenos">  3</span>
+<span class="linenos">  4</span><span class="sd">        :param objectIds: Collection identifiers separated by &#39;+&#39;</span>
+<span class="linenos">  5</span><span class="sd">        :param lang: Lang in which to express main data</span>
+<span class="linenos">  6</span><span class="sd">        :param subreferences: Reference identifiers separated by &#39;+&#39;</span>
+<span class="linenos">  7</span><span class="sd">        :return: Template, collections metadata and Markup object representing the text</span>
+<span class="linenos">  8</span><span class="sd">        &quot;&quot;&quot;</span>
+<span class="hll"><span class="linenos">  9</span>        <span class="c1"># authentication check:</span>
+</span><span class="hll"><span class="linenos"> 10</span>        <span class="n">texts_threshold</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER&#39;</span><span class="p">]</span>
+</span><span class="hll"><span class="linenos"> 11</span>        <span class="k">if</span> <span class="p">(</span><span class="n">texts_threshold</span> <span class="o">&lt;=</span> <span class="n">objectIds</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>  <span class="ow">or</span> <span class="n">texts_threshold</span> <span class="o">&lt;=</span> <span class="n">subreferences</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">))</span> <span class="ow">and</span> \
+</span><span class="hll"><span class="linenos"> 12</span>            <span class="ow">not</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span> <span class="ow">and</span> \
+</span><span class="hll"><span class="linenos"> 13</span>            <span class="ow">not</span> <span class="s1">&#39;dev&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SERVER_TYPE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+</span><span class="hll"><span class="linenos"> 14</span>                <span class="n">abort</span><span class="p">(</span><span class="mi">401</span><span class="p">)</span>
+</span><span class="linenos"> 15</span>
+<span class="linenos"> 16</span>        <span class="k">if</span> <span class="s1">&#39;reading_format&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos"> 17</span>            <span class="n">session</span><span class="p">[</span><span class="s1">&#39;reading_format&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;columns&#39;</span>
+<span class="linenos"> 18</span>        <span class="n">ids</span> <span class="o">=</span> <span class="n">objectIds</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="linenos"> 19</span>        <span class="n">translations</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="linenos"> 20</span>        <span class="n">view</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos"> 21</span>        <span class="n">passage_data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;template&#39;</span><span class="p">:</span> <span class="s1">&#39;main::multipassage.html&#39;</span><span class="p">,</span> <span class="s1">&#39;objects&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s2">&quot;translation&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+<span class="linenos"> 22</span>        <span class="n">subrefers</span> <span class="o">=</span> <span class="n">subreferences</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="linenos"> 23</span>        <span class="n">all_parent_colls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="linenos"> 24</span>        <span class="n">collate_html_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="linenos"> 25</span>        <span class="k">if</span> <span class="s1">&#39;collate&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+<span class="linenos"> 26</span>            <span class="n">collate_html_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">call_collate_api</span><span class="p">(</span><span class="n">obj_ids</span><span class="o">=</span><span class="n">ids</span><span class="p">,</span> <span class="n">subrefers</span><span class="o">=</span><span class="n">subrefers</span><span class="p">)</span>
+<span class="linenos"> 27</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">subrefers</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+<span class="linenos"> 28</span>            <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+<span class="linenos"> 29</span>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="nb">id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ids</span><span class="p">):</span>
+<span class="linenos"> 30</span>            <span class="n">manifest_requested</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="linenos"> 31</span>            <span class="k">if</span> <span class="nb">id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dead_urls</span><span class="p">:</span>
+<span class="linenos"> 32</span>                <span class="nb">id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dead_urls</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span>
+<span class="linenos"> 33</span>            <span class="k">if</span> <span class="s2">&quot;manifest:&quot;</span> <span class="ow">in</span> <span class="nb">id</span><span class="p">:</span>
+<span class="linenos"> 34</span>                <span class="nb">id</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^manifest:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span>
+<span class="linenos"> 35</span>                <span class="n">manifest_requested</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="linenos"> 36</span>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_project_team</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">or</span> <span class="nb">id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">open_texts</span><span class="p">:</span>
+<span class="linenos"> 37</span>                <span class="k">if</span> <span class="n">subrefers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s1">&#39;first&#39;</span><span class="p">]:</span>
+<span class="linenos"> 38</span>                    <span class="n">subref</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_reffs</span><span class="p">(</span><span class="nb">id</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 39</span>                <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 40</span>                    <span class="n">subref</span> <span class="o">=</span> <span class="n">subrefers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="linenos"> 41</span>                <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">r_passage</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">subref</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="n">lang</span><span class="p">)</span>
+<span class="linenos"> 42</span>                <span class="n">d</span><span class="p">[</span><span class="s1">&#39;text_passage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">collate_html_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;text_passage&#39;</span><span class="p">])</span>
+<span class="linenos"> 43</span>                <span class="n">d</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_prev_next_texts</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;objectId&#39;</span><span class="p">]))</span>
+<span class="linenos"> 44</span>                <span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;template&#39;</span><span class="p">]</span>
+<span class="linenos"> 45</span>                <span class="n">parent_colls</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="linenos"> 46</span>                <span class="n">parent_colls</span><span class="p">[</span><span class="mi">99</span><span class="p">]</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">id</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;br&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)))]</span>
+<span class="linenos"> 47</span>                <span class="n">parent_textgroups</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;parents&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;cts:textgroup&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;subtype&#39;</span><span class="p">]]</span>
+<span class="linenos"> 48</span>                <span class="k">for</span> <span class="n">parent_coll</span> <span class="ow">in</span> <span class="n">parent_textgroups</span><span class="p">:</span>
+<span class="linenos"> 49</span>                    <span class="n">grandparent_depths</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="linenos"> 50</span>                    <span class="k">for</span> <span class="n">grandparent</span> <span class="ow">in</span> <span class="n">parent_coll</span><span class="p">[</span><span class="s1">&#39;ancestors&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+<span class="linenos"> 51</span>                        <span class="n">start_number</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="linenos"> 52</span>                        <span class="k">if</span> <span class="s1">&#39;cts:textgroup&#39;</span> <span class="ow">in</span> <span class="n">grandparent</span><span class="o">.</span><span class="n">subtype</span><span class="p">:</span>
+<span class="linenos"> 53</span>                            <span class="n">start_number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="linenos"> 54</span>                        <span class="n">grandparent_depths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_parents</span><span class="p">(</span><span class="n">grandparent</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;cts:textgroup&#39;</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;subtype&#39;</span><span class="p">]])</span> <span class="o">+</span> <span class="n">start_number</span><span class="p">)</span>
+<span class="linenos"> 55</span>                    <span class="n">max_grandparent_depth</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">grandparent_depths</span><span class="p">)</span>
+<span class="linenos"> 56</span>                    <span class="n">parent_colls</span><span class="p">[</span><span class="n">max_grandparent_depth</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">parent_coll</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="nb">str</span><span class="p">(</span><span class="n">parent_coll</span><span class="p">[</span><span class="s1">&#39;short_title&#39;</span><span class="p">])))</span>
+<span class="linenos"> 57</span>                <span class="n">all_parent_colls</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">parent_colls</span><span class="o">.</span><span class="n">items</span><span class="p">())])</span>
+<span class="linenos"> 58</span>                <span class="n">translations</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos"> 59</span>                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;translations&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+<span class="linenos"> 60</span>                    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ids</span> <span class="ow">and</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">translations</span><span class="p">[</span><span class="nb">id</span><span class="p">]:</span>
+<span class="linenos"> 61</span>                        <span class="n">translations</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos"> 62</span>                <span class="k">if</span> <span class="n">manifest_requested</span><span class="p">:</span>
+<span class="linenos"> 63</span>                    <span class="c1"># This is when there are multiple manuscripts and the edition cannot be tied to any single one of them</span>
+<span class="linenos"> 64</span>                    <span class="n">formulae</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="linenos"> 65</span>                    <span class="k">if</span> <span class="s1">&#39;manifest:&#39;</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">picture_file</span><span class="p">:</span>
+<span class="linenos"> 66</span>                        <span class="n">formulae</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">picture_file</span><span class="p">[</span><span class="s1">&#39;manifest:&#39;</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]]</span>
+<span class="linenos"> 67</span>                    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;alt_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="linenos"> 68</span>                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;IIIF_MAPPING&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;alternatives.json&#39;</span><span class="p">):</span>
+<span class="linenos"> 69</span>                        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;IIIF_MAPPING&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;alternatives.json&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 70</span>                            <span class="n">alt_images</span> <span class="o">=</span> <span class="n">json_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="linenos"> 71</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;alt_image&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alt_images</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
+<span class="linenos"> 72</span>                    <span class="n">d</span><span class="p">[</span><span class="s2">&quot;objectId&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;manifest:&quot;</span> <span class="o">+</span> <span class="nb">id</span>
+<span class="linenos"> 73</span>                    <span class="n">d</span><span class="p">[</span><span class="s2">&quot;div_v&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;manifest&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+<span class="linenos"> 74</span>                    <span class="n">view</span> <span class="o">=</span> <span class="n">view</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="linenos"> 75</span>                    <span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;text_passage&#39;</span><span class="p">]</span>
+<span class="linenos"> 76</span>                    <span class="k">del</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;notes&#39;</span><span class="p">]</span>
+<span class="linenos"> 77</span>                    <span class="k">if</span> <span class="n">formulae</span> <span class="o">==</span> <span class="p">{}:</span>
+<span class="linenos"> 78</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;manifest&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos"> 79</span>                        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+<span class="linenos"> 80</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ms_lib_links</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos"> 81</span>                        <span class="n">passage_data</span><span class="p">[</span><span class="s1">&#39;objects&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="linenos"> 82</span>                        <span class="k">continue</span>
+<span class="linenos"> 83</span>                    <span class="c1"># this viewer work when the library or archive give an IIIF API for the external usage of theirs books</span>
+<span class="linenos"> 84</span>                    <span class="n">d</span><span class="p">[</span><span class="s2">&quot;manifest&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;viewer.static&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">formulae</span><span class="p">[</span><span class="s2">&quot;manifest&quot;</span><span class="p">])</span>
+<span class="linenos"> 85</span>                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;IIIF_MAPPING&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">formulae</span><span class="p">[</span><span class="s1">&#39;manifest&#39;</span><span class="p">])</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="linenos"> 86</span>                        <span class="n">this_manifest</span> <span class="o">=</span> <span class="n">json_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="linenos"> 87</span>                    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;this_manifest[&#39;@id&#39;] </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]))</span>
+<span class="linenos"> 88</span>                    <span class="k">if</span> <span class="s1">&#39;fuldig.hs-fulda.de&#39;</span> <span class="ow">in</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]:</span>
+<span class="linenos"> 89</span>                        <span class="c1"># This works for resources from https://fuldig.hs-fulda.de/</span>
+<span class="linenos"> 90</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;sequences&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;canvases&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;rendering&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;@id&#39;</span><span class="p">]</span>
+<span class="linenos"> 91</span>                    <span class="k">elif</span> <span class="s1">&#39;gallica.bnf.fr&#39;</span> <span class="ow">in</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]:</span>
+<span class="linenos"> 92</span>                        <span class="c1"># This link needs to be constructed from the thumbnail link for images from https://gallica.bnf.fr/</span>
+<span class="linenos"> 93</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;sequences&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;canvases&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;thumbnail&#39;</span><span class="p">][</span><span class="s1">&#39;@id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.thumbnail&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos"> 94</span>                        <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;gallica.bnf.fr: lib_link created:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]))</span>
+<span class="linenos"> 95</span>                    <span class="k">elif</span> <span class="s1">&#39;api.digitale-sammlungen.de&#39;</span> <span class="ow">in</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]:</span>
+<span class="linenos"> 96</span>                        <span class="c1"># This works for resources from the Bayerische Staatsbibliothek</span>
+<span class="linenos"> 97</span>                        <span class="c1"># (and perhaps other German digital libraries?)</span>
+<span class="linenos"> 98</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;sequences&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;canvases&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;@id&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/view&#39;</span>
+<span class="linenos"> 99</span>                    <span class="k">elif</span> <span class="s1">&#39;digitalcollections.universiteitleiden.nl&#39;</span> <span class="ow">in</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]:</span>
+<span class="linenos">100</span>                        <span class="c1"># This works for resources from the Leiden University Library</span>
+<span class="linenos">101</span>                        <span class="c1"># This links to the manuscript as a whole.</span>
+<span class="linenos">102</span>                        <span class="c1"># I am not sure how to link to specific pages in their IIIF viewer.</span>
+<span class="linenos">103</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://iiifviewer.universiteitleiden.nl/?manifest=&#39;</span> <span class="o">+</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]</span>
+<span class="linenos">104</span>                    <span class="k">elif</span> <span class="s1">&#39;digi.vatlib.it&#39;</span> <span class="ow">in</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]:</span>
+<span class="linenos">105</span>                        <span class="c1"># This works for resources from the Vatican Libraries</span>
+<span class="linenos">106</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;sequences&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;canvases&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;@id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;iiif&#39;</span><span class="p">,</span> <span class="s1">&#39;view&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;canvas/p&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos">107</span>                    <span class="k">elif</span> <span class="s1">&#39;digital.blb-karlsruhe.de&#39;</span> <span class="ow">in</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]:</span>
+<span class="linenos">108</span>                        <span class="c1"># This works for resources from the BLB Karlsrühe</span>
+<span class="linenos">109</span>                        <span class="c1"># This links to the manuscript as a whole.</span>
+<span class="linenos">110</span>                        <span class="c1"># I am not sure how to link to specific pages in their IIIF viewer.</span>
+<span class="linenos">111</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://i3f.vls.io/?collection=i3fblbk&amp;id=&#39;</span> <span class="o">+</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]</span>
+<span class="linenos">112</span>                    <span class="k">elif</span> <span class="s1">&#39;www.e-codices.unifr.ch&#39;</span> <span class="ow">in</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;@id&#39;</span><span class="p">]:</span>
+<span class="linenos">113</span>                        <span class="c1"># This works for resources from the E-Codices</span>
+<span class="linenos">114</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;related&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;/list/one&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;sequences&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;canvases&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+<span class="linenos">115</span>                    
+<span class="linenos">116</span>                    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">&quot;lib_link: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;lib_link&#39;</span><span class="p">]))</span>
+<span class="linenos">117</span>                    
+<span class="linenos">118</span>                    <span class="n">folios</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+)([rvab]{1,2})&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1&lt;span class=&quot;verso-recto&quot;&gt;\2&lt;/span&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">119</span>                                    <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;sequences&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;canvases&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+<span class="linenos">120</span>                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;sequences&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;canvases&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">121</span>                        <span class="n">folios</span> <span class="o">+=</span> <span class="s1">&#39; - &#39;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\d+)([rvab]{1,2})&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;\1&lt;span class=&quot;verso-recto&quot;&gt;\2&lt;/span&gt;&#39;</span><span class="p">,</span>
+<span class="linenos">122</span>                                                 <span class="n">this_manifest</span><span class="p">[</span><span class="s1">&#39;sequences&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;canvases&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+<span class="linenos">123</span>                    <span class="n">d</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">formulae</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">],</span> <span class="s1">&#39; [fol.&#39;</span> <span class="o">+</span> <span class="n">folios</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">]</span>
+<span class="linenos">124</span>
+<span class="linenos">125</span>                <span class="k">else</span><span class="p">:</span>
+<span class="linenos">126</span>                    <span class="n">d</span><span class="p">[</span><span class="s2">&quot;IIIFviewer&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">127</span>                    <span class="k">for</span> <span class="n">transcription</span><span class="p">,</span> <span class="n">t_title</span><span class="p">,</span> <span class="n">t_partOf</span><span class="p">,</span> <span class="n">t_siglum</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;transcriptions&#39;</span><span class="p">]:</span>
+<span class="linenos">128</span>                        <span class="n">t_id</span> <span class="o">=</span> <span class="s1">&#39;no_image&#39;</span>
+<span class="linenos">129</span>                        <span class="k">if</span> <span class="s2">&quot;manifest:&quot;</span> <span class="o">+</span> <span class="n">transcription</span><span class="o">.</span><span class="n">id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">picture_file</span><span class="p">:</span>
+<span class="linenos">130</span>                            <span class="n">t_id</span> <span class="o">=</span> <span class="s2">&quot;manifest:&quot;</span> <span class="o">+</span> <span class="n">transcription</span><span class="o">.</span><span class="n">id</span>
+<span class="linenos">131</span>                        <span class="k">elif</span> <span class="s1">&#39;wa1&#39;</span> <span class="ow">in</span> <span class="n">transcription</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+<span class="linenos">132</span>                            <span class="n">t_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ms_lib_links</span><span class="p">[</span><span class="s1">&#39;wa1&#39;</span><span class="p">]</span>
+<span class="linenos">133</span>                        <span class="n">d</span><span class="p">[</span><span class="s2">&quot;IIIFviewer&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">t_id</span><span class="p">,</span>
+<span class="linenos">134</span>                                                <span class="n">t_title</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> <span class="o">+</span> <span class="n">t_siglum</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span>
+<span class="linenos">135</span>                                                <span class="n">t_partOf</span><span class="p">))</span>
+<span class="linenos">136</span>
+<span class="linenos">137</span>                    
+<span class="linenos">138</span>                    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;d[&quot;IIIFviewer&quot;]: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;IIIFviewer&quot;</span><span class="p">]))</span>
+<span class="linenos">139</span>                    <span class="k">if</span> <span class="s1">&#39;previous_search&#39;</span> <span class="ow">in</span> <span class="n">session</span><span class="p">:</span>
+<span class="linenos">140</span>                        <span class="n">result_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">session</span><span class="p">[</span><span class="s1">&#39;previous_search&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="nb">id</span><span class="p">]</span>
+<span class="linenos">141</span>                        <span class="k">if</span> <span class="n">result_ids</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;highlight&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">result_ids</span><span class="p">]):</span>
+<span class="linenos">142</span>                            <span class="n">d</span><span class="p">[</span><span class="s1">&#39;text_passage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">highlight_found_sents</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;text_passage&#39;</span><span class="p">],</span> <span class="n">result_ids</span><span class="p">)</span>
+<span class="linenos">143</span>                    <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">][</span><span class="s1">&#39;sigla&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<span class="linenos">144</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; [&#39;</span><span class="p">)</span>
+<span class="linenos">145</span>                        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; [&#39;</span> <span class="o">+</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;collections&#39;</span><span class="p">][</span><span class="s1">&#39;current&#39;</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">146</span>                <span class="n">filtered_transcriptions</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="linenos">147</span>                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;transcriptions&#39;</span><span class="p">]:</span>
+<span class="linenos">148</span>                    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ids</span> <span class="ow">and</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">filtered_transcriptions</span><span class="p">:</span>
+<span class="linenos">149</span>                        <span class="n">filtered_transcriptions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">150</span>                <span class="n">d</span><span class="p">[</span><span class="s1">&#39;transcriptions&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filtered_transcriptions</span>
+<span class="linenos">151</span>                <span class="n">passage_data</span><span class="p">[</span><span class="s1">&#39;objects&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="linenos">152</span>        <span class="n">passage_data</span><span class="p">[</span><span class="s1">&#39;breadcrumb_colls&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">all_parent_colls</span>
+<span class="linenos">153</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">passage_data</span><span class="p">[</span><span class="s1">&#39;objects&#39;</span><span class="p">]):</span>
+<span class="linenos">154</span>            <span class="n">flash</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Mindestens ein Text, den Sie anzeigen möchten, ist nicht verfügbar.&#39;</span><span class="p">))</span>
+<span class="linenos">155</span>        <span class="n">passage_data</span><span class="p">[</span><span class="s1">&#39;translation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">translations</span>
+<span class="linenos">156</span>        <span class="n">passage_data</span><span class="p">[</span><span class="s1">&#39;videos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">VIDEOS</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="mi">2</span> <span class="ow">in</span> <span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">157</span>        <span class="n">passage_data</span><span class="p">[</span><span class="s1">&#39;word_graph_url&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;WORD_GRAPH_API_URL&#39;</span><span class="p">]</span>
+<span class="linenos">158</span>        <span class="k">return</span> <span class="n">passage_data</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="workflow.html" class="btn btn-neutral float-left" title="Workflow Nemo Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="nav-bar.html" class="btn btn-neutral float-right" title="Navigation bar" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Matthew Munson, Thorben Schomacker.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

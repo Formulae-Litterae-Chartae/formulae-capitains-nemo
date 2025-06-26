@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>formulae-capitains-nemo documentation &mdash; formulae-capitains-nemo 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Workflow Nemo Design" href="workflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #212529" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            formulae-capitains-nemo
+              <img src="_static/logo_226x113.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traffic-management.html">Traffic management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae-nemo.html">formulae nemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #212529" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">formulae-capitains-nemo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">formulae-capitains-nemo documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="formulae-capitains-nemo-documentation">
+<h1>formulae-capitains-nemo documentation<a class="headerlink" href="#formulae-capitains-nemo-documentation" title="Link to this heading"></a></h1>
+<section id="formulae-capitains-nemo">
+<h2><p align=center> <img align=center src="https://avatars.githubusercontent.com/u/41728302"> <br> formulae-capitains-nemo</p><a class="headerlink" href="#formulae-capitains-nemo" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://coveralls.io/github/Formulae-Litterae-Chartae/formulae-capitains-nemo?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/Formulae-Litterae-Chartae/formulae-capitains-nemo/badge.svg?branch=master" /></a></p>
+<p>This is the class extension “NemoFormulae” for <a class="reference external" href="https://github.com/Capitains/flask-capitains-nemo">flask_nemo</a>. A working instance of this extension for the Formulae - Litterae - Chartae Project can be found at https://werkstatt.formulae.uni-hamburg.de.</p>
+<section id="getting-started">
+<h3>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h3>
+<p>Further information:</p>
+<ul class="simple">
+<li><p>https://github.com/capitains/tutorial-nemo</p></li>
+<li><p>The app is configured via <a class="reference internal" href="#./formulae/app.py"><span class="xref myst">formulae/app.py</span></a></p></li>
+</ul>
+</section>
+<section id="runnning-the-app-locally">
+<h3>Runnning the app locally:<a class="headerlink" href="#runnning-the-app-locally" title="Link to this heading"></a></h3>
+<section id="preliminary-setup-steps">
+<h4>1. Preliminary setup steps:<a class="headerlink" href="#preliminary-setup-steps" title="Link to this heading"></a></h4>
+<p>Only need to be executed the <strong>before the first time</strong> running the app:</p>
+<ol class="arabic simple">
+<li><p>Clone the repositories:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">formulae-capitains-nemo</span></code> (code-base)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">formulae-corpora</span></code> (texts) (ideally in the same folder e.g., <code class="docutils literal notranslate"><span class="pre">git</span></code> as the code base)</p></li>
+</ol>
+</li>
+<li><p>Create a Python virtualenv (e.g., <code class="docutils literal notranslate"><span class="pre">virtualenv</span> <span class="pre">--python=python3</span> <span class="pre">.venv</span></code>)</p></li>
+<li><p>Only if needed: Set the environment variable <code class="docutils literal notranslate"><span class="pre">CORPUS_FOLDERS</span></code> and re-start the app.</p></li>
+</ol>
+</section>
+<section id="start-the-app">
+<h4>2. Start the app:<a class="headerlink" href="#start-the-app" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>activate the virtualenv (e.g., <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code>)</p></li>
+<li><p>install the requirements via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code> within in the venv and from the <code class="docutils literal notranslate"><span class="pre">formulae-capitains-nemo</span></code> folder</p></li>
+<li><p>Optional: set-up Elastic Search via: <code class="docutils literal notranslate"><span class="pre">.env</span></code></p></li>
+<li><p>For local development: <code class="docutils literal notranslate"><span class="pre">ELASTICSEARCH_URL</span> <span class="pre">=</span> <span class="pre">&quot;http://localhost:9200&quot;</span></code> -&gt; requires: <a class="reference internal" href="#run-elastic-search-local"><span class="xref myst">local es instance</span></a></p></li>
+<li><p>If the requirements have been installed properly, you can launch <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">app.py</span></code> within the env and in <code class="docutils literal notranslate"><span class="pre">formulae-capitains-nemo</span></code> folder</p></li>
+<li><p>Reach the site via <a class="reference external" href="http://127.0.0.1:5000">127.0.0.1:5000</a></p></li>
+</ol>
+</section>
+<section id="run-elastic-search-local">
+<h4>Run Elastic Search local<a class="headerlink" href="#run-elastic-search-local" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Make sure that you have a few Gigabytes of RAM free</p></li>
+<li><p>cd <code class="docutils literal notranslate"><span class="pre">formulae-capitains-nemo</span></code> folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code></p></li>
+<li><p>es8 exited with code 137 -&gt; Not enough memory free</p></li>
+</ol>
+</section>
+<section id="how-are-static-files-handled">
+<h4>How are static files handled?<a class="headerlink" href="#how-are-static-files-handled" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>https://flask.palletsprojects.com/en/2.3.x/quickstart/#static-files</p></li>
+<li><p>I do recommend to add <code class="docutils literal notranslate"><span class="pre">/static</span></code> and <code class="docutils literal notranslate"><span class="pre">/robots.txt</span></code> to your nginx configuration, so that are served directly without passing through the application.</p></li>
+</ol>
+</section>
+</section>
+<section id="how-to-run-the-sphinx-documentation-locally">
+<h3>How to run the SPHINX documentation locally:<a class="headerlink" href="#how-to-run-the-sphinx-documentation-locally" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Install sphinx: https://www.sphinx-doc.org/en/master/usage/installation.html</p>
+<ul class="simple">
+<li><p>For Debin/Ubuntu the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/installation.html#os-specific-package-manager">OS-specific package manager</a> worked best</p></li>
+</ul>
+</li>
+<li><p>Build the project: <code class="docutils literal notranslate"><span class="pre">sphinx-build</span> <span class="pre">-M</span> <span class="pre">html</span> <span class="pre">docs/source/</span> <span class="pre">docs/build/</span></code></p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">docs/build/html/index.html</span></code> with your preferred browser: <code class="docutils literal notranslate"><span class="pre">firefox</span> <span class="pre">docs/build/html/index.html</span></code></p></li>
+</ol>
+</section>
+<section id="contribution-guide">
+<h3>Contribution guide<a class="headerlink" href="#contribution-guide" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Currently, we do not follow any specific design pattern. In the future I would to “reduce the weight” of our fat controller <a class="reference internal" href="#./formulae/app.py"><span class="xref myst">formulae/app.py</span></a>. I have not fully decided on whether I want to have <a class="reference external" href="https://www.tonymarston.net/php-mysql/fat-model-skinny-controller.html">fat models</a> or fat services instead; at the end services vs. models is more a naming thing than a real decision. Alternatively, I could do the <a class="reference external" href="https://www.reddit.com/r/flask/comments/134j8qw/how_can_we_use_the_mvc_pattern_in_flask/">MVC-pattern</a>.</p></li>
+<li><p>Each new collection should</p></li>
+</ul>
+</section>
+<section id="run-github-actions-locally">
+<h3>Run GitHub-actions locally:<a class="headerlink" href="#run-github-actions-locally" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Install <a class="reference external" href="https://cli.github.com/">GitHub CLI</a></p></li>
+<li><p>Install <a class="reference external" href="https://nektosact.com/installation/gh.html">act</a>: <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">extension</span> <span class="pre">install</span> <span class="pre">https://github.com/nektos/gh-act</span></code></p></li>
+<li><p>cd git/formulae-capitains-nemo</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">act</span> <span class="pre">-W</span> <span class="pre">'.github/workflows/python-app.yml'</span></code></p></li>
+<li><p>Comment out the redis port (gh seems to bring its own redis instance)</p></li>
+</ol>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#application-hierarchy">Application Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#nemo-rendering-workflow">Nemo Rendering Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traffic-management.html">Traffic management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="traffic-management.html#varnish-varnish">Varnish </a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#let-all-lead-to-404">Let all ‘+’ lead to 404</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic-management.html#robots-txt">robots.txt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#why-add-crawl-delay">Why add <code class="code docutils literal notranslate"><span class="pre">crawl-delay</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#why-add-2b">Why add <code class="code docutils literal notranslate"><span class="pre">%2B</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#which-good-bots-frequently-crawled-our-website">Which “good” bots frequently crawled our website?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#what-if-a-crawler-ignores-robots-txt">What if a crawler ignores <cite>robots.txt</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic-management.html#nginx">nginx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic-management.html#flask">flask</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae-nemo.html">formulae nemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internationalization.html#include-new-internationalized-text-snippets">Include new internationalized text snippets:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internationalization.html#how-to-update-existing-existing-text-blocks">How to update existing existing text blocks:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="workflow.html" class="btn btn-neutral float-right" title="Workflow Nemo Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Matthew Munson, Thorben Schomacker.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
