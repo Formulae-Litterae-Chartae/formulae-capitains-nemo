@@ -503,60 +503,92 @@ class NemoFormulae(Nemo):
                 colls[member['id']] = sorted(members, key=lambda x: (x['coverage'].lower().replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss'),
                                                                      x['label']))
         return colls
+    
+    
+    def sort_folia(self, matchobj: Match) -> str:
+        """Sets up the folia ranges of manuscripts for better sorting.
 
-    @staticmethod
-    def sort_folia(matchobj: Match) -> str:
-        """Sets up the folia ranges of manuscripts for better sorting"""
-        #folio_extraction_pattern = r'(\d+)((?:bis)?[rvab])'
-        folio_extraction_pattern = r'(\d+(?:bis)?)([rv][ab]?)'
+        This method parses folio identifiers with possible HTML formatting and generates
+        a consistent representation suitable for sorting manuscript items. It maps certain
+        folio number ranges to letter prefixes specific to manuscript collections (e.g., 'm4', 'p3').
+
+        Example inputs and outputs:
+        - '28r' → '0028<span class="verso-recto">r</span>'
+        - '101bisv' → '0101 bis<span class="verso-recto">v</span>'
+        - 'm4.45r-46v' → 'a0045<span class="verso-recto">r</span>-0046<span class="verso-recto">v</span>'
+        """
+        folio_extraction_pattern = r'(\d+(?:bis)?)([rv]|[ab])'
+        start_letter_dict = {
+            'm4': {
+                range(0, 24): 'a',
+                range(32, 40): 'b',
+                range(24, 32): 'c',
+                range(56, 72): 'd',
+                range(40, 56): 'e',
+                range(80, 86): 'f',
+                range(72, 80): 'g'
+            },
+            'p3': {
+                range(0, 143): 'a',
+                range(147, 153): 'b',#range(147, 151): 'b',
+                range(143, 147): 'c'
+            }
+        }
 
         groups = []
-        # Examples:
-        # '28r' → ['28', 'r']
-        # '28bisr' → ['28', 'bisr']
-        # '100b' → ['100', 'b']
-        # '101bisv' → ['101', 'bisv']
-        sub_groups = list(re.search(folio_extraction_pattern, matchobj.group(1)).groups())
+
+        # First folio part
+        part1 = matchobj.group(1)
+        match1 = re.search(folio_extraction_pattern, part1)
+        if not match1:
+            self.app.logger.warning(f"Could not extract folio pattern from input: {part1}")
+            return matchobj.group(0)
+
+        sub_groups = list(match1.groups())
+        number_str = sub_groups[0]
+        suffix = sub_groups[1]
         start_letter = ''
-        start_letter_dict = {'m4': {range(0, 24): 'a',
-                                    range(32, 40): 'b',
-                                    range(24, 32): 'c',
-                                    range(56, 72): 'd',
-                                    range(40, 56): 'e',
-                                    range(80, 86): 'f',
-                                    range(72, 80): 'g'},
-                             'p3': {range(0, 143): 'a',
-                                    range(147, 151): 'b',
-                                    range(143, 147): 'c'}
-                             }
-    
-        if 'm4' in matchobj.group(0):
-            start_fol = int(sub_groups[0])
-            for k, v in start_letter_dict['m4'].items():
-                if start_fol in k:
-                    start_letter = v
-        elif 'p3' in matchobj.group(0):
-            start_fol = int(sub_groups[0])
-            start_letter = 'd'
-            for k, v in start_letter_dict['p3'].items():
-                if start_fol in k:
-                    start_letter = v
-        if 'bis' in sub_groups[0]:
-            groups.append('{}{} bis<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0].replace('bis','')), sub_groups[1]))
+
+        for ms_id in ('m4', 'p3'):
+            if ms_id in matchobj.group(0):
+                try:
+                    folio_num = int(number_str.replace('bis', ''))
+                    for fol_range, letter in start_letter_dict[ms_id].items():
+                        if folio_num in fol_range:
+                            start_letter = letter
+                            break
+                    else:
+                        self.app.logger.warning(f"Folio number {folio_num} not in defined range for manuscript {ms_id}")
+                except ValueError:
+                    self.app.logger.warning(f"Could not convert folio number '{number_str}' to int for manuscript {ms_id}")
+                break  # only one ms_id can apply
+
+        if 'bis' in number_str:
+            groups.append(f"{start_letter}{int(number_str.replace('bis', ''))} bis<span class=\"verso-recto\">{suffix}</span>")
         else:
-            groups.append('{}{:04}<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0]), sub_groups[1]))
-            
+            groups.append(f"{start_letter}{int(number_str):04}<span class=\"verso-recto\">{suffix}</span>")
+
+        # Second folio part (e.g., in ranges like "28r-29v")
         if matchobj.group(2):
-            new_sub_groups = re.search(folio_extraction_pattern, matchobj.group(2)).groups() 
-            if 'bis' in new_sub_groups[0]:
-                groups.append('{} bis<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0].replace('bis','')), new_sub_groups[1]))
+            part2 = matchobj.group(2)
+            match2 = re.search(folio_extraction_pattern, part2)
+            if not match2:
+                self.app.logger.warning(f"Second folio part '{part2}' did not match expected pattern.")
             else:
-                groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
-                
+                new_sub_groups = list(match2.groups())
+                if 'bis' in new_sub_groups[0]:
+                    groups.append(f"{int(new_sub_groups[0].replace('bis', ''))} bis<span class=\"verso-recto\">{new_sub_groups[1]}</span>")
+                else:
+                    groups.append(f"{int(new_sub_groups[0]):04}<span class=\"verso-recto\">{new_sub_groups[1]}</span>")
+
         return_value = '-'.join(groups)
+
         if matchobj.group(3):
-            return_value += '(' + matchobj.group(3) + ')'
+            return_value += f"({matchobj.group(3)})"
+
         return return_value
+
+
 
     def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: str)\
             -> Tuple[Union[str, Tuple[str, Tuple[str, str]]],
