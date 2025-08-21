@@ -1742,8 +1742,19 @@ class NemoFormulae(Nemo):
                         for x in metadata.metadata.get(DCTERMS.hasVersion)]
         transcriptions = []
         for m in self.get_transcriptions(metadata):
-            siglum = [x['short_title'] for x in self.make_parents(m) if 'manuscript_collection' in x['ancestors']]
-            transcriptions.append((m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '', siglum[-1]))
+            # siglum = [x['short_title'] for x in self.make_parents(m) if 'manuscript_collection' in x['ancestors']]
+            siglum = []
+            parents = self.make_parents(m)
+            for x in parents:
+                if 'manuscript_collection' in x['ancestors']: 
+                    siglum.append(x['short_title'])
+                else:
+                    print(x['ancestors'])
+            try:
+                last_part_of_siglum =  siglum[-1]
+            except IndexError as ie:
+                raise IndexError("siglum ({}) seems empty. Although m ({}) has parents (n={}). Double check whether all transcriptions are in their capitains-file etc.".format(siglum, m, len(parents)))
+            transcriptions.append((m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '', last_part_of_siglum))
         current_parents = self.make_parents(metadata, lang=lang)
         linked_resources = []
         for resource in metadata.metadata.get(DCTERMS.relation):
