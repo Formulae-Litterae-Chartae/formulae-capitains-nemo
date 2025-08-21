@@ -1748,8 +1748,6 @@ class NemoFormulae(Nemo):
             for x in parents:
                 if 'manuscript_collection' in x['ancestors']: 
                     siglum.append(x['short_title'])
-                else:
-                    print(x['ancestors'])
             try:
                 last_part_of_siglum =  siglum[-1]
             except IndexError as ie:
