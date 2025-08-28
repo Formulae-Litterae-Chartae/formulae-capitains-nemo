@@ -1743,15 +1743,21 @@ class NemoFormulae(Nemo):
         transcriptions = []
         for m in self.get_transcriptions(metadata):
             # siglum = [x['short_title'] for x in self.make_parents(m) if 'manuscript_collection' in x['ancestors']]
-            siglum = []
+            siglum:list[str] = []
             parents = self.make_parents(m)
-            for x in parents:
-                if 'manuscript_collection' in x['ancestors']: 
-                    siglum.append(x['short_title'])
+            for parent in parents:
+                if 'manuscript_collection' in parent['ancestors']: 
+                    siglum.append(parent['short_title'])
             try:
                 last_part_of_siglum =  siglum[-1]
             except IndexError as ie:
-                raise IndexError("siglum ({}) seems empty. Although m ({}) has parents (n={}). Double check whether all transcriptions are in their capitains-file etc.".format(siglum, m, len(parents)))
+                extracted_manuscript_collection_id = str(m).replace('XmlCapitainsReadableMetadata(urn:cts:formulae:','').split('.')[0]
+                raise IndexError("siglum is empty. Although m ({}) has {} parents."
+                                 " Double check whether all transcriptions are in their capitains-file etc."
+                                 " Start with formulae-corpora/data/{}/__capitains__.xml".format(m, len(parents),extracted_manuscript_collection_id))
+                # This could indicate an error with the capitains file of the manuscript collection
+
+                
             transcriptions.append((m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '', last_part_of_siglum))
         current_parents = self.make_parents(metadata, lang=lang)
         linked_resources = []
