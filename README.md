@@ -25,8 +25,8 @@ Only need to be executed the **before the first time** running the app:
 ### 2. Start the app:    
 1. activate the virtualenv (e.g., `source .venv/bin/activate`) 
 2. install the requirements via `pip install -r requirements.txt` within in the venv and from the `formulae-capitains-nemo` folder 
-3. Optional: set-up Elastic Search via: `.env`
-  1. For local development: `ELASTICSEARCH_URL = "http://localhost:9200"` -> requires: [local es instance](#run-elastic-search-local)
+3. *Optional*: set-up Elastic Search via: `.env`
+  1. For local development: `ELASTICSEARCH_URL = "http://localhost:9200"` -> requires: [local elastic search instance](#run-elastic-search-local)
 3. If the requirements have been installed properly, you can launch `python3 app.py` within the env and in `formulae-capitains-nemo` folder 
 4. Reach the site via [127.0.0.1:5000](http://127.0.0.1:5000)
 

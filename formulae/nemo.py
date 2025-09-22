@@ -1127,7 +1127,6 @@ class NemoFormulae(Nemo):
                     From 'urn:cts:formulae:formulae_marculfinae.form008' or 'form008' extract '008'.
                     """
                     if isinstance(par, tuple):
-                        print('paristuple:', par)
                         par = par[0]  # get the actual key like 'form008'
                     if isinstance(par, str):
                         if par.startswith('urn:'):
