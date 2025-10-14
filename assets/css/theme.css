@@ -1,3 +1,6 @@
+:root {
+    --link-color: #1422ff;
+}
 
 #menu-container  .logo {
     width: auto;
@@ -222,7 +225,8 @@ span[lemma$="platzhalter"] {
 }
 
 .lexicon {
-    text-decoration: underline wavy
+    /* text-decoration: underline wavy; */
+    color: var(--link-color);
 }
 
 #lexicon-modal {
