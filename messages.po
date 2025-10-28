@@ -2558,7 +2558,7 @@ msgid "Eintrag zu "
 msgstr ""
 
 #: templates/main/container.html:185
-msgid " im Elexikon lesen"
+msgid " im e-Lexikon lesen"
 msgstr ""
 
 #: templates/main/elex_collection.html:2

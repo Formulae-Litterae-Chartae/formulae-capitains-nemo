@@ -2579,7 +2579,7 @@ msgid "Eintrag zu "
 msgstr "L'entrée pour "
 
 #: templates/main/container.html:185
-msgid " im Elexikon lesen"
+msgid " im e-Lexikon lesen"
 msgstr " lire dans l'encyclopédie électonique"
 
 #: templates/main/elex_collection.html:2
