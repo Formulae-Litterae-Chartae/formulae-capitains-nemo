@@ -1221,6 +1221,7 @@ class NemoFormulae(Nemo):
             if not v.children:
                 replacement_data = [str(v.metadata.get_single(DCTERMS.isPartOf) or ''),
                                     str(v.metadata.get_single(DCTERMS.isReplacedBy) or '')]
+                # item has 'isReplacedBy'
                 if all(replacement_data):
                     #par = re.sub(r'.*?(\d+\w*)\Z', r'\1', k)
                     
@@ -1265,10 +1266,6 @@ class NemoFormulae(Nemo):
                 key=lambda x: x[2][0]
             )
 
-        print('\n\n1279: readable:', readable.keys())
-        print('\n\n1280: readable:', [item[0] for item in readable.items()])
-
-        print('\n\n1280: normalize_sort_key:', [normalize_sort_key(item[0]) for item in readable.items()])
         if len(readable) == 0:
             if 'manuscript_collection' in collection.ancestors:
                 flash(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'))

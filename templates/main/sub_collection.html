@@ -244,9 +244,10 @@
                                 {% endif %}
                                 {% if values['deperditum'] == True %} (<i>dep.</i>)
                                 {% endif %}
-                                {% if values['problematic']|lower == 'unecht' %} <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="Unecht">†</span>
+                                {% if values['problematic']|lower == 'unecht' %} 
+                                    <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="Unecht">†</span>
                                 {% elif values['problematic'] != '' %} 
-                                <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="{{values['problematic']}}">⚠</span>
+                                    <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="{{ _('Dokument wurde ersetzt') }}"  data-original-title="{{values['problematic']}}">⚠</span>
                                 {% endif %}
                             </h5>
                         </div>
@@ -321,7 +322,7 @@
                         {% endif %}
                         </div>
                         </div>
-                        {% if 'alt_link' in values %}<p class="mb-1 short-regest"><a href="{{ values['alt_link'] }}" class="internal-link">-> {{ values['alt_title'] }}</a></p>{% endif %}
+                        {% if 'alt_link' in values %}<p class="mb-1 short-regest"><a href="{{ values['alt_link'] }}" class="internal-link">&#8594; {{ values['alt_title'] }}</a></p>{% endif %}
                         {% if current_user.project_team or collections.current.open_regesten %}
                             {% if not current_user.project_team and 'formulae_collection' in collections.parent_ids %}
                                 {% set copy_class = ' no-copy' %}
