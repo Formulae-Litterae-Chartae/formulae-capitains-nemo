@@ -1087,7 +1087,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in given collection
         """
         collection = self.resolver.getMetadata(objectId)
-        r = OrderedDict()
+        readable = OrderedDict()
         template = "main::sub_collection.html"
         current_parents = self.make_parents(collection, lang=lang)
         containing_colls = list()
@@ -1135,10 +1135,10 @@ class NemoFormulae(Nemo):
 
 
                 short_key = extract_short_key(par)
-                if short_key in r:
-                    r[short_key]["versions"][key].append(metadata + [manuscript_data])
+                if short_key in readable:
+                    readable[short_key]["versions"][key].append(metadata + [manuscript_data])
                 else:
-                    r[short_key] = {
+                    readable[short_key] = {
                         "versions": {'editions': [], 'translations': [], 'transcriptions': []},
                         "short_regest": '',
                         "regest": [],
@@ -1149,7 +1149,7 @@ class NemoFormulae(Nemo):
                         'transcribed_edition': [],
                         'parent_id': str(m.id)
                     }
-                    r[short_key]["versions"][key].append(metadata + [manuscript_data])
+                    readable[short_key]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     if 'm4' in objectId or 'p3' in objectId:
                         work_name = Markup(par.lstrip('abcdefg0') if isinstance(par, str) else '')
@@ -1187,14 +1187,15 @@ class NemoFormulae(Nemo):
                             bg_color = 'bg-color-' + str(mss_editions.index(mss_edition) + 1)
                             form_metadata = self.resolver.getMetadata(str(form_version))
                             form_parent = [str(x['id']) for x in self.make_parents(form_metadata) if 'formulae_collection' in x['ancestors'] and 'manuscript_collection' not in x['ancestors']][0]
+                            # iterate over ???
                             for readable_form in form_metadata.readableDescendants.values():
                                 form_par, form_md, form_m = self.ordered_corpora(readable_form, form_parent)
                                 form_ms_data = [readable_form.metadata.get_single(DC.source), "manifest:" + readable_form.id in self.app.picture_file]
                                 if readable_form.subtype == {'cts:translation'}:
-                                    r[short_key]["versions"]['translations'].append(form_md + [form_ms_data])
+                                    readable[short_key]["versions"]['translations'].append(form_md + [form_ms_data])
                                 elif readable_form.subtype == {'cts:edition'}:
-                                    r[short_key]["versions"]['editions'].append(form_md + [form_ms_data])
-                                    r[short_key]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
+                                    readable[short_key]["versions"]['editions'].append(form_md + [form_ms_data])
+                                    readable[short_key]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
                                     if version_index == 0:
                                         regest = [Markup(readable_form.metadata.get_single(DC.description))]
                                         short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
@@ -1203,7 +1204,7 @@ class NemoFormulae(Nemo):
                         if len(regest) == 2:
                            regest[1] = Markup('<b>REGEST EDITION</b>: ' + '<i>{}</i>'.format(_('Dieses Regest ist nicht öffentlich zugänglich.')))
 
-                    r[short_key].update({"short_regest": short_regest,
+                    readable[short_key].update({"short_regest": short_regest,
                                    "regest": regest,
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
@@ -1231,7 +1232,7 @@ class NemoFormulae(Nemo):
                     short_regest = str(replacement_md.metadata.get_single(DCTERMS.abstract)) or ''
                     replacement_par = re.sub(r'.*?(\d+\w*)\Z', r'\1', list(replacement_md.parent)[0])
                     #r[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                    r[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                    readable[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
                               "short_regest": short_regest,
                               "regest": regest,
                               "dating": '',
@@ -1246,39 +1247,29 @@ class NemoFormulae(Nemo):
 
 
         from formulae.services.corpus_service import extract_folio_sort_key
-
-        def normalize_sort_key(item_key):
-            if isinstance(item_key, str):
-                return extract_folio_sort_key(item_key)
-            elif isinstance(item_key, tuple):
-                return extract_folio_sort_key(item_key[0])
-            return (9999, 99)
-
-        # r = OrderedDict(sorted(r.items(), key=lambda item: normalize_sort_key(item[0])))
-        r = OrderedDict(
-            sorted(
-                ((k, v) for k, v in r.items() if isinstance(k, (str, tuple))),  # skip ellipsis
-                key=lambda item: normalize_sort_key(item[0])
-            )
-        )
-
-
+        # Collections with forwards are not stable in their order. I dont know why exactly
+        # Sorting them here, makes sure the order is mainained for the buttons and the later list
+        collections_with_forwards = ['urn:cts:formulae:formulae_marculfinae']
+        if objectId in collections_with_forwards:
+            readable = OrderedDict(sorted(readable.items(), key=lambda item: int(item[0].lstrip('0'))))
 
         #r = OrderedDict(sorted(r.items()))
-        for k in r.keys():
+        for k in readable.keys():
             valid_trans = [
-                t for t in r[k]['versions']['transcriptions']
+                t for t in readable[k]['versions']['transcriptions']
                 if isinstance(t, (list, tuple)) and len(t) > 2 and isinstance(t[2], (list, tuple)) and len(t[2]) > 1
                     and isinstance(t[2][1], (str, int)) and str(t[2][1]).isdigit()
             ]
-            r[k]['versions']['transcriptions'] = sorted(
+            readable[k]['versions']['transcriptions'] = sorted(
                 sorted(valid_trans, key=lambda x: int(x[2][1])),
                 key=lambda x: x[2][0]
             )
 
- 
+        print('\n\n1279: readable:', readable.keys())
+        print('\n\n1280: readable:', [item[0] for item in readable.items()])
 
-        if len(r) == 0:
+        print('\n\n1280: normalize_sort_key:', [normalize_sort_key(item[0]) for item in readable.items()])
+        if len(readable) == 0:
             if 'manuscript_collection' in collection.ancestors:
                 flash(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'))
             else:
@@ -1309,10 +1300,10 @@ class NemoFormulae(Nemo):
                 },
                 # later consumed in templates/main/sub_collection.html:
                 # {% for number, values in collections.readable.items() %}
-                "readable": r,
+                "readable": readable,
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents],
-                "first_letters": set([x[0] for x in r.keys()])
+                "first_letters": set([x[0] for x in readable.keys()])
             },
             "form": form,
             'manuscript_notes': self.manuscript_notes,
