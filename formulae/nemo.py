@@ -1970,7 +1970,7 @@ class NemoFormulae(Nemo):
                                                 t_partOf))
 
                     
-                    self.app.logger.warn(msg='d["IIIFviewer"]: {}'.format(d["IIIFviewer"]))
+                    
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]
                         if result_ids and any([x.get('highlight') for x in result_ids]):
