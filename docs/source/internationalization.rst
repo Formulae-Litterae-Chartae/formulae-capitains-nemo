@@ -8,7 +8,7 @@ Internationalization
 Include new internationalized text snippets:
 --------------------
 Add a snippet similar to this `<p><b>{{ _('Hinweis:') }}</b></p>` in any of the html-files under /templates.
-.. code-block:: shell
+.. code-block:: bash
     $ source ~/envs/bin/activate
     (envs) $ pybabel compile -d translations
     (envs) $ pybabel extract -F babel.cfg -k _l -o messages.pot .
@@ -17,12 +17,15 @@ Add a snippet similar to this `<p><b>{{ _('Hinweis:') }}</b></p>` in any of the 
 
 How to update existing existing text blocks:
 --------------------
-
-.. code-block:: shell
+1. Change your text in the German original e.g., in index.html
+2. Open poedit
+3. Change it both in English and French
+4. Compile the translations.
+.. code-block:: bash
     source ~/envs/bin/activate
     pybabel compile -d ./translations
 
 should result in this terminal output:
-.. code-block:: shell
+.. code-block:: bash
     compiling catalog ./translations/en/LC_MESSAGES/messages.po to ./translations/en/LC_MESSAGES/messages.mo
     compiling catalog ./translations/fr/LC_MESSAGES/messages.po to ./translations/fr/LC_MESSAGES/messages.mo
