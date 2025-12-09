@@ -1,7 +1,9 @@
 # robots.txt
 ## Although the "*" should include all bots. I did observe, that certain ones do need specific instructions.
 ## The goal is to disallow the crawling and automatic processing of all sites with a "+" or "%2B" (equivalent in percentage encoding)
-## Since the site is refreshed quite infrequent, we used a Crawl-delay of 30 seconds
+## Since the site is refreshed quite infrequent, we used a Crawl-delay of 30 seconds although Google ignores this parameter
+## I disallowed add_text because it is merely a redirect. If this is not the case, change this file.
+## I used: https://technicalseo.com/tools/robots-txt/ to validate this file. 
 User-agent: *
 User-agent: AdsBot-Google
 User-agent: Yandex
@@ -10,4 +12,5 @@ User-agent: AcademicBotRTU
 User-agent: Googlebot
 Disallow: *+*
 Disallow: *%2B*
+Disallow: */add_text/*
 Crawl-delay: 30
