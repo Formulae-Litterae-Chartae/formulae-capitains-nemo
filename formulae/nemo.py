@@ -1919,14 +1919,14 @@ class NemoFormulae(Nemo):
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
                         this_manifest = json_load(f)
-                    self.app.logger.warn("this_manifest['@id'] {}".format(this_manifest['@id']))
+                    self.app.logger.debug("this_manifest['@id'] {}".format(this_manifest['@id']))
                     if 'fuldig.hs-fulda.de' in this_manifest['@id']:
                         # This works for resources from https://fuldig.hs-fulda.de/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering'][1]['@id']
                     elif 'gallica.bnf.fr' in this_manifest['@id']:
                         # This link needs to be constructed from the thumbnail link for images from https://gallica.bnf.fr/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['thumbnail']['@id'].replace('.thumbnail', '')
-                        self.app.logger.warn("gallica.bnf.fr: lib_link created:{}".format(d['lib_link']))
+                        self.app.logger.debug("gallica.bnf.fr: lib_link created:{}".format(d['lib_link']))
                     elif 'api.digitale-sammlungen.de' in this_manifest['@id']:
                         # This works for resources from the Bayerische Staatsbibliothek
                         # (and perhaps other German digital libraries?)
