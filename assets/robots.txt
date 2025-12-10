@@ -13,4 +13,5 @@ User-agent: Googlebot
 Disallow: *+*
 Disallow: *%2B*
 Disallow: */add_text/*
+Disallow: */pdf/*
 Crawl-delay: 30

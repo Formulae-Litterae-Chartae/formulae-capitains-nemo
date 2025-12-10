@@ -32,7 +32,15 @@ The next step is to comment-out this rule and switch to a request limit approach
 
 Before making any changes, please check the syntax of the file via :code:`varnishd -C -f /etc/varnish/default.vcl` (see this `blog post <https://cloudkul.com/knowledgebase/check-varnish-syntax>`_ ). 
 
-After changes: `service varnish reload`.  (https://stackoverflow.com/a/46088507/7924573)
+After changes: `service varnish reload`.  (https://stackoverflow.com/a/46088507/7924573). This is the current varnish solutions, which blocks are access from entities, who identify themselves as bots:
+
+.. code-block:: python
+   :linenos:
+   :caption: snippet from default.vcl
+
+
+  TODO
+
 
 robots.txt
 #####################
@@ -86,8 +94,12 @@ Which "good" bots frequently crawled our website?
      - search engine
    * - CCBot
      - ???
-     - ???
-
+     - ???   
+   * - Nexus 5X Build/MMB29P
+     - https://developers.facebook.com/docs/sharing/webmasters/web-crawlers
+     - search engine
+  
+  
 
 
 What if a crawler ignores `robots.txt`
@@ -100,16 +112,21 @@ nginx
 
 flask
 #####################
-Controlled by the `MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER` environment variable, which is then used by the `r_multipassager_multipassage`-method.
+In the previous section, the varnish-way of limiting access was introduced. In addition to that, there is a mechanism for controlling all access on the application side. Controlled by the `MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER` environment variable, which is then used by the `r_multipassager_multipassage`-method. So, if you have a risen number of 504 errors it could help to reduce this parameter. 
 
-Per default it is set to 'dev', so authentication is not required. If you want to activate the authentication required-process, please set it to 'production'. Create or modify the `.env`-file in the root directory. With the following variables:
+Per default it is set to 'dev', so authentication is not required. If you want to activate the authentication required-process, please set it to 'production':
 
-
+1. Create or modify the `.env`-file in the root directory. 
+   1. `cd formulae-capitains-nemo`
+   2. `nano .env` 
+   
+2. With the following variables:
 .. code-block:: python
 
   SERVER_TYPE = "production"
   MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER = 1 
 
+3. Reload the application, in order for the variables to take effect 
 
 
 
