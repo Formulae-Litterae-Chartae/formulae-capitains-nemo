@@ -2,9 +2,9 @@ Traffic management
 ====================
 We have had a situation, where the access times of our application where increased so much, that it became almost unusable for real users. To find the reason behind this behavior, we checked the access logs we saw a huge number of accesses to our website by bots. Since, the functionality of this application makes possible to compare multiple resources by joining them into one url with one or more '+', there is huge number of possible links (for :math:`n` resources they are :math:`n^k`, where k is number '+'+1).
 
-Varnish |varnish|
+Varnish 
 #####################
-Varnish Cache is a...
+|varnish| Varnish Cache is a...
 
 
 .. |varnish| image:: https://www.varnish-software.com/media/xs4hjt04/vs-logo-2020-140x60-1.svg
@@ -23,7 +23,8 @@ After changes: `service varnish reload`.  (https://stackoverflow.com/a/46088507/
 .. code-block:: python
    :linenos:
    :caption: Current version of default.vcl
-   :emphasize-lines: 7, 11, 12
+
+
     #
     # This is an example VCL file for Varnish.
     #
@@ -127,7 +128,6 @@ After changes: `service varnish reload`.  (https://stackoverflow.com/a/46088507/
     }
 
 
-  TODO
 
 Restricting parallel resources
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -149,6 +149,25 @@ Our initial approach was to define a Varnish-rule, that basically blocked all ur
 Cookies 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "Varnish will, in the default configuration, not cache an object coming from the backend with a ‘Set-Cookie’ header present. Also, if the client sends a Cookie header, Varnish will bypass the cache and go directly to the backend." We therefore decided to remove some cookies:
+
+Cache Control with max-age 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"The 'Cache-Control' header instructs caches how to handle the content. Varnish cares about the max-age parameter and uses it to calculate the TTL for an object." - `cache-control  <https://vinyl-cache.org/docs/trunk/users-guide/increasing-your-hitrate.html#cache-control>`_. We therefore added a default max-age value in the config:    
+
+
+.. literalinclude:: ../../config.py
+   :linenos:
+   :lineno-start: 40
+   :lines: 40
+   :caption: config.py
+
+This value is later used in the application to construct the header:
+
+.. literalinclude:: ../../formulae/nemo.py
+   :pyobject: NemoFormulae.after_request
+
+Previously we had :code:`if re.search('/(lang|auth|texts)/', request.url): response.cache_control.no_cache = True`, which never caches our resources. Since we never refresh a resource more than daily in production this limit, this does not seem to be practical. I removed this clause and have now everything but the assets fall under the previously mentioned max-age. I don't see a problem in setting it to 24*60*60 seconds. The assets could even be older,  I guess.
+
 
 Rate limit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

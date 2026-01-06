@@ -895,18 +895,34 @@ class NemoFormulae(Nemo):
             session.pop('previous_search', None)
 
     def after_request(self, response: Response) -> Response:
-        """ Currently used only for the Cache-Control header.
-
         """
-        max_age = self.app.config['CACHE_MAX_AGE']
-        if re.search('/(lang|auth|texts)/', request.url):
+        Post-processes the response object after each request.
+
+        - Disables caching for authentication and language-switching routes.
+        - Applies extended caching for static assets.
+        - Sets general cache-control headers using `CACHE_MAX_AGE` for all other responses.
+        - Persists certain variables from `g` to the session.
+        """
+        path = request.path
+
+        # Disable caching for login and language-switch
+        if path.startswith('/auth/') or path.startswith('/lang/'):
             response.cache_control.no_cache = True
-        elif re.search('/assets/', request.url):
-            max_age = 60 * 60 * 24
+            response.cache_control.no_store = True
+            response.cache_control.must_revalidate = True
+            response.headers['Pragma'] = 'no-cache'
+            response.headers['Expires'] = '0'
+        # Long caching for assets
+        elif path.startswith('/assets/'):
+            response.cache_control.max_age = 60 * 60 * 24  # 1 day
+            response.cache_control.public = True
         else:
-            response.vary = 'session'
-        response.cache_control.max_age = max_age
-        response.cache_control.public = True
+            # Default caching for other routes
+            max_age = self.app.config['CACHE_MAX_AGE']
+            self.app.logger.debug(f"Applying default cache for path: {path}, max_age={max_age}")
+            response.cache_control.max_age = max_age
+            response.cache_control.public = True
+            response.vary = 'Cookie'  # vary by session
         if getattr(g, 'previous_search', None) is not None:
             session['previous_search'] = g.previous_search
         if getattr(g, 'previous_search_args', None):
