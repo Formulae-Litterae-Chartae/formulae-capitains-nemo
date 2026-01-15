@@ -2,15 +2,14 @@
 {% block title %}Formulae - Litterae - Chartae: {{ _('Nicht Authorisiert') }}{% endblock %}
 
 {% block article %}
-    <article>
-    <h1>{{ _('Nicht Authorisiert') }}</h1>
-    <p>{{ _('Bitte loggen Sie sich ein um Zugriff zu erhalten.') }}</p>
-    <p><b>{{ _('Hinweis:') }}</b> {{ _('Aufgrund technischer Optimierungen zur Stabilisierung der Werkstatt-Umgebung können derzeit nicht alle Ressourcen gleichzeitig nebeneinander angezeigt werden. Diese Einschränkung gilt jedoch nur für nicht eingeloggte Nutzerinnen und Nutzer. Eingeloggte Benutzer können weiterhin uneingeschränkt auf die Funktion zugreifen.') }}</p>
+    <div class="col-lg-3 col">
+    <h1>{{ _('Bitte loggen Sie sich ein um Zugriff zu erhalten.') }}</h1>
+    {% include "main::resource_limitation.html" %}
     {% if referrer %}
         <p>
             <a href="{{ referrer }}"><span class="fa fa-arrow-circle-left"></span> {{ _('Zurück zur vorherigen Seite.') }} </a>
         </p>
     {% endif %}
-
-    </article>
+    <p>{{ _('Noch kein Benutzerkonto?') }} <a class="outside-link" href="{{ url_for('auth.r_register') }}">{{ _('Klicken Sie hier') }}</a></p>
+    </div>
 {% endblock %}
