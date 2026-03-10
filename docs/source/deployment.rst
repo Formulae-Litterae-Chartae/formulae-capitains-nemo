@@ -6,3 +6,11 @@ This page describes the way we deployed the application on the university server
 .. literalinclude:: ./_static/deployment.puml
    :linenos:
    :caption: deployment.puml
+
+
+Docker
+============
+
+.. uml:: ./_static/docker.puml
+   :align: center
+   :caption: Docker-based architecture of Formulae Nemo.

@@ -1,0 +1,71 @@
+@startuml
+title Formulae Nemo Docker Architecture
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam linetype ortho
+
+' Icon sprites (DevIcons / SimpleIcons)
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/docker.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/python.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/git.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/github_original.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/redis.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2/firefox.puml
+!include https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/refs/heads/main/icons/devicons2/elasticsearch.puml
+
+actor User
+
+node "Host Machine" {
+  component "<$firefox>\nBrowser" as browser
+
+  frame "Docker Compose Stack" {
+    component "<$python>\nnemo\nFlask application" as nemo
+    component "<$elasticsearch>\nelasticsearch\nSearch backend" as es
+    component "<$redis>\nredis\nTemporary state / progress" as redis
+    component "<$git>\nformulae_corpora\nInit / update / reindex job" as corpora
+
+    database "esdata\nDocker volume" as esdata
+    folder "formulae_corpora_data\nDocker volume" as corpusvol
+  }
+
+  folder ".env" as env
+  file "docker/clone_corpora.sh" as clonescript
+}
+
+cloud "<$github_original>\nGitHub\nformulae-corpora repository" as github
+
+User --> browser
+browser --> nemo : HTTP :5000
+
+nemo --> es : search queries\nhttp://elasticsearch:9200
+nemo --> redis : redis://redis:6379/0
+nemo --> corpusvol : read-only XML corpus
+
+corpora --> github : git clone / fetch / reset
+corpora --> corpusvol : clone / update corpus
+corpora --> es : rebuild_elasticsearch_from_xml.py
+corpora --> clonescript : entrypoint
+corpora --> env : runtime variables
+
+es --> esdata : persist indices
+
+note right of corpora
+One-shot helper service.
+
+Usually started manually via:
+
+docker compose run --rm formulae_corpora
+
+Optional reindexing is controlled by:
+REBUILD_ELASTICSEARCH=true
+end note
+
+note bottom of nemo
+Main web application container.
+Reads XML corpus from shared volume
+and queries Elasticsearch + Redis
+over the internal Docker network.
+end note
+
+@enduml

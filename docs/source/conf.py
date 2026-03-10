@@ -25,8 +25,9 @@ release = '1.0'
 extensions = ['myst_parser',
               'sphinx_rtd_theme', 
               'sphinx.ext.autodoc',
-              'sphinx.ext.autosummary']
-
+              'sphinx.ext.autosummary', 
+            'sphinxcontrib.plantuml']
+plantuml = "plantuml"
 intersphinx_mapping = {'flask': ('https://docs.python.org/3', None)}
 
 templates_path = ['_templates']
