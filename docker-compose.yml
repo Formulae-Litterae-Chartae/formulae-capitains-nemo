@@ -1,4 +1,4 @@
-version: '3'
+#version: '3'
 services:
   elasticsearch:
     image: elasticsearch:8.11.2
@@ -10,3 +10,48 @@ services:
       - discovery.type=single-node
       - xpack.security.enabled=false
       - xpack.security.http.ssl.enabled=false
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    
+    networks:
+      - backend
+  # One-shot fetcher: clones a private GitHub repo into a named volume.
+  # You run this once (or whenever you want to refresh).
+  formulae_corpora:
+    image: alpine/git:2.45.2
+    profiles: ["init"]
+    environment:
+      - FORMULAE_CORPORA_REPO_URL=${FORMULAE_CORPORA_REPO_URL}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      - FORMULAE_CORPORA_REF=${FORMULAE_CORPORA_REF:-}
+    volumes:
+      - formulae_corpora_data:/data
+      - ./docker/clone_corpora.sh:/clone_corpora.sh:ro
+    entrypoint: ["/bin/sh", "/clone_corpora.sh"]
+    networks:
+      - backend
+  
+  nemo:
+    build: .
+    env_file: ".env"
+    environment:
+      - ELASTICSEARCH_URL=${ELASTICSEARCH_URL} #If not set, search will not work
+      - CORPUS_FOLDERS=/data
+      - PYTHONUNBUFFERED=1
+    volumes:
+      # Mount the XML DB volume read-only
+      - formulae_corpora_data:/data:ro
+    expose:
+      - "5000"
+    ports:
+    - "5000:5000"
+    networks:
+      - backend
+  
+volumes:
+  esdata:
+  formulae_corpora_data:
+
+networks:
+  backend:
+    driver: bridge

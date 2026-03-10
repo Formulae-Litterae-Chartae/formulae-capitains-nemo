@@ -11,8 +11,9 @@ This is the class extension "NemoFormulae" for [flask_nemo](https://github.com/C
 Further information:
 - https://github.com/capitains/tutorial-nemo
 - The app is configured via [formulae/app.py](./formulae/app.py)
+- Complete documentation should be done using Sphinx
 
-## Runnning the app locally:
+## Running the app locally :computer::
 
 ### 1. Preliminary setup steps:
 Only need to be executed the **before the first time** running the app:
@@ -36,6 +37,17 @@ Only need to be executed the **before the first time** running the app:
 3. `docker-compose up` 
 4.  es8 exited with code 137 -> Not enough memory free
 
+## Start the app via Docker :whale2:: 
+1. create a .env file next to docker-compose.yml:
+  ```
+    formulae_corpora_REPO_URL=https://github.com/YOURORG/YOURREPO.git
+    GITHUB_TOKEN=ghp_...read_only_token...
+    ELASTICSEARCH_URL=http://elasticsearch:9200
+    # optional
+    formulae_corpora_REF=
+  ```
+2. `docker-compose up`
+
 
 ### How are static files handled?
 1. https://flask.palletsprojects.com/en/2.3.x/quickstart/#static-files
@@ -44,8 +56,10 @@ Only need to be executed the **before the first time** running the app:
 ## How to run the SPHINX documentation locally:
 1. Install sphinx: https://www.sphinx-doc.org/en/master/usage/installation.html
     - For Debin/Ubuntu the [OS-specific package manager](https://www.sphinx-doc.org/en/master/usage/installation.html#os-specific-package-manager) worked best
-2. Build the project: `sphinx-build -M html docs/source/ docs/build/`
-3. Open `docs/build/html/index.html` with your preferred browser: `firefox docs/build/html/index.html`
+2. activate the virtualenv (e.g., `source .venv/bin/activate`) 
+3. install the requirements via `pip install -r requirements_sphinx.txt` within in the venv and from the `formulae-capitains-nemo` folder 
+3. Build the project: `sphinx-build -M html docs/source/ docs/build/` or `python -m sphinx -M html docs/source/ docs/build/`
+4. Open `docs/build/html/index.html` with your preferred browser: `firefox docs/build/html/index.html`
 
 ## Contribution guide
 - Currently, we do not follow any specific design pattern. In the future I would to "reduce the weight" of our fat controller [formulae/app.py](./formulae/app.py). I have not fully decided on whether I want to have [fat models](https://www.tonymarston.net/php-mysql/fat-model-skinny-controller.html) or fat services instead; at the end services vs. models is more a naming thing than a real decision. Alternatively, I could do the [MVC-pattern](https://www.reddit.com/r/flask/comments/134j8qw/how_can_we_use_the_mvc_pattern_in_flask/). 

@@ -32,6 +32,8 @@ class Config(object):
     ADMINS = os.environ.get('ADMINS').split(';') if os.environ.get('ADMINS') else ['no-reply@example.com']
     SESSION_TYPE = 'filesystem'
     IIIF_SERVER = os.environ.get('IIIF_SERVER')
+    # This folder houses all transcription / manuscript images
+    # Particularly it is required to have a file named 'Mapping.json'
     IIIF_MAPPING = os.environ.get('IIIF_MAPPING') or ';'.join(['{}/iiif'.format(f) for f in CORPUS_FOLDERS])
     # This should only be changed to True when collecting search queries and responses for mocking ES
     SAVE_REQUESTS = False
