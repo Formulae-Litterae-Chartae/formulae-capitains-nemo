@@ -37,16 +37,35 @@ Only need to be executed the **before the first time** running the app:
 3. `docker-compose up` 
 4.  es8 exited with code 137 -> Not enough memory free
 
-## Start the app via Docker :whale2:: 
-1. create a .env file next to docker-compose.yml:
-  ```
-    formulae_corpora_REPO_URL=https://github.com/YOURORG/YOURREPO.git
-    GITHUB_TOKEN=ghp_...read_only_token...
-    ELASTICSEARCH_URL=http://elasticsearch:9200
-    # optional
-    formulae_corpora_REF=
-  ```
-2. `docker-compose up`
+## Running with Docker Compose :whale2:
+The application can be started locally using Docker Compose. The setup includes:
+- **Elasticsearch** – search index backend
+- **Redis** – temporary storage for search workflows
+- **formulae_corpora** – helper container that clones/updates the XML corpus and can rebuild the search index
+- **nemo** – the Flask web application
+### Requirements
+- Docker
+- Docker Compose
+### Environment variables
+Create a `.env` file in the project root:
+```env
+  ELASTICSEARCH_URL=http://elasticsearch:9200
+  FORMULAE_CORPORA_REPO_URL=<repository>
+  GITHUB_TOKEN=<github-token>
+  FORMULAE_CORPORA_REF=
+  REBUILD_ELASTICSEARCH=false
+```
+### Startup sequence
+```shell
+  docker compose up -d elasticsearch redis
+  docker compose run --rm formulae_corpora
+  docker compose up -d nemo
+```
+:computer: Application URL: http://localhost:5000
+### Stop
+```shell
+  docker compose down
+```
 
 
 ### How are static files handled?
