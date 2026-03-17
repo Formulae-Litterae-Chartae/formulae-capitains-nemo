@@ -15,20 +15,34 @@ jobs:
         uses: actions/checkout@v4
       - name: Install python
         uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Java (for PlantUML)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
       - name: Install dependencies
         run: |
-          pip install sphinx
-          if [ -f requirements_sphinx.txt ]; then pip install -r requirements_sphinx.txt; fi
+          python -m venv .venv
+          . .venv/bin/activate
+          if [ -f requirements_sphinx.txt ]; then pip install -q -r requirements_sphinx.txt; fi
+          if [ -f requirements.txt ]; then pip install -q -r requirements.txt; fi
+      - name: Install PlantUML
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y plantuml graphviz
       - name: "Sphinx build :lion:"
         run: |
+          . .venv/bin/activate
             sphinx-build --builder html docs/source _build/html 
         # sphinx-build [options] <sourcedir> <outputdir> [filenames …]
         # sphinx-build -b html . . 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/dev' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/dev' && !env.ACT }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_build/html 
+          publish_dir: ./_build/html
           force_orphan: true

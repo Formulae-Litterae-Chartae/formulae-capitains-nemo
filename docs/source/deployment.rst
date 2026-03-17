@@ -11,6 +11,6 @@ This page describes the way we deployed the application on the university server
 Docker
 ============
 
-.. uml:: ./_static/docker.puml
+.. plantuml:: ./_static/docker.puml
    :align: center
    :caption: Docker-based architecture of Formulae Nemo.
