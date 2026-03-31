@@ -90,6 +90,24 @@ def create_app(config_class=Config):
         from .viewer import bp as viewer_bp
         viewer_bp.static_folder = app.config['IIIF_MAPPING']
         app.register_blueprint(viewer_bp, url_prefix="/viewer")
+    
+    # https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-error-handling
+    from logging.handlers import SMTPHandler
+    if app.config['MAIL_SERVER']:
+            auth = None
+            if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD']:
+                auth = (app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'])
+            secure = None
+            if app.config['MAIL_USE_TLS']:
+                secure = ()
+            mail_handler = SMTPHandler(
+                mailhost=(app.config['MAIL_SERVER'], app.config['MAIL_PORT']),
+                fromaddr="thorben.schomacker@uni-hamburg.de",
+                toaddrs=["thorben.schomacker@uni-hamburg.de"], 
+                subject='[werkstatt]',
+                credentials=auth, secure=secure)
+            mail_handler.setLevel(logging.ERROR)
+            app.logger.addHandler(mail_handler)
 
     return app
 

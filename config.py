@@ -24,12 +24,17 @@ class Config(object):
     COLLECTED_COLLS = os.environ.get('COLLECTED_COLLS').split(';') if os.environ.get('COLLECTED_COLLS') else []
     # TERM_VECTORS = os.environ.get('TERM_VECTORS')
     CACHE_DIRECTORY = os.environ.get('NEMO_CACHE_DIR') or './cache/'
+    ##### MAILING
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = os.environ.get('ADMINS').split(';') if os.environ.get('ADMINS') else ['no-reply@example.com']
+    SEND_MAILS_TO_ADMINS = os.environ.get('SEND_MAILS_TO_ADMINS', False)
+    MAIL_USE_TLS = True
+    MAIL_USE_SSL = False
+    ######
     SESSION_TYPE = 'filesystem'
     IIIF_SERVER = os.environ.get('IIIF_SERVER')
     # This folder houses all transcription / manuscript images
