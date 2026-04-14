@@ -97,17 +97,32 @@ def create_app(config_class=Config):
             auth = None
             if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD']:
                 auth = (app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'])
+            ### TLS handling
             secure = None
             if app.config['MAIL_USE_TLS']:
                 secure = ()
+            else:
+                app.logger.warning("Turning of TLS is a potential risk. Please avoid it. ")
+            ### setting the from email
+            import re
+            email_validate_pattern = r"^\S+@\S+\.\S+$"
+            if re.match(email_validate_pattern, app.config['MAIL_USERNAME']):
+                fromaddr = app.config['MAIL_USERNAME']
+                app.logger.info("Error emails will be sent from {}. Please make sure, that all admins white listed this sender.".format(fromaddr))
+            else:
+                raise NotImplementedError("provided MAIL_USERNAME (see .env) is not a email address and no alternative fromaddr was given.")
+            if []==app.config['ADMINS']:
+                app.logger.warning("No admin addresses given -> Error Emails will go void.")
             mail_handler = SMTPHandler(
                 mailhost=(app.config['MAIL_SERVER'], app.config['MAIL_PORT']),
-                fromaddr="thorben.schomacker@uni-hamburg.de",
-                toaddrs=["thorben.schomacker@uni-hamburg.de"], 
+                fromaddr=fromaddr,
+                toaddrs=app.config['ADMINS'], 
                 subject='[werkstatt]',
                 credentials=auth, secure=secure)
             mail_handler.setLevel(logging.ERROR)
             app.logger.addHandler(mail_handler)
+    elif not app.config['MAIL_SERVER'] and not app.debug:
+        app.logger.warning("Neither debugging nor error emails are set up. You are flying blind!")
 
     return app
 

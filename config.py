@@ -27,13 +27,13 @@ class Config(object):
     ##### MAILING
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
-    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    ###### determine admin mailing addresses
     ADMINS = os.environ.get('ADMINS').split(';') if os.environ.get('ADMINS') else ['no-reply@example.com']
     SEND_MAILS_TO_ADMINS = os.environ.get('SEND_MAILS_TO_ADMINS', False)
-    MAIL_USE_TLS = True
-    MAIL_USE_SSL = False
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', True) 
+    MAIL_USE_SSL = os.environ.get('MAIL_USE_SSL', False)  
     ######
     SESSION_TYPE = 'filesystem'
     IIIF_SERVER = os.environ.get('IIIF_SERVER')

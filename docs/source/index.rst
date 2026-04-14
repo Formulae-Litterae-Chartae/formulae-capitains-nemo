@@ -24,5 +24,6 @@ formulae-capitains-nemo documentation
    deployment
    data-structure
    internationalization
+   mail-configuration
 
    
