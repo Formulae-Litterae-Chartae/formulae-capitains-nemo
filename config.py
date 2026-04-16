@@ -29,6 +29,7 @@ class Config(object):
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
     ###### determine admin mailing addresses
     ADMINS = os.environ.get('ADMINS').split(';') if os.environ.get('ADMINS') else ['no-reply@example.com']
     SEND_MAILS_TO_ADMINS = os.environ.get('SEND_MAILS_TO_ADMINS', False)

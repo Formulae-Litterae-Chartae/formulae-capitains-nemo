@@ -25,5 +25,5 @@ formulae-capitains-nemo documentation
    data-structure
    internationalization
    mail-configuration
-
+   environment-modes
    

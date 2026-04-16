@@ -15,6 +15,8 @@ from flask_session import Session
 from json import load
 from redis import Redis
 
+from formulae.logging_handlers import ErrorSMTPHandler
+
 db = SQLAlchemy()
 login = LoginManager()
 login.login_view = 'auth.r_login'
@@ -29,19 +31,21 @@ sess = Session()
 def create_app(config_class=Config):
     app = Flask("Flask Application for Nemo")
     app.config.from_object(config_class)
+
     if app.config['ELASTICSEARCH_URL']:
         if app.config['ES_CLIENT_CERT'] or app.config['ES_CLIENT_KEY']:
-            app.elasticsearch = Elasticsearch(hosts=app.config['ELASTICSEARCH_URL'],
-                                              verify_certs=True,
-                                              client_cert=app.config['ES_CLIENT_CERT'],
-                                              client_key=app.config['ES_CLIENT_KEY'])
+            app.elasticsearch = Elasticsearch(
+                hosts=app.config['ELASTICSEARCH_URL'],
+                verify_certs=True,
+                client_cert=app.config['ES_CLIENT_CERT'],
+                client_key=app.config['ES_CLIENT_KEY']
+            )
         else:
             app.elasticsearch = Elasticsearch(hosts=app.config['ELASTICSEARCH_URL'])
     else:
         app.elasticsearch = None
 
-    app.IIIFserver = app.config['IIIF_SERVER']\
-        if app.config['IIIF_SERVER'] else None
+    app.IIIFserver = app.config['IIIF_SERVER'] if app.config['IIIF_SERVER'] else None
 
     if app.config['IIIF_MAPPING']:
         app.IIIFmapping = app.config['IIIF_MAPPING']
@@ -72,55 +76,158 @@ def create_app(config_class=Config):
     if not app.debug and not app.testing:
         if not os.path.exists('logs'):
             os.mkdir('logs')
-        file_handler = RotatingFileHandler('logs/formulae-nemo.log', maxBytes=10240, backupCount=10)
-        file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'))
+        file_handler = RotatingFileHandler(
+            'logs/formulae-nemo.log',
+            maxBytes=10240,
+            backupCount=10
+        )
+        file_handler.setFormatter(logging.Formatter(
+            '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
+        ))
         file_handler.setLevel(logging.INFO)
         app.logger.addHandler(file_handler)
         app.logger.setLevel(logging.INFO)
         app.logger.info('Formulae-Nemo startup')
-        app.logger.info('server type: '+Config.SERVER_TYPE+' (set in config.py)')
+        app.logger.info('server type: %s (set in config.py)', Config.SERVER_TYPE)
 
     from .auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix="/auth")
+
     from .search import bp as search_bp
     app.register_blueprint(search_bp, url_prefix="/search")
+
     if app.IIIFviewer is False:
         app.logger.warning(_l('Der Viewer konnte nicht gestartet werden.'))
     else:
         from .viewer import bp as viewer_bp
         viewer_bp.static_folder = app.config['IIIF_MAPPING']
         app.register_blueprint(viewer_bp, url_prefix="/viewer")
-    
-    # https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-vii-error-handling
-    from logging.handlers import SMTPHandler
+
     if app.config['MAIL_SERVER']:
-            auth = None
-            if app.config['MAIL_USERNAME'] or app.config['MAIL_PASSWORD']:
-                auth = (app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'])
-            ### TLS handling
-            secure = None
-            if app.config['MAIL_USE_TLS']:
-                secure = ()
+        import re
+        import socket
+        import subprocess
+        import traceback
+
+        auth = None
+        if app.config['MAIL_USERNAME'] and app.config['MAIL_PASSWORD']:
+            auth = (app.config['MAIL_USERNAME'], app.config['MAIL_PASSWORD'])
+
+        secure = None
+        if app.config['MAIL_USE_TLS']:
+            secure = ()
+        else:
+            app.logger.warning("Turning off TLS is a potential risk. Please avoid it.")
+
+        email_validate_pattern = r"^\S+@\S+\.\S+$"
+        if re.match(email_validate_pattern, app.config['MAIL_DEFAULT_SENDER']):
+            fromaddr = app.config['MAIL_DEFAULT_SENDER']
+        elif re.match(email_validate_pattern, app.config['MAIL_USERNAME']):
+            fromaddr = app.config['MAIL_USERNAME']
+        else:
+            raise NotImplementedError(
+                "Provided MAIL_USERNAME (see .env) is not an email address and no alternative fromaddr was given."
+            )
+
+        app.logger.info(
+            "Error emails will be sent from %s. Please make sure that all admins whitelisted this sender.",
+            fromaddr
+        )
+
+        if [] == app.config['ADMINS']:
+            app.logger.warning("No admin addresses given -> error emails will go void.")
+        else:
+            from formulae.logging_handlers import ErrorSMTPHandler
+
+            hostname = socket.gethostname()
+
+            def _safe_git(cmd):
+                try:
+                    return subprocess.check_output(
+                        cmd,
+                        stderr=subprocess.DEVNULL,
+                        cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+                    ).decode("utf-8").strip()
+                except Exception:
+                    return "unknown"
+
+            def _normalize_remote(url):
+                if not url or url == "unknown":
+                    return None
+
+                url = url.strip()
+
+                # git@github.com:org/repo.git
+                if url.startswith("git@"):
+                    host_and_path = url[4:]
+                    if ":" not in host_and_path:
+                        return None
+                    host, path = host_and_path.split(":", 1)
+                    url = f"https://{host}/{path}"
+
+                # ssh://git@github.com/org/repo.git
+                elif url.startswith("ssh://git@"):
+                    url = url.replace("ssh://git@", "https://", 1)
+
+                # https://github.com/org/repo.git
+                elif url.startswith("http://") or url.startswith("https://"):
+                    pass
+
+                else:
+                    return None
+
+                if url.endswith(".git"):
+                    url = url[:-4]
+
+                return url
+
+            git_branch = _safe_git(["git", "rev-parse", "--abbrev-ref", "HEAD"])
+            git_commit = _safe_git(["git", "rev-parse", "HEAD"])
+            git_remote = _safe_git(["git", "config", "--get", "remote.origin.url"])
+
+            remote_url = _normalize_remote(git_remote)
+
+            if remote_url and git_branch != "unknown":
+                branch_text = f"{git_branch} ({remote_url}/tree/{git_branch})"
             else:
-                app.logger.warning("Turning of TLS is a potential risk. Please avoid it. ")
-            ### setting the from email
-            import re
-            email_validate_pattern = r"^\S+@\S+\.\S+$"
-            if re.match(email_validate_pattern, app.config['MAIL_USERNAME']):
-                fromaddr = app.config['MAIL_USERNAME']
-                app.logger.info("Error emails will be sent from {}. Please make sure, that all admins white listed this sender.".format(fromaddr))
+                branch_text = git_branch
+
+            if remote_url and git_commit != "unknown":
+                commit_text = f"{git_commit} ({remote_url}/commit/{git_commit})"
             else:
-                raise NotImplementedError("provided MAIL_USERNAME (see .env) is not a email address and no alternative fromaddr was given.")
-            if []==app.config['ADMINS']:
-                app.logger.warning("No admin addresses given -> Error Emails will go void.")
-            mail_handler = SMTPHandler(
+                commit_text = git_commit
+
+            class ErrorMailFormatter(logging.Formatter):
+                def format(self, record):
+                    message = record.getMessage()
+
+                    traceback_text = ""
+                    if record.exc_info:
+                        traceback_text = "".join(traceback.format_exception(*record.exc_info))
+                    elif record.stack_info:
+                        traceback_text = record.stack_info
+
+                    return (
+                        f"{message}\n\n"
+                        f"Host: {hostname}\n"
+                        f"Current branch: {branch_text}\n"
+                        f"Last commit id: {commit_text}\n\n"
+                        f"{traceback_text}"
+                    )
+
+            error_mail_handler = ErrorSMTPHandler(
+                hostname=hostname,
                 mailhost=(app.config['MAIL_SERVER'], app.config['MAIL_PORT']),
                 fromaddr=fromaddr,
-                toaddrs=app.config['ADMINS'], 
-                subject='[werkstatt]',
-                credentials=auth, secure=secure)
-            mail_handler.setLevel(logging.ERROR)
-            app.logger.addHandler(mail_handler)
+                toaddrs=app.config['ADMINS'],
+                subject='[werkstatt] Error',  # ignored by handler
+                credentials=auth,
+                secure=secure
+            )
+            error_mail_handler.setLevel(logging.ERROR)
+            error_mail_handler.setFormatter(ErrorMailFormatter())
+            app.logger.addHandler(error_mail_handler)
+
     elif not app.config['MAIL_SERVER'] and not app.debug:
         app.logger.warning("Neither debugging nor error emails are set up. You are flying blind!")
 

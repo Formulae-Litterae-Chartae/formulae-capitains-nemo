@@ -5,7 +5,10 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/Formulae-Litterae-Chartae/formulae-capitains-nemo/badge.svg?branch=master)](https://coveralls.io/github/Formulae-Litterae-Chartae/formulae-capitains-nemo?branch=master)
 
-This is the class extension "NemoFormulae" for [flask_nemo](https://github.com/Capitains/flask-capitains-nemo). A working instance of this extension for the Formulae - Litterae - Chartae Project can be found at https://werkstatt.formulae.uni-hamburg.de.
+This is the class extension "NemoFormulae" for [flask_nemo](https://github.com/Capitains/flask-capitains-nemo). A working instance of this extension for the Formulae - Litterae - Chartae Project can be found at https://werkstatt.formulae.uni-hamburg.de. 
+
+## Table of content:
+- 
 
 ## Getting Started
 Further information:
@@ -16,7 +19,7 @@ Further information:
 ## Running the app locally :computer::
 
 ### 1. Preliminary setup steps:
-Only need to be executed the **before the first time** running the app:
+Only needs to be executed **before the first time** running the app:
 1. Clone the repositories:
     1. `git clone formulae-capitains-nemo` (code-base) 
     2. `git clone formulae-corpora` (texts) (ideally in the same folder e.g., `git` as the code base)

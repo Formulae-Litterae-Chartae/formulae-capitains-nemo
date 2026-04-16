@@ -11,8 +11,17 @@ def e_not_found_error(error):
 
 def e_internal_error(error):
     from formulae import db
-    response = "<h4>{}</h4><p>{}</p>".format(_('Ein unerwarteter Fehler ist aufgetreten'),
-                                             _('Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die Unannehmlichkeiten!'))
+    from flask import current_app
+
+    current_app.logger.error(
+        "Unhandled internal server error",
+        exc_info=(type(error), error, error.__traceback__)
+    )
+
+    response = "<h4>{}</h4><p>{}</p>".format(
+        _('Ein unerwarteter Fehler ist aufgetreten'),
+        _('Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die Unannehmlichkeiten!')
+    )
     db.session.rollback()
     return r_display_error(error_code=500, error_message=response)
 
