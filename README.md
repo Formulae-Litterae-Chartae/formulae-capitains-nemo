@@ -70,6 +70,10 @@ Create a `.env` file in the project root:
   docker compose down
 ```
 
+### If you want to test changes to nemo:
+```shell
+docker-compose up --build
+```
 
 ### How are static files handled?
 1. https://flask.palletsprojects.com/en/2.3.x/quickstart/#static-files

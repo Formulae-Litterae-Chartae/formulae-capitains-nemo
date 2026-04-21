@@ -183,7 +183,8 @@ def create_app(config_class=Config):
 
             git_branch = _safe_git(["git", "rev-parse", "--abbrev-ref", "HEAD"])
             git_commit = _safe_git(["git", "rev-parse", "HEAD"])
-            git_remote = _safe_git(["git", "config", "--get", "remote.origin.url"])
+            # https://stackoverflow.com/a/16880000/7924573
+            git_remote = _safe_git(["git", "ls-remote", "--get-url"])
 
             remote_url = _normalize_remote(git_remote)
 
@@ -220,7 +221,7 @@ def create_app(config_class=Config):
                 mailhost=(app.config['MAIL_SERVER'], app.config['MAIL_PORT']),
                 fromaddr=fromaddr,
                 toaddrs=app.config['ADMINS'],
-                subject='[werkstatt] Error',  # ignored by handler
+                subject='[werkstatt] Error',  # ignored by handler; only fallback
                 credentials=auth,
                 secure=secure
             )
