@@ -26,6 +26,13 @@
             </a></span>
                         {% endif %}
                         <a class="dropdown-item" href="{{ url_for('auth.r_saved_pages') }}">{{ _('Gespeicherte Seiten') }}</a>
+                        
+                        {% if current_user.can_access_admin|default(false) %}
+                            <a class="dropdown-item" href="{{ url_for('admin.index') }}">
+                                {{ _('Administration') }}
+                            </a>
+                        {% endif %}
+                        
                         <a class="dropdown-item" href="{{ url_for('auth.r_logout') }}">{{ _('Ausloggen') }}</a>
                     </div>
                 </li>
