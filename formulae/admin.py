@@ -6,7 +6,7 @@ from flask_admin.contrib.sqla import ModelView
 from flask_login import current_user
 from wtforms import PasswordField
 from wtforms.validators import Length, Optional
-
+from flask_admin.menu import MenuLink
 from formulae import db
 from formulae.models import User
 
@@ -117,7 +117,7 @@ class UserAdminView(SecureModelView):
     can_edit = True
     can_delete = False
     can_view_details = True
-    page_size = 50
+    page_size = 100
 
     def on_model_change(self, form, model: User, is_created: bool):
         # Prevent accidental self-lockout.
@@ -149,6 +149,13 @@ admin = Admin(
     index_view=SecureAdminIndexView(url="/admin"),
 )
 
+admin.add_link(
+        MenuLink(
+            name="Back to the Application",
+            endpoint="InstanceNemo.r_index",
+        )
+    )
+
 admin.add_view(
     UserAdminView(
         User,
@@ -157,3 +164,4 @@ admin.add_view(
         endpoint="admin_users",
     )
 )
+
