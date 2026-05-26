@@ -13,6 +13,9 @@ class Config(object):
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL').split(';') if os.environ.get('ELASTICSEARCH_URL') else False
     ES_CLIENT_CERT = os.environ.get('ES_CLIENT_CERT', '')
     ES_CLIENT_KEY = os.environ.get('ES_CLIENT_KEY', '')
+    ES_API_KEY = os.environ.get('ES_API_KEY', '')
+    ES_VERIFY_CERTS = os.environ.get('ES_VERIFY_CERTS', 'false')
+
     LANGUAGES = ['en', 'de', 'fr']
     BABEL_DEFAULT_LOCALE = 'de'
     CORPUS_FOLDERS = os.environ.get('CORPUS_FOLDERS').split(';') if os.environ.get('CORPUS_FOLDERS') else ["../formulae-corpora/"]
@@ -33,8 +36,8 @@ class Config(object):
     ###### determine admin mailing addresses
     ADMINS = os.environ.get('ADMINS').split(';') if os.environ.get('ADMINS') else ['no-reply@example.com']
     SEND_MAILS_TO_ADMINS = os.environ.get('SEND_MAILS_TO_ADMINS', False)
-    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', True) 
-    MAIL_USE_SSL = os.environ.get('MAIL_USE_SSL', False)  
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', True)
+    MAIL_USE_SSL = os.environ.get('MAIL_USE_SSL', False)
     ######
     SESSION_TYPE = 'filesystem'
     IIIF_SERVER = os.environ.get('IIIF_SERVER')

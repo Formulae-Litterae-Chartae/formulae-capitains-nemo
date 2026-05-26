@@ -21,7 +21,7 @@ services:
       - esdata:/usr/share/elasticsearch/data
     networks:
       - backend
-  
+
   redis:
     image: redis:7-alpine
     container_name: redis
@@ -53,7 +53,7 @@ services:
       - GITHUB_TOKEN=${GITHUB_TOKEN}
       # Optional branch/tag/commit to checkout
       - FORMULAE_CORPORA_REF=${FORMULAE_CORPORA_REF:-}
-      - ELASTICSEARCH_URL=${ELASTICSEARCH_URL}
+      - ELASTICSEARCH_URL=http://localhost:9200
       - ELASTICSEARCH_VERSION=8.18.2
       # If true, rebuild Elasticsearch indices after updating the corpus
       - REBUILD_ELASTICSEARCH=${REBUILD_ELASTICSEARCH:-false}
@@ -70,12 +70,13 @@ services:
 
   nemo:
     build: .
-    env_file: ".env"
+    env_file: ".docker-env"
     environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200
       - CORPUS_FOLDERS=/data
       - PYTHONUNBUFFERED=1
       - REDIS_URL=redis://redis:6379/0
+      # if you want to verify your es certificates:
+      # ELASTICSEARCH_VERIFY_CERTS = true
     volumes:
       - formulae_corpora_data:/data:ro
     ports:

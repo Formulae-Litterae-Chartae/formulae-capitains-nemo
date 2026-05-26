@@ -50,13 +50,14 @@ The application can be started locally using Docker Compose. The setup includes:
 - Docker
 - Docker Compose
 ### Environment variables
-Create a `.env` file in the project root:
+Create a `.docker-env` file in the project root:
 ```env
   ELASTICSEARCH_URL=http://elasticsearch:9200
   FORMULAE_CORPORA_REPO_URL=<repository>
   GITHUB_TOKEN=<github-token>
   FORMULAE_CORPORA_REF=
   REBUILD_ELASTICSEARCH=false
+  ES_API_KEY=<api-key-for-elastic-search-leave-blank-for-anonymous-access>
 ```
 ### Startup sequence
 ```shell
@@ -72,7 +73,7 @@ Create a `.env` file in the project root:
 
 ### If you want to test changes to nemo:
 ```shell
-docker-compose up --build
+docker-compose up --build --force-recreate nemo
 ```
 
 ### How are static files handled?

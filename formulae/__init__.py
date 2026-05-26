@@ -7,6 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
 from flask_migrate import Migrate
 from elasticsearch import Elasticsearch
+from elasticsearch import AuthenticationException
 from flask_bootstrap import Bootstrap
 from flask_babel import Babel
 from flask_babel import lazy_gettext as _l
@@ -31,17 +32,72 @@ sess = Session()
 def create_app(config_class=Config):
     app = Flask("Flask Application for Nemo")
     app.config.from_object(config_class)
+    #########################################
+    if not app.debug and not app.testing:
+        if not os.path.exists('logs'):
+            os.mkdir('logs')
+        file_handler = RotatingFileHandler(
+            'logs/formulae-nemo.log',
+            maxBytes=10240,
+            backupCount=10
+        )
+        file_handler.setFormatter(logging.Formatter(
+            '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
+        ))
+        file_handler.setLevel(logging.INFO)
+        app.logger.addHandler(file_handler)
+        app.logger.setLevel(logging.INFO)
+        app.logger.info('Formulae-Nemo is starting...')
+        app.logger.info('server type: %s (set in config.py)', Config.SERVER_TYPE)
+    ###################################
+
 
     if app.config['ELASTICSEARCH_URL']:
-        if app.config['ES_CLIENT_CERT'] or app.config['ES_CLIENT_KEY']:
+        if app.config['ES_API_KEY']:
+            es_api_key = app.config["ES_API_KEY"].strip()
+            
+            if len(es_api_key) % 4 >0:
+                app.logger.warning('ES_API_KEY looks wrong: Standard Base64 strings usually have a length divisible by 4.' \
+                'The provided key is l={}'.format(len(es_api_key)))
+            if es_api_key.startswith(("'", '"')) and es_api_key.endswith(("'", '"')):
+                app.logger.warning("ES_API_KEY looks wrong: it contains \" and/or '")
+            app.logger.info("Try connect to Elastic Search via API key (l={})".format(len(es_api_key)))
             app.elasticsearch = Elasticsearch(
                 hosts=app.config['ELASTICSEARCH_URL'],
-                verify_certs=True,
-                client_cert=app.config['ES_CLIENT_CERT'],
-                client_key=app.config['ES_CLIENT_KEY']
+                verify_certs=False,
+                api_key=es_api_key,
+                request_timeout=60,
+                max_retries=2,
+                retry_on_timeout=True,
             )
+            try:
+                info = app.elasticsearch.info()
+                app.logger.info(
+                    "Connected to Elasticsearch via API key: %s",
+                    info.get("cluster_name", "unknown cluster"),
+                )
+            except AuthenticationException as exc:
+                app.logger.error(
+                    "Elasticsearch authentication failed with 401. "
+                    "This usually means the API key is missing, malformed, quoted, "
+                    "truncated, invalidated, or belongs to another Elasticsearch cluster."
+                )
+                app.logger.debug("AuthenticationException details: %r", exc)
+
+            except Exception:
+                app.logger.exception("Elasticsearch connection failed.")
         else:
             app.elasticsearch = Elasticsearch(hosts=app.config['ELASTICSEARCH_URL'])
+
+            try:
+                info = app.elasticsearch.info()
+                app.logger.warning(
+                    "Connected to Elasticsearch via username and password in the URL: %s. This is a security RISK!",
+                    info.get("cluster_name", "unknown cluster"),
+                )
+            except Exception:
+                app.logger.exception("Elasticsearch via username and password in the URL failed.")
+        
     else:
         app.elasticsearch = None
 
@@ -73,22 +129,7 @@ def create_app(config_class=Config):
     sess.init_app(app)
     app.redis = Redis.from_url(app.config['REDIS_URL'])
 
-    if not app.debug and not app.testing:
-        if not os.path.exists('logs'):
-            os.mkdir('logs')
-        file_handler = RotatingFileHandler(
-            'logs/formulae-nemo.log',
-            maxBytes=10240,
-            backupCount=10
-        )
-        file_handler.setFormatter(logging.Formatter(
-            '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
-        ))
-        file_handler.setLevel(logging.INFO)
-        app.logger.addHandler(file_handler)
-        app.logger.setLevel(logging.INFO)
-        app.logger.info('Formulae-Nemo startup')
-        app.logger.info('server type: %s (set in config.py)', Config.SERVER_TYPE)
+
 
     from .auth import bp as auth_bp
     app.register_blueprint(auth_bp, url_prefix="/auth")
