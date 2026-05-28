@@ -15,6 +15,7 @@ class Config(object):
     ES_CLIENT_KEY = os.environ.get('ES_CLIENT_KEY', '')
     ES_API_KEY = os.environ.get('ES_API_KEY', '')
     ES_VERIFY_CERTS = os.environ.get('ES_VERIFY_CERTS', 'false')
+    ES_EXCLUDE_COLLECTIONS = os.environ.get('ES_EXCLUDE_COLLECTIONS').split(';') if os.environ.get('ES_EXCLUDE_COLLECTIONS') else False
 
     LANGUAGES = ['en', 'de', 'fr']
     BABEL_DEFAULT_LOCALE = 'de'
