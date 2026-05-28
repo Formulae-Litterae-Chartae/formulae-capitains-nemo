@@ -148,7 +148,15 @@ def r_results():
         corps = sorted([x['id'].split(':')[-1] for x in g.sub_colls['other_collection']])
     else:
         corps = corpus
-    g.corpora = [(CORP_MAP['form_lit_chart-' + x], x) for x in corps]
+    try:
+        g.corpora = [(CORP_MAP['form_lit_chart-' + x], x) for x in corps]
+    except KeyError as ke:
+        if current_app.config['ES_EXCLUDE_COLLECTIONS']:
+            current_app.logger.error("There was a KeyError for {} and these collections will be excluded from the search: {}. " \
+            "This is only a temporary workaround.".format(corps, current_app.config['ES_EXCLUDE_COLLECTIONS']))
+            g.corpora = [(CORP_MAP['form_lit_chart-' + x], x) for x in [corpus_id for corpus_id in corps if corpus_id not in current_app.config['ES_EXCLUDE_COLLECTIONS']]]
+        else:
+            raise ke
     g.form_parts = []
     # if request.args.get('formulaic_parts'):
     #     g.form_parts = [(x, FORM_PARTS[x]) for x in request.args.get('formulaic_parts', '').split('+')]
