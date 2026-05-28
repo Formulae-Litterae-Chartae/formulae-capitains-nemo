@@ -151,6 +151,9 @@ def r_results():
     try:
         g.corpora = [(CORP_MAP['form_lit_chart-' + x], x) for x in corps]
     except KeyError as ke:
+        import traceback
+        last_line = traceback.format_exc().strip().splitlines()[-1]
+        current_app.logger.error("%s\tThis could be caused by a not updated corpus_agg in Search.py", last_line)
         if current_app.config['ES_EXCLUDE_COLLECTIONS']:
             current_app.logger.error("There was a KeyError for {} and these collections will be excluded from the search: {}. " \
             "This is only a temporary workaround.".format(corps, current_app.config['ES_EXCLUDE_COLLECTIONS']))
