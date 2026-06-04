@@ -38,7 +38,7 @@ Only needs to be executed **before the first time** running the app:
 1. Make sure that you have a few Gigabytes of RAM free
 2. cd `formulae-capitains-nemo` folder
 3. `docker-compose up` 
-4.  es8 exited with code 137 -> Not enough memory free
+-  `es8 exited with code 137` -> Not enough memory free
 
 ## Running with Docker Compose :whale2:
 The application can be started locally using Docker Compose. The setup includes:
