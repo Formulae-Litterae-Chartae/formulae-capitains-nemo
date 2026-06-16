@@ -33,10 +33,23 @@ def e_unknown_collection_error(error):
                            objectId=error.args[1] if len(error.args) == 2 else '')
 
 def e_not_authorized_error(error: Unauthorized):
-    return current_app.config['nemo_app'].render(**{"template": 'errors::401.html'
-                                                    ,'url': dict(), 
-                                                    'referrer':request.referrer
-                                                    }), 401
+    next_page = request.full_path if request.query_string else request.path
+
+    current_app.logger.debug(
+        "401: path=%s full_path=%s referrer=%s next_page=%s",
+        request.path,
+        request.full_path,
+        request.referrer,
+        next_page,
+    )
+
+    return current_app.config['nemo_app'].render(
+        **{
+            "template": "errors::401.html",
+            "url": dict(),
+            "referrer": next_page,
+        }
+    ), 401
 
 
 def r_display_error(error_code, error_message, **kwargs):

@@ -58,6 +58,7 @@ class Config(object):
     WORD_GRAPH_API_URL = os.environ.get('WORD_GRAPH_API_URL', '')
     # Used to decide whether authentication is needed for certain resources (dev -> access to all without restriction; production -> restricted access for non-authenticated users)
     SERVER_TYPE = os.environ.get('SERVER_TYPE', 'dev')
+    LOG_LEVEL  = os.environ.get('LOG_LEVEL', 'INFO').upper()
     # Number of texts a not-authenticated user should be able to see. int > 0
     try:
         MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER = int(os.environ.get('MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER'))
