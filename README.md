@@ -27,7 +27,7 @@ Only needs to be executed **before the first time** running the app:
 3. Only if needed: Set the environment variable `CORPUS_FOLDERS` and re-start the app.
 
 ### 2. Start the app:    
-1. activate the virtualenv (e.g., `source .venv/bin/activate`) 
+1. activate the virtualenv (e.g., `source .venv/bin/activate` or `source env/bin/activate`) 
 2. install the requirements via `pip install -r requirements.txt` within in the venv and from the `formulae-capitains-nemo` folder 
 3. *Optional*: set-up Elastic Search via: `.env`
   1. For local development: `ELASTICSEARCH_URL = "http://localhost:9200"` -> requires: [local elastic search instance](#run-elastic-search-local)
@@ -38,7 +38,7 @@ Only needs to be executed **before the first time** running the app:
 1. Make sure that you have a few Gigabytes of RAM free
 2. cd `formulae-capitains-nemo` folder
 3. `docker-compose up` 
-4.  es8 exited with code 137 -> Not enough memory free
+-  `es8 exited with code 137` -> Not enough memory free
 
 ## Running with Docker Compose :whale2:
 The application can be started locally using Docker Compose. The setup includes:

@@ -71,6 +71,7 @@ class NemoFormulae(Nemo):
         ("/formulae_charter", "r_formulae_charter", ["GET"]),
         ("/collocations/<targetWord>/<word1Lemma>/<targetWord2>/<word1Type>", "r_call_word_graph_api", ["GET"]),
         ("/robots.txt", "r_robots", ["GET"])
+        ,("/notify", "send_email_notification", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -322,6 +323,8 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.globals['get_locale'] = get_locale
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
+        if "production" == self.app.config['SERVER_TYPE']:
+            self.app.register_error_handler(Exception, e_internal_error)
         self.app.register_error_handler(401, e_not_authorized_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
@@ -2142,6 +2145,11 @@ class NemoFormulae(Nemo):
         :return: Response
         """
         return send_from_directory("assets", "robots.txt")
+    
+    
+    def send_email_notification(self):
+        raise NotImplementedError("I am not a real error!")
+    
 
     @staticmethod
     def r_impressum() -> Dict[str, str]:

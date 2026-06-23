@@ -64,7 +64,7 @@ def create_app(config_class=Config):
             app.logger.info("Try connect to Elastic Search via API key (l={})".format(len(es_api_key)))
             app.elasticsearch = Elasticsearch(
                 hosts=app.config['ELASTICSEARCH_URL'],
-                verify_certs=False,
+                verify_certs=app.config['ES_VERIFY_CERTS'],
                 api_key=es_api_key,
                 request_timeout=60,
                 max_retries=2,
@@ -123,6 +123,10 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
     login.init_app(app)
+    ###
+    from formulae.admin import admin
+    admin.init_app(app)
+    ###
     mail.init_app(app)
     bootstrap.init_app(app)
     babel.init_app(app, locale_selector=get_locale)
