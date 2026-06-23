@@ -15,9 +15,9 @@ print('Sphinx runs with the following prefix:'+sys.prefix)
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'formulae-capitains-nemo'
-copyright = '2024, Matthew Munson, Thorben Schomacker'
+copyright = '2026, Matthew Munson, Thorben Schomacker'
 author = 'Matthew Munson, Thorben Schomacker'
-release = '1.0'
+release = '1.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
