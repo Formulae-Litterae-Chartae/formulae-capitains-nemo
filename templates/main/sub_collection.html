@@ -20,6 +20,7 @@
 {% set ns = namespace(codex = 'Codex Odalberti') %}
 <div class="col">
 <header>
+    
     <h1>
     {{collections.current.label|striptags}}{% if "manuscript_collection" in collections.parent_ids %} ({{ collections.current.short_title|safe }}){% endif %}
     </h1>
@@ -32,7 +33,7 @@
     <div class="row">
         <div class="col-auto"><h5 class="show-more">{{ _('Anzeige im Handschriftenkontext von:') }}</h5></div>
         {% for siglum, title, urn in collections.current.containing_collections %}
-        <div class="col-auto"><h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=urn) }}" id="{{ urn|replace(':', '-') }}-ms-link" data-toggle="tooltip" data-placement="top" data-container="#{{ urn|replace(':', '-') }}-ms-link" title="{{ title }}">{{ siglum }}</a></h5></div>
+            <div class="col-auto"><h5><a class="outside-link" href="{{ url_for('InstanceNemo.r_corpus', objectId=urn) }}" id="{{ urn|replace(':', '-') }}-ms-link" data-toggle="tooltip" data-placement="top" data-container="#{{ urn|replace(':', '-') }}-ms-link" title="{{ title }}">{{ siglum }}</a></h5></div>
         {% endfor %}
     </div>
     {% endif %}
@@ -122,28 +123,42 @@
             {% endif %}
             <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{{values['name']|replace('app', '')|int}}</a>
         {% endfor %}
-    {% elif collections.current.id == 'urn:cts:formulae:salzburg' %}
-    {{ collections.current.id }}
-        {% for number in collections.readable|sort %}
-            {% if ns.codex != number[1][0] %}
-            {% set ns.codex = number[1][0] %}
-            {% if ns.codex == 'Codex Odalberti' %}
-            <h5 class="mt-1">Codex Odalberti (923-935)</h5>
-            {% elif ns.codex == 'Codex Fridarici' %}
-            <h5 class="mt-1">Codex Fridarici (958-991)</h5>
-            {% elif ns.codex == 'Codex Hartuuici' %}
-            <h5 class="mt-1">Codex Hartuuici (991-1023)</h5>
-            {% elif ns.codex == 'Codex Tietmari II' %}
-            <h5 class="mt-1">Codex Tietmari II (1025-1041)</h5>
-            {% elif ns.codex == 'Codex Balduuini' %}
-            <h5 class="mt-1">Codex Balduuini (1041-1060)</h5>
-            {% else %}
-            <h5 class="mt-1">{{ ns.codex }}</h5>
-            {% endif %}
-            {% endif %}
-            <!-- Each item in the collection gets its own button -->
-            <a type="button" class="btn btn-outline-primary px-1 mx-0" href="#N{{number[0]}}">{{number[1][1]}}</a>
-        {% endfor %}
+{% elif collections.current.id == 'urn:cts:formulae:salzburg' %}
+    {% for number, values in collections.readable.items()|sort %}
+        {# Headings triggered by specific first items #}
+        {% if values['parent_id'] ==  'urn:cts:formulae:salzburg.hauthaler-bn-intro.lat001' %}
+            <h5 class="mt-1">Breves Notitiae</h5>
+        {% elif values['parent_id'] ==  'urn:cts:formulae:salzburg.hauthaler-a-vorrede.lat001' %}
+            <h5 class="mt-1">Codex Odalberti (923–935)</h5>
+        {% elif values['parent_id'] == 'urn:cts:formulae:salzburg.hauthaler-fridarici-001.lat001' %}
+            <h5 class="mt-1">Codex Fridarici (958–991)</h5>
+        {% elif values['parent_id'] ==  'urn:cts:formulae:salzburg.hauthaler-hartuuici-001.lat001' %}
+            <h5 class="mt-1">Codex Hartuuici (991–1023)</h5>
+        {% elif values['parent_id'] ==  'urn:cts:formulae:salzburg.hauthaler-d-vorrede.lat001' %}
+            <h5><b> Codex Tietmari II (1025–1041)</b></h5>
+        {% elif values['parent_id'] == 'urn:cts:formulae:salzburg.hauthaler-e-vorrede.lat001' %}
+            <h5><b> Codex Balduuini (1041–1060)</b></h5>
+        {% endif %}
+
+        {# Button label #}
+        {% if 'Nummer' in values['title'] %}
+            {% set button_text = values['title'].split('Nummer')[-1].strip() %}
+        {% elif 'Einleitung' in values['title'] %}
+            {% set button_text = 'Einleitung' %}
+        {% elif 'Vorrede' in values['title'] %}
+            {% set button_text = 'Vorrede' %}
+        {% else %}
+            {% set button_text = values['title'] %}
+        {% endif %}
+
+        <a class="btn btn-outline-primary px-1 mx-0 corpus-nrs"
+        href="#N{{ number|replace('(', '')|replace(')', '') }}">
+        {{ button_text }}
+        </a>
+    {% endfor %}
+
+
+
     {% else %}
         {% if collections.current.id == 'urn:cts:formulae:flavigny' %}
         <h5>Capitulationes</h5>
@@ -154,9 +169,15 @@
         {% endif %}
         {% if 'non_display_collection' in collections.parent_ids %}
             {% for number, values in collections.readable.items() %}
-            <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">{% if values['name'] is string %}{{values['name']}}{% else %}{{values['name']|join('/')}}{% endif %}</a>
+            <a type="button" class="btn btn-outline-primary px-1 mx-0 corpus-nrs" href="#N{{number.replace('(', '').replace(')', '')}}">
+                {% if values['name'] is string %}{{values['name']}}
+                {% else %}{{values['name']|join('/')}}
+                {% endif %}
+            </a>
             {% endfor %}
         {% else %}
+        <!-- Fallback scenario -->
+         <!-- Note to future me: Dont add '|sort' here! If items have the wrong order-> sort the complete list not only the buttons -->
         {% for number, values in collections.readable.items() %}
             {% if collections.current.id == 'urn:cts:formulae:flavigny' %}
                 {% if number == '1_001' %}
@@ -202,9 +223,7 @@
         <div class="{{ 'col-xl-8 col-12' if collections.current.open_regesten or current_user.project_team else 'col-xl-4 col-12' }}">
             <ul class="list-group list-group-flush">
             {% for number, values in collections.readable.items() %}
-                {% if collections.current.id == 'urn:cts:formulae:salzburg' %}
-                {% set number = number[0] %}
-                {% endif %}
+                {% set anchor = number|replace('(', '')|replace(')', '') %}
                 <li id="N{{number.replace('(', '').replace(')', '')}}" class="list-group-item flex-column work-cell {{ values['bg_color']|default('bg-color-0') }}">
                     <div class="row justify-content-between">
                         <div class="col-3">
@@ -223,7 +242,13 @@
                                         <span class="superscript" >*</span>
                                     </span>
                                 {% endif %}
-                                {% if values['deperditum'] == True %} (<i>dep.</i>){% endif %}{% if values['problematic']|lower == 'unecht' %} <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="Unecht">†</span>{% elif values['problematic'] != '' %} <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="{{values['problematic']}}">⚠</span>{% endif %}
+                                {% if values['deperditum'] == True %} (<i>dep.</i>)
+                                {% endif %}
+                                {% if values['problematic']|lower == 'unecht' %} 
+                                    <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="" data-original-title="Unecht">†</span>
+                                {% elif values['problematic'] != '' %} 
+                                    <span id="N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" data-toggle="tooltip" data-container="#N{{number.replace('(', '').replace(')', '')}}-forgery-tooltip" title="{{ _('Dokument wurde ersetzt') }}"  data-original-title="{{values['problematic']}}">⚠</span>
+                                {% endif %}
                             </h5>
                         </div>
                         <div class="col text-right">
@@ -297,7 +322,7 @@
                         {% endif %}
                         </div>
                         </div>
-                        {% if 'alt_link' in values %}<p class="mb-1 short-regest"><a href="{{ values['alt_link'] }}" class="internal-link">-> {{ values['alt_title'] }}</a></p>{% endif %}
+                        {% if 'alt_link' in values %}<p class="mb-1 short-regest"><a href="{{ values['alt_link'] }}" class="internal-link">&#8594; {{ values['alt_title'] }}</a></p>{% endif %}
                         {% if current_user.project_team or collections.current.open_regesten %}
                             {% if not current_user.project_team and 'formulae_collection' in collections.parent_ids %}
                                 {% set copy_class = ' no-copy' %}

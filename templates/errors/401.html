@@ -1,0 +1,23 @@
+{% extends "main::container.html" %}
+{% block title %}Formulae - Litterae - Chartae: {{ _('Nicht Authorisiert') }}{% endblock %}
+
+{% block article %}
+    <div class="col-lg-12 col">
+    <h1>{{ _('Bitte loggen Sie sich ein um Zugriff zu erhalten.') }}</h1>
+    {% include "main::resource_limitation.html" %}
+    {% if referrer %}
+        <p>
+            <a  class="outside-link"  href="{{ referrer }}">
+                <span class="fa fa-arrow-circle-left"></span> 
+                {{ _('Zurück zur vorherigen Seite.') }} </a>
+        </p>
+    {% endif %}
+        <p>
+        {{ _('Zum Einloggen:') }} <a class="outside-link" href="{{ url_for('auth.r_login') }}">{{ _('Klicken Sie hier') }}</a>
+    </p>
+    <p>
+        {{ _('Noch kein Benutzerkonto?') }} <a class="outside-link" href="{{ url_for('auth.r_register') }}">{{ _('Klicken Sie hier') }}</a>
+    </p>
+
+    </div>
+{% endblock %}

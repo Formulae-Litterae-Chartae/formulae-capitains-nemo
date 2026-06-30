@@ -1,6 +1,7 @@
 Werkzeug>=2.3.0,<3
 dnspython>=2.1.0
-elasticsearch>=8.0.0
+# avoid to high version, wait for the academy to make changes
+elasticsearch>=8,<9
 email-validator>=1.1.2
 git+https://github.com/Capitains/MyCapytain@future#egg=MyCapytain
 requests_cache>=0.6.3
@@ -28,3 +29,5 @@ roman>=3.3
 SQLAlchemy>=1.4.15
 WTForms>=3.0.0
 lxml
+### flask-admin
+flask-admin>=2.1.0

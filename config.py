@@ -13,6 +13,10 @@ class Config(object):
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL').split(';') if os.environ.get('ELASTICSEARCH_URL') else False
     ES_CLIENT_CERT = os.environ.get('ES_CLIENT_CERT', '')
     ES_CLIENT_KEY = os.environ.get('ES_CLIENT_KEY', '')
+    ES_API_KEY = os.environ.get('ES_API_KEY', '')
+    ES_VERIFY_CERTS = os.environ.get('ES_VERIFY_CERTS').lower()=="true" if os.environ.get('ES_VERIFY_CERTS') else False
+    ES_EXCLUDE_COLLECTIONS = os.environ.get('ES_EXCLUDE_COLLECTIONS').split(';') if os.environ.get('ES_EXCLUDE_COLLECTIONS') else False
+
     LANGUAGES = ['en', 'de', 'fr']
     BABEL_DEFAULT_LOCALE = 'de'
     CORPUS_FOLDERS = os.environ.get('CORPUS_FOLDERS').split(';') if os.environ.get('CORPUS_FOLDERS') else ["../formulae-corpora/"]
@@ -24,14 +28,22 @@ class Config(object):
     COLLECTED_COLLS = os.environ.get('COLLECTED_COLLS').split(';') if os.environ.get('COLLECTED_COLLS') else []
     # TERM_VECTORS = os.environ.get('TERM_VECTORS')
     CACHE_DIRECTORY = os.environ.get('NEMO_CACHE_DIR') or './cache/'
+    ##### MAILING
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
     MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
-    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
+    ###### determine admin mailing addresses
     ADMINS = os.environ.get('ADMINS').split(';') if os.environ.get('ADMINS') else ['no-reply@example.com']
+    SEND_MAILS_TO_ADMINS = os.environ.get('SEND_MAILS_TO_ADMINS', False)
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', True)
+    MAIL_USE_SSL = os.environ.get('MAIL_USE_SSL', False)
+    ######
     SESSION_TYPE = 'filesystem'
     IIIF_SERVER = os.environ.get('IIIF_SERVER')
+    # This folder houses all transcription / manuscript images
+    # Particularly it is required to have a file named 'Mapping.json'
     IIIF_MAPPING = os.environ.get('IIIF_MAPPING') or ';'.join(['{}/iiif'.format(f) for f in CORPUS_FOLDERS])
     # This should only be changed to True when collecting search queries and responses for mocking ES
     SAVE_REQUESTS = False

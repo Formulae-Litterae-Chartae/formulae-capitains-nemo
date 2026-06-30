@@ -1,16 +1,27 @@
 from flask_babel import _
 from flask import current_app
-
+from werkzeug.exceptions import Unauthorized
+from flask import request
 
 def e_not_found_error(error):
     response = "<h4>{}</h4>".format(_('Die gesuchte URL wurde nicht gefunden'))
-    return r_display_error(404, response)
+    return r_display_error(404, response,
+                           objectId=error.args[1] if len(error.args) == 2 else '')
 
 
 def e_internal_error(error):
     from formulae import db
-    response = "<h4>{}</h4><p>{}</p>".format(_('Ein unerwarteter Fehler ist aufgetreten'),
-                                             _('Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die Unannehmlichkeiten!'))
+    from flask import current_app
+
+    current_app.logger.error(
+        "Unhandled internal server error",
+        exc_info=(type(error), error, error.__traceback__)
+    )
+
+    response = "<h4>{}</h4><p>{}</p>".format(
+        _('Ein unerwarteter Fehler ist aufgetreten'),
+        _('Der Administrator wurde benachrichtigt. Bitte entschuldigen Sie die Unannehmlichkeiten!')
+    )
     db.session.rollback()
     return r_display_error(error_code=500, error_message=response)
 
@@ -21,9 +32,11 @@ def e_unknown_collection_error(error):
     return r_display_error(error_code=code, error_message=response,
                            objectId=error.args[1] if len(error.args) == 2 else '')
 
-def e_not_authorized_error(error):
-    response = "<h4>{}</h4>".format(_('Bitte loggen Sie sich ein, um Zugang zu erhalten.'))
-    return r_display_error(401, response)
+def e_not_authorized_error(error: Unauthorized):
+    return current_app.config['nemo_app'].render(**{"template": 'errors::401.html'
+                                                    ,'url': dict(), 
+                                                    'referrer':request.referrer
+                                                    }), 401
 
 
 def r_display_error(error_code, error_message, **kwargs):
@@ -35,7 +48,8 @@ def r_display_error(error_code, error_message, **kwargs):
     """
     index_anchor = '<a href="/">{}</a>'.format(_('Zurück zur Startseite'))
     if error_code == "UnknownCollection":
+        print('objectId:', kwargs['objectId'])
         return current_app.config['nemo_app'].render(**{"template": 'errors::unknown_collection.html', 'message': error_message,
                                   'parent': kwargs['objectId'], 'url': dict()}), 404
-    if error_code in (500, 404, 401):
+    if error_code in (500, 404):
         return "{}<p>{}</p>".format(error_message, index_anchor), error_code

@@ -1,0 +1,13 @@
+FROM python:3.12-alpine
+
+RUN apk add --no-cache git bash curl
+
+WORKDIR /work
+
+COPY docker/requirements.corpora.txt /tmp/requirements.corpora.txt
+RUN python -m pip install --no-cache-dir -r /tmp/requirements.corpora.txt
+
+COPY docker/clone_corpora.sh /clone_corpora.sh
+RUN chmod +x /clone_corpora.sh
+
+ENTRYPOINT ["/bin/sh", "/clone_corpora.sh"]
