@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>formulae-capitains-nemo documentation &mdash; formulae-capitains-nemo 1.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=61243dd2"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Workflow Nemo Design" href="workflow.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #212529" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            formulae-capitains-nemo
+              <img src="_static/logo_226x113.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traffic-management.html">Traffic management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae-nemo.html">formulae nemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html#docker">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations/index.html">Migrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail-configuration.html">Mail configuration (SMTP via Mailjet and custom domain)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment-modes.html">Application modes and the <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> switch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="varnish.html">Varnish</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #212529" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">formulae-capitains-nemo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">formulae-capitains-nemo documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="formulae-capitains-nemo-documentation">
+<h1>formulae-capitains-nemo documentation<a class="headerlink" href="#formulae-capitains-nemo-documentation" title="Link to this heading"></a></h1>
+<section id="formulae-capitains-nemo">
+<h2><p align=center> <img align=center src="https://avatars.githubusercontent.com/u/41728302"> <br> formulae-capitains-nemo</p><a class="headerlink" href="#formulae-capitains-nemo" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://coveralls.io/github/Formulae-Litterae-Chartae/formulae-capitains-nemo?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/Formulae-Litterae-Chartae/formulae-capitains-nemo/badge.svg?branch=master" /></a></p>
+<p>This is the class extension “NemoFormulae” for <a class="reference external" href="https://github.com/Capitains/flask-capitains-nemo">flask_nemo</a>. A working instance of this extension for the Formulae - Litterae - Chartae Project can be found at https://werkstatt.formulae.uni-hamburg.de.</p>
+<section id="table-of-content">
+<h3>Table of content:<a class="headerlink" href="#table-of-content" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="#release-notes"><span class="xref myst">Release notes</span></a></p></li>
+</ul>
+</section>
+<section id="release-notes">
+<h3>Release notes<a class="headerlink" href="#release-notes" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Note</p></th>
+<th class="head"><p>Migration needed?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/Formulae-Litterae-Chartae/formulae-capitains-nemo/releases/tag/v1.2">v1.2</a></p></td>
+<td><p><a class="reference internal" href="#v1.2"><span class="xref myst">Release Note for v1.2</span></a></p></td>
+<td><p><a class="reference external" href="https://formulae-litterae-chartae.github.io/formulae-capitains-nemo/migrations/v1-2-admin-users.html">migrations/v1-2-admin-users</a></p></td>
+</tr>
+</tbody>
+</table>
+<section id="version-1-2-0">
+<h4>Version 1.2.0 <a name="v1.2"></a><a class="headerlink" href="#version-1-2-0" title="Link to this heading"></a></h4>
+<p>Version 1.2.0 introduces graphical user account administration with Flask-Admin.</p>
+<p>Main changes:</p>
+<ul class="simple">
+<li><p>added a new <code class="docutils literal notranslate"><span class="pre">User.is_admin</span></code> field;</p></li>
+<li><p>added a Flask-Admin interface for user administration;</p></li>
+<li><p>separated project-team access from administrative access:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">project_team</span></code> controls access to project-internal application content;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_admin</span></code> controls access to the administration interface;</p></li>
+</ul>
+</li>
+<li><p>added an Administration link to the user account dropdown;</p></li>
+<li><p>added production and development configuration options for the admin URL.</p></li>
+</ul>
+<p>This release requires a database migration. Existing users are not promoted automatically. After the migration, all existing users have <code class="docutils literal notranslate"><span class="pre">is_admin</span> <span class="pre">=</span> <span class="pre">0</span></code>.
+One administrator account must be promoted manually.</p>
+<p>See :doc:<code class="docutils literal notranslate"><span class="pre">migrations/v1-2-admin-users</span></code> for the full migration procedure.</p>
+</section>
+</section>
+<section id="getting-started">
+<h3>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h3>
+<p>Further information:</p>
+<ul class="simple">
+<li><p>https://github.com/capitains/tutorial-nemo</p></li>
+<li><p>The app is configured via <a class="reference internal" href="#./formulae/app.py"><span class="xref myst">formulae/app.py</span></a></p></li>
+<li><p>Complete documentation should be done using Sphinx</p></li>
+</ul>
+</section>
+<section id="running-the-app-locally-computer">
+<h3>Running the app locally :computer::<a class="headerlink" href="#running-the-app-locally-computer" title="Link to this heading"></a></h3>
+<section id="preliminary-setup-steps">
+<h4>1. Preliminary setup steps:<a class="headerlink" href="#preliminary-setup-steps" title="Link to this heading"></a></h4>
+<p>Only needs to be executed <strong>before the first time</strong> running the app:</p>
+<ol class="arabic simple">
+<li><p>Clone the repositories:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">formulae-capitains-nemo</span></code> (code-base)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">formulae-corpora</span></code> (texts) (ideally in the same folder e.g., <code class="docutils literal notranslate"><span class="pre">git</span></code> as the code base)</p></li>
+</ol>
+</li>
+<li><p>Create a Python virtualenv (e.g., <code class="docutils literal notranslate"><span class="pre">virtualenv</span> <span class="pre">--python=python3</span> <span class="pre">.venv</span></code>)</p></li>
+<li><p>Only if needed: Set the environment variable <code class="docutils literal notranslate"><span class="pre">CORPUS_FOLDERS</span></code> and re-start the app.</p></li>
+</ol>
+</section>
+<section id="start-the-app">
+<h4>2. Start the app:<a class="headerlink" href="#start-the-app" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>activate the virtualenv (e.g., <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code> or <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">env/bin/activate</span></code>)</p></li>
+<li><p>install the requirements via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code> within in the venv and from the <code class="docutils literal notranslate"><span class="pre">formulae-capitains-nemo</span></code> folder</p></li>
+<li><p><em>Optional</em>: set-up Elastic Search via: <code class="docutils literal notranslate"><span class="pre">.env</span></code></p></li>
+<li><p>For local development: <code class="docutils literal notranslate"><span class="pre">ELASTICSEARCH_URL</span> <span class="pre">=</span> <span class="pre">&quot;http://localhost:9200&quot;</span></code> -&gt; requires: <a class="reference internal" href="#run-elastic-search-local"><span class="xref myst">local elastic search instance</span></a></p></li>
+<li><p>If the requirements have been installed properly, you can launch <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">app.py</span></code> within the venv and in <code class="docutils literal notranslate"><span class="pre">formulae-capitains-nemo</span></code> folder</p></li>
+<li><p>Reach the site via <a class="reference external" href="http://127.0.0.1:5000">127.0.0.1:5000</a></p></li>
+</ol>
+</section>
+<section id="run-elastic-search-local">
+<h4>Run Elastic Search local<a class="headerlink" href="#run-elastic-search-local" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Make sure that you have a few Gigabytes of RAM free</p></li>
+<li><p>cd <code class="docutils literal notranslate"><span class="pre">formulae-capitains-nemo</span></code> folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docker-compose</span> <span class="pre">up</span></code></p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">es8</span> <span class="pre">exited</span> <span class="pre">with</span> <span class="pre">code</span> <span class="pre">137</span></code> -&gt; Not enough memory free</p></li>
+</ul>
+</section>
+</section>
+<section id="running-with-docker-compose-whale2">
+<h3>Running with Docker Compose :whale2:<a class="headerlink" href="#running-with-docker-compose-whale2" title="Link to this heading"></a></h3>
+<p>The application can be started locally using Docker Compose. The setup includes:</p>
+<ul class="simple">
+<li><p><strong>Elasticsearch</strong> – search index backend</p></li>
+<li><p><strong>Redis</strong> – temporary storage for search workflows</p></li>
+<li><p><strong>formulae_corpora</strong> – helper container that clones/updates the XML corpus and can rebuild the search index</p></li>
+<li><p><strong>nemo</strong> – the Flask web application</p></li>
+</ul>
+<section id="requirements">
+<h4>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Docker</p></li>
+<li><p>Docker Compose</p></li>
+</ul>
+</section>
+<section id="environment-variables">
+<h4>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h4>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">.docker-env</span></code> file in the project root:</p>
+<div class="highlight-env notranslate"><div class="highlight"><pre><span></span>  ELASTICSEARCH_URL=http://elasticsearch:9200
+  FORMULAE_CORPORA_REPO_URL=&lt;repository&gt;
+  GITHUB_TOKEN=&lt;github-token&gt;
+  FORMULAE_CORPORA_REF=
+  REBUILD_ELASTICSEARCH=false
+  ES_API_KEY=&lt;api-key-for-elastic-search-leave-blank-for-anonymous-access&gt;
+</pre></div>
+</div>
+</section>
+<section id="startup-sequence">
+<h4>Startup sequence<a class="headerlink" href="#startup-sequence" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>elasticsearch<span class="w"> </span>redis
+<span class="w">  </span>docker<span class="w"> </span>compose<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>formulae_corpora
+<span class="w">  </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>nemo
+</pre></div>
+</div>
+<p>:computer: Application URL: http://localhost:5000</p>
+</section>
+<section id="stop">
+<h4>Stop<a class="headerlink" href="#stop" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>docker<span class="w"> </span>compose<span class="w"> </span>down
+</pre></div>
+</div>
+</section>
+<section id="if-you-want-to-test-changes-to-nemo">
+<h4>If you want to test changes to nemo:<a class="headerlink" href="#if-you-want-to-test-changes-to-nemo" title="Link to this heading"></a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>--force-recreate<span class="w"> </span>nemo
+</pre></div>
+</div>
+</section>
+<section id="how-are-static-files-handled">
+<h4>How are static files handled?<a class="headerlink" href="#how-are-static-files-handled" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>https://flask.palletsprojects.com/en/2.3.x/quickstart/#static-files</p></li>
+<li><p>I do recommend to add <code class="docutils literal notranslate"><span class="pre">/static</span></code> and <code class="docutils literal notranslate"><span class="pre">/robots.txt</span></code> to your nginx configuration, so that are served directly without passing through the application.</p></li>
+</ol>
+</section>
+</section>
+<section id="how-to-run-the-sphinx-documentation-locally">
+<h3>How to run the SPHINX documentation locally:<a class="headerlink" href="#how-to-run-the-sphinx-documentation-locally" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Install sphinx: https://www.sphinx-doc.org/en/master/usage/installation.html</p>
+<ul class="simple">
+<li><p>For Debin/Ubuntu the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/installation.html#os-specific-package-manager">OS-specific package manager</a> worked best</p></li>
+</ul>
+</li>
+<li><p>activate the virtualenv (e.g., <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">.venv/bin/activate</span></code>)</p></li>
+<li><p>install the requirements via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements_sphinx.txt</span></code> within in the venv and from the <code class="docutils literal notranslate"><span class="pre">formulae-capitains-nemo</span></code> folder</p></li>
+<li><p>Build the project: <code class="docutils literal notranslate"><span class="pre">sphinx-build</span> <span class="pre">-M</span> <span class="pre">html</span> <span class="pre">docs/source/</span> <span class="pre">docs/build/</span></code> or <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">sphinx</span> <span class="pre">-M</span> <span class="pre">html</span> <span class="pre">docs/source/</span> <span class="pre">docs/build/</span></code></p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">docs/build/html/index.html</span></code> with your preferred browser: <code class="docutils literal notranslate"><span class="pre">firefox</span> <span class="pre">docs/build/html/index.html</span></code></p></li>
+</ol>
+</section>
+<section id="contribution-guide">
+<h3>Contribution guide<a class="headerlink" href="#contribution-guide" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Currently, we do not follow any specific design pattern. In the future I would to “reduce the weight” of our fat controller <a class="reference internal" href="#./formulae/app.py"><span class="xref myst">formulae/app.py</span></a>. I have not fully decided on whether I want to have <a class="reference external" href="https://www.tonymarston.net/php-mysql/fat-model-skinny-controller.html">fat models</a> or fat services instead; at the end services vs. models is more a naming thing than a real decision. Alternatively, I could do the <a class="reference external" href="https://www.reddit.com/r/flask/comments/134j8qw/how_can_we_use_the_mvc_pattern_in_flask/">MVC-pattern</a>.</p></li>
+<li><p>Each new collection should</p></li>
+</ul>
+</section>
+<section id="run-github-actions-locally">
+<h3>Run GitHub-actions locally:<a class="headerlink" href="#run-github-actions-locally" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Install <a class="reference external" href="https://cli.github.com/">GitHub CLI</a></p></li>
+<li><p>Install <a class="reference external" href="https://nektosact.com/installation/gh.html">act</a>: <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">extension</span> <span class="pre">install</span> <span class="pre">https://github.com/nektos/gh-act</span></code></p></li>
+<li><p>cd git/formulae-capitains-nemo</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">act</span> <span class="pre">-W</span> <span class="pre">'.github/workflows/python-app.yml'</span></code> or <code class="docutils literal notranslate"><span class="pre">gh</span> <span class="pre">act</span> <span class="pre">-W</span> <span class="pre">'.github/workflows/documentation.yml'</span></code></p></li>
+<li><p>Comment out the redis port (gh seems to bring its own redis instance)</p></li>
+</ol>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#application-hierarchy">Application Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html#nemo-rendering-workflow">Nemo Rendering Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="traffic-management.html">Traffic management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="traffic-management.html#varnish">Varnish</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#restricting-parallel-resources">Restricting parallel resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#cookies">Cookies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#cache-control-with-max-age">Cache Control with max-age</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#rate-limit">Rate limit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic-management.html#robots-txt">robots.txt</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#why-add-crawl-delay">Why add <code class="code docutils literal notranslate"><span class="pre">crawl-delay</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#why-add-2b">Why add <code class="code docutils literal notranslate"><span class="pre">%2B</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#which-good-bots-frequently-crawled-our-website">Which “good” bots frequently crawled our website?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="traffic-management.html#what-if-a-crawler-ignores-robots-txt">What if a crawler ignores <cite>robots.txt</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="traffic-management.html#nginx">nginx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="traffic-management.html#flask">flask</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae-nemo.html">formulae nemo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae"><code class="docutils literal notranslate"><span class="pre">NemoFormulae</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.CACHED"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.CACHED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.after_request"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.after_request()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.call_collate_api"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.call_collate_api()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.check_project_team"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.check_project_team()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.create_blueprint"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.create_blueprint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.extract_notes"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.extract_notes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.f_insert_in_list"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_insert_in_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.f_join_list_values"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_join_list_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.f_random_int"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_random_int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.f_remove_from_list"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_remove_from_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.f_replace_indexed_item"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_replace_indexed_item()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.get_all_corpora"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_all_corpora()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.get_first_passage"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_first_passage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.get_locale"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_locale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.get_mss_eds"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_mss_eds()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.get_open_texts"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_open_texts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.get_prev_next_texts"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_prev_next_texts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.get_readable_siblings"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_readable_siblings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.get_transcriptions"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_transcriptions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.highlight_found_sents"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.highlight_found_sents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_closed_texts"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_closed_texts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_coins"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_coins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_collected_colls"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_collected_colls()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_comp_places_list"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_comp_places_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_dead_url_mapping"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_dead_url_mapping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_inflected_to_lem_mapping"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_inflected_to_lem_mapping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_lem_to_lem_mapping"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_lem_to_lem_mapping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_manuscript_notes"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_manuscript_notes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_ms_lib_links"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_ms_lib_links()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.make_parents"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_parents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.ordered_corpora"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.ordered_corpora()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_accessibility_statement"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_accessibility_statement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_add_text_collection"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_add_text_collection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_add_text_collections"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_add_text_collections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_add_text_corpus"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_add_text_corpus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_assets"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_assets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_bibliography"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_bibliography()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_charter_formulaic"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_charter_formulaic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_collection"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_collection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_contact"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_contact()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_corpus"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_corpus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_corpus_mv"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_corpus_mv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_feedback"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_feedback()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_formulae_charter"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_formulae_charter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_formulae_formulae"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_formulae_formulae()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_groups"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_groups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_impressum"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_impressum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_lexicon"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_lexicon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_man_desc"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_man_desc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_man_siglen"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_man_siglen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_multipassage"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_multipassage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_multipassage_authentication_check"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_multipassage_authentication_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_part_groups"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_part_groups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_parts"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_parts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_passage"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_passage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_pdf"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_pdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_reading_format"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_reading_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_robots"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_robots()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_set_language"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_set_language()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.r_videos"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_videos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.register_font"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.register_font()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.semantic"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.semantic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.sort_folia"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.sort_folia()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.sort_katalonien"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.sort_katalonien()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.sort_parents"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.sort_parents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.sort_transcriptions"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.sort_transcriptions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="formulae-nemo.html#formulae.nemo.NemoFormulae.view_maker"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.view_maker()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html#docker">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations/index.html">Migrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="migrations/v1-2-admin-users.html">Version 1.2: Database Migration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="migrations/v1-2-admin-users.html#model-change">Model Change</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrations/v1-2-admin-users.html#migration-file">Migration File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrations/v1-2-admin-users.html#revision-identifiers-used-by-alembic">revision identifiers, used by Alembic.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrations/v1-2-admin-users.html#generating-the-migration">Generating the Migration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrations/v1-2-admin-users.html#checking-the-current-migration-state">Checking the Current Migration State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrations/v1-2-admin-users.html#installing-required-python-packages">Installing Required Python Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrations/v1-2-admin-users.html#migration-procedure">Migration Procedure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrations/v1-2-admin-users.html#rollback">Rollback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrations/v1-2-admin-users.html#important-notes">Important Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="internationalization.html#include-new-internationalized-text-snippets">Include new internationalized text snippets:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="internationalization.html#how-to-update-existing-existing-text-blocks">How to update existing existing text blocks:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mail-configuration.html">Mail configuration (SMTP via Mailjet and custom domain)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mail-configuration.html#configuration-via-environment-variables">Configuration via environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mail-configuration.html#notes-on-usage">Notes on usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mail-configuration.html#previous-approaches-and-limitations">Previous approaches and limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mail-configuration.html#admin-recipients">Admin recipients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mail-configuration.html#testing-the-setup">Testing the setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mail-configuration.html#outlook">Outlook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="environment-modes.html">Application modes and the <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> switch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="environment-modes.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment-modes.html#error-handling-and-email-notifications">Error handling and email notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment-modes.html#interaction-with-mail-configuration">Interaction with mail configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment-modes.html#access-restrictions-for-unauthenticated-users">Access restrictions for unauthenticated users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment-modes.html#design-considerations">Design considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environment-modes.html#outlook">Outlook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="varnish.html">Varnish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="varnish.html#adding-a-custom-error-message-for-503-errors">Adding a custom Error message for 503 errors:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="varnish.html#back-up-your-current-vcl">1. Back up your current VCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="varnish.html#add-a-temporary-broken-backend">2. Add a temporary broken backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="varnish.html#add-the-temporary-test-route-in-vcl-recv">1. Add the temporary test route in vcl_recv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="varnish.html#add-the-custom-vcl-backend-error">4. Add the custom vcl_backend_error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="varnish.html#check-the-vcl">5. Check the VCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="varnish.html#reload-varnish">6. Reload Varnish</a></li>
+<li class="toctree-l3"><a class="reference internal" href="varnish.html#test-locally-on-the-varnish-port">7. Test locally on the Varnish port</a></li>
+<li class="toctree-l3"><a class="reference internal" href="varnish.html#test-through-the-public-url">7. Test through the public URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="varnish.html#clean-up-after-testing">8.  Clean up after testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="workflow.html" class="btn btn-neutral float-right" title="Workflow Nemo Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Matthew Munson, Thorben Schomacker.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

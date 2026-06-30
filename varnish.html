@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Varnish &mdash; formulae-capitains-nemo 1.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=61243dd2"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Application modes and the SERVER_TYPE switch" href="environment-modes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #212529" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formulae-capitains-nemo
+              <img src="_static/logo_226x113.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traffic-management.html">Traffic management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae-nemo.html">formulae nemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html#docker">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations/index.html">Migrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail-configuration.html">Mail configuration (SMTP via Mailjet and custom domain)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment-modes.html">Application modes and the <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> switch</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Varnish</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-custom-error-message-for-503-errors">Adding a custom Error message for 503 errors:</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#back-up-your-current-vcl">1. Back up your current VCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-a-temporary-broken-backend">2. Add a temporary broken backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-the-temporary-test-route-in-vcl-recv">1. Add the temporary test route in vcl_recv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-the-custom-vcl-backend-error">4. Add the custom vcl_backend_error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-the-vcl">5. Check the VCL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reload-varnish">6. Reload Varnish</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-locally-on-the-varnish-port">7. Test locally on the Varnish port</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-through-the-public-url">7. Test through the public URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clean-up-after-testing">8.  Clean up after testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #212529" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formulae-capitains-nemo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Varnish</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/varnish.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="varnish">
+<h1>Varnish<a class="headerlink" href="#varnish" title="Link to this heading"></a></h1>
+<section id="adding-a-custom-error-message-for-503-errors">
+<h2>Adding a custom Error message for 503 errors:<a class="headerlink" href="#adding-a-custom-error-message-for-503-errors" title="Link to this heading"></a></h2>
+<section id="back-up-your-current-vcl">
+<h3>1. Back up your current VCL<a class="headerlink" href="#back-up-your-current-vcl" title="Link to this heading"></a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>cp<span class="w"> </span>/etc/varnish/default.vcl<span class="w"> </span>/etc/varnish/default.vcl.backup
+</pre></div>
+</div>
+</section>
+<section id="add-a-temporary-broken-backend">
+<h3>2. Add a temporary broken backend<a class="headerlink" href="#add-a-temporary-broken-backend" title="Link to this heading"></a></h3>
+<p>Keep your normal backend:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="n">backend</span> <span class="n">default</span> <span class="p">{</span>
+<span class="linenos">2</span>     <span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">;</span>
+<span class="linenos">3</span>     <span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="s2">&quot;8000&quot;</span><span class="p">;</span>
+<span class="linenos">4</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Then add the temporary test backend:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="c1"># Temporary backend to test vcl_backend_error. Remove after 2026-06-30.</span>
+<span class="linenos">2</span> <span class="n">backend</span> <span class="n">broken_test</span> <span class="p">{</span>
+<span class="linenos">3</span>     <span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">;</span>
+<span class="linenos">4</span>     <span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="s2">&quot;8888&quot;</span><span class="p">;</span>
+<span class="linenos">5</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>This assumes nothing is listening on <code class="docutils literal notranslate"><span class="pre">127.0.0.1:8888</span></code>.</p>
+<p>Check that with:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>ss<span class="w"> </span>-ltnp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;:8888&#39;</span>
+</pre></div>
+</div>
+<p>No output is good.</p>
+</section>
+<section id="add-the-temporary-test-route-in-vcl-recv">
+<h3>1. Add the temporary test route in vcl_recv<a class="headerlink" href="#add-the-temporary-test-route-in-vcl-recv" title="Link to this heading"></a></h3>
+<p>If your app is reached under /dev, use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="n">sub</span> <span class="n">vcl_recv</span> <span class="p">{</span>
+<span class="linenos">2</span>     <span class="c1"># Temporary URL to test vcl_backend_error. Remove after 2026-06-30.</span>
+<span class="linenos">3</span>     <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">url</span> <span class="o">==</span> <span class="s2">&quot;/dev/__test_503&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos">4</span>         <span class="nb">set</span> <span class="n">req</span><span class="o">.</span><span class="n">backend_hint</span> <span class="o">=</span> <span class="n">broken_test</span><span class="p">;</span>
+<span class="linenos">5</span>         <span class="k">return</span> <span class="p">(</span><span class="k">pass</span><span class="p">);</span>
+<span class="linenos">6</span>     <span class="p">}</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span>     <span class="c1"># existing logic...</span>
+<span class="linenos">9</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>If your app is reached under /, use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="n">sub</span> <span class="n">vcl_recv</span> <span class="p">{</span>
+<span class="linenos">2</span>     <span class="c1"># Temporary URL to test vcl_backend_error. Remove after 2026-06-30.</span>
+<span class="linenos">3</span>     <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">url</span> <span class="o">==</span> <span class="s2">&quot;/dev/__test_503&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos">4</span>         <span class="nb">set</span> <span class="n">req</span><span class="o">.</span><span class="n">backend_hint</span> <span class="o">=</span> <span class="n">broken_test</span><span class="p">;</span>
+<span class="linenos">5</span>         <span class="k">return</span> <span class="p">(</span><span class="k">pass</span><span class="p">);</span>
+<span class="linenos">6</span>     <span class="p">}</span>
+<span class="linenos">7</span>
+<span class="linenos">8</span>     <span class="c1"># existing logic...</span>
+<span class="linenos">9</span> <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="add-the-custom-vcl-backend-error">
+<h3>4. Add the custom vcl_backend_error<a class="headerlink" href="#add-the-custom-vcl-backend-error" title="Link to this heading"></a></h3>
+<p>Add this outside the other sub blocks:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> sub vcl_backend_error {
+<span class="linenos"> 2</span>     set beresp.status = 503;
+<span class="linenos"> 3</span>     set beresp.reason = &quot;Service temporarily unavailable&quot;;
+<span class="linenos"> 4</span>     set beresp.http.Content-Type = &quot;text/html; charset=utf-8&quot;;
+<span class="linenos"> 5</span>     set beresp.http.Retry-After = &quot;300&quot;;
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>     synthetic({&quot;
+<span class="linenos"> 8</span> <span class="cp">&lt;!doctype html&gt;</span>
+<span class="linenos"> 9</span> <span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#39;en&#39;</span><span class="p">&gt;</span>
+<span class="linenos">10</span> <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos">11</span> <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#39;utf-8&#39;</span><span class="p">&gt;</span>
+<span class="linenos">12</span> <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Service unavailable<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos">13</span> <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos">14</span> <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos">15</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Service unavailable<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="linenos">16</span> <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The Formulae application is temporarily unavailable.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos">17</span> <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Project website: <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#39;https://formulae.awhamburg.de/&#39;</span><span class="p">&gt;</span>formulae.awhamburg.de<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos">18</span> <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="linenos">19</span> <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="linenos">20</span> &quot;});
+<span class="linenos">21</span>
+<span class="linenos">22</span>     return (deliver);
+<span class="linenos">23</span> }
+</pre></div>
+</div>
+</section>
+<section id="check-the-vcl">
+<h3>5. Check the VCL<a class="headerlink" href="#check-the-vcl" title="Link to this heading"></a></h3>
+<p>Use the less noisy check:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>varnishd<span class="w"> </span>-C<span class="w"> </span>-f<span class="w"> </span>/etc/varnish/default.vcl<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;VCL OK&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;VCL ERROR&quot;</span>
+</pre></div>
+</div>
+<p>If you see: <code class="docutils literal notranslate"><span class="pre">VCL</span> <span class="pre">OK</span></code> the file compiles successfully.</p>
+</section>
+<section id="reload-varnish">
+<h3>6. Reload Varnish<a class="headerlink" href="#reload-varnish" title="Link to this heading"></a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>varnish
+</pre></div>
+</div>
+</section>
+<section id="test-locally-on-the-varnish-port">
+<h3>7. Test locally on the Varnish port<a class="headerlink" href="#test-locally-on-the-varnish-port" title="Link to this heading"></a></h3>
+<p>Since your Varnish listens on 127.0.0.1:8080, test:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-i<span class="w"> </span>http://127.0.0.1:8080/dev/__test_503<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Host: your-domain.example&quot;</span>
+</pre></div>
+</div>
+<p>Expected result:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>HTTP/1.1<span class="w"> </span><span class="m">503</span><span class="w"> </span>Service<span class="w"> </span>temporarily<span class="w"> </span>unavailable
+Server:<span class="w"> </span>Varnish
+Content-Type:<span class="w"> </span>text/html<span class="p">;</span><span class="w"> </span><span class="nv">charset</span><span class="o">=</span>utf-8
+Retry-After:<span class="w"> </span><span class="m">300</span>
+Via:<span class="w"> </span><span class="m">1</span>.1<span class="w"> </span>varnish<span class="w"> </span><span class="o">(</span>Varnish/6.6<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+<section id="test-through-the-public-url">
+<h3>7. Test through the public URL<a class="headerlink" href="#test-through-the-public-url" title="Link to this heading"></a></h3>
+<p>Use the public path including /dev: <code class="docutils literal notranslate"><span class="pre">https://your-domain.example/dev/__test_503</span></code></p>
+<p>You should see the same custom 503 page.</p>
+</section>
+<section id="clean-up-after-testing">
+<h3>8.  Clean up after testing<a class="headerlink" href="#clean-up-after-testing" title="Link to this heading"></a></h3>
+<p>Remove the temporary test backend:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="n">backend</span> <span class="n">broken_test</span> <span class="p">{</span>
+<span class="linenos">2</span>     <span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">;</span>
+<span class="linenos">3</span>     <span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="s2">&quot;8888&quot;</span><span class="p">;</span>
+<span class="linenos">4</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Remove the temporary route from vcl_recv:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">url</span> <span class="o">~</span> <span class="s2">&quot;^/dev/__test_503($|[?])&quot;</span><span class="p">)</span> <span class="p">{</span>
+<span class="linenos">2</span>     <span class="nb">set</span> <span class="n">req</span><span class="o">.</span><span class="n">backend_hint</span> <span class="o">=</span> <span class="n">broken_test</span><span class="p">;</span>
+<span class="linenos">3</span>     <span class="k">return</span> <span class="p">(</span><span class="k">pass</span><span class="p">);</span>
+<span class="linenos">4</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>Keep this permanently:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span> <span class="n">sub</span> <span class="n">vcl_backend_error</span> <span class="p">{</span>
+<span class="linenos">2</span>     <span class="o">...</span>
+<span class="linenos">3</span> <span class="p">}</span>
+</pre></div>
+</div>
+<p>That is the actual custom 503 page used when the real backend on 127.0.0.1:8000 is unavailable.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="environment-modes.html" class="btn btn-neutral float-left" title="Application modes and the SERVER_TYPE switch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Matthew Munson, Thorben Schomacker.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

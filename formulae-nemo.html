@@ -1,0 +1,1101 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>formulae nemo &mdash; formulae-capitains-nemo 1.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=61243dd2"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Collection" href="collection.html" />
+    <link rel="prev" title="Navigation bar" href="nav-bar.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #212529" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formulae-capitains-nemo
+              <img src="_static/logo_226x113.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traffic-management.html">Traffic management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">formulae nemo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#formulae.nemo.NemoFormulae"><code class="docutils literal notranslate"><span class="pre">NemoFormulae</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.CACHED"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.CACHED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.after_request"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.after_request()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.call_collate_api"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.call_collate_api()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.check_project_team"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.check_project_team()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.create_blueprint"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.create_blueprint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.extract_notes"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.extract_notes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.f_insert_in_list"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_insert_in_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.f_join_list_values"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_join_list_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.f_random_int"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_random_int()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.f_remove_from_list"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_remove_from_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.f_replace_indexed_item"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.f_replace_indexed_item()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.get_all_corpora"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_all_corpora()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.get_first_passage"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_first_passage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.get_locale"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_locale()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.get_mss_eds"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_mss_eds()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.get_open_texts"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_open_texts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.get_prev_next_texts"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_prev_next_texts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.get_readable_siblings"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_readable_siblings()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.get_transcriptions"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.get_transcriptions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.highlight_found_sents"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.highlight_found_sents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_closed_texts"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_closed_texts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_coins"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_coins()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_collected_colls"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_collected_colls()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_comp_places_list"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_comp_places_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_dead_url_mapping"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_dead_url_mapping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_inflected_to_lem_mapping"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_inflected_to_lem_mapping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_lem_to_lem_mapping"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_lem_to_lem_mapping()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_manuscript_notes"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_manuscript_notes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_ms_lib_links"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_ms_lib_links()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.make_parents"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.make_parents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.ordered_corpora"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.ordered_corpora()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_accessibility_statement"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_accessibility_statement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_add_text_collection"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_add_text_collection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_add_text_collections"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_add_text_collections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_add_text_corpus"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_add_text_corpus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_assets"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_assets()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_bibliography"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_bibliography()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_charter_formulaic"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_charter_formulaic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_collection"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_collection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_contact"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_contact()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_corpus"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_corpus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_corpus_mv"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_corpus_mv()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_feedback"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_feedback()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_formulae_charter"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_formulae_charter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_formulae_formulae"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_formulae_formulae()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_groups"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_groups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_impressum"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_impressum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_lexicon"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_lexicon()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_man_desc"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_man_desc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_man_siglen"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_man_siglen()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_multipassage"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_multipassage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_multipassage_authentication_check"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_multipassage_authentication_check()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_part_groups"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_part_groups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_parts"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_parts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_passage"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_passage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_pdf"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_pdf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_reading_format"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_reading_format()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_robots"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_robots()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_set_language"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_set_language()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.r_videos"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_videos()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.register_font"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.register_font()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.semantic"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.semantic()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.sort_folia"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.sort_folia()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.sort_katalonien"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.sort_katalonien()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.sort_parents"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.sort_parents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.sort_transcriptions"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.sort_transcriptions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#formulae.nemo.NemoFormulae.view_maker"><code class="docutils literal notranslate"><span class="pre">NemoFormulae.view_maker()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html#docker">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations/index.html">Migrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail-configuration.html">Mail configuration (SMTP via Mailjet and custom domain)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment-modes.html">Application modes and the <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> switch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="varnish.html">Varnish</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #212529" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formulae-capitains-nemo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">formulae nemo</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/formulae-nemo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="formulae-nemo">
+<h1>formulae nemo<a class="headerlink" href="#formulae-nemo" title="Link to this heading"></a></h1>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+</tbody>
+</table>
+<dl class="py class" id="module-formulae.nemo">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">formulae.nemo.</span></span><span class="sig-name descname"><span class="pre">NemoFormulae</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#formulae.nemo.NemoFormulae" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.CACHED">
+<span class="sig-name descname"><span class="pre">CACHED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['r_index',</span> <span class="pre">'get_inventory',</span> <span class="pre">'get_collection',</span> <span class="pre">'get_reffs',</span> <span class="pre">'get_passage',</span> <span class="pre">'get_siblings',</span> <span class="pre">'get_open_texts',</span> <span class="pre">'get_all_corpora',</span> <span class="pre">'semantic',</span> <span class="pre">'make_coins',</span> <span class="pre">'expose_ancestors_or_children',</span> <span class="pre">'make_members',</span> <span class="pre">'transform']</span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.CACHED" title="Link to this definition"></a></dt>
+<dd><p>Assets dictionary model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.after_request">
+<span class="sig-name descname"><span class="pre">after_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Response</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.after_request" title="Link to this definition"></a></dt>
+<dd><p>Post-processes the response object after each request.</p>
+<ul class="simple">
+<li><p>Disables caching for authentication and language-switching routes.</p></li>
+<li><p>Applies extended caching for static assets.</p></li>
+<li><p>Sets general cache-control headers using <cite>CACHE_MAX_AGE</cite> for all other responses.</p></li>
+<li><p>Persists certain variables from <cite>g</cite> to the session.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.call_collate_api">
+<span class="sig-name descname"><span class="pre">call_collate_api</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_ids</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subrefers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.call_collate_api" title="Link to this definition"></a></dt>
+<dd><p>Transforms texts, sends them to collate API and transforms the results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.check_project_team">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">check_project_team</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.check_project_team" title="Link to this definition"></a></dt>
+<dd><p>A convenience function that checks if the current user is a part of the project team</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.create_blueprint">
+<span class="sig-name descname"><span class="pre">create_blueprint</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Blueprint</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.create_blueprint" title="Link to this definition"></a></dt>
+<dd><p>Enhance original blueprint creation with error handling</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>flask.Blueprint</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.extract_notes">
+<span class="sig-name descname"><span class="pre">extract_notes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.extract_notes" title="Link to this definition"></a></dt>
+<dd><p>Constructs a dictionary that contains all notes with their ids. This will allow the notes to be
+rendered anywhere on the page and not only where they occur in the text.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> – the string to be transformed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict(‘note_id’: ‘note_content’)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.f_insert_in_list">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">f_insert_in_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.f_insert_in_list" title="Link to this definition"></a></dt>
+<dd><p>A Jinja filter to insert a value ‘v’ into an existing list ‘l’ at a given index ‘i’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>l</strong> – the list of values</p></li>
+<li><p><strong>i</strong> – the index at which the item should be inserted</p></li>
+<li><p><strong>v</strong> – the value that will be inserted</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>new list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.f_join_list_values">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">f_join_list_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.f_join_list_values" title="Link to this definition"></a></dt>
+<dd><p>A Jinja filter to join the values of a list “l” into a string using the separator “s”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>l</strong> – the list of values</p></li>
+<li><p><strong>s</strong> – the separator</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a string of the values joined by the separator</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.f_random_int">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">f_random_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.f_random_int" title="Link to this definition"></a></dt>
+<dd><p>A Jinja filter to produce a random integer between 1 and 10,000</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.f_remove_from_list">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">f_remove_from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.f_remove_from_list" title="Link to this definition"></a></dt>
+<dd><p>A Jinja filter to remove item “i” from list “l”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>l</strong> – the list</p></li>
+<li><p><strong>i</strong> – the item</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list without the item</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.f_replace_indexed_item">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">f_replace_indexed_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">l</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.f_replace_indexed_item" title="Link to this definition"></a></dt>
+<dd><p>A Jinja filter to replace an item at ‘i’ with the value of ‘v’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>l</strong> – the list of values</p></li>
+<li><p><strong>i</strong> – the index to be replace</p></li>
+<li><p><strong>v</strong> – the value with which the indexed value will be replaced</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>new list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.get_all_corpora">
+<span class="sig-name descname"><span class="pre">get_all_corpora</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">XmlCapitainsCollectionMetadata</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.get_all_corpora" title="Link to this definition"></a></dt>
+<dd><p>A convenience function to return all sub-corpora in all collections</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dictionary with all the collections as keys and a list of the corpora in the collection as values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.get_first_passage">
+<span class="sig-name descname"><span class="pre">get_first_passage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.get_first_passage" title="Link to this definition"></a></dt>
+<dd><p>Provides a redirect to the first passage of given objectId</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>objectId</strong> – Collection identifier</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Redirection to the first passage of given text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.get_locale">
+<span class="sig-name descname"><span class="pre">get_locale</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.get_locale" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the best matching locale using request headers</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Probably one of the thing to enhance quickly.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>the 3-letter language code</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.get_mss_eds">
+<span class="sig-name descname"><span class="pre">get_mss_eds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'**'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.get_mss_eds" title="Link to this definition"></a></dt>
+<dd><p>Extracts a list of manuscript edition references from the metadata.</p>
+<p>The method retrieves the value associated with the Dublin Core ‘references’ field,
+splits it into separate entries based on a given split token (defaulting to “**”),
+and unescapes any escaped “**” sequences within each entry.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>metadata</strong> – the metadata object containing a ‘DCTERMS.references’ field</p></li>
+<li><p><strong>split_token</strong> – the delimiter used to separate edition entries (default ‘**’)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a list of manuscript edition references as strings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.get_open_texts">
+<span class="sig-name descname"><span class="pre">get_open_texts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">XmlCapitainsReadableMetadata</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.get_open_texts" title="Link to this definition"></a></dt>
+<dd><p>Creates the lists of open and half-open texts to be used later.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dictionary of all texts {collection: [readableDescendants]}, list of open texts, list of half-open texts</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.get_prev_next_texts">
+<span class="sig-name descname"><span class="pre">get_prev_next_texts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.get_prev_next_texts" title="Link to this definition"></a></dt>
+<dd><p>Get the previous and next texts in a collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>objectId</strong> – the ID of the current object</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the IDs of the previous and next text in the same collection and lists of all previous and next texts</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.get_readable_siblings">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_readable_siblings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">XmlCapitainsReadableMetadata</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">XmlCapitainsReadableMetadata</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.get_readable_siblings" title="Link to this definition"></a></dt>
+<dd><p>Returns the readable children of every ancestor.
+This assumes that any direct readable descendants that an ancestor has will also be readable siblings to the
+collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obj</strong> – the collection for which to find siblings</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of siblings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.get_transcriptions">
+<span class="sig-name descname"><span class="pre">get_transcriptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">XmlCapitainsReadableMetadata</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">XmlCapitainsReadableMetadata</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.get_transcriptions" title="Link to this definition"></a></dt>
+<dd><p>Returns any manuscript transcriptions that are associated with this text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>obj</strong> – the readable collection for which to find transcriptions</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the list of transcriptions</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.highlight_found_sents">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">highlight_found_sents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">html</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.highlight_found_sents" title="Link to this definition"></a></dt>
+<dd><p>Adds “searched” to the classList of words in “sents” from elasticsearch results</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>html</strong> – the marked-up text to be searched</p></li>
+<li><p><strong>results</strong> – the previous search session information from the session</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>transformed html</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_closed_texts">
+<span class="sig-name descname"><span class="pre">make_closed_texts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_closed_texts" title="Link to this definition"></a></dt>
+<dd><p>Ingests an existing JSON file that contains notes about specific manuscript transcriptions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_coins">
+<span class="sig-name descname"><span class="pre">make_coins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">XmlCapitainsCollectionMetadata</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">XmlCapitainsReadableMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">XmlCapitainsReadableMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subreference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_coins" title="Link to this definition"></a></dt>
+<dd><p>Creates a CoINS Title string from information</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collection</strong> – Collection to create coins from</p></li>
+<li><p><strong>text</strong> – Text/Passage object</p></li>
+<li><p><strong>subreference</strong> – Subreference</p></li>
+<li><p><strong>lang</strong> – Locale information</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Coins HTML title value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_collected_colls">
+<span class="sig-name descname"><span class="pre">make_collected_colls</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_collected_colls" title="Link to this definition"></a></dt>
+<dd><p>Ingests an existing JSON file that contains notes about specific manuscript transcriptions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_comp_places_list">
+<span class="sig-name descname"><span class="pre">make_comp_places_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_comp_places_list" title="Link to this definition"></a></dt>
+<dd><p>Ingests an existing JSON file that maps dead urls to active ones, e.g., <a class="reference external" href="urn:cts:formulae:lorsch.gloeckner4233">urn:cts:formulae:lorsch.gloeckner4233</a> -&gt;urn:cts:formulae:lorsch.gloeckner1134</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_dead_url_mapping">
+<span class="sig-name descname"><span class="pre">make_dead_url_mapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_dead_url_mapping" title="Link to this definition"></a></dt>
+<dd><p>Ingests an existing JSON file that maps dead urls to active ones, e.g., <a class="reference external" href="urn:cts:formulae:lorsch.gloeckner4233">urn:cts:formulae:lorsch.gloeckner4233</a> -&gt;urn:cts:formulae:lorsch.gloeckner1134</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_inflected_to_lem_mapping">
+<span class="sig-name descname"><span class="pre">make_inflected_to_lem_mapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_inflected_to_lem_mapping" title="Link to this definition"></a></dt>
+<dd><p>Ingests an existing JSON file that maps inflected forms onto their lemmata</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_lem_to_lem_mapping">
+<span class="sig-name descname"><span class="pre">make_lem_to_lem_mapping</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_lem_to_lem_mapping" title="Link to this definition"></a></dt>
+<dd><p>Ingests an existing JSON file that maps theoretical lemmas onto the used lemmas, e.g., gero -&gt; gerere</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_manuscript_notes">
+<span class="sig-name descname"><span class="pre">make_manuscript_notes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_manuscript_notes" title="Link to this definition"></a></dt>
+<dd><p>Ingests an existing JSON file that contains notes about specific manuscript transcriptions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_ms_lib_links">
+<span class="sig-name descname"><span class="pre">make_ms_lib_links</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_ms_lib_links" title="Link to this definition"></a></dt>
+<dd><p>Ingests an existing JSON file that contains notes about specific manuscript transcriptions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.make_parents">
+<span class="sig-name descname"><span class="pre">make_parents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">XmlCapitainsCollectionMetadata</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">XmlCapitainsReadableMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.make_parents" title="Link to this definition"></a></dt>
+<dd><p>Build parents list for given collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collection</strong> – Collection to build dict view of for its members</p></li>
+<li><p><strong>lang</strong> – Language to express data in</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of basic objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.ordered_corpora">
+<span class="sig-name descname"><span class="pre">ordered_corpora</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">XmlCapitainsReadableMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">XmlCapitainsReadableMetadata</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.ordered_corpora" title="Link to this definition"></a></dt>
+<dd><p>Sets up the readable descendants in each corpus to be correctly ordered.
+These strings are later used in displaying the buttons on templates/main/sub_collection.html</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>m</strong> – the metadata for the descendant</p></li>
+<li><p><strong>collection</strong> – the collection to which readable collection belongs</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a tuple that will be put in the correct place in the ordered list when sorted</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_accessibility_statement">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_accessibility_statement</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_accessibility_statement" title="Link to this definition"></a></dt>
+<dd><p>Route for accessibility statement</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Template to use for accessibility statement page</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_add_text_collection">
+<span class="sig-name descname"><span class="pre">r_add_text_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objectIds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reffs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_add_text_collection" title="Link to this definition"></a></dt>
+<dd><p>Route to browse a top-level collection and add another text to the view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectId</strong> – the id of the collection from which the new text for the reading view should be added</p></li>
+<li><p><strong>objectIds</strong> – the object ids from the previous view separated by ‘+’</p></li>
+<li><p><strong>reffs</strong> – the citation references from the objects in the previous view seperated by ‘+’</p></li>
+<li><p><strong>lang</strong> – Lang in which to express main data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Template and collections contained in given collection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_add_text_collections">
+<span class="sig-name descname"><span class="pre">r_add_text_collections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectIds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reffs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_add_text_collections" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the top collections of the inventory</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectIds</strong> – the object ids from the previous view separated by ‘+’</p></li>
+<li><p><strong>reffs</strong> – the citation references from the objects in the previous view seperated by ‘+’</p></li>
+<li><p><strong>lang</strong> – Lang in which to express main data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Collections information and template</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_add_text_corpus">
+<span class="sig-name descname"><span class="pre">r_add_text_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">objectIds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reffs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_add_text_corpus" title="Link to this definition"></a></dt>
+<dd><p>Route to browse collections and add another text to the view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectId</strong> – Collection identifier</p></li>
+<li><p><strong>objectIds</strong> – the ids of the documents in the previous view separated by ‘+’</p></li>
+<li><p><strong>reffs</strong> – the references for the documents in the previous view separated by ‘+’</p></li>
+<li><p><strong>lang</strong> – Lang in which to express main data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Template and collections contained in given collection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_assets">
+<span class="sig-name descname"><span class="pre">r_assets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filetype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_assets" title="Link to this definition"></a></dt>
+<dd><p>Route for specific assets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filetype</strong> – Asset Type</p></li>
+<li><p><strong>asset</strong> – Filename of an asset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_bibliography">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_bibliography</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_bibliography" title="Link to this definition"></a></dt>
+<dd><p>Bibliography route function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Template to use for Bibliography page</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_charter_formulaic">
+<span class="sig-name descname"><span class="pre">r_charter_formulaic</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_charter_formulaic" title="Link to this definition"></a></dt>
+<dd><p>Route for page with intro and links to data from Franziska Quaas</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>all_parts template</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str, str: list(tuple(str))}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_collection">
+<span class="sig-name descname"><span class="pre">r_collection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_collection" title="Link to this definition"></a></dt>
+<dd><p>Route to show a collection of different corpora, e.g., all formulae collections</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectId</strong> – The id of the collection to be shown</p></li>
+<li><p><strong>lang</strong> – Language in which to show the collection’s metadata</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Template and collections contained in a given collection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_contact">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_contact</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_contact" title="Link to this definition"></a></dt>
+<dd><p>Contact route function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Template to use for Bibliography page</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_corpus">
+<span class="sig-name descname"><span class="pre">r_corpus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_corpus" title="Link to this definition"></a></dt>
+<dd><p>Route to browse collections and add another text to the view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectId</strong> – Collection identifier</p></li>
+<li><p><strong>lang</strong> – Lang in which to express main data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Template and collections contained in given collection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_corpus_mv">
+<span class="sig-name descname"><span class="pre">r_corpus_mv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_corpus_mv" title="Link to this definition"></a></dt>
+<dd><p>Route to browse collections and add another text to the view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectId</strong> – Collection identifier</p></li>
+<li><p><strong>lang</strong> – Lang in which to express main data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Template and collections contained in given collection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_feedback">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_feedback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_feedback" title="Link to this definition"></a></dt>
+<dd><p>Feedback route function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Template to use for Bibliography page</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_formulae_charter">
+<span class="sig-name descname"><span class="pre">r_formulae_charter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_formulae_charter" title="Link to this definition"></a></dt>
+<dd><p>Route for page with data from Franziska Quaas showing formulae with charter agreements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>all_parts template</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str, str: list(tuple(str))}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_formulae_formulae">
+<span class="sig-name descname"><span class="pre">r_formulae_formulae</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_formulae_formulae" title="Link to this definition"></a></dt>
+<dd><p>Route for page with data from Franziska Quaas showing formulae with formulae agreements</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>all_parts template</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str, str: list(tuple(str))}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_groups">
+<span class="sig-name descname"><span class="pre">r_groups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_groups" title="Link to this definition"></a></dt>
+<dd><p>Route for page with data from Franziska Quaas showing charter and charter part groups</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>all_parts template</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str, str: list(tuple(str))}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_impressum">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_impressum</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_impressum" title="Link to this definition"></a></dt>
+<dd><p>Impressum route function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Template to use for Impressum page</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_lexicon">
+<span class="sig-name descname"><span class="pre">r_lexicon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_lexicon" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the eLexicon entry for a word</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectId</strong> (<em>str</em>) – Collection identifiers separated by ‘+’</p></li>
+<li><p><strong>lang</strong> (<em>str</em>) – Lang in which to express main data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Template, collections metadata and Markup object representing the text</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>{str: Any}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_man_desc">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_man_desc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">manuscript</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_man_desc" title="Link to this definition"></a></dt>
+<dd><p>Route for manuscript descriptions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Template to use for Bibliography page</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_man_siglen">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_man_siglen</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_man_siglen" title="Link to this definition"></a></dt>
+<dd><p>Route for manuscript descriptions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Template to use for Bibliography page</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_multipassage">
+<span class="sig-name descname"><span class="pre">r_multipassage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectIds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subreferences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_multipassage" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the text of the passage</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectIds</strong> – Collection identifiers separated by ‘+’</p></li>
+<li><p><strong>lang</strong> – Lang in which to express main data</p></li>
+<li><p><strong>subreferences</strong> – Reference identifiers separated by ‘+’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Template, collections metadata and Markup object representing the text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_multipassage_authentication_check">
+<span class="sig-name descname"><span class="pre">r_multipassage_authentication_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectIds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subreferences</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">collate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_multipassage_authentication_check" title="Link to this definition"></a></dt>
+<dd><p>Wrapper method for r_multipassage. Requires all users to be logged in, when using ‘+’ in the query. It should eventually replace r_multipassage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectIds</strong> – Collection identifiers separated by ‘+’</p></li>
+<li><p><strong>lang</strong> – Lang in which to express main data</p></li>
+<li><p><strong>subreferences</strong> – Reference identifiers separated by ‘+’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Template, collections metadata and Markup object representing the text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_part_groups">
+<span class="sig-name descname"><span class="pre">r_part_groups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_part_groups" title="Link to this definition"></a></dt>
+<dd><p>Route for page with data from Franziska Quaas showing similar parts for Arengen and Überleitungsformel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>all_parts template</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str, str: list(tuple(str))}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_parts">
+<span class="sig-name descname"><span class="pre">r_parts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_parts" title="Link to this definition"></a></dt>
+<dd><p>Route for page with data from Franziska Quaas showing all charters with certain formulaic parts</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>all_parts template</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str, str: list(tuple(str))}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_passage">
+<span class="sig-name descname"><span class="pre">r_passage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subreference</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lang</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_passage" title="Link to this definition"></a></dt>
+<dd><p>Retrieve the text of the passage</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>objectId</strong> – Collection identifier</p></li>
+<li><p><strong>lang</strong> – Lang in which to express main data</p></li>
+<li><p><strong>subreference</strong> – Reference identifier</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Template, collections metadata and Markup object representing the text</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_pdf">
+<span class="sig-name descname"><span class="pre">r_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objectId</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Response</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_pdf" title="Link to this definition"></a></dt>
+<dd><p>Produces a PDF from the objectId for download and then delivers it.</p>
+<p>If the objectId is not part of the open_texts a pdf only generated if project member tries to access it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>objectId</strong> – the URN of the text to transform</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_reading_format">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_reading_format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">redirect</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_reading_format" title="Link to this definition"></a></dt>
+<dd><p>Sets the reading direction of the texts in the multipassage view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>direction</strong> – a string representing whether the texts are listed in ‘rows’ or ‘columns’</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_robots">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_robots</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_robots" title="Link to this definition"></a></dt>
+<dd><p>Route for the robots.txt</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filetype</strong> – Asset Type</p></li>
+<li><p><strong>asset</strong> – Filename of an asset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Response</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_set_language">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">r_set_language</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">redirect</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_set_language" title="Link to this definition"></a></dt>
+<dd><p>Sets the session’s language code which will be used for all requests</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – The 2-letter language code</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.r_videos">
+<span class="sig-name descname"><span class="pre">r_videos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.r_videos" title="Link to this definition"></a></dt>
+<dd><p>Route for videos</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Video template with video and subtitle filenames</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>{str: str, str: list(tuple(str))}</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.register_font">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">register_font</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#formulae.nemo.NemoFormulae.register_font" title="Link to this definition"></a></dt>
+<dd><p>Registers the LiberationSerif font to be used in producing PDFs</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.semantic">
+<span class="sig-name descname"><span class="pre">semantic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collection</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">XmlCapitainsCollectionMetadata</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">XmlCapitainsReadableMetadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">XmlCapitainsCollectionMetadata</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.semantic" title="Link to this definition"></a></dt>
+<dd><p>Generates a SEO friendly string for given collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>collection</strong> – Collection object to generate string for</p></li>
+<li><p><strong>parent</strong> – Current collection parent</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SEO/URL Friendly string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.sort_folia">
+<span class="sig-name descname"><span class="pre">sort_folia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matchobj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Match</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.sort_folia" title="Link to this definition"></a></dt>
+<dd><p>Sets up the folia ranges of manuscripts for better sorting.</p>
+<p>This method parses folio identifiers with possible HTML formatting and generates
+a consistent representation suitable for sorting manuscript items. It maps certain
+folio number ranges to letter prefixes specific to manuscript collections (e.g., ‘m4’, ‘p3’).</p>
+<p>Example inputs and outputs:
+- ‘28r’ → ‘0028&lt;span class=”verso-recto”&gt;r&lt;/span&gt;’
+- ‘101bisv’ → ‘0101 bis&lt;span class=”verso-recto”&gt;v&lt;/span&gt;’
+- ‘m4.45r-46v’ → ‘a0045&lt;span class=”verso-recto”&gt;r&lt;/span&gt;-0046&lt;span class=”verso-recto”&gt;v&lt;/span&gt;’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.sort_katalonien">
+<span class="sig-name descname"><span class="pre">sort_katalonien</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#formulae.nemo.NemoFormulae.sort_katalonien" title="Link to this definition"></a></dt>
+<dd><p>Correctly sort the Katalonien documents with mixed number and Roman numerals</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.sort_parents">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">sort_parents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.sort_parents" title="Link to this definition"></a></dt>
+<dd><p>Sort parents from closest to furthest</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> – The dictionary to be sorted</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>integer representing how deep in the collection a collection stands from lowest (i.e., text) to highest</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.sort_transcriptions">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">sort_transcriptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">XmlCapitainsReadableMetadata</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">XmlCapitainsCollectionMetadata</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.sort_transcriptions" title="Link to this definition"></a></dt>
+<dd><p>Return sortable tuple for the transcriptions of an object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulae.nemo.NemoFormulae.view_maker">
+<span class="sig-name descname"><span class="pre">view_maker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span></span></span><a class="headerlink" href="#formulae.nemo.NemoFormulae.view_maker" title="Link to this definition"></a></dt>
+<dd><p>Create a view</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Name of the route function to use for the view.</p></li>
+<li><p><strong>instance</strong> – The Flask instance for which to create the view function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Route function which makes use of Nemo context (such as menu informations)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="nav-bar.html" class="btn btn-neutral float-left" title="Navigation bar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="collection.html" class="btn btn-neutral float-right" title="Collection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Matthew Munson, Thorben Schomacker.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

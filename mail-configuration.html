@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mail configuration (SMTP via Mailjet and custom domain) &mdash; formulae-capitains-nemo 1.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=61243dd2"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Application modes and the SERVER_TYPE switch" href="environment-modes.html" />
+    <link rel="prev" title="Internationalization" href="internationalization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #212529" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formulae-capitains-nemo
+              <img src="_static/logo_226x113.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traffic-management.html">Traffic management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae-nemo.html">formulae nemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html#docker">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations/index.html">Migrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mail configuration (SMTP via Mailjet and custom domain)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-via-environment-variables">Configuration via environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes-on-usage">Notes on usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#previous-approaches-and-limitations">Previous approaches and limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-recipients">Admin recipients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-the-setup">Testing the setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outlook">Outlook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="environment-modes.html">Application modes and the <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> switch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="varnish.html">Varnish</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #212529" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formulae-capitains-nemo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Mail configuration (SMTP via Mailjet and custom domain)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/mail-configuration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mail-configuration-smtp-via-mailjet-and-custom-domain">
+<h1>Mail configuration (SMTP via Mailjet and custom domain)<a class="headerlink" href="#mail-configuration-smtp-via-mailjet-and-custom-domain" title="Link to this heading"></a></h1>
+<p>For sending application emails (e.g. error notifications), the project uses a
+standard SMTP setup via an external mail provider. After experimenting with
+hosted mailbox providers such as :contentReference[oaicite:0]{index=0}, the current setup settled on
+:contentReference[oaicite:1]{index=1} in combination with a dedicated domain
+(<cite>formulae.top</cite>).</p>
+<p>The domain was registered cheaply (well below 5€ per year) via
+:contentReference[oaicite:2]{index=2} and is used exclusively for
+application email sending. This turned out to be the most robust solution so far
+and avoids a number of subtle issues that arise when trying to reuse existing
+mailboxes for automated tasks.</p>
+<section id="configuration-via-environment-variables">
+<h2>Configuration via environment variables<a class="headerlink" href="#configuration-via-environment-variables" title="Link to this heading"></a></h2>
+<p>The mail setup is configured via environment variables (e.g. in <code class="docutils literal notranslate"><span class="pre">.env</span></code> or
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">ADMINS</span><span class="o">=</span>&lt;string<span class="w"> </span>of<span class="w"> </span>email<span class="w"> </span>addresses<span class="w"> </span>of<span class="w"> </span>admins<span class="w"> </span>separated<span class="w"> </span>by<span class="w"> </span><span class="p">;</span>&gt;
+<span class="nv">MAIL_USERNAME</span><span class="o">=</span>&lt;string&gt;
+<span class="nv">MAIL_PASSWORD</span><span class="o">=</span>&lt;string&gt;
+<span class="nv">MAIL_SERVER</span><span class="o">=</span><span class="s2">&quot;in-v3.mailjet.com&quot;</span>
+<span class="nv">MAIL_PORT</span><span class="o">=</span><span class="m">587</span>
+<span class="nv">MAIL_DEFAULT_SENDER</span><span class="o">=</span><span class="s1">&#39;noreply@formulae.top&#39;</span>
+</pre></div>
+</div>
+<p>The individual variables have the following meaning:</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">ADMINS</span></code></dt><dd><p>A semicolon-separated list of email addresses that should receive
+administrative notifications (e.g. error mails). The application parses
+this string into a list internally.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ADMINS</span><span class="o">=</span><span class="n">admin1</span><span class="nd">@example</span><span class="o">.</span><span class="n">org</span><span class="p">;</span><span class="n">admin2</span><span class="nd">@example</span><span class="o">.</span><span class="n">org</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">MAIL_USERNAME</span></code></dt><dd><p>The SMTP login username provided by Mailjet. In practice this is not a
+mailbox address but an API key.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">MAIL_PASSWORD</span></code></dt><dd><p>The corresponding SMTP password (secret key).</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">MAIL_SERVER</span></code></dt><dd><p>The SMTP server hostname. For Mailjet this is <code class="docutils literal notranslate"><span class="pre">in-v3.mailjet.com</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">MAIL_PORT</span></code></dt><dd><p>The SMTP port. Port <code class="docutils literal notranslate"><span class="pre">587</span></code> with STARTTLS is recommended and used
+by default.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">MAIL_DEFAULT_SENDER</span></code></dt><dd><p>The sender address used by the application. This should belong to the
+authenticated domain (here: <code class="docutils literal notranslate"><span class="pre">formulae.top</span></code>).</p>
+</dd>
+</dl>
+</section>
+<section id="notes-on-usage">
+<h2>Notes on usage<a class="headerlink" href="#notes-on-usage" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The sender address should match the authenticated domain (e.g.
+<code class="docutils literal notranslate"><span class="pre">noreply&#64;formulae.top</span></code>).</p></li>
+<li><p>The application uses TLS (STARTTLS) for transport encryption.</p></li>
+<li><p>SPF and DKIM must be configured for the domain in order to achieve reliable
+delivery.</p></li>
+<li><p>Mailjet requires domain verification; the DNS setup (SPF/DKIM) is therefore
+not optional but part of the initial configuration.</p></li>
+</ul>
+</section>
+<section id="previous-approaches-and-limitations">
+<h2>Previous approaches and limitations<a class="headerlink" href="#previous-approaches-and-limitations" title="Link to this heading"></a></h2>
+<p>Earlier attempts used hosted mailbox providers such as eclipso. While this works
+in principle, it turned out to be unreliable in practice:</p>
+<ul class="simple">
+<li><p>repeated SMTP logins (e.g. during development or debugging) triggered account
+blocks surprisingly quickly</p></li>
+<li><p>rate limits were reached without much load</p></li>
+<li><p>automated application behavior was flagged as suspicious activity</p></li>
+</ul>
+<p>In short, what works fine for human users does not necessarily translate well to
+programmatic access.</p>
+<p>Other providers such as Outlook.com were also considered, but rely on more
+complex or interactive authentication mechanisms, which makes them awkward to
+integrate into a simple Flask-based workflow.</p>
+<p>Switching to a transactional provider combined with a dedicated domain solved
+these issues cleanly. It requires a bit more initial setup (DNS configuration),
+but behaves much more predictably afterwards.</p>
+</section>
+<section id="admin-recipients">
+<h2>Admin recipients<a class="headerlink" href="#admin-recipients" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ADMINS</span></code> variable is defined as a single string to simplify configuration
+in container environments. It is split on <code class="docutils literal notranslate"><span class="pre">;</span></code> at runtime, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">admins</span> <span class="o">=</span> <span class="p">[</span><span class="n">addr</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">addr</span> <span class="ow">in</span> <span class="n">ADMINS</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;;&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">addr</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+</pre></div>
+</div>
+<p>Make sure there are no trailing separators or whitespace issues, as malformed
+addresses can lead to SMTP errors.</p>
+</section>
+<section id="testing-the-setup">
+<h2>Testing the setup<a class="headerlink" href="#testing-the-setup" title="Link to this heading"></a></h2>
+<p>A minimal test can be performed by triggering a simple mail send within the
+application context. If correctly configured, the message should be accepted by
+the SMTP server and delivered to the configured recipients.</p>
+<p>If emails are not received:</p>
+<ul class="simple">
+<li><p>verify credentials (username/password)</p></li>
+<li><p>check spam/junk folders</p></li>
+<li><p>ensure the SMTP server and port are correct</p></li>
+<li><p>inspect application logs for SMTP errors</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">SMTPRecipientsRefused</span></code> errors often indicate malformed recipient addresses,
+while connection or authentication errors usually point to incorrect server
+settings.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Third-party SMTP providers such as :contentReference[oaicite:3]{index=3} or
+:contentReference[oaicite:4]{index=4} require proper domain
+authentication (SPF and DKIM) for reliable email delivery.</p>
+<p>When using institutional email addresses (e.g. university or company
+mailboxes), this often does not work in practice, because the domain is
+centrally managed and DNS records cannot be modified by individual users.</p>
+<p>In particular:</p>
+<ul class="simple">
+<li><p>SPF records must explicitly authorize the SMTP provider</p></li>
+<li><p>DKIM requires publishing provider-specific DNS records</p></li>
+<li><p>both require administrative access to the domain’s DNS configuration</p></li>
+</ul>
+<p>Without these settings, messages may be rejected, soft-bounced, or silently
+discarded by receiving servers.</p>
+<p>Using a dedicated domain under your control (as done here) is therefore the
+most robust solution for application email sending.</p>
+</div>
+</section>
+<section id="outlook">
+<h2>Outlook<a class="headerlink" href="#outlook" title="Link to this heading"></a></h2>
+<p>The current setup works well for the intended purpose (error reporting via
+email), and for the time being there is no strong need to optimize further.</p>
+<p>It is entirely possible that future changes (either in providers or in the
+application architecture) will suggest a different approach. For now, however,
+this configuration strikes a reasonable balance between reliability, simplicity,
+and cost, and allows development effort to focus on more relevant aspects such
+as improving the logging and error handling itself.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="internationalization.html" class="btn btn-neutral float-left" title="Internationalization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="environment-modes.html" class="btn btn-neutral float-right" title="Application modes and the SERVER_TYPE switch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Matthew Munson, Thorben Schomacker.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

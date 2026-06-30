@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Application modes and the SERVER_TYPE switch &mdash; formulae-capitains-nemo 1.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=61243dd2"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Varnish" href="varnish.html" />
+    <link rel="prev" title="Mail configuration (SMTP via Mailjet and custom domain)" href="mail-configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #212529" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formulae-capitains-nemo
+              <img src="_static/logo_226x113.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traffic-management.html">Traffic management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae-nemo.html">formulae nemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html#docker">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations/index.html">Migrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail-configuration.html">Mail configuration (SMTP via Mailjet and custom domain)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Application modes and the <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> switch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-handling-and-email-notifications">Error handling and email notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interaction-with-mail-configuration">Interaction with mail configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-restrictions-for-unauthenticated-users">Access restrictions for unauthenticated users</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-considerations">Design considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outlook">Outlook</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="varnish.html">Varnish</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #212529" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formulae-capitains-nemo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Application modes and the <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> switch</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/environment-modes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="application-modes-and-the-server-type-switch">
+<h1>Application modes and the <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> switch<a class="headerlink" href="#application-modes-and-the-server-type-switch" title="Link to this heading"></a></h1>
+<p>The application distinguishes between different runtime modes via the
+<code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> environment variable. While this may look like a small
+configuration detail at first, it has become a central switch that controls a
+number of behaviors that should differ between development and production.</p>
+<p>In practice, this variable acts as a coarse-grained feature toggle for anything
+that is either:</p>
+<ul class="simple">
+<li><p>potentially disruptive during development</p></li>
+<li><p>security-relevant</p></li>
+<li><p>or simply unnecessary outside a production context</p></li>
+</ul>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<p>The variable is defined in the environment (e.g. <code class="docutils literal notranslate"><span class="pre">.env</span></code> or
+<code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">SERVER_TYPE</span><span class="o">=</span><span class="s2">&quot;production&quot;</span>
+</pre></div>
+</div>
+<p>Typical values are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dev</span></code> (default / local development)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">production</span></code> (deployed environment)</p></li>
+</ul>
+<p>Other values (e.g. <code class="docutils literal notranslate"><span class="pre">staging</span></code>) can be introduced if needed, but are not
+currently used.</p>
+</section>
+<section id="error-handling-and-email-notifications">
+<h2>Error handling and email notifications<a class="headerlink" href="#error-handling-and-email-notifications" title="Link to this heading"></a></h2>
+<p>One of the primary uses of <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> is to control global error handling.</p>
+<p>In production mode, a global exception handler is registered:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;SERVER_TYPE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;production&quot;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">register_error_handler</span><span class="p">(</span><span class="ne">Exception</span><span class="p">,</span> <span class="n">e_internal_error</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This ensures that all uncaught exceptions are:</p>
+<ul class="simple">
+<li><p>logged centrally</p></li>
+<li><p>processed uniformly</p></li>
+<li><p>and (depending on configuration) forwarded via email</p></li>
+</ul>
+<p>During development, this handler is intentionally <strong>not</strong> registered. This is
+important because Flask’s built-in debugger provides a much more useful
+interface for inspecting errors interactively. Overriding it with a generic
+error page would make debugging unnecessarily difficult.</p>
+<p>In other words:</p>
+<ul class="simple">
+<li><p>in <code class="docutils literal notranslate"><span class="pre">dev</span></code> → prefer visibility and interactivity</p></li>
+<li><p>in <code class="docutils literal notranslate"><span class="pre">production</span></code> → prefer stability and controlled failure handling</p></li>
+</ul>
+</section>
+<section id="interaction-with-mail-configuration">
+<h2>Interaction with mail configuration<a class="headerlink" href="#interaction-with-mail-configuration" title="Link to this heading"></a></h2>
+<p>The mail configuration described in <a class="reference internal" href="mail-configuration.html"><span class="doc">Mail configuration (SMTP via Mailjet and custom domain)</span></a> is primarily
+intended for production use. While it can technically be enabled in development,
+this is usually not desirable.</p>
+<p>In earlier iterations, enabling email notifications during development led to:</p>
+<ul class="simple">
+<li><p>repeated SMTP login attempts</p></li>
+<li><p>rate limiting or temporary blocking by providers</p></li>
+<li><p>confusing duplicate notifications</p></li>
+</ul>
+<p>By tying error handling to <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code>, email notifications are implicitly
+limited to production environments, where they are actually useful.</p>
+</section>
+<section id="access-restrictions-for-unauthenticated-users">
+<h2>Access restrictions for unauthenticated users<a class="headerlink" href="#access-restrictions-for-unauthenticated-users" title="Link to this heading"></a></h2>
+<p>Another behavior controlled by <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> is access to resource-intensive
+functionality.</p>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER</span></code> defines how many
+texts can be combined in a single request. This is particularly relevant for
+routes that allow combining multiple resources via <code class="docutils literal notranslate"><span class="pre">+</span></code> in the URL.</p>
+<p>In development, this limit is typically relaxed:</p>
+<ul class="simple">
+<li><p>easier testing</p></li>
+<li><p>no authentication required</p></li>
+</ul>
+<p>In production, it is usually restricted:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">SERVER_TYPE</span><span class="o">=</span><span class="s2">&quot;production&quot;</span>
+<span class="nv">MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>This reduces the risk of:</p>
+<ul class="simple">
+<li><p>excessive server load</p></li>
+<li><p>abuse via automated requests</p></li>
+<li><p>accidental denial-of-service scenarios</p></li>
+</ul>
+<p>The logic is implemented in the application layer (see
+<code class="docutils literal notranslate"><span class="pre">NemoFormulae.r_multipassage</span></code>), and complements the Varnish-based filtering
+described in <a class="reference internal" href="traffic-management.html"><span class="doc">Traffic management</span></a>.</p>
+</section>
+<section id="design-considerations">
+<h2>Design considerations<a class="headerlink" href="#design-considerations" title="Link to this heading"></a></h2>
+<p>Using a single variable to control multiple aspects of the application is a
+deliberate trade-off.</p>
+<p>Advantages:</p>
+<ul class="simple">
+<li><p>simple mental model (<code class="docutils literal notranslate"><span class="pre">dev</span></code> vs <code class="docutils literal notranslate"><span class="pre">production</span></code>)</p></li>
+<li><p>easy to configure in container environments</p></li>
+<li><p>consistent behavior across features</p></li>
+</ul>
+<p>Disadvantages:</p>
+<ul class="simple">
+<li><p>coarse-grained control (all-or-nothing switching)</p></li>
+<li><p>implicit coupling between otherwise unrelated features</p></li>
+</ul>
+<p>For the current scope of the project, the simplicity outweighs the drawbacks.
+If the application grows further, it may become desirable to split this into
+more fine-grained feature flags.</p>
+</section>
+<section id="outlook">
+<h2>Outlook<a class="headerlink" href="#outlook" title="Link to this heading"></a></h2>
+<p>At the moment, <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> provides a pragmatic way to separate development
+and production concerns without introducing additional configuration overhead.</p>
+<p>Future improvements might include:</p>
+<ul class="simple">
+<li><p>introducing a dedicated <code class="docutils literal notranslate"><span class="pre">staging</span></code> mode</p></li>
+<li><p>separating mail, error handling, and access control into independent toggles</p></li>
+<li><p>or integrating more structured configuration management</p></li>
+</ul>
+<p>For now, however, this approach has proven to be robust enough and keeps the
+configuration surface manageable.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mail-configuration.html" class="btn btn-neutral float-left" title="Mail configuration (SMTP via Mailjet and custom domain)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="varnish.html" class="btn btn-neutral float-right" title="Varnish" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Matthew Munson, Thorben Schomacker.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
