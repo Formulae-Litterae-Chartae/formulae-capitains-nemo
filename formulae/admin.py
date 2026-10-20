@@ -24,7 +24,7 @@ class SecureAdminIndexView(AdminIndexView):
 
     def inaccessible_callback(self, name, **kwargs):
         flash("Please log in with an administrator account to access this page.")
-        return redirect(url_for("login", next=request.url))
+        return redirect(url_for("auth.r_login", next=request.url))
 
 
 class SecureModelView(ModelView):
@@ -33,7 +33,7 @@ class SecureModelView(ModelView):
 
     def inaccessible_callback(self, name, **kwargs):
         flash("You do not have permission to access the administration area.")
-        return redirect(url_for("login", next=request.url))
+        return redirect(url_for("auth.r_login", next=request.url))
 
 
 class UserAdminView(SecureModelView):
@@ -146,7 +146,7 @@ class UserAdminView(SecureModelView):
 
 admin = Admin(
     name="Formulae-Capitains-Nemo Administration",
-    index_view=SecureAdminIndexView(url="/admin"),
+    index_view=SecureAdminIndexView()
 )
 
 admin.add_link(

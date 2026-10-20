@@ -8,7 +8,31 @@
 This is the class extension "NemoFormulae" for [flask_nemo](https://github.com/Capitains/flask-capitains-nemo). A working instance of this extension for the Formulae - Litterae - Chartae Project can be found at https://werkstatt.formulae.uni-hamburg.de. 
 
 ## Table of content:
-- 
+- [Release notes](#release-notes)
+
+
+## Release notes
+| Version | Note | Migration needed? |
+| ---| --- | --- |
+| [v1.2](https://github.com/Formulae-Litterae-Chartae/formulae-capitains-nemo/releases/tag/v1.2) | [Release Note for v1.2](#v1.2) | [migrations/v1-2-admin-users](https://formulae-litterae-chartae.github.io/formulae-capitains-nemo/migrations/v1-2-admin-users.html)
+
+
+### Version 1.2.0 <a name="v1.2"></a>
+Version 1.2.0 introduces graphical user account administration with Flask-Admin.
+
+Main changes:
+* added a new ``User.is_admin`` field;
+* added a Flask-Admin interface for user administration;
+* separated project-team access from administrative access:
+  * ``project_team`` controls access to project-internal application content;
+  * ``is_admin`` controls access to the administration interface;
+* added an Administration link to the user account dropdown;
+* added production and development configuration options for the admin URL.
+
+This release requires a database migration. Existing users are not promoted automatically. After the migration, all existing users have ``is_admin = 0``.
+One administrator account must be promoted manually.
+
+See :doc:`migrations/v1-2-admin-users` for the full migration procedure.
 
 ## Getting Started
 Further information:
@@ -98,3 +122,4 @@ docker-compose up --build --force-recreate nemo
 3. cd git/formulae-capitains-nemo
 3. `gh act -W '.github/workflows/python-app.yml'` or `gh act -W '.github/workflows/documentation.yml'`
 4. Comment out the redis port (gh seems to bring its own redis instance)
+
