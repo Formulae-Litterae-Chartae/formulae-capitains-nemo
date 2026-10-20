@@ -5,6 +5,39 @@ if (window.innerWidth < 992) {
 };
 
 $(document).ready(function () {
+
+    var splitInstance = Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
+        // sizes: splitSizes,
+        sizes: [16, 68, 16],
+        minSize: [0, 100, 0],
+        elementStyle: function(dimension, size, gutterSize) {
+            console.log('Size of element:', size);
+            if (size > 0.5) {
+                return {
+                    'flex-basis': `calc(${size}% - ${gutterSize}px)`,
+                    'display': 'block'
+                }
+            } else {
+                return {
+                    'display': 'none'
+                }
+            }
+        },
+        gutter: (index, direction, pairElement) => {
+            const gutter = document.createElement('div')
+            gutter.setAttribute("tabindex", "0");
+            var order = 2;
+            if (pairElement.id == 'sidebar_r') {
+                order = 3
+            } 
+            gutter.className = `gutter gutter-${direction} order-${order}`
+            return gutter
+        },
+        gutterStyle: (dimension, gutterSize) => ({
+            'flex-basis':  `${gutterSize}px`,
+        }),
+    })
+
     if ( screen.width > 767 ) {
         // use Split to show notes
         $('.reading-sidebar').each(function() {
@@ -167,32 +200,4 @@ $(document).ready(function () {
     }
 })
 
-var splitInstance = Split(['#sidebar_l', '#reading-container', '#sidebar_r'], {
-    sizes: splitSizes,
-    minSize: [0, 100, 0],
-    elementStyle: function(dimension, size, gutterSize) {
-        if (size > 0.5) {
-            return {
-                'flex-basis': `calc(${size}% - ${gutterSize}px)`,
-                'display': 'block'
-            }
-        } else {
-            return {
-                'display': 'none'
-            }
-        }
-    },
-    gutter: (index, direction, pairElement) => {
-        const gutter = document.createElement('div')
-        gutter.setAttribute("tabindex", "0");
-        var order = 2;
-        if (pairElement.id == 'sidebar_r') {
-            order = 3
-        } 
-        gutter.className = `gutter gutter-${direction} order-${order}`
-        return gutter
-    },
-    gutterStyle: (dimension, gutterSize) => ({
-        'flex-basis':  `${gutterSize}px`,
-    }),
-})
+

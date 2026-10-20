@@ -1,0 +1,27 @@
+/* Footnotes: hidden elements are also excluded from copied text */
+body.hide-footnotes .text-section a.note, 
+body.hide-footnotes .text-row a.note,
+body.hide-footnotes .text-section .footnote, 
+body.hide-footnotes .text-row .footnote,
+body.hide-footnotes .text-section footer .notes,
+body.hide-footnotes .text-row footer .notes {
+    display: none !important;
+}
+
+/* "Hide highlights" also neutralizes link styling and text colors */
+body.hide-highlights .passage-text a,
+body.hide-highlights .passage-text a:hover,
+body.hide-highlights .passage-text a:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+    cursor: text !important;
+    pointer-events: none;   /* remove this line if the links should stay clickable */
+}
+
+body.hide-highlights .passage-text * {
+    color: inherit !important;
+    background: none !important;
+}
+
+.clean-toggle { color: inherit; font-size: 0.85em; }
+.clean-toggle:focus { box-shadow: none; }
