@@ -13,18 +13,54 @@ Varnish
 
 
 Changing the config
-======================
+===================
 
-#. If possible: Make a backup of the complete (virtual) machine. 
-#. Make a local backup of the varnish config: :code:`cp /etc/varnish/default.vcl /etc/varnish/default.vcl.bak`
-#. Change the date in the varnish file.
-#. Write your changes to the varnish file.
-#. Before applying any changes, please check the syntax of the file via :code:`varnishd -C -f /etc/varnish/default.vcl` (see this `blog post <https://cloudkul.com/knowledgebase/check-varnish-syntax>`_ ). 
-#. After the syntax check seems ok: Reload the config via :code:`service varnish reload`.  (https://stackoverflow.com/a/46088507/7924573). 
-#. Finally: Make a digital copy by copying the file into this repository (see below). 
+#. If possible: Make a backup of the complete (virtual) machine.
+#. Make a local backup of the current config:
+   :code:`sudo cp /etc/varnish/default.vcl /etc/varnish/default.vcl.bak`
+#. Write your changes to :code:`/etc/varnish/default.vcl`.
+#. Update the "Last modified" date and name in the comment at the top of the file.
+#. Check the syntax before applying anything:
 
-This is the current varnish solution, which blocks are access from entities, who identify themselves as bots:
+   .. code-block:: bash
 
+      sudo varnishd -C -f /etc/varnish/default.vcl > /dev/null; echo "exit code: $?"
+
+   Exit code 0 without any message means the file is valid. Otherwise an
+   error with a line number is printed and nothing has been applied.
+   Optionally, test it more strictly in the running Varnish (the config is
+   loaded but not activated, use the absolute path):
+   :code:`sudo varnishadm vcl.load testconfig /etc/varnish/default.vcl`,
+   then :code:`sudo varnishadm vcl.discard testconfig`.
+   See the `Varnish documentation on validation
+   <https://docs.varnish-software.com/book/vcl/validation-and-testing/>`_.
+#. Reload the config. This keeps the cache and activates the new config; if it
+   does not compile, the old config keeps running
+   (`explanation <https://stackoverflow.com/a/46088507/7924573>`_):
+   :code:`sudo systemctl reload varnish`
+#. Verify that the new config is active with :code:`sudo varnishadm vcl.list`.
+#. *Optional:* 
+    #. Request a text page twice with :code:`curl -sI <url> | grep -i x-cache` (the second answer should show :code:`HIT`)
+    #. check that a URL containing :code:`+` requested with :code:`-A testbot` returns 404. e.g., `curl -sI -A testbot https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:andecavensis.form001.lat001+manifest:urn:cts:formulae:andecavensis.form001.fu2/passage/1+all`
+#. Copy the file to :code:`varnish/default.vcl` in this repository, check that
+   both copies match with :code:`diff`, then commit and push. The documentation
+   below is built from this file.
+
+Cached pages:
+--------------------
+A reload does not clear the cache. If your change affects pages that are already cached, remove them with
+:code:`sudo varnishadm 'ban req.url ~ "^/texts/"'` (use :code:`"."` to ban everything).
+
+Rollback: 
+---------------------
+Copy :code:`default.vcl.bak` back to :code:`default.vcl` and reload
+again. Do not leave a broken file in place: a failed reload keeps the old config
+running, but a restart of Varnish or the server would fail.
+
+Current configuration
+---------------------
+
+The rules are summarised in the comment at the top of the file.
 
 .. literalinclude:: ../../varnish/default.vcl
    :language: vcl
@@ -34,7 +70,7 @@ This is the current varnish solution, which blocks are access from entities, who
 
 
 Restricting parallel resources
-======================
+============================================
 Our initial approach was to define a Varnish-rule, that basically blocked all url-accesses, with a '+' and return a `404`. This vastly stabilized the application and made it useful again.  But with Google's: `Note that returning "no availability" codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site, so follow the additional next steps` (source: `Handle overcrawling of your site (emergencies) <https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget#emergencies>`_) in mind, we should change this behavior in the future: 
 
 .. code-block:: python
@@ -51,11 +87,11 @@ Our initial approach was to define a Varnish-rule, that basically blocked all ur
 
 
 Cookies 
-======================
+============================================
 "Varnish will, in the default configuration, not cache an object coming from the backend with a ‘Set-Cookie’ header present. Also, if the client sends a Cookie header, Varnish will bypass the cache and go directly to the backend." We therefore decided to remove some cookies:
 
 Cache Control with max-age 
-======================
+============================================
 "The 'Cache-Control' header instructs caches how to handle the content. Varnish cares about the max-age parameter and uses it to calculate the TTL for an object." - `cache-control  <https://vinyl-cache.org/docs/trunk/users-guide/increasing-your-hitrate.html#cache-control>`_. We therefore added a default max-age value in the config via `CACHE_MAX_AGE`:    
 
 
@@ -275,7 +311,7 @@ Keep this permanently:
 That is the actual custom 503 page used when the real backend on 127.0.0.1:8000 is unavailable.
 
 robots.txt
-#####################
+********************************************************************************************************
 We use a `robots.txt <../../assets/robots.txt>`_  file to disallow all bots to crawl sites containing a "+". To achieve this we used the robots.txt wildcard expression "*". It is not known whether all bots accept this form of wildcard annotation. 
 
 If you intend to make changes to the robots.txt, consider checking it's functionality before hand via online tools such as the: `robots.txt Testing & Validation Tool <https://tamethebots.com/tools/robotstxt-checker>`_ 
@@ -288,16 +324,16 @@ If you intend to make changes to the robots.txt, consider checking it's function
 This reduce the accesses by over 50% within one day (10k-20k 404s per hour on 09.10.24 vs 300-6k 404s per hour on 10.10.24). The most prominent of the remaining crawlers on 10.10.24 are AcademicBotRTU and YandexBot, these remained until the 15.10.24, on which I added explicit rules to block them. Since, Google needs at most `24-36 hours <https://support.google.com/webmasters/thread/70176854/how-long-does-it-take-for-google-bot-to-take-into-effect-new-robots-txt-file?hl=en>`_  to check the new robots.txt, I expect other crawlers to have the same frequency. 
 
 Why add :code:`crawl-delay`?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================================================================================
 Well, Googlebot and Yandex wont use it. So, it wont cause any harm and is mostly just ignored. https://support.google.com/webmasters/thread/251817470/putting-crawl-delay-in-robots-txt-file-is-good?hl=en. But some do recognize it, so I have added the arbitrary limit of 30 seconds. Which is for instance recognize by the AcademicBotRTU.
 
 Why add :code:`%2B`?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================================================================================
 Because it is the  `Percent-encoding <https://en.wikipedia.org/wiki/Percent-encoding>`_ equivalent for '+'.
 
 
 Which "good" bots frequently crawled our website?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================================================================================
 
 .. list-table:: crawler-list
    :widths: 25 25 25
@@ -335,15 +371,15 @@ Which "good" bots frequently crawled our website?
 
 
 What if a crawler ignores `robots.txt`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================================================================================
 https://blog.archive.org/2017/04/17/robots-txt-meant-for-search-engines-dont-work-well-for-web-archives/
 
 nginx
-#####################
-
+********************
+...
 
 flask
-#####################
+********************
 In the previous section, the varnish-way of limiting access was introduced. In addition to that, there is a mechanism for controlling all access on the application side. Controlled by the `MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER` environment variable, which is then used by the `r_multipassager_multipassage`-method. So, if you have a risen number of 504 errors it could help to reduce this parameter. 
 
 Per default it is set to 'dev', so authentication is not required. If you want to activate the authentication required-process, please set it to 'production':
