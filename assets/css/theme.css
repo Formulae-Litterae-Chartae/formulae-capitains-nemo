@@ -1,3 +1,8 @@
+:root {
+    /* Based on Wikipedia: https://en.wikipedia.org/wiki/Help:Link_color */
+    /* The previous var(--link-color); was considered to intense for some readers */
+    --link-color: #3366CC;
+}
 
 #menu-container  .logo {
     width: auto;
@@ -222,7 +227,7 @@ span[lemma$="platzhalter"] {
 }
 
 .lexicon {
-    text-decoration: underline wavy
+    color: var(--link-color);
 }
 
 #lexicon-modal {
@@ -1033,15 +1038,15 @@ span.corpus_coverage {
 }
 
 a.btn-outline-primary {
-    border-color: #1422ff;
+    border-color: var(--link-color);
 }
 
 a.search-help,a.outside-link,a.card-link.card-link,a.btn-outline-primary,.btn.btn-link,a.internal-link,a.note,a.paragraph-link,a.page-link {
-    color: #1422ff;
+    color: var(--link-color);
 }
 
 a.btn-primary,li.page-item.active .page-link {
-    background-color: #1422ff;
+    background-color: var(--link-color);
 }
 
 .elex-letter.btn-outline-secondary.disabled {

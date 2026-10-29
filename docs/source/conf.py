@@ -15,9 +15,9 @@ print('Sphinx runs with the following prefix:'+sys.prefix)
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'formulae-capitains-nemo'
-copyright = '2024, Matthew Munson, Thorben Schomacker'
+copyright = '2026, Matthew Munson, Thorben Schomacker'
 author = 'Matthew Munson, Thorben Schomacker'
-release = '1.0'
+release = '1.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -25,8 +25,9 @@ release = '1.0'
 extensions = ['myst_parser',
               'sphinx_rtd_theme', 
               'sphinx.ext.autodoc',
-              'sphinx.ext.autosummary']
-
+              'sphinx.ext.autosummary', 
+            'sphinxcontrib.plantuml']
+plantuml = "plantuml"
 intersphinx_mapping = {'flask': ('https://docs.python.org/3', None)}
 
 templates_path = ['_templates']

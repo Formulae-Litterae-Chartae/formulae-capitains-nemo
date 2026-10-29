@@ -23,6 +23,8 @@ formulae-capitains-nemo documentation
    collection
    deployment
    data-structure
+   migrations/index
    internationalization
-
+   mail-configuration
+   environment-modes
    

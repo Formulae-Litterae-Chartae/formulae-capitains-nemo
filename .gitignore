@@ -54,3 +54,4 @@ formulae/include/python3.6m
 .venv/pyvenv.cfg
 .vscode/*
 elastic-start-local/*
+.docker-env

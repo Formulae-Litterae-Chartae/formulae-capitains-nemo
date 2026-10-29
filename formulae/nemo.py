@@ -71,6 +71,7 @@ class NemoFormulae(Nemo):
         ("/formulae_charter", "r_formulae_charter", ["GET"]),
         ("/collocations/<targetWord>/<word1Lemma>/<targetWord2>/<word1Type>", "r_call_word_graph_api", ["GET"]),
         ("/robots.txt", "r_robots", ["GET"])
+        ,("/notify", "send_email_notification", ["GET"])
     ]
 
     SEMANTIC_ROUTES = [
@@ -322,6 +323,8 @@ class NemoFormulae(Nemo):
         self.app.jinja_env.globals['get_locale'] = get_locale
         self.app.register_error_handler(404, e_not_found_error)
         self.app.register_error_handler(500, e_internal_error)
+        if "production" == self.app.config['SERVER_TYPE']:
+            self.app.register_error_handler(Exception, e_internal_error)
         self.app.register_error_handler(401, e_not_authorized_error)
         self.app.before_request(self.before_request)
         self.app.after_request(self.after_request)
@@ -503,60 +506,92 @@ class NemoFormulae(Nemo):
                 colls[member['id']] = sorted(members, key=lambda x: (x['coverage'].lower().replace('ä', 'ae').replace('ö', 'oe').replace('ü', 'ue').replace('ß', 'ss'),
                                                                      x['label']))
         return colls
+    
+    
+    def sort_folia(self, matchobj: Match) -> str:
+        """Sets up the folia ranges of manuscripts for better sorting.
 
-    @staticmethod
-    def sort_folia(matchobj: Match) -> str:
-        """Sets up the folia ranges of manuscripts for better sorting"""
-        #folio_extraction_pattern = r'(\d+)((?:bis)?[rvab])'
-        folio_extraction_pattern = r'(\d+(?:bis)?)([rv][ab]?)'
+        This method parses folio identifiers with possible HTML formatting and generates
+        a consistent representation suitable for sorting manuscript items. It maps certain
+        folio number ranges to letter prefixes specific to manuscript collections (e.g., 'm4', 'p3').
+
+        Example inputs and outputs:
+        - '28r' → '0028<span class="verso-recto">r</span>'
+        - '101bisv' → '0101 bis<span class="verso-recto">v</span>'
+        - 'm4.45r-46v' → 'a0045<span class="verso-recto">r</span>-0046<span class="verso-recto">v</span>'
+        """
+        folio_extraction_pattern = r'(\d+(?:bis)?)([rv]|[ab])'
+        start_letter_dict = {
+            'm4': {
+                range(0, 24): 'a',
+                range(32, 40): 'b',
+                range(24, 32): 'c',
+                range(56, 72): 'd',
+                range(40, 56): 'e',
+                range(80, 86): 'f',
+                range(72, 80): 'g'
+            },
+            'p3': {
+                range(0, 143): 'a',
+                range(147, 153): 'b',#range(147, 151): 'b',
+                range(143, 147): 'c'
+            }
+        }
 
         groups = []
-        # Examples:
-        # '28r' → ['28', 'r']
-        # '28bisr' → ['28', 'bisr']
-        # '100b' → ['100', 'b']
-        # '101bisv' → ['101', 'bisv']
-        sub_groups = list(re.search(folio_extraction_pattern, matchobj.group(1)).groups())
+
+        # First folio part
+        part1 = matchobj.group(1)
+        match1 = re.search(folio_extraction_pattern, part1)
+        if not match1:
+            self.app.logger.warning(f"Could not extract folio pattern from input: {part1}")
+            return matchobj.group(0)
+
+        sub_groups = list(match1.groups())
+        number_str = sub_groups[0]
+        suffix = sub_groups[1]
         start_letter = ''
-        start_letter_dict = {'m4': {range(0, 24): 'a',
-                                    range(32, 40): 'b',
-                                    range(24, 32): 'c',
-                                    range(56, 72): 'd',
-                                    range(40, 56): 'e',
-                                    range(80, 86): 'f',
-                                    range(72, 80): 'g'},
-                             'p3': {range(0, 143): 'a',
-                                    range(147, 151): 'b',
-                                    range(143, 147): 'c'}
-                             }
-    
-        if 'm4' in matchobj.group(0):
-            start_fol = int(sub_groups[0])
-            for k, v in start_letter_dict['m4'].items():
-                if start_fol in k:
-                    start_letter = v
-        elif 'p3' in matchobj.group(0):
-            start_fol = int(sub_groups[0])
-            start_letter = 'd'
-            for k, v in start_letter_dict['p3'].items():
-                if start_fol in k:
-                    start_letter = v
-        if 'bis' in sub_groups[0]:
-            groups.append('{}{} bis<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0].replace('bis','')), sub_groups[1]))
+
+        for ms_id in ('m4', 'p3'):
+            if ms_id in matchobj.group(0):
+                try:
+                    folio_num = int(number_str.replace('bis', ''))
+                    for fol_range, letter in start_letter_dict[ms_id].items():
+                        if folio_num in fol_range:
+                            start_letter = letter
+                            break
+                    else:
+                        self.app.logger.warning(f"Folio number {folio_num} not in defined range for manuscript {ms_id}")
+                except ValueError:
+                    self.app.logger.warning(f"Could not convert folio number '{number_str}' to int for manuscript {ms_id}")
+                break  # only one ms_id can apply
+
+        if 'bis' in number_str:
+            groups.append(f"{start_letter}{int(number_str.replace('bis', ''))} bis<span class=\"verso-recto\">{suffix}</span>")
         else:
-            groups.append('{}{:04}<span class="verso-recto">{}</span>'.format(start_letter, int(sub_groups[0]), sub_groups[1]))
-            
+            groups.append(f"{start_letter}{int(number_str):04}<span class=\"verso-recto\">{suffix}</span>")
+
+        # Second folio part (e.g., in ranges like "28r-29v")
         if matchobj.group(2):
-            new_sub_groups = re.search(folio_extraction_pattern, matchobj.group(2)).groups() 
-            if 'bis' in new_sub_groups[0]:
-                groups.append('{} bis<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0].replace('bis','')), new_sub_groups[1]))
+            part2 = matchobj.group(2)
+            match2 = re.search(folio_extraction_pattern, part2)
+            if not match2:
+                self.app.logger.warning(f"Second folio part '{part2}' did not match expected pattern.")
             else:
-                groups.append('{}<span class="verso-recto">{}</span>'.format(int(new_sub_groups[0]), new_sub_groups[1]))
-                
+                new_sub_groups = list(match2.groups())
+                if 'bis' in new_sub_groups[0]:
+                    groups.append(f"{int(new_sub_groups[0].replace('bis', ''))} bis<span class=\"verso-recto\">{new_sub_groups[1]}</span>")
+                else:
+                    groups.append(f"{int(new_sub_groups[0]):04}<span class=\"verso-recto\">{new_sub_groups[1]}</span>")
+
         return_value = '-'.join(groups)
+
         if matchobj.group(3):
-            return_value += '(' + matchobj.group(3) + ')'
+            return_value += f"({matchobj.group(3)})"
+
         return return_value
+
+
 
     def ordered_corpora(self, m: XmlCapitainsReadableMetadata, collection: str)\
             -> Tuple[Union[str, Tuple[str, Tuple[str, str]]],
@@ -863,18 +898,34 @@ class NemoFormulae(Nemo):
             session.pop('previous_search', None)
 
     def after_request(self, response: Response) -> Response:
-        """ Currently used only for the Cache-Control header.
-
         """
-        max_age = self.app.config['CACHE_MAX_AGE']
-        if re.search('/(lang|auth|texts)/', request.url):
+        Post-processes the response object after each request.
+
+        - Disables caching for authentication and language-switching routes.
+        - Applies extended caching for static assets.
+        - Sets general cache-control headers using `CACHE_MAX_AGE` for all other responses.
+        - Persists certain variables from `g` to the session.
+        """
+        path = request.path
+
+        # Disable caching for login and language-switch
+        if path.startswith('/auth/') or path.startswith('/lang/'):
             response.cache_control.no_cache = True
-        elif re.search('/assets/', request.url):
-            max_age = 60 * 60 * 24
+            response.cache_control.no_store = True
+            response.cache_control.must_revalidate = True
+            response.headers['Pragma'] = 'no-cache'
+            response.headers['Expires'] = '0'
+        # Long caching for assets
+        elif path.startswith('/assets/'):
+            response.cache_control.max_age = 60 * 60 * 24  # 1 day
+            response.cache_control.public = True
         else:
-            response.vary = 'session'
-        response.cache_control.max_age = max_age
-        response.cache_control.public = True
+            # Default caching for other routes
+            max_age = self.app.config['CACHE_MAX_AGE']
+            self.app.logger.debug(f"Applying default cache for path: {path}, max_age={max_age}")
+            response.cache_control.max_age = max_age
+            response.cache_control.public = True
+            response.vary = 'Cookie'  # vary by session
         if getattr(g, 'previous_search', None) is not None:
             session['previous_search'] = g.previous_search
         if getattr(g, 'previous_search_args', None):
@@ -1055,7 +1106,7 @@ class NemoFormulae(Nemo):
         :return: Template and collections contained in given collection
         """
         collection = self.resolver.getMetadata(objectId)
-        r = OrderedDict()
+        readable = OrderedDict()
         template = "main::sub_collection.html"
         current_parents = self.make_parents(collection, lang=lang)
         containing_colls = list()
@@ -1095,7 +1146,6 @@ class NemoFormulae(Nemo):
                     From 'urn:cts:formulae:formulae_marculfinae.form008' or 'form008' extract '008'.
                     """
                     if isinstance(par, tuple):
-                        print('paristuple:', par)
                         par = par[0]  # get the actual key like 'form008'
                     if isinstance(par, str):
                         if par.startswith('urn:'):
@@ -1104,10 +1154,10 @@ class NemoFormulae(Nemo):
 
 
                 short_key = extract_short_key(par)
-                if short_key in r:
-                    r[short_key]["versions"][key].append(metadata + [manuscript_data])
+                if short_key in readable:
+                    readable[short_key]["versions"][key].append(metadata + [manuscript_data])
                 else:
-                    r[short_key] = {
+                    readable[short_key] = {
                         "versions": {'editions': [], 'translations': [], 'transcriptions': []},
                         "short_regest": '',
                         "regest": [],
@@ -1118,7 +1168,7 @@ class NemoFormulae(Nemo):
                         'transcribed_edition': [],
                         'parent_id': str(m.id)
                     }
-                    r[short_key]["versions"][key].append(metadata + [manuscript_data])
+                    readable[short_key]["versions"][key].append(metadata + [manuscript_data])
                 if key == 'editions' or 'manuscript_collection' in collection.ancestors:
                     if 'm4' in objectId or 'p3' in objectId:
                         work_name = Markup(par.lstrip('abcdefg0') if isinstance(par, str) else '')
@@ -1156,14 +1206,15 @@ class NemoFormulae(Nemo):
                             bg_color = 'bg-color-' + str(mss_editions.index(mss_edition) + 1)
                             form_metadata = self.resolver.getMetadata(str(form_version))
                             form_parent = [str(x['id']) for x in self.make_parents(form_metadata) if 'formulae_collection' in x['ancestors'] and 'manuscript_collection' not in x['ancestors']][0]
+                            # iterate over ???
                             for readable_form in form_metadata.readableDescendants.values():
                                 form_par, form_md, form_m = self.ordered_corpora(readable_form, form_parent)
                                 form_ms_data = [readable_form.metadata.get_single(DC.source), "manifest:" + readable_form.id in self.app.picture_file]
                                 if readable_form.subtype == {'cts:translation'}:
-                                    r[short_key]["versions"]['translations'].append(form_md + [form_ms_data])
+                                    readable[short_key]["versions"]['translations'].append(form_md + [form_ms_data])
                                 elif readable_form.subtype == {'cts:edition'}:
-                                    r[short_key]["versions"]['editions'].append(form_md + [form_ms_data])
-                                    r[short_key]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
+                                    readable[short_key]["versions"]['editions'].append(form_md + [form_ms_data])
+                                    readable[short_key]['transcribed_edition'].append(Markup(str(readable_form.metadata.get_single(DC.title)).replace(' (lat)', '')))
                                     if version_index == 0:
                                         regest = [Markup(readable_form.metadata.get_single(DC.description))]
                                         short_regest = Markup(str(readable_form.metadata.get_single(DCTERMS.abstract)))
@@ -1172,7 +1223,7 @@ class NemoFormulae(Nemo):
                         if len(regest) == 2:
                            regest[1] = Markup('<b>REGEST EDITION</b>: ' + '<i>{}</i>'.format(_('Dieses Regest ist nicht öffentlich zugänglich.')))
 
-                    r[short_key].update({"short_regest": short_regest,
+                    readable[short_key].update({"short_regest": short_regest,
                                    "regest": regest,
                                    "dating": str(m.metadata.get_single(DCTERMS.temporal)),
                                    "ausstellungsort": str(m.metadata.get_single(DCTERMS.spatial)),
@@ -1189,6 +1240,7 @@ class NemoFormulae(Nemo):
             if not v.children:
                 replacement_data = [str(v.metadata.get_single(DCTERMS.isPartOf) or ''),
                                     str(v.metadata.get_single(DCTERMS.isReplacedBy) or '')]
+                # item has 'isReplacedBy'
                 if all(replacement_data):
                     #par = re.sub(r'.*?(\d+\w*)\Z', r'\1', k)
                     
@@ -1200,7 +1252,7 @@ class NemoFormulae(Nemo):
                     short_regest = str(replacement_md.metadata.get_single(DCTERMS.abstract)) or ''
                     replacement_par = re.sub(r'.*?(\d+\w*)\Z', r'\1', list(replacement_md.parent)[0])
                     #r[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
-                    r[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
+                    readable[short_key] = {"versions": {'editions': [], 'translations': [], 'transcriptions': []},
                               "short_regest": short_regest,
                               "regest": regest,
                               "dating": '',
@@ -1215,39 +1267,25 @@ class NemoFormulae(Nemo):
 
 
         from formulae.services.corpus_service import extract_folio_sort_key
-
-        def normalize_sort_key(item_key):
-            if isinstance(item_key, str):
-                return extract_folio_sort_key(item_key)
-            elif isinstance(item_key, tuple):
-                return extract_folio_sort_key(item_key[0])
-            return (9999, 99)
-
-        # r = OrderedDict(sorted(r.items(), key=lambda item: normalize_sort_key(item[0])))
-        r = OrderedDict(
-            sorted(
-                ((k, v) for k, v in r.items() if isinstance(k, (str, tuple))),  # skip ellipsis
-                key=lambda item: normalize_sort_key(item[0])
-            )
-        )
-
-
+        # Collections with forwards are not stable in their order. I dont know why exactly
+        # Sorting them here, makes sure the order is mainained for the buttons and the later list
+        collections_with_forwards = ['urn:cts:formulae:formulae_marculfinae']
+        if objectId in collections_with_forwards:
+            readable = OrderedDict(sorted(readable.items(), key=lambda item: int(item[0].lstrip('0'))))
 
         #r = OrderedDict(sorted(r.items()))
-        for k in r.keys():
+        for k in readable.keys():
             valid_trans = [
-                t for t in r[k]['versions']['transcriptions']
+                t for t in readable[k]['versions']['transcriptions']
                 if isinstance(t, (list, tuple)) and len(t) > 2 and isinstance(t[2], (list, tuple)) and len(t[2]) > 1
                     and isinstance(t[2][1], (str, int)) and str(t[2][1]).isdigit()
             ]
-            r[k]['versions']['transcriptions'] = sorted(
+            readable[k]['versions']['transcriptions'] = sorted(
                 sorted(valid_trans, key=lambda x: int(x[2][1])),
                 key=lambda x: x[2][0]
             )
 
- 
-
-        if len(r) == 0:
+        if len(readable) == 0:
             if 'manuscript_collection' in collection.ancestors:
                 flash(_('Um das Digitalisat dieser Handschrift zu sehen, besuchen Sie bitte gegebenenfalls die Homepage der Bibliothek.'))
             else:
@@ -1278,10 +1316,10 @@ class NemoFormulae(Nemo):
                 },
                 # later consumed in templates/main/sub_collection.html:
                 # {% for number, values in collections.readable.items() %}
-                "readable": r,
+                "readable": readable,
                 "parents": current_parents,
                 "parent_ids": [x['id'] for x in current_parents],
-                "first_letters": set([x[0] for x in r.keys()])
+                "first_letters": set([x[0] for x in readable.keys()])
             },
             "form": form,
             'manuscript_notes': self.manuscript_notes,
@@ -1710,8 +1748,23 @@ class NemoFormulae(Nemo):
                         for x in metadata.metadata.get(DCTERMS.hasVersion)]
         transcriptions = []
         for m in self.get_transcriptions(metadata):
-            siglum = [x['short_title'] for x in self.make_parents(m) if 'manuscript_collection' in x['ancestors']]
-            transcriptions.append((m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '', siglum[-1]))
+            # siglum = [x['short_title'] for x in self.make_parents(m) if 'manuscript_collection' in x['ancestors']]
+            siglum:list[str] = []
+            parents = self.make_parents(m)
+            for parent in parents:
+                if 'manuscript_collection' in parent['ancestors']: 
+                    siglum.append(parent['short_title'])
+            try:
+                last_part_of_siglum =  siglum[-1]
+            except IndexError as ie:
+                extracted_manuscript_collection_id = str(m).replace('XmlCapitainsReadableMetadata(urn:cts:formulae:','').split('.')[0]
+                raise IndexError("siglum is empty. Although m ({}) has {} parents."
+                                 " Double check whether all transcriptions are in their capitains-file etc."
+                                 " Start with formulae-corpora/data/{}/__capitains__.xml".format(m, len(parents),extracted_manuscript_collection_id))
+                # This could indicate an error with the capitains file of the manuscript collection
+
+                
+            transcriptions.append((m, m.metadata.get_single(DC.title), m.metadata.get_single(DCTERMS.isPartOf) or '', last_part_of_siglum))
         current_parents = self.make_parents(metadata, lang=lang)
         linked_resources = []
         for resource in metadata.metadata.get(DCTERMS.relation):
@@ -1885,14 +1938,14 @@ class NemoFormulae(Nemo):
                     d["manifest"] = url_for('viewer.static', filename=formulae["manifest"])
                     with open(self.app.config['IIIF_MAPPING'] + '/' + formulae['manifest']) as f:
                         this_manifest = json_load(f)
-                    self.app.logger.warn("this_manifest['@id'] {}".format(this_manifest['@id']))
+                    self.app.logger.debug("this_manifest['@id'] {}".format(this_manifest['@id']))
                     if 'fuldig.hs-fulda.de' in this_manifest['@id']:
                         # This works for resources from https://fuldig.hs-fulda.de/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['rendering'][1]['@id']
                     elif 'gallica.bnf.fr' in this_manifest['@id']:
                         # This link needs to be constructed from the thumbnail link for images from https://gallica.bnf.fr/
                         d['lib_link'] = this_manifest['sequences'][0]['canvases'][0]['thumbnail']['@id'].replace('.thumbnail', '')
-                        self.app.logger.warn("gallica.bnf.fr: lib_link created:{}".format(d['lib_link']))
+                        self.app.logger.debug("gallica.bnf.fr: lib_link created:{}".format(d['lib_link']))
                     elif 'api.digitale-sammlungen.de' in this_manifest['@id']:
                         # This works for resources from the Bayerische Staatsbibliothek
                         # (and perhaps other German digital libraries?)
@@ -1936,7 +1989,7 @@ class NemoFormulae(Nemo):
                                                 t_partOf))
 
                     
-                    self.app.logger.warn(msg='d["IIIFviewer"]: {}'.format(d["IIIFviewer"]))
+                    
                     if 'previous_search' in session:
                         result_ids = [x for x in session['previous_search'] if x['id'] == id]
                         if result_ids and any([x.get('highlight') for x in result_ids]):
@@ -2092,6 +2145,11 @@ class NemoFormulae(Nemo):
         :return: Response
         """
         return send_from_directory("assets", "robots.txt")
+    
+    
+    def send_email_notification(self):
+        raise NotImplementedError("I am not a real error!")
+    
 
     @staticmethod
     def r_impressum() -> Dict[str, str]:
