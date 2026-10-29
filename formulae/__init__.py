@@ -44,11 +44,17 @@ def create_app(config_class=Config):
         file_handler.setFormatter(logging.Formatter(
             '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]'
         ))
-        file_handler.setLevel(logging.INFO)
-        app.logger.addHandler(file_handler)
-        app.logger.setLevel(logging.INFO)
+        POSSIBLE_LOGLEVELS = ['INFO', 'DEBUG']
+        if app.config["LOG_LEVEL"] in POSSIBLE_LOGLEVELS:
+            file_handler.setLevel(app.config["LOG_LEVEL"])
+            app.logger.addHandler(file_handler)
+            app.logger.setLevel(app.config["LOG_LEVEL"])
+        else:
+            file_handler.setLevel(logging.INFO)
+            app.logger.addHandler(file_handler)
+            app.logger.setLevel(logging.INFO)
         app.logger.info('Formulae-Nemo is starting...')
-        app.logger.info('server type: %s (set in config.py)', Config.SERVER_TYPE)
+        app.logger.info('Server type: %s and log level: %s (set via environment variables)', Config.SERVER_TYPE, app.logger.getEffectiveLevel())
     ###################################
 
 
