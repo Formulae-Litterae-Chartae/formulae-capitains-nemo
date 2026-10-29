@@ -38,10 +38,24 @@ Changing the config
    does not compile, the old config keeps running
    (`explanation <https://stackoverflow.com/a/46088507/7924573>`_):
    :code:`sudo systemctl reload varnish`
-#. Verify that the new config is active with :code:`sudo varnishadm vcl.list`.
+#. Verify that the new config is active with :code:`sudo varnishadm vcl.list`. Result looks like this:
+   
+   .. code-block:: bash
+
+        200
+        available   auto    cold         0    boot
+        available   auto    cold         0    myconfig
+        active      auto    warm         7    reload_20261029_104943_1351260
+        available   auto    warm         0    testconfig
+        
+   Look for :code:`active` is the currently active config and :code:`reload_20261029_104943_1351260` is a timestamp, which should correspond to the time of the change in universal time.
 #. *Optional:* 
     #. Request a text page twice with :code:`curl -sI <url> | grep -i x-cache` (the second answer should show :code:`HIT`)
-    #. check that a URL containing :code:`+` requested with :code:`-A testbot` returns 404. e.g., `curl -sI -A testbot https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:andecavensis.form001.lat001+manifest:urn:cts:formulae:andecavensis.form001.fu2/passage/1+all`
+    #. check that a URL containing :code:`+` requested with :code:`-A testbot` returns 404. e.g.
+       .. code-block:: bash 
+        
+            curl -sI -A testbot https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:andecavensis.form001.lat001+manifest:urn:cts:formulae:andecavensis.form001.fu2/passage/1+all
+
 #. Copy the file to :code:`varnish/default.vcl` in this repository, check that
    both copies match with :code:`diff`, then commit and push. The documentation
    below is built from this file.

@@ -90,6 +90,40 @@ sub vcl_backend_response {
         set beresp.grace = 1h;
 }
 
+
+sub vcl_backend_error {
+        # Called when Varnish gets no response from gunicorn (connection refused,
+        # timeout, ...). Shows a friendly page instead of Varnish's default
+        # "Guru Meditation" page. Pages that are still in the cache are served normally.
+        set beresp.status = 503;
+        set beresp.reason = "Service temporarily unavailable";
+        set beresp.http.Content-Type = "text/html; charset=utf-8";
+        set beresp.http.Retry-After = "300";
+
+        # Keep the error page in the cache only briefly, so the site recovers
+        # quickly once the backend is back.
+        set beresp.ttl = 10s;
+
+        synthetic({"<!doctype html>
+                        <html lang='en'>
+                                <head>
+                                        <meta charset='utf-8'>
+                                        <meta name='viewport' content='width=device-width, initial-scale=1'>
+                                        <title>Service unavailable</title>
+                                </head>
+                                <body>
+                                        <h1>Service unavailable</h1>
+                                        <p>Sorry, this website is temporarily unavailable.</p>
+                                        <p>Please consider using the instance operated by the Akademie der Wissenschaften Hamburg: <a href='https://formulae.awhamburg.de/'>formulae.awhamburg.de</a></p>
+                                        <p>Please visit the project website for more information: <a href='https://www.formulae.uni-hamburg.de/'>formulae.uni-hamburg.de</a></p>
+                                </body>
+                        </html>
+                "});
+
+        # Do not run the built-in vcl_backend_error, which would replace this page.
+        return (deliver);
+}
+
 sub vcl_deliver {
         # Debug header for testing (passes and misses both show MISS).
         # Remove it if you do not want to expose it.
