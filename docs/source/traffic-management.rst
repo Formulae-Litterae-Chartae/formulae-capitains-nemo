@@ -1,136 +1,90 @@
-Traffic management
-====================
+Traffic Management
+#####################
 We have had a situation, where the access times of our application where increased so much, that it became almost unusable for real users. To find the reason behind this behavior, we checked the access logs we saw a huge number of accesses to our website by bots. Since, the functionality of this application makes possible to compare multiple resources by joining them into one url with one or more '+', there is huge number of possible links (for :math:`n` resources they are :math:`n^k`, where k is number '+'+1).
 
 Varnish 
-#####################
+********************
 |varnish| Varnish Cache is a...
 
 
 .. |varnish| image:: https://www.varnish-software.com/media/xs4hjt04/vs-logo-2020-140x60-1.svg
   :width: 50
-  :alt: Alternative text
+  :alt: Varnish Cache logo
 
 
-Before making any changes, please check the syntax of the file via :code:`varnishd -C -f /etc/varnish/default.vcl` (see this `blog post <https://cloudkul.com/knowledgebase/check-varnish-syntax>`_ ). 
+Changing the config
+===================
 
-After changes: `service varnish reload`.  (https://stackoverflow.com/a/46088507/7924573). This is the current varnish solutions, which blocks are access from entities, who identify themselves as bots:
+#. If possible: Make a backup of the complete (virtual) machine.
+#. Make a local backup of the current config:
+   :code:`sudo cp /etc/varnish/default.vcl /etc/varnish/default.vcl.bak`
+#. Write your changes to :code:`/etc/varnish/default.vcl`.
+#. Update the "Last modified" date and name in the comment at the top of the file.
+#. Check the syntax before applying anything:
 
+   .. code-block:: bash
 
+      sudo varnishd -C -f /etc/varnish/default.vcl > /dev/null; echo "exit code: $?"
 
+   Exit code 0 without any message means the file is valid. Otherwise an
+   error with a line number is printed and nothing has been applied.
+   Optionally, test it more strictly in the running Varnish (the config is
+   loaded but not activated, use the absolute path):
+   :code:`sudo varnishadm vcl.load testconfig /etc/varnish/default.vcl`,
+   then :code:`sudo varnishadm vcl.discard testconfig`.
+   See the `Varnish documentation on validation
+   <https://docs.varnish-software.com/book/vcl/validation-and-testing/>`_.
+#. Reload the config. This keeps the cache and activates the new config; if it
+   does not compile, the old config keeps running
+   (`explanation <https://stackoverflow.com/a/46088507/7924573>`_):
+   :code:`sudo systemctl reload varnish`
+#. Verify that the new config is active with :code:`sudo varnishadm vcl.list`. Result looks like this:
+   
+   .. code-block:: bash
 
-
-.. code-block:: python
-   :linenos:
-   :caption: Current version of default.vcl
-
-
-    #
-    # This is an example VCL file for Varnish.
-    #
-    # It does not do anything by default, delegating control to the
-    # builtin VCL. The builtin VCL is called when there is no explicit
-    # return statement.
-    #
-    # See the VCL chapters in the Users Guide at https://www.varnish-cache.org/docs/
-    # and https://www.varnish-cache.org/trac/wiki/VCLExamples for more examples.
-
-    # Marker to tell the VCL compiler that this VCL has been adapted to the
-    # new 4.0 format.
-    vcl 4.0;
-
-    # Default backend definition. This points to the gunicorn server.
-    backend default {
-        .host = "127.0.0.1";
-        .port = "8000";
-    }
-
-    sub vcl_recv {
-        # Happens before we check if we have this in cache already.
-        #
-        # Typically you clean up the request here, removing cookies you don't need,
-        # rewriting the request, etc.
-
-        # remove the Matomo tracking cookie
-        if (req.url ~ "urn:cts:formulae:pancarte_noir_internal") {
-            return (synth(404, "Denied by request filtering configuration"));
-        }
-        if (req.http.user-agent ~ "Bot") {
-            if (req.url ~ "\+" || req.url ~ "%2B") {
-                return (synth(404, "Denied by request filtering configuration"));
-            }
-            return (pass);
-        }
-        if (req.http.user-agent ~ "bot") {
-            if (req.url ~ "\+" || req.url ~ "%2B") {
-                return (synth(404, "Denied by request filtering configuration"));
-            }
-            return (pass);
-        }
-        if (req.http.user-agent ~ "Bytespider") {
-            if (req.url ~ "\+" || req.url ~ "%2B") {
-                return (synth(404, "Denied by request filtering configuration"));
-            }
-            return (pass);
-        }
-        if (req.http.referer ~ "google") {
-            if (req.url ~ "\+" || req.url ~ "%2B") {
-                return (synth(404, "Denied by request filtering configuration"));
-            }
-            return (pass);
-        }
-        if (req.url ~ "/texts/") {
-            #if (req.url ~ "\+.*\+.*") {
-            #    return (synth(404, "Denied by request filtering configuration"));
-            #}
-            return (pass);
-        }
-        set req.http.Cookie = regsuball(req.http.Cookie, "(^|;\s*)(_[_a-z0-9\.]+)=[^;]*", "");
-        set req.http.Cookie = regsub(req.http.Cookie, "^;\s*", "");
-        # save the cookies before the built-in vcl_recv (allows caching of pages with cookies)
-        set req.http.Cookie-Backup = req.http.Cookie;
-        unset req.http.Cookie;
-        # To deal with the Authorization header I should probably do the same thing I did with the Cookie header above
-        # I.e., put is in an Authorization-Backup header, then restore this to the Authorization header in vcl_hash
-        # I will then need to get the backend to send a Vary header that says the response should be varied according to Authorization
-        # See https://stackoverflow.com/questions/35119283/best-pratice-for-varnish-cache-content-with-authorization-header for some guidance
-    }
-
-    sub vcl_backend_response {
-        # Happens after we have read the response headers from the backend.
-        #
-        # Here you clean the response headers, removing silly Set-Cookie headers
-        # and other mistakes your backend does.
-
-        # I think I should move the Set-Cookie header into a temporary header and then reset it again in vcl_deliver
-        #set beresp.http.Set-Cookie-Backup = beresp.http.Set-Cookie;
-        #unset beresp.http.Set-Cookie;
-    }
-
-    sub vcl_deliver {
-        # Happens when we have all the pieces we need, and are about to send the
-        # response to the client.
-        #
-        # You can do accounting or modifying the final object here.
+        200
+        available   auto    cold         0    boot
+        available   auto    cold         0    myconfig
+        active      auto    warm         7    reload_20261029_104943_1351260
+        available   auto    warm         0    testconfig
         
-        # Reset the Set-Cookie header
-        #set resp.http.Set-Cookie = resp.http.Set-Cookie-Backup;
-        #unset resp.http.Set-Cookie-Backup;
-    }
+   Look for :code:`active` is the currently active config and :code:`reload_20261029_104943_1351260` is a timestamp, which should correspond to the time of the change in universal time.
+#. *Optional:* 
+    #. Request a text page twice with :code:`curl -sI <url> | grep -i x-cache` (the second answer should show :code:`HIT`)
+    #. check that a URL containing :code:`+` requested with :code:`-A testbot` returns 404. e.g.
+       .. code-block:: bash 
+        
+            curl -sI -A testbot https://werkstatt.formulae.uni-hamburg.de/texts/urn:cts:formulae:andecavensis.form001.lat001+manifest:urn:cts:formulae:andecavensis.form001.fu2/passage/1+all
 
-    sub vcl_hash {
-        if (req.http.Cookie-Backup) {
-            # restore the cookies before the lookup if any. This should allow auth cookies to affect results
-            # may need to add an HTTP Vary header on the backend to send either project or non-project pages
-            set req.http.Cookie = req.http.Cookie-Backup;
-            unset req.http.Cookie-Backup;
-        }
-    }
+#. Copy the file to :code:`varnish/default.vcl` in this repository, check that
+   both copies match with :code:`diff`, then commit and push. The documentation
+   below is built from this file.
+
+Cached pages:
+--------------------
+A reload does not clear the cache. If your change affects pages that are already cached, remove them with
+:code:`sudo varnishadm 'ban req.url ~ "^/texts/"'` (use :code:`"."` to ban everything).
+
+Rollback: 
+---------------------
+Copy :code:`default.vcl.bak` back to :code:`default.vcl` and reload
+again. Do not leave a broken file in place: a failed reload keeps the old config
+running, but a restart of Varnish or the server would fail.
+
+Current configuration
+---------------------
+
+The rules are summarised in the comment at the top of the file.
+
+.. literalinclude:: ../../varnish/default.vcl
+   :language: vcl
+   :linenos:
+   :caption: varnish/default.vcl
 
 
 
 Restricting parallel resources
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+============================================
 Our initial approach was to define a Varnish-rule, that basically blocked all url-accesses, with a '+' and return a `404`. This vastly stabilized the application and made it useful again.  But with Google's: `Note that returning "no availability" codes for more than a few days will cause Google to permanently slow or stop crawling URLs on your site, so follow the additional next steps` (source: `Handle overcrawling of your site (emergencies) <https://developers.google.com/search/docs/crawling-indexing/large-site-managing-crawl-budget#emergencies>`_) in mind, we should change this behavior in the future: 
 
 .. code-block:: python
@@ -147,18 +101,18 @@ Our initial approach was to define a Varnish-rule, that basically blocked all ur
 
 
 Cookies 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+============================================
 "Varnish will, in the default configuration, not cache an object coming from the backend with a ‘Set-Cookie’ header present. Also, if the client sends a Cookie header, Varnish will bypass the cache and go directly to the backend." We therefore decided to remove some cookies:
 
 Cache Control with max-age 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-"The 'Cache-Control' header instructs caches how to handle the content. Varnish cares about the max-age parameter and uses it to calculate the TTL for an object." - `cache-control  <https://vinyl-cache.org/docs/trunk/users-guide/increasing-your-hitrate.html#cache-control>`_. We therefore added a default max-age value in the config:    
+============================================
+"The 'Cache-Control' header instructs caches how to handle the content. Varnish cares about the max-age parameter and uses it to calculate the TTL for an object." - `cache-control  <https://vinyl-cache.org/docs/trunk/users-guide/increasing-your-hitrate.html#cache-control>`_. We therefore added a default max-age value in the config via `CACHE_MAX_AGE`:    
 
 
 .. literalinclude:: ../../config.py
    :linenos:
-   :lineno-start: 40
-   :lines: 40
+   :lineno-start: 50
+   :lines: 50
    :caption: config.py
 
 This value is later used in the application to construct the header:
@@ -170,15 +124,208 @@ Previously we had :code:`if re.search('/(lang|auth|texts)/', request.url): respo
 
 
 Rate limit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+======================
 Planned:
 - https://github.com/nand2/libvmod-throttle
 - https://support.platform.sh/hc/en-us/community/posts/16439617864722-Rate-limit-connections-to-your-application-using-Varnish
 - https://vinyl-cache.org/vmods/
 - rate-limit is only in development-stage: 
 
+
+
+Adding a custom Error message for 503 errors:
+==============================================
+
+
+1. Back up your current VCL
+----------------------------------------------
+.. code-block:: shell
+
+    sudo cp /etc/varnish/default.vcl /etc/varnish/default.vcl.backup
+
+
+1. Add a temporary broken backend
+----------------------------------------------
+Keep your normal backend:
+
+.. code-block:: python
+   :linenos:
+
+    backend default {
+        .host = "127.0.0.1";
+        .port = "8000";
+    }
+
+Then add the temporary test backend:
+
+.. code-block:: python
+   :linenos:
+
+    # Temporary backend to test vcl_backend_error. Remove after 2026-06-30.
+    backend broken_test {
+        .host = "127.0.0.1";
+        .port = "8888";
+    }
+
+This assumes nothing is listening on ``127.0.0.1:8888``.
+
+Check that with:
+
+.. code-block:: shell
+
+    sudo ss -ltnp | grep ':8888'
+
+No output is good.
+
+----------------------------------------------
+1. Add the temporary test route in vcl_recv
+----------------------------------------------
+If your app is reached under /dev, use:
+
+.. code-block:: python
+   :linenos:
+
+    sub vcl_recv {
+        # Temporary URL to test vcl_backend_error. Remove after 2026-06-30.
+        if (req.url == "/dev/__test_503") {
+            set req.backend_hint = broken_test;
+            return (pass);
+        }
+
+        # existing logic...
+    }
+
+
+If your app is reached under /, use:
+
+.. code-block:: python
+   :linenos:
+
+    sub vcl_recv {
+        # Temporary URL to test vcl_backend_error. Remove after 2026-06-30.
+        if (req.url == "/dev/__test_503") {
+            set req.backend_hint = broken_test;
+            return (pass);
+        }
+
+        # existing logic...
+    }
+
+----------------------------------------------
+4. Add the custom vcl_backend_error
+----------------------------------------------
+Add this outside the other sub blocks:
+
+.. code-block:: html
+   :linenos:
+
+    sub vcl_backend_error {
+        set beresp.status = 503;
+        set beresp.reason = "Service temporarily unavailable";
+        set beresp.http.Content-Type = "text/html; charset=utf-8";
+        set beresp.http.Retry-After = "300";
+
+        synthetic({"
+    <!doctype html>
+    <html lang='en'>
+    <head>
+    <meta charset='utf-8'>
+    <title>Service unavailable</title>
+    </head>
+    <body>
+        <h1>Service unavailable</h1>
+        <p>Sorry, this website is temporarily unavailable.</p>
+        <p>Please, consider using the instance operated by the Akademie der Wissenschaften Hamburg: <a href='https://formulae.awhamburg.de/'>formulae.awhamburg.de</a></p>
+        <p>Please, visit the project website for more information: <a href='https://www.formulae.uni-hamburg.de/'>formulae.uni-hamburg.de</a></p>
+    </body>
+    </html>
+    "});
+
+        return (deliver);
+    }
+
+
+----------------------------------------------
+5. Check the VCL
+----------------------------------------------
+Use the less noisy check:
+
+.. code-block:: shell
+
+    sudo varnishd -C -f /etc/varnish/default.vcl > /dev/null && echo "VCL OK" || echo "VCL ERROR"
+
+If you see: ``VCL OK`` the file compiles successfully.
+
+----------------------------------------------
+6. Reload Varnish
+----------------------------------------------
+
+.. code-block:: shell
+
+    sudo systemctl reload varnish
+
+----------------------------------------------
+7. Test locally on the Varnish port
+----------------------------------------------
+Since your Varnish listens on 127.0.0.1:8080, test:
+
+.. code-block:: shell
+
+    curl -i http://127.0.0.1:8080/dev/__test_503 -H "Host: your-domain.example"
+
+Expected result:
+
+.. code-block:: shell
+
+    HTTP/1.1 503 Service temporarily unavailable
+    Server: Varnish
+    Content-Type: text/html; charset=utf-8
+    Retry-After: 300
+    Via: 1.1 varnish (Varnish/6.6)
+
+----------------------------------------------
+7. Test through the public URL
+----------------------------------------------
+Use the public path including /dev: ``https://your-domain.example/dev/__test_503`` 
+
+You should see the same custom 503 page.
+
+----------------------------------------------
+8.  Clean up after testing
+----------------------------------------------
+Remove the temporary test backend:
+
+.. code-block:: python
+   :linenos:
+
+    backend broken_test {
+        .host = "127.0.0.1";
+        .port = "8888";
+    }
+
+Remove the temporary route from vcl_recv:
+
+.. code-block:: python
+   :linenos:
+
+    if (req.url ~ "^/dev/__test_503($|[?])") {
+        set req.backend_hint = broken_test;
+        return (pass);
+    }
+
+Keep this permanently:
+
+.. code-block:: python
+   :linenos:
+
+    sub vcl_backend_error {
+        ...
+    }
+
+That is the actual custom 503 page used when the real backend on 127.0.0.1:8000 is unavailable.
+
 robots.txt
-#####################
+********************************************************************************************************
 We use a `robots.txt <../../assets/robots.txt>`_  file to disallow all bots to crawl sites containing a "+". To achieve this we used the robots.txt wildcard expression "*". It is not known whether all bots accept this form of wildcard annotation. 
 
 If you intend to make changes to the robots.txt, consider checking it's functionality before hand via online tools such as the: `robots.txt Testing & Validation Tool <https://tamethebots.com/tools/robotstxt-checker>`_ 
@@ -191,16 +338,16 @@ If you intend to make changes to the robots.txt, consider checking it's function
 This reduce the accesses by over 50% within one day (10k-20k 404s per hour on 09.10.24 vs 300-6k 404s per hour on 10.10.24). The most prominent of the remaining crawlers on 10.10.24 are AcademicBotRTU and YandexBot, these remained until the 15.10.24, on which I added explicit rules to block them. Since, Google needs at most `24-36 hours <https://support.google.com/webmasters/thread/70176854/how-long-does-it-take-for-google-bot-to-take-into-effect-new-robots-txt-file?hl=en>`_  to check the new robots.txt, I expect other crawlers to have the same frequency. 
 
 Why add :code:`crawl-delay`?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================================================================================
 Well, Googlebot and Yandex wont use it. So, it wont cause any harm and is mostly just ignored. https://support.google.com/webmasters/thread/251817470/putting-crawl-delay-in-robots-txt-file-is-good?hl=en. But some do recognize it, so I have added the arbitrary limit of 30 seconds. Which is for instance recognize by the AcademicBotRTU.
 
 Why add :code:`%2B`?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================================================================================
 Because it is the  `Percent-encoding <https://en.wikipedia.org/wiki/Percent-encoding>`_ equivalent for '+'.
 
 
 Which "good" bots frequently crawled our website?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================================================================================
 
 .. list-table:: crawler-list
    :widths: 25 25 25
@@ -238,15 +385,15 @@ Which "good" bots frequently crawled our website?
 
 
 What if a crawler ignores `robots.txt`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+========================================================================================
 https://blog.archive.org/2017/04/17/robots-txt-meant-for-search-engines-dont-work-well-for-web-archives/
 
 nginx
-#####################
-
+********************
+...
 
 flask
-#####################
+********************
 In the previous section, the varnish-way of limiting access was introduced. In addition to that, there is a mechanism for controlling all access on the application side. Controlled by the `MAX_NUMBER_OF_TEXTS_FOR_NOT_AUTHENTICATED_USER` environment variable, which is then used by the `r_multipassager_multipassage`-method. So, if you have a risen number of 504 errors it could help to reduce this parameter. 
 
 Per default it is set to 'dev', so authentication is not required. If you want to activate the authentication required-process, please set it to 'production':
