@@ -1,0 +1,1302 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search function &mdash; formulae-capitains-nemo 1.2 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=61243dd2"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Application modes and the SERVER_TYPE switch" href="environment-modes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #212529" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            formulae-capitains-nemo
+              <img src="_static/logo_226x113.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow Nemo Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="traffic-management.html">Traffic Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav-bar.html">Navigation bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formulae-nemo.html">formulae nemo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="collection.html">Collection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployment.html#docker">Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data-structure.html">Data structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="migrations/index.html">Migrations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="internationalization.html">Internationalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mail-configuration.html">Mail configuration (SMTP via Mailjet and custom domain)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environment-modes.html">Application modes and the <code class="docutils literal notranslate"><span class="pre">SERVER_TYPE</span></code> switch</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Search function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-a-search-request-is-processed">How a Search Request Is Processed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#from-the-search-form-to-the-url">From the search form to the URL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-1-simple-text-search">Example 1: simple text search</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#processing-steps">Processing steps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-2-lemma-search-in-several-corpora">Example 2: lemma search in several corpora</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#differences-from-example-1">Differences from example 1</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#example-3-a-result-that-does-not-contain-the-searched-word">Example 3: a result that does not contain the searched word</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-the-indexed-document-contains">What the indexed document contains</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-the-text-is-still-found">Why the text is still found</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#what-the-user-sees">What the user sees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finding-out-why-a-text-was-returned">Finding out why a text was returned</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lemma-mapping-lem-to-lem-json">Lemma mapping: <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structure">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-the-file-is-created">How the file is created</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lemma-notation">Lemma notation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-script">Running the script</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#output-files">Output files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#effect-on-the-search">Effect on the search</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lemma-mapping-files">Lemma mapping files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#source-data-the-pyrrha-output">Source data: the Pyrrha output</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Lemma notation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Running the script</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-the-script-does">What the script does</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Output files</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#the-three-files-in-detail">The three files in detail</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lem-to-lem-json"><code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#inflected-to-lem-json"><code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lemma-list-json"><code class="docutils literal notranslate"><span class="pre">lemma_list.json</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-the-files">Updating the files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-the-annotation-behind-an-entry">Finding the annotation behind an entry</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #212529" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">formulae-capitains-nemo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Search function</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/search-function.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="search-function">
+<h1>Search function<a class="headerlink" href="#search-function" title="Link to this heading"></a></h1>
+<section id="how-a-search-request-is-processed">
+<h2>How a Search Request Is Processed<a class="headerlink" href="#how-a-search-request-is-processed" title="Link to this heading"></a></h2>
+<p>This page follows three requests through
+<code class="xref py py-func docutils literal notranslate"><span class="pre">r_results()</span></code> (route <code class="docutils literal notranslate"><span class="pre">/search/results</span></code>) and
+<code class="xref py py-func docutils literal notranslate"><span class="pre">advanced_query_index()</span></code>.</p>
+<section id="from-the-search-form-to-the-url">
+<h3>From the search form to the URL<a class="headerlink" href="#from-the-search-form-to-the-url" title="Link to this heading"></a></h3>
+<p>The simple-search form (<code class="docutils literal notranslate"><span class="pre">simple-search-form</span></code>) submits by GET to
+<code class="docutils literal notranslate"><span class="pre">search.r_simple_search</span></code> (<code class="docutils literal notranslate"><span class="pre">/search/simple</span></code>), not to the results
+page. The form is created for every request in <code class="docutils literal notranslate"><span class="pre">before_request</span></code>
+(<code class="docutils literal notranslate"><span class="pre">g.search_form</span> <span class="pre">=</span> <span class="pre">SearchForm()</span></code>). <code class="docutils literal notranslate"><span class="pre">r_simple_search</span></code> converts the form
+data and redirects to <code class="docutils literal notranslate"><span class="pre">/search/results</span></code>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Form field</p></th>
+<th class="head"><p>Conversion</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">q_1</span></code></p></td>
+<td><p>Lowercased.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">simple_search_id</span></code></p></td>
+<td><p>Renamed to <code class="docutils literal notranslate"><span class="pre">search_id</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">search_field</span></code></p></td>
+<td><p>Renamed to <code class="docutils literal notranslate"><span class="pre">search_field_1</span></code> (default <code class="docutils literal notranslate"><span class="pre">text</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lemma_search</span></code></p></td>
+<td><p>Removed from the data. If it is <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">True</span></code>
+(boolean), <code class="docutils literal notranslate"><span class="pre">search_field_1</span></code> is set to <code class="docutils literal notranslate"><span class="pre">lemmas</span></code>. The parameter
+itself does not appear in the redirected URL.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">corpus</span></code></p></td>
+<td><p>List joined with <code class="docutils literal notranslate"><span class="pre">+</span></code>. <code class="docutils literal notranslate"><span class="pre">url_for</span></code> encodes the <code class="docutils literal notranslate"><span class="pre">+</span></code> as <code class="docutils literal notranslate"><span class="pre">%2B</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Special cases:</p>
+<ul class="simple">
+<li><p>If the form is invalid because of <code class="docutils literal notranslate"><span class="pre">q_1</span></code>, a message is flashed
+(“the simple search only works with one search word”) and an empty
+<code class="docutils literal notranslate"><span class="pre">204</span></code> response is returned, so the page does not change.</p></li>
+<li><p>If no corpus is selected, a message is flashed and the user is
+redirected with <code class="docutils literal notranslate"><span class="pre">corpus=formulae+chartae</span></code>.</p></li>
+<li><p>The redirect always uses <code class="docutils literal notranslate"><span class="pre">source=simple</span></code> and <code class="docutils literal notranslate"><span class="pre">sort=urn</span></code>. All
+remaining form fields are passed on as URL parameters.</p></li>
+</ul>
+</section>
+<section id="example-1-simple-text-search">
+<h3>Example 1: simple text search<a class="headerlink" href="#example-1-simple-text-search" title="Link to this heading"></a></h3>
+<p>This is the kind of URL produced by <code class="docutils literal notranslate"><span class="pre">r_simple_search</span></code> for a normal
+search.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://tools.formulae.uni-hamburg.de/dev/search/results
+    ?source=simple
+    &amp;corpus=formulae
+    &amp;sort=urn
+    &amp;q_1=advocatus
+    &amp;search_id=1398
+    &amp;search_field_1=text
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">source</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">simple</span></code></p></td>
+<td><p>Required. Without it the user is redirected to the index page.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">corpus</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">formulae</span></code></p></td>
+<td><p>Collections to search. Several can be joined with <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sort</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">urn</span></code></p></td>
+<td><p>Sort order of the results.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">q_1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">advocatus</span></code></p></td>
+<td><p>First search query. Further queries use <code class="docutils literal notranslate"><span class="pre">q_2</span></code>, <code class="docutils literal notranslate"><span class="pre">q_3</span></code>, …</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">search_field_1</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></td>
+<td><p>Field searched by <code class="docutils literal notranslate"><span class="pre">q_1</span></code>. Per-query options use the suffix <code class="docutils literal notranslate"><span class="pre">_&lt;n&gt;</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">search_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1398</span></code></p></td>
+<td><p>Passed unchanged to the search function. If it is empty, no
+<code class="docutils literal notranslate"><span class="pre">search_progress_...</span></code> ID is used.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="processing-steps">
+<h4>Processing steps<a class="headerlink" href="#processing-steps" title="Link to this heading"></a></h4>
+<section id="parameter-check">
+<h5>1. Parameter check<a class="headerlink" href="#parameter-check" title="Link to this heading"></a></h5>
+<p>If <code class="docutils literal notranslate"><span class="pre">source</span></code> is missing, the user is redirected to
+<code class="docutils literal notranslate"><span class="pre">InstanceNemo.r_index</span></code>.</p>
+</section>
+<section id="resolving-the-corpus">
+<h5>2. Resolving the corpus<a class="headerlink" href="#resolving-the-corpus" title="Link to this heading"></a></h5>
+<p>The <code class="docutils literal notranslate"><span class="pre">corpus</span></code> value is split on <code class="docutils literal notranslate"><span class="pre">+</span></code> and then on spaces. The result
+decides which collections are listed:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">corpus</span></code></p></th>
+<th class="head"><p>Collections in <code class="docutils literal notranslate"><span class="pre">corps</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>contains <code class="docutils literal notranslate"><span class="pre">elexicon</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">elexicon</span></code> only</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">all</span></code>, <code class="docutils literal notranslate"><span class="pre">formulae+chartae</span></code>, empty, <code class="docutils literal notranslate"><span class="pre">form_lit_chart</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">formulae_collection</span></code> plus (sorted) <code class="docutils literal notranslate"><span class="pre">other_collection</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">formulae</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">formulae_collection</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">chartae</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">other_collection</span></code> (sorted)</p></td>
+</tr>
+<tr class="row-even"><td><p>anything else</p></td>
+<td><p>the given IDs, used as they are</p></td>
+</tr>
+</tbody>
+</table>
+<p>The members of each group are defined in the Capitains metadata files
+under <code class="docutils literal notranslate"><span class="pre">data/</span></code>. For <code class="docutils literal notranslate"><span class="pre">corpus=formulae</span></code>, the members of
+<code class="docutils literal notranslate"><span class="pre">data/formulae_collection/__capitains__.xml</span></code> are used:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;collection</span><span class="w"> </span><span class="na">identifier=</span><span class="s">"urn:cts:formulae:andecavensis"</span>
+<span class="w">            </span><span class="na">path=</span><span class="s">"../andecavensis/__capitains__.xml"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;collection</span><span class="w"> </span><span class="na">identifier=</span><span class="s">"urn:cts:formulae:auvergne"</span>
+<span class="w">            </span><span class="na">path=</span><span class="s">"../auvergne/__capitains__.xml"</span><span class="nt">/&gt;</span>
+<span class="cm">&lt;!-- ... --&gt;</span>
+</pre></div>
+</div>
+<p>The last segment of each URN (<code class="docutils literal notranslate"><span class="pre">andecavensis</span></code>, <code class="docutils literal notranslate"><span class="pre">auvergne</span></code>, …)
+becomes an entry in <code class="docutils literal notranslate"><span class="pre">corps</span></code>.</p>
+<p>Every ID in <code class="docutils literal notranslate"><span class="pre">corps</span></code> is mapped through <code class="docutils literal notranslate"><span class="pre">CORP_MAP['form_lit_chart-&lt;id&gt;']</span></code>
+to build <code class="docutils literal notranslate"><span class="pre">g.corpora</span></code>. If an ID is missing, a <code class="docutils literal notranslate"><span class="pre">KeyError</span></code> is logged.
+Collections listed in <code class="docutils literal notranslate"><span class="pre">ES_EXCLUDE_COLLECTIONS</span></code> are then dropped as a
+temporary workaround; if that setting is empty, the error is re-raised.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These files identify <em>collections</em>, not individual formulae.
+Individual texts are defined in each sub-collection’s own
+<code class="docutils literal notranslate"><span class="pre">__capitains__.xml</span></code>.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The expanded list <code class="docutils literal notranslate"><span class="pre">corps</span></code> is used only for <code class="docutils literal notranslate"><span class="pre">g.corpora</span></code> and the
+stored search arguments. The search itself receives the <em>unexpanded</em>
+<code class="docutils literal notranslate"><span class="pre">corpus</span></code> list (for example <code class="docutils literal notranslate"><span class="pre">['formulae']</span></code>) and passes it directly
+as the <code class="docutils literal notranslate"><span class="pre">index</span></code> argument of the Elasticsearch calls in
+<code class="xref py py-func docutils literal notranslate"><span class="pre">advanced_query_index()</span></code>. If <code class="docutils literal notranslate"><span class="pre">corpus</span></code> is empty or <code class="docutils literal notranslate"><span class="pre">all</span></code>, it
+is replaced by <code class="docutils literal notranslate"><span class="pre">['form_lit_chart']</span></code>. The values <code class="docutils literal notranslate"><span class="pre">formulae</span></code>,
+<code class="docutils literal notranslate"><span class="pre">chartae</span></code> and <code class="docutils literal notranslate"><span class="pre">form_lit_chart</span></code> therefore have to exist as
+Elasticsearch aliases.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">formulae</span></code>, <code class="docutils literal notranslate"><span class="pre">chartae</span></code> and <code class="docutils literal notranslate"><span class="pre">form_lit_chart</span></code> are Elasticsearch
+aliases created by <code class="docutils literal notranslate"><span class="pre">rebuild_elasticsearch_from_xml.py</span></code>. The script:</p>
+<ul class="simple">
+<li><p>builds <code class="docutils literal notranslate"><span class="pre">coll_type.json</span></code> by walking
+<code class="docutils literal notranslate"><span class="pre">data/display_formulae/__capitains__.xml</span></code> (every text group found
+is mapped to <code class="docutils literal notranslate"><span class="pre">formulae</span></code>),</p></li>
+<li><p>indexes each text into a versioned index <code class="docutils literal notranslate"><span class="pre">form_lit_chart-&lt;id&gt;_vN</span></code>,</p></li>
+<li><p>puts three aliases on it: <code class="docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code>, the type from <code class="docutils literal notranslate"><span class="pre">coll_type</span></code>
+(<code class="docutils literal notranslate"><span class="pre">formulae</span></code>, <code class="docutils literal notranslate"><span class="pre">elexicon</span></code> or, as a fallback, <code class="docutils literal notranslate"><span class="pre">chartae</span></code>) and
+<code class="docutils literal notranslate"><span class="pre">form_lit_chart</span></code>.</p></li>
+</ul>
+<p>A collection missing from <code class="docutils literal notranslate"><span class="pre">coll_type</span></code> silently becomes part of
+<code class="docutils literal notranslate"><span class="pre">chartae</span></code>. The index must be rebuilt after changes to the Capitains
+files. <code class="docutils literal notranslate"><span class="pre">CORP_MAP</span></code> and <code class="docutils literal notranslate"><span class="pre">corpus_agg</span></code> only affect the displayed
+corpus list and the aggregation buckets, not which indices are
+searched.</p>
+</div>
+</section>
+<section id="building-the-query-dictionary">
+<h5>3. Building the query dictionary<a class="headerlink" href="#building-the-query-dictionary" title="Link to this heading"></a></h5>
+<p>A copy of the request arguments is passed through <code class="docutils literal notranslate"><span class="pre">build_search_args</span></code>,
+which translates short or legacy parameter names into the numbered form
+that the rest of the code expects:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Incoming argument</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">corpus</span></code> missing</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'all'</span></code>. This does not affect <code class="docutils literal notranslate"><span class="pre">r_results</span></code>, which reads
+<code class="docutils literal notranslate"><span class="pre">corpus</span></code> from the request before this function runs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bool_operator</span></code> missing</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'must'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">q</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">q_1</span></code> (lowercased)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">search_field</span></code>, <code class="docutils literal notranslate"><span class="pre">fuzziness</span></code>, <code class="docutils literal notranslate"><span class="pre">in_order</span></code>, <code class="docutils literal notranslate"><span class="pre">slop</span></code></p></td>
+<td><p>the same name with the suffix <code class="docutils literal notranslate"><span class="pre">_1</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lemma_search</span></code> is <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">True</span></code> (boolean)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">search_field_1</span> <span class="pre">=</span> <span class="pre">'lemmas'</span></code>. This overrides <code class="docutils literal notranslate"><span class="pre">search_field</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">regest_q</span></code></p></td>
+<td><p>second query: <code class="docutils literal notranslate"><span class="pre">q_2</span></code> (lowercased) with <code class="docutils literal notranslate"><span class="pre">search_field_2</span> <span class="pre">=</span> <span class="pre">'regest'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exclude_q</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">exclude_q_1</span></code> (lowercased)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">regex_search</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">regex_search_1</span></code> as the string <code class="docutils literal notranslate"><span class="pre">'True'</span></code> or <code class="docutils literal notranslate"><span class="pre">'False'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proper_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">proper_name_1</span></code>; a list is joined with <code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>any key containing <code class="docutils literal notranslate"><span class="pre">regex_search</span></code> or <code class="docutils literal notranslate"><span class="pre">in_order</span></code></p></td>
+<td><p>normalised to the strings <code class="docutils literal notranslate"><span class="pre">'True'</span></code> or <code class="docutils literal notranslate"><span class="pre">'False'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">corpus</span></code>, <code class="docutils literal notranslate"><span class="pre">special_days</span></code> given as lists</p></td>
+<td><p>joined with <code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Every key starting with <code class="docutils literal notranslate"><span class="pre">q_</span></code> then becomes one entry in <code class="docutils literal notranslate"><span class="pre">query_dict</span></code>.
+The query text is lowercased, and each option is read from
+<code class="docutils literal notranslate"><span class="pre">&lt;option&gt;_&lt;n&gt;</span></code> or falls back to a default:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">in_order</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'False'</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">regex_search</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code> (boolean)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">proper_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">slop</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fuzziness</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">search_field</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'text'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">exclude_q</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>For the example this gives:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">'q_1'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'q'</span><span class="p">:</span> <span class="s1">'advocatus'</span><span class="p">,</span> <span class="s1">'in_order'</span><span class="p">:</span> <span class="s1">'False'</span><span class="p">,</span> <span class="s1">'regex_search'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+         <span class="s1">'proper_name'</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'slop'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">'fuzziness'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+         <span class="s1">'search_field'</span><span class="p">:</span> <span class="s1">'text'</span><span class="p">,</span> <span class="s1">'exclude_q'</span><span class="p">:</span> <span class="s1">''</span><span class="p">}}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default for <code class="docutils literal notranslate"><span class="pre">regex_search</span></code> is the boolean <code class="docutils literal notranslate"><span class="pre">False</span></code>, whereas
+<code class="docutils literal notranslate"><span class="pre">build_search_args</span></code> produces the strings <code class="docutils literal notranslate"><span class="pre">'True'</span></code> and <code class="docutils literal notranslate"><span class="pre">'False'</span></code>
+and <code class="docutils literal notranslate"><span class="pre">advanced_query_index</span></code> compares against these strings. See the
+wildcard warning in example 2.</p>
+</div>
+</section>
+<section id="running-the-search">
+<h5>4. Running the search<a class="headerlink" href="#running-the-search" title="Link to this heading"></a></h5>
+<p>The remaining arguments (dates, <code class="docutils literal notranslate"><span class="pre">forgeries</span></code>, <code class="docutils literal notranslate"><span class="pre">bool_operator</span></code>, …)
+and <code class="docutils literal notranslate"><span class="pre">query_dict</span></code> are passed to <code class="docutils literal notranslate"><span class="pre">advanced_query_index</span></code>. Date fields
+default to <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">per_page</span></code> is fixed at 10000, <code class="docutils literal notranslate"><span class="pre">forgeries</span></code> defaults
+to <code class="docutils literal notranslate"><span class="pre">include</span></code> and <code class="docutils literal notranslate"><span class="pre">bool_operator</span></code> to <code class="docutils literal notranslate"><span class="pre">must</span></code>. The function returns
+the hits, the total count, the aggregations and the previous-search
+information.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">source=simple</span></code>, a <code class="docutils literal notranslate"><span class="pre">regest</span></code> clause is added to every query. The
+query terms must match either the selected search field or the regest
+of a text, so simple searches also find texts through their summaries.
+The <code class="docutils literal notranslate"><span class="pre">regest</span></code> field is highlighted as well.</p>
+<p>If several queries are present (for example <code class="docutils literal notranslate"><span class="pre">q_1</span></code> and a second query
+created from <code class="docutils literal notranslate"><span class="pre">regest_q</span></code>), each is run separately. The results are then
+combined according to <code class="docutils literal notranslate"><span class="pre">bool_operator</span></code>: <code class="docutils literal notranslate"><span class="pre">must</span></code> keeps the hits shared
+by all queries, <code class="docutils literal notranslate"><span class="pre">must_not</span></code> removes the hits of later queries from the
+first, and <code class="docutils literal notranslate"><span class="pre">should</span></code> keeps all hits.</p>
+</section>
+<section id="storing-the-search-for-later-pages">
+<h5>5. Storing the search for later pages<a class="headerlink" href="#storing-the-search-for-later-pages" title="Link to this heading"></a></h5>
+<p>Unless <code class="docutils literal notranslate"><span class="pre">old_search=True</span></code>, the request arguments are saved in
+<code class="docutils literal notranslate"><span class="pre">g.previous_search_args</span></code> (<code class="docutils literal notranslate"><span class="pre">corpus</span></code> is replaced by the expanded list
+of collection IDs) and the aggregations in <code class="docutils literal notranslate"><span class="pre">g.previous_aggregations</span></code>.</p>
+</section>
+<section id="lemma-lookup">
+<h5>6. Lemma lookup<a class="headerlink" href="#lemma-lookup" title="Link to this heading"></a></h5>
+<p>For every query whose <code class="docutils literal notranslate"><span class="pre">search_field</span></code> is not <code class="docutils literal notranslate"><span class="pre">lemmas</span></code>, each token is
+looked up in <code class="docutils literal notranslate"><span class="pre">inflected_to_lemma_mapping</span></code>. Tokens containing <code class="docutils literal notranslate"><span class="pre">?</span></code> or
+<code class="docutils literal notranslate"><span class="pre">*</span></code> are first expanded against the highlighted words. A query appears
+in <code class="docutils literal notranslate"><span class="pre">searched_lems</span></code> only if all of its tokens have at least one lemma;
+<code class="docutils literal notranslate"><span class="pre">max_cols</span></code> is the largest token count among them.</p>
+<p>[TO BE COMPLETED: name the file from which
+<code class="docutils literal notranslate"><span class="pre">inflected_to_lemma_mapping</span></code> is loaded. See
+<a class="reference internal" href="search-function-lem-to-lem.html#lem-to-lem"><span class="std std-ref">Lemma mapping files</span></a> for the files produced by the generation script.]</p>
+</section>
+<section id="rendering">
+<h5>7. Rendering<a class="headerlink" href="#rendering" title="Link to this heading"></a></h5>
+<p>The template <code class="docutils literal notranslate"><span class="pre">search::search.html</span></code> is rendered with the hits, total,
+aggregations, <code class="docutils literal notranslate"><span class="pre">searched_lems</span></code> and <code class="docutils literal notranslate"><span class="pre">max_cols</span></code>.</p>
+</section>
+</section>
+</section>
+<section id="example-2-lemma-search-in-several-corpora">
+<h3>Example 2: lemma search in several corpora<a class="headerlink" href="#example-2-lemma-search-in-several-corpora" title="Link to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://tools.formulae.uni-hamburg.de/dev/search/results
+    ?source=simple
+    &amp;corpus=formulae%2Bchartae
+    &amp;sort=urn
+    &amp;q=advocatus
+    &amp;lemma_search=True
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 25.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">source</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">simple</span></code></p></td>
+<td><p>As in example 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">corpus</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">formulae%2Bchartae</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">%2B</span></code> is a URL-encoded <code class="docutils literal notranslate"><span class="pre">+</span></code>. It is what <code class="docutils literal notranslate"><span class="pre">url_for</span></code> produces
+in <code class="docutils literal notranslate"><span class="pre">r_simple_search</span></code>. Flask decodes it, so the route sees
+<code class="docutils literal notranslate"><span class="pre">formulae+chartae</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sort</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">urn</span></code></p></td>
+<td><p>As in example 1.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">q</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">advocatus</span></code></p></td>
+<td><p>Short form of <code class="docutils literal notranslate"><span class="pre">q_1</span></code>. Translated by <code class="docutils literal notranslate"><span class="pre">build_search_args</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lemma_search</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p>Search the <code class="docutils literal notranslate"><span class="pre">lemmas</span></code> field instead of <code class="docutils literal notranslate"><span class="pre">text</span></code>. Translated by
+<code class="docutils literal notranslate"><span class="pre">build_search_args</span></code> to <code class="docutils literal notranslate"><span class="pre">search_field_1=lemmas</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">r_results</span></code> and <code class="docutils literal notranslate"><span class="pre">advanced_query_index</span></code> never read <code class="docutils literal notranslate"><span class="pre">q</span></code> or
+<code class="docutils literal notranslate"><span class="pre">lemma_search</span></code> directly. <code class="docutils literal notranslate"><span class="pre">build_search_args</span></code> translates them (see
+step 3). A search started from the simple-search form does not
+produce this URL: <code class="docutils literal notranslate"><span class="pre">r_simple_search</span></code> already removes <code class="docutils literal notranslate"><span class="pre">lemma_search</span></code>
+and sends <code class="docutils literal notranslate"><span class="pre">q_1</span></code> and <code class="docutils literal notranslate"><span class="pre">search_field_1=lemmas</span></code> instead. URLs with
+<code class="docutils literal notranslate"><span class="pre">q</span></code> and <code class="docutils literal notranslate"><span class="pre">lemma_search</span></code> are therefore accepted only as a
+convenience for hand-made or older links.</p>
+<p>The tooltip of the checkbox (<code class="docutils literal notranslate"><span class="pre">id=&quot;simple-lemma-checkbox&quot;</span></code>) states
+that lemma search is only possible for Latin formulae texts.</p>
+</div>
+<section id="differences-from-example-1">
+<h4>Differences from example 1<a class="headerlink" href="#differences-from-example-1" title="Link to this heading"></a></h4>
+<p><strong>Corpus.</strong> <code class="docutils literal notranslate"><span class="pre">formulae+chartae</span></code> is split on <code class="docutils literal notranslate"><span class="pre">+</span></code> into
+<code class="docutils literal notranslate"><span class="pre">['formulae',</span> <span class="pre">'chartae']</span></code>. This exact list is one of the “all
+collections” cases, so <code class="docutils literal notranslate"><span class="pre">corps</span></code> contains the members of
+<code class="docutils literal notranslate"><span class="pre">formulae_collection</span></code> followed by the sorted members of
+<code class="docutils literal notranslate"><span class="pre">other_collection</span></code>. The search itself receives the unexpanded list
+and passes it as <code class="docutils literal notranslate"><span class="pre">index=['formulae',</span> <span class="pre">'chartae']</span></code> to Elasticsearch,
+which searches both aliases.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The comparison is order-sensitive. <code class="docutils literal notranslate"><span class="pre">chartae+formulae</span></code> does not
+match the special case and is treated as a list of collection IDs,
+which do not exist in <code class="docutils literal notranslate"><span class="pre">CORP_MAP</span></code>.</p>
+</div>
+<p><strong>No search ID.</strong> <code class="docutils literal notranslate"><span class="pre">search_id</span></code> is empty, so no <code class="docutils literal notranslate"><span class="pre">search_progress_...</span></code>
+ID is used.</p>
+<p><strong>Query.</strong> Because <code class="docutils literal notranslate"><span class="pre">search_field</span></code> is <code class="docutils literal notranslate"><span class="pre">lemmas</span></code>, <code class="docutils literal notranslate"><span class="pre">advanced_query_index</span></code>
+behaves differently:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fuzziness</span></code> is forced to <code class="docutils literal notranslate"><span class="pre">'0'</span></code>.</p></li>
+<li><p>The u/v, i/j and w/uu normalisation applied to <code class="docutils literal notranslate"><span class="pre">text</span></code> searches is
+skipped.</p></li>
+<li><p>If the searched lemma is a key of <code class="docutils literal notranslate"><span class="pre">nemo_app.lem_to_lem_mapping</span></code>,
+each related lemma is added as an extra clause (see example 3 and
+<a class="reference internal" href="search-function-lem-to-lem.html#lem-to-lem"><span class="std std-ref">Lemma mapping files</span></a>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">lemmas</span></code> field is added to the highlighted fields.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> are meant to be rejected with a flash message and an
+empty result, unless <code class="docutils literal notranslate"><span class="pre">regex_search</span></code> is <code class="docutils literal notranslate"><span class="pre">'True'</span></code>.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The wildcard rejection only works if <code class="docutils literal notranslate"><span class="pre">regex_search</span></code> is the string
+<code class="docutils literal notranslate"><span class="pre">'False'</span></code>. <code class="docutils literal notranslate"><span class="pre">build_search_args</span></code> sets that string only when a
+<code class="docutils literal notranslate"><span class="pre">regex_search</span></code> parameter is present in the request. Otherwise
+<code class="docutils literal notranslate"><span class="pre">r_results</span></code> uses the boolean <code class="docutils literal notranslate"><span class="pre">False</span></code>, the comparison fails, and
+wildcards on <code class="docutils literal notranslate"><span class="pre">lemmas</span></code> are processed as ordinary wildcard (regexp)
+queries instead of being rejected.
+[TO BE VERIFIED: test with <code class="docutils literal notranslate"><span class="pre">q=advoc*&amp;lemma_search=True</span></code>.]</p>
+</div>
+<p><strong>Lemma lookup (step 6)</strong> is skipped for queries on <code class="docutils literal notranslate"><span class="pre">lemmas</span></code>, so
+<code class="docutils literal notranslate"><span class="pre">searched_lems</span></code> stays empty and <code class="docutils literal notranslate"><span class="pre">max_cols</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>. The template
+therefore shows no inflected-form-to-lemma columns.</p>
+<p><strong>Highlighting.</strong> For every search that has a query,
+<code class="docutils literal notranslate"><span class="pre">lem_highlight_to_text</span></code> combines the highlighted fields and returns
+the text the user sees. For lemma searches, the highlights in <code class="docutils literal notranslate"><span class="pre">lemmas</span></code>
+are transferred to the text this way.</p>
+</section>
+</section>
+<section id="example-3-a-result-that-does-not-contain-the-searched-word">
+<h3>Example 3: a result that does not contain the searched word<a class="headerlink" href="#example-3-a-result-that-does-not-contain-the-searched-word" title="Link to this heading"></a></h3>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>https://werkstatt.formulae.uni-hamburg.de/search/results
+    ?source=simple
+    &amp;corpus=formulae%2Bchartae
+    &amp;sort=urn
+    &amp;q=vicarius
+    &amp;lemma_search=True
+</pre></div>
+</div>
+<p>This URL is built like example 2 (see there for the parameters), only
+with <code class="docutils literal notranslate"><span class="pre">q=vicarius</span></code>. It illustrates a case that can look like an error:
+the results include <strong>Bourges C 13</strong>
+(<code class="docutils literal notranslate"><span class="pre">urn:cts:formulae:bourges.form_c_013.lat001</span></code>), although the text
+never contains the word <code class="docutils literal notranslate"><span class="pre">vicarius</span></code>.</p>
+<section id="what-the-indexed-document-contains">
+<h4>What the indexed document contains<a class="headerlink" href="#what-the-indexed-document-contains" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Contains <code class="docutils literal notranslate"><span class="pre">vicarius</span></code>?</p></th>
+<th class="head"><p>Relevant content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lemmatized</span></code> (searched field <code class="docutils literal notranslate"><span class="pre">lemmas</span></code>)</p></td>
+<td><p>no</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">vicaria</span></code> three times (<code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">vicaria</span> <span class="pre">ille_platzhalter</span></code>, …)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inflected</span></code> (field <code class="docutils literal notranslate"><span class="pre">text</span></code>)</p></td>
+<td><p>no</p></td>
+<td><p>the spellings <code class="docutils literal notranslate"><span class="pre">vigarias</span></code> and <code class="docutils literal notranslate"><span class="pre">vigaria</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">regest</span></code></p></td>
+<td><p>no</p></td>
+<td><p>“Hochzeitsgabe verschiedener Güter …”</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="why-the-text-is-still-found">
+<h4>Why the text is still found<a class="headerlink" href="#why-the-text-is-still-found" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">build_search_args</span></code> turns <code class="docutils literal notranslate"><span class="pre">q</span></code> and <code class="docutils literal notranslate"><span class="pre">lemma_search=True</span></code> into
+<code class="docutils literal notranslate"><span class="pre">q_1=vicarius</span></code> and <code class="docutils literal notranslate"><span class="pre">search_field_1=lemmas</span></code> (see step 3).</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">advanced_query_index</span></code>, the searched term is looked up in
+<code class="docutils literal notranslate"><span class="pre">nemo_app.lem_to_lem_mapping</span></code>, which is loaded from
+<code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code> (see <a class="reference internal" href="search-function-lem-to-lem.html#lem-to-lem"><span class="std std-ref">Lemma mapping files</span></a>). For <code class="docutils literal notranslate"><span class="pre">vicarius</span></code> the
+file contains:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">"vicarius"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">"vigerius"</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">"vicaria"</span>
+<span class="p">],</span>
+</pre></div>
+</div>
+</li>
+<li><p>One exact-match clause is created for <code class="docutils literal notranslate"><span class="pre">vicarius</span></code> itself and one
+for each related lemma, that is <code class="docutils literal notranslate"><span class="pre">vigerius</span></code> and <code class="docutils literal notranslate"><span class="pre">vicaria</span></code>. A text
+matches if it contains any of them. Because <code class="docutils literal notranslate"><span class="pre">fuzziness</span></code> is forced
+to <code class="docutils literal notranslate"><span class="pre">0</span></code> for lemma searches, each clause is an exact match.</p></li>
+<li><p>Bourges C 13 contains <code class="docutils literal notranslate"><span class="pre">vicaria</span></code> in its <code class="docutils literal notranslate"><span class="pre">lemmas</span></code> field, so it
+matches the third clause.</p></li>
+</ol>
+<p>The mapping is applied to the searched term only, and only if that term
+is a key of <code class="docutils literal notranslate"><span class="pre">lem_to_lem_mapping</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">regest</span></code> clause that is added for <code class="docutils literal notranslate"><span class="pre">source=simple</span></code> is not the
+reason for this hit. It uses the searched word as typed and does not
+apply the mapping, and the regest of Bourges C 13 does not contain
+<code class="docutils literal notranslate"><span class="pre">vicarius</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The mapping is directional by design (see <a class="reference internal" href="search-function-lem-to-lem.html#lem-to-lem"><span class="std std-ref">Lemma mapping files</span></a>). Its
+keys are variant lemmas, and its values are the primary lemmas that
+the annotators chose for the texts. <code class="docutils literal notranslate"><span class="pre">vicaria</span></code> is a primary lemma
+and has no key of its own in <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code>. A search for
+<code class="docutils literal notranslate"><span class="pre">vicaria</span></code> therefore finds only texts whose <code class="docutils literal notranslate"><span class="pre">lemmas</span></code> field
+contains <code class="docutils literal notranslate"><span class="pre">vicaria</span></code>, whereas a search for <code class="docutils literal notranslate"><span class="pre">vicarius</span></code> finds texts
+containing <code class="docutils literal notranslate"><span class="pre">vicarius</span></code>, <code class="docutils literal notranslate"><span class="pre">vigerius</span></code> or <code class="docutils literal notranslate"><span class="pre">vicaria</span></code>. The results
+depend on which variant the user types.</p>
+</div>
+</section>
+<section id="what-the-user-sees">
+<h4>What the user sees<a class="headerlink" href="#what-the-user-sees" title="Link to this heading"></a></h4>
+<p>The highlights are made in <code class="docutils literal notranslate"><span class="pre">lemmas</span></code>, and <code class="docutils literal notranslate"><span class="pre">lem_highlight_to_text</span></code>
+transfers them to the inflected text. The user should therefore see the
+spellings <code class="docutils literal notranslate"><span class="pre">vigarias</span></code> and <code class="docutils literal notranslate"><span class="pre">vigaria</span></code> highlighted, even though neither
+looks like <code class="docutils literal notranslate"><span class="pre">vicarius</span></code>. [TO BE VERIFIED in the result page.]</p>
+</section>
+<section id="finding-out-why-a-text-was-returned">
+<h4>Finding out why a text was returned<a class="headerlink" href="#finding-out-why-a-text-was-returned" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Open the text’s Elasticsearch document and check the field that was
+searched (<code class="docutils literal notranslate"><span class="pre">lemmas</span></code> for a lemma search, <code class="docutils literal notranslate"><span class="pre">text</span></code> otherwise).</p></li>
+<li><p>Look up the searched term in <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code>. Every lemma
+listed there is searched as well.</p></li>
+<li><p>To find the annotation behind an entry, search the Pyrrha TSV files
+for the variant, for example
+<code class="docutils literal notranslate"><span class="pre">grep</span> <span class="pre">-i</span> <span class="pre">vicarius</span> <span class="pre">~/git/Lemmatization/pyrrha_output/*.tsv</span></code>.</p></li>
+<li><p>If the cause is still unclear, inspect the request bodies built in
+<code class="docutils literal notranslate"><span class="pre">advanced_query_index</span></code> (the list <code class="docutils literal notranslate"><span class="pre">searched_templates</span></code>) and the
+<code class="docutils literal notranslate"><span class="pre">highlight</span></code> part of the hit.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="lemma-mapping-lem-to-lem-json">
+<span id="lem-to-lem"></span><h2>Lemma mapping: <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code><a class="headerlink" href="#lemma-mapping-lem-to-lem-json" title="Link to this heading"></a></h2>
+<section id="purpose">
+<h3>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code> is loaded as <code class="docutils literal notranslate"><span class="pre">nemo_app.lem_to_lem_mapping</span></code>
+[TO BE COMPLETED: where and when it is loaded].
+<code class="docutils literal notranslate"><span class="pre">advanced_query_index</span></code> uses it for lemma searches to add related
+lemmas to the query (see example 3). The file is generated from the
+Pyrrha lemmatisation output, so corrections belong in the annotated TSV
+files, after which the file is regenerated.</p>
+</section>
+<section id="structure">
+<h3>Structure<a class="headerlink" href="#structure" title="Link to this heading"></a></h3>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"vicarius"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"vigerius"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"vicaria"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Key:</strong> a variant lemma (lowercase) that is not the primary lemma of
+an annotation.</p></li>
+<li><p><strong>Value:</strong> a list of the primary lemmas that the key was annotated
+with.</p></li>
+<li><p>The keys are sorted alphabetically. The order of the values is
+arbitrary, because the script builds them from a <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p></li>
+<li><p>The primary lemma of an annotation does not get a key from that
+annotation. A lemma has a key only if it also occurs as a variant in
+some other annotation. This is why <code class="docutils literal notranslate"><span class="pre">vicaria</span></code> has no entry.</p></li>
+</ul>
+</section>
+<section id="how-the-file-is-created">
+<h3>How the file is created<a class="headerlink" href="#how-the-file-is-created" title="Link to this heading"></a></h3>
+<p>The script <code class="docutils literal notranslate"><span class="pre">create_lem_to_lem_json.py</span></code> (in
+<code class="docutils literal notranslate"><span class="pre">corpus_transformation_scripts/lemmatization</span></code>) reads the output files
+of Pyrrha. These are TSV files with the columns <code class="docutils literal notranslate"><span class="pre">form</span></code>, <code class="docutils literal notranslate"><span class="pre">lemma</span></code>,
+<code class="docutils literal notranslate"><span class="pre">POS</span></code> and <code class="docutils literal notranslate"><span class="pre">morph</span></code>. A line starting with <code class="docutils literal notranslate"><span class="pre">**</span></code> marks the start of a
+new text. For every other line the script:</p>
+<ol class="arabic simple">
+<li><p>lowercases the line and removes <code class="docutils literal notranslate"><span class="pre">$</span></code>,</p></li>
+<li><p>skips tokens that contain no word character (punctuation),</p></li>
+<li><p>splits the lemma column into a primary lemma and variants according
+to the notation below,</p></li>
+<li><p>adds <code class="docutils literal notranslate"><span class="pre">variant</span> <span class="pre">-&gt;</span> <span class="pre">primary</span> <span class="pre">lemma</span></code> to the mapping for every variant
+that differs from the primary lemma.</p></li>
+</ol>
+<section id="lemma-notation">
+<h4>Lemma notation<a class="headerlink" href="#lemma-notation" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 15.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Lemma column</p></th>
+<th class="head"><p>Primary lemma</p></th>
+<th class="head"><p>Entries added to <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a/b/c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a=b+c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a/b=c+d</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a-b+c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>The first lemma before <code class="docutils literal notranslate"><span class="pre">/</span></code> is always the primary lemma.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">=</span></code> rule is checked first. A lemma column that contains <code class="docutils literal notranslate"><span class="pre">-</span></code>
+but no <code class="docutils literal notranslate"><span class="pre">=</span></code> is read as <code class="docutils literal notranslate"><span class="pre">primary-components</span></code>.</p></li>
+<li><p>Components after <code class="docutils literal notranslate"><span class="pre">=</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> are separated by <code class="docutils literal notranslate"><span class="pre">+</span></code>, and each
+component may itself contain <code class="docutils literal notranslate"><span class="pre">/</span></code> alternatives.</p></li>
+<li><p>[TO BE COMPLETED by the lemmatisation team: the editorial meaning of
+<code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code> in the Pyrrha annotation.]</p></li>
+</ul>
+<p>Illustration (constructed lines, not taken from the corpus): the
+annotations <code class="docutils literal notranslate"><span class="pre">vicaria/vicarius</span></code> and <code class="docutils literal notranslate"><span class="pre">vigerius/vicarius</span></code> produce</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">"vicarius"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"vicaria"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vigerius"</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="running-the-script">
+<h3>Running the script<a class="headerlink" href="#running-the-script" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>~/git/scripts/corpus_transformation_scripts/lemmatization/create_lem_to_lem_json.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>~/git/Lemmatization/pyrrha_output/formeln-fsb.tsv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>~/git/Lemmatization/pyrrha_output
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 (required)</p></td>
+<td><p>Either a single <code class="docutils literal notranslate"><span class="pre">.tsv</span></code> file or a directory. For a file, only
+that file is read, the output prefix is the path without the
+extension and without <code class="docutils literal notranslate"><span class="pre">formeln-</span></code>, and the <code class="docutils literal notranslate"><span class="pre">results</span></code> folder
+is created next to it. For a directory, all <code class="docutils literal notranslate"><span class="pre">*.tsv</span></code> files in
+it are read, the prefix is <code class="docutils literal notranslate"><span class="pre">&lt;directory&gt;/all_files</span></code> and
+<code class="docutils literal notranslate"><span class="pre">results</span></code> is created inside it.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2 (optional)</p></td>
+<td><p>Destination folder for the main output files. If it is omitted,
+the files are written next to the input.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>With the command above only <code class="docutils literal notranslate"><span class="pre">formeln-fsb.tsv</span></code> is read, so
+<code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code> contains only the mappings of that file. To
+cover all corpora, pass the directory as the first argument.
+[TO BE VERIFIED: which input is intended for the production file.]</p>
+</div>
+<section id="output-files">
+<h4>Output files<a class="headerlink" href="#output-files" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 25.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Location</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code></p></td>
+<td><p>destination folder</p></td>
+<td><p>variant lemma to list of primary lemmas (this section). Without a
+destination folder: <code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_lem_to_lem_mapping.json</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code></p></td>
+<td><p>destination folder</p></td>
+<td><p>inflected form to the full lemma annotations as written in
+Pyrrha. Despite its name, this is <em>not</em> the primary-lemma
+mapping. Without a destination folder:
+<code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_inflected_to_full_lem_mapping.json</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lemma_list.json</span></code></p></td>
+<td><p>destination folder</p></td>
+<td><p>sorted list of all lemmas, without entries containing <code class="docutils literal notranslate"><span class="pre">!</span></code> or
+<code class="docutils literal notranslate"><span class="pre">?</span></code> and without the German placeholder lemmas
+(<code class="docutils literal notranslate"><span class="pre">personenname</span></code>, <code class="docutils literal notranslate"><span class="pre">ortsname</span></code>, <code class="docutils literal notranslate"><span class="pre">volksstamm</span></code>, <code class="docutils literal notranslate"><span class="pre">monatsname</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tagesbezeichnung</span></code>, <code class="docutils literal notranslate"><span class="pre">platzhalter</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_inflected_to_lem_mapping.json</span></code></p></td>
+<td><p>next to the input</p></td>
+<td><p>inflected form to list of primary lemmas.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_inflected_to_full_lem_mapping_formulae.json</span></code> and
+<code class="docutils literal notranslate"><span class="pre">..._charters.json</span></code></p></td>
+<td><p>next to the input</p></td>
+<td><p>as <code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code>, split by whether the path of the
+TSV file contains <code class="docutils literal notranslate"><span class="pre">formeln</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Formulae+Urkunden.csv</span></code></p></td>
+<td><p>destination folder (current directory if none is given)</p></td>
+<td><p>all lines of the input files in one file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">results/&lt;text&gt;.txt</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">results</span></code> folder</p></td>
+<td><p>one file per text with the columns inflected form, primary lemma
+and display lemma.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[TO BE VERIFIED: which of these files the application loads as
+<code class="docutils literal notranslate"><span class="pre">inflected_to_lemma_mapping</span></code> (step 6). The file named
+<code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code> contains the full annotations, not the
+primary lemmas.]</p>
+</section>
+</section>
+<section id="effect-on-the-search">
+<h3>Effect on the search<a class="headerlink" href="#effect-on-the-search" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The mapping is applied when a query is built, not when texts are
+indexed. A new <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code> therefore changes the results
+without a re-index, as soon as the application has loaded it.
+[TO BE COMPLETED: reload or restart procedure.]</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">lemmatized</span></code> field in the index is not produced by this script.
+If the primary lemma of a token is changed in the annotations, the
+texts have to be exported and indexed again (see
+<code class="docutils literal notranslate"><span class="pre">rebuild_elasticsearch_from_xml.py</span></code>).</p></li>
+<li><p>Searching for a variant finds texts with the variant itself and with
+all its primary lemmas. Searching for a primary lemma finds only that
+lemma.</p></li>
+</ul>
+</section>
+</section>
+<section id="lemma-mapping-files">
+<span id="id1"></span><h2>Lemma mapping files<a class="headerlink" href="#lemma-mapping-files" title="Link to this heading"></a></h2>
+<p>Three JSON files are generated from the lemmatised corpus. They are
+produced together by one script from the output of Pyrrha, the tool
+used for lemmatisation:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 30.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Maps</p></th>
+<th class="head"><p>Used for</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code></p></td>
+<td><p>variant lemma to a list of primary lemmas</p></td>
+<td><p>extra clauses in lemma searches (<code class="docutils literal notranslate"><span class="pre">advanced_query_index</span></code>, see
+example 3)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code></p></td>
+<td><p>inflected form to a list of lemmas</p></td>
+<td><p>the lemma columns on the result page after a text search
+(<code class="docutils literal notranslate"><span class="pre">inflected_to_lemma_mapping</span></code>, step 6)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lemma_list.json</span></code></p></td>
+<td><p>sorted list of all lemmas</p></td>
+<td><p>[TO BE VERIFIED: where the application uses it, for example
+for suggestions in the search form]</p></td>
+</tr>
+</tbody>
+</table>
+<p>The files do not change the content of the Elasticsearch index. The
+<code class="docutils literal notranslate"><span class="pre">lemmatized</span></code> field of each text is produced elsewhere. Changing a
+mapping therefore changes which lemmas are <em>searched</em> or <em>displayed</em>,
+but not which lemmas a text <em>has</em>.</p>
+<section id="source-data-the-pyrrha-output">
+<h3>Source data: the Pyrrha output<a class="headerlink" href="#source-data-the-pyrrha-output" title="Link to this heading"></a></h3>
+<p>The script reads TSV files exported from Pyrrha. Each file has the
+columns <code class="docutils literal notranslate"><span class="pre">form</span></code>, <code class="docutils literal notranslate"><span class="pre">lemma</span></code>, <code class="docutils literal notranslate"><span class="pre">POS</span></code> and <code class="docutils literal notranslate"><span class="pre">morph</span></code>.</p>
+<ul class="simple">
+<li><p>The first line of every file (the header) is skipped.</p></li>
+<li><p>A line that starts with <code class="docutils literal notranslate"><span class="pre">**</span></code> marks the start of a new text. The name
+after the asterisks is used for the per-text files in <code class="docutils literal notranslate"><span class="pre">results/</span></code>.</p></li>
+<li><p>Every other line is one token with its annotation.</p></li>
+</ul>
+<section id="id2">
+<h4>Lemma notation<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">lemma</span></code> column can contain more than one lemma. The script splits
+it into a <strong>primary lemma</strong> and <strong>variant lemmas</strong>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 15.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Lemma column</p></th>
+<th class="head"><p>Primary lemma</p></th>
+<th class="head"><p>Entries added to <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p>none</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a/b/c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a=b+c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">a/b=c+d</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">a-b+c</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">-&gt;</span> <span class="pre">a</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>The first lemma before a <code class="docutils literal notranslate"><span class="pre">/</span></code> is always the primary lemma.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">=</span></code> rule is checked first. A lemma column that contains <code class="docutils literal notranslate"><span class="pre">-</span></code>
+but no <code class="docutils literal notranslate"><span class="pre">=</span></code> is read as <code class="docutils literal notranslate"><span class="pre">primary-components</span></code>. Any lemma containing
+a hyphen is therefore split at the hyphen.</p></li>
+<li><p>Components after <code class="docutils literal notranslate"><span class="pre">=</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code> are separated by <code class="docutils literal notranslate"><span class="pre">+</span></code>. Each
+component may itself contain <code class="docutils literal notranslate"><span class="pre">/</span></code> alternatives, and all of them
+become variants of the primary lemma.</p></li>
+<li><p>A lemma that equals the primary lemma never gets an entry.</p></li>
+<li><p>[TO BE COMPLETED by the lemmatisation team: the editorial meaning of
+<code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code> in the Pyrrha annotation.]</p></li>
+</ul>
+<p>Before parsing, each line is lowercased and <code class="docutils literal notranslate"><span class="pre">$</span></code> is removed. Tokens
+without any word character (punctuation) are skipped.</p>
+<p>Illustration (constructed lines, not taken from the corpus): the
+annotations <code class="docutils literal notranslate"><span class="pre">vicaria/vicarius</span></code> and <code class="docutils literal notranslate"><span class="pre">vigerius/vicarius</span></code> produce</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">"vicarius"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"vicaria"</span><span class="p">,</span><span class="w"> </span><span class="s2">"vigerius"</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id3">
+<h3>Running the script<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>~/git/scripts/corpus_transformation_scripts/lemmatization/create_lem_to_lem_json.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>~/git/Lemmatization/pyrrha_output/formeln-fsb.tsv<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>~/git/Lemmatization/pyrrha_output
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1 (required)</p></td>
+<td><p>Either a single <code class="docutils literal notranslate"><span class="pre">.tsv</span></code> file or a directory. For a file, only
+that file is read, the output prefix is the path without the
+extension and without <code class="docutils literal notranslate"><span class="pre">formeln-</span></code> (here
+<code class="docutils literal notranslate"><span class="pre">.../pyrrha_output/fsb</span></code>), and the <code class="docutils literal notranslate"><span class="pre">results</span></code> folder is created
+next to it. For a directory, all <code class="docutils literal notranslate"><span class="pre">*.tsv</span></code> files in it are read,
+the prefix is <code class="docutils literal notranslate"><span class="pre">&lt;directory&gt;/all_files</span></code> and <code class="docutils literal notranslate"><span class="pre">results</span></code> is
+created inside it.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2 (optional)</p></td>
+<td><p>Destination folder for the three main files (<code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code>,
+<code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code>, <code class="docutils literal notranslate"><span class="pre">lemma_list.json</span></code>) and for
+<code class="docutils literal notranslate"><span class="pre">Formulae+Urkunden.csv</span></code>. If it is omitted, the main files are
+written next to the input under the names in the table below.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>With the command above only <code class="docutils literal notranslate"><span class="pre">formeln-fsb.tsv</span></code> is read, so the
+generated files contain only the data of that file. To cover all
+corpora, pass the directory as the first argument.
+[TO BE VERIFIED: which input is intended for the production files.]</p>
+</div>
+<section id="what-the-script-does">
+<h4>What the script does<a class="headerlink" href="#what-the-script-does" title="Link to this heading"></a></h4>
+<p>For every token line the script:</p>
+<ol class="arabic simple">
+<li><p>keeps the original lemma column (case and <code class="docutils literal notranslate"><span class="pre">$</span></code> unchanged) as the
+<em>full lemma</em>,</p></li>
+<li><p>lowercases the line, removes <code class="docutils literal notranslate"><span class="pre">$</span></code> and skips punctuation,</p></li>
+<li><p>determines the primary lemma and the variants (see the notation
+above),</p></li>
+<li><p>adds <code class="docutils literal notranslate"><span class="pre">variant</span> <span class="pre">-&gt;</span> <span class="pre">primary</span> <span class="pre">lemma</span></code> to <code class="docutils literal notranslate"><span class="pre">lem_to_lem_mapping</span></code>,</p></li>
+<li><p>adds <code class="docutils literal notranslate"><span class="pre">inflected</span> <span class="pre">form</span> <span class="pre">-&gt;</span> <span class="pre">primary</span> <span class="pre">lemma</span></code> to
+<code class="docutils literal notranslate"><span class="pre">inflected_to_lem_mapping</span></code>,</p></li>
+<li><p>adds <code class="docutils literal notranslate"><span class="pre">inflected</span> <span class="pre">form</span> <span class="pre">-&gt;</span> <span class="pre">full</span> <span class="pre">lemma</span></code> to
+<code class="docutils literal notranslate"><span class="pre">inflected_to_full_lem_mapping</span></code>, and to the formulae or charters
+variant of it, depending on whether the path of the TSV file
+contains <code class="docutils literal notranslate"><span class="pre">formeln</span></code>,</p></li>
+<li><p>adds the lemmas to the set <code class="docutils literal notranslate"><span class="pre">all_lems</span></code>, except those that contain
+<code class="docutils literal notranslate"><span class="pre">!</span></code> or <code class="docutils literal notranslate"><span class="pre">?</span></code> and the German placeholder lemmas
+(<code class="docutils literal notranslate"><span class="pre">personenname</span></code>, <code class="docutils literal notranslate"><span class="pre">ortsname</span></code>, <code class="docutils literal notranslate"><span class="pre">volksstamm</span></code>, <code class="docutils literal notranslate"><span class="pre">monatsname</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tagesbezeichnung</span></code>, <code class="docutils literal notranslate"><span class="pre">platzhalter</span></code>).</p></li>
+</ol>
+<p>At the end all sets are converted to lists and written as JSON with
+sorted keys, tab indentation and unescaped non-ASCII characters. Only
+the keys are sorted. The order inside the lists comes from sets and is
+therefore arbitrary and can change between runs.</p>
+</section>
+<section id="id4">
+<h4>Output files<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 24.0%" />
+<col style="width: 24.0%" />
+<col style="width: 52.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File (with destination folder)</p></th>
+<th class="head"><p>File (without destination folder)</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_lem_to_lem_mapping.json</span></code></p></td>
+<td><p>variant lemma to list of primary lemmas</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_inflected_to_full_lem_mapping.json</span></code></p></td>
+<td><p>inflected form to the full lemma annotations as written in
+Pyrrha (see below)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lemma_list.json</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_lemma_list.json</span></code></p></td>
+<td><p>sorted list of all lemmas</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_inflected_to_lem_mapping.json</span></code></p></td>
+<td><p>the same</p></td>
+<td><p>inflected form to list of primary lemmas. Always written next to
+the input, never to the destination folder.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_inflected_to_full_lem_mapping_formulae.json</span></code> and
+<code class="docutils literal notranslate"><span class="pre">..._charters.json</span></code></p></td>
+<td><p>the same</p></td>
+<td><p>as the full-lemma mapping, split by whether the path of the TSV
+file contains <code class="docutils literal notranslate"><span class="pre">formeln</span></code>. Always written next to the input.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Formulae+Urkunden.csv</span></code></p></td>
+<td><p>same name, in the current directory</p></td>
+<td><p>all lines of the input files in one file</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">results/&lt;text&gt;.txt</span></code></p></td>
+<td><p>the same</p></td>
+<td><p>one file per text with the columns inflected form, primary lemma
+and display lemma</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The names of the outputs are easy to confuse. The file called
+<code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code> contains the <strong>full</strong> annotations. The
+mapping to the <strong>primary</strong> lemmas is <code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_inflected_to_lem_mapping.json</span></code>.
+[TO BE VERIFIED: the <code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code> used by the application
+(<code class="docutils literal notranslate"><span class="pre">formulae-corpora/inflected_to_lem.json</span></code>) should be checked for
+values containing <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code>. If there are none, it holds
+primary lemmas or was generated by a different version of the
+script, and this table must be corrected.]</p>
+</div>
+</section>
+</section>
+<section id="the-three-files-in-detail">
+<h3>The three files in detail<a class="headerlink" href="#the-three-files-in-detail" title="Link to this heading"></a></h3>
+<section id="lem-to-lem-json">
+<h4><code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code><a class="headerlink" href="#lem-to-lem-json" title="Link to this heading"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"vicarius"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"vigerius"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"vicaria"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Key:</strong> a variant lemma (lowercase).</p></li>
+<li><p><strong>Value:</strong> the primary lemmas that this variant was annotated with.</p></li>
+<li><p><strong>Direction:</strong> the mapping goes from variant to primary lemma only.
+A primary lemma has a key only if it also occurs as a variant in
+another annotation. <code class="docutils literal notranslate"><span class="pre">vicaria</span></code> is a primary lemma and has no key, so
+a lemma search for <code class="docutils literal notranslate"><span class="pre">vicaria</span></code> finds only <code class="docutils literal notranslate"><span class="pre">vicaria</span></code>, whereas a
+search for <code class="docutils literal notranslate"><span class="pre">vicarius</span></code> finds <code class="docutils literal notranslate"><span class="pre">vicarius</span></code>, <code class="docutils literal notranslate"><span class="pre">vigerius</span></code> and
+<code class="docutils literal notranslate"><span class="pre">vicaria</span></code>.</p></li>
+<li><p><strong>No filtering:</strong> the <code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code> and placeholder filters of
+<code class="docutils literal notranslate"><span class="pre">lemma_list.json</span></code> do not apply, so such lemmas can appear here.</p></li>
+</ul>
+<p><em>Use in the search.</em> <code class="docutils literal notranslate"><span class="pre">nemo_app.lem_to_lem_mapping</span></code> is read in
+<code class="docutils literal notranslate"><span class="pre">advanced_query_index</span></code>:</p>
+<ul class="simple">
+<li><p>For a lemma search, the searched term is looked up. If it is a key,
+one exact-match clause is added for the term and one for each listed
+lemma (see example 3).</p></li>
+<li><p>For a proper-name search, <code class="docutils literal notranslate"><span class="pre">lem_to_lem_mapping[term]</span></code> is read
+without a default, so a name that is not a key may raise a
+<code class="docutils literal notranslate"><span class="pre">KeyError</span></code>. [TO BE VERIFIED: depends on how the mapping is loaded.]</p></li>
+</ul>
+<p>[TO BE COMPLETED: where and when <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code> is loaded, and
+whether a new version needs a restart of the application.]</p>
+</section>
+<section id="inflected-to-lem-json">
+<h4><code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code><a class="headerlink" href="#inflected-to-lem-json" title="Link to this heading"></a></h4>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"vicaria"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">"vicarius"</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">"vicaria"</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>Key:</strong> an inflected form as it occurs in the tokens (lowercase).</p></li>
+<li><p><strong>Value:</strong> the lemma annotations that this form received in the
+Pyrrha files. According to the script, these are the <em>full</em> lemma
+columns, taken before lowercasing and before <code class="docutils literal notranslate"><span class="pre">$</span></code> is removed.</p></li>
+<li><p>The example says that the form <code class="docutils literal notranslate"><span class="pre">vicaria</span></code> was annotated as
+<code class="docutils literal notranslate"><span class="pre">vicarius</span></code> in some places and as <code class="docutils literal notranslate"><span class="pre">vicaria</span></code> in others. This
+inconsistency is probably why <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code> contains
+<code class="docutils literal notranslate"><span class="pre">vicarius</span> <span class="pre">-&gt;</span> <span class="pre">vicaria</span></code>.</p></li>
+</ul>
+<p><em>Loading.</em> <code class="docutils literal notranslate"><span class="pre">make_inflected_to_lem_mapping</span></code> reads every file listed in
+the configuration setting <code class="docutils literal notranslate"><span class="pre">INFLECTED_LEM_JSONS</span></code> (currently
+<code class="docutils literal notranslate"><span class="pre">.../inflected_to_lem.json</span></code>) and merges them into one dictionary
+<code class="docutils literal notranslate"><span class="pre">inflected_to_lemma_mapping</span></code>. For a form that occurs in several
+files, the lemma lists are combined as a set, which removes duplicates
+and loses the order. An invalid JSON file is skipped with a logged
+warning. A missing file raises <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code>.</p>
+<p><em>Use in the search.</em> In <code class="docutils literal notranslate"><span class="pre">r_results</span></code> (step 6), each token of a text
+search is looked up in this mapping to fill the lemma columns of the
+result page. The mapping does <strong>not</strong> change which texts are found. The
+lookup uses the typed token as the key, which works because <code class="docutils literal notranslate"><span class="pre">q_1</span></code> is
+lowercased earlier.</p>
+</section>
+<section id="lemma-list-json">
+<h4><code class="docutils literal notranslate"><span class="pre">lemma_list.json</span></code><a class="headerlink" href="#lemma-list-json" title="Link to this heading"></a></h4>
+<p>A sorted JSON list of all lemmas found in the input: all primary lemmas
+and all variant lemmas.</p>
+<ul class="simple">
+<li><p>Lemmas containing <code class="docutils literal notranslate"><span class="pre">!</span></code> or <code class="docutils literal notranslate"><span class="pre">?</span></code> are left out.</p></li>
+<li><p>The German placeholder lemmas are left out (see above).</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">a-b+c</span></code> notation the primary lemma <code class="docutils literal notranslate"><span class="pre">a</span></code> is not added by
+itself. It appears in the list only if it occurs elsewhere.</p></li>
+</ul>
+<p>[TO BE VERIFIED: where the application reads <code class="docutils literal notranslate"><span class="pre">lemma_list.json</span></code>.]</p>
+</section>
+</section>
+<section id="updating-the-files">
+<h3>Updating the files<a class="headerlink" href="#updating-the-files" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Correct the annotations in the Pyrrha output (the TSV files). Do not
+edit the generated JSON files by hand, because the next run
+overwrites them.</p></li>
+<li><p>Run the script (see above) and write the files to the destination
+folder.</p></li>
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code>, <code class="docutils literal notranslate"><span class="pre">inflected_to_lem.json</span></code> and
+<code class="docutils literal notranslate"><span class="pre">lemma_list.json</span></code> to the place the application reads them from
+(<code class="docutils literal notranslate"><span class="pre">formulae-corpora</span></code>). [TO BE VERIFIED: copy procedure and whether
+the application must be restarted.]</p></li>
+<li><p>If the <em>primary</em> lemma of a token changed, the texts must be
+exported and indexed again, because the <code class="docutils literal notranslate"><span class="pre">lemmatized</span></code> field in
+Elasticsearch is not produced by this script (see
+<code class="docutils literal notranslate"><span class="pre">rebuild_elasticsearch_from_xml.py</span></code>).</p></li>
+</ol>
+</section>
+<section id="finding-the-annotation-behind-an-entry">
+<h3>Finding the annotation behind an entry<a class="headerlink" href="#finding-the-annotation-behind-an-entry" title="Link to this heading"></a></h3>
+<p>To see why <code class="docutils literal notranslate"><span class="pre">lem_to_lem.json</span></code> contains an entry, search the Pyrrha
+files for the variant:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep<span class="w"> </span>-i<span class="w"> </span>vicarius<span class="w"> </span>~/git/Lemmatization/pyrrha_output/*.tsv
+</pre></div>
+</div>
+<p>The matching lines show the annotation (<code class="docutils literal notranslate"><span class="pre">lemma</span></code> column) that created
+the entry, for example a primary lemma followed by <code class="docutils literal notranslate"><span class="pre">/vicarius</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="environment-modes.html" class="btn btn-neutral float-left" title="Application modes and the SERVER_TYPE switch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Matthew Munson, Thorben Schomacker.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
