@@ -27,4 +27,5 @@ formulae-capitains-nemo documentation
    internationalization
    mail-configuration
    environment-modes
+   search-function
    
