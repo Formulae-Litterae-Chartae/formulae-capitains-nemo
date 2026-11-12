@@ -14,6 +14,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     project_team = db.Column(db.Boolean, index=True, default=False)
+    is_admin = db.Column(db.Boolean, index=True, default=False)
     default_locale = db.Column(db.String(32), index=True, default="de")
     pages = db.relationship('SavedPage', backref='author', lazy='dynamic')
 
@@ -34,6 +35,17 @@ class User(UserMixin, db.Model):
         return jwt.encode({'user_id': self.id, 'old_email': self.email, 'new_email': new_email,
                            'exp': time() + expires_in},
                           current_app.config['SECRET_KEY'], algorithm='HS256')
+    
+
+
+    def can_access_admin(self) -> bool:
+        """
+        Central helper for admin access checks.
+
+        Flask-Admin will use current_user.is_admin directly or this helper.
+        Keeping this method is optional, but it makes the meaning explicit.
+        """
+        return bool(self.is_admin)
 
     @staticmethod
     def verify_reset_email_token(token: str) -> Tuple['User', str, str]:

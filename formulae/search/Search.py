@@ -74,6 +74,8 @@ corpus_agg = {'filters': {'filters': {'<b>Angers</b>: Angers': {'match': {'colle
                                       '<b>Salzburg</b>: Salzburg': {'match': {'collection': 'form_lit_chart-salzburg'}},
                                       '<b>Schäftlarn</b>: Schäftlarn': {'match': {'collection': 'form_lit_chart-schaeftlarn'}},
                                       '<b>Sens</b>: Sens': {'match': {'collection': 'form_lit_chart-sens'}},
+                                      '<b>FSB</b>: Formulae Salicae Bignonianae': {'match': {'collection': 'form_lit_chart-fsb'}},
+                                      '<b>FSM</b>: Formulae Salicae Merkelianae': {'match': {'collection': 'form_lit_chart-fsm'}},
                                       '<b>Stavelot/Malmedy</b>: Stavelot-Malmedy': {'match': {'collection': 'form_lit_chart-stavelot_malmedy'}},
                                       '<b>St. Gallen</b>: St. Gallen': {'match': {'collection': 'form_lit_chart-stgallen'}},
                                       "<b>Touraine</b>: Accensement d'une vigne de Marmoutier": {'match': {'collection': 'form_lit_chart-marmoutier_barthelemy'}},

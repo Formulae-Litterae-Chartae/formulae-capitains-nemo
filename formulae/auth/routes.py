@@ -16,21 +16,43 @@ def r_login():
 
     :return: template, page title, forms
     """
+    # used for a return button after login
+    next_page = request.args.get('next')
+
     if current_user.is_authenticated:
         flash(_('Sie sind schon eingeloggt.'))
+        
+        if next_page and url_parse(next_page).netloc == '':
+            return redirect(next_page)
+
         return redirect(url_for('auth.r_user'))
+    
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash(_('Benutzername oder Passwort ist ungültig'))
-            return redirect(url_for('auth.r_login'))
+            return redirect(
+                url_for('auth.r_login', next=next_page)
+                if next_page
+                else url_for('auth.r_login')
+            )
         login_user(user, remember=form.remember_me.data)
-        next_page = request.args.get('next')
+        current_app.logger.debug(
+            "LOGIN: login successful for username=%s***; next=%s; next_netloc=%s",
+            form.username.data[0],
+            next_page,
+            url_parse(next_page).netloc if next_page else None,
+        )
         if not next_page or url_parse(next_page).netloc != '':
             return redirect(url_for('auth.r_user'))
         return redirect(next_page)
-    return current_app.config['nemo_app'].render(template='auth::login.html', title=_('Einloggen'), forms=[form], purpose='login', url=dict())
+    return current_app.config['nemo_app'].render(template='auth::login.html', 
+                                                 title=_('Einloggen'), 
+                                                 forms=[form], 
+                                                 purpose='login', 
+                                                 next_page=next_page,
+                                                 url=dict())
 
 
 @bp.route('/logout')

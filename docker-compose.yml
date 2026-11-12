@@ -1,0 +1,93 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.18.2
+    container_name: es8
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      # Run as a single-node cluster (suitable for local development)
+      - discovery.type=single-node
+
+      # Disable security for local development (no authentication required)
+      - xpack.security.enabled=false
+      - xpack.security.http.ssl.enabled=false
+      # Limit JVM memory usage to avoid excessive RAM consumption
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+      # Disable disk watermark checks (useful on dev machines with limited disk space)
+      - cluster.routing.allocation.disk.threshold_enabled=false
+    # Persist Elasticsearch data across container restarts
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    networks:
+      - backend
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+
+    # Only available inside the Docker network
+    networks:
+      - backend
+  ##########################################################################
+  # Helper container responsible for managing the XML corpus repository.
+  #
+  # Responsibilities:
+  # - Clone the formulae-corpora repository into a persistent Docker volume
+  # - Update the repository when it already exists
+  # - Optionally rebuild Elasticsearch indices from the XML data
+  #
+  # This container is normally executed manually:
+  #
+  #   docker compose run --rm formulae_corpora
+  #
+  # It is therefore placed in the "init" profile.
+  formulae_corpora:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.corpora
+     # Only started when explicitly requested
+    profiles: ["init"]
+    environment:
+      - FORMULAE_CORPORA_REPO_URL=${FORMULAE_CORPORA_REPO_URL}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+      # Optional branch/tag/commit to checkout
+      - FORMULAE_CORPORA_REF=${FORMULAE_CORPORA_REF:-}
+      - ELASTICSEARCH_URL=http://localhost:9200
+      - ELASTICSEARCH_VERSION=8.18.2
+      # If true, rebuild Elasticsearch indices after updating the corpus
+      - REBUILD_ELASTICSEARCH=${REBUILD_ELASTICSEARCH:-false}
+    volumes:
+      - formulae_corpora_data:/data
+      - ./docker/clone_corpora.sh:/clone_corpora.sh:ro
+    entrypoint: ["/bin/sh", "/clone_corpora.sh"]
+
+    depends_on:
+      - elasticsearch
+      - redis
+    networks:
+      - backend
+
+  nemo:
+    build: .
+    env_file: ".docker-env"
+    environment:
+      - CORPUS_FOLDERS=/data
+      - PYTHONUNBUFFERED=1
+      - REDIS_URL=redis://redis:6379/0
+      # if you want to verify your es certificates:
+      # ELASTICSEARCH_VERIFY_CERTS = true
+    volumes:
+      - formulae_corpora_data:/data:ro
+    ports:
+      - "5000:5000"
+    networks:
+      - backend
+
+volumes:
+  esdata:
+  formulae_corpora_data:
+
+networks:
+  backend:
+    driver: bridge

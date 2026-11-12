@@ -19,7 +19,9 @@
                     <ul class="corpus-ul">
                         <li><input id="all" name="" type="checkbox" value="all" onclick="checkSubCorpora(this, 'under-all')"> <label for="all">{{ _('Alle') }}</label></li>
                         <ul class="corpus-ul">
-                            <li><input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> <label for="formulae">Formulae</label> <button class="btn btn-link p-0" data-toggle="collapse" data-target="#formulaeCorporaCollapse" type="button" aria-expanded="false" aria-controls="formulaeCorporaCollapse"><span  id="show-all-formulae-corpora" data-toggle="tooltip" data-container="#show-all-formulae-corpora" title="{{ _('Alle Formulaecorpora zeigen') }}"><i class="fas fa-caret-down"></i></span></button></li>
+                            <li>
+                                <input class="under-all" id="formulae" name="" type="checkbox" value="formulae" onclick="checkSubCorpora(this, 'under-formulae')"> 
+                                <label for="formulae">Formulae</label> <button class="btn btn-link p-0" data-toggle="collapse" data-target="#formulaeCorporaCollapse" type="button" aria-expanded="false" aria-controls="formulaeCorporaCollapse"><span  id="show-all-formulae-corpora" data-toggle="tooltip" data-container="#show-all-formulae-corpora" title="{{ _('Alle Formulaecorpora zeigen') }}"><i class="fas fa-caret-down"></i></span></button></li>
                                     <ul class="corpus-ul collapse" id="formulaeCorporaCollapse">
                                     {% for choice in categories['formulae_collection'] %}
                                         <li><b><span id="{{choice[1]}}-search-corpus-tooltip" data-toggle="tooltip"

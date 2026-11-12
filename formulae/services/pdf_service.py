@@ -268,7 +268,7 @@ def add_citation_info(canvas, doc, metadata, is_formula, static_folder, objectId
         canvas.drawImage(static_folder + 'images/logo_226x113_white_bg.png',
                          (doc.pagesize[0] / 2) - 0.5 * inch, doc.pagesize[1] - 0.9 * inch,
                          width=inch, height=0.5 * inch, mask=[255, 256, 255, 256, 255, 256])
-        canvas.drawImage(static_folder + 'images/adwhh200x113.jpg',
+        canvas.drawImage(static_folder + 'images/adwhh200x108.jpg',
                          doc.pagesize[0] - doc.rightMargin - 0.88 * inch, doc.pagesize[1] - 0.9 * inch,
                          width=0.882 * inch, height=0.5 * inch)
 
