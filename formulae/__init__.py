@@ -103,7 +103,10 @@ def create_app(config_class=Config):
                 )
             except Exception:
                 app.logger.exception("Elasticsearch via username and password in the URL failed.")
-        
+
+        for lem_file_needed in ['INFLECTED_LEM_JSONS', 'LEM_TO_LEM_JSONS']:
+            if not app.config[lem_file_needed]: app.logger.warning(lem_file_needed+" is NOT set. This will cause malfunctions in the lemma search.")
+
     else:
         app.elasticsearch = None
 

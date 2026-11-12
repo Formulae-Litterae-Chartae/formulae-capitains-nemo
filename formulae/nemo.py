@@ -417,7 +417,7 @@ class NemoFormulae(Nemo):
         """ Ingests an existing JSON file that maps inflected forms onto their lemmata"""
         lem_mapping = defaultdict(set)
         for j in self.app.config['INFLECTED_LEM_JSONS']:
-            with open(j) as f:
+            with open(os.path.normpath(j)) as f:
                 try:
                     inf_to_lem = json_load(f)
                 except JSONDecodeError:

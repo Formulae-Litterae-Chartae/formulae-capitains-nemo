@@ -122,7 +122,7 @@ decides which collections are listed:
 
 The members of each group are defined in the Capitains metadata files
 under ``data/``. For ``corpus=formulae``, the members of
-hyperlink: `formulae-corpora/data/formulae_collection/__capitains__.xml <https://github.com/Formulae-Litterae-Chartae/formulae-corpora/blob/master/data/formulae_collection/__capitains__.xml>`_ are used:
+``data/formulae_collection/__capitains__.xml`` are used:
 
 .. code-block:: xml
 
@@ -176,7 +176,7 @@ temporary workaround; if that setting is empty, the error is re-raised.
    corpus list and the aggregation buckets, not which indices are
    searched.
 
-1. Building the query dictionary
+3. Building the query dictionary
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A copy of the request arguments is passed through ``build_search_args``,
@@ -289,6 +289,10 @@ looked up in ``inflected_to_lemma_mapping``. Tokens containing ``?`` or
 in ``searched_lems`` only if all of its tokens have at least one lemma;
 ``max_cols`` is the largest token count among them.
 
+[TO BE COMPLETED: name the file from which
+``inflected_to_lemma_mapping`` is loaded. See
+:ref:`lem-to-lem` for the files produced by the generation script.]
+
 7. Rendering
 ^^^^^^^^^^^^
 
@@ -373,7 +377,8 @@ behaves differently:
 * The u/v, i/j and w/uu normalisation applied to ``text`` searches is
   skipped.
 * If the searched lemma is a key of ``nemo_app.lem_to_lem_mapping``,
-  each related lemma is added as an extra clause (see example 3).
+  each related lemma is added as an extra clause (see example 3 and
+  :ref:`lem-to-lem`).
 * The ``lemmas`` field is added to the highlighted fields.
 * ``?`` and ``*`` are meant to be rejected with a flash message and an
   empty result, unless ``regex_search`` is ``'True'``.
@@ -442,7 +447,8 @@ Why the text is still found
    ``q_1=vicarius`` and ``search_field_1=lemmas`` (see step 3).
 2. In ``advanced_query_index``, the searched term is looked up in
    ``nemo_app.lem_to_lem_mapping``, which is loaded from
-   ``lem_to_lem.json``. For ``vicarius`` the file contains:
+   ``lem_to_lem.json`` (see :ref:`lem-to-lem`). For ``vicarius`` the
+   file contains:
 
    .. code-block:: json
 
@@ -470,11 +476,14 @@ is a key of ``lem_to_lem_mapping``.
 
 .. note::
 
-   The mapping is not necessarily symmetric. A search for ``vicaria``
-   uses the list under the key ``vicaria``, if there is one, and finds
-   texts with ``vicarius`` only if that list contains it. This means the
-   results can depend on which variant the user types.
-   [TO BE VERIFIED: check the ``vicaria`` entry in ``lem_to_lem.json``.]
+   The mapping is directional by design (see :ref:`lem-to-lem`). Its
+   keys are variant lemmas, and its values are the primary lemmas that
+   the annotators chose for the texts. ``vicaria`` is a primary lemma
+   and has no key of its own in ``lem_to_lem.json``. A search for
+   ``vicaria`` therefore finds only texts whose ``lemmas`` field
+   contains ``vicaria``, whereas a search for ``vicarius`` finds texts
+   containing ``vicarius``, ``vigerius`` or ``vicaria``. The results
+   depend on which variant the user types.
 
 What the user sees
 ~~~~~~~~~~~~~~~~~~
@@ -491,10 +500,201 @@ Finding out why a text was returned
    searched (``lemmas`` for a lemma search, ``text`` otherwise).
 2. Look up the searched term in ``lem_to_lem.json``. Every lemma
    listed there is searched as well.
-3. If the cause is still unclear, inspect the request bodies built in
+3. To find the annotation behind an entry, search the Pyrrha TSV files
+   for the variant, for example
+   ``grep -i vicarius ~/git/Lemmatization/pyrrha_output/*.tsv``.
+4. If the cause is still unclear, inspect the request bodies built in
    ``advanced_query_index`` (the list ``searched_templates``) and the
    ``highlight`` part of the hit.
 
+.. _lem-to-lem:
 
-lem_to_lem.json
-=================================
+Lemma mapping: ``lem_to_lem.json``
+==================================
+
+Purpose
+-------
+
+``lem_to_lem.json`` is loaded as ``nemo_app.lem_to_lem_mapping``
+[TO BE COMPLETED: where and when it is loaded].
+``advanced_query_index`` uses it for lemma searches to add related
+lemmas to the query (see example 3). The file is generated from the
+Pyrrha lemmatisation output, so corrections belong in the annotated TSV
+files, after which the file is regenerated.
+
+Structure
+---------
+
+.. code-block:: json
+
+   {
+       "vicarius": [
+           "vigerius",
+           "vicaria"
+       ]
+   }
+
+* **Key:** a variant lemma (lowercase) that is not the primary lemma of
+  an annotation.
+* **Value:** a list of the primary lemmas that the key was annotated
+  with.
+* The keys are sorted alphabetically. The order of the values is
+  arbitrary, because the script builds them from a ``set``.
+* The primary lemma of an annotation does not get a key from that
+  annotation. A lemma has a key only if it also occurs as a variant in
+  some other annotation. This is why ``vicaria`` has no entry.
+
+How the file is created
+-----------------------
+
+The script ``create_lem_to_lem_json.py`` (in
+``corpus_transformation_scripts/lemmatization``) reads the output files
+of Pyrrha. These are TSV files with the columns ``form``, ``lemma``,
+``POS`` and ``morph``. A line starting with ``**`` marks the start of a
+new text. For every other line the script:
+
+1. lowercases the line and removes ``$``,
+2. skips tokens that contain no word character (punctuation),
+3. splits the lemma column into a primary lemma and variants according
+   to the notation below,
+4. adds ``variant -> primary lemma`` to the mapping for every variant
+   that differs from the primary lemma.
+
+Lemma notation
+~~~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+   :widths: 25 15 60
+
+   * - Lemma column
+     - Primary lemma
+     - Entries added to ``lem_to_lem.json``
+   * - ``a``
+     - ``a``
+     - none
+   * - ``a/b/c``
+     - ``a``
+     - ``b -> a``, ``c -> a``
+   * - ``a=b+c``
+     - ``a``
+     - ``b -> a``, ``c -> a``
+   * - ``a/b=c+d``
+     - ``a``
+     - ``b -> a``, ``c -> a``, ``d -> a``
+   * - ``a-b+c``
+     - ``a``
+     - ``b -> a``, ``c -> a``
+
+* The first lemma before ``/`` is always the primary lemma.
+* The ``=`` rule is checked first. A lemma column that contains ``-``
+  but no ``=`` is read as ``primary-components``.
+* Components after ``=`` or ``-`` are separated by ``+``, and each
+  component may itself contain ``/`` alternatives.
+* [TO BE COMPLETED by the lemmatisation team: the editorial meaning of
+  ``/``, ``=`` and ``-`` in the Pyrrha annotation.]
+
+Illustration (constructed lines, not taken from the corpus): the
+annotations ``vicaria/vicarius`` and ``vigerius/vicarius`` produce
+
+.. code-block:: json
+
+   "vicarius": ["vicaria", "vigerius"]
+
+Running the script
+------------------
+
+.. code-block:: bash
+
+   python3 ~/git/scripts/corpus_transformation_scripts/lemmatization/create_lem_to_lem_json.py \
+       ~/git/Lemmatization/pyrrha_output/formeln-fsb.tsv \
+       ~/git/Lemmatization/pyrrha_output
+
+.. list-table::
+   :header-rows: 1
+   :widths: 20 80
+
+   * - Argument
+     - Meaning
+   * - 1 (required)
+     - Either a single ``.tsv`` file or a directory. For a file, only
+       that file is read, the output prefix is the path without the
+       extension and without ``formeln-``, and the ``results`` folder
+       is created next to it. For a directory, all ``*.tsv`` files in
+       it are read, the prefix is ``<directory>/all_files`` and
+       ``results`` is created inside it.
+   * - 2 (optional)
+     - Destination folder for the main output files. If it is omitted,
+       the files are written next to the input.
+
+.. warning::
+
+   With the command above only ``formeln-fsb.tsv`` is read, so
+   ``lem_to_lem.json`` contains only the mappings of that file. To
+   cover all corpora, pass the directory as the first argument.
+   [TO BE VERIFIED: which input is intended for the production file.]
+
+Output files
+~~~~~~~~~~~~
+
+.. list-table::
+   :header-rows: 1
+   :widths: 30 25 45
+
+   * - File
+     - Location
+     - Content
+   * - ``lem_to_lem.json``
+     - destination folder
+     - variant lemma to list of primary lemmas (this section). Without a
+       destination folder: ``<prefix>_lem_to_lem_mapping.json``.
+   * - ``inflected_to_lem.json``
+     - destination folder
+     - inflected form to the full lemma annotations as written in
+       Pyrrha. Despite its name, this is *not* the primary-lemma
+       mapping. Without a destination folder:
+       ``<prefix>_inflected_to_full_lem_mapping.json``.
+   * - ``lemma_list.json``
+     - destination folder
+     - sorted list of all lemmas, without entries containing ``!`` or
+       ``?`` and without the German placeholder lemmas
+       (``personenname``, ``ortsname``, ``volksstamm``, ``monatsname``,
+       ``tagesbezeichnung``, ``platzhalter``).
+   * - ``<prefix>_inflected_to_lem_mapping.json``
+     - next to the input
+     - inflected form to list of primary lemmas.
+   * - ``<prefix>_inflected_to_full_lem_mapping_formulae.json`` and
+       ``..._charters.json``
+     - next to the input
+     - as ``inflected_to_lem.json``, split by whether the path of the
+       TSV file contains ``formeln``.
+   * - ``Formulae+Urkunden.csv``
+     - destination folder (current directory if none is given)
+     - all lines of the input files in one file.
+   * - ``results/<text>.txt``
+     - ``results`` folder
+     - one file per text with the columns inflected form, primary lemma
+       and display lemma.
+
+[TO BE VERIFIED: which of these files the application loads as
+``inflected_to_lemma_mapping`` (step 6). The file named
+``inflected_to_lem.json`` contains the full annotations, not the
+primary lemmas.]
+
+Effect on the search
+--------------------
+
+* The mapping is applied when a query is built, not when texts are
+  indexed. A new ``lem_to_lem.json`` therefore changes the results
+  without a re-index, as soon as the application has loaded it.
+  [TO BE COMPLETED: reload or restart procedure.]
+* The ``lemmatized`` field in the index is not produced by this script.
+  If the primary lemma of a token is changed in the annotations, the
+  texts have to be exported and indexed again (see
+  ``rebuild_elasticsearch_from_xml.py``).
+* Searching for a variant finds texts with the variant itself and with
+  all its primary lemmas. Searching for a primary lemma finds only that
+  lemma.
+
+
+.. include:: search-function-lem-to-lem.rst
